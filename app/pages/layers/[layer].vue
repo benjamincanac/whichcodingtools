@@ -8,7 +8,8 @@ if (!layer) {
   throw createError({ statusCode: 404, statusMessage: 'No such layer', fatal: true })
 }
 
-const { tools } = useTools()
+const { tools, ready } = useTools()
+await ready
 const primary = computed(() => tools.value.filter(t => t.layer === layer.value))
 const secondary = computed(() => tools.value.filter(t => t.secondary_layers.includes(layer.value as Layer)))
 

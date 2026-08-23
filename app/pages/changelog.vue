@@ -2,7 +2,8 @@
 import type { ChangelogEntry } from '~~/server/utils/changelog'
 
 const { site } = useAppConfig()
-const { bySlug } = useTools()
+const { bySlug, ready } = useTools()
+await ready
 const { data } = await useFetch<{ generated_at: string, entries: ChangelogEntry[] }>('/api/changelog.json', { key: 'changelog' })
 
 const days = computed(() => {

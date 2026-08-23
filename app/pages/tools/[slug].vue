@@ -10,7 +10,8 @@ const route = useRoute()
 const { site } = useAppConfig()
 const slug = computed(() => String(route.params.slug))
 
-const { tools, bySlug } = useTools()
+const { tools, bySlug, ready } = useTools()
+await ready
 
 const { data: tool, error } = await useFetch<ToolRecord>(`/api/tools/${slug.value}.json`, {
   key: `tool-${slug.value}`

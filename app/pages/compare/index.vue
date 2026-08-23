@@ -3,7 +3,8 @@ import { pairSlug } from '#shared/utils/compare'
 
 const route = useRoute()
 const router = useRouter()
-const { tools, bySlug } = useTools()
+const { tools, bySlug, ready } = useTools()
+await ready
 
 const MAX = 4
 

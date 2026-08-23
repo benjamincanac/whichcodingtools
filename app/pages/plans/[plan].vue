@@ -9,7 +9,8 @@ if (!plan) {
   throw createError({ statusCode: 404, statusMessage: 'No such plan', fatal: true })
 }
 
-const { tools, bySlug } = useTools()
+const { tools, bySlug, ready } = useTools()
+await ready
 
 const groups = computed(() => {
   const req = { ...EMPTY_REQUIREMENTS, plans: [plan.value as Plan] }
