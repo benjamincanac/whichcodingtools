@@ -1,0 +1,150 @@
+slug: warp
+name: Warp
+description: Terminal with a built in agent and an Agent CLI, open sourced under AGPL-3.0 in April 2026. Runs Claude Code, Codex and other CLI agents in tabs with worktrees, plus cloud agents.
+layer: harness
+secondary_layers: [orchestrator, cloud]
+vendor: Warp
+homepage: https://www.warp.dev
+links:
+  docs: https://docs.warp.dev
+  pricing: https://www.warp.dev/pricing
+  changelog: https://docs.warp.dev/getting-started/changelog
+  repo: https://github.com/warpdotdev/warp
+icon: i-simple-icons-warp
+platforms: [macos, linux, windows]
+install:
+  - method: brew
+    command: brew install --cask warp
+  - method: winget
+    command: winget install Warp.Warp
+  - method: curl
+    command: curl -fsSL https://app.warp.dev/download/agent-cli | bash
+  - method: download
+    url: https://www.warp.dev/download
+license:
+  spdx: AGPL-3.0-only AND MIT
+  kind: open-source
+  repo: https://github.com/warpdotdev/warp
+  notes: The terminal client is AGPL-3.0 with the warpui crates under MIT. Oz, the hosted agent platform, stays proprietary.
+models:
+  providers: [anthropic, openai, google, xai, zhipu, openrouter]
+  plans: [grok]
+  byok: partial
+  local: false
+  notes: Hosted models bill Warp credits. Your own Anthropic, OpenAI or Google key, a SuperGrok or X Premium login, or an OpenAI compatible endpoint such as OpenRouter or z.ai skip credits, but the Auto model always spends credits and custom endpoints must be reachable from the public internet.
+features: [parallel-agents, worktrees, mcp-client, diff-review, mobile-companion, browser-automation, sandboxing]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Auto detected when run in a pane, with a rich input editor, inline review and Remote Control on top. Also a harness for cloud orchestration.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: gemini-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: The Cursor CLI agent.
+  - tool: goose
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      overage:
+        kind: credits
+        notes: Reload credits at pay as you go rates.
+      limits:
+        - Core terminal, limited agent access, BYOK
+    - id: build
+      name: Build
+      price: 20
+      price_annual: 18
+      audience: individual
+      included:
+        amount: 1500
+        unit: credits
+        usd_value: 20
+        notes: 1,500 credits, $20 of agent usage at API rates
+      overage:
+        kind: credits
+        notes: Extra credits at API rates with volume discounts.
+      limits:
+        - Full agent access, extended cloud agents, unlimited storage
+    - id: max
+      name: Max
+      price: 200
+      price_annual: 180
+      audience: individual
+      included:
+        amount: 18000
+        unit: credits
+        usd_value: 240
+        notes: 18,000 credits, 12 times the Build allotment
+      overage:
+        kind: credits
+        notes: Additional usage priced at API rates.
+    - id: business
+      name: Business
+      price: 50
+      price_annual: 45
+      audience: team
+      included:
+        amount: 1500
+        unit: credits
+        usd_value: 20
+        notes: 1,500 credits per seat
+      overage:
+        kind: credits
+      limits:
+        - Up to 25 seats, SAML SSO, admin controls, team metrics
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Shared credit pools, bring your own LLM, self hosted agents
+  notes: Third party CLI agents run with their own logins and cost no Warp credits. Copilot CLI, Amp, Auggie, Droid, Antigravity, Hermes and Mistral Vibe are also detected but are not in this directory.
+status: active
+sources:
+  - url: https://www.warp.dev/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.warp.dev/agents/cli-agents/overview/
+    verified_at: 2026-08-23
+    covers: [wraps, features]
+  - url: https://docs.warp.dev/agents/inference/bring-your-own-api-key/
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.warp.dev/agent-platform/inference/grok-subscription/
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.warp.dev/guides/agent-workflows/how-to-run-multiple-ai-coding-agents/
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://github.com/warpdotdev/warp
+    verified_at: 2026-08-23
+    covers: [license, platforms, general]
+  - url: https://www.warp.dev
+    verified_at: 2026-08-23
+    covers: [platforms, general]

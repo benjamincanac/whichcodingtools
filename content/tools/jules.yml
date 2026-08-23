@@ -1,0 +1,83 @@
+slug: jules
+name: Jules
+description: Google's cloud coding agent. Clones a GitHub repo into a VM, writes a plan for review, then makes the change and opens a pull request. Higher limits with Google AI Pro and Ultra.
+layer: cloud
+vendor: Google
+homepage: https://jules.google
+links:
+  docs: https://jules.google/docs
+  pricing: https://jules.google/docs/usage-limits
+  changelog: https://jules.google/docs/changelog
+platforms: [web]
+install:
+  - method: npm
+    command: npm install -g @google/jules
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [google]
+  byok: none
+  local: false
+  notes: Gemini models only. Gemini 3 Flash is the base model, Pro and Ultra get priority access to the latest Gemini Pro model.
+features: [sandboxing, parallel-agents, scheduled-tasks, mcp-client, browser-automation, diff-review]
+pricing:
+  bundled_with: gemini
+  tiers:
+    - id: free
+      name: Jules
+      price: 0
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - 15 daily tasks on a rolling 24 hours
+        - 3 concurrent tasks
+    - id: plus
+      name: Google AI Plus
+      price: 4.99
+      audience: individual
+      overage:
+        kind: rate-limited
+      notes: The Google AI plans page lists extended Jules task limits for Plus. The Jules docs do not publish the numbers.
+    - id: pro
+      name: Google AI Pro
+      price: 19.99
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - 100 daily tasks on a rolling 24 hours
+        - 15 concurrent tasks
+    - id: ultra
+      name: Google AI Ultra
+      price: 99.99
+      price_from: true
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - 300 daily tasks on a rolling 24 hours
+        - 60 concurrent tasks
+      notes: Ultra has a $99.99 tier with 5x and a $199.99 tier with 20x the Pro usage on Google AI. The Jules docs list one set of limits for Ultra.
+  notes: Paid Jules plans come through a Google AI subscription on an individual @gmail.com account. Task limits are per user and not pooled on family plans. The Jules Tools CLI manages cloud sessions from a terminal and does not run the agent locally.
+status: active
+sources:
+  - url: https://jules.google/docs/usage-limits
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://gemini.google/us/subscriptions/
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://jules.google/docs
+    verified_at: 2026-08-23
+    covers: [platforms, general]
+  - url: https://jules.google/docs/changelog
+    verified_at: 2026-08-23
+    covers: [features, models]
+  - url: https://jules.google/docs/scheduled-tasks
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://jules.google/docs/cli/reference
+    verified_at: 2026-08-23
+    covers: [platforms, features]

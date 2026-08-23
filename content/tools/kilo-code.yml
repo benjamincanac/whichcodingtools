@@ -1,0 +1,119 @@
+slug: kilo-code
+name: Kilo Code
+description: Open source agent for VS Code, JetBrains and the terminal, with cloud agents and a phone app. The Kilo Gateway serves 500+ models at provider rates, or bring your own keys.
+layer: extension
+secondary_layers: [harness, cloud]
+vendor: Kilo
+homepage: https://kilo.ai
+links:
+  docs: https://kilo.ai/docs
+  pricing: https://kilo.ai/pricing
+  repo: https://github.com/Kilo-Org/kilocode
+platforms: [macos, windows, linux, web, android]
+hosts: [vscode, jetbrains]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=kilocode.Kilo-Code
+  - method: npm
+    command: npm install -g @kilocode/cli
+  - method: curl
+    command: curl -fsSL https://kilo.ai/cli/install | bash
+  - method: brew
+    command: brew install Kilo-Org/tap/kilo
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/Kilo-Org/kilocode
+models:
+  providers: [anthropic, openai, xai, minimax, openrouter]
+  byok: full
+  local: true
+  notes: The Kilo Gateway lists 500+ models. Your own keys work with OpenAI, xAI, Anthropic, MiniMax, Azure OpenAI and OpenAI-compatible endpoints, plus Ollama and LM Studio locally.
+features: [mcp-client, checkpoints, browser-automation, tab-completion, subagents, acp-agent, mobile-companion, remote-execution]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      overage:
+        kind: api-list
+        markup_pct: 0
+        notes: Kilo Gateway bills model usage at exact provider rates with no markup. Your own keys and local models cost nothing.
+      limits:
+        - Open source VS Code, JetBrains and CLI extensions
+    - id: pass-starter
+      name: Kilo Pass Starter
+      price: 19
+      audience: individual
+      included:
+        amount: 26.6
+        unit: usd
+        usd_value: 26.6
+        notes: Up to $26.60 a month in gateway credits for $19
+      overage:
+        kind: api-list
+        markup_pct: 0
+    - id: pass-pro
+      name: Kilo Pass Pro
+      price: 49
+      audience: individual
+      included:
+        amount: 68.6
+        unit: usd
+        usd_value: 68.6
+      overage:
+        kind: api-list
+        markup_pct: 0
+    - id: pass-expert
+      name: Kilo Pass Expert
+      price: 199
+      audience: individual
+      included:
+        amount: 278.6
+        unit: usd
+        usd_value: 278.6
+      overage:
+        kind: api-list
+        markup_pct: 0
+    - id: teams
+      name: Teams
+      price: 15
+      audience: team
+      trial_days: 14
+      overage:
+        kind: api-list
+        markup_pct: 0
+      limits:
+        - Usage analytics, shared agent modes, centralized billing, team management
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - SSO, OIDC, SCIM, SLA, audit logs, model and provider access controls
+  notes: Kilo Pass is a prepaid credit subscription with up to 50 percent bonus credits. Cloud compute is billed per second, Cloud Agent at $0.60 to $1.20 an hour, Gas Town at $1.20 an hour, Code Review at $0.33 an hour.
+status: active
+sources:
+  - url: https://kilo.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, platforms]
+  - url: https://github.com/Kilo-Org/kilocode
+    verified_at: 2026-08-23
+    covers: [license, platforms, features, general]
+  - url: https://kilo.ai/docs/code-with-ai/platforms/cli
+    verified_at: 2026-08-23
+    covers: [features, platforms]
+  - url: https://kilo.ai/docs/code-with-ai/features/checkpoints
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://kilo.ai/docs/code-with-ai/platforms/mobile
+    verified_at: 2026-08-23
+    covers: [features, platforms]
+  - url: https://kilo.ai/docs/code-with-ai/agents/using-agents
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://kilo.ai/docs/code-with-ai/agents/custom-models
+    verified_at: 2026-08-23
+    covers: [models]

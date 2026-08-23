@@ -1,0 +1,54 @@
+slug: continue
+name: Continue
+description: Apache-2.0 coding agent for VS Code and JetBrains with a terminal CLI, configured in YAML for any provider. Cursor acquired the team in June 2026, the repo is read-only.
+layer: extension
+secondary_layers: [harness]
+vendor: Continue
+homepage: https://continue.dev
+links:
+  docs: https://docs.continue.dev
+  changelog: https://github.com/continuedev/continue/releases
+  repo: https://github.com/continuedev/continue
+platforms: [macos, windows, linux]
+hosts: [vscode, jetbrains]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=Continue.continue
+  - method: npm
+    command: npm install -g @continuedev/cli
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/continuedev/continue
+  notes: The repository is no longer maintained and is read-only. The final 2.0.0 release removed telemetry and authentication.
+models:
+  providers: [anthropic, openai, google, xai, mistral, deepseek, moonshot, minimax, openrouter]
+  byok: full
+  local: true
+  notes: Provider docs cover Anthropic, OpenAI, Gemini, xAI, Mistral, DeepSeek, Moonshot, MiniMax, OpenRouter, Azure, Bedrock, Vertex AI, Ollama, LM Studio, llama.cpp and more.
+features: [mcp-client, tab-completion]
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay the model provider directly
+  notes: Continue Hub and paid plans went away with the acquisition. The extension, CLI and JetBrains plugin still install and work with your own keys.
+status: sunset
+sunset_at: 2026-06-19
+successor: cursor
+sources:
+  - url: https://github.com/continuedev/continue
+    verified_at: 2026-08-23
+    covers: [pricing, license, platforms, general]
+  - url: https://continue.dev
+    verified_at: 2026-08-23
+    covers: [general]
+  - url: https://docs.continue.dev
+    verified_at: 2026-08-23
+    covers: [features, general]
+  - url: https://docs.continue.dev/customize/model-providers/overview
+    verified_at: 2026-08-23
+    covers: [models]

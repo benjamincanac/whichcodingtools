@@ -1,0 +1,70 @@
+slug: vibe-kanban
+name: Vibe Kanban
+description: Kanban board that runs Claude Code, Codex, Gemini CLI and other agents in parallel worktrees with diff review. Bloop shut down in April 2026, the project is community maintained.
+layer: orchestrator
+vendor: Bloop
+homepage: https://www.vibekanban.com
+links:
+  docs: https://www.vibekanban.com/docs/getting-started
+  repo: https://github.com/BloopAI/vibe-kanban
+platforms: [macos, linux, windows]
+install:
+  - method: npm
+    command: npx vibe-kanban
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/BloopAI/vibe-kanban
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Authenticate the agent CLI before launching.
+features: [parallel-agents, worktrees, diff-review, remote-execution]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: gemini-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cursor CLI agent with your Cursor account.
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: aider
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - Local workspaces, you pay the agent you sign in with
+  notes: Paid subscriptions were terminated with the 10 April 2026 shutdown and the hosted remote features were removed 30 days later. Local use continues. Amp, Copilot, Droid and Qwen Code also run but are not tracked here.
+status: sunset
+sunset_at: 2026-04-10
+sources:
+  - url: https://www.vibekanban.com/blog/shutdown
+    verified_at: 2026-08-23
+    covers: [pricing, general]
+  - url: https://www.vibekanban.com
+    verified_at: 2026-08-23
+    covers: [wraps, features, general]
+  - url: https://github.com/BloopAI/vibe-kanban
+    verified_at: 2026-08-23
+    covers: [license, platforms, wraps, features]

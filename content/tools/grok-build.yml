@@ -1,0 +1,84 @@
+slug: grok-build
+name: Grok Build
+description: xAI's terminal coding agent, a fullscreen TUI in Rust that edits files, runs commands and spawns subagents. Signs in with a grok.com account or an API key, headless or over ACP.
+layer: harness
+vendor: xAI (SpaceXAI)
+homepage: https://x.ai/cli
+links:
+  docs: https://docs.x.ai/build/overview
+  pricing: https://x.ai/pricing
+  changelog: https://x.ai/build/changelog
+  repo: https://github.com/xai-org/grok-build
+platforms: [macos, linux, windows]
+install:
+  - method: curl
+    command: curl -fsSL https://x.ai/cli/install.sh | bash
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/xai-org/grok-build
+  notes: First party code is Apache-2.0. Vendored ports of codex and opencode keep their own licenses in the repo notices.
+models:
+  providers: [first-party, anthropic, openai]
+  byok: full
+  local: true
+  notes: Defaults to xAI hosted Grok models. Custom endpoints accept OpenAI Chat Completions, Responses or Anthropic Messages protocols with your own key, including Ollama and other local servers.
+features: [subagents, parallel-agents, mcp-client, acp-agent, plugins, hooks, sandboxing]
+pricing:
+  bundled_with: grok
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - One weekly usage pool shared across Grok chat, Build and API
+    - id: supergrok
+      name: SuperGrok
+      price: 30
+      audience: individual
+      overage:
+        kind: credits
+        notes: Extra Usage Credits bought on the web once the weekly pool is spent, they expire one year after purchase.
+      limits:
+        - Higher weekly pool, Grok 4.6
+    - id: supergrok-plus
+      name: SuperGrok Plus
+      price: 100
+      audience: individual
+      overage:
+        kind: credits
+      limits:
+        - Substantially higher usage, priority at peak times, early access
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+    - id: api
+      name: API pay-as-you-go
+      price: null
+      audience: individual
+      overage:
+        kind: api-list
+        notes: Bill a console.x.ai key at list price, Grok 4.6 is $2 input and $6 output per million tokens under 200k context.
+  notes: x.ai/pricing and grok.com/plans refused automated fetches on 2026-08-23. Plan figures were read through a read-only text proxy of x.ai/pricing the same day and need a human check. Annual prices, SuperGrok Lite and Heavy were not shown on that render.
+status: active
+sources:
+  - url: https://x.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.x.ai/developers/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.x.ai/grok/faq
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.x.ai/build/overview
+    verified_at: 2026-08-23
+    covers: [platforms, features, general]
+  - url: https://github.com/xai-org/grok-build
+    verified_at: 2026-08-23
+    covers: [license, models, features, platforms]

@@ -1,0 +1,91 @@
+slug: v0
+name: v0
+description: Vercel's app builder. Generates and edits full-stack apps in a chat, runs them in a Vercel Sandbox and deploys to Vercel or opens a pull request. iOS app and MCP support.
+layer: app-builder
+vendor: Vercel
+homepage: https://v0.app
+links:
+  docs: https://v0.app/docs
+  pricing: https://v0.app/pricing
+icon: i-simple-icons-v0
+platforms: [web, ios]
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party]
+  byok: none
+  local: false
+  notes: v0's own Mini, Pro, Max and Max Fast models, priced per token against the plan's credits. Apps you build can call other providers through the Vercel AI Gateway or your own keys.
+features: [sandboxing, mcp-client, checkpoints]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 5
+        unit: usd
+        usd_value: 5
+        notes: $5 of included monthly credits
+      overage:
+        kind: blocked
+      limits:
+        - 7 messages a day
+        - Deploy to Vercel, Design Mode, GitHub sync
+    - id: plus
+      name: Plus
+      price: 30
+      audience: individual
+      included:
+        amount: 30
+        unit: usd
+        usd_value: 30
+        notes: $30 of monthly credits per user plus $2 of free daily credits on login
+      overage:
+        kind: credits
+        notes: Purchase additional credits shared across the team.
+      limits:
+        - Access to all models, shared chats, central billing on vercel.com
+    - id: business
+      name: Business
+      price: 100
+      audience: team
+      included:
+        amount: 30
+        unit: usd
+        usd_value: 30
+        notes: $30 of monthly credits per user plus $2 of free daily credits on login
+      overage:
+        kind: credits
+      limits:
+        - Training opt-out by default
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - SAML SSO, role-based access, priority access, support SLAs
+  notes: Credits are spent at per-token model rates, from $0.20 per million input tokens on v0 Mini to $50 per million output tokens on v0 Max Fast.
+status: active
+sources:
+  - url: https://v0.app/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://v0.app/docs
+    verified_at: 2026-08-23
+    covers: [general]
+  - url: https://v0.app/docs/sandbox
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://v0.app/docs/mcp-integrations
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://v0.app/docs/ai-models
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://v0.app/ios
+    verified_at: 2026-08-23
+    covers: [platforms]

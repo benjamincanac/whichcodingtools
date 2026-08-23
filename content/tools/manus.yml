@@ -1,0 +1,94 @@
+slug: manus
+name: Manus
+description: General agent that works in a cloud computer with a browser, a terminal and VS Code you can take over, billed by credits. Web, a desktop app for macOS and Windows, and a REST API.
+layer: cloud
+vendor: Manus
+homepage: https://manus.im
+links:
+  docs: https://open.manus.im/docs
+  pricing: https://manus.im/pricing
+platforms: [web, macos, windows]
+install:
+  - method: download
+    url: https://manus.im/desktop
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party]
+  byok: none
+  local: false
+  notes: Vendor-branded Manus 1.6, 1.6 Max and 1.6 Lite agent models. Free accounts get 1.6 Lite only. The underlying model vendors are not named in the help center.
+features: [browser-automation, sandboxing, scheduled-tasks, parallel-agents, mcp-client]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 300
+        unit: credits
+        period: month
+        notes: 300 credits refreshed daily, usable on Manus 1.6 Lite, capped at 1,500 a month
+      overage:
+        kind: blocked
+      limits:
+        - 1 concurrent task, 2 scheduled tasks
+    - id: pro
+      name: Pro
+      price: 20
+      price_from: true
+      audience: individual
+      included:
+        amount: 4000
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        notes: Add-on credits roll over while a paid subscription is active. 17 percent off with annual billing.
+      limits:
+        - 20 concurrent tasks, 20 scheduled tasks
+    - id: pro-8000
+      name: Pro 8,000
+      price: 40
+      audience: individual
+      trial_days: 7
+      included:
+        amount: 8000
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+      limits:
+        - 20 concurrent tasks, 20 scheduled tasks
+    - id: team
+      name: Team
+      price: 20
+      price_from: true
+      audience: team
+      overage:
+        kind: credits
+      limits:
+        - Everything in Pro, SSO, data training opt-out, usage analytics
+  notes: The pricing page refused automated fetches on 2026-08-23, manus.im redirects to a maintenance notice about a scheduled data deletion while Manus resumes operations as an independent company. Figures come from the Manus help center article dated March 16, 2026 and need a human check.
+status: active
+sources:
+  - url: https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://help.manus.im/en/articles/11711097-what-are-the-rules-for-credits-consumption-and-how-can-i-obtain-them
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://help.manus.im/en/articles/14089011-how-to-download-the-manus-desktop-app
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://help.manus.im/en/articles/11711218-how-can-i-take-over-manus-browser-or-vs-code
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://help.manus.im/en/collections/13762621-feature
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://open.manus.im/docs/v2/introduction
+    verified_at: 2026-08-23
+    covers: [general]

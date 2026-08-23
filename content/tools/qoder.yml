@@ -1,0 +1,114 @@
+slug: qoder
+name: Qoder
+description: Alibaba's agentic IDE for macOS, Windows and Linux with a JetBrains plugin, a CLI and cloud agents. Quest runs multi agent tasks in a sandbox, with a phone app for approvals.
+layer: editor
+secondary_layers: [extension, harness, cloud]
+vendor: Alibaba
+homepage: https://qoder.com
+links:
+  docs: https://docs.qoder.com
+  pricing: https://docs.qoder.com/account/pricing
+  changelog: https://docs.qoder.com/release-notes/desktop
+platforms: [macos, windows, linux]
+hosts: [jetbrains]
+install:
+  - method: download
+    url: https://qoder.com/download
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party, deepseek, zhipu, moonshot, minimax]
+  byok: partial
+  local: false
+  notes: Built in tiers (Auto, Ultimate, Performance, Efficient, Lite) plus named Qwen, DeepSeek, GLM, Kimi and MiniMax models billed at per model credit rates. Your own API key works only for Alibaba Cloud Model Studio, DeepSeek, Z.ai, Kimi, MiniMax and Xiaomi MiMo.
+features: [subagents, parallel-agents, mcp-client, hooks, plugins, sandboxing, scheduled-tasks, browser-automation, mobile-companion, tab-completion, diff-review]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      trial_days: 14
+      overage:
+        kind: blocked
+      limits:
+        - Basic models with limited messages, limited completions and next edit suggestions
+        - One time 14 day Pro trial with 300 credits
+    - id: pro
+      name: Pro
+      price: 20
+      audience: individual
+      included:
+        amount: 2000
+        unit: credits
+        usd_value: 20
+        notes: 2,000 credits per month for premium models, unused credits expire at the end of the cycle
+      overage:
+        kind: credits
+        rate: 20
+        notes: Credit packs at $20 per 1,500 credits, valid one month.
+    - id: pro-plus
+      name: Pro+
+      price: 60
+      audience: individual
+      included:
+        amount: 6000
+        unit: credits
+        usd_value: 60
+      overage:
+        kind: credits
+        rate: 20
+    - id: ultra
+      name: Ultra
+      price: 200
+      audience: individual
+      included:
+        amount: 20000
+        unit: credits
+        usd_value: 200
+      overage:
+        kind: credits
+        rate: 20
+    - id: teams
+      name: Teams
+      price: 40
+      audience: team
+      included:
+        amount: 3000
+        unit: credits
+        notes: 3,000 credits per seat per month since 2026-04-30
+      overage:
+        kind: credits
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+  notes: Monthly prices only, the docs do not list annual billing. A 50 percent launch discount on individual plans ended on 2026-04-30. The pricing page at qoder.com/pricing only returned its title to automated fetches, figures come from the docs pricing page.
+status: active
+sources:
+  - url: https://docs.qoder.com/account/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.qoder.com/events/pricing-adjustment-notice
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.qoder.com/user-guide/chat/custom-models
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.qoder.com/user-guide/chat/model-tier-selector
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.qoder.com/user-guide/quest/terminal-and-sandbox
+    verified_at: 2026-08-23
+    covers: [features, platforms]
+  - url: https://docs.qoder.com/user-guide/remote-control
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://docs.qoder.com/llms.txt
+    verified_at: 2026-08-23
+    covers: [features, general]
+  - url: https://qoder.com
+    verified_at: 2026-08-23
+    covers: [platforms, general]

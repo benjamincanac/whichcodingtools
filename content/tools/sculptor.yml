@@ -1,0 +1,51 @@
+slug: sculptor
+name: Sculptor
+description: Imbue's desktop app for running parallel Claude Code agents in isolated containers, jumping into each one to test, then reviewing and merging. An experimental research preview.
+layer: orchestrator
+vendor: Imbue
+homepage: https://imbue.com/sculptor
+links:
+  docs: https://github.com/imbue-ai/sculptor
+  repo: https://github.com/imbue-ai/sculptor
+platforms: [macos, linux]
+install:
+  - method: download
+    url: https://imbue.com/sculptor
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/imbue-ai/sculptor
+models:
+  providers: [anthropic]
+  byok: full
+  local: false
+  notes: Your Claude subscription through Claude Code, or an Anthropic API key.
+features: [parallel-agents, worktrees, sandboxing, diff-review]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs Claude Code inside each agent's container with your Claude login.
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: The Pi harness is integrated alongside Claude Code.
+pricing:
+  tiers:
+    - id: free
+      name: Research preview
+      price: 0
+      audience: individual
+      limits:
+        - You pay for Claude through your own subscription or key
+  notes: No paid plan published. Apple Silicon and Linux builds only, Intel Mac and Windows are listed as coming soon. Docker is needed for the container backend.
+status: preview
+sources:
+  - url: https://imbue.com/sculptor
+    verified_at: 2026-08-23
+    covers: [platforms, wraps, features, general]
+  - url: https://github.com/imbue-ai/sculptor
+    verified_at: 2026-08-23
+    covers: [pricing, license, platforms, models, features]

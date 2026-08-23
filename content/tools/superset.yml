@@ -1,0 +1,84 @@
+slug: superset
+name: Superset
+description: Source-available desktop app that runs many CLI agents in parallel, one git worktree per workspace, with a diff dashboard, SSH workspaces and scheduled automations.
+layer: orchestrator
+vendor: Superset
+homepage: https://superset.sh
+links:
+  docs: https://docs.superset.sh
+  pricing: https://superset.sh/pricing
+  repo: https://github.com/superset-sh/superset
+platforms: [macos, linux]
+install:
+  - method: download
+    url: https://superset.sh/download
+  - method: brew
+    command: brew install superset-sh/tap/superset
+  - method: curl
+    command: curl -fsSL https://superset.sh/cli/install.sh | sh
+license:
+  spdx: Elastic-2.0
+  kind: source-available
+  repo: https://github.com/superset-sh/superset
+  notes: Elastic License 2.0. Public code, not OSI approved.
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Superset is not a model provider.
+features: [parallel-agents, worktrees, diff-review, remote-execution, scheduled-tasks]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs your installed Claude Code with its existing login on every plan.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: gemini-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cursor CLI agent with your Cursor account.
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - 1 user, local workspaces, desktop app, GitHub integration, CLI
+    - id: pro
+      name: Pro
+      price: 20
+      price_annual: 15
+      audience: team
+      limits:
+        - Unlimited users, remote workspaces, Linear and Slack integrations
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      notes: Annual billing only. SAML SSO, SCIM, audit logs, uptime SLA, custom integrations.
+  notes: Paid plans add remote workspaces and team features, not model usage. Copilot and any other CLI agent also run but are not tracked here. Windows is not available yet and an iOS app is listed as coming soon.
+status: active
+sources:
+  - url: https://superset.sh/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, wraps]
+  - url: https://superset.sh
+    verified_at: 2026-08-23
+    covers: [platforms, features, license, general]
+  - url: https://github.com/superset-sh/superset
+    verified_at: 2026-08-23
+    covers: [license, platforms, features]

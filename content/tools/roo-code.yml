@@ -1,0 +1,53 @@
+slug: roo-code
+name: Roo Code
+description: Open source VS Code agent forked from Cline, with modes, an orchestrator that delegates subtasks, checkpoints and an MCP marketplace. The extension was shut down on May 15, 2026.
+layer: extension
+vendor: Roo Code, Inc.
+homepage: https://github.com/RooCodeInc/Roo-Code
+links:
+  docs: https://roocodeinc.github.io/Roo-Code/
+  repo: https://github.com/RooCodeInc/Roo-Code
+platforms: [macos, windows, linux]
+hosts: [vscode]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/RooCodeInc/Roo-Code
+  notes: The repository is archived and read-only.
+models:
+  providers: [anthropic, openai, google, xai, mistral, deepseek, moonshot, openrouter, vercel-ai-gateway]
+  plans: [chatgpt]
+  byok: full
+  local: true
+  notes: Provider pages cover Anthropic, OpenAI, ChatGPT Plus and Pro sign-in, Google Gemini, xAI, Mistral, DeepSeek, Moonshot, OpenRouter, Vercel AI Gateway, AWS Bedrock, GCP Vertex AI, Ollama, LM Studio, LiteLLM and OpenAI-compatible endpoints.
+features: [mcp-client, checkpoints, worktrees, subagents, plugins]
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay the model provider directly
+  notes: Roo Code Cloud and paid plans ended with the shutdown. roocode.com now redirects to Roomote, a separate cloud agent from the same company, and the README points former users to the community fork ZooCode and to Cline.
+status: sunset
+sunset_at: 2026-05-15
+sources:
+  - url: https://github.com/RooCodeInc/Roo-Code
+    verified_at: 2026-08-23
+    covers: [pricing, license, general, platforms]
+  - url: https://roocodeinc.github.io/Roo-Code/
+    verified_at: 2026-08-23
+    covers: [features, general]
+  - url: https://roocodeinc.github.io/Roo-Code/features/checkpoints
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://roocodeinc.github.io/Roo-Code/providers/
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://roomote.dev/
+    verified_at: 2026-08-23
+    covers: [general]

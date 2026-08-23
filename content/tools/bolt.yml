@@ -1,0 +1,80 @@
+slug: bolt
+name: Bolt
+description: StackBlitz's app builder. Prompts, runs and edits full-stack web apps in the browser on WebContainers, with Bolt Cloud hosting, GitHub sync and Expo for mobile. Billed by tokens.
+layer: app-builder
+vendor: StackBlitz
+homepage: https://bolt.new
+links:
+  docs: https://support.bolt.new
+  pricing: https://bolt.new/pricing
+  repo: https://github.com/stackblitz/bolt.new
+platforms: [web]
+license:
+  spdx: proprietary
+  kind: proprietary
+  repo: https://github.com/stackblitz/bolt.new
+  notes: The hosted product is closed. The original bolt.new core is published under MIT in the StackBlitz repo.
+models:
+  byok: none
+  local: false
+  notes: Two agents, Standard and Max. Bolt picks the model behind the scenes and does not name the vendors. Max needs a paid plan.
+features: [mcp-client, checkpoints]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 1000000
+        unit: tokens
+        period: month
+        notes: 1M tokens a month with a 300K daily limit
+      overage:
+        kind: blocked
+      limits:
+        - Bolt branding on websites, 10MB upload limit, 333K web requests
+    - id: pro
+      name: Pro
+      price: 25
+      price_from: true
+      audience: individual
+      included:
+        amount: 10000000
+        unit: tokens
+        period: month
+        notes: Starts at 10M tokens a month, higher token tiers cost more. Unused tokens roll over.
+      overage:
+        kind: blocked
+      limits:
+        - No daily token limit, custom domains, 100MB uploads, 1M web requests
+    - id: teams
+      name: Teams
+      price: 30
+      audience: team
+      overage:
+        kind: blocked
+      limits:
+        - Everything in Pro, central billing, admin controls, private npm registries
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - SSO, audit logs, 24/7 priority support, custom SLAs
+  notes: Yearly billing saves up to 28 percent. The pricing page does not state what happens past the plan's token tier beyond upgrading.
+status: active
+sources:
+  - url: https://bolt.new/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://support.bolt.new/building/using-bolt/agents
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://support.bolt.new/llms.txt
+    verified_at: 2026-08-23
+    covers: [features, general]
+  - url: https://github.com/stackblitz/bolt.new
+    verified_at: 2026-08-23
+    covers: [license, platforms]

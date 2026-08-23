@@ -1,0 +1,43 @@
+slug: pi
+name: Pi
+description: Minimal terminal coding harness from Mario Zechner, now maintained by Earendil. Four built in tools, tree structured sessions, and TypeScript extensions for everything else.
+layer: harness
+vendor: Earendil
+homepage: https://pi.dev
+links:
+  docs: https://github.com/earendil-works/pi/blob/main/packages/coding-agent/README.md
+  repo: https://github.com/earendil-works/pi
+platforms: [macos, linux, windows, android]
+install:
+  - method: npm
+    command: npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+  - method: curl
+    command: curl -fsSL https://pi.dev/install.sh | sh
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/earendil-works/pi
+models:
+  providers: [anthropic, openai, google, xai, mistral, deepseek, moonshot, zhipu, minimax, openrouter, vercel-ai-gateway]
+  plans: [claude, chatgpt, copilot]
+  byok: full
+  local: true
+  notes: Subscription login through /login for Claude Pro or Max, ChatGPT Plus or Pro and GitHub Copilot. Around thirty API key providers including Azure, Bedrock, Vertex, Groq, Cerebras, OpenCode Zen and Go, plus Ollama and a llama.cpp router for local models. Android means Termux.
+features: [plugins]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Bring your own keys or subscriptions
+  notes: Pi has no paid plan. MCP, subagents, sandboxing and git checkpointing are not built in, the README lists them as things extensions can add.
+status: active
+sources:
+  - url: https://github.com/earendil-works/pi/blob/main/packages/coding-agent/README.md
+    verified_at: 2026-08-23
+    covers: [pricing, models, features, platforms, license]
+  - url: https://pi.dev
+    verified_at: 2026-08-23
+    covers: [general, license]

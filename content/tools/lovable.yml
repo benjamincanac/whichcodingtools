@@ -1,0 +1,89 @@
+slug: lovable
+name: Lovable
+description: Builds web apps from a chat with a built-in backend called Cloud, Git sync to GitHub or GitLab, browser testing and desktop and mobile apps. Priced by credits, not seats.
+layer: app-builder
+vendor: Lovable
+homepage: https://lovable.dev
+links:
+  docs: https://docs.lovable.dev
+  pricing: https://lovable.dev/pricing
+platforms: [web, macos, windows, ios, android]
+install:
+  - method: download
+    url: https://lovable.dev/download
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  byok: none
+  local: false
+  notes: The docs do not name the model vendors behind the builder. Apps you build can connect to Fireworks, Replicate and other providers with your own keys.
+features: [browser-automation, checkpoints, mcp-client]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      per: flat
+      audience: individual
+      overage:
+        kind: blocked
+      limits:
+        - 5 daily build credits, capped at 30 a month
+        - 20 Cloud credits and 4 AI credits a month
+        - Unlimited collaborators, 5 lovable.app domains
+    - id: pro
+      name: Pro
+      price: 25
+      price_from: true
+      per: flat
+      audience: individual
+      included:
+        amount: 100
+        unit: credits
+        period: month
+        notes: 100 credits a month on the entry tier, higher credit tiers cost more. Plus 5 daily build credits with no monthly cap.
+      overage:
+        kind: credits
+        notes: On-demand top-ups and auto top-up. Credits roll over.
+      limits:
+        - Unlimited users per workspace, custom domains, code download
+    - id: business
+      name: Business
+      price: 50
+      price_from: true
+      per: flat
+      audience: team
+      included:
+        amount: 100
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+      limits:
+        - Role-based access, SSO, security center, internal publish
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Volume-based credits, SCIM, audit logs, scheduled security scans
+  notes: Every plan is per workspace with unlimited members. Yearly billing gives 2 months free. The plan cards on the pricing page render in the browser, prices were read from a rendered page.
+status: active
+sources:
+  - url: https://lovable.dev/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.lovable.dev/introduction/subscription-plans
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.lovable.dev/integrations/desktop-app
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://docs.lovable.dev/integrations/lovable-mobile-app
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://docs.lovable.dev/llms.txt
+    verified_at: 2026-08-23
+    covers: [features, models, general]

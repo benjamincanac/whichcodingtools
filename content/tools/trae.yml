@@ -1,0 +1,103 @@
+slug: trae
+name: Trae
+description: ByteDance's VS Code based IDE, now called TraeCode. IDE mode keeps you in control, SOLO mode lets the agent plan, code, test and preview. Plans include a monthly dollar balance.
+layer: editor
+vendor: ByteDance
+homepage: https://www.trae.ai
+links:
+  docs: https://docs.trae.ai/ide/what-is-trae
+  pricing: https://www.trae.ai/pricing
+icon: i-simple-icons-trae
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://www.trae.ai
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [openai, google, first-party, minimax, moonshot, anthropic, deepseek, xai, openrouter, vercel-ai-gateway]
+  byok: full
+  local: true
+  notes: Built-in GPT-5.4 and 5.2, Gemini 3.1 Pro and 3 Flash, Seed-2.1-Turbo, MiniMax M3 and M2.7 and Kimi K2.5. GPT and MiniMax are not offered to US users. Custom models with your own key from Google, OpenAI, DeepSeek, Anthropic, xAI, OpenRouter, Vercel AI Gateway, Azure, AWS, Ollama and others, or any OpenAI or Anthropic compatible endpoint.
+features: [mcp-client, tab-completion, sandboxing, remote-execution, diff-review, hooks]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 5000
+        unit: completions
+        period: month
+        notes: Limited basic usage and 5,000 autocompletions per month
+      overage:
+        kind: blocked
+      limits:
+        - Standard queue, up to 2 concurrent cloud tasks
+    - id: lite
+      name: Lite
+      price: 3
+      audience: individual
+      trial_days: 7
+      included:
+        amount: 5
+        unit: usd
+        usd_value: 5
+        notes: $5 of basic usage, unlimited autocomplete
+      overage:
+        kind: api-list
+        notes: On-demand usage continues at token prices once the monthly balance is used.
+    - id: pro
+      name: Pro
+      price: 10
+      audience: individual
+      trial_days: 7
+      included:
+        amount: 20
+        unit: usd
+        usd_value: 20
+      overage:
+        kind: api-list
+      limits:
+        - Fast queue, up to 10 concurrent cloud tasks
+    - id: pro-plus
+      name: Pro+
+      price: 30
+      audience: individual
+      included:
+        amount: 90
+        unit: usd
+        usd_value: 90
+      overage:
+        kind: api-list
+      limits:
+        - Up to 15 concurrent cloud tasks
+    - id: ultra
+      name: Ultra
+      price: 100
+      audience: individual
+      included:
+        amount: 400
+        unit: usd
+        usd_value: 400
+      overage:
+        kind: api-list
+      limits:
+        - Model early access, up to 20 concurrent cloud tasks
+  notes: Model calls convert token cost into dollar usage deducted from the monthly balance. Yearly billing is advertised at 25 percent less. The 7-day Pro trial applies to accounts created on or after February 1, 2026. Enterprise goes through BytePlus.
+status: active
+sources:
+  - url: https://www.trae.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.trae.ai/ide/models
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.trae.ai/ide/set-up-trae
+    verified_at: 2026-08-23
+    covers: [platforms, features]
+  - url: https://docs.trae.ai/ide/what-is-trae
+    verified_at: 2026-08-23
+    covers: [features, general]

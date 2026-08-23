@@ -1,0 +1,63 @@
+slug: claude-squad
+name: Claude Squad
+description: Terminal app on top of tmux that runs Claude Code, Codex, Gemini, Aider and other agents in separate git worktrees, with a background auto-accept mode and a diff view.
+layer: orchestrator
+vendor: smtg-ai
+homepage: https://smtg-ai.github.io/claude-squad/
+links:
+  docs: https://github.com/smtg-ai/claude-squad
+  repo: https://github.com/smtg-ai/claude-squad
+platforms: [macos, linux]
+install:
+  - method: brew
+    command: brew install claude-squad
+  - method: curl
+    command: curl -fsSL https://raw.githubusercontent.com/smtg-ai/claude-squad/main/install.sh | bash
+license:
+  spdx: AGPL-3.0-only
+  kind: open-source
+  repo: https://github.com/smtg-ai/claude-squad
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Launches the program you pass with -p.
+features: [parallel-agents, worktrees, diff-review]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: The default program. Runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: gemini-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: aider
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay the agent or model provider you sign in with
+  notes: Needs tmux and the GitHub CLI. Amp also runs but is not tracked here.
+status: active
+sources:
+  - url: https://github.com/smtg-ai/claude-squad
+    verified_at: 2026-08-23
+    covers: [pricing, license, platforms, wraps, features]
+  - url: https://smtg-ai.github.io/claude-squad/
+    verified_at: 2026-08-23
+    covers: [general]

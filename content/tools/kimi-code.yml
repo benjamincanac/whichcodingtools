@@ -1,0 +1,105 @@
+slug: kimi-code
+name: Kimi Code CLI
+description: Moonshot AI's terminal agent for the Kimi models, a single binary with a VS Code extension. Logs in with a Kimi membership or a platform key, runs in Zed or JetBrains over ACP.
+layer: harness
+secondary_layers: [extension]
+vendor: Moonshot AI
+homepage: https://www.kimi.com/code
+links:
+  docs: https://moonshotai.github.io/kimi-code/en/
+  pricing: https://www.kimi.com/membership/pricing
+  repo: https://github.com/MoonshotAI/kimi-code
+icon: i-simple-icons-kimi
+platforms: [macos, linux, windows]
+hosts: [vscode]
+install:
+  - method: curl
+    command: curl -fsSL https://code.kimi.com/kimi-code/install.sh | bash
+  - method: npm
+    command: npm install -g @moonshot-ai/kimi-code
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/MoonshotAI/kimi-code
+models:
+  providers: [first-party, anthropic, openai, google]
+  byok: full
+  local: false
+  notes: Kimi models through the Kimi Code OAuth login or a platform.kimi.com API key. Anthropic, OpenAI, Google and other compatible providers are configured by hand in config.toml with your own key.
+features: [mcp-client, subagents, parallel-agents, hooks, plugins, acp-agent]
+pricing:
+  tiers:
+    - id: adagio
+      name: Adagio
+      price: 0
+      audience: individual
+      overage:
+        kind: blocked
+      limits:
+        - One concurrent agent task, no priority queue
+      notes: The Kimi Code page says Moderato and higher unlock the K3 model in Kimi Code. The free tier's Kimi Code quota is not published.
+    - id: moderato
+      name: Moderato
+      price: 19
+      price_annual: 15
+      audience: individual
+      overage:
+        kind: rate-limited
+        notes: Kimi Code has its own five hour and weekly limit separate from the shared membership credits.
+      limits:
+        - 2 concurrent tasks, K3 in Kimi Code
+    - id: allegretto
+      name: Allegretto
+      price: 39
+      price_annual: 31
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - 2 concurrent tasks, 15 scheduled tasks
+    - id: allegro
+      name: Allegro
+      price: 99
+      price_annual: 79
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - 4 concurrent tasks, 1M token chat context, 8 subagents
+    - id: vivace
+      name: Vivace
+      price: 199
+      price_annual: 159
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - 4 concurrent tasks, 1M token chat context, Kimi Claw
+    - id: api
+      name: Platform API pay-as-you-go
+      price: null
+      audience: individual
+      overage:
+        kind: api-list
+        notes: kimi-k2.7-code is $0.95 input and $4 output per million tokens, K3 is $3 input and $15 output.
+  notes: USD figures are the global kimi.ai prices. The China site bills in CNY with an extra Andante tier. The membership pricing page returned only its title to automated fetches on 2026-08-23, figures come from kimi.ai/resources pages and need a human check.
+status: active
+sources:
+  - url: https://www.kimi.ai/resources/kimi-k2-7-code-pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://www.kimi.ai/resources/kimi-k3-pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://www.kimi.com/en/help/membership/membership-overview
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://www.kimi.com/code/docs/
+    verified_at: 2026-08-23
+    covers: [platforms, models, general]
+  - url: https://github.com/MoonshotAI/kimi-code
+    verified_at: 2026-08-23
+    covers: [features, license, platforms]
+  - url: https://moonshotai.github.io/kimi-code/en/guides/getting-started
+    verified_at: 2026-08-23
+    covers: [models]

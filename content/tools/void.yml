@@ -1,0 +1,45 @@
+slug: void
+name: Void
+description: Open source VS Code fork with agent mode, checkpoints and tab completion that talked to any provider or local model directly. Deprecated in June 2026, old builds stay on GitHub.
+layer: editor
+vendor: Void
+homepage: https://voideditor.com
+links:
+  docs: https://github.com/voideditor/void/blob/main/VOID_CODEBASE_GUIDE.md
+  changelog: https://github.com/voideditor/binaries/releases
+  repo: https://github.com/voideditor/void
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://github.com/voideditor/binaries/releases
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/voideditor/void
+models:
+  providers: [anthropic, openai, google, xai, mistral, deepseek]
+  byok: full
+  local: true
+  notes: Ollama, vLLM and any OpenAI compatible endpoint for local models. Messages go straight to the provider, there is no Void backend.
+features: [checkpoints, tab-completion]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Bring your own keys or run local models
+  notes: Void never had a paid plan.
+status: sunset
+sunset_at: 2026-06-02
+sources:
+  - url: https://github.com/voideditor/void
+    verified_at: 2026-08-23
+    covers: [pricing, license, general]
+  - url: https://voideditor.com
+    verified_at: 2026-08-23
+    covers: [models, features, general]
+  - url: https://github.com/voideditor/binaries/releases
+    verified_at: 2026-08-23
+    covers: [platforms]

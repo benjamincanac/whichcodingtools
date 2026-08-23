@@ -1,0 +1,81 @@
+slug: orca
+name: Orca
+description: Stably AI's desktop app that runs Claude Code, Codex, Cursor and other CLI agents side by side in isolated worktrees, with SSH worktrees, Design Mode and a mobile companion.
+layer: orchestrator
+vendor: Stably AI
+homepage: https://www.onorca.dev
+links:
+  docs: https://www.onorca.dev/docs
+  changelog: https://www.onorca.dev/changelog
+  repo: https://github.com/stablyai/orca
+  discord: https://discord.gg/fzjDKHxv8Q
+  x: https://x.com/orca_build
+platforms: [macos, windows, linux, ios, android]
+install:
+  - method: download
+    url: https://www.onorca.dev
+  - method: brew
+    command: brew install --cask stablyai/orca/orca
+  - method: aur
+    command: yay -S stably-orca-bin
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/stablyai/orca
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Orca does not sell model usage.
+features: [parallel-agents, worktrees, diff-review, remote-execution, mobile-companion, browser-automation, scheduled-tasks]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cursor CLI agent with your Cursor account.
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Every feature, bring your own agent subscriptions and keys
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      notes: Self-hosting guidance, org-level configuration defaults and SOC 2 readiness support, no price published.
+  notes: Orca is free and open source. The README also lists Copilot, Grok, Amp, Goose, Cline, Devin and any other CLI agent, which are not tracked here.
+status: active
+sources:
+  - url: https://www.onorca.dev
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, features, general]
+  - url: https://www.onorca.dev/enterprise
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://www.onorca.dev/docs
+    verified_at: 2026-08-23
+    covers: [wraps, features]
+  - url: https://github.com/stablyai/orca
+    verified_at: 2026-08-23
+    covers: [license, platforms, wraps]

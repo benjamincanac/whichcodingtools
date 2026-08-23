@@ -1,0 +1,137 @@
+slug: jetbrains-ai
+name: JetBrains AI
+description: AI Assistant and the Junie agent in JetBrains IDEs. Completions on JetBrains models are free, cloud agents draw from monthly AI Credits. Claude Agent and Codex plug in over ACP.
+layer: extension
+vendor: JetBrains
+homepage: https://www.jetbrains.com/ai/
+links:
+  docs: https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html
+  pricing: https://www.jetbrains.com/ai-ides/buy/
+icon: i-simple-icons-jetbrains
+platforms: [macos, windows, linux]
+hosts: [jetbrains]
+install:
+  - method: download
+    url: https://plugins.jetbrains.com/plugin/22282-jetbrains-ai-assistant
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party, openai, google, anthropic, xai]
+  byok: full
+  local: true
+  notes: Cloud models from OpenAI, Google, Anthropic and xAI through the JetBrains AI service, Mellum for completions. Your own keys for Anthropic, OpenAI, OpenAI-compatible providers and Google Vertex AI, plus Ollama and LM Studio, work in chat and agents without a JetBrains AI subscription.
+features: [acp-client, mcp-client, tab-completion]
+wraps:
+  - tool: claude-code
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+    notes: Listed as Claude Agent. Connects with your own subscription, no AI Credits used.
+  - tool: codex-cli
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: gemini-cli
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: cursor
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+    notes: The FAQ names Cursor and GitHub Copilot as ACP agents you can connect with your own subscription.
+pricing:
+  tiers:
+    - id: ai-free
+      name: AI Free
+      price: 0
+      audience: individual
+      included:
+        amount: 3
+        unit: credits
+        period: month
+        usd_value: 3
+        notes: 3 AI Credits per 30 days, no top-up
+      overage:
+        kind: blocked
+      limits:
+        - Unlimited code completion on JetBrains models
+        - Not available in Android Studio, IntelliJ IDEA without Ultimate or PyCharm without Pro
+    - id: ai-pro
+      name: AI Pro
+      price: 10
+      audience: individual
+      trial_days: 30
+      included:
+        amount: 10
+        unit: credits
+        period: month
+        usd_value: 10
+      overage:
+        kind: credits
+        rate: 1
+        notes: Top-up credits cost $1 each and stay valid for 12 months.
+      notes: Included at no extra cost with the All Products Pack and dotUltimate.
+    - id: ai-ultimate
+      name: AI Ultimate
+      price: 30
+      audience: individual
+      included:
+        amount: 35
+        unit: credits
+        period: month
+        usd_value: 35
+        notes: 35 credits for a $30 plan, the $5 bonus is the only difference in rate
+      overage:
+        kind: credits
+        rate: 1
+    - id: org-ai-pro
+      name: AI Pro for organizations
+      price: 20
+      audience: team
+      included:
+        amount: 20
+        unit: credits
+        period: month
+        usd_value: 20
+      overage:
+        kind: credits
+        rate: 1
+    - id: org-ai-ultimate
+      name: AI Ultimate for organizations
+      price: 60
+      audience: team
+      included:
+        amount: 70
+        unit: credits
+        period: month
+        usd_value: 70
+      overage:
+        kind: credits
+        rate: 1
+    - id: ai-enterprise
+      name: AI Enterprise
+      price: 60
+      audience: enterprise
+      overage:
+        kind: blocked
+      notes: Sold as part of JetBrains IDE Services. Quota on par with AI Ultimate or higher, the exact number is not disclosed, no top-ups yet.
+  notes: One AI Credit equals $1. Quotas reset every 30 days. A 30-day AI Pro trial starts when you first activate JetBrains AI. The buy page renders client side, figures come from the licensing page in the help docs.
+status: active
+sources:
+  - url: https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://lp.jetbrains.com/ai-ides-faq/
+    verified_at: 2026-08-23
+    covers: [pricing, wraps, models, features, platforms]
+  - url: https://www.jetbrains.com/help/ai-assistant/bring-your-own-key-byok.html
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://www.jetbrains.com/help/ai-assistant/mcp.html
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://www.jetbrains.com/help/ai/jetbrains-ai.html
+    verified_at: 2026-08-23
+    covers: [general]

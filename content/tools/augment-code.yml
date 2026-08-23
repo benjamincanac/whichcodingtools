@@ -1,0 +1,70 @@
+slug: augment-code
+name: Augment Code
+description: Augment's agent and Context Engine in VS Code, JetBrains and Vim, the Auggie CLI and Cosmos cloud Experts. One flat Business plan covers up to 50 seats.
+layer: extension
+secondary_layers: [harness, cloud]
+vendor: Augment Code
+homepage: https://www.augmentcode.com
+links:
+  docs: https://docs.augmentcode.com
+  pricing: https://www.augmentcode.com/pricing
+platforms: [macos, windows, linux, web]
+hosts: [vscode, jetbrains, neovim]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=augment.vscode-augment
+  - method: npm
+    command: npm install -g @augmentcode/auggie
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [anthropic, openai, google, xai, zhipu, moonshot]
+  byok: none
+  local: false
+  notes: Claude, GPT, Gemini, Grok, GLM and Kimi models hosted by Augment, plus Prism routing. No mention of your own keys in the docs.
+features: [mcp-client, subagents, hooks, plugins, acp-agent, scheduled-tasks, tab-completion, remote-execution]
+pricing:
+  tiers:
+    - id: business
+      name: Business
+      price: 100
+      per: flat
+      audience: team
+      included:
+        amount: 100
+        unit: usd
+        usd_value: 100
+        notes: $100 a month of LLM tokens, Cosmos compute and service fees, shared by up to 50 seats
+      overage:
+        kind: api-list
+        markup_pct: 40
+        notes: Pay as you go at the same rates once the included usage is spent. LLM tokens at the provider's public list price plus a 40 percent service fee, Cosmos compute at $0.19 an hour in 5-minute increments. Top-ups expire after 12 months.
+      limits:
+        - Up to 50 seats, no per-seat charge
+        - 50 concurrent sessions
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Unlimited users and concurrent sessions, custom compute, CMEK, SIEM integration
+  notes: The token pricing page lists Cosmos and Auggie CLI as the products included in Business. The IDE extensions are documented but not named on that page.
+status: active
+sources:
+  - url: https://www.augmentcode.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.augmentcode.com/models/token-based-pricing.md
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.augmentcode.com/models/available-models.md
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.augmentcode.com/llms.txt
+    verified_at: 2026-08-23
+    covers: [features, platforms, general]
+  - url: https://docs.augmentcode.com/cli/setup-auggie/install-auggie-cli.md
+    verified_at: 2026-08-23
+    covers: [platforms, general]

@@ -1,0 +1,93 @@
+slug: google-antigravity
+name: Google Antigravity
+description: Google's agentic development platform. A desktop app, a VS Code based IDE, a CLI and editor extensions share one harness. Free, with higher limits on Google AI Pro and Ultra.
+layer: editor
+secondary_layers: [app, harness, extension]
+vendor: Google
+homepage: https://antigravity.google
+links:
+  docs: https://antigravity.google/docs
+  pricing: https://antigravity.google/pricing
+  changelog: https://antigravity.google/changelog
+platforms: [macos, windows, linux]
+hosts: [vscode, visual-studio, jetbrains, zed]
+install:
+  - method: download
+    url: https://antigravity.google/download
+  - method: curl
+    command: curl -fsSL https://antigravity.google/cli/install.sh | bash
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [google, anthropic, openai]
+  byok: none
+  local: false
+  notes: Gemini 3.7, 3.6 and 3.5 Flash and Gemini 3.1 Pro on every plan. Claude Sonnet 4.6 and Opus 4.6 and gpt-oss-120b on Free, Plus, Pro and Ultra but not on Enterprise. The docs do not mention your own keys or local models.
+features: [worktrees, subagents, browser-automation, mcp-client, scheduled-tasks, hooks, plugins, diff-review, sandboxing, tab-completion]
+pricing:
+  bundled_with: gemini
+  tiers:
+    - id: free
+      name: Individual
+      price: 0
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - Basic weekly rate limits on the agent model
+        - Unlimited tab completions and command requests
+    - id: google-ai-pro
+      name: Google AI Pro
+      price: 19.99
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - More generous rate limits and a flexible AI credit pool
+      notes: The Google AI Pro subscription price. Antigravity itself is not sold separately.
+    - id: google-ai-ultra
+      name: Google AI Ultra
+      price: 99.99
+      price_from: true
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - Highest rate limits to the agent model
+      notes: Ultra 5x starts at $99.99 and Ultra 20x is $199.99 per month on the Google AI plans page.
+    - id: enterprise
+      name: Organization
+      price: null
+      contact_sales: true
+      audience: enterprise
+      overage:
+        kind: api-list
+        notes: Consumption-based API pricing through a Google Cloud project and the Gemini Enterprise Agent Platform.
+  notes: Antigravity has no price of its own. Rate limits scale with the Google AI plan attached to the Google account you sign in with.
+status: active
+sources:
+  - url: https://antigravity.google/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://gemini.google/us/subscriptions/
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://antigravity.google/download
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://antigravity.google/docs/getting-started
+    verified_at: 2026-08-23
+    covers: [features, general]
+  - url: https://antigravity.google/docs/features/
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://antigravity.google/docs/models/
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://antigravity.google/docs/cli/install/
+    verified_at: 2026-08-23
+    covers: [general]
+  - url: https://antigravity.google/docs/cli/sandbox/
+    verified_at: 2026-08-23
+    covers: [features]

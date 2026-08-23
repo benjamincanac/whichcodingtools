@@ -1,0 +1,86 @@
+slug: openhands
+name: OpenHands
+description: MIT licensed coding agent and control center. Runs in Docker, on your servers or on OpenHands Cloud, and drives Claude Code, Codex and Gemini CLI over ACP with their own logins.
+layer: cloud
+secondary_layers: [orchestrator]
+vendor: OpenHands
+homepage: https://all-hands.dev
+links:
+  docs: https://docs.openhands.dev
+  pricing: https://all-hands.dev/pricing
+  repo: https://github.com/OpenHands/OpenHands
+platforms: [web, macos, linux, windows]
+install:
+  - method: npm
+    command: npm install -g @openhands/agent-canvas
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/OpenHands/OpenHands
+models:
+  providers: [first-party, anthropic, openai, google]
+  byok: full
+  local: true
+  notes: Any provider LiteLLM supports, including local models. The OpenHands LLM provider on Cloud resells models at cost with no markup.
+features: [acp-client, mcp-client, sandboxing, scheduled-tasks, plugins, hooks, browser-automation, mobile-companion]
+wraps:
+  - tool: claude-code
+    via: acp
+    uses_subscription: true
+    min_tier: oss
+    notes: Spawns the Claude Code ACP adapter and reuses the CLI's stored login on a local or self-hosted backend. A clean cloud sandbox needs an API key.
+  - tool: codex-cli
+    via: acp
+    uses_subscription: true
+    min_tier: oss
+    notes: Reuses the ChatGPT login cached by codex login on the machine that runs the agent.
+  - tool: gemini-cli
+    via: acp
+    uses_subscription: true
+    min_tier: oss
+    notes: Reuses the Google login cached by the Gemini CLI.
+pricing:
+  tiers:
+    - id: oss
+      name: Open Source
+      price: 0
+      audience: individual
+      limits:
+        - Local web GUI, terminal UI and CLI
+        - Bring your own model and key
+    - id: individual
+      name: Cloud Individual
+      price: 0
+      audience: individual
+      overage:
+        kind: api-list
+        markup_pct: 0
+        notes: Bring your own key, or pay as you go for the OpenHands LLM provider at cost.
+      limits:
+        - 1 user, 10 daily conversations
+        - Cloud API, Jira and Slack integrations
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - SaaS or self-hosted in your VPC, SAML SSO, unlimited concurrent conversations per user
+  notes: Paid Cloud usage is the model cost only. The pricing page lists no per-seat price below Enterprise.
+status: active
+sources:
+  - url: https://all-hands.dev/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://github.com/OpenHands/OpenHands
+    verified_at: 2026-08-23
+    covers: [platforms, features, license, general]
+  - url: https://docs.openhands.dev/openhands/usage/agent-canvas/acp-agents
+    verified_at: 2026-08-23
+    covers: [wraps]
+  - url: https://docs.openhands.dev/openhands/usage/settings/llm-settings
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.openhands.dev/openhands/usage/cloud/openhands-cloud
+    verified_at: 2026-08-23
+    covers: [platforms, general]

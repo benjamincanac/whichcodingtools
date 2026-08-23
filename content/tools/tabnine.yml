@@ -1,0 +1,72 @@
+slug: tabnine
+name: Tabnine
+description: Enterprise code assistant with completions, chat and an agent in VS Code, JetBrains, Visual Studio and Eclipse, plus a CLI. Deploys as SaaS, in a VPC, on premises or air-gapped.
+layer: extension
+secondary_layers: [harness]
+vendor: Tabnine
+homepage: https://www.tabnine.com
+links:
+  docs: https://docs.tabnine.com/main
+  pricing: https://www.tabnine.com/pricing
+platforms: [macos, windows, linux]
+hosts: [vscode, jetbrains, visual-studio]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=TabNine.tabnine-vscode
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party, anthropic, openai, google, mistral, minimax, zhipu, alibaba]
+  byok: none
+  local: false
+  notes: Tabnine's own models for completions and chat, plus Claude, GPT, Gemini, Devstral, MiniMax, GLM and Qwen. Private installations can point at private endpoints for some models. Eclipse is supported but is not in the hosts list.
+features: [mcp-client, tab-completion]
+pricing:
+  tiers:
+    - id: code-assistant
+      name: Code Assistant Platform
+      price: 39
+      audience: team
+      overage:
+        kind: api-list
+        markup_pct: 5
+        notes: Token consumption through Tabnine-provided LLM access is paid on top, at provider prices plus a 5 percent handling fee.
+      limits:
+        - Completions and chat in all major IDEs
+      notes: Priced per user per month on an annual subscription.
+    - id: agentic
+      name: Agentic Platform
+      price: 59
+      audience: team
+      overage:
+        kind: api-list
+        markup_pct: 5
+      limits:
+        - Agentic workflows, Context Engine, CLI agent, unlimited codebase connections
+      notes: Priced per user per month on an annual subscription. Headless agents for CI/CD are a separate add-on.
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Private installation in a VPC, on premises or air-gapped
+  notes: No free plan or trial is listed on the pricing page. Enterprise SaaS accounts are set up with the Tabnine team.
+status: active
+sources:
+  - url: https://www.tabnine.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.tabnine.com/main/welcome/readme/supported-ides
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://docs.tabnine.com/main/welcome/readme/ai-models
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.tabnine.com/main/llms.txt
+    verified_at: 2026-08-23
+    covers: [features, general]
+  - url: https://docs.tabnine.com/main/getting-started/tabnine-cli/getting-started/installation.md
+    verified_at: 2026-08-23
+    covers: [platforms, general]

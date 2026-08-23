@@ -1,0 +1,69 @@
+slug: pearai
+name: PearAI
+description: Open source VS Code fork with an agent built on a Roo Code and Cline fork and a chat panel forked from Continue. Your own keys or local models, or the PearAI Router on paid.
+layer: editor
+vendor: PearAI
+homepage: https://trypear.ai
+links:
+  docs: https://trypear.ai/docs
+  pricing: https://trypear.ai/pricing
+  repo: https://github.com/trypear/pearai-app
+  discord: https://discord.gg/7QMraJUsQt
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://trypear.ai
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/trypear/pearai-app
+  notes: The editor fork carries VS Code's MIT license file on GitHub while the README states Apache-2.0 for Pear OSS. The Continue fork lives in pearai-submodule.
+models:
+  providers: [first-party, anthropic, openai, meta]
+  byok: full
+  local: true
+  notes: The homepage lists GPT-4o, Claude 3 Opus, Llama 3.1 405b and an auto selected PearAI Model through the router. The free plan runs on your own API key or local models.
+wraps:
+  - tool: cline
+    via: extension
+    uses_subscription: false
+    min_tier: intern
+    notes: PearAI Agent is described as powered by Roo Code and Cline, bundled as a fork rather than the upstream extension.
+pricing:
+  tiers:
+    - id: intern
+      name: Intern
+      price: 0
+      audience: individual
+      limits:
+        - Free trial, your own API key or local models
+    - id: maker
+      name: Maker
+      price: 15
+      audience: individual
+      included:
+        amount: 15
+        unit: usd
+        usd_value: 15
+        notes: $15 of credits per month through the PearAI Router and hosted servers
+      overage:
+        kind: credits
+        notes: Pay as you go for additional credits.
+      notes: Early bird price, the page says 20 to 30 percent off forever.
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+  notes: trypear.ai/pricing refused automated fetches on 2026-08-23. Figures were read through a read-only text proxy of the same page and need a human check. The docs deployment was paused that day and the last editor release on GitHub is from May 2025.
+status: active
+sources:
+  - url: https://trypear.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://trypear.ai
+    verified_at: 2026-08-23
+    covers: [wraps, models, general]
+  - url: https://github.com/trypear/pearai-app
+    verified_at: 2026-08-23
+    covers: [license, platforms]

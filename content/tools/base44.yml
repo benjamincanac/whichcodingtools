@@ -1,0 +1,109 @@
+slug: base44
+name: Base44
+description: Wix-owned app builder. Builds full-stack apps with a built-in database, auth, payments and hosting from a prompt. Billed by message credits, model selector from Builder up.
+layer: app-builder
+vendor: Wix
+homepage: https://base44.com
+links:
+  docs: https://docs.base44.com
+  pricing: https://base44.com/pricing
+platforms: [web]
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  byok: none
+  local: false
+  notes: Automatic model selection by default. Builder and higher plans can pick a model. The docs do not list the vendors.
+features: [browser-automation, checkpoints]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 25
+        unit: messages
+        period: month
+        notes: 25 message credits and 100 integration credits a month
+      overage:
+        kind: blocked
+      limits:
+        - Up to 5 apps
+    - id: starter
+      name: Starter
+      price: 20
+      price_annual: 16
+      audience: individual
+      included:
+        amount: 100
+        unit: messages
+        period: month
+        notes: 100 message credits and 2,000 integration credits a month
+      overage:
+        kind: credits
+        notes: Top up credits any time before the cycle resets.
+      limits:
+        - Unlimited apps, in-app code edits, custom domain
+    - id: builder
+      name: Builder
+      price: 50
+      price_annual: 40
+      audience: individual
+      included:
+        amount: 250
+        unit: messages
+        period: month
+        notes: 250 message credits and 10,000 integration credits a month
+      overage:
+        kind: credits
+      limits:
+        - AI model select, GitHub integration
+    - id: pro
+      name: Pro
+      price: 100
+      price_annual: 80
+      audience: individual
+      included:
+        amount: 500
+        unit: messages
+        period: month
+        notes: 500 message credits and 20,000 integration credits a month
+      overage:
+        kind: credits
+      limits:
+        - Early access to beta features
+    - id: elite
+      name: Elite
+      price: 200
+      price_annual: 160
+      audience: individual
+      included:
+        amount: 1200
+        unit: messages
+        period: month
+        notes: 1,200 message credits and 50,000 integration credits a month
+      overage:
+        kind: credits
+      limits:
+        - Premium support
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Custom credits, dedicated architect, SSO
+  notes: Annual prices are the per-month figure billed yearly, 20 percent off. The pricing page defaults to the yearly toggle.
+status: active
+sources:
+  - url: https://base44.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, general]
+  - url: https://docs.base44.com/Building-your-app/AI-chat-modes
+    verified_at: 2026-08-23
+    covers: [models, features]
+  - url: https://docs.base44.com/llms.txt
+    verified_at: 2026-08-23
+    covers: [features, platforms]

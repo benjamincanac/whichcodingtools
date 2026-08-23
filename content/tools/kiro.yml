@@ -1,0 +1,113 @@
+slug: kiro
+name: Kiro
+description: AWS's agentic IDE on a VS Code foundation, with a CLI, a web agent and an iOS app sharing one .kiro config. Specs, steering and hooks drive the agent. Plans are priced in credits.
+layer: editor
+secondary_layers: [harness, cloud]
+vendor: Amazon Web Services
+homepage: https://kiro.dev
+links:
+  docs: https://kiro.dev/docs
+  pricing: https://kiro.dev/pricing
+  changelog: https://kiro.dev/changelog
+platforms: [macos, windows, linux, web, ios]
+install:
+  - method: download
+    url: https://kiro.dev/downloads/
+  - method: curl
+    command: curl -fsSL https://cli.kiro.dev/install | bash
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [anthropic, openai, minimax, zhipu, deepseek, alibaba]
+  byok: none
+  local: false
+  notes: Hosted models only, billed in credits with a per-model multiplier. Claude Opus at 1x, Sonnet at 1.3x, Opus 5 at 2.2x, GPT-5.6 Sol at 2.4x, open weight models from 0.05x to 0.5x. Auto routes between models. No keys or local models in the docs.
+features: [hooks, mcp-client, subagents, checkpoints, plugins, acp-agent, mobile-companion, scheduled-tasks, sandboxing]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 50
+        unit: credits
+        period: month
+      overage:
+        kind: blocked
+    - id: pro
+      name: Pro
+      price: 20
+      audience: individual
+      included:
+        amount: 1000
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        rate: 0.04
+    - id: pro-plus
+      name: Pro+
+      price: 40
+      audience: individual
+      included:
+        amount: 2000
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        rate: 0.04
+    - id: pro-max
+      name: Pro Max
+      price: 100
+      audience: individual
+      included:
+        amount: 5000
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        rate: 0.04
+    - id: power
+      name: Power
+      price: 200
+      audience: individual
+      included:
+        amount: 10000
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        rate: 0.04
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Centralized billing, SSO, usage analytics and enterprise security controls
+  notes: Each developer needs their own subscription. Unused credits do not roll over. A $20 credit applies on the first upgrade with social login or AWS Builder ID. GovCloud pricing is about 20 percent higher with no free tier.
+status: active
+sources:
+  - url: https://kiro.dev/pricing/
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://kiro.dev/docs/models/available-models/
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://kiro.dev/docs/getting-started/installation/
+    verified_at: 2026-08-23
+    covers: [platforms, general]
+  - url: https://kiro.dev/docs/
+    verified_at: 2026-08-23
+    covers: [features, general]
+  - url: https://kiro.dev/docs/cli/acp/
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://kiro.dev/docs/powers/
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://kiro.dev/docs/web/automations/
+    verified_at: 2026-08-23
+    covers: [features]

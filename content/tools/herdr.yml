@@ -1,0 +1,67 @@
+slug: herdr
+name: Herdr
+description: Rust single binary with a background server that keeps agent terminals running after you disconnect, marks each pane working, blocked or idle and reattaches over SSH.
+layer: orchestrator
+vendor: Herdr
+homepage: https://herdr.dev
+links:
+  docs: https://herdr.dev/docs/
+  repo: https://github.com/herdrdev/herdr
+platforms: [macos, linux, windows]
+install:
+  - method: curl
+    command: curl -fsSL https://herdr.dev/install.sh | sh
+  - method: brew
+    command: brew install herdr
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/herdrdev/herdr
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Herdr runs the agent CLIs unmodified.
+features: [parallel-agents, remote-execution, plugins, hooks]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cursor CLI agent with your Cursor account.
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay the agent or model provider you sign in with
+  notes: No paid plan published. The site also lists Copilot, Grok and Hermes among the agents it detects.
+status: preview
+sources:
+  - url: https://herdr.dev
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, wraps, general]
+  - url: https://herdr.dev/docs/
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://github.com/herdrdev/herdr
+    verified_at: 2026-08-23
+    covers: [license, platforms, features]

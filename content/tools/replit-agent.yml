@@ -1,0 +1,91 @@
+slug: replit-agent
+name: Replit Agent
+description: Replit's agent builds, tests and publishes web and mobile apps from a prompt inside the hosted Replit workspace, with checkpoints, a real-browser tester and credits on paid plans.
+layer: cloud
+secondary_layers: [app-builder]
+vendor: Replit
+homepage: https://replit.com
+links:
+  docs: https://docs.replit.com
+  pricing: https://replit.com/pricing
+icon: i-simple-icons-replit
+platforms: [web, macos, windows, ios, android]
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [anthropic, openai]
+  byok: none
+  local: false
+  notes: Auto mode picks the model. Core and Pro can choose a model in Power or Max mode. The in-app model list is the source of truth for what is available.
+features: [parallel-agents, checkpoints, browser-automation, mcp-client, scheduled-tasks]
+pricing:
+  tiers:
+    - id: starter
+      name: Starter
+      price: 0
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - Daily Free Mode agent allowance
+        - Publish 1 live project
+    - id: core
+      name: Core
+      price: 25
+      price_annual: 20
+      audience: individual
+      included:
+        amount: 25
+        unit: usd
+        usd_value: 25
+        notes: $25 of monthly credits toward Power and Max mode, plus a Free Mode allowance
+      overage:
+        kind: credits
+        notes: Effort-based pay as you go once monthly credits run out.
+      limits:
+        - 2 parallel agents
+        - Unlimited workspaces
+    - id: pro
+      name: Pro
+      price: 100
+      price_annual: 95
+      audience: individual
+      included:
+        amount: 100
+        unit: usd
+        usd_value: 100
+        notes: $100 of monthly credits toward Power and Max mode
+      overage:
+        kind: credits
+      limits:
+        - 10 parallel agents
+        - Up to 15 collaborators and 50 viewers
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Custom seat limits, SSO/SAML, single-tenant environments
+  notes: Annual prices are the per-month figure when billed yearly. Agent usage is metered per request by effort, not per seat.
+status: active
+sources:
+  - url: https://replit.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.replit.com/chat/agent-modes
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://docs.replit.com/chat/model-selector
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.replit.com/features/platforms/desktop-app
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://docs.replit.com/features/platforms/mobile-app
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://docs.replit.com/llms.txt
+    verified_at: 2026-08-23
+    covers: [features, general]

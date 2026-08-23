@@ -1,0 +1,154 @@
+slug: github-copilot
+name: GitHub Copilot
+description: GitHub's assistant for VS Code, JetBrains, Visual Studio, Xcode and Neovim, with a terminal CLI and a cloud agent. Paid plans meter agent usage in AI credits.
+layer: extension
+secondary_layers: [harness, cloud]
+vendor: GitHub
+homepage: https://github.com/features/copilot
+links:
+  docs: https://docs.github.com/en/copilot
+  pricing: https://github.com/features/copilot/plans
+  changelog: https://github.blog/changelog/label/copilot/
+  repo: https://github.com/github/copilot-cli
+icon: i-simple-icons-githubcopilot
+platforms: [macos, windows, linux, web]
+hosts: [vscode, jetbrains, visual-studio, xcode, neovim]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
+  - method: npm
+    command: npm install -g @github/copilot
+  - method: brew
+    command: brew install --cask copilot-cli
+  - method: winget
+    command: winget install GitHub.Copilot
+  - method: curl
+    command: curl -fsSL https://gh.io/copilot-install | bash
+license:
+  spdx: proprietary
+  kind: proprietary
+  repo: https://github.com/github/copilot-cli
+  notes: The service and the CLI are closed. The VS Code Copilot Chat extension is published under MIT at microsoft/vscode-copilot-chat.
+models:
+  providers: [openai, anthropic, google, xai, moonshot]
+  byok: partial
+  local: true
+  notes: GitHub-hosted models from OpenAI, Anthropic, Google, Microsoft, xAI and Moonshot. Local BYOK in VS Code, JetBrains, Xcode, the CLI and the app connects OpenAI-compatible, Azure OpenAI, Anthropic or Ollama endpoints and bypasses GitHub's API, so some features are not available on it. Eclipse is also supported but is not in the hosts list.
+features: [mcp-client, hooks, sandboxing, acp-agent, tab-completion, remote-execution, diff-review]
+pricing:
+  bundled_with: copilot
+  tiers:
+    - id: free
+      name: Copilot Free
+      price: 0
+      audience: individual
+      included:
+        amount: 2000
+        unit: completions
+        period: month
+        notes: 2,000 completions per month plus a small allowance of AI credits
+      overage:
+        kind: blocked
+      limits:
+        - Copilot CLI and the Copilot app are included
+      notes: Verified students get Copilot Student at no charge.
+    - id: pro
+      name: Copilot Pro
+      price: 10
+      audience: individual
+      included:
+        amount: 1500
+        unit: credits
+        period: month
+        usd_value: 15
+        notes: 1,000 base credits plus a 500 credit flex allotment, 1 credit is $0.01
+      overage:
+        kind: credits
+        rate: 0.01
+        notes: Additional usage is billed against a budget you set in USD at $0.01 per credit.
+      limits:
+        - Unlimited code completions and next edit suggestions
+    - id: pro-plus
+      name: Copilot Pro+
+      price: 39
+      audience: individual
+      included:
+        amount: 7000
+        unit: credits
+        period: month
+        usd_value: 70
+        notes: 3,900 base credits plus a 3,100 credit flex allotment
+      overage:
+        kind: credits
+        rate: 0.01
+      limits:
+        - Access to premium models, including Opus
+    - id: max
+      name: Copilot Max
+      price: 100
+      audience: individual
+      included:
+        amount: 20000
+        unit: credits
+        period: month
+        usd_value: 200
+        notes: 10,000 base credits plus a 10,000 credit flex allotment
+      overage:
+        kind: credits
+        rate: 0.01
+      limits:
+        - Priority access to new models and features
+    - id: business
+      name: Copilot Business
+      price: 19
+      audience: team
+      included:
+        amount: 1900
+        unit: credits
+        period: month
+        usd_value: 19
+      overage:
+        kind: credits
+        rate: 0.01
+    - id: enterprise
+      name: Copilot Enterprise
+      price: 39
+      audience: enterprise
+      included:
+        amount: 3900
+        unit: credits
+        period: month
+        usd_value: 39
+      overage:
+        kind: credits
+        rate: 0.01
+  notes: Agent, chat and cloud usage is metered in GitHub AI Credits since the June 2026 plan change. Code completions and next edit suggestions stay unmetered on paid plans. Flex allotments can change over time.
+status: active
+sources:
+  - url: https://github.com/features/copilot/plans
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.github.com/en/copilot/get-started/plans
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli
+    verified_at: 2026-08-23
+    covers: [features, platforms, models]
+  - url: https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli
+    verified_at: 2026-08-23
+    covers: [platforms, general]
+  - url: https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-extension
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://docs.github.com/en/copilot/concepts/models/bring-your-own-key
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.github.com/en/copilot/reference/ai-models/supported-models
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://docs.github.com/en/copilot/get-started/features
+    verified_at: 2026-08-23
+    covers: [features, general]

@@ -1,0 +1,64 @@
+slug: paseo
+name: Paseo
+description: Self-hosted daemon that spawns coding agents on your machine and streams them to desktop, web, mobile and CLI clients, with voice mode and an end-to-end encrypted relay.
+layer: orchestrator
+vendor: Paseo
+homepage: https://paseo.sh
+links:
+  docs: https://paseo.sh/docs
+  repo: https://github.com/getpaseo/paseo
+platforms: [macos, windows, linux, web, ios, android]
+install:
+  - method: npm
+    command: npm install -g @getpaseo/cli
+  - method: download
+    url: https://paseo.sh/download
+license:
+  spdx: AGPL-3.0-only
+  kind: open-source
+  repo: https://github.com/getpaseo/paseo
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Voice uses local transcription with optional OpenAI.
+features: [parallel-agents, worktrees, diff-review, remote-execution, mobile-companion]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cursor CLI agent with your Cursor account.
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay the agent or model provider you sign in with
+  notes: No paid plan and no pricing page. No telemetry or forced login. Copilot is also supported but not tracked here.
+status: active
+sources:
+  - url: https://paseo.sh
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, wraps, features, general]
+  - url: https://github.com/getpaseo/paseo
+    verified_at: 2026-08-23
+    covers: [license, platforms, wraps, features]

@@ -1,0 +1,103 @@
+slug: cmux
+name: cmux
+description: Native macOS terminal on libghostty with vertical tabs, notification rings and a scriptable browser for running Claude Code, Codex, Gemini and other CLI agents at once.
+layer: orchestrator
+vendor: Manaflow
+homepage: https://cmux.com
+links:
+  docs: https://cmux.com/docs/getting-started
+  pricing: https://cmux.com/pricing
+  repo: https://github.com/manaflow-ai/cmux
+platforms: [macos, ios]
+install:
+  - method: download
+    url: https://cmux.com
+  - method: brew
+    command: brew tap manaflow-ai/cmux && brew install --cask cmux
+license:
+  spdx: GPL-3.0-or-later
+  kind: open-source
+  repo: https://github.com/manaflow-ai/cmux
+  notes: GPL-3.0-or-later. Commercial terms may be available for the portions Manaflow controls.
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Pro adds CodeRouter to route across provider accounts.
+features: [parallel-agents, browser-automation, remote-execution, mobile-companion]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs your installed Claude Code in a terminal pane with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: gemini-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cursor CLI agent with your Cursor account.
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: aider
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cline
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cline CLI.
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Native terminal, every CLI agent with your own keys, browser panels, socket API, skills
+        - Local session history and a one time Cloud VM trial
+    - id: pro
+      name: Pro
+      price: 30
+      price_annual: 24
+      audience: individual
+      limits:
+        - Cloud agents on Cloud VMs, 20 active compute hours per month on a 4 vCPU / 16 GB VM, then usage based
+        - CodeRouter, the cmux iOS app, email support
+    - id: team
+      name: Team
+      price: 35
+      price_annual: 28
+      audience: team
+      limits:
+        - Team wide CodeRouter with aggregate usage and cost analytics
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      notes: Self-hosted cloud execution and CodeRouter, SSO and SAML, audit logs, SOC 2 and an SLA.
+  notes: The terminal itself is free and open source. Paid plans add Cloud VMs, CodeRouter and the iOS app. goose, Kiro and Amp also run but are not tracked here. A one time Founders Edition is also sold for early access, price not on the pricing page. The iOS app is in beta on TestFlight.
+status: active
+sources:
+  - url: https://cmux.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://cmux.com
+    verified_at: 2026-08-23
+    covers: [platforms, features, wraps, general]
+  - url: https://cmux.com/docs/getting-started
+    verified_at: 2026-08-23
+    covers: [platforms, features]
+  - url: https://github.com/manaflow-ai/cmux
+    verified_at: 2026-08-23
+    covers: [license, features]

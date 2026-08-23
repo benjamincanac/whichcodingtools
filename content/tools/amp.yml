@@ -1,0 +1,89 @@
+slug: amp
+name: Amp
+description: Sourcegraph's terminal agent. Low, medium, high and ultra modes pick the model per task, subagents run in parallel, orbs run threads on remote machines.
+layer: harness
+secondary_layers: [extension]
+vendor: Sourcegraph
+homepage: https://ampcode.com
+links:
+  docs: https://ampcode.com/manual
+  pricing: https://ampcode.com/pricing
+  changelog: https://ampcode.com/news
+platforms: [macos, linux, windows]
+hosts: [vscode, neovim, zed, jetbrains]
+install:
+  - method: curl
+    command: curl -fsSL https://ampcode.com/install.sh | bash
+  - method: brew
+    command: brew install ampcode/tap/ampcode
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [openai, anthropic]
+  plans: [chatgpt]
+  byok: partial
+  local: false
+  notes: Amp picks models per mode, GPT-5.6 Sol in high mode, Claude Fable 5 with your own Anthropic key once data retention is enabled on the key's workspace. Linking a ChatGPT subscription adds GPT-5.6 usage. Windows runs through WSL. The JetBrains plugin is deprecated and no longer updated.
+features: [subagents, parallel-agents, mcp-client, browser-automation, remote-execution, scheduled-tasks, plugins]
+pricing:
+  tiers:
+    - id: free
+      name: Amp Free
+      price: 0
+      audience: individual
+      overage:
+        kind: blocked
+      notes: Not on the pricing page. The March 30, 2026 news post describes a $10 daily usage grant, ad-free, kept for existing accounts and paused or reduced for some users since May 2026. The schema has no daily period, so the grant is not modelled as included usage.
+    - id: megawatt
+      name: Megawatt
+      price: 20
+      audience: individual
+      included:
+        amount: 20
+        unit: usd
+        usd_value: 20
+        notes: $20 of agent usage and 750 hours of orbs
+      overage:
+        kind: api-list
+      limits:
+        - Low and medium modes, high mode with a linked ChatGPT subscription
+      notes: Students and teachers pay $10 a month after education verification.
+    - id: gigawatt
+      name: Gigawatt
+      price: 200
+      audience: individual
+      included:
+        amount: 200
+        unit: usd
+        usd_value: 200
+        notes: $200 of agent usage and 1,000 hours of xxlarge orbs
+      overage:
+        kind: api-list
+      limits:
+        - All modes, including high and ultra
+    - id: unconstrained
+      name: Unconstrained
+      price: null
+      audience: team
+      overage:
+        kind: api-list
+        notes: API pricing for model tokens and orbs, or bring your own keys for inference.
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - SSO, directory sync, admin controls, minimal data retention, support
+status: active
+sources:
+  - url: https://ampcode.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://ampcode.com/manual
+    verified_at: 2026-08-23
+    covers: [platforms, models, features, general]
+  - url: https://ampcode.com/news/amp-free-is-ad-free
+    verified_at: 2026-08-23
+    covers: [pricing]

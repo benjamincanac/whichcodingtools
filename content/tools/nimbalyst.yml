@@ -1,0 +1,72 @@
+slug: nimbalyst
+name: Nimbalyst
+description: MIT licensed desktop workspace that puts Claude Code and Codex sessions on a kanban board, with optional worktrees, inline diff review and visual editors for markdown and mockups.
+layer: orchestrator
+vendor: Nimbalyst
+homepage: https://nimbalyst.com
+links:
+  docs: https://docs.nimbalyst.com
+  pricing: https://nimbalyst.com/pricing
+  repo: https://github.com/Nimbalyst/nimbalyst
+platforms: [macos, windows, linux, ios, android]
+install:
+  - method: download
+    url: https://github.com/Nimbalyst/nimbalyst/releases/latest
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/Nimbalyst/nimbalyst
+  notes: The desktop and mobile apps are MIT. The collaboration sync server is separate and proprietary.
+models:
+  byok: full
+  local: false
+  notes: Works with your existing Claude Code or Codex subscription, or API keys you configure.
+features: [parallel-agents, worktrees, diff-review, mobile-companion, plugins]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: individual
+    notes: Runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: individual
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: individual
+    notes: Alpha.
+pricing:
+  tiers:
+    - id: individual
+      name: Individual
+      price: 0
+      audience: individual
+      limits:
+        - Every feature, no credit card
+    - id: teams
+      name: Teams
+      price: 20
+      audience: team
+      limits:
+        - Real time collaboration on docs, mockups, diagrams and trackers
+      notes: $20 per user per month or $200 per user per year. Free during the beta.
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      notes: Self-hosted collaboration server, data residency, embedded engineer support.
+  notes: Free for individuals with no feature limits. Copilot runs in alpha and Gemini through the extension system, neither tracked here.
+status: active
+sources:
+  - url: https://nimbalyst.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://nimbalyst.com
+    verified_at: 2026-08-23
+    covers: [platforms, models, wraps, features, general]
+  - url: https://github.com/Nimbalyst/nimbalyst
+    verified_at: 2026-08-23
+    covers: [license, platforms, features]

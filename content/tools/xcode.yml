@@ -1,0 +1,67 @@
+slug: xcode
+name: Xcode
+description: Apple's IDE for its platforms. Since 26.3 the coding assistant runs Claude Agent and Codex inside Xcode, with ChatGPT, Claude or any Chat Completions provider for chat.
+layer: editor
+vendor: Apple
+homepage: https://developer.apple.com/xcode/
+links:
+  docs: https://developer.apple.com/documentation/xcode/coding-intelligence
+  pricing: https://apps.apple.com/us/app/xcode/id497799835
+icon: i-simple-icons-xcode
+platforms: [macos]
+install:
+  - method: app-store
+    url: https://apps.apple.com/us/app/xcode/id497799835
+  - method: download
+    url: https://developer.apple.com/download/applications/
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [anthropic, openai]
+  plans: [chatgpt, claude]
+  byok: full
+  local: true
+  notes: Sign in with a ChatGPT account, free or paid, or a Claude account for chat. Any provider that serves the Chat Completions API can be added, hosted on the internet or on your Mac. Predictive completion runs on device.
+features: [acp-client, mcp-client, plugins, subagents, parallel-agents, checkpoints, tab-completion]
+wraps:
+  - tool: claude-code
+    via: sdk
+    uses_subscription: true
+    min_tier: free
+    notes: Claude Agent is built on the Claude Agent SDK, the harness behind Claude Code. Xcode downloads it and you sign in to your Claude account in the agent settings.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Xcode downloads and updates the Codex agent itself. Configuration files live in ~/Library/Developer/Xcode/CodingAssistant/codex.
+pricing:
+  tiers:
+    - id: free
+      name: Xcode
+      price: 0
+      audience: individual
+      limits:
+        - Requires macOS 26.2 or later on Apple silicon
+        - Model usage is billed by the account you sign in with
+  notes: Xcode is free. Agents and chat bill the ChatGPT, Claude or API account you connect. An Apple Developer Program membership is only needed for distribution, not for using Xcode. Apple's docs also list a Gemini config folder, but no Gemini agent is documented.
+status: active
+sources:
+  - url: https://apps.apple.com/us/app/xcode/id497799835
+    verified_at: 2026-08-23
+    covers: [pricing, platforms]
+  - url: https://developer.apple.com/documentation/xcode/setting-up-coding-intelligence
+    verified_at: 2026-08-23
+    covers: [models, wraps]
+  - url: https://developer.apple.com/documentation/xcode/extending-and-customizing-agents
+    verified_at: 2026-08-23
+    covers: [features, wraps]
+  - url: https://developer.apple.com/documentation/xcode/coding-intelligence
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://developer.apple.com/xcode/
+    verified_at: 2026-08-23
+    covers: [general]
+  - url: https://www.apple.com/newsroom/2026/02/xcode-26-point-3-unlocks-the-power-of-agentic-coding/
+    verified_at: 2026-08-23
+    covers: [general, wraps]

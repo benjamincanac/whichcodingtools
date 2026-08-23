@@ -1,0 +1,60 @@
+slug: chatgpt-desktop
+name: ChatGPT desktop app
+description: OpenAI's desktop app with Chat, Work and Codex views. Codex runs parallel threads in worktrees, with scheduled tasks and Computer Use, on a ChatGPT login or an API key.
+layer: app
+vendor: OpenAI
+homepage: https://chatgpt.com/download
+links:
+  docs: https://learn.chatgpt.com/docs/app
+  pricing: https://learn.chatgpt.com/docs/pricing
+  changelog: https://learn.chatgpt.com/docs/whats-new
+  repo: https://github.com/openai/codex
+icon: i-simple-icons-openai
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://chatgpt.com/download
+  - method: brew
+    command: brew install --cask chatgpt
+license:
+  spdx: proprietary
+  kind: proprietary
+  repo: https://github.com/openai/codex
+  notes: The app ships as a binary. The Codex app-server it runs on is Apache-2.0 in the openai/codex repo.
+models:
+  providers: [openai]
+  byok: partial
+  local: false
+  notes: OpenAI models through a ChatGPT plan or an API key. With an API key, features that depend on ChatGPT workspace access or cloud services are limited.
+features: [parallel-agents, worktrees, scheduled-tasks, browser-automation, mcp-client, plugins, hooks, subagents, sandboxing, diff-review, mobile-companion]
+wraps:
+  - tool: codex-cli
+    via: sdk
+    uses_subscription: true
+    notes: Codex in the app runs on the Codex app-server, the same engine as the CLI, with the same ChatGPT or API key sign-in.
+pricing:
+  same_as: codex-cli
+  bundled_with: chatgpt
+  notes: Chat, Work and Codex are available on every ChatGPT plan including Free. Codex usage draws from the plan's shared Codex allowance. Linux is a preview without Computer Use.
+status: active
+aliases:
+  - slug: codex-app
+    name: Codex app
+    until: 2026-07-09
+    note: On July 9, 2026 the standalone Codex app merged into the ChatGPT desktop app for macOS and Windows. Codex kept its own view inside the app.
+sources:
+  - url: https://learn.chatgpt.com/docs/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://learn.chatgpt.com/docs/app
+    verified_at: 2026-08-23
+    covers: [platforms, features, general]
+  - url: https://learn.chatgpt.com/docs/whats-new
+    verified_at: 2026-08-23
+    covers: [platforms, features, general]
+  - url: https://learn.chatgpt.com/docs/auth
+    verified_at: 2026-08-23
+    covers: [models, wraps]
+  - url: https://learn.chatgpt.com/docs/linux/linux-app
+    verified_at: 2026-08-23
+    covers: [platforms]

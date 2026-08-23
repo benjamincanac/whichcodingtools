@@ -1,0 +1,72 @@
+slug: emdash
+name: Emdash
+description: Open source desktop app from General Action that runs coding agents in parallel worktrees, schedules repeat work, previews apps in a built-in browser and reviews diffs.
+layer: orchestrator
+vendor: General Action
+homepage: https://emdash.com
+links:
+  docs: https://emdash.com/docs
+  changelog: https://emdash.com/changelog
+  repo: https://github.com/generalaction/emdash
+  discord: https://discord.com/invite/f2fv7YxuR2
+  x: https://x.com/emdashsh
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://emdash.com
+  - method: brew
+    command: brew install --cask emdash
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/generalaction/emdash
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Emdash detects installed provider CLIs.
+features: [parallel-agents, worktrees, diff-review, scheduled-tasks, remote-execution]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cursor CLI agent with your Cursor account.
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Every feature, bring your own agent subscriptions and keys
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      notes: Contact form only, no price published.
+  notes: The site links Cloud and Enterprise pages without prices. Amp, Copilot, Devin, Droid and Qwen Code also run but are not tracked here.
+status: preview
+sources:
+  - url: https://emdash.com/
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, features, general]
+  - url: https://emdash.com/enterprise
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://github.com/generalaction/emdash
+    verified_at: 2026-08-23
+    covers: [license, platforms, wraps, features]

@@ -1,0 +1,77 @@
+slug: goose
+name: goose
+description: Open source agent from Block under the Agentic AI Foundation. CLI and desktop app, MCP extensions, runs with your own keys or your Claude and ChatGPT subscriptions over ACP.
+layer: harness
+secondary_layers: [app]
+vendor: Block / Agentic AI Foundation
+homepage: https://goose-docs.ai
+links:
+  docs: https://goose-docs.ai/docs/getting-started/installation
+  changelog: https://github.com/aaif-goose/goose/releases
+  repo: https://github.com/aaif-goose/goose
+platforms: [macos, linux, windows]
+install:
+  - method: curl
+    command: curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash
+  - method: brew
+    command: brew install block-goose-cli
+  - method: brew
+    command: brew install --cask block-goose
+  - method: download
+    url: https://goose-docs.ai/docs/getting-started/installation
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/aaif-goose/goose
+models:
+  providers: [anthropic, openai, google, xai, mistral, openrouter]
+  plans: [chatgpt, copilot]
+  byok: full
+  local: true
+  notes: Also Azure, Amazon Bedrock, Groq, Ollama and OpenAI compatible endpoints. DeepSeek, Moonshot, Qwen, GLM and MiniMax go through OpenRouter and similar gateways. Claude plans are reached by running Claude Code over ACP rather than a direct login.
+features: [mcp-client, acp-agent, acp-client, subagents, parallel-agents, sandboxing, scheduled-tasks]
+wraps:
+  - tool: claude-code
+    via: acp
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the claude-agent-acp adapter against your installed Claude Code login. Session resume and fork are not supported through ACP yet.
+  - tool: codex-cli
+    via: acp
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the codex-acp adapter with a ChatGPT Plus or Pro login or an OpenAI key.
+  - tool: pi
+    via: acp
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the pi-acp adapter.
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Bring your own keys or subscriptions, there is no hosted plan
+  notes: goose is free. Amp is also available as an ACP provider but is not listed in this directory.
+status: active
+sources:
+  - url: https://github.com/aaif-goose/goose
+    verified_at: 2026-08-23
+    covers: [pricing, license, platforms, general]
+  - url: https://goose-docs.ai/docs/getting-started/providers
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://goose-docs.ai/docs/guides/acp-providers/
+    verified_at: 2026-08-23
+    covers: [wraps, features]
+  - url: https://goose-docs.ai/docs/guides/acp-clients
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://goose-docs.ai/docs/guides/recipes/session-recipes
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://goose-docs.ai
+    verified_at: 2026-08-23
+    covers: [features, general]
