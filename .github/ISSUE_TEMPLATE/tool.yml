@@ -1,0 +1,48 @@
+name: Add a tool
+description: Propose a tool for the directory. A pull request with the YAML file is faster, this form works too.
+title: "[Tool] "
+labels: [tool]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: input
+    id: homepage
+    attributes:
+      label: Homepage
+    validations:
+      required: true
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Layer
+      options:
+        - Terminal agent (harness)
+        - AI-native IDE (editor)
+        - Editor extension (extension)
+        - Desktop app (app)
+        - Orchestrator (orchestrator)
+        - Cloud agent (cloud)
+        - App builder (app-builder)
+    validations:
+      required: true
+  - type: input
+    id: pricing
+    attributes:
+      label: Pricing page URL
+    validations:
+      required: true
+  - type: textarea
+    id: yaml
+    attributes:
+      label: YAML
+      description: Optional. Paste a draft of the `content/tools/<slug>.yml` file following `shared/schema.ts`.
+      render: yaml
+  - type: textarea
+    id: wraps
+    attributes:
+      label: Runs or is run by
+      description: Which other tools does it wrap, and does it reuse their login?

@@ -1,0 +1,31 @@
+name: Outdated data
+description: A price, platform or integration on the site no longer matches the vendor page.
+title: "[Outdated] "
+labels: [outdated]
+body:
+  - type: input
+    id: tool
+    attributes:
+      label: Tool slug
+      placeholder: cursor
+    validations:
+      required: true
+  - type: input
+    id: field
+    attributes:
+      label: Field
+      placeholder: pricing.tiers.pro.price
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Vendor page that shows the current value
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What changed
+    validations:
+      required: true
