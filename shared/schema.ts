@@ -96,6 +96,8 @@ export const LicenseSchema = z.object({
 
 export const ModelsSchema = z.object({
   providers: z.array(z.enum(PROVIDER_VALUES)).optional(),
+  /** Consumer plans the tool can sign in with for model access (OAuth), without being part of that plan. */
+  plans: z.array(z.enum(PLAN_VALUES)).default([]),
   byok: z.enum(BYOK_VALUES).default('none'),
   local: z.boolean().default(false),
   notes: z.string().optional()

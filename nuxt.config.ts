@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   site: {
-    url: process.env.NUXT_SITE_URL || 'http://localhost:3000',
+    url: process.env.NUXT_SITE_URL || 'https://codingagents.vercel.app',
     name: 'codingagents',
     description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.'
   },
@@ -41,12 +41,11 @@ export default defineNuxtConfig({
     }
   },
 
-  ogImage: {
-    zeroRuntime: true,
-    fonts: ['Geist:400', 'Geist:500', 'Geist+Mono:500']
-  },
-
   linkChecker: {
     enabled: false
+  },
+
+  ogImage: {
+    zeroRuntime: true
   }
 })

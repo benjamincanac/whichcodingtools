@@ -79,7 +79,8 @@ export const PLANS = [
   { value: 'chatgpt', label: 'ChatGPT', description: 'ChatGPT Go, Plus, Pro or Business', icon: 'i-simple-icons-openai' },
   { value: 'copilot', label: 'GitHub Copilot', description: 'Copilot Pro, Pro+ or Business', icon: 'i-simple-icons-githubcopilot' },
   { value: 'cursor', label: 'Cursor', description: 'Cursor Pro, Pro+ or Ultra' },
-  { value: 'gemini', label: 'Google AI', description: 'Google AI Pro or Ultra', icon: 'i-simple-icons-googlegemini' }
+  { value: 'gemini', label: 'Google AI', description: 'Google AI Pro or Ultra', icon: 'i-simple-icons-googlegemini' },
+  { value: 'grok', label: 'SuperGrok', description: 'xAI SuperGrok plans', icon: 'i-simple-icons-x' }
 ] as const satisfies readonly EnumOption[]
 
 export const STATUSES = [
