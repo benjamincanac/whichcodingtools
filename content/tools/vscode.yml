@@ -1,0 +1,92 @@
+slug: vscode
+name: Visual Studio Code
+description: Microsoft's free editor. Agent mode, chat and inline suggestions come from GitHub Copilot, and Claude Code, Codex, Cline and other agents install as extensions.
+layer: editor
+vendor: Microsoft
+homepage: https://code.visualstudio.com
+links:
+  docs: https://code.visualstudio.com/docs
+  changelog: https://code.visualstudio.com/updates
+  repo: https://github.com/microsoft/vscode
+icon: i-simple-icons-visualstudiocode
+platforms: [macos, windows, linux, web]
+install:
+  - method: download
+    url: https://code.visualstudio.com/download
+  - method: brew
+    command: brew install --cask visual-studio-code
+  - method: winget
+    command: winget install Microsoft.VisualStudioCode
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/microsoft/vscode
+  notes: The microsoft/vscode repository (Code - OSS) is MIT. The Visual Studio Code build Microsoft ships adds its own customizations under a Microsoft product license, so the binaries people download are proprietary while the source is open.
+models:
+  providers: [openai, anthropic, google, xai, moonshot]
+  plans: [copilot, chatgpt]
+  byok: partial
+  local: true
+  notes: Hosted models come from the GitHub Copilot plan you sign in with. Built-in BYOK providers cover Azure, Anthropic, Gemini, OpenAI and custom endpoints, and the Ollama extension adds local models, with no GitHub account or Copilot plan needed. BYOK applies to chat and utility tasks only, inline suggestions and semantic search still need Copilot. The Agents window can also sign in to ChatGPT for the Codex harness.
+features: [mcp-client, hooks, subagents, parallel-agents, worktrees, sandboxing, browser-automation, checkpoints, diff-review, tab-completion, remote-execution, plugins]
+wraps:
+  - tool: github-copilot
+    via: extension
+    uses_subscription: true
+    min_tier: free
+    notes: The built-in agent, chat and inline suggestions are GitHub Copilot, installed as the Copilot Chat extension and billed by the Copilot plan on your GitHub account. Copilot Free is assigned when you sign in without a plan.
+  - tool: claude-code
+    via: extension
+    uses_subscription: true
+    min_tier: free
+    notes: The Claude Code extension signs in with a paid Claude plan or a Console account. The Agents window also offers a Claude harness when it finds an existing Claude configuration.
+  - tool: codex-cli
+    via: extension
+    uses_subscription: true
+    min_tier: free
+    notes: The Codex extension signs in with ChatGPT or an API key and shares its cached login with the Codex CLI.
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - The editor is free with no trial and no credit card
+        - Agent and chat usage is metered by the Copilot plan or the agent you sign in with
+  notes: VS Code has no price of its own. Cline, Kilo Code, Roo Code, Continue, Augment, Cody and most other extensions in this directory list vscode in their hosts.
+status: active
+sources:
+  - url: https://code.visualstudio.com/
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, general]
+  - url: https://code.visualstudio.com/docs/copilot/setup
+    verified_at: 2026-08-23
+    covers: [pricing, wraps]
+  - url: https://code.visualstudio.com/docs/copilot/overview
+    verified_at: 2026-08-23
+    covers: [wraps, features, models, general]
+  - url: https://code.visualstudio.com/docs/copilot/customization/language-models
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://code.visualstudio.com/docs/copilot/agents/overview
+    verified_at: 2026-08-23
+    covers: [features, wraps]
+  - url: https://code.visualstudio.com/docs/copilot/agents/agents-window
+    verified_at: 2026-08-23
+    covers: [wraps, models]
+  - url: https://code.visualstudio.com/docs/copilot/chat/copilot-chat
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://github.com/microsoft/vscode
+    verified_at: 2026-08-23
+    covers: [license, platforms]
+  - url: https://code.claude.com/docs/en/vs-code
+    verified_at: 2026-08-23
+    covers: [wraps]
+  - url: https://learn.chatgpt.com/docs/codex/ide
+    verified_at: 2026-08-23
+    covers: [wraps]
+  - url: https://learn.chatgpt.com/docs/auth
+    verified_at: 2026-08-23
+    covers: [wraps]

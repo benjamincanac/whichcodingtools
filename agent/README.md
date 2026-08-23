@@ -1,59 +1,51 @@
-# Self-maintenance agent (phase 2)
+# The maintenance agent
 
-This directory will hold an [eve](https://eve.dev) agent that keeps the data fresh, mounted with the `eve/nuxt` module so it deploys with the site. Schedules become Vercel Cron jobs, the repo checkout runs in a Vercel Sandbox, GitHub access goes through a GitHub App on Vercel Connect. The shape follows [evi](https://github.com/HugoRCD/evlog/tree/main/apps/evi), the evlog maintenance agent.
+An [eve](https://eve.dev) agent that keeps `content/tools` fresh. It deploys with the site through the `eve/nuxt` module: the schedule becomes a Vercel Cron job, the repo checkout runs in a Vercel Sandbox, the model goes through AI Gateway with the project's OIDC token.
 
 ## Rules that do not bend
 
-- The agent never edits `content/tools` on `main`. Every change is a draft pull request a person merges.
-- Every write reachable from an unattended run is reversible: draft PRs, issues, labels. Anything else parks on an approval card for the maintainer.
-- Facts come from the vendor page fetched in that run, never from the model's memory.
+- It never edits `content/tools` on `main`. Every change is a draft pull request a person merges.
+- The only writes it can reach are draft PRs, issues and branches named `agent/*`. There is no tool for anything else.
+- Every number it writes comes from a vendor page it fetched in that run, never from memory.
 
 ## Layout
 
-Files under `agent/` are wiring, logic lives in `agent/lib/` with a colocated test, procedures are `agent/skills/*/SKILL.md`, cadence is `agent/schedules/*.ts`.
+Files under `agent/` are wiring, logic lives in `agent/lib/`, procedures are skills the model loads on demand.
 
 ```
 agent/
-  agent.ts                 model, reasoning, limits
-  instructions.md          identity, voice, the rule that never bends
-  sandbox.ts               clones the repo, pnpm install, primes pnpm validate
-  extensions/github.ts     @github-tools/eve-extension with per-tool approval policies
-  extensions/browser.ts    @agent-browser/eve bounded to the domains in content/tools sources
-  channels/github.ts       first responder on "Add a tool" issues
-  schedules/
-    pricing-watch.ts       daily
-    rename-watch.ts        weekly
-    stale-sweep.ts         weekly
-  skills/
-    pricing-watch/SKILL.md
-    rename-watch/SKILL.md
-    stale-sweep/SKILL.md
-    contributing/SKILL.md  mirrors CONTRIBUTING.md so the agent follows the same rules as people
-  lib/
+  agent.ts                          model (anthropic/claude-sonnet-5 via AI Gateway), reasoning, token caps
+  instructions.md                   identity and the rules above
+  channels/eve.ts                   HTTP surface, Vercel OIDC or localhost auth
+  schedules/pricing-watch.ts        daily 06:15 UTC, task mode (no chat channel needed)
+  skills/pricing-watch/SKILL.md     the sweep procedure
+  skills/contributing/SKILL.md      the data and PR rules, mirrors CONTRIBUTING.md
+  tools/github__find_open.ts        search open issues and PRs (dedupe)
+  tools/github__create_draft_pull_request.ts
+  tools/github__create_issue.ts
+  lib/github.ts                     REST helpers, token from NUXT_GITHUB_TOKEN
+  sandbox/sandbox.ts                clones the repo, pnpm install, brokered git credentials
+  sandbox/workspace/bin/page-text.mjs  fetches a vendor page as plain text
 ```
 
-## Schedules
+## What the daily sweep does
 
-### pricing-watch (daily, markdown task mode)
+For every tool that is not sunset: fetch the pricing source, compare with `content/snapshots/<slug>/pricing.txt` and with the YAML, and
+- on a material change (price, tier, included amount, overage rule) open a draft PR that updates the YAML and the snapshot, with the before and after in the body,
+- on no change or a cosmetic change, do nothing (no `verified_at` bumps without a visible diff),
+- on a page that cannot be read, open one issue for that tool, once.
 
-For every tool, fetch the `sources` entry covering `pricing` with the browser extension, extract the pricing text, diff it against `content/snapshots/<slug>/pricing.txt`.
+The sweep touches pricing fields only. Descriptions, features, wraps and licenses stay human-edited.
 
-- Material change (a number, a tier, an included amount): branch, update the snapshot, edit the YAML, bump `verified_at` on that source line, run `pnpm validate`, open a draft PR with the before and after in the body.
-- Cosmetic change: update the snapshot only, no PR.
-- No change: bump nothing. A verified_at date means a person or the agent compared the page, and an unchanged snapshot is that comparison, so the agent may bump `verified_at` on an unchanged page once a week at most.
+## Running it
 
-### rename-watch (weekly)
+- Production: the cron fires daily. To run it now, Vercel project → Settings → Cron Jobs → run `pricing-watch`.
+- Locally: `npx eve dev`, then send "Load the pricing-watch skill and check only cursor". Needs `NUXT_GITHUB_TOKEN` and AI Gateway credentials (`vercel env pull` provides the OIDC token after `vercel link`).
 
-Follow `homepage` and every `links.*` URL. A redirect to a new domain, a new product name in the title, or a 410 opens an issue with the evidence. Never edits `aliases` itself, a rename is a human decision.
+## Environment
 
-### stale-sweep (weekly)
+`NUXT_GITHUB_TOKEN` needs `contents: write` and `pull_requests: write` (and `issues: write`) on the repository for the agent, which is more than the site's read-only use. One token can serve both.
 
-Every tool whose pricing source is older than 60 days gets re-verified through the pricing-watch procedure. Anything that cannot be verified (a page that needs a login, a vendor that blocks fetches) gets an issue listing what was tried.
+## Not built yet
 
-## First responder
-
-On a new issue from the "Add a tool" form, parse the YAML block, validate it against `shared/schema.ts` in the sandbox, reply with the validation table, and when valid open a draft PR that adds the file. Labels and one comment are the only writes an unattended turn may reach.
-
-## Not in scope
-
-No LLM-written descriptions, no auto-merge, no edits to `shared/schema.ts`, no touching anything outside `content/`.
+A GitHub channel (first responder on "Add a tool" issues), rename-watch, stale-sweep, and a browser for client-rendered pricing pages (the sweep files an issue for those instead).

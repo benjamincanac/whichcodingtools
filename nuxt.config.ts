@@ -3,7 +3,9 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@comark/nuxt',
-    '@nuxtjs/seo'
+    '@nuxtjs/seo',
+    // The maintenance agent in agent/, deployed with the site (Vercel Cron, Sandbox, Workflow).
+    'eve/nuxt'
   ],
 
   devtools: {
