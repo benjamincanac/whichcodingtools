@@ -12,7 +12,9 @@ The data lives in git, one YAML file per tool in [`content/tools`](content/tools
 
 ## Stack
 
-[Nuxt 4](https://nuxt.com) and [Nuxt UI](https://ui.nuxt.com), [comark-content](https://content.comark.dev) for the YAML corpus with build-time schema validation, [Nuxt SEO](https://nuxtseo.com) for sitemap, robots, JSON-LD and per-tool OG images. Fully static, deployed on Vercel.
+[Nuxt 4](https://nuxt.com) and [Nuxt UI](https://ui.nuxt.com), [comark-content](https://content.comark.dev) for the YAML corpus with schema validation, [Nuxt SEO](https://nuxtseo.com) for sitemap, robots, JSON-LD and per-tool OG images. Deployed on Vercel with ISR: in production the content is read from GitHub at request time, pinned to the latest commit that touched `content/tools`, so a merged data PR goes live through the push webhook without a redeploy. Builds are skipped for content-only commits (`vercel.json`).
+
+Environment variables are listed in [`.env.example`](.env.example). The GitHub webhook points at `/api/revalidate` with push events and the same secret.
 
 ## Develop
 
@@ -21,7 +23,7 @@ pnpm install
 pnpm dev
 ```
 
-`pnpm validate` checks every file in `content/tools` against [`shared/schema.ts`](shared/schema.ts) plus the cross-file rules (aliases, `wraps` targets, `same_as`, SPDX expressions). `pnpm generate` builds the static site and fails on invalid data too.
+`pnpm validate` checks every file in `content/tools` against [`shared/schema.ts`](shared/schema.ts) plus the cross-file rules (aliases, `wraps` targets, `same_as`, SPDX expressions). In development the same schema is enforced by comark-content and a bad file throws.
 
 ## API
 
@@ -29,7 +31,7 @@ pnpm dev
 - `/api/tools/<slug>.json` one tool
 - `/api/content/list` and `/api/content/get/<slug>` the raw documents served by comark-content
 
-Both JSON routes are prerendered, so they are plain files on the CDN.
+Both JSON routes are cached with ISR and purged when content changes.
 
 ## Contribute
 

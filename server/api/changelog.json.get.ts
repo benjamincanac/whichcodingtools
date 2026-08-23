@@ -1,4 +1,4 @@
-export default defineEventHandler(() => ({
+export default defineEventHandler(async () => ({
   generated_at: new Date().toISOString(),
-  entries: readChangelog()
+  entries: await readChangelog()
 }))

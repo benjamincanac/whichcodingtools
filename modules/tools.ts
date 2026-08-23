@@ -16,7 +16,7 @@ function iconifyName(icon: string) {
 /**
  * Reads content/tools at build time to:
  * - register a 301 for every alias slug (renamed tools keep their old URLs)
- * - list the detail pages and JSON API files for prerendering
+ * - mark every page as ISR in production
  * - bundle every icon the data and the enums reference, so the static site needs no icon API
  */
 export default defineNuxtModule({
@@ -34,25 +34,16 @@ export default defineNuxtModule({
       }
     }
 
-    nuxt.hook('prerender:routes', ({ routes }) => {
-      routes.add('/api/tools.json')
-      routes.add('/api/changelog.json')
-      routes.add('/llms.txt')
-      routes.add('/changelog')
-      routes.add('/compare')
-      for (const layer of LAYERS) routes.add(`/layers/${layer.value}`)
-      for (const plan of PLANS) routes.add(`/plans/${plan.value}`)
-      for (const tool of tools) {
-        routes.add(`/tools/${tool.slug}`)
-        routes.add(`/api/tools/${tool.slug}.json`)
+    // Production renders on demand with ISR: pages expire hourly so freshness badges keep aging,
+    // and /api/revalidate purges them early when content is pushed.
+    if (!nuxt.options.dev) {
+      const isr = 60 * 60
+      for (const route of ['/', '/compare', '/compare/**', '/plans/**', '/layers/**', '/changelog', '/llms.txt', '/api/**']) {
+        routeRules[route] = { ...routeRules[route], isr }
       }
-      // One comparison page per pair of tools in the same primary layer.
-      for (const a of tools) {
-        for (const b of tools) {
-          if (a.slug < b.slug && a.layer === b.layer) routes.add(`/compare/${a.slug}-vs-${b.slug}`)
-        }
-      }
-    })
+      routeRules['/tools/**'] = { isr }
+      routeRules['/api/revalidate'] = { isr: false }
+    }
 
     nuxt.hook('icon:clientBundleIcons', (icons) => {
       const enums = [BYOK, FEATURES, HOSTS, LAYERS, LICENSE_KINDS, PLANS, PLATFORMS, PROVIDERS, STATUSES, WRAP_VIA]

@@ -18,21 +18,26 @@ export default defineNuxtConfig({
     description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.'
   },
 
-  routeRules: {
-    '/': { prerender: true },
-    '/tools/**': { prerender: true },
-    '/compare/**': { prerender: true },
-    '/plans/**': { prerender: true },
-    '/layers/**': { prerender: true },
-    '/changelog': { prerender: true },
-    '/api/**': { prerender: true }
+  runtimeConfig: {
+    // NUXT_GITHUB_TOKEN, NUXT_WEBHOOK_SECRET, NUXT_BYPASS_TOKEN (or the unprefixed env vars)
+    githubToken: '',
+    webhookSecret: '',
+    bypassToken: '',
+    github: {
+      repo: 'benjamincanac/whichcodingtools',
+      branch: 'main',
+      contentDir: 'content/tools'
+    }
   },
 
   compatibilityDate: '2026-06-30',
 
   nitro: {
-    prerender: {
-      crawlLinks: true
+    vercel: {
+      config: {
+        // Lets /api/revalidate purge ISR pages with `x-prerender-revalidate`.
+        bypassToken: process.env.VERCEL_BYPASS_TOKEN
+      }
     }
   },
 
@@ -56,10 +61,7 @@ export default defineNuxtConfig({
   },
 
   ogImage: {
-    zeroRuntime: true,
-    security: {
-      // A few hundred images render during prerender, the default 15s is too tight under load.
-      renderTimeout: 120_000
-    }
+    // Pages render on demand (ISR), so do their images.
+    zeroRuntime: false
   }
 })

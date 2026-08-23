@@ -1,2 +1,2 @@
 // Raw comark-content surface: /api/content/list, /api/content/get/<path>...
-export default defineEventHandler(event => content.handler(toWebRequest(event)))
+export default defineEventHandler(async event => (await getContent()).handler(toWebRequest(event)))
