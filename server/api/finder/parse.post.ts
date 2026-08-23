@@ -57,7 +57,7 @@ export default defineEventHandler(async (event) => {
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error)
     console.error('[finder] parse failed', message)
-    if (/unauthenticated|api key|credentials|oidc/i.test(message)) {
+    if (/unauthenticated|api key|credentials|oidc|free tier|credits/i.test(message)) {
       throw createError({ statusCode: 503, statusMessage: 'Natural language search is not configured' })
     }
     throw createError({ statusCode: 502, statusMessage: 'The model could not parse that' })
