@@ -46,7 +46,7 @@ function fromQuery(query: LocationQuery): Requirements {
   }
 }
 
-function toQuery(req: Requirements, sort: SortKey): LocationQueryRaw {
+export function toQuery(req: Requirements, sort: SortKey = 'match'): LocationQueryRaw {
   const query: LocationQueryRaw = {}
   if (req.q) query.q = req.q
   for (const key of Object.keys(LIST_KEYS) as (keyof typeof LIST_KEYS)[]) {

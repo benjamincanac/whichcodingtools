@@ -1,0 +1,178 @@
+<script setup lang="ts">
+import { LAYERS } from '#shared/enums'
+import type { ToolMatch } from '~/composables/useToolFinder'
+
+const route = useRoute()
+const router = useRouter()
+const { public: { finderAi } } = useRuntimeConfig()
+const { tools, requirements, sort, update, reset, count, exact, close, hidden, matches } = useToolFinder()
+
+/** Set by the landing page after the natural-language parse, shown once. */
+const why = computed(() => typeof route.query.why === 'string' ? route.query.why : '')
+
+useSeoMeta({
+  title: 'Every AI coding tool, filtered by how you work',
+  description: 'Editors, terminal agents, orchestrators and cloud agents. Filter by platform, the plan you already pay for, models, budget and features. Pricing verified against vendor pages.'
+})
+
+defineOgImageComponent('ToolSatori', {
+  headline: 'Tools',
+  title: 'Every AI coding tool, filtered by how you work',
+  description: 'Editors, terminal agents, orchestrators and cloud agents with verified pricing and the graph of what runs what.'
+})
+
+const search = computed({
+  get: () => requirements.value.q,
+  set: (q: string) => update('q', q)
+})
+
+const searchInput = useTemplateRef('searchInput')
+defineShortcuts({
+  '/': () => searchInput.value?.inputRef?.focus()
+})
+
+const sortItems = [
+  { label: 'Best match', value: 'match' },
+  { label: 'Name', value: 'name' },
+  { label: 'Recently verified', value: 'verified' },
+  { label: 'Entry price', value: 'price' }
+]
+
+const open = ref(false)
+
+const summary = computed(() => {
+  if (count.value) {
+    const parts = [`${exact.value.length} of ${tools.value.length} tools match everything`]
+    if (close.value.length) parts.push(`${close.value.length} come close`)
+    if (hidden.value) parts.push(`${hidden.value} hidden`)
+    return `${parts.join(', ')}.`
+  }
+  const q = requirements.value.q ? ` matching "${requirements.value.q}"` : ''
+  return `${matches.value.length} tools${q}. Pick what you need on the left to rank them.`
+})
+
+/** Nothing selected: everything, grouped by layer. */
+const byLayer = computed(() => {
+  if (count.value || requirements.value.q) return []
+  return LAYERS
+    .map(layer => ({ layer, items: matches.value.filter(m => m.tool.layer === layer.value) }))
+    .filter(g => g.items.length)
+})
+
+const grouped = computed<{ key: string, title?: string, description?: string, items: ToolMatch[] }[]>(() => {
+  if (byLayer.value.length) {
+    return byLayer.value.map(g => ({ key: g.layer.value, title: g.layer.label, description: g.layer.description, items: g.items }))
+  }
+  if (!count.value) return [{ key: 'all', items: matches.value }]
+  return [
+    { key: 'exact', title: 'Matches everything', items: exact.value },
+    { key: 'close', title: 'Close matches', description: 'One or two requirements short. Each card says which.', items: close.value }
+  ]
+})
+</script>
+
+<template>
+  <UContainer>
+    <UPage :ui="{ root: 'lg:grid-cols-12 gap-8', left: 'lg:col-span-3', center: 'lg:col-span-9' }">
+      <template #left>
+        <UPageAside :ui="{ root: 'pt-0 lg:pt-6 lg:pb-6' }">
+          <ToolFinder
+            :requirements="requirements"
+            :count="count"
+            @update="update"
+            @reset="reset"
+          />
+        </UPageAside>
+      </template>
+
+      <div class="flex flex-col gap-6 py-4 lg:py-6">
+        <UAlert
+          v-if="why"
+          color="neutral"
+          variant="soft"
+          icon="i-lucide-sparkles"
+          :title="why"
+          description="The filters on the left reflect that. Adjust them if something is off."
+          :ui="{ title: 'font-medium', description: 'text-toned' }"
+          close
+          @update:open="router.replace({ query: { ...route.query, why: undefined } })"
+        />
+
+        <ToolFinderAsk
+          v-if="finderAi && !why"
+          @apply="requirements = $event"
+        />
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+          <UInput
+            ref="searchInput"
+            v-model="search"
+            icon="i-lucide-search"
+            placeholder="Search by name, vendor or description"
+            class="flex-1"
+            :ui="{ trailing: 'pe-1' }"
+          >
+            <template #trailing>
+              <UKbd value="/" />
+            </template>
+          </UInput>
+          <div class="flex items-center gap-2">
+            <UButton
+              :label="count ? `Requirements (${count})` : 'Requirements'"
+              icon="i-lucide-sliders-horizontal"
+              color="neutral"
+              variant="outline"
+              class="lg:hidden"
+              @click="open = true"
+            />
+            <USelectMenu
+              v-model="sort"
+              :items="sortItems"
+              value-key="value"
+              :search-input="false"
+              icon="i-lucide-arrow-up-down"
+              class="w-44"
+            />
+          </div>
+        </div>
+
+        <p class="text-sm text-muted">
+          {{ summary }}
+        </p>
+
+        <template v-if="matches.length && (exact.length || close.length || !count)">
+          <ToolMatchList
+            v-for="group in grouped"
+            :key="group.key"
+            :title="group.title"
+            :description="group.description"
+            :items="group.items"
+          />
+        </template>
+
+        <UEmpty
+          v-else
+          icon="i-lucide-search-x"
+          title="Nothing comes close"
+          :description="count ? `No tool satisfies ${count > 2 ? 'most of' : ''} what you picked${hidden ? `, ${hidden} miss three requirements or more` : ''}. Drop one and try again.` : 'No tool matches that search.'"
+          :actions="[{ label: 'Reset requirements', color: 'neutral', variant: 'outline', onClick: reset }]"
+        />
+      </div>
+    </UPage>
+
+    <USlideover
+      v-model:open="open"
+      title="What you need"
+      side="left"
+    >
+      <template #body>
+        <ToolFinder
+          :requirements="requirements"
+          :count="count"
+          @update="update"
+          @reset="reset"
+        />
+      </template>
+    </USlideover>
+  </UContainer>
+</template>

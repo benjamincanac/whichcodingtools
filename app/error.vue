@@ -13,7 +13,7 @@ defineProps<{ error: NuxtError }>()
         <UEmpty
           :title="String(error.statusCode)"
           :description="error.statusMessage || error.message"
-          :actions="[{ label: 'Back to the finder', to: '/', color: 'neutral' }]"
+          :actions="[{ label: 'Back to the tools', to: '/tools', color: 'neutral' }]"
         />
       </UContainer>
     </UMain>

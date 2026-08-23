@@ -4,7 +4,7 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 const { site } = useAppConfig()
 
 const items = computed<NavigationMenuItem[]>(() => [
-  { label: 'Finder', to: '/' },
+  { label: 'Tools', to: '/tools' },
   { label: 'Compare', to: '/compare' },
   { label: 'Changelog', to: '/changelog' },
   { label: 'API', to: '/api/tools.json', target: '_blank' },

@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { LAYERS } from '#shared/enums'
-import type { ToolMatch } from '~/composables/useToolFinder'
+import type { ParsedRequirements } from '#shared/finder'
+import { toRequirements } from '#shared/finder'
+import { toQuery } from '~/composables/useToolFinder'
 
 const { site } = useAppConfig()
 const { public: { finderAi } } = useRuntimeConfig()
-const { tools, requirements, sort, update, reset, count, exact, close, hidden, matches } = useToolFinder()
+const { tools, ready } = useTools()
+await ready
 
 useSeoMeta({
   title: 'Find the AI coding tool that fits how you work',
@@ -12,157 +14,141 @@ useSeoMeta({
 })
 
 defineOgImageComponent('ToolSatori', {
-  headline: 'Finder',
+  headline: 'AI coding tools',
   title: 'Find the AI coding tool that fits how you work',
   description: 'Editors, terminal agents, orchestrators and cloud agents with verified pricing and the graph of what runs what.'
 })
 
-const search = computed({
-  get: () => requirements.value.q,
-  set: (q: string) => update('q', q)
-})
+const query = ref('')
+const loading = ref(false)
+const error = ref('')
 
-const searchInput = useTemplateRef('searchInput')
-defineShortcuts({
-  '/': () => searchInput.value?.inputRef?.focus()
-})
-
-const sortItems = [
-  { label: 'Best match', value: 'match' },
-  { label: 'Name', value: 'name' },
-  { label: 'Recently verified', value: 'verified' },
-  { label: 'Entry price', value: 'price' }
+const examples = [
+  'Terminal agent on Linux, I already pay for Claude Max',
+  'Inside VS Code with local models',
+  'Parallel agents with worktrees, free and open source',
+  'Goes through Vercel AI Gateway',
+  'Cloud agent I can trigger from a ticket'
 ]
 
-const open = ref(false)
-
-const summary = computed(() => {
-  if (count.value) {
-    const parts = [`${exact.value.length} of ${tools.value.length} tools match everything`]
-    if (close.value.length) parts.push(`${close.value.length} come close`)
-    if (hidden.value) parts.push(`${hidden.value} hidden`)
-    return `${parts.join(', ')}.`
+async function go() {
+  const text = query.value.trim()
+  if (text.length < 3 || loading.value) return
+  if (!finderAi) {
+    return navigateTo({ path: '/tools', query: { q: text } })
   }
-  const q = requirements.value.q ? ` matching "${requirements.value.q}"` : ''
-  return `${matches.value.length} tools${q}. Pick what you need on the left to rank them.`
-})
-
-/** Nothing selected: everything, grouped by layer. */
-const byLayer = computed(() => {
-  if (count.value || requirements.value.q) return []
-  return LAYERS
-    .map(layer => ({ layer, items: matches.value.filter(m => m.tool.layer === layer.value) }))
-    .filter(g => g.items.length)
-})
-
-const grouped = computed<{ key: string, title?: string, description?: string, items: ToolMatch[] }[]>(() => {
-  if (byLayer.value.length) {
-    return byLayer.value.map(g => ({ key: g.layer.value, title: g.layer.label, description: g.layer.description, items: g.items }))
+  loading.value = true
+  error.value = ''
+  try {
+    const { parsed } = await $fetch<{ parsed: ParsedRequirements }>('/api/finder/parse', { method: 'POST', body: { query: text } })
+    await navigateTo({ path: '/tools', query: { ...toQuery(toRequirements(parsed)), why: parsed.summary } })
+  } catch {
+    // The model is unavailable: fall back to a plain text search so the input still does something.
+    await navigateTo({ path: '/tools', query: { q: text } })
+  } finally {
+    loading.value = false
   }
-  if (!count.value) return [{ key: 'all', items: matches.value }]
-  return [
-    { key: 'exact', title: 'Matches everything', items: exact.value },
-    { key: 'close', title: 'Close matches', description: 'One or two requirements short. Each card says which.', items: close.value }
-  ]
+}
+
+function useExample(text: string) {
+  query.value = text
+  go()
+}
+
+const input = useTemplateRef('input')
+defineShortcuts({
+  '/': () => input.value?.inputRef?.focus()
 })
 </script>
 
 <template>
-  <UContainer>
-    <UPageHeader
-      title="Find the AI coding tool that fits how you work"
-      description="Every editor, terminal agent, orchestrator and cloud agent, with pricing verified against vendor pages and the graph of what runs what. No affiliate links, no sponsored placement. The data is open, edit it on GitHub."
-      :ui="{ root: 'py-8 lg:py-12', title: 'max-w-3xl', description: 'max-w-2xl' }"
-    />
+  <UContainer class="flex flex-col items-center text-center gap-8 py-20 sm:py-28 lg:py-36">
+    <div class="flex flex-col items-center gap-4">
+      <span class="flex size-12 items-center justify-center rounded-xl bg-inverted text-inverted font-mono text-lg">&gt;_</span>
+      <h1 class="text-4xl sm:text-5xl font-medium tracking-tighter text-highlighted">
+        {{ site.name }}
+      </h1>
+      <p class="text-base sm:text-lg text-toned max-w-xl">
+        Tell it how you work. It finds the AI coding tool that fits, with pricing checked against the vendor page.
+      </p>
+    </div>
 
-    <UPage :ui="{ root: 'lg:grid-cols-12 gap-8', left: 'lg:col-span-3', center: 'lg:col-span-9' }">
-      <template #left>
-        <UPageAside :ui="{ root: 'pt-0 lg:pt-8' }">
-          <ToolFinder
-            :requirements="requirements"
-            :count="count"
-            @update="update"
-            @reset="reset"
-          />
-        </UPageAside>
-      </template>
-
-      <div class="flex flex-col gap-8 py-4 lg:py-8">
-        <ToolFinderAsk
-          v-if="finderAi"
-          @apply="requirements = $event"
-        />
-
-        <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
-          <UInput
-            ref="searchInput"
-            v-model="search"
-            icon="i-lucide-search"
-            placeholder="Search by name, vendor or description"
-            class="flex-1"
-            :ui="{ trailing: 'pe-1' }"
-          >
-            <template #trailing>
-              <UKbd value="/" />
-            </template>
-          </UInput>
-          <div class="flex items-center gap-2">
-            <UButton
-              :label="count ? `Requirements (${count})` : 'Requirements'"
-              icon="i-lucide-sliders-horizontal"
-              color="neutral"
-              variant="outline"
-              class="lg:hidden"
-              @click="open = true"
-            />
-            <USelectMenu
-              v-model="sort"
-              :items="sortItems"
-              value-key="value"
-              :search-input="false"
-              icon="i-lucide-arrow-up-down"
-              class="w-44"
-            />
-          </div>
-        </div>
-
-        <p class="text-sm text-muted">
-          {{ summary }}
-        </p>
-
-        <template v-if="matches.length && (exact.length || close.length || !count)">
-          <ToolMatchList
-            v-for="group in grouped"
-            :key="group.key"
-            :title="group.title"
-            :description="group.description"
-            :items="group.items"
+    <form
+      class="w-full max-w-2xl flex flex-col gap-3"
+      @submit.prevent="go"
+    >
+      <UInput
+        ref="input"
+        v-model="query"
+        :icon="finderAi ? 'i-lucide-sparkles' : 'i-lucide-search'"
+        :placeholder="finderAi ? 'terminal agent on Linux, I already pay for Claude Max' : 'Search tools by name'"
+        size="xl"
+        class="w-full"
+        :ui="{ base: 'font-mono text-sm sm:text-base', trailing: 'pe-1.5' }"
+        :loading="loading"
+        :disabled="loading"
+        maxlength="300"
+        autofocus
+      >
+        <template #trailing>
+          <UButton
+            type="submit"
+            :label="finderAi ? 'Find' : 'Search'"
+            color="neutral"
+            size="sm"
+            :loading="loading"
+            :disabled="query.trim().length < 3"
           />
         </template>
+      </UInput>
+      <p
+        v-if="error"
+        class="text-sm text-error"
+      >
+        {{ error }}
+      </p>
+    </form>
 
-        <UEmpty
-          v-else
-          icon="i-lucide-search-x"
-          title="Nothing comes close"
-          :description="count ? `No tool satisfies ${count > 2 ? 'most of' : ''} what you picked${hidden ? `, ${hidden} miss three requirements or more` : ''}. Drop one and try again.` : 'No tool matches that search.'"
-          :actions="[{ label: 'Reset requirements', color: 'neutral', variant: 'outline', onClick: reset }]"
-        />
-      </div>
-    </UPage>
-
-    <USlideover
-      v-model:open="open"
-      title="What you need"
-      side="left"
+    <div
+      v-if="finderAi"
+      class="flex flex-wrap justify-center gap-1.5 max-w-2xl"
     >
-      <template #body>
-        <ToolFinder
-          :requirements="requirements"
-          :count="count"
-          @update="update"
-          @reset="reset"
-        />
-      </template>
-    </USlideover>
+      <UButton
+        v-for="example in examples"
+        :key="example"
+        :label="example"
+        color="neutral"
+        variant="soft"
+        size="xs"
+        class="rounded-full font-normal"
+        @click="useExample(example)"
+      />
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted">
+      <ULink
+        to="/tools"
+        class="text-highlighted underline underline-offset-4"
+      >
+        Browse all {{ tools.length }} tools
+      </ULink>
+      <span>·</span>
+      <ULink
+        to="/compare"
+        class="hover:text-highlighted"
+      >
+        Compare
+      </ULink>
+      <span>·</span>
+      <ULink
+        to="/api/tools.json"
+        target="_blank"
+        class="hover:text-highlighted"
+      >
+        JSON API
+      </ULink>
+      <span>·</span>
+      <span>No affiliate links. Data is open, in git.</span>
+    </div>
   </UContainer>
 </template>

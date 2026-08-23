@@ -33,7 +33,7 @@ defineOgImageComponent('ToolSatori', {
       :ui="{ root: 'py-8 lg:py-12', description: 'max-w-3xl' }"
       :links="[
         { label: 'Compare all', to: `/compare?tools=${primary.slice(0, 4).map(t => t.slug).join(',')}`, icon: 'i-lucide-columns-3', color: 'neutral', variant: 'outline' },
-        { label: 'Open in the finder', to: `/?where=${layer.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'ghost' }
+        { label: 'Open in the finder', to: `/tools?where=${layer.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'ghost' }
       ]"
     />
     <div class="flex flex-col gap-10 pb-16">

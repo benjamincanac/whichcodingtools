@@ -107,8 +107,8 @@ useSchemaOrg([
       <div class="flex flex-col gap-10 py-8 lg:py-12">
         <header class="flex flex-col gap-6">
           <UButton
-            to="/"
-            label="Finder"
+            to="/tools"
+            label="All tools"
             icon="i-lucide-arrow-left"
             color="neutral"
             variant="link"

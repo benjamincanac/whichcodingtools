@@ -42,7 +42,7 @@ defineOgImageComponent('ToolSatori', {
       :title="`What you can use with a ${plan.label} subscription`"
       :description="PLAN_INTROS[plan.value as Plan]"
       :ui="{ root: 'py-8 lg:py-12', description: 'max-w-3xl' }"
-      :links="[{ label: 'Open in the finder', to: `/?plans=${plan.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'outline' }]"
+      :links="[{ label: 'Open in the finder', to: `/tools?plans=${plan.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'outline' }]"
     />
     <div class="flex flex-col gap-10 pb-16">
       <section

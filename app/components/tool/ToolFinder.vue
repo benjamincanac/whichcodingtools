@@ -30,68 +30,86 @@ const budget = computed({
   set: (v: string) => set('budget', v === 'any' ? null : Number(v))
 })
 
-const groupUi = { fieldset: 'gap-1', item: 'py-0.5', label: 'font-normal text-sm', description: 'text-xs' }
+/** Compact lists: labels only, descriptions go to the title attribute. */
+const layers = LAYERS.map(l => ({ label: l.label, value: l.value, description: undefined, title: l.description }))
+const platforms = PLATFORMS.map(p => ({ label: p.label, value: p.value }))
+const groupUi = { fieldset: 'gap-0', item: 'py-0.5', label: 'font-normal text-sm' }
 </script>
 
 <template>
-  <div class="flex flex-col gap-6">
-    <div class="flex items-center justify-between">
-      <p class="text-sm font-medium text-highlighted">
-        What you need
+  <div class="flex flex-col gap-5">
+    <div class="flex items-center justify-between h-5">
+      <p class="text-xs font-medium uppercase tracking-wider text-muted">
+        Filters
       </p>
       <UButton
         v-if="count"
-        label="Reset"
+        :label="`Reset (${count})`"
         color="neutral"
         variant="link"
         size="xs"
-        trailing-icon="i-lucide-x"
+        class="p-0"
         @click="emit('reset')"
       />
     </div>
 
-    <UCheckboxGroup
-      legend="Where you work"
-      :items="[...LAYERS]"
-      :model-value="requirements.where"
-      size="sm"
-      :ui="groupUi"
-      @update:model-value="set('where', $event as Requirements['where'])"
-    />
+    <section class="flex flex-col gap-1.5">
+      <p class="text-sm font-medium text-highlighted">
+        Where you work
+      </p>
+      <UCheckboxGroup
+        :items="layers"
+        :model-value="requirements.where"
+        size="sm"
+        :ui="groupUi"
+        @update:model-value="set('where', $event as Requirements['where'])"
+      />
+      <USelectMenu
+        v-if="showHosts"
+        :items="[...HOSTS]"
+        :model-value="requirements.hosts"
+        value-key="value"
+        multiple
+        placeholder="Which editor?"
+        icon="i-lucide-puzzle"
+        size="sm"
+        class="w-full mt-1"
+        @update:model-value="set('hosts', $event as Requirements['hosts'])"
+      />
+    </section>
 
-    <USelectMenu
-      v-if="showHosts"
-      :items="[...HOSTS]"
-      :model-value="requirements.hosts"
-      value-key="value"
-      multiple
-      placeholder="Which editor?"
-      icon="i-lucide-puzzle"
-      size="sm"
-      class="w-full"
-      @update:model-value="set('hosts', $event as Requirements['hosts'])"
-    />
+    <section class="flex flex-col gap-1.5">
+      <p class="text-sm font-medium text-highlighted">
+        Platform
+      </p>
+      <UCheckboxGroup
+        :items="platforms"
+        :model-value="requirements.platforms"
+        size="sm"
+        :ui="{ ...groupUi, fieldset: 'grid grid-cols-2 gap-x-2' }"
+        @update:model-value="set('platforms', $event as Requirements['platforms'])"
+      />
+    </section>
 
-    <UCheckboxGroup
-      legend="Platform"
-      :items="[...PLATFORMS]"
-      :model-value="requirements.platforms"
-      size="sm"
-      orientation="horizontal"
-      :ui="{ ...groupUi, fieldset: 'flex-wrap gap-x-4 gap-y-1' }"
-      @update:model-value="set('platforms', $event as Requirements['platforms'])"
-    />
+    <section class="flex flex-col gap-1.5">
+      <p class="text-sm font-medium text-highlighted">
+        I already pay for
+      </p>
+      <USelectMenu
+        :items="[...PLANS]"
+        :model-value="requirements.plans"
+        value-key="value"
+        multiple
+        placeholder="Claude, ChatGPT, Copilot..."
+        icon="i-lucide-wallet"
+        :search-input="false"
+        size="sm"
+        class="w-full"
+        @update:model-value="set('plans', $event as Requirements['plans'])"
+      />
+    </section>
 
-    <UCheckboxGroup
-      legend="I already pay for"
-      :items="[...PLANS]"
-      :model-value="requirements.plans"
-      size="sm"
-      :ui="groupUi"
-      @update:model-value="set('plans', $event as Requirements['plans'])"
-    />
-
-    <div class="flex flex-col gap-2">
+    <section class="flex flex-col gap-1.5">
       <p class="text-sm font-medium text-highlighted">
         Models
       </p>
@@ -106,21 +124,23 @@ const groupUi = { fieldset: 'gap-1', item: 'py-0.5', label: 'font-normal text-sm
         class="w-full"
         @update:model-value="set('providers', $event as Requirements['providers'])"
       />
-      <USwitch
-        label="Local models"
-        size="sm"
-        :model-value="requirements.local"
-        @update:model-value="set('local', $event)"
-      />
-      <USwitch
-        label="Bring my own key"
-        size="sm"
-        :model-value="requirements.byok"
-        @update:model-value="set('byok', $event)"
-      />
-    </div>
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <USwitch
+          label="Local models"
+          size="xs"
+          :model-value="requirements.local"
+          @update:model-value="set('local', $event)"
+        />
+        <USwitch
+          label="Own key"
+          size="xs"
+          :model-value="requirements.byok"
+          @update:model-value="set('byok', $event)"
+        />
+      </div>
+    </section>
 
-    <div class="flex flex-col gap-2">
+    <section class="flex flex-col gap-1.5">
       <p class="text-sm font-medium text-highlighted">
         Budget
       </p>
@@ -129,25 +149,27 @@ const groupUi = { fieldset: 'gap-1', item: 'py-0.5', label: 'font-normal text-sm
         :items="budgets"
         value-key="value"
         :search-input="false"
-        icon="i-lucide-wallet"
+        icon="i-lucide-piggy-bank"
         size="sm"
         class="w-full"
       />
-      <USwitch
-        label="Has a free tier"
-        size="sm"
-        :model-value="requirements.free"
-        @update:model-value="set('free', $event)"
-      />
-      <USwitch
-        label="Open source only"
-        size="sm"
-        :model-value="requirements.oss"
-        @update:model-value="set('oss', $event)"
-      />
-    </div>
+      <div class="grid grid-cols-2 gap-2 pt-1">
+        <USwitch
+          label="Free tier"
+          size="xs"
+          :model-value="requirements.free"
+          @update:model-value="set('free', $event)"
+        />
+        <USwitch
+          label="Open source"
+          size="xs"
+          :model-value="requirements.oss"
+          @update:model-value="set('oss', $event)"
+        />
+      </div>
+    </section>
 
-    <div class="flex flex-col gap-2">
+    <section class="flex flex-col gap-1.5">
       <p class="text-sm font-medium text-highlighted">
         Must have
       </p>
@@ -162,6 +184,6 @@ const groupUi = { fieldset: 'gap-1', item: 'py-0.5', label: 'font-normal text-sm
         class="w-full"
         @update:model-value="set('features', $event as Requirements['features'])"
       />
-    </div>
+    </section>
   </div>
 </template>
