@@ -17,13 +17,15 @@ agent/
   agent.ts                          model (anthropic/claude-sonnet-5 via AI Gateway), reasoning, token caps
   instructions.md                   identity and the rules above
   channels/eve.ts                   HTTP surface, Vercel OIDC or localhost auth
+  channels/github.ts                GitHub App via Vercel Connect: @whichcodingtools mentions (maintainer only) and the "Add a tool" first responder
   schedules/pricing-watch.ts        daily 06:15 UTC, task mode (no chat channel needed)
   skills/pricing-watch/SKILL.md     the sweep procedure
   skills/contributing/SKILL.md      the data and PR rules, mirrors CONTRIBUTING.md
   tools/github__find_open.ts        search open issues and PRs (dedupe)
   tools/github__create_draft_pull_request.ts
   tools/github__create_issue.ts
-  lib/github.ts                     REST helpers, token from NUXT_GITHUB_TOKEN
+  lib/github.ts                     REST helpers, Connect installation token (whichcodingtools[bot]), NUXT_GITHUB_TOKEN as local fallback
+  lib/trust.ts                      who is the maintainer, which turns are unattended
   sandbox/sandbox.ts                clones the repo, pnpm install, brokered git credentials
   sandbox/workspace/bin/page-text.mjs  fetches a vendor page as plain text
 ```
@@ -42,10 +44,15 @@ The sweep touches pricing fields only. Descriptions, features, wraps and license
 - Production: the cron fires daily. To run it now, Vercel project → Settings → Cron Jobs → run `pricing-watch`.
 - Locally: `npx eve dev`, then send "Load the pricing-watch skill and check only cursor". Needs `NUXT_GITHUB_TOKEN` and AI Gateway credentials (`vercel env pull` provides the OIDC token after `vercel link`).
 
-## Environment
+## GitHub identity
 
-`NUXT_GITHUB_TOKEN` needs `contents: write` and `pull_requests: write` (and `issues: write`) on the repository for the agent, which is more than the site's read-only use. One token can serve both.
+Writes go through the `whichcodingtools` GitHub App managed by Vercel Connect (connector `github/whichcodingtools`): installation tokens are fetched at call time, nothing is stored. The App has to be installed on the repository from the Connect dashboard. `NUXT_GITHUB_TOKEN` is only the fallback for local runs without a Vercel session.
+
+## GitHub channel
+
+- Benjamin mentions `@whichcodingtools` on an issue, PR or review comment: a normal turn under his identity, with the repo checked out.
+- A community "Add a tool" issue (title starting with `[Tool]` or the `tool` label) starts an unattended first-responder turn: validate the YAML, open a draft PR when it passes, reply once in the thread with the result or the validation issues. That turn cannot open issues or park on approvals.
 
 ## Not built yet
 
-A GitHub channel (first responder on "Add a tool" issues), rename-watch, stale-sweep, and a browser for client-rendered pricing pages (the sweep files an issue for those instead).
+rename-watch, stale-sweep, and a browser for client-rendered pricing pages (the sweep files an issue for those instead).

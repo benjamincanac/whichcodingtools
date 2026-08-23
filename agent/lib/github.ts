@@ -1,15 +1,33 @@
+import { connectGitHubCredentials } from '@vercel/connect/eve'
+
 export const REPO = process.env.GITHUB_REPOSITORY || 'benjamincanac/whichcodingtools'
 export const DEFAULT_BRANCH = 'main'
+/** The Vercel Connect connector created by `eve add channel/github`. */
+export const CONNECTOR = 'github/whichcodingtools'
 
-export function githubToken() {
-  const token = process.env.NUXT_GITHUB_TOKEN || process.env.GITHUB_TOKEN
-  if (!token) throw new Error('NUXT_GITHUB_TOKEN (or GITHUB_TOKEN) is required for the agent to reach GitHub.')
-  return token
+const connect = connectGitHubCredentials(CONNECTOR)
+
+/**
+ * GitHub token for API calls and git over HTTPS. The Connect installation token
+ * (the `whichcodingtools[bot]` GitHub App) when available, the personal token otherwise
+ * (local runs without a Vercel session).
+ */
+export async function githubToken(): Promise<string> {
+  try {
+    const token = connect.installationToken
+    const value = typeof token === 'function' ? await token() : token
+    if (value) return value
+  } catch (error) {
+    console.warn('[agent] Connect installation token unavailable, falling back to NUXT_GITHUB_TOKEN:', error instanceof Error ? error.message : error)
+  }
+  const fallback = process.env.NUXT_GITHUB_TOKEN || process.env.GITHUB_TOKEN
+  if (!fallback) throw new Error('No GitHub credentials: Vercel Connect is not reachable and NUXT_GITHUB_TOKEN is unset.')
+  return fallback
 }
 
 /** `Basic` credentials for git over HTTPS, injected at the sandbox firewall so the token never enters the sandbox. */
-export function gitAuthorizationHeader() {
-  return `Basic ${Buffer.from(`x-access-token:${githubToken()}`).toString('base64')}`
+export async function gitAuthorizationHeader() {
+  return `Basic ${Buffer.from(`x-access-token:${await githubToken()}`).toString('base64')}`
 }
 
 export async function githubApi<T>(method: 'GET' | 'POST' | 'PATCH', path: string, body?: unknown, query?: Record<string, string>): Promise<T> {
@@ -19,7 +37,7 @@ export async function githubApi<T>(method: 'GET' | 'POST' | 'PATCH', path: strin
     method,
     headers: {
       'Accept': 'application/vnd.github+json',
-      'Authorization': `Bearer ${githubToken()}`,
+      'Authorization': `Bearer ${await githubToken()}`,
       'User-Agent': 'whichcodingtools-agent',
       ...(body ? { 'Content-Type': 'application/json' } : {})
     },

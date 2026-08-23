@@ -26,6 +26,9 @@ importers:
       '@resvg/resvg-js':
         specifier: ^2.6.2
         version: 2.6.2
+      '@vercel/connect':
+        specifier: ^0.9.0
+        version: 0.9.0(ai@7.0.73(zod@4.4.3))(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.73(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1)(jiti@2.7.0)(lru-cache@11.5.2)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))
       '@vercel/functions':
         specifier: ^3.9.5
         version: 3.9.5(ws@8.21.3)
@@ -2377,6 +2380,29 @@ packages:
   '@vercel/cli-exec@1.0.1':
     resolution: {integrity: sha512-g9XerViJ/paZujufXYcu5XYI2vU2rtB4sgdpjUHde5RnOkdmpu0ngH46LCFGHoPXO/C+qDPSczIHIRN+8Q2YKQ==}
     engines: {node: '>= 18'}
+
+  '@vercel/connect@0.9.0':
+    resolution: {integrity: sha512-rm+7pcFpKscVcRqbhvH9yV5Ia7hBTePXPMAXn/PZZcfxtrcguJGGi/9/K0lLhsAJTWCTDr0rp0NhGzRuwK6ucw==}
+    peerDependencies:
+      '@ai-sdk/mcp': ^1 || ^2
+      '@auth/core': '>=0.37.0'
+      '@chat-adapter/slack': ^4.0.0
+      ai: ^6 || ^7.0.0-beta.0
+      better-auth: '>=1.5.0'
+      eve: '>=0.13.7'
+    peerDependenciesMeta:
+      '@ai-sdk/mcp':
+        optional: true
+      '@auth/core':
+        optional: true
+      '@chat-adapter/slack':
+        optional: true
+      ai:
+        optional: true
+      better-auth:
+        optional: true
+      eve:
+        optional: true
 
   '@vercel/functions@3.9.5':
     resolution: {integrity: sha512-EUfqlb7AzoEh7URlMNAO4jbJiLWz9grDBHvfjKTDvEP9c8y3DqX3SWPvfaQkUjtkm3b83flhaUUMuewdHa+qmw==}
@@ -8599,6 +8625,13 @@ snapshots:
   '@vercel/cli-exec@1.0.1':
     dependencies:
       execa: 5.1.1
+
+  '@vercel/connect@0.9.0(ai@7.0.73(zod@4.4.3))(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.73(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1)(jiti@2.7.0)(lru-cache@11.5.2)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))':
+    dependencies:
+      '@vercel/oidc': 3.8.5
+    optionalDependencies:
+      ai: 7.0.73(zod@4.4.3)
+      eve: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.73(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1)(jiti@2.7.0)(lru-cache@11.5.2)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
 
   '@vercel/functions@3.9.5(ws@8.21.3)':
     dependencies:
