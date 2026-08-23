@@ -1,4 +1,6 @@
-import { defaultBackend, defineSandbox } from 'eve/sandbox'
+import { defineSandbox } from 'eve/sandbox'
+import type { SandboxNetworkPolicy } from 'eve/sandbox'
+import { vercel } from 'eve/sandbox/vercel'
 import { gitAuthorizationHeader, REPO } from '../lib/github'
 
 const CLONE_URL = `https://github.com/${REPO}.git`
@@ -6,39 +8,32 @@ const CLONE_URL = `https://github.com/${REPO}.git`
 /**
  * Egress policy: everything open (vendor pricing pages live anywhere), with the GitHub
  * token injected at the firewall for github.com so the sandbox can clone and push a private
- * repo without ever holding the secret. Credential brokering needs the Vercel or microsandbox
- * backend; on the Docker backend used by some local setups the policy falls back to allow-all
- * and the token is written to a git credential helper instead (dev only).
+ * repo without ever holding the secret. Credential brokering needs the Vercel Sandbox backend,
+ * which is also what `eve dev` uses here (the project is linked, the OIDC token is in .env.local).
  */
-function networkPolicy() {
+async function networkPolicy(): Promise<SandboxNetworkPolicy> {
   return {
     allow: {
-      'github.com': [{ transform: [{ headers: { authorization: gitAuthorizationHeader() } }] }],
+      'github.com': [{ transform: [{ headers: { authorization: await gitAuthorizationHeader() } }] }],
       '*': []
     }
   }
 }
 
 export default defineSandbox({
-  backend: defaultBackend({
-    vercel: { networkPolicy: networkPolicy(), resources: { vcpus: 2 } }
-  }),
-  // Bump to rebuild the template (clone + install) after a lockfile or tooling change.
-  revalidationKey: () => 'whichcodingtools-workspace-v1',
+  backend: vercel({ resources: { vcpus: 2 } }),
+  // The template only warms tooling. The private repo is cloned per session, after the brokered
+  // credentials are in place, so no token is ever written into the template image.
+  revalidationKey: () => 'whichcodingtools-workspace-v2',
   async bootstrap({ use }) {
     const sandbox = await use()
-    if (!process.env.VERCEL) {
-      // Local backends may not broker credentials: store them for git instead. Never on Vercel.
-      const token = process.env.NUXT_GITHUB_TOKEN || process.env.GITHUB_TOKEN || ''
-      await sandbox.run({ command: `git config --global credential.helper store && printf 'https://x-access-token:%s@github.com\\n' '${token}' > ~/.git-credentials` })
-    }
-    await sandbox.run({ command: `git clone --depth 50 ${CLONE_URL} repo` })
-    await sandbox.run({ command: 'cd repo && corepack enable && corepack prepare --activate && pnpm install --frozen-lockfile' })
-    await sandbox.run({ command: 'git config --global user.name "whichcodingtools-agent" && git config --global user.email "agent@whichcodingtools.invalid"' })
+    await sandbox.run({ command: 'corepack enable && corepack prepare pnpm@10.33.4 --activate' })
+    await sandbox.run({ command: 'git config --global user.name "whichcodingtools[bot]" && git config --global user.email "whichcodingtools[bot]@users.noreply.github.com"' })
   },
   async onSession({ use }) {
-    const sandbox = await use({ networkPolicy: networkPolicy() })
+    const sandbox = await use({ networkPolicy: await networkPolicy() })
+    await sandbox.run({ command: `[ -d repo ] || git clone --depth 50 ${CLONE_URL} repo` })
     await sandbox.run({ command: 'git config --global --add safe.directory /workspace/repo' })
-    await sandbox.run({ command: 'cd repo && git fetch origin main && git checkout -B main origin/main' })
+    await sandbox.run({ command: 'cd repo && git fetch origin main && git checkout -B main origin/main && pnpm install --frozen-lockfile' })
   }
 })

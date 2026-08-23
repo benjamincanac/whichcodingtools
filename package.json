@@ -10,8 +10,9 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "nuxt typecheck",
-    "validate": "tsx scripts/validate.ts"
+    "typecheck": "nuxt typecheck && tsc -p agent/tsconfig.json",
+    "validate": "tsx scripts/validate.ts",
+    "build:agent": "eve build"
   },
   "dependencies": {
     "@comark/nuxt": "^0.6.2",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
     "@nuxt/kit": "^4.5.2",
+    "@types/node": "^24.13.3",
     "eslint": "^10.8.1",
     "tsx": "^4.20.0",
     "typescript": "^6.0.3",

@@ -39,7 +39,7 @@ export default githubChannel({
   events: {
     async 'turn.failed'(event, channel, ctx) {
       if (isAutonomous(ctx.session.auth.current)) return
-      await channel.thread.post(`I hit an error while handling this (${event.error?.message ?? 'unknown'}). Mention me again to retry.`)
+      await channel.thread.post(`I hit an error while handling this (${event.message}). Mention me again to retry.`)
     }
   }
 })
