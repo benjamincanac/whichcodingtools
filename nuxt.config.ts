@@ -13,14 +13,18 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   site: {
-    url: process.env.NUXT_SITE_URL || 'https://codingagents.vercel.app',
-    name: 'codingagents',
+    url: process.env.NUXT_SITE_URL || 'https://whichcodingtools.vercel.app',
+    name: 'whichcodingtools',
     description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.'
   },
 
   routeRules: {
     '/': { prerender: true },
     '/tools/**': { prerender: true },
+    '/compare/**': { prerender: true },
+    '/plans/**': { prerender: true },
+    '/layers/**': { prerender: true },
+    '/changelog': { prerender: true },
     '/api/**': { prerender: true }
   },
 

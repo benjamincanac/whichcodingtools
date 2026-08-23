@@ -25,7 +25,7 @@ export default defineNuxtModule({
     const dir = join(nuxt.options.rootDir, 'content/tools')
     const tools = readdirSync(dir)
       .filter(f => ['.yml', '.yaml'].includes(extname(f)))
-      .map(f => parse(readFileSync(join(dir, f), 'utf8')) as { slug: string, icon?: string, aliases?: { slug: string }[] })
+      .map(f => parse(readFileSync(join(dir, f), 'utf8')) as { slug: string, layer: string, icon?: string, aliases?: { slug: string }[] })
 
     const routeRules = nuxt.options.routeRules ??= {}
     for (const tool of tools) {
@@ -36,9 +36,20 @@ export default defineNuxtModule({
 
     nuxt.hook('prerender:routes', ({ routes }) => {
       routes.add('/api/tools.json')
+      routes.add('/api/changelog.json')
+      routes.add('/changelog')
+      routes.add('/compare')
+      for (const layer of LAYERS) routes.add(`/layers/${layer.value}`)
+      for (const plan of PLANS) routes.add(`/plans/${plan.value}`)
       for (const tool of tools) {
         routes.add(`/tools/${tool.slug}`)
         routes.add(`/api/tools/${tool.slug}.json`)
+      }
+      // One comparison page per pair of tools in the same primary layer.
+      for (const a of tools) {
+        for (const b of tools) {
+          if (a.slug < b.slug && a.layer === b.layer) routes.add(`/compare/${a.slug}-vs-${b.slug}`)
+        }
       }
     })
 

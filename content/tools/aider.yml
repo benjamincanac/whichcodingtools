@@ -1,0 +1,44 @@
+slug: aider
+name: Aider
+description: Terminal pair programmer written in Python. Edits files in your git repo and commits each change with a message, using your own API keys for almost any model including local ones.
+layer: harness
+vendor: Aider AI
+homepage: https://aider.chat
+links:
+  docs: https://aider.chat/docs
+  changelog: https://aider.chat/HISTORY.html
+  repo: https://github.com/Aider-AI/aider
+platforms: [macos, linux, windows]
+install:
+  - method: pip
+    command: python -m pip install aider-install && aider-install
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/Aider-AI/aider
+models:
+  providers: [openai, anthropic, google, xai, deepseek, openrouter]
+  byok: full
+  local: true
+  notes: Also Azure, Amazon Bedrock, Vertex AI, Cohere, Groq, Ollama, LM Studio and any OpenAI compatible endpoint. A GitHub Copilot token copied from a JetBrains login can be pasted as the key, there is no OAuth sign in.
+features: [checkpoints]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Bring your own API keys, you pay the provider directly
+  notes: Aider has no paid plan. Model usage is billed by whichever provider you connect.
+status: active
+sources:
+  - url: https://github.com/Aider-AI/aider
+    verified_at: 2026-08-23
+    covers: [pricing, license, platforms, general]
+  - url: https://aider.chat/docs/llms.html
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://aider.chat/docs/git.html
+    verified_at: 2026-08-23
+    covers: [features]

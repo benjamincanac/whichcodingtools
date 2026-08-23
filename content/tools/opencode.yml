@@ -1,0 +1,94 @@
+slug: opencode
+name: OpenCode
+description: Open source terminal coding agent from Anomaly, with a desktop app in beta and a VS Code extension. Works with any provider through your own keys, plus the hosted Zen and Go plans.
+layer: harness
+secondary_layers: [app, extension]
+vendor: Anomaly
+homepage: https://opencode.ai
+links:
+  docs: https://opencode.ai/docs
+  pricing: https://opencode.ai/docs/go
+  repo: https://github.com/anomalyco/opencode
+icon: i-simple-icons-opencode
+platforms: [macos, linux, windows]
+hosts: [vscode]
+install:
+  - method: curl
+    command: curl -fsSL https://opencode.ai/install | bash
+  - method: npm
+    command: npm i -g opencode-ai@latest
+  - method: brew
+    command: brew install anomalyco/tap/opencode
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/anomalyco/opencode
+models:
+  providers: [first-party, anthropic, openai, google, xai, mistral, deepseek, meta, moonshot, alibaba, zhipu, minimax, openrouter, vercel-ai-gateway]
+  plans: [chatgpt, copilot, grok]
+  byok: full
+  local: true
+  notes: Any provider through its own API key, plus Ollama and LM Studio. ChatGPT, GitHub Copilot and SuperGrok log in with OAuth. The docs say Anthropic prohibits using Claude Pro or Max subscriptions with OpenCode, so the Claude plan is not listed.
+features: [subagents, mcp-client, acp-agent, plugins, checkpoints]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - The agent, desktop app and extension are free with your own keys
+        - Seven Zen models are free for a limited time
+    - id: go
+      name: OpenCode Go
+      price: 10
+      per: flat
+      audience: individual
+      included:
+        amount: 60
+        unit: usd
+        usd_value: 60
+        period: month
+        notes: $12 of usage per five hours, $30 per week and $60 per month on open weight models such as Kimi K3, GLM-5.2, DeepSeek V4 and Qwen 3.8 Max
+      overage:
+        kind: blocked
+        notes: Requests stop at the limit unless you fall back to the free models or enable drawing from a Zen balance.
+      limits:
+        - $5 for the first month
+        - One Go subscriber per workspace
+        - Works with OpenCode or any other agent
+    - id: zen
+      name: OpenCode Zen
+      price: null
+      per: flat
+      audience: individual
+      overage:
+        kind: api-list
+        notes: Prepaid credits billed per request at the listed per token price, card fees passed through at 4.4 percent plus $0.30 per transaction. Auto reload of $20 when the balance drops under $5.
+      limits:
+        - Frontier models such as Claude, GPT and Gemini plus the open weight lineup
+        - Workspace and per member monthly limits for teams
+  notes: OpenCode itself costs nothing. Go and Zen are optional hosted model plans that also work from other clients.
+status: active
+sources:
+  - url: https://opencode.ai/docs/go
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://opencode.ai/docs/zen
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://opencode.ai/docs/providers
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://opencode.ai/docs/acp
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://opencode.ai/docs/agents
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://opencode.ai/docs/plugins
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://github.com/anomalyco/opencode
+    verified_at: 2026-08-23
+    covers: [platforms, license, general]

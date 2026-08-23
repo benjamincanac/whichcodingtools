@@ -56,6 +56,8 @@ const issueUrl = computed(() => {
 })
 
 const asideLinks = computed<PageLink[]>(() => [
+  { label: 'Compare with another tool', to: `/compare?tools=${t.value.slug}`, icon: 'i-lucide-columns-3' },
+  { label: `All ${layerLabel.value.toLowerCase()}s`, to: `/layers/${t.value.layer}`, icon: 'i-lucide-layers' },
   { label: 'Edit this tool on GitHub', to: yamlUrl.value, target: '_blank', icon: 'i-lucide-pencil' },
   { label: 'Report outdated data', to: issueUrl.value, target: '_blank', icon: 'i-lucide-flag' },
   { label: 'JSON', to: `/api/tools/${t.value.slug}.json`, target: '_blank', icon: 'i-lucide-braces' },
@@ -124,6 +126,7 @@ useSchemaOrg([
                   {{ t.name }}
                 </h1>
                 <UBadge
+                  :to="`/layers/${t.layer}`"
                   color="neutral"
                   variant="outline"
                   class="rounded-full"

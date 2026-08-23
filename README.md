@@ -1,4 +1,4 @@
-# codingagents
+# whichcodingtools
 
 An open, always-fresh directory of AI coding tools. Every editor, terminal agent, orchestrator, extension and cloud agent, with pricing verified against vendor pages and the graph of what runs what.
 

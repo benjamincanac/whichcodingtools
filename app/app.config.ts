@@ -1,8 +1,8 @@
 export default defineAppConfig({
   site: {
-    name: 'codingagents',
+    name: 'whichcodingtools',
     tagline: 'Find the AI coding tool that fits how you work.',
-    repo: 'benjamincanac/codingagents',
+    repo: 'benjamincanac/whichcodingtools',
     branch: 'main'
   },
   ui: {
