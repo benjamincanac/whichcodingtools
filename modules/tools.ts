@@ -37,6 +37,7 @@ export default defineNuxtModule({
     nuxt.hook('prerender:routes', ({ routes }) => {
       routes.add('/api/tools.json')
       routes.add('/api/changelog.json')
+      routes.add('/llms.txt')
       routes.add('/changelog')
       routes.add('/compare')
       for (const layer of LAYERS) routes.add(`/layers/${layer.value}`)

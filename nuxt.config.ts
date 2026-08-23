@@ -56,6 +56,10 @@ export default defineNuxtConfig({
   },
 
   ogImage: {
-    zeroRuntime: true
+    zeroRuntime: true,
+    security: {
+      // A few hundred images render during prerender, the default 15s is too tight under load.
+      renderTimeout: 120_000
+    }
   }
 })
