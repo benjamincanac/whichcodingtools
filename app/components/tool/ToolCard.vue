@@ -24,11 +24,11 @@ const price = computed(() => {
     :ui="{ container: 'gap-y-3 p-4 sm:p-5', wrapper: 'gap-3', title: 'flex items-center gap-2', description: 'line-clamp-3' }"
   >
     <template #leading>
-      <div class="flex w-full items-center justify-between gap-3">
+      <div class="flex w-full items-start justify-between gap-3">
         <div class="flex items-center gap-3 min-w-0">
           <ToolAvatar :tool="tool" />
           <div class="min-w-0">
-            <p class="font-medium tracking-tight text-highlighted truncate">
+            <p class="font-medium tracking-tight text-highlighted leading-tight">
               {{ tool.name }}
             </p>
             <p class="text-xs text-muted truncate">
@@ -40,7 +40,7 @@ const price = computed(() => {
           color="neutral"
           variant="outline"
           size="sm"
-          class="rounded-full shrink-0"
+          class="rounded-full shrink-0 mt-0.5"
         >
           {{ optionLabel(LAYERS, tool.layer) }}
         </UBadge>

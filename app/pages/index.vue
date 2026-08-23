@@ -35,6 +35,17 @@ const sortItems = [
 
 const open = ref(false)
 
+const summary = computed(() => {
+  if (count.value) {
+    const parts = [`${exact.value.length} of ${tools.value.length} tools match everything`]
+    if (close.value.length) parts.push(`${close.value.length} come close`)
+    if (hidden.value) parts.push(`${hidden.value} hidden`)
+    return `${parts.join(', ')}.`
+  }
+  const q = requirements.value.q ? ` matching "${requirements.value.q}"` : ''
+  return `${matches.value.length} tools${q}. Pick what you need on the left to rank them.`
+})
+
 /** Nothing selected: everything, grouped by layer. */
 const byLayer = computed(() => {
   if (count.value || requirements.value.q) return []
@@ -110,18 +121,7 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
         </div>
 
         <p class="text-sm text-muted">
-          <template v-if="count">
-            {{ exact.length }} of {{ tools.length }} tools match everything<template v-if="close.length">
-              , {{ close.length }} come close
-            </template><template v-if="hidden">
-              , {{ hidden }} hidden
-            </template>.
-          </template>
-          <template v-else>
-            {{ matches.length }} tools<template v-if="requirements.q">
-              matching "{{ requirements.q }}"
-            </template>. Pick what you need on the left to rank them.
-          </template>
+          {{ summary }}
         </p>
 
         <template v-if="matches.length && (exact.length || close.length || !count)">

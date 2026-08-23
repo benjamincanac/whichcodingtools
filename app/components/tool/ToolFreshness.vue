@@ -19,7 +19,7 @@ const dotClass = computed(() => ({
   <UTooltip :text="`${label} (${freshness.verified_at})`">
     <span
       v-if="variant === 'dot'"
-      class="inline-flex items-center gap-1.5 text-xs text-muted"
+      class="inline-flex items-center gap-1.5 text-xs text-muted whitespace-nowrap"
     >
       <span
         class="size-1.5 rounded-full"
