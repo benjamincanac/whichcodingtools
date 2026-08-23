@@ -1,8 +1,162 @@
+<script setup lang="ts">
+import { LAYERS } from '#shared/enums'
+import type { ToolMatch } from '~/composables/useToolFinder'
+
+const { site } = useAppConfig()
+const { tools, requirements, sort, update, reset, count, exact, close, hidden, matches } = useToolFinder()
+
+useSeoMeta({
+  title: 'Find the AI coding tool that fits how you work',
+  description: `Every editor, terminal agent, orchestrator and cloud agent, with pricing verified against vendor pages. Tell ${site.name} what you need and get the best fit.`
+})
+
+defineOgImageComponent('ToolSatori', {
+  headline: 'Finder',
+  title: 'Find the AI coding tool that fits how you work',
+  description: 'Editors, terminal agents, orchestrators and cloud agents with verified pricing and the graph of what runs what.'
+})
+
+const search = computed({
+  get: () => requirements.value.q,
+  set: (q: string) => update('q', q)
+})
+
+const searchInput = useTemplateRef('searchInput')
+defineShortcuts({
+  '/': () => searchInput.value?.inputRef?.focus()
+})
+
+const sortItems = [
+  { label: 'Best match', value: 'match' },
+  { label: 'Name', value: 'name' },
+  { label: 'Recently verified', value: 'verified' },
+  { label: 'Entry price', value: 'price' }
+]
+
+const open = ref(false)
+
+/** Nothing selected: everything, grouped by layer. */
+const byLayer = computed(() => {
+  if (count.value || requirements.value.q) return []
+  return LAYERS
+    .map(layer => ({ layer, items: matches.value.filter(m => m.tool.layer === layer.value) }))
+    .filter(g => g.items.length)
+})
+
+const grouped = computed<{ key: string, title?: string, description?: string, items: ToolMatch[] }[]>(() => {
+  if (byLayer.value.length) {
+    return byLayer.value.map(g => ({ key: g.layer.value, title: g.layer.label, description: g.layer.description, items: g.items }))
+  }
+  if (!count.value) return [{ key: 'all', items: matches.value }]
+  return [
+    { key: 'exact', title: 'Matches everything', items: exact.value },
+    { key: 'close', title: 'Close matches', description: 'One or two requirements short. Each card says which.', items: close.value }
+  ]
+})
+</script>
+
 <template>
-  <UContainer class="py-12">
+  <UContainer>
     <UPageHeader
-      title="Finder"
-      description="Placeholder, replaced in the finder commit."
+      title="Find the AI coding tool that fits how you work"
+      description="Every editor, terminal agent, orchestrator and cloud agent, with pricing verified against vendor pages and the graph of what runs what. No affiliate links, no sponsored placement. The data is open, edit it on GitHub."
+      :ui="{ root: 'py-8 lg:py-12', title: 'max-w-3xl', description: 'max-w-2xl' }"
     />
+
+    <UPage :ui="{ root: 'lg:grid-cols-12 gap-8', left: 'lg:col-span-3', center: 'lg:col-span-9' }">
+      <template #left>
+        <UPageAside :ui="{ root: 'pt-0 lg:pt-8' }">
+          <ToolFinder
+            :requirements="requirements"
+            :count="count"
+            @update="update"
+            @reset="reset"
+          />
+        </UPageAside>
+      </template>
+
+      <div class="flex flex-col gap-8 py-4 lg:py-8">
+        <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
+          <UInput
+            ref="searchInput"
+            v-model="search"
+            icon="i-lucide-search"
+            placeholder="Search by name, vendor or description"
+            class="flex-1"
+            :ui="{ trailing: 'pe-1' }"
+          >
+            <template #trailing>
+              <UKbd value="/" />
+            </template>
+          </UInput>
+          <div class="flex items-center gap-2">
+            <UButton
+              :label="count ? `Requirements (${count})` : 'Requirements'"
+              icon="i-lucide-sliders-horizontal"
+              color="neutral"
+              variant="outline"
+              class="lg:hidden"
+              @click="open = true"
+            />
+            <USelectMenu
+              v-model="sort"
+              :items="sortItems"
+              value-key="value"
+              :search-input="false"
+              icon="i-lucide-arrow-up-down"
+              class="w-44"
+            />
+          </div>
+        </div>
+
+        <p class="text-sm text-muted">
+          <template v-if="count">
+            {{ exact.length }} of {{ tools.length }} tools match everything<template v-if="close.length">
+              , {{ close.length }} come close
+            </template><template v-if="hidden">
+              , {{ hidden }} hidden
+            </template>.
+          </template>
+          <template v-else>
+            {{ matches.length }} tools<template v-if="requirements.q">
+              matching "{{ requirements.q }}"
+            </template>. Pick what you need on the left to rank them.
+          </template>
+        </p>
+
+        <template v-if="matches.length && (exact.length || close.length || !count)">
+          <ToolMatchList
+            v-for="group in grouped"
+            :key="group.key"
+            :title="group.title"
+            :description="group.description"
+            :items="group.items"
+          />
+        </template>
+
+        <UEmpty
+          v-else
+          icon="i-lucide-search-x"
+          title="Nothing comes close"
+          :description="count ? `No tool satisfies ${count > 2 ? 'most of' : ''} what you picked${hidden ? `, ${hidden} miss three requirements or more` : ''}. Drop one and try again.` : 'No tool matches that search.'"
+          :actions="[{ label: 'Reset requirements', color: 'neutral', variant: 'outline', onClick: reset }]"
+        />
+      </div>
+    </UPage>
+
+    <USlideover
+      v-model:open="open"
+      title="What you need"
+      side="left"
+    >
+      <template #body>
+        <ToolFinder
+          :requirements="requirements"
+          :count="count"
+          @update="update"
+          @reset="reset"
+        />
+      </template>
+    </USlideover>
   </UContainer>
 </template>
