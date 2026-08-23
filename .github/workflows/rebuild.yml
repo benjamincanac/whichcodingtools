@@ -11,9 +11,9 @@ on:
 jobs:
   rebuild:
     runs-on: ubuntu-latest
+    env:
+      HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
     steps:
       - name: Trigger Vercel deploy hook
-        if: ${{ secrets.VERCEL_DEPLOY_HOOK_URL != '' }}
+        if: ${{ env.HOOK != '' }}
         run: curl -fsS -X POST "$HOOK" > /dev/null
-        env:
-          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
