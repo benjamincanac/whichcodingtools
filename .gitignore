@@ -1,0 +1,14 @@
+node_modules
+.nuxt
+.output
+.data
+.vercel
+.env
+.env.*
+!.env.example
+comark-content.d.ts
+dist
+logs
+*.log
+.DS_Store
+.idea

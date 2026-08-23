@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+}
+
+:root {
+  overscroll-behavior-y: none;
+
+  --ui-container: 80rem;
+
+  --ui-primary: var(--ui-color-neutral-900);
+
+  --ui-text-dimmed: var(--ui-color-neutral-500);
+  --ui-text-muted: var(--ui-color-neutral-600);
+  --ui-text-toned: var(--ui-color-neutral-700);
+  --ui-text: var(--ui-color-neutral-800);
+  --ui-text-highlighted: var(--ui-color-neutral-950);
+  --ui-text-inverted: var(--ui-color-neutral-50);
+
+  --ui-bg: var(--ui-color-neutral-50);
+  --ui-bg-muted: var(--ui-color-neutral-100);
+  --ui-bg-elevated: var(--ui-color-neutral-200);
+  --ui-bg-accented: var(--ui-color-neutral-300);
+  --ui-bg-inverted: var(--ui-color-neutral-950);
+
+  --ui-border: var(--ui-color-neutral-200);
+  --ui-border-muted: var(--ui-color-neutral-200);
+  --ui-border-accented: var(--ui-color-neutral-300);
+  --ui-border-inverted: var(--ui-color-neutral-950);
+}
+
+.dark {
+  --ui-primary: var(--ui-color-neutral-100);
+
+  --ui-text-dimmed: var(--ui-color-neutral-500);
+  --ui-text-muted: var(--ui-color-neutral-400);
+  --ui-text-toned: var(--ui-color-neutral-300);
+  --ui-text: var(--ui-color-neutral-200);
+  --ui-text-highlighted: var(--ui-color-neutral-50);
+  --ui-text-inverted: var(--ui-color-neutral-950);
+
+  --ui-bg: black;
+  --ui-bg-muted: var(--ui-color-neutral-900);
+  --ui-bg-elevated: var(--ui-color-neutral-800);
+  --ui-bg-accented: var(--ui-color-neutral-800);
+  --ui-bg-inverted: var(--ui-color-neutral-50);
+
+  --ui-border: var(--ui-color-neutral-900);
+  --ui-border-muted: var(--ui-color-neutral-800);
+  --ui-border-accented: var(--ui-color-neutral-800);
+  --ui-border-inverted: var(--ui-color-neutral-50);
+}
+
+*, ::before, ::after {
+  @apply outline-inverted/25;
+}
+
+*:focus-visible, *:has(> a:focus-visible) {
+  --tw-ring-color: var(--ui-border-inverted);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}

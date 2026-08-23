@@ -1,0 +1,38 @@
+{
+  "name": "codingagents",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "nuxt typecheck",
+    "validate": "tsx scripts/validate.ts"
+  },
+  "dependencies": {
+    "@comark/nuxt": "^0.6.2",
+    "@iconify-json/lucide": "^1.2.123",
+    "@iconify-json/simple-icons": "^1.2.92",
+    "@nuxt/ui": "^4.11.0",
+    "@nuxtjs/seo": "^5.3.14",
+    "@vueuse/core": "^14.3.0",
+    "comark-content": "^0.3.0",
+    "nuxt": "^4.5.2",
+    "spdx-expression-parse": "^4.0.0",
+    "tailwindcss": "^4.3.3",
+    "yaml": "^2.8.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.17.0",
+    "eslint": "^10.8.1",
+    "tsx": "^4.20.0",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.3.10"
+  },
+  "packageManager": "pnpm@10.33.4"
+}
