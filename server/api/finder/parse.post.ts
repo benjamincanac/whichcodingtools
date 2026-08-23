@@ -39,9 +39,6 @@ ${options(FEATURES)}
 Budget is USD per month. Put tool or vendor names that should be searched by name into q.`
 
 export default defineEventHandler(async (event) => {
-  if (!process.env.AI_GATEWAY_API_KEY && !process.env.VERCEL_OIDC_TOKEN) {
-    throw createError({ statusCode: 503, statusMessage: 'Natural language search is not configured' })
-  }
   const body = BodySchema.safeParse(await readBody(event))
   if (!body.success) {
     throw createError({ statusCode: 400, statusMessage: 'query must be 3 to 300 characters' })
@@ -59,10 +56,10 @@ export default defineEventHandler(async (event) => {
     return { parsed: output, usage: { input: usage.inputTokens, output: usage.outputTokens } }
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error)
-    if (/unauthenticated|api key|credentials/i.test(message)) {
+    console.error('[finder] parse failed', message)
+    if (/unauthenticated|api key|credentials|oidc/i.test(message)) {
       throw createError({ statusCode: 503, statusMessage: 'Natural language search is not configured' })
     }
-    console.error('[finder] parse failed', message)
     throw createError({ statusCode: 502, statusMessage: 'The model could not parse that' })
   }
 })
