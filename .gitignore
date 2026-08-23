@@ -12,3 +12,4 @@ logs
 *.log
 .DS_Store
 .idea
+.env*

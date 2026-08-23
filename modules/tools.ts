@@ -38,11 +38,11 @@ export default defineNuxtModule({
     // and /api/revalidate purges them early when content is pushed.
     if (!nuxt.options.dev) {
       const isr = 60 * 60
-      for (const route of ['/', '/compare', '/compare/**', '/plans/**', '/layers/**', '/changelog', '/llms.txt', '/api/**']) {
+      // Only GET data routes are cached: POST endpoints (revalidate, finder/parse) must stay plain functions.
+      for (const route of ['/', '/compare', '/compare/**', '/plans/**', '/layers/**', '/changelog', '/llms.txt', '/api/tools.json', '/api/tools/**', '/api/changelog.json', '/api/content/**']) {
         routeRules[route] = { ...routeRules[route], isr }
       }
       routeRules['/tools/**'] = { isr }
-      routeRules['/api/revalidate'] = { isr: false }
     }
 
     nuxt.hook('icon:clientBundleIcons', (icons) => {

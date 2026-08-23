@@ -1,0 +1,91 @@
+slug: hermes
+name: Hermes Agent
+description: Nous Research's open source general purpose agent with a terminal TUI, file and shell tools, git worktrees and subagents. Any provider, or a Nous Portal login for 300 plus models.
+layer: harness
+vendor: Nous Research
+homepage: https://hermes-agent.nousresearch.com
+links:
+  docs: https://hermes-agent.nousresearch.com/docs/
+  pricing: https://portal.nousresearch.com
+  changelog: https://github.com/NousResearch/hermes-agent/releases
+  repo: https://github.com/NousResearch/hermes-agent
+  discord: https://discord.gg/NousResearch
+platforms: [macos, linux, windows, android]
+install:
+  - method: curl
+    command: curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+  - method: download
+    url: https://hermes-agent.nousresearch.com/docs/
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/NousResearch/hermes-agent
+models:
+  providers: [first-party, anthropic, openai, google, xai, deepseek, mistral, moonshot, zhipu, minimax, alibaba, openrouter]
+  plans: [claude, chatgpt, copilot, grok]
+  byok: full
+  local: true
+  notes: Nous Portal is one OAuth login across 300 plus hosted models. The providers page also lists Claude Max over OAuth, ChatGPT over the Codex device flow, GitHub Copilot, SuperGrok, and Ollama, vLLM, llama.cpp, LM Studio, SGLang or any OpenAI compatible endpoint. Switch with hermes model.
+features: [subagents, parallel-agents, worktrees, mcp-client, browser-automation, sandboxing, remote-execution, scheduled-tasks, plugins]
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - Your own keys or a free Nous Portal account with standard rate limits
+    - id: portal-plus
+      name: Nous Portal Plus
+      price: 20
+      audience: individual
+      included:
+        amount: 22
+        unit: usd
+        usd_value: 22
+        notes: $22 of monthly credits with a $10 rollover cap
+      overage:
+        kind: credits
+        notes: Top up $10 to $200 of credits at a time.
+      limits:
+        - High rate limits, hosted tool usage through the Tool Gateway
+    - id: portal-super
+      name: Nous Portal Super
+      price: 100
+      audience: individual
+      included:
+        amount: 110
+        unit: usd
+        usd_value: 110
+        notes: $110 of monthly credits with a $50 rollover cap
+      overage:
+        kind: credits
+    - id: portal-ultra
+      name: Nous Portal Ultra
+      price: 200
+      audience: individual
+      included:
+        amount: 220
+        unit: usd
+        usd_value: 220
+        notes: $220 of monthly credits with a $100 rollover cap
+      overage:
+        kind: credits
+  notes: The agent is free. Nous Portal is an optional subscription that bundles inference plus web search, image generation, text to speech and a cloud browser. The docs describe Hermes as an autonomous assistant rather than a coding copilot, it also runs as a gateway on Telegram, Discord, Slack, WhatsApp, Signal and email. Windows installs with a PowerShell one liner.
+status: active
+sources:
+  - url: https://portal.nousresearch.com
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://github.com/NousResearch/hermes-agent
+    verified_at: 2026-08-23
+    covers: [platforms, models, features, license, general]
+  - url: https://hermes-agent.nousresearch.com/docs/integrations/providers
+    verified_at: 2026-08-23
+    covers: [models]
+  - url: https://hermes-agent.nousresearch.com/docs/user-guide/cli
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://hermes-agent.nousresearch.com/docs/user-guide/features/tools
+    verified_at: 2026-08-23
+    covers: [features]

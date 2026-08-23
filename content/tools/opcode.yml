@@ -1,0 +1,50 @@
+slug: opcode
+name: opcode
+description: Asterisk's open source Tauri desktop app for Claude Code. Browses your sessions, runs custom agents in the background, manages MCP servers, tracks usage and checkpoints sessions.
+layer: orchestrator
+vendor: Asterisk
+homepage: https://opcode.sh
+links:
+  repo: https://github.com/winfunc/opcode
+  x: https://x.com/getAsterisk
+platforms: [macos, linux, windows]
+install:
+  - method: download
+    url: https://github.com/winfunc/opcode/releases
+license:
+  spdx: AGPL-3.0-only
+  kind: open-source
+  repo: https://github.com/winfunc/opcode
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the installed Claude Code is signed in with.
+features: [parallel-agents, checkpoints, diff-review, mcp-client]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Requires the Claude Code CLI on your PATH and reads the ~/.claude directory for projects and sessions.
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay for Claude Code, nothing for opcode itself
+  notes: No pricing page. The README still says release executables will be published soon while the v0.2.0 release from 2025-08-31 ships a macOS dmg and Linux AppImage and deb. No Windows build is published, Windows is build from source. The last commit on GitHub is from October 2025.
+status: preview
+aliases:
+  - slug: claudia
+    name: Claudia
+    until: 2025-08-31
+    note: Renamed to opcode with the v0.2.0 release.
+sources:
+  - url: https://github.com/winfunc/opcode
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, features, wraps, license, general]
+  - url: https://github.com/winfunc/opcode/releases
+    verified_at: 2026-08-23
+    covers: [platforms, general]

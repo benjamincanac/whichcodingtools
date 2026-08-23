@@ -1,0 +1,48 @@
+slug: aide
+name: Aide
+description: CodeStory's open source VS Code fork with a combined chat and edit flow, proactive agents and an inline editing widget, backed by the Sidecar binary. Sunset in February 2025.
+layer: editor
+vendor: CodeStory
+homepage: https://aide.dev
+links:
+  repo: https://github.com/codestoryai/aide
+  x: https://x.com/aide_dev
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://github.com/codestoryai/binaries/releases
+license:
+  spdx: AGPL-3.0-only
+  kind: open-source
+  repo: https://github.com/codestoryai/aide
+  notes: Both the editor and the Sidecar binary are AGPL-3.0. Both repos are archived and read only.
+models:
+  providers: [first-party, anthropic, openai, google, openrouter]
+  byok: full
+  local: true
+  notes: Sidecar lists OpenAI, Anthropic, Gemini, Google AI Studio, OpenRouter, Azure, Together, Fireworks, Groq, Ollama, LM Studio and OpenAI compatible endpoints next to the hosted CodeStory provider. The CodeStory provider stopped at the end of February 2025.
+features: [tab-completion]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Your own API keys or local models through Sidecar
+  notes: A paid CodeStory provider subscription existed but aide.dev no longer lists a price. The sunset announcement on 2025-02-18 refunded active subscribers and kept the hosted provider running until the end of that month. Price needs a human check against an archived copy of the pricing page.
+status: sunset
+sunset_at: 2025-02-18
+sources:
+  - url: https://x.com/aide_dev/status/1891862381074186388
+    verified_at: 2026-08-23
+    covers: [pricing, general]
+  - url: https://github.com/codestoryai/aide
+    verified_at: 2026-08-23
+    covers: [license, features, general]
+  - url: https://github.com/codestoryai/aide/blob/cs-main/HOW_TO_CONTRIBUTE.md
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://github.com/codestoryai/sidecar
+    verified_at: 2026-08-23
+    covers: [models, license]

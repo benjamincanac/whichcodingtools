@@ -1,0 +1,85 @@
+slug: dmux
+name: dmux
+description: FormKit's open source tmux pane manager. Each pane gets its own git worktree and branch, launches the agents you pick, and merges or opens a pull request from the pane menu.
+layer: orchestrator
+vendor: FormKit
+homepage: https://dmux.ai
+links:
+  docs: https://dmux.ai
+  repo: https://github.com/standardagents/dmux
+platforms: [macos, linux]
+install:
+  - method: npm
+    command: npm install -g dmux
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/standardagents/dmux
+models:
+  plans: [chatgpt, grok]
+  byok: full
+  local: false
+  notes: The agents keep their own logins. dmux itself takes an optional inference provider for branch naming, commit messages and pane summaries, with an API key, a custom OpenAI compatible endpoint, a Codex login on a ChatGPT plan or a Grok Build login on a SuperGrok plan.
+features: [parallel-agents, worktrees, hooks]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Launches your installed CLI in a tmux pane and resumes the conversation when the pane is recreated.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cline
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cline CLI.
+  - tool: gemini-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: amp
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Cursor CLI agent with your Cursor account.
+  - tool: github-copilot
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs the Copilot CLI.
+  - tool: grok-build
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay for the agents and the optional naming provider, nothing for dmux itself
+  notes: Needs tmux 3.0 or later, Node.js 18 and Git 2.20. Qwen CLI and Crush CLI are supported too but not in the directory. The npm package points at github.com/formkit/dmux, which redirects to standardagents/dmux.
+status: active
+sources:
+  - url: https://github.com/standardagents/dmux
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, models, wraps, features, license, general]
+  - url: https://dmux.ai
+    verified_at: 2026-08-23
+    covers: [license, general]

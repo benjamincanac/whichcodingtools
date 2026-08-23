@@ -1,0 +1,95 @@
+slug: mistral-vibe
+name: Mistral Vibe
+description: Mistral's open source terminal agent on Devstral and Mistral Medium, with VS Code and JetBrains extensions and a web sandbox. Signs in with a Mistral account or an API key.
+layer: harness
+secondary_layers: [extension, cloud]
+vendor: Mistral AI
+homepage: https://mistral.ai/products/vibe/code/
+links:
+  docs: https://docs.mistral.ai/vibe/code/overview
+  pricing: https://mistral.ai/pricing
+  changelog: https://github.com/mistralai/mistral-vibe/releases
+  repo: https://github.com/mistralai/mistral-vibe
+icon: i-simple-icons-mistralai
+platforms: [macos, linux, windows, web]
+hosts: [vscode, jetbrains]
+install:
+  - method: curl
+    command: curl -LsSf https://mistral.ai/vibe/install.sh | bash
+  - method: pip
+    command: uv tool install mistral-vibe
+  - method: pip
+    command: pip install mistral-vibe
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/mistralai/mistral-vibe
+models:
+  providers: [mistral]
+  byok: full
+  local: true
+  notes: Mistral models by default, through a Mistral plan or an API key from Mistral Studio. The docs say the CLI also runs fully offline with local models or against any compatible API key, configured as a provider in config.toml.
+features: [subagents, mcp-client, hooks, acp-agent, tab-completion]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Limited coding sessions
+    - id: pro
+      name: Pro
+      price: 14.99
+      audience: individual
+      included:
+        amount: 30
+        unit: usd
+        usd_value: 30
+        notes: $30 a month in API credits on top of the plan allowance
+      overage:
+        kind: api-list
+        notes: Pay-as-you-go credits past the plan limit at API rate.
+      limits:
+        - All-day coding in the CLI, IDE or on web
+      notes: Verified students pay $5.99 a month for up to 12 months.
+    - id: team
+      name: Team
+      price: 24.99
+      audience: team
+      overage:
+        kind: api-list
+      limits:
+        - $50 a month minimum
+        - Up to 30 GB of storage per user, domain verification, data export
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      notes: Custom models, agents and workflows, audit logs, SAML SSO, self-hosted and VPC deployments.
+    - id: api
+      name: API pay-as-you-go
+      price: null
+      audience: individual
+      overage:
+        kind: api-list
+        notes: Devstral 2 is $0.40 per million input tokens and $2.00 per million output tokens, Devstral 2 Small $0.10 and $0.30.
+  notes: The plans are Le Chat plans shared with chat, not a separate Vibe subscription. Mistral plans are not in the plan enum, so they are listed as tiers here. Tab completion is a feature of the IDE extensions, not the CLI. Zed support runs over ACP.
+status: active
+sources:
+  - url: https://mistral.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://mistral.ai/products/vibe/code/
+    verified_at: 2026-08-23
+    covers: [platforms, models, features, general]
+  - url: https://github.com/mistralai/mistral-vibe
+    verified_at: 2026-08-23
+    covers: [platforms, models, features, license]
+  - url: https://docs.mistral.ai/vibe/code/cli/
+    verified_at: 2026-08-23
+    covers: [models, platforms]
+  - url: https://mistral.ai/news/mistral-vibe-2-0/
+    verified_at: 2026-08-23
+    covers: [pricing, features]

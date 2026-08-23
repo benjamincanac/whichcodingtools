@@ -1,0 +1,50 @@
+slug: vibe-notch
+name: Vibe Notch
+description: Open source macOS menu bar app that shows Claude Code sessions in the MacBook notch. Tracks several sessions at once, approves or denies tool calls and shows the chat history.
+layer: orchestrator
+vendor: Farouq Aldori
+homepage: https://github.com/farouqaldori/vibe-notch
+links:
+  repo: https://github.com/farouqaldori/vibe-notch
+  changelog: https://github.com/farouqaldori/vibe-notch/releases
+platforms: [macos]
+install:
+  - method: download
+    url: https://github.com/farouqaldori/vibe-notch/releases/latest
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/farouqaldori/vibe-notch
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the installed Claude Code is signed in with.
+features: [parallel-agents, hooks]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Installs hooks into ~/.claude/hooks on first launch and listens for session events over a Unix socket. It does not launch sessions itself.
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay for Claude Code, nothing for Vibe Notch itself
+  notes: Needs macOS 15.6 or later and the Claude Code CLI. The app sends anonymous launch and session start events to Mixpanel.
+status: active
+aliases:
+  - slug: claude-island
+    name: Claude Island
+    until: 2026-04-20
+    note: Renamed to Vibe Notch with the v1.3.2 release.
+sources:
+  - url: https://github.com/farouqaldori/vibe-notch
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, features, wraps, license, general]
+  - url: https://github.com/farouqaldori/vibe-notch/releases
+    verified_at: 2026-08-23
+    covers: [general]
