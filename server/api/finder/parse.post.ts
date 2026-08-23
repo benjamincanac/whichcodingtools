@@ -1,0 +1,68 @@
+import { generateText, Output } from 'ai'
+import { z } from 'zod'
+import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS } from '#shared/enums'
+import { ParsedRequirementsSchema } from '#shared/finder'
+
+const MODEL = 'anthropic/claude-haiku-4.5'
+
+const BodySchema = z.object({
+  query: z.string().trim().min(3).max(300)
+})
+
+function options(list: readonly { value: string, label: string, description?: string }[]) {
+  return list.map(o => `- ${o.value}: ${o.label}${o.description ? `, ${o.description}` : ''}`).join('\n')
+}
+
+const SYSTEM = `You turn one sentence from a developer into the filters of a directory of AI coding tools.
+Only fill a field when the sentence says so. Never guess what they did not mention. Leave arrays empty and booleans false otherwise.
+
+"Where you work" values (layer):
+${options(LAYERS)}
+Mapping hints: terminal, CLI, shell, tmux mean harness. IDE, editor, VS Code fork mean editor. "inside VS Code" or "plugin for JetBrains" mean extension plus the host. "run several agents", "parallel", "worktrees per task", "control plane" mean orchestrator. "in the browser", "from a ticket", "from Slack", "hosted" mean cloud. "build an app from a prompt" means app-builder.
+
+Hosts:
+${options(HOSTS)}
+
+Platforms:
+${options(PLATFORMS)}
+
+Plans they may already pay for:
+${options(PLANS)}
+"Claude Max", "Claude Pro", "Anthropic subscription" mean claude. "ChatGPT Plus", "OpenAI subscription", "Codex" as a plan mean chatgpt. "Copilot" means copilot. "Cursor Pro" means cursor. "Gemini", "Google AI Pro" mean gemini. "SuperGrok" means grok.
+
+Providers:
+${options(PROVIDERS)}
+
+Features:
+${options(FEATURES)}
+
+Budget is USD per month. Put tool or vendor names that should be searched by name into q.`
+
+export default defineEventHandler(async (event) => {
+  if (!process.env.AI_GATEWAY_API_KEY && !process.env.VERCEL_OIDC_TOKEN) {
+    throw createError({ statusCode: 503, statusMessage: 'Natural language search is not configured' })
+  }
+  const body = BodySchema.safeParse(await readBody(event))
+  if (!body.success) {
+    throw createError({ statusCode: 400, statusMessage: 'query must be 3 to 300 characters' })
+  }
+
+  try {
+    const { output, usage } = await generateText({
+      model: MODEL,
+      system: SYSTEM,
+      prompt: body.data.query,
+      output: Output.object({ schema: ParsedRequirementsSchema }),
+      maxOutputTokens: 400,
+      temperature: 0
+    })
+    return { parsed: output, usage: { input: usage.inputTokens, output: usage.outputTokens } }
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    if (/unauthenticated|api key|credentials/i.test(message)) {
+      throw createError({ statusCode: 503, statusMessage: 'Natural language search is not configured' })
+    }
+    console.error('[finder] parse failed', message)
+    throw createError({ statusCode: 502, statusMessage: 'The model could not parse that' })
+  }
+})

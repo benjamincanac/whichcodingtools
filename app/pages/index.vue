@@ -3,6 +3,7 @@ import { LAYERS } from '#shared/enums'
 import type { ToolMatch } from '~/composables/useToolFinder'
 
 const { site } = useAppConfig()
+const { public: { finderAi } } = useRuntimeConfig()
 const { tools, requirements, sort, update, reset, count, exact, close, hidden, matches } = useToolFinder()
 
 useSeoMeta({
@@ -87,6 +88,11 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
       </template>
 
       <div class="flex flex-col gap-8 py-4 lg:py-8">
+        <ToolFinderAsk
+          v-if="finderAi"
+          @apply="requirements = $event"
+        />
+
         <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
           <UInput
             ref="searchInput"

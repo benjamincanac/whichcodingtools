@@ -22,6 +22,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@vercel/functions": "^3.9.5",
     "@vueuse/core": "^14.3.0",
+    "ai": "^7.0.73",
     "comark-content": "^0.3.0",
     "nuxt": "^4.5.2",
     "satori": "^0.33.1",
