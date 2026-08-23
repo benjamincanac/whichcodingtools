@@ -1,0 +1,84 @@
+slug: codex-cli
+name: Codex CLI
+description: OpenAI's open source terminal agent. Signs in with a ChatGPT account and shares the plan's usage window, or bills an API key at token prices.
+layer: harness
+vendor: OpenAI
+homepage: https://learn.chatgpt.com/docs/codex/cli
+links:
+  docs: https://learn.chatgpt.com/docs/codex/cli
+  pricing: https://learn.chatgpt.com/docs/pricing
+  repo: https://github.com/openai/codex
+icon: i-simple-icons-openai
+platforms: [macos, linux, windows]
+install:
+  - method: npm
+    command: npm install -g @openai/codex
+  - method: brew
+    command: brew install --cask codex
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/openai/codex
+models:
+  providers: [openai]
+  byok: full
+  local: false
+  notes: OpenAI models only. Local models through an OpenAI-compatible endpoint are configurable but unsupported.
+features: [subagents, mcp-client, hooks, plugins, sandboxing, worktrees, acp-agent]
+pricing:
+  bundled_with: chatgpt
+  tiers:
+    - id: free
+      name: ChatGPT Free
+      price: 0
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - Small allowance for quick tasks, shared with ChatGPT
+    - id: go
+      name: ChatGPT Go
+      price: 8
+      audience: individual
+      overage:
+        kind: rate-limited
+    - id: plus
+      name: ChatGPT Plus
+      price: 20
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - Roughly 10 to 100 messages per five-hour window depending on the model
+    - id: pro
+      name: ChatGPT Pro
+      price: 100
+      price_from: true
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - 5x or 20x the Plus allowance depending on the Pro tier
+    - id: business
+      name: ChatGPT Business
+      price: 20
+      audience: team
+      overage:
+        kind: rate-limited
+      notes: Billed annually, two seats minimum.
+    - id: api
+      name: API key
+      price: null
+      audience: individual
+      overage:
+        kind: api-list
+        notes: Pay for the tokens Codex uses at API prices. Cloud features are not included.
+  notes: Codex and ChatGPT share one five-hour usage window per plan.
+status: active
+sources:
+  - url: https://learn.chatgpt.com/docs/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://github.com/openai/codex
+    verified_at: 2026-08-23
+    covers: [platforms, features, license]

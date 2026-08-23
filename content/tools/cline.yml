@@ -1,0 +1,46 @@
+slug: cline
+name: Cline
+description: Open source agent for VS Code, JetBrains and the terminal. Bring your own key for any provider, local models included, with an MCP marketplace and plan-then-act modes.
+layer: extension
+secondary_layers: [harness]
+vendor: Cline Bot Inc.
+homepage: https://cline.bot
+links:
+  docs: https://docs.cline.bot
+  repo: https://github.com/cline/cline
+platforms: [macos, windows, linux]
+hosts: [vscode, jetbrains]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev
+  - method: npm
+    command: npm install -g cline
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/cline/cline
+models:
+  providers: [anthropic, openai, google, xai, mistral, deepseek, openrouter, vercel-ai-gateway]
+  byok: full
+  local: true
+  notes: Any OpenAI-compatible endpoint, plus Bedrock, Azure and Vertex.
+features: [mcp-client, plugins, checkpoints, browser-automation, hooks, subagents]
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay the model provider directly
+    - id: teams
+      name: Teams
+      price: null
+      contact_sales: true
+      audience: team
+      notes: Cline Teams and Enterprise add central billing and policy. Prices are not on the public site.
+status: active
+sources:
+  - url: https://cline.bot
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, models, features, license, general]

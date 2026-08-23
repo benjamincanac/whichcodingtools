@@ -1,0 +1,41 @@
+slug: fx
+name: fx
+description: Vercel Labs' tiny native coding agent written in Zig. A shell-like CLI under 8 MB that signs in through Vercel AI Gateway, ChatGPT or SuperGrok, and embeds as WebAssembly.
+layer: harness
+vendor: Vercel Labs
+homepage: https://fx.sh
+links:
+  docs: https://fx.sh/docs
+  repo: https://github.com/vercel-labs/fx
+icon: i-simple-icons-vercel
+platforms: [macos, linux, windows, web]
+install:
+  - method: curl
+    command: curl -fsSL https://fx.sh/setup.sh | bash
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/vercel-labs/fx
+models:
+  providers: [vercel-ai-gateway, openai, xai]
+  plans: [chatgpt, grok]
+  byok: full
+  local: true
+  notes: Model-agnostic. Vercel AI Gateway login or key, ChatGPT and SuperGrok OAuth, direct provider keys, or local models.
+features: [subagents, mcp-client, acp-agent, sandboxing, plugins]
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay the model provider or gateway you sign in with
+status: preview
+sources:
+  - url: https://fx.sh
+    verified_at: 2026-08-23
+    covers: [pricing, general]
+  - url: https://github.com/vercel-labs/fx
+    verified_at: 2026-08-23
+    covers: [platforms, models, features, license]

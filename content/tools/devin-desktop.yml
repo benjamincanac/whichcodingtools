@@ -1,0 +1,74 @@
+slug: devin-desktop
+name: Devin Desktop
+description: Cognition's AI-native IDE, renamed from Windsurf over the air on 2 June 2026. Devin Local, a Rust rewrite of the Cascade agent, adds sub-agents and sandboxing.
+layer: editor
+vendor: Cognition
+homepage: https://devin.ai/desktop
+links:
+  docs: https://docs.devin.ai
+  pricing: https://devin.ai/pricing
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://devin.ai/desktop
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [anthropic, openai, google, xai, first-party]
+  byok: partial
+  local: false
+features: [parallel-agents, subagents, sandboxing, mcp-client, tab-completion, diff-review, browser-automation]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      overage:
+        kind: blocked
+      limits:
+        - Limited monthly credits
+    - id: pro
+      name: Pro
+      price: 20
+      audience: individual
+      included:
+        amount: 500
+        unit: credits
+        notes: Credits are consumed per prompt at a rate that depends on the model
+      overage:
+        kind: credits
+        notes: Additional credit packs billed separately.
+    - id: teams
+      name: Teams
+      price: 40
+      audience: team
+      included:
+        amount: 500
+        unit: credits
+      overage:
+        kind: credits
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+  notes: The pricing page refused automated fetches on 2026-08-23. Tier figures come from the August 2026 research corpus and need a human check.
+status: active
+aliases:
+  - slug: windsurf
+    name: Windsurf
+    until: 2026-06-02
+    note: Renamed to Devin Desktop by Cognition and updated in place. windsurf.com/editor redirects to devin.ai/desktop.
+  - slug: codeium
+    name: Codeium
+    until: 2025-04-15
+    note: The company and product were called Codeium before the Windsurf rebrand.
+sources:
+  - url: https://devin.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://devin.ai/desktop
+    verified_at: 2026-08-23
+    covers: [platforms, models, features, general]

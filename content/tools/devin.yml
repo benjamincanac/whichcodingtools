@@ -1,0 +1,59 @@
+slug: devin
+name: Devin
+description: Cognition's cloud software engineer. Works in its own VM from a Slack message, a ticket or the web app, and bills by Agent Compute Units on top of a subscription.
+layer: cloud
+vendor: Cognition
+homepage: https://devin.ai
+links:
+  docs: https://docs.devin.ai
+  pricing: https://devin.ai/pricing
+platforms: [web]
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party, anthropic, openai]
+  byok: none
+  local: false
+features: [parallel-agents, sandboxing, browser-automation, mcp-client, scheduled-tasks, diff-review]
+pricing:
+  tiers:
+    - id: core
+      name: Core
+      price: 20
+      audience: individual
+      included:
+        amount: 9
+        unit: credits
+        usd_value: 20
+        notes: Roughly nine ACUs, consumed per task
+      overage:
+        kind: credits
+        rate: 2.25
+        notes: Additional ACUs billed at $2.25 each.
+    - id: team
+      name: Team
+      price: 500
+      per: flat
+      audience: team
+      included:
+        amount: 250
+        unit: credits
+        usd_value: 500
+      overage:
+        kind: credits
+        rate: 2
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+  notes: The pricing page refused automated fetches on 2026-08-23. ACU figures come from the August 2026 research corpus and need a human check.
+status: active
+sources:
+  - url: https://devin.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.devin.ai/get-started/devin-intro
+    verified_at: 2026-08-23
+    covers: [platforms, models, features, general]

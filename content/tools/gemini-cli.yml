@@ -1,0 +1,51 @@
+slug: gemini-cli
+name: Gemini CLI
+description: Google's open source terminal agent for Gemini models. A personal Google account gets a free allowance, Google AI plans raise it, and API keys or Vertex AI bill per token.
+layer: harness
+vendor: Google
+homepage: https://geminicli.com
+links:
+  docs: https://geminicli.com/docs
+  repo: https://github.com/google-gemini/gemini-cli
+icon: i-simple-icons-googlegemini
+platforms: [macos, linux, windows]
+install:
+  - method: npm
+    command: npm install -g @google/gemini-cli
+  - method: brew
+    command: brew install gemini-cli
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/google-gemini/gemini-cli
+models:
+  providers: [google]
+  plans: [gemini]
+  byok: full
+  local: false
+features: [mcp-client, hooks, plugins, checkpoints, sandboxing, subagents, acp-agent]
+pricing:
+  tiers:
+    - id: free
+      name: Google account
+      price: 0
+      audience: individual
+      included:
+        amount: 1000
+        unit: requests
+        period: month
+        notes: 60 requests per minute and 1,000 per day with a personal Google account
+      overage:
+        kind: rate-limited
+    - id: api
+      name: Gemini API key or Vertex AI
+      price: null
+      audience: individual
+      overage:
+        kind: api-list
+  notes: Google AI Pro and Ultra subscribers get higher limits when signing in with that account.
+status: active
+sources:
+  - url: https://github.com/google-gemini/gemini-cli
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, models, features, license]

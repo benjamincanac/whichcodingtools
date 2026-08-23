@@ -1,0 +1,103 @@
+slug: cursor
+name: Cursor
+description: The VS Code fork that popularised AI-native editing. Cursor 3 replaced Composer with an Agents window and Cursor Router picks models by cost, balance or intelligence.
+layer: editor
+secondary_layers: [harness, cloud]
+vendor: Anysphere
+homepage: https://cursor.com
+links:
+  docs: https://cursor.com/docs
+  pricing: https://cursor.com/pricing
+  changelog: https://cursor.com/changelog
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://cursor.com/download
+  - method: brew
+    command: brew install --cask cursor
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [anthropic, openai, google, xai, first-party]
+  byok: partial
+  local: false
+  notes: Your own API keys work for chat but not for agent features on Cursor Router.
+features: [parallel-agents, subagents, worktrees, mcp-client, hooks, plugins, browser-automation, diff-review, checkpoints, tab-completion, remote-execution]
+pricing:
+  tiers:
+    - id: hobby
+      name: Hobby
+      price: 0
+      audience: individual
+      overage:
+        kind: blocked
+      limits:
+        - Limited agent requests
+        - Limited tab completions
+    - id: pro
+      name: Pro
+      price: 20
+      audience: individual
+      included:
+        amount: 20
+        unit: usd
+        usd_value: 20
+        notes: Agent usage priced at model API rates, with Auto modes billed differently per Router mode
+      overage:
+        kind: api-list
+        notes: Usage-based billing at API list price once the included amount is used, opt-in.
+      limits:
+        - Unlimited tab completions
+    - id: pro-plus
+      name: Pro+
+      price: 60
+      audience: individual
+      included:
+        amount: 60
+        unit: usd
+        usd_value: 60
+      overage:
+        kind: api-list
+      limits:
+        - 3x the Pro agent limits
+      notes: Price carried over from the August 2026 research corpus, the pricing page renders it client-side.
+    - id: ultra
+      name: Ultra
+      price: 200
+      audience: individual
+      included:
+        amount: 400
+        unit: usd
+        usd_value: 400
+      overage:
+        kind: api-list
+      limits:
+        - 20x the Pro agent limits
+      notes: Price carried over from the August 2026 research corpus, the pricing page renders it client-side.
+    - id: teams
+      name: Teams
+      price: 40
+      audience: team
+      included:
+        amount: 20
+        unit: usd
+        usd_value: 20
+      overage:
+        kind: api-list
+      limits:
+        - Premium team seats get 5x the Standard agent limits at the same base price plus usage
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+  notes: Cursor's own guidance puts daily agent users at $60 to $100 a month and multi-agent users at $200 or more.
+status: active
+sources:
+  - url: https://cursor.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://cursor.com/docs
+    verified_at: 2026-08-23
+    covers: [platforms, models, features]

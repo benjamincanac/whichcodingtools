@@ -1,0 +1,87 @@
+slug: claude-code
+name: Claude Code
+description: Anthropic's terminal agent. Reads the codebase, edits files and runs commands, with a VS Code and JetBrains extension, a desktop app and a web surface on the same engine.
+layer: harness
+secondary_layers: [extension, cloud]
+vendor: Anthropic
+homepage: https://code.claude.com
+links:
+  docs: https://code.claude.com/docs/en/overview
+  pricing: https://claude.com/pricing
+  changelog: https://code.claude.com/docs/en/changelog
+  repo: https://github.com/anthropics/claude-code
+icon: i-simple-icons-anthropic
+platforms: [macos, linux, windows, web]
+hosts: [vscode, jetbrains]
+install:
+  - method: curl
+    command: curl -fsSL https://claude.ai/install.sh | bash
+  - method: brew
+    command: brew install --cask claude-code
+  - method: winget
+    command: winget install Anthropic.ClaudeCode
+license:
+  spdx: proprietary
+  kind: proprietary
+  repo: https://github.com/anthropics/claude-code
+  notes: The repo hosts issues, docs and the Agent SDK. The CLI itself ships as a binary.
+models:
+  providers: [anthropic]
+  byok: full
+  local: false
+  notes: Anthropic models only, through claude.ai plans, an API key, Amazon Bedrock, Google Vertex AI or Microsoft Foundry.
+features: [subagents, parallel-agents, mcp-client, hooks, plugins, checkpoints, sandboxing, scheduled-tasks, remote-execution, mobile-companion, browser-automation, acp-agent]
+pricing:
+  bundled_with: claude
+  tiers:
+    - id: pro
+      name: Claude Pro
+      price: 20
+      price_annual: 17
+      audience: individual
+      overage:
+        kind: api-list
+        notes: Optional extra usage at API rates once the plan allowance is used.
+      limits:
+        - Usage allowance shared with claude.ai chat, resets in five-hour windows
+    - id: max-5x
+      name: Claude Max 5x
+      price: 100
+      audience: individual
+      overage:
+        kind: api-list
+      limits:
+        - 5x the Pro allowance
+    - id: max-20x
+      name: Claude Max 20x
+      price: 200
+      audience: individual
+      overage:
+        kind: api-list
+      limits:
+        - 20x the Pro allowance
+      notes: The pricing page reads "starting at" for both Max tiers. $200 is the published monthly price for 20x.
+    - id: team
+      name: Claude Team
+      price: 25
+      price_annual: 20
+      audience: team
+      overage:
+        kind: api-list
+      notes: Standard seat. Premium seats are $125 monthly or $100 annual with 5x the usage.
+    - id: api
+      name: API pay-as-you-go
+      price: null
+      audience: individual
+      overage:
+        kind: api-list
+        notes: Bill an Anthropic Console account at list token prices instead of using a plan.
+  notes: Claude Code is included in every paid claude.ai plan. Free accounts can chat but not run Claude Code.
+status: active
+sources:
+  - url: https://claude.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://code.claude.com/docs/en/overview
+    verified_at: 2026-08-23
+    covers: [platforms, models, features, general]

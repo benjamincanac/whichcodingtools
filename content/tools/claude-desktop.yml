@@ -1,0 +1,41 @@
+slug: claude-desktop
+name: Claude desktop app
+description: Anthropic's desktop app with Chat, Cowork and Code tabs. The Code tab runs Claude Code sessions side by side with visual diffs and scheduled tasks. Linux is in beta.
+layer: app
+vendor: Anthropic
+homepage: https://claude.com/download
+links:
+  docs: https://code.claude.com/docs/en/desktop
+  pricing: https://claude.com/pricing
+icon: i-simple-icons-anthropic
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://claude.com/download
+  - method: brew
+    command: brew install --cask claude
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [anthropic]
+  byok: none
+  local: false
+features: [parallel-agents, diff-review, scheduled-tasks, browser-automation, mcp-client, mobile-companion]
+wraps:
+  - tool: claude-code
+    via: sdk
+    uses_subscription: true
+    notes: The Code tab is Claude Code with the same login. Requires a paid claude.ai plan.
+pricing:
+  same_as: claude-code
+  bundled_with: claude
+  notes: Chat works on the Free plan. Code and Cowork need Pro, Max, Team or Enterprise. On Linux, Computer Use and dictation are not available yet.
+status: active
+sources:
+  - url: https://claude.com/download
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, features, general]
+  - url: https://code.claude.com/docs/en/overview
+    verified_at: 2026-08-23
+    covers: [wraps, models]

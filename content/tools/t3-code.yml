@@ -1,0 +1,52 @@
+slug: t3-code
+name: T3 Code
+description: Ping Labs' open source control surface for the agents already installed on your machine. Desktop, web, iOS and Android clients over one local harness, with native git worktrees.
+layer: orchestrator
+vendor: Ping Labs
+homepage: https://t3.gg/code
+links:
+  repo: https://github.com/pingdotgg/t3code
+platforms: [macos, windows, linux, web, ios, android]
+install:
+  - method: npm
+    command: npx t3@latest
+  - method: brew
+    command: brew install --cask t3-code
+  - method: winget
+    command: winget install T3Tools.T3Code
+  - method: aur
+    command: yay -S t3code-bin
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/pingdotgg/t3code
+models:
+  byok: full
+  local: false
+  notes: Inherits the models and login of whichever agent it controls.
+features: [parallel-agents, worktrees, mobile-companion, diff-review, remote-execution]
+wraps:
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+  - tool: cursor
+    via: cli
+    uses_subscription: true
+    notes: Drives the Cursor CLI agent. Grok Build and OpenCode are supported too but not in the directory yet.
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay for the agents it controls, nothing for T3 Code itself
+  notes: The README says the project is very early, expect bugs, and is mostly not accepting contributions yet.
+status: preview
+sources:
+  - url: https://github.com/pingdotgg/t3code
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, wraps, features, license, general]

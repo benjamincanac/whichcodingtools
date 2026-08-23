@@ -1,0 +1,91 @@
+slug: zed
+name: Zed
+description: Open source editor written in Rust with GPU rendering. Hosts external agents such as Claude Code, Codex and Gemini CLI over ACP at no charge, with its own hosted models on Pro.
+layer: editor
+vendor: Zed Industries
+homepage: https://zed.dev
+links:
+  docs: https://zed.dev/docs
+  pricing: https://zed.dev/pricing
+  changelog: https://zed.dev/releases
+  repo: https://github.com/zed-industries/zed
+icon: i-simple-icons-zedindustries
+platforms: [macos, linux, windows]
+install:
+  - method: curl
+    command: curl -f https://zed.dev/install.sh | sh
+  - method: brew
+    command: brew install --cask zed
+license:
+  spdx: GPL-3.0-or-later AND AGPL-3.0-or-later AND Apache-2.0
+  kind: open-source
+  repo: https://github.com/zed-industries/zed
+  notes: GPL-3.0 for the editor, AGPL-3.0 for the server components, Apache-2.0 for GPUI.
+models:
+  providers: [anthropic, openai, google, xai, mistral, deepseek, openrouter, vercel-ai-gateway]
+  byok: full
+  local: true
+  notes: Hosted models on Pro, or your own keys, Ollama and LM Studio on every plan.
+features: [acp-client, mcp-client, tab-completion, diff-review, remote-execution, subagents]
+wraps:
+  - tool: claude-code
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Runs the Claude Agent with its own login. Zed does not charge for external agents.
+  - tool: codex-cli
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: gemini-cli
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+pricing:
+  tiers:
+    - id: personal
+      name: Personal
+      price: 0
+      audience: individual
+      included:
+        amount: 2000
+        unit: edits
+        period: month
+        notes: 2,000 accepted edit predictions
+      overage:
+        kind: blocked
+      limits:
+        - Unlimited use with your own API keys or external agents
+    - id: pro
+      name: Pro
+      price: 10
+      audience: individual
+      trial_days: 14
+      included:
+        amount: 5
+        unit: usd
+        usd_value: 5
+        notes: $5 of hosted model tokens, unlimited edit predictions
+      overage:
+        kind: api-list
+        markup_pct: 10
+        notes: Billed at the end of the month or every additional $10, whichever comes first.
+    - id: business
+      name: Business
+      price: 30
+      audience: team
+      overage:
+        kind: api-list
+        markup_pct: 10
+      notes: No bundled token allotment. Seats pay hosted usage at API list price plus 10 percent or bring their own keys.
+status: active
+sources:
+  - url: https://zed.dev/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://zed.dev/docs/ai/external-agents
+    verified_at: 2026-08-23
+    covers: [wraps, models]
+  - url: https://github.com/zed-industries/zed
+    verified_at: 2026-08-23
+    covers: [platforms, features, license]
