@@ -1,0 +1,72 @@
+slug: blackbox
+name: BLACKBOX AI
+description: BLACKBOX AI's VS Code extension, CLI and web app with chat, completions and a multi-agent mode that fans one task out to Blackbox, Claude Code, Codex and Gemini.
+layer: extension
+secondary_layers: [harness, cloud]
+vendor: BLACKBOX AI
+homepage: https://www.blackbox.ai
+links:
+  docs: https://docs.blackbox.ai
+  pricing: https://www.blackbox.ai/pricing
+  x: https://x.com/blackboxai
+platforms: [macos, windows, linux, web]
+hosts: [vscode]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=Blackboxapp.blackbox
+  - method: npm
+    command: npm install -g @blackbox/cli
+  - method: curl
+    command: curl -fsSL https://blackbox.ai/install.sh | bash
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: The CLI page says the CLI is open source but links no repository, and the @blackbox/cli package was not on the npm registry on 2026-08-23, so it is recorded as proprietary until a repo turns up.
+models:
+  providers: [anthropic, openai, google, xai, meta, mistral, moonshot, alibaba, minimax, zhipu]
+  byok: none
+  local: false
+  notes: The VS Code page lists Claude Opus 4.6, GPT-5.2, Gemini 3, Grok 4, Llama and Mistral. The Blackbox Router exposes 300+ models through one endpoint, including Kimi, Qwen, MiniMax, GLM and NVIDIA Nemotron, all billed per token.
+features: [mcp-client, parallel-agents, browser-automation, tab-completion, diff-review, hooks, plugins, remote-execution]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - The VS Code extension listing reads "Free. No credit card" with a BLACKBOX AI account and no API key
+      notes: Limits of the free extension are not published on the public site.
+    - id: api
+      name: Pay per token
+      price: null
+      audience: individual
+      overage:
+        kind: api-list
+        notes: List rates per 1M tokens, for example Nemotron 3 Ultra at $0.32 input and $0.80 output, Kimi K2.7 Code at $0.74 and $3.50.
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Annual committed spend through a purchase order, 5 percent off closed models and 10 percent off open models
+        - Single-tenant deployment, SAML SSO, SCIM, audit logs, dedicated Remote Agent runners, Agents API
+  notes: The public pricing page lists only per-token rates and an Enterprise commit, with no seats. app.blackbox.ai refused automated fetches on 2026-08-23, so any individual subscription sold inside the app could not be verified. Multi-agent mode dispatches to Claude Code, Codex and Gemini, but the site does not say whether it runs your own installs and logins, so no wraps are recorded.
+status: active
+sources:
+  - url: https://www.blackbox.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, models]
+  - url: https://marketplace.visualstudio.com/items?itemName=Blackboxapp.blackbox
+    verified_at: 2026-08-23
+    covers: [pricing, features]
+  - url: https://www.blackbox.ai/vs-code
+    verified_at: 2026-08-23
+    covers: [features, models, platforms]
+  - url: https://www.blackbox.ai/cli
+    verified_at: 2026-08-23
+    covers: [platforms, features, license]
+  - url: https://www.blackbox.ai
+    verified_at: 2026-08-23
+    covers: [general, platforms]

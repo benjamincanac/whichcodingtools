@@ -1,0 +1,78 @@
+slug: qodo
+name: Qodo
+description: Reviews pull requests on GitHub, GitLab, Bitbucket and Azure DevOps and runs pre-PR review in VS Code and JetBrains. Code generation is deprecated. Formerly Codium.
+layer: cloud
+secondary_layers: [extension]
+vendor: Qodo
+homepage: https://www.qodo.ai
+links:
+  docs: https://docs.qodo.ai
+  pricing: https://www.qodo.ai/pricing
+  changelog: https://docs.qodo.ai/changelog
+icon: i-simple-icons-qodo
+platforms: [web, macos, windows, linux]
+hosts: [vscode, jetbrains, visual-studio]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=Codium.codium
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: The MIT pr-agent project Qodo started now lives at The-PR-Agent/pr-agent and states it is not the Qodo free tier.
+models:
+  byok: partial
+  local: false
+  notes: Qodo does not publish its model list. Bring your own LLM keys is an Enterprise feature. Multi-tenant, single-tenant and on-premises deployments.
+features: [diff-review]
+pricing:
+  tiers:
+    - id: pro-team
+      name: Pro Team
+      price: 30
+      per: flat
+      audience: team
+      trial_days: 14
+      included:
+        amount: 2500
+        unit: credits
+        period: month
+        usd_value: 30
+        notes: 2,500 credits pooled across the team, about 18 reviews a month
+      overage:
+        kind: credits
+        rate: 0.012
+        notes: Same $0.012 per credit with no premium, under a monthly cap you set.
+      limits:
+        - Up to 30 users, monthly billing with no commitment
+        - 5,000 and 20,000 credit packs at the same per-credit rate
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      trial_days: 14
+      limits:
+        - 30+ users, SSO and SAML, audit logs, BYOK, single-tenant or on-prem
+  notes: No permanent free tier. The 14 day trial has unlimited reviews and credits without a credit card. Qualified open source projects can apply for free access. The Qodo IDE extension is now a pre-PR review step, the vendor deprecated autocomplete and chat code generation.
+status: active
+aliases:
+  - slug: codium
+    name: CodiumAI
+    until: 2024-09-30
+    note: Renamed to Qodo with the Series A announcement on September 30, 2024.
+sources:
+  - url: https://www.qodo.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, platforms]
+  - url: https://docs.qodo.ai/qodo-ide
+    verified_at: 2026-08-23
+    covers: [platforms, features, general]
+  - url: https://docs.qodo.ai/code-review/get-started/installation
+    verified_at: 2026-08-23
+    covers: [platforms, general]
+  - url: https://www.qodo.ai/blog/introducing-qodo-a-new-name-the-same-commitment-to-quality/
+    verified_at: 2026-08-23
+    covers: [general]
+  - url: https://github.com/The-PR-Agent/pr-agent
+    verified_at: 2026-08-23
+    covers: [license]

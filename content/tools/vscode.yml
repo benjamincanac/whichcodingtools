@@ -54,7 +54,7 @@ pricing:
       limits:
         - The editor is free with no trial and no credit card
         - Agent and chat usage is metered by the Copilot plan or the agent you sign in with
-  notes: VS Code has no price of its own. Cline, Kilo Code, Roo Code, Continue, Augment, Cody and most other extensions in this directory list vscode in their hosts.
+  notes: VS Code has no price of its own. Extensions in this directory that run inside it, such as Cline, list vscode in their hosts.
 status: active
 sources:
   - url: https://code.visualstudio.com/

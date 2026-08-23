@@ -1,0 +1,80 @@
+slug: sweep
+name: Sweep
+description: JetBrains plugin from Sweep AI with an agent, next-edit autocomplete on its own Tab model, inline editing and code review. The VS Code and Zed builds ship autocomplete only.
+layer: extension
+vendor: Sweep AI
+homepage: https://sweep.dev
+links:
+  docs: https://docs.sweep.dev
+  pricing: https://sweep.dev/pricing
+platforms: [macos, windows, linux]
+hosts: [jetbrains, vscode, zed]
+install:
+  - method: download
+    url: https://plugins.jetbrains.com/plugin/26860-sweep-ai
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party, anthropic, zhipu]
+  byok: partial
+  local: false
+  notes: Sweep runs its own models for autocomplete and meters chat and agent usage in API credits. BYOK is documented for Claude Sonnet 4.5 and GLM 4.6 only. The VS Code extension is a .vsix from GitHub releases rather than a marketplace listing.
+features: [tab-completion, mcp-client]
+pricing:
+  tiers:
+    - id: trial
+      name: Free Trial
+      price: 0
+      audience: individual
+      included:
+        amount: 5
+        unit: usd
+        period: once
+        usd_value: 5
+        notes: $5 of API credits and 1,000 autocompletes
+      overage:
+        kind: blocked
+    - id: basic
+      name: Basic
+      price: 10
+      audience: individual
+      overage:
+        kind: credits
+        notes: Automatic top-ups replenish API credits once the monthly allocation is used.
+      limits:
+        - Unlimited autocomplete
+    - id: pro
+      name: Pro
+      price: 20
+      audience: individual
+      overage:
+        kind: credits
+      limits:
+        - Unlimited autocomplete, more API credits and priority support
+    - id: ultra
+      name: Ultra
+      price: 60
+      audience: individual
+      overage:
+        kind: credits
+      limits:
+        - Unlimited autocomplete and the highest API credit allocation
+  notes: The pricing page renders the paid cards client side. The $10, $20 and $60 figures come from its FAQ, which does not publish the monthly credit allocation of each plan. Students, educators and open source maintainers can ask for a discount.
+status: active
+sources:
+  - url: https://sweep.dev/pricing
+    verified_at: 2026-08-23
+    covers: [pricing, platforms]
+  - url: https://docs.sweep.dev
+    verified_at: 2026-08-23
+    covers: [features, platforms, general]
+  - url: https://docs.sweep.dev/jetbrains
+    verified_at: 2026-08-23
+    covers: [platforms, features]
+  - url: https://docs.sweep.dev/vscode
+    verified_at: 2026-08-23
+    covers: [platforms]
+  - url: https://docs.sweep.dev/byok
+    verified_at: 2026-08-23
+    covers: [models]

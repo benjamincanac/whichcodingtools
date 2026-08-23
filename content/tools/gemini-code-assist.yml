@@ -1,0 +1,63 @@
+slug: gemini-code-assist
+name: Gemini Code Assist
+description: Google's extension for VS Code and JetBrains with chat, completions, agent mode and a Gemini CLI quota. Sold per user as Standard or Enterprise, the free tier ended in June 2026.
+layer: extension
+vendor: Google
+homepage: https://codeassist.google
+links:
+  docs: https://docs.cloud.google.com/gemini/docs/codeassist/overview
+  pricing: https://codeassist.google
+icon: i-simple-icons-googlegemini
+platforms: [macos, windows, linux, web]
+hosts: [vscode, jetbrains]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist
+  - method: download
+    url: https://plugins.jetbrains.com/plugin/24198-gemini-code-assist
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [google]
+  byok: none
+  local: false
+  notes: Gemini models hosted by Google Cloud, Gemini 3 on the Preview release channel for Standard and Enterprise. Google AI Pro and Ultra accounts stopped being served on June 18, 2026.
+features: [mcp-client, tab-completion]
+pricing:
+  tiers:
+    - id: standard
+      name: Standard
+      price: 22.8
+      price_annual: 19
+      audience: team
+      overage:
+        kind: rate-limited
+      limits:
+        - 1,500 agent mode and Gemini CLI requests per user per day
+        - Cloud Shell Editor, Cloud Workstations and Android Studio on top of VS Code and JetBrains
+    - id: enterprise
+      name: Enterprise
+      price: 54
+      price_annual: 45
+      audience: enterprise
+      overage:
+        kind: rate-limited
+      limits:
+        - 2,000 agent mode and Gemini CLI requests per user per day
+        - Code customization from private repositories, GitHub code review
+  notes: Monthly or upfront annual commitment per user. Gemini Code Assist for individuals, the free tier, stopped serving requests on June 18, 2026, together with Gemini CLI for Google AI Pro and Ultra. Google points those users to Antigravity and Antigravity CLI. The quota schema has no daily period, so request limits are listed as text.
+status: active
+sources:
+  - url: https://codeassist.google
+    verified_at: 2026-08-23
+    covers: [pricing, platforms, features, general]
+  - url: https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli
+    verified_at: 2026-08-23
+    covers: [pricing, general]
+  - url: https://docs.cloud.google.com/gemini/docs/codeassist/overview
+    verified_at: 2026-08-23
+    covers: [platforms, features, models, general]
+  - url: https://docs.cloud.google.com/gemini/docs/quotas
+    verified_at: 2026-08-23
+    covers: [pricing]

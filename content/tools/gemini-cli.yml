@@ -1,6 +1,6 @@
 slug: gemini-cli
 name: Gemini CLI
-description: Google's open source terminal agent for Gemini models. A personal Google account gets a free allowance, Google AI plans raise it, and API keys or Vertex AI bill per token.
+description: Google's open source terminal agent for Gemini models. Since 18 June 2026 it only serves paid Gemini API keys and Vertex AI, Google points individuals to Antigravity CLI.
 layer: harness
 vendor: Google
 homepage: https://geminicli.com
@@ -20,32 +20,24 @@ license:
   repo: https://github.com/google-gemini/gemini-cli
 models:
   providers: [google]
-  plans: [gemini]
   byok: full
   local: false
+  notes: Google account sign-in, the free tier and Google AI Pro and Ultra access stopped on 18 June 2026.
 features: [mcp-client, hooks, plugins, checkpoints, sandboxing, subagents, acp-agent]
 pricing:
   tiers:
-    - id: free
-      name: Google account
-      price: 0
-      audience: individual
-      included:
-        amount: 1000
-        unit: requests
-        period: month
-        notes: 60 requests per minute and 1,000 per day with a personal Google account
-      overage:
-        kind: rate-limited
     - id: api
       name: Gemini API key or Vertex AI
       price: null
       audience: individual
       overage:
         kind: api-list
-  notes: Google AI Pro and Ultra subscribers get higher limits when signing in with that account.
+  notes: The free personal tier and Google AI Pro and Ultra sign-in stopped serving requests on 18 June 2026. The CLI keeps working with paid Gemini and Gemini Enterprise Agent Platform API keys. Antigravity CLI is Google's successor for individuals.
 status: active
 sources:
+  - url: https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli
+    verified_at: 2026-08-23
+    covers: [pricing, models]
   - url: https://github.com/google-gemini/gemini-cli
     verified_at: 2026-08-23
-    covers: [pricing, platforms, models, features, license]
+    covers: [platforms, features, license]

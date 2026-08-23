@@ -1,0 +1,60 @@
+slug: cody
+name: Cody
+description: Sourcegraph's editor assistant with chat, autocomplete and context from code search. Free and Pro ended on July 23, 2025, and Cody now ships only with Sourcegraph Enterprise.
+layer: extension
+vendor: Sourcegraph
+homepage: https://sourcegraph.com/cody
+links:
+  docs: https://sourcegraph.com/docs/cody
+  pricing: https://sourcegraph.com/pricing
+  repo: https://github.com/sourcegraph/cody-public-snapshot
+icon: i-simple-icons-sourcegraph
+platforms: [macos, windows, linux, web]
+hosts: [vscode, jetbrains, visual-studio]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
+  - method: download
+    url: https://plugins.jetbrains.com/plugin/9682-cody-ai-coding-assistant-with-autocomplete--chat
+license:
+  spdx: proprietary
+  kind: proprietary
+  repo: https://github.com/sourcegraph/cody-public-snapshot
+  notes: Cody moved to a private repository in 2025. sourcegraph/cody-public-snapshot is an archived Apache-2.0 copy of the last public commit and is no longer developed.
+models:
+  providers: [anthropic, openai, google]
+  byok: partial
+  local: false
+  notes: Claude, OpenAI and Gemini models through the Cody Gateway. Enterprise admins can bring Anthropic keys or Amazon Bedrock, and single-tenant or self-hosted instances can point at their own LLM.
+features: [mcp-client, tab-completion]
+pricing:
+  tiers:
+    - id: enterprise
+      name: Sourcegraph Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      notes: Sourcegraph's pricing page lists Enterprise starting at $16K with credits for AI features and no per-seat figure.
+  notes: Cody Free and Cody Pro were discontinued on July 23, 2025, with new sign-ups closed from June 25, 2025. Enterprise Starter dropped Cody at the same time. Sourcegraph pointed individuals to Amp with $10 to $40 of credits.
+status: sunset
+sunset_at: 2025-07-23
+successor: amp
+sources:
+  - url: https://sourcegraph.com/blog/changes-to-cody-free-pro-and-enterprise-starter-plans
+    verified_at: 2026-08-23
+    covers: [pricing, general]
+  - url: https://sourcegraph.com/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://sourcegraph.com/docs/cody
+    verified_at: 2026-08-23
+    covers: [platforms, general]
+  - url: https://sourcegraph.com/docs/cody/clients/install-vscode
+    verified_at: 2026-08-23
+    covers: [models, platforms]
+  - url: https://sourcegraph.com/docs/cody/capabilities/agentic-chat
+    verified_at: 2026-08-23
+    covers: [features]
+  - url: https://github.com/sourcegraph/cody-public-snapshot
+    verified_at: 2026-08-23
+    covers: [license]

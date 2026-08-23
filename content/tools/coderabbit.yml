@@ -1,0 +1,106 @@
+slug: coderabbit
+name: CodeRabbit
+description: Reviews pull requests on GitHub, GitLab, Bitbucket and Azure DevOps, with a CLI and a VS Code extension for pre-commit review. Public repositories are reviewed at no charge.
+layer: cloud
+secondary_layers: [extension]
+vendor: CodeRabbit
+homepage: https://www.coderabbit.ai
+links:
+  docs: https://docs.coderabbit.ai
+  pricing: https://www.coderabbit.ai/pricing
+icon: i-simple-icons-coderabbit
+platforms: [web, macos, linux, windows]
+hosts: [vscode]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=CodeRabbit.coderabbit-vscode
+  - method: curl
+    command: curl -fsSL https://cli.coderabbit.ai/install.sh | sh
+  - method: brew
+    command: brew install coderabbit
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [openai, anthropic]
+  byok: none
+  local: false
+  notes: Reviews run on OpenAI and Anthropic models picked by CodeRabbit. The VS Code extension also works in Cursor, Windsurf and other VS Code based editors, and the CLI plugs into Claude Code, Codex, Cursor and Gemini as a reviewer.
+features: [diff-review, mcp-client]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      trial_days: 14
+      overage:
+        kind: rate-limited
+      limits:
+        - 1 PR summary per hour, 3 IDE and 3 CLI reviews per developer per hour
+        - Unlimited public and private repositories, no credit card
+      notes: Starts as a 14 day Pro+ trial, then drops to summaries and the lower limits.
+    - id: oss
+      name: Open source
+      price: 0
+      audience: individual
+      overage:
+        kind: rate-limited
+      limits:
+        - Pro+ features on public repositories, 1 to 10 PR reviews per hour depending on stars
+    - id: pro
+      name: Pro
+      price: 30
+      price_annual: 24
+      audience: team
+      trial_days: 14
+      overage:
+        kind: credits
+        notes: Usage-based add-on for reviews above the hourly limit.
+      limits:
+        - 5 PR reviews, 5 IDE and 5 CLI reviews per developer per hour, 50 chat messages per hour
+        - 5 MCP connections, pre-merge checks, Jira and Linear
+    - id: pro-plus
+      name: Pro Plus
+      price: 60
+      price_annual: 48
+      audience: team
+      trial_days: 14
+      overage:
+        kind: credits
+      limits:
+        - 10 PR reviews, 10 IDE and 10 CLI reviews per developer per hour, 100 chat messages per hour
+        - Multi-repo analysis, custom pre-merge checks, unit tests, merge conflict resolution, coding plans
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      overage:
+        kind: credits
+      limits:
+        - 12 PR reviews per developer per hour, self-hosting, SSO, RBAC, audit logs, API access
+  notes: Per seat, seats can be reassigned between developers. Annual billing saves 20 percent. A CodeRabbit Security add-on is $40 per user per month and the Slack agent bills $0.50 per agent minute.
+status: active
+sources:
+  - url: https://www.coderabbit.ai/pricing
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.coderabbit.ai/management/plans.md
+    verified_at: 2026-08-23
+    covers: [pricing]
+  - url: https://docs.coderabbit.ai/faq.md
+    verified_at: 2026-08-23
+    covers: [models, pricing]
+  - url: https://docs.coderabbit.ai/
+    verified_at: 2026-08-23
+    covers: [platforms, general]
+  - url: https://docs.coderabbit.ai/overview/ide-cli-review.md
+    verified_at: 2026-08-23
+    covers: [platforms, features]
+  - url: https://docs.coderabbit.ai/cli/index.md
+    verified_at: 2026-08-23
+    covers: [platforms, pricing]
+  - url: https://docs.coderabbit.ai/knowledge-base/mcp-context.md
+    verified_at: 2026-08-23
+    covers: [features]
