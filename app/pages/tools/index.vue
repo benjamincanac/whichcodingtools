@@ -41,12 +41,12 @@ const open = ref(false)
 const summary = computed(() => {
   if (count.value) {
     const parts = [`${exact.value.length} of ${tools.value.length} tools match everything`]
-    if (close.value.length) parts.push(`${close.value.length} come close`)
+    if (close.value.length) parts.push(`${close.value.length} come${close.value.length === 1 ? 's' : ''} close`)
     if (hidden.value) parts.push(`${hidden.value} hidden`)
     return `${parts.join(', ')}.`
   }
   const q = requirements.value.q ? ` matching "${requirements.value.q}"` : ''
-  return `${matches.value.length} tools${q}. Pick what you need on the left to rank them.`
+  return `${matches.value.length} tool${matches.value.length === 1 ? '' : 's'}${q}. Pick what you need on the left to rank them.`
 })
 
 const grouped = computed<{ key: string, title?: string, description?: string, items: ToolMatch[] }[]>(() => {
