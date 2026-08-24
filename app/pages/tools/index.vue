@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { LAYERS } from '#shared/enums'
 import type { ToolMatch } from '~/composables/useToolFinder'
 
 const route = useRoute()
@@ -50,18 +49,7 @@ const summary = computed(() => {
   return `${matches.value.length} tools${q}. Pick what you need on the left to rank them.`
 })
 
-/** Nothing selected: everything, grouped by layer. */
-const byLayer = computed(() => {
-  if (count.value || requirements.value.q) return []
-  return LAYERS
-    .map(layer => ({ layer, items: matches.value.filter(m => m.tool.layer === layer.value) }))
-    .filter(g => g.items.length)
-})
-
 const grouped = computed<{ key: string, title?: string, description?: string, items: ToolMatch[] }[]>(() => {
-  if (byLayer.value.length) {
-    return byLayer.value.map(g => ({ key: g.layer.value, title: g.layer.label, description: g.layer.description, items: g.items }))
-  }
   if (!count.value) return [{ key: 'all', items: matches.value }]
   return [
     { key: 'exact', title: 'Matches everything', items: exact.value },
@@ -84,7 +72,7 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
         </UPageAside>
       </template>
 
-      <div class="flex flex-col gap-3 py-4 lg:py-6">
+      <div class="flex flex-col gap-4 py-4 lg:py-6">
         <UAlert
           v-if="why"
           color="neutral"

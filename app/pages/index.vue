@@ -84,7 +84,6 @@ defineShortcuts({
         size="xl"
         class="w-full"
         :ui="{ base: 'font-mono text-sm sm:text-base', trailing: 'pe-1.5' }"
-        :loading="loading"
         :disabled="loading"
         maxlength="300"
         autofocus

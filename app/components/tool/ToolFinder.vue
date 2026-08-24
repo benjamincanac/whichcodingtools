@@ -62,7 +62,7 @@ const priceFlags = flags(PRICE_FLAGS)
 
 /** Indicator hidden: the row itself carries the state, so the icon takes the checkbox slot. */
 const rowUi = {
-  item: 'text-toned has-data-[state=checked]:text-highlighted py-1.75',
+  item: 'text-toned has-data-[state=checked]:text-highlighted py-1.5 hover:z-1',
   wrapper: 'flex-row items-center gap-2 text-start',
   label: 'font-normal text-inherit truncate'
 }
@@ -73,22 +73,22 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
 
 <template>
   <div class="flex flex-col gap-3">
-    <div class="flex items-center justify-between h-5">
-      <p class="text-[11px] font-semibold uppercase text-dimmed tracking-wider">
-        Filters
-      </p>
-      <UButton
-        v-if="count"
-        :label="`Reset (${count})`"
-        color="neutral"
-        variant="link"
-        size="xs"
-        class="p-0"
-        @click="emit('reset')"
-      />
-    </div>
-
     <section class="flex flex-col gap-1.5">
+      <div class="flex items-center justify-between h-5">
+        <p class="text-xs font-medium text-highlighted">
+          Where you work
+        </p>
+        <UButton
+          v-if="count"
+          :label="`Reset (${count})`"
+          color="neutral"
+          variant="link"
+          size="xs"
+          class="p-0"
+          @click="emit('reset')"
+        />
+      </div>
+
       <UCheckboxGroup
         :items="layers"
         :model-value="requirements.where"
@@ -97,11 +97,7 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
         size="xs"
         :ui="rowUi"
         @update:model-value="set('where', $event as Requirements['where'])"
-      >
-        <template #label="{ item }">
-          <span :title="item.title">{{ item.label }}</span>
-        </template>
-      </UCheckboxGroup>
+      />
       <USelectMenu
         v-if="showHosts"
         :items="[...HOSTS]"
