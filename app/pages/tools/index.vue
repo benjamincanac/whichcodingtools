@@ -84,7 +84,7 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
         </UPageAside>
       </template>
 
-      <div class="flex flex-col gap-6 py-4 lg:py-6">
+      <div class="flex flex-col gap-3 py-4 lg:py-6">
         <UAlert
           v-if="why"
           color="neutral"
@@ -97,12 +97,16 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
           @update:open="router.replace({ query: { ...route.query, why: undefined } })"
         />
 
+        <p class="text-sm text-muted">
+          {{ summary }}
+        </p>
+
         <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
           <UInput
             ref="searchInput"
             v-model="search"
             icon="i-lucide-search"
-            placeholder="Search by name, vendor or description"
+            placeholder="Search by name or vendor"
             class="flex-1"
             :ui="{ trailing: 'pe-1' }"
           >
@@ -129,10 +133,6 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
             />
           </div>
         </div>
-
-        <p class="text-sm text-muted">
-          {{ summary }}
-        </p>
 
         <template v-if="matches.length && (exact.length || close.length || !count)">
           <ToolMatchList
