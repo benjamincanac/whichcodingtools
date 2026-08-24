@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
   const slugs = new Set(tools.map(t => t.slug))
 
   // What to purge: the shared surfaces, the touched tools, and every page that lists them.
-  const paths = new Set<string>(['/', '/compare', '/changelog', '/llms.txt', '/sitemap.xml', '/api/tools.json', '/api/changelog.json', '/api/content/list', '/api/__sitemap__/urls'])
+  const paths = new Set<string>(['/', '/compare', '/llms.txt', '/sitemap.xml', '/api/tools.json', '/api/content/list', '/api/__sitemap__/urls'])
   const pairs = relatedPairs(tools)
   for (const slug of touched) {
     paths.add(`/tools/${slug}`)

@@ -27,6 +27,6 @@ Living list, updated 2026-08-24. Done items get deleted, not checked.
 
 ## Done this weekend, for orientation
 
-Schema + validation, 74 tools from vendor pages, finder with natural language parse, compare/plans/layers/changelog/llms.txt, ISR with push-webhook revalidation and build skipping, eve agent (pricing-watch, rename-watch, stale-sweep, GitHub channel via Connect, logo maintenance) and its hardening pass, logos with fallback chain, landing redesign, CLAUDE.md.
+Schema + validation, 74 tools from vendor pages, finder with natural language parse, compare/plans/layers/llms.txt, ISR with push-webhook revalidation and build skipping, eve agent (pricing-watch, rename-watch, stale-sweep, GitHub channel via Connect, logo maintenance) and its hardening pass, logos with fallback chain, landing redesign, CLAUDE.md.
 
 Compare pairs were the last static-era leftover: any pair renders on demand now, and one rule in `relatedPairs` decides which ones get advertised in the sitemap and purged on a push. Same layer, or connected through `wraps`, which is about 520 of the 2278 possible pairs. The rest stay reachable but unlisted, because a directory that offers a crawler two thousand thin pages looks like a doorway farm.

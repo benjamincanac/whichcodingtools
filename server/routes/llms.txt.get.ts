@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     `- API, every tool: ${site.url}/api/tools.json`,
     `- Finder: ${site.url}/`,
     `- Compare: ${site.url}/compare`,
-    `- Changelog: ${site.url}/changelog`,
+    `- Changelog, every data commit: https://github.com/${githubRepo()}/commits/${contentBranch()}/${contentDir()}`,
     ''
   ]
   for (const layer of LAYERS) {

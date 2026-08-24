@@ -21,13 +21,11 @@ export default defineNuxtConfig({
       '/compare/**': { isr: 60 * 60 },
       '/plans/**': { isr: 60 * 60 },
       '/layers/**': { isr: 60 * 60 },
-      '/changelog': { isr: 60 * 60 },
       '/llms.txt': { isr: 60 * 60 },
       '/tools': { isr: { expiration: 60 * 60, passQuery: true } },
       '/tools/**': { isr: 60 * 60 },
       '/api/tools.json': { isr: 60 * 60 },
       '/api/tools/**': { isr: 60 * 60 },
-      '/api/changelog.json': { isr: 60 * 60 },
       '/api/content/**': { isr: 60 * 60 },
       '/api/__sitemap__/urls': { isr: 60 * 60 },
       '/sitemap.xml': { isr: 60 * 60 }

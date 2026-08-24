@@ -24,8 +24,3 @@ export function contentCacheDriver(sha: string): Driver {
 export const refStorage = createStorage({
   driver: onVercel() ? vercelRuntimeCache({ base: 'content:refs', ttl: REF_TTL }) : memoryDriver()
 })
-
-/** Per-SHA storage for derived data such as the changelog. */
-export function shaStorage(sha: string) {
-  return createStorage({ driver: contentCacheDriver(sha) })
-}
