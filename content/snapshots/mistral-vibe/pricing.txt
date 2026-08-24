@@ -1,0 +1,352 @@
+# https://mistral.ai/pricing/
+# fetched 2026-08-24
+
+Pricing | Mistral
+Contact sales
+Menu
+Products
+Solutions
+Research
+Developers
+Blog
+Customers
+Company
+Contact sales
+Start building
+Studio
+Build, test, and run AI agents and apps.
+Forge
+Train, align, and evaluate custom AI models.
+Vibe
+AI agent for long-horizon work.
+Vibe for code
+Coding agents in the terminal, IDE, and background.
+AI Cloud
+Frontier-scale infrastructure for training and inference.
+Pricing
+Plans
+API pricing
+For enterprises
+Overview
+Delivery methodology
+Model customization
+Industries
+Financial services
+Public sector & government
+Manufacturing
+Energy & utilities
+Use cases
+Coding
+Document intelligence
+Speech
+Latest models
+Mistral OCR 4
+Mistral Medium 3.5
+Mistral Small 4
+Voxtral TTS
+See all models
+Docs
+API Reference
+Cookbooks
+Latest posts
+Agentic Search. More accurate and efficient results from your AI systems.
+In-region inference, open models, and new European infrastructure for sovereign AI.
+Introducing Shieldstral.
+Read all news
+Categories
+Product
+Research
+Engineering
+Solutions
+Company
+Featured stories
+ASML
+CMA CGM
+HSBC
+BMW
+See all
+Who we are
+About us
+Careers
+Brand
+Connect
+Community
+Partners
+Help center
+Products Solutions Research Developers Blog Customers Company
+Studio
+Build, test, and run AI agents and apps.
+Forge
+Train, align, and evaluate custom AI models.
+Vibe
+AI agent for long-horizon work.
+Vibe for code
+Coding agents in the terminal, IDE, and background.
+AI Cloud
+Frontier-scale infrastructure for training and inference.
+Pricing
+Plans
+API pricing
+For enterprises
+Overview
+Delivery methodology
+Model customization
+Industries
+Financial services
+Public sector & government
+Manufacturing
+Energy & utilities
+Use cases
+Coding
+Document intelligence
+Speech
+Latest models
+Mistral OCR 4
+Mistral Medium 3.5
+Mistral Small 4
+Voxtral TTS
+See all models
+Docs
+API Reference
+Cookbooks
+Latest posts
+Agentic Search. More accurate and efficient results from your AI systems.
+In-region inference, open models, and new European infrastructure for sovereign AI.
+Introducing Shieldstral.
+Read all news
+Categories
+Product
+Research
+Engineering
+Solutions
+Company
+Featured stories
+ASML
+CMA CGM
+HSBC
+BMW
+See all
+Who we are
+About us
+Careers
+Brand
+Connect
+Community
+Partners
+Help center
+Start building
+Studio
+Vibe
+Vibe for Code
+Contact sales
+Pricing
+Pricing
+Plans
+API
+Pricing
+Pricing
+USD ($)
+EUR (€)
+France
+Austria Belgium Bulgaria Croatia Cyprus Czech Republic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Latvia Lithuania Luxembourg Malta Netherlands Poland Portugal Romania Slovakia Slovenia Spain Sweden United Kingdom
+Free
+Your personal AI agent for everyday tasks.
+Test out Vibe’s capabilities.
+Access on web and mobile.
+Limited messages and web searches.
+Limited coding sessions.
+State-of-the-art image generation.
+Test Mistral models in Studio.
+$10 /mo in API credits.
+100+ connectors.
+Start now
+Popular
+Pro
+Education plan
+Full access to Vibe for all-day coding and long-running tasks.
+$14.99
+/mo
+Excluding taxes
+Including taxes
+Subject to fair usage limits and Mistral's Terms of Service .
+Valid for a maximum of 12 months for verified students at accredited higher institutions and if you haven't used Vibe (or Le Chat) before. Price not inclusive of taxes.
+I'm a student
+More access and usage.
+More messages and web searches.
+Get more complex tasks done.
+All-day coding in the CLI, IDE, or on web.
+More image generations.
+$30 /mo in API credits.
+Chat and email support.
+Start now
+Team
+Secure, collaborative workspace for teams building with AI.
+$24.99
+/user/mo
+Excluding taxes
+Including taxes
+Subject to fair usage limits and Mistral's Terms of Service .
+Up to 30GB of storage /user.
+Domain name verification.
+Data export.
+$50
+/mo
+Users
+Start now
+Enterprise
+Private deployments powered by custom models, UI, and tools.
+Custom models.
+Custom agents.
+Custom workflows.
+Audit logs.
+SAML SSO.
+White label.
+Contact us
+Free
+Start now
+Pro
+Start now
+Team
+Start now
+Enterprise
+Contact us
+Interfaces.
+Vibe on web
+Vibe in your browser: run long-horizon work and code tasks from a chat interface.
+Vibe CLI
+Terminal-native coding agent powered by Devstral for autonomous software engineering tasks.
+Vibe for IDE
+VS Code and JetBrains plugin powered by Devstral—tab completion, natural language code editing, and context-aware chat.
+Vibe on mobile (iOS and Android)
+Features and tools.
+Messages
+Chat with our most powerful, SOTA models.
+Up to 6x free
+Up to 6x free
+Voice mode
+Record or upload audio, get transcriptions, ask questions, or generate summaries.
+Skills
+Create and load instructions, tools, and scripts for specialized, repeatable tasks.
+Web searches
+Up to 5x free
+Up to 5x free
+Libraries and document upload
+Organize and include information for your chats. Supported file formats: PDF, images, CSV, all text files (.json...), Office Suite (ppt, xls, docx).
+Limited
+Up to 15GB
+Up to 30GB / user
+Task scheduling
+Schedule prompts, agents, or workflows to run automatically at set times.
+Up to 5
+Unlimited
+Subject to fair usage limits and Mistral's Terms of Service.
+Unlimited
+Subject to fair usage limits and Mistral's Terms of Service.
+Workflows
+Run multi-step automations orchestrated from Mistral Studio.
+Connectors (beta)
+Search, summarize, and act across your stack with the widest enterprise-ready connector directory.
+Custom MCP connectors (beta)
+Connect to any remote MCP server of choice.
+Canvas
+Create documents, presentations, code, mockups, and more.
+Project folders
+Group chats into organized, context-rich workspaces.
+Up to 1,000
+Up to 1,000
+Image generation
+Generate and edit high-quality AI images, turning ideas into visuals with just a few words.
+Up to 40x free
+Up to 40x free
+Verified news
+Fetch reliable and verified news content in responses.
+Coding features.
+Use Vibe in the CLI, IDE, and remotely.
+Connectors
+Pull context from your tools like Notion, Slack, Linear, and Drive directly into Vibe while it codes.
+Hooks
+Run custom shell commands before and after each agent turn to enforce conventions, block patterns, or trigger your own automations.
+Remote coding agents
+Remote coding agent in isolated sandboxes for parallel task execution.
+Teleport
+Hand off a Vibe session from your local machine to a remote coding agent , then pick it back up locally when needed.
+Remote agent observability
+Monitor remote coding sessions with run history, tool calls, code changes, logs, and audit trails.
+Domain name verification
+Team and enterprise features.
+Knowledge connectors
+Connect external knowledge sources to Vibe for real-time, accurate answers.
+Custom deployments
+Deploy self-hosted, in your private cloud, or on-premises; your data stays in your environment.
+Admin API
+Programmatically manage users, teams, and permissions.
+Data export
+Audit logs
+Detailed logs for tracking usage, changes, and ensuring compliance.
+SAML SSO
+White label
+Dedicated hostname, your logo.
+Usage and data.
+Extend usage with PAYG credits
+Keep going past your plan limit by paying only for what you use beyond it at API rate.
+Model training
+Opt-out
+Opt-out
+Opt-out
+Customer service.
+Help center
+Chat and email support
+Frequently asked questions.
+Does Mistral have a free plan?
+Yes, Mistral’s Free plan provides limited access to Vibe , including our latest models, chat, search, creation, and Vibe for code for agentic coding in your terminal. On the Free plan, you also get access to Mistral Studio .
+Which model should I use?
+For most tasks and coding: Mistral Medium . For document AI: OCR. For audio and speech intelligence: Voxtral . For cost-sensitive projects: Mistral Small . See the Models overview for more information.
+How is API pricing calculated?
+Most models are priced per million tokens, with both input (your prompts) and output (responses) counted separately. For example, Mistral Large costs $0.5 /M tokens in and $1.5 /M tokens out. Batch processing, for high-volume work, reduces the price by 50%, and cached input tokens reduce input cost by up to 90% for repeated prompts. A few APIs are priced differently: OCR is per 1,000 pages, speech models are per minute, and tool APIs are priced per call.
+How can I track my API usage and spending?
+The Mistral Studio dashboard offers detailed tracking of API usage, including metrics for calls, endpoints, and user activity. It breaks down costs for services like completion, OCR, and fine-tuning, helping you monitor and optimize API consumption efficiently.
+What’s the difference between Mistral Free and Pro plans?
+The Free plan is ideal for getting started with the Vibe or Studio. Mistral Pro offers higher limits across chat plus full access to coding with Mistral Vibe. You get more messages and web searches, more extended thinking and deep research reports, expanded Mistral Vibe capacity, and chat and email support.
+Does Mistral Vibe have any usage limits?
+Pro has higher ceilings compared to Free (e.g. up to 40x more image generations). Team and Enterprise plans have even higher allowances on certain features. For example, Flash answers: 200 / day on Team vs. 150 / day on Pro.
+Can I self-host Mistral’s models?
+Yes, you can self-host our models anywhere. Open-weight models (e.g., Mistral 7B) are Apache 2.0 licensed for research/individual use; while commercial deployments require a Mistral license with separate terms for derivatives and production use.
+Are there discounts for students?
+Verified students can get Mistral Pro for $5.99 / month (normally $14.99).
+Do you offer enterprise solutions and support?
+Yes, the Mistral Enterprise plan includes custom SLAs, dedicated support, and private deployments. Contact us for more details.
+Products
+Vibe
+Vibe Code
+Studio
+Forge
+Compute
+Pricing
+Solutions
+Delivery methodology
+Model customization
+Coding
+Document intelligence
+Speech
+Mistral for finance
+Mistral for public institutions
+Mistral for manufacturing
+Mistral for energy & utilities
+Why Mistral
+About us
+Careers
+Partners
+Our customers
+Our models
+Brand
+Legal
+Terms of Service
+Privacy Policy
+Privacy choices
+Data processing agreement
+Legal notice
+Get Mistral Vibe
+Mistral AI © 2026
+Select language
+English
+English Français Italiano
