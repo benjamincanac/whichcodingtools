@@ -39,7 +39,11 @@ export default githubChannel({
   },
   events: {
     async 'turn.failed'(event, channel, ctx) {
-      if (isAutonomous(ctx.session.auth.current)) return
+      if (isAutonomous(ctx.session.auth.current)) {
+        // A community thread gets a neutral trace, never the error internals.
+        await channel.thread.post('I could not finish processing this automatically. A maintainer will take a look.')
+        return
+      }
       await channel.thread.post(`I hit an error while handling this (${event.message}). Mention me again to retry.`)
     }
   }
