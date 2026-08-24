@@ -102,15 +102,15 @@ export default defineNuxtConfig({
     enabled: false
   },
 
+  ogImage: {
+    // Pages render on demand (ISR), so do their images.
+    zeroRuntime: false
+  },
+
   sitemap: {
     // Nothing is prerendered (ISR), so the module only discovers the static routes on its own.
     // Every data-driven page comes from this source: tools, layers, plans and the compare pairs
     // worth advertising.
     sources: ['/api/__sitemap__/urls']
-  },
-
-  ogImage: {
-    // Pages render on demand (ISR), so do their images.
-    zeroRuntime: false
   }
 })
