@@ -35,10 +35,12 @@ export default githubChannel({
     const login = ctx.sender.login.toLowerCase()
     if (login === botName || login.endsWith('[bot]')) return null
     // issue.raw is the webhook payload's `issue` object itself, not the whole payload.
-    const raw = issue.raw as { title?: string, body?: string, user?: { id?: number }, labels?: { name: string }[] }
+    const raw = issue.raw as { title?: string, body?: string, labels?: { name: string }[] }
     const title = raw.title ?? ''
     const labels = (raw.labels ?? []).map(l => l.name)
     if (issue.action === 'opened') {
+      // Quiet on his own issues, which are usually edits he makes directly. Labeling is how he
+      // opts one in, including his own: it is the only way to exercise this path end to end.
       if (String(ctx.sender.id) === MAINTAINER_GITHUB_ID) return null
       // The label, never the title: the issue form applies `tool` server side, while blank
       // issues are enabled, so a `[Tool]` prefix is something any stranger can type. An
@@ -48,8 +50,6 @@ export default githubChannel({
       // Who applied the label, not just who opened the issue. Anyone with triage access can
       // label, and labeling starts a credentialed unattended turn, so this is Benjamin's alone.
       if (String(ctx.sender.id) !== MAINTAINER_GITHUB_ID) return null
-      // Never on his own issue: his own submissions are edits he can make directly.
-      if (String(raw.user?.id ?? '') === MAINTAINER_GITHUB_ID) return null
       if (!labels.includes('tool')) return null
       // `labeled` fires for every label added, and eve hands this hook the issue rather than
       // the event, so "was `tool` the one just added" is not a question it can ask. Ask the
