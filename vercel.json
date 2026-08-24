@@ -1,5 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "pnpm build",
-  "ignoreCommand": "git diff --quiet ${VERCEL_GIT_PREVIOUS_SHA:-HEAD^} HEAD -- . ':(exclude)content/'"
+  "ignoreCommand": "PREV=${VERCEL_GIT_PREVIOUS_SHA:-HEAD^}; git cat-file -e \"$PREV^{commit}\" 2>/dev/null || git fetch --quiet --unshallow 2>/dev/null || true; git diff --quiet \"$PREV\" HEAD -- . ':(exclude)content/' && exit 0 || exit 1"
 }
