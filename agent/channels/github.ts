@@ -140,7 +140,7 @@ ${text}
 }
 
 const FIRST_RESPONDER = `This is an unattended turn on a new "Add a tool" issue. Load the \`contributing\` skill, then:
-1. Read the issue body below. If it contains a YAML block, write it to /workspace/repo/content/tools/<slug>.yml and run \`pnpm validate\`. If it has no YAML, build a draft from the fields in the form (name, homepage, layer, pricing URL) and the vendor pages you fetch, leaving fields you could not verify out rather than guessed.
+1. Read the issue body below. If it contains a YAML block, write it to /workspace/repo/content/tools/<slug>.yml and run \`pnpm validate\`. If it has no YAML, build a draft from whichever fields the form carries, most of them are optional, and the vendor pages you fetch from the homepage, leaving fields you could not verify out rather than guessed.
 2. If validation passes, push the file with \`github__push_files\` on branch \`agent/add-<slug>-<YYYY-MM-DD>\` and message \`data(<slug>): add <name>\`, then open a draft pull request that links this issue.
 3. Reply in the issue with one short comment: what you validated, the PR link, or the validation issues as a list the reporter can fix. Do not restate the rules.
 You may not open issues, edit other files, or mark anything ready. If the issue is not actually about adding a tool, reply with one sentence saying a maintainer will look at it.`

@@ -7,25 +7,25 @@ body:
     id: tool
     attributes:
       label: Tool slug
+      description: The last part of its page URL, /tools/cursor is `cursor`.
       placeholder: cursor
     validations:
       required: true
-  - type: input
-    id: field
+  - type: textarea
+    id: change
     attributes:
-      label: Field
-      placeholder: pricing.tiers.pro.price
+      label: What is wrong
+      description: What the site says and what the vendor page says now.
     validations:
       required: true
   - type: input
     id: source
     attributes:
       label: Vendor page that shows the current value
-    validations:
-      required: true
-  - type: textarea
-    id: change
+      description: Optional. Left blank, the pricing and docs links already on file are re-read.
+  - type: input
+    id: field
     attributes:
-      label: What changed
-    validations:
-      required: true
+      label: Field
+      description: Optional. The schema path, when you know it.
+      placeholder: pricing.tiers.pro.price

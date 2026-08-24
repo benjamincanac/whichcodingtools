@@ -4,21 +4,21 @@ title: "[Tool] "
 labels: [tool]
 body:
   - type: input
-    id: name
-    attributes:
-      label: Name
-    validations:
-      required: true
-  - type: input
     id: homepage
     attributes:
       label: Homepage
     validations:
       required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Optional. Left blank, the name on the vendor page is used.
   - type: dropdown
     id: layer
     attributes:
       label: Layer
+      description: Optional. Skip it if none of these is an obvious fit.
       options:
         - Terminal agent (harness)
         - AI-native IDE (editor)
@@ -27,14 +27,11 @@ body:
         - Orchestrator (orchestrator)
         - Cloud agent (cloud)
         - App builder (app-builder)
-    validations:
-      required: true
   - type: input
     id: pricing
     attributes:
       label: Pricing page URL
-    validations:
-      required: true
+      description: Optional. Worth filling in when the page is hard to find from the homepage.
   - type: textarea
     id: yaml
     attributes:
