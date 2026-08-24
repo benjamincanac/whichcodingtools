@@ -13,7 +13,7 @@ useSeoMeta({
   description: `Every editor, terminal agent, orchestrator and cloud agent, with pricing verified against vendor pages. Tell ${site.name} what you need and get the best fit.`
 })
 
-defineOgImageComponent('ToolSatori', {
+defineOgImage('ToolSatori', {
   headline: 'AI coding tools',
   title: 'Find the AI coding tool that fits how you work',
   description: 'Editors, terminal agents, orchestrators and cloud agents with verified pricing and the graph of what runs what.'

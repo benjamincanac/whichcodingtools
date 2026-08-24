@@ -29,7 +29,7 @@ useSeoMeta({
   description: PLAN_INTROS[plan.value as Plan]
 })
 
-defineOgImageComponent('ToolSatori', {
+defineOgImage('ToolSatori', {
   headline: 'I already pay for',
   title: `What you can use with ${plan.label}`,
   description: PLAN_INTROS[plan.value as Plan]

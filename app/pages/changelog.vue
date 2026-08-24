@@ -21,7 +21,7 @@ useSeoMeta({
   description: 'Every change to the tool data, straight from git history. Added tools, price updates and renames with the commit that made them.'
 })
 
-defineOgImageComponent('ToolSatori', {
+defineOgImage('ToolSatori', {
   headline: 'Changelog',
   title: 'Every change to the data',
   description: 'Additions, price updates and renames, straight from the git history of content/tools.'

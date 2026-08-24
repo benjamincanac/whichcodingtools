@@ -14,7 +14,7 @@ useSeoMeta({
   description: 'Editors, terminal agents, orchestrators and cloud agents. Filter by platform, the plan you already pay for, models, budget and features. Pricing verified against vendor pages.'
 })
 
-defineOgImageComponent('ToolSatori', {
+defineOgImage('ToolSatori', {
   headline: 'Tools',
   title: 'Every AI coding tool, filtered by how you work',
   description: 'Editors, terminal agents, orchestrators and cloud agents with verified pricing and the graph of what runs what.'

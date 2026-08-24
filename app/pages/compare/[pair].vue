@@ -27,7 +27,7 @@ useSeoMeta({
   description: `${a.name} and ${b.name} side by side: pricing, included usage, overage, BYOK, platforms, features and what each one runs. Verified against vendor pages.`
 })
 
-defineOgImageComponent('ToolSatori', {
+defineOgImage('ToolSatori', {
   headline: 'Compare',
   title: `${a.name} vs ${b.name}`,
   description: `${a.description} ${b.description}`

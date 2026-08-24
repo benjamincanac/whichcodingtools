@@ -80,7 +80,7 @@ useSeoMeta({
   description: t.value.description
 })
 
-defineOgImageComponent('ToolSatori', {
+defineOgImage('ToolSatori', {
   headline: layerLabel.value,
   title: t.value.name,
   description: t.value.description,

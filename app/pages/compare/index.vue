@@ -24,7 +24,7 @@ useSeoMeta({
   description: 'Side by side pricing, included usage, overage, BYOK, platforms, features and integrations for any AI coding tools, from vendor-verified data.'
 })
 
-defineOgImageComponent('ToolSatori', {
+defineOgImage('ToolSatori', {
   headline: 'Compare',
   title: 'Compare AI coding tools side by side',
   description: 'Pricing, included usage, overage, BYOK, platforms, features and what runs what.'

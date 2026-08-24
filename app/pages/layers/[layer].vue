@@ -18,7 +18,7 @@ useSeoMeta({
   description: LAYER_INTROS[layer.value as Layer]
 })
 
-defineOgImageComponent('ToolSatori', {
+defineOgImage('ToolSatori', {
   headline: 'Layer',
   title: `${layer.label}s`,
   description: LAYER_INTROS[layer.value as Layer]
