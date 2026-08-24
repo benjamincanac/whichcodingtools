@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@agent-browser/eve':
+        specifier: ^0.34.0
+        version: 0.34.0(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))
       '@comark/nuxt':
         specifier: ^0.6.2
         version: 0.6.2(5bf62ac3806332f54152e4cd8440b2be)
@@ -92,6 +95,20 @@ importers:
         version: 3.3.11(typescript@6.0.3)
 
 packages:
+
+  '@agent-browser/eve@0.34.0':
+    resolution: {integrity: sha512-l/Kv0VaMRUyFyPbigKX5qqHvM5CILVmA8CE9VAtGZcpbXhdF5oCkOmTZ0aezzRYXKX7rbm+rCCXjwLueAAgyFA==}
+    engines: {node: '>=24.0.0'}
+    peerDependencies:
+      eve: '>=0.25.1'
+
+  '@agent-browser/sandbox@0.34.0':
+    resolution: {integrity: sha512-1SGPBshiJTtsK3v+zTE8FPczwurJ5SLKfDLILt1MhCyzX7qKbrPCGoJUvc2F3dKwWHJyTE59cnq+jlELUOjzsg==}
+    peerDependencies:
+      '@vercel/sandbox': '>=1.0.0'
+    peerDependenciesMeta:
+      '@vercel/sandbox':
+        optional: true
 
   '@ai-sdk/gateway@4.0.62':
     resolution: {integrity: sha512-zR3pustGWhw5eUZHG+fJZx/V/PBe+LxdDpc5hDFWxozG/3MB/+eY62jn+YiR+9uOH+Hx63e5zJoeKLfZfPktWQ==}
@@ -6196,6 +6213,16 @@ packages:
     resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
 snapshots:
+
+  '@agent-browser/eve@0.34.0(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))':
+    dependencies:
+      '@agent-browser/sandbox': 0.34.0
+      eve: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
+      zod: 4.4.3
+    transitivePeerDependencies:
+      - '@vercel/sandbox'
+
+  '@agent-browser/sandbox@0.34.0': {}
 
   '@ai-sdk/gateway@4.0.62(zod@4.4.3)':
     dependencies:

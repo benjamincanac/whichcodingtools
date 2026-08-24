@@ -15,6 +15,7 @@
     "build:agent": "eve build"
   },
   "dependencies": {
+    "@agent-browser/eve": "^0.34.0",
     "@comark/nuxt": "^0.6.2",
     "@iconify-json/lucide": "^1.2.125",
     "@iconify-json/simple-icons": "^1.2.93",

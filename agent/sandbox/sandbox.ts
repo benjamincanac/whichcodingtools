@@ -1,3 +1,4 @@
+import { agentBrowserRevalidationKey, installAgentBrowser } from '@agent-browser/eve/sandbox'
 import { defineSandbox } from 'eve/sandbox'
 import type { SandboxNetworkPolicy } from 'eve/sandbox'
 import { vercel } from 'eve/sandbox/vercel'
@@ -24,11 +25,12 @@ export default defineSandbox({
   backend: vercel({ resources: { vcpus: 2 } }),
   // The template only warms tooling. The private repo is cloned per session, after the brokered
   // credentials are in place, so no token is ever written into the template image.
-  revalidationKey: () => 'whichcodingtools-workspace-v2',
+  revalidationKey: () => `whichcodingtools-workspace-v3:${agentBrowserRevalidationKey()}`,
   async bootstrap({ use }) {
     const sandbox = await use()
     await sandbox.run({ command: 'corepack enable && corepack prepare pnpm@10.33.4 --activate' })
     await sandbox.run({ command: 'git config --global user.name "whichcodingtools[bot]" && git config --global user.email "whichcodingtools[bot]@users.noreply.github.com"' })
+    await installAgentBrowser(sandbox)
   },
   async onSession({ use }) {
     const sandbox = await use({ networkPolicy: await networkPolicy() })
