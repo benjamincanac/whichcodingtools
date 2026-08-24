@@ -36,6 +36,13 @@ pricing:
       name: Free
       price: 0
       audience: individual
+      included:
+        amount: 10
+        unit: usd
+        usd_value: 10
+        notes: $10 a month in API credits
+      overage:
+        kind: blocked
       limits:
         - Limited coding sessions
     - id: pro
@@ -79,7 +86,7 @@ pricing:
 status: active
 sources:
   - url: https://mistral.ai/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-08-24
     covers: [pricing]
   - url: https://mistral.ai/products/vibe/code/
     verified_at: 2026-08-23
