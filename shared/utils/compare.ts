@@ -108,6 +108,26 @@ export function pairSlug(a: string, b: string) {
   return [a, b].sort().join('-vs-')
 }
 
+/**
+ * The comparisons worth advertising: two tools in the same layer, or a tool and something
+ * it runs (Conductor vs Claude Code is a real question). Any other pair still renders on
+ * demand, it is just not in the sitemap or the purge list. 68 tools make 2278 combinations
+ * and most of them are noise.
+ */
+export function relatedPairs(tools: Pick<ToolRecord, 'slug' | 'layer' | 'wraps'>[]): [string, string][] {
+  const slugs = new Set(tools.map(t => t.slug))
+  const pairs = new Map<string, [string, string]>()
+  const add = (a: string, b: string) => {
+    if (a === b || !slugs.has(a) || !slugs.has(b)) return
+    pairs.set(pairSlug(a, b), [a, b].sort() as [string, string])
+  }
+  for (const a of tools) {
+    for (const b of tools) if (a.layer === b.layer) add(a.slug, b.slug)
+    for (const wrap of a.wraps) add(a.slug, wrap.tool)
+  }
+  return [...pairs.values()]
+}
+
 export function parsePair(param: string) {
   const parts = param.split('-vs-')
   return parts.length === 2 ? (parts as [string, string]) : null

@@ -28,7 +28,9 @@ export default defineNuxtConfig({
       '/api/tools.json': { isr: 60 * 60 },
       '/api/tools/**': { isr: 60 * 60 },
       '/api/changelog.json': { isr: 60 * 60 },
-      '/api/content/**': { isr: 60 * 60 }
+      '/api/content/**': { isr: 60 * 60 },
+      '/api/__sitemap__/urls': { isr: 60 * 60 },
+      '/sitemap.xml': { isr: 60 * 60 }
     }
   },
 
@@ -98,6 +100,13 @@ export default defineNuxtConfig({
 
   linkChecker: {
     enabled: false
+  },
+
+  sitemap: {
+    // Nothing is prerendered (ISR), so the module only discovers the static routes on its own.
+    // Every data-driven page comes from this source: tools, layers, plans and the compare pairs
+    // worth advertising.
+    sources: ['/api/__sitemap__/urls']
   },
 
   ogImage: {

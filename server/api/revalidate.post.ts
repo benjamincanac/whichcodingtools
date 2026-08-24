@@ -1,4 +1,5 @@
 import { waitUntil } from '@vercel/functions'
+import { pairSlug, relatedPairs } from '#shared/utils/compare'
 
 /**
  * GitHub push webhook. Verifies the signature, resolves the new content SHA, then purges the
@@ -41,7 +42,8 @@ export default defineEventHandler(async (event) => {
   const slugs = new Set(tools.map(t => t.slug))
 
   // What to purge: the shared surfaces, the touched tools, and every page that lists them.
-  const paths = new Set<string>(['/', '/compare', '/changelog', '/llms.txt', '/api/tools.json', '/api/changelog.json', '/api/content/list'])
+  const paths = new Set<string>(['/', '/compare', '/changelog', '/llms.txt', '/sitemap.xml', '/api/tools.json', '/api/changelog.json', '/api/content/list', '/api/__sitemap__/urls'])
+  const pairs = relatedPairs(tools)
   for (const slug of touched) {
     paths.add(`/tools/${slug}`)
     paths.add(`/api/tools/${slug}.json`)
@@ -50,8 +52,9 @@ export default defineEventHandler(async (event) => {
     if (!tool) continue
     paths.add(`/layers/${tool.layer}`)
     for (const layer of tool.secondary_layers) paths.add(`/layers/${layer}`)
-    for (const other of tools) {
-      if (other.slug !== slug && other.layer === tool.layer) paths.add(`/compare/${[slug, other.slug].sort().join('-vs-')}`)
+    // Same definition the sitemap advertises: any other pair renders on demand and expires hourly.
+    for (const [a, b] of pairs) {
+      if (a === slug || b === slug) paths.add(`/compare/${pairSlug(a, b)}`)
     }
     for (const host of tool.wrapped_by) paths.add(`/tools/${host}`)
     for (const wrap of tool.wraps) if (slugs.has(wrap.tool)) paths.add(`/tools/${wrap.tool}`)
