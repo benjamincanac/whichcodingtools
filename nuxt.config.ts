@@ -20,6 +20,7 @@ export default defineNuxtConfig({
       '/layers/**': { isr: 60 * 60 },
       '/changelog': { isr: 60 * 60 },
       '/llms.txt': { isr: 60 * 60 },
+      '/tools': { isr: 60 * 60 },
       '/tools/**': { isr: 60 * 60 },
       '/api/tools.json': { isr: 60 * 60 },
       '/api/tools/**': { isr: 60 * 60 },
