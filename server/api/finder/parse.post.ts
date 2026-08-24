@@ -3,7 +3,9 @@ import { z } from 'zod'
 import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS } from '#shared/enums'
 import { ParsedRequirementsSchema } from '#shared/finder'
 
-const MODEL = 'anthropic/claude-haiku-4.5'
+// Overridable without a deploy: NUXT_FINDER_MODEL. Haiku 4.5 is gated to paid gateway tiers,
+// Sonnet 5 is what the maintenance agent already runs on this account.
+const MODEL = process.env.NUXT_FINDER_MODEL || 'anthropic/claude-sonnet-5'
 
 const BodySchema = z.object({
   query: z.string().trim().min(3).max(300)
