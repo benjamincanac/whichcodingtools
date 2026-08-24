@@ -1,6 +1,6 @@
 slug: fx
 name: fx
-description: Vercel Labs' tiny native coding agent written in Zig. A shell-like CLI under 8 MB that signs in through Vercel AI Gateway, ChatGPT or SuperGrok, and embeds as WebAssembly.
+description: Vercel Labs' coding agent harness written in Zig, built for research and for embedding in larger systems. A 6 MB CLI closer to a Unix shell than a terminal IDE.
 layer: harness
 vendor: Vercel Labs
 homepage: https://fx.sh
@@ -34,7 +34,7 @@ pricing:
 status: preview
 sources:
   - url: https://fx.sh
-    verified_at: 2026-08-23
+    verified_at: 2026-08-24
     covers: [pricing, general]
   - url: https://github.com/vercel-labs/fx
     verified_at: 2026-08-23
