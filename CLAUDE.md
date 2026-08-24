@@ -34,6 +34,8 @@ Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`
 - pnpm has a `minimumReleaseAge` gate; `@nuxt/ui` and `eve` are excluded in `pnpm-workspace.yaml`.
 - `@nuxt/ui`'s `useFilter` is exported but not auto-imported; icon names referenced only in YAML or `shared/` are bundled via the `icon.clientBundle.scan.globInclude` config.
 - Nitro names the param of `[slug].json.get.ts` `slug.json`, not `slug`.
+- An issue form's `labels:` are only applied if the label already exists in the repo, a missing one is dropped silently. The first responder gates on the `tool` label, so that label existing is load-bearing.
+- Nothing is prerendered, so `@nuxtjs/sitemap` discovers only static routes. Every data-driven page comes from `/api/__sitemap__/urls`; a new page type has to be added there or it is invisible to crawlers.
 
 ## Env (Vercel)
 
