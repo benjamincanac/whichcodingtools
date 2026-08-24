@@ -4,7 +4,6 @@ import type { ToolMatch } from '~/composables/useToolFinder'
 
 const route = useRoute()
 const router = useRouter()
-const { public: { finderAi } } = useRuntimeConfig()
 const { tools, requirements, sort, update, reset, count, exact, close, hidden, matches } = useToolFinder()
 
 /** Set by the landing page after the natural-language parse, shown once. */
@@ -96,11 +95,6 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
           :ui="{ title: 'font-medium', description: 'text-toned' }"
           close
           @update:open="router.replace({ query: { ...route.query, why: undefined } })"
-        />
-
-        <ToolFinderAsk
-          v-if="finderAi && !why"
-          @apply="requirements = $event"
         />
 
         <div class="flex flex-col sm:flex-row gap-3 sm:items-center">

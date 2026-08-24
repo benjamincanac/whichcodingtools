@@ -17,7 +17,5 @@ defineProps<{ error: NuxtError }>()
         />
       </UContainer>
     </UMain>
-
-    <AppFooter />
   </UApp>
 </template>
