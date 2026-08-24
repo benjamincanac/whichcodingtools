@@ -3,6 +3,7 @@ import fs from 'comark-content/sources/fs'
 import github from 'comark-content/sources/github'
 import yaml from 'comark-content/plugins/yaml'
 import schemaValidation from 'comark-content/plugins/schema-validation'
+import tracingDebug from 'comark-content/plugins/tracing/debug'
 import { toolJsonSchema } from '#shared/schema'
 
 /**
@@ -40,7 +41,8 @@ export function createContent(ref: string) {
       // In dev a bad file should be loud. In production CI already validated what was merged,
       // so a surprise is dropped with a log line instead of taking the site down.
       yaml({ onError: import.meta.dev ? 'throw' : 'warn' }),
-      schemaValidation({ onError: import.meta.dev ? 'throw' : 'ignore' })
+      schemaValidation({ onError: import.meta.dev ? 'throw' : 'ignore' }),
+      tracingDebug()
     ],
     cache: { driver: contentCacheDriver(ref) }
   })

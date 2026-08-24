@@ -16,33 +16,34 @@
   },
   "dependencies": {
     "@comark/nuxt": "^0.6.2",
-    "@iconify-json/lucide": "^1.2.123",
-    "@iconify-json/simple-icons": "^1.2.92",
+    "@iconify-json/lucide": "^1.2.125",
+    "@iconify-json/simple-icons": "^1.2.93",
     "@nuxt/ui": "^4.11.0",
     "@nuxtjs/seo": "^5.3.14",
     "@resvg/resvg-js": "^2.6.2",
-    "@vercel/connect": "^0.9.0",
+    "@vercel/connect": "^1.0.0",
     "@vercel/functions": "^3.9.5",
-    "@vueuse/core": "^14.3.0",
-    "ai": "^7.0.73",
-    "comark-content": "^0.3.0",
+    "@vueuse/core": "^14.4.0",
+    "ai": "^7.0.77",
+    "comark-content": "https://pkg.pr.new/comark-content@717abb2",
     "eve": "^0.44.3",
     "nuxt": "^4.5.2",
-    "satori": "^0.33.1",
+    "satori": "^0.33.3",
     "spdx-expression-parse": "^4.0.0",
     "tailwindcss": "^4.3.3",
     "unstorage": "^1.17.5",
-    "yaml": "^2.8.0",
+    "yaml": "^2.9.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
     "@nuxt/kit": "^4.5.2",
-    "@types/node": "^24.13.3",
-    "eslint": "^10.8.1",
-    "tsx": "^4.20.0",
+    "@types/node": "^26.2.0",
+    "eslint": "^10.9.0",
+    "microsandbox": "^0.6.14",
+    "tsx": "^4.23.12",
     "typescript": "^6.0.3",
-    "vue-tsc": "^3.3.10"
+    "vue-tsc": "^3.3.11"
   },
-  "packageManager": "pnpm@10.33.4"
+  "packageManager": "pnpm@11.23.0"
 }
