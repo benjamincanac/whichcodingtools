@@ -80,7 +80,6 @@ defineShortcuts({
       <UInput
         ref="input"
         v-model="query"
-        :icon="finderAi ? 'i-lucide-sparkles' : 'i-lucide-search'"
         :placeholder="finderAi ? 'terminal agent on Linux, I already pay for Claude Max' : 'Search tools by name'"
         size="xl"
         class="w-full"
