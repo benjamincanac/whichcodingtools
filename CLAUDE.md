@@ -26,6 +26,7 @@ Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`
 - Descriptions are human-written, 40-180 chars, no marketing words, no em dashes anywhere in content.
 - Tool avatars: `public/logos/<slug>.png` → `icon` (simple-icons) → initial. Never pass an avatar `src` that can 404 (the img error can fire before hydration).
 - Renames are dated `aliases` on the current file (301 comes from the slug page's SSR redirect); merged products keep their file with `status: sunset` + `successor`.
+- One entry per thing you buy. A vendor's second surface gets its own file only when its `install`, `platforms` or `features` differ from the parent's; it then carries `pricing.same_as` back, and that layer is its alone, never repeated in the parent's `secondary_layers` or description. `pnpm validate` enforces the overlap.
 
 ## Gotchas that cost time once
 

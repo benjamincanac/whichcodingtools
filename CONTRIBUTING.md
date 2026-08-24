@@ -22,6 +22,7 @@ Change the value, then bump `verified_at` on the source line you re-checked. If 
 - `wraps` is for tools that run another tool. `uses_subscription: true` means the wrapped tool's own login is reused (Conductor running your Claude Code). `via: api` with a pasted key is `uses_subscription: false`.
 - `models.plans` lists consumer plans the tool can sign in with without being part of them (fx with a ChatGPT account). `pricing.bundled_with` is for tools that are part of the plan (Claude Code in Claude Pro).
 - `pricing.same_as` points at another tool that carries the tiers (Claude desktop app reuses Claude Code's).
+- A vendor's second surface is its own file only when its `install`, `platforms` or `features` differ from the parent's (the Claude desktop app installs differently and has no web build). It carries `pricing.same_as` back, and its `layer` must not also appear in the parent's `secondary_layers`. Everything else is a `secondary_layers` entry on the one file.
 - A tier needs a `price`, or `price_annual`, or `contact_sales: true`, or an `overage`. `price: null` with an `overage` is pay as you go.
 - Renames are `aliases` on the current file, with the date the old name stopped. The old slug keeps working as a 301. A product that was merged into another keeps its own file with `status: sunset` and a `successor`.
 

@@ -13,6 +13,7 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - `wraps` is for tools that run another tool. `uses_subscription: true` means the wrapped tool's own login is reused. A pasted API key is `via: api`, `uses_subscription: false`.
 - `models.plans` lists consumer plans the tool can sign in with without being part of them. `pricing.bundled_with` is for tools that are part of the plan.
 - `pricing.same_as` points at another tool that carries the tiers.
+- A vendor's second surface is its own file only when its `install`, `platforms` or `features` differ from the parent's (Claude desktop app next to Claude Code). It carries `pricing.same_as` back to the parent, and its `layer` must not also sit in the parent's `secondary_layers`. Otherwise the surface is one more entry in the parent's `secondary_layers` and nothing else.
 - A tier needs a `price`, or `price_annual`, or `contact_sales: true`, or an `overage`. `price: null` with an `overage` is pay as you go. `price_from: true` when the page says "from".
 - `included` is what a paid tier bundles: `{ amount, unit: usd | credits | tokens | requests | completions | edits | messages, period, usd_value?, notes? }`.
 - `overage.kind` is one of `api-list`, `credits`, `fixed`, `rate-limited`, `blocked`.

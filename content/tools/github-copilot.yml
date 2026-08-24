@@ -1,34 +1,24 @@
 slug: github-copilot
 name: GitHub Copilot
-description: GitHub's assistant for VS Code, JetBrains, Visual Studio, Xcode and Neovim, with a terminal CLI and a cloud agent. Paid plans meter agent usage in AI credits.
+description: GitHub's assistant for VS Code, JetBrains, Visual Studio, Xcode and Neovim, with a cloud agent. Paid plans meter agent usage in AI credits.
 layer: extension
-secondary_layers: [harness, cloud]
+secondary_layers: [cloud]
 vendor: GitHub
 homepage: https://github.com/features/copilot
 links:
   docs: https://docs.github.com/en/copilot
   pricing: https://github.com/features/copilot/plans
   changelog: https://github.blog/changelog/label/copilot/
-  repo: https://github.com/github/copilot-cli
 icon: i-simple-icons-githubcopilot
 platforms: [macos, windows, linux, web]
 hosts: [vscode, jetbrains, visual-studio, xcode, neovim]
 install:
   - method: download
     url: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
-  - method: npm
-    command: npm install -g @github/copilot
-  - method: brew
-    command: brew install --cask copilot-cli
-  - method: winget
-    command: winget install GitHub.Copilot
-  - method: curl
-    command: curl -fsSL https://gh.io/copilot-install | bash
 license:
   spdx: proprietary
   kind: proprietary
-  repo: https://github.com/github/copilot-cli
-  notes: The service and the CLI are closed. The VS Code Copilot Chat extension is published under MIT at microsoft/vscode-copilot-chat.
+  notes: The service is closed. The VS Code Copilot Chat extension is published under MIT at microsoft/vscode-copilot-chat.
 models:
   providers: [openai, anthropic, google, xai, moonshot]
   byok: partial

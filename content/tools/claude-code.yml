@@ -1,6 +1,6 @@
 slug: claude-code
 name: Claude Code
-description: Anthropic's terminal agent. Reads the codebase, edits files and runs commands, with a VS Code and JetBrains extension, a desktop app and a web surface on the same engine.
+description: Anthropic's terminal agent. Reads the codebase, edits files and runs commands, with a VS Code and JetBrains extension and a web surface on the same engine.
 layer: harness
 secondary_layers: [extension, cloud]
 vendor: Anthropic

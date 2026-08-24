@@ -2,6 +2,7 @@ slug: codex-cli
 name: Codex CLI
 description: OpenAI's open source terminal agent. Signs in with a ChatGPT account and shares the plan's usage window, or bills an API key at token prices.
 layer: harness
+secondary_layers: [extension, cloud]
 vendor: OpenAI
 homepage: https://learn.chatgpt.com/docs/codex/cli
 links:
@@ -82,3 +83,6 @@ sources:
   - url: https://github.com/openai/codex
     verified_at: 2026-08-23
     covers: [platforms, features, license]
+  - url: https://learn.chatgpt.com/docs/codex/cli
+    verified_at: 2026-08-24
+    covers: [general]

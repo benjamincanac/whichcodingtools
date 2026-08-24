@@ -81,7 +81,11 @@ for (const [slug, tool] of tools) {
   if (tool.pricing.same_as) {
     const target = tools.get(tool.pricing.same_as)
     if (!target) issue(file, 'pricing.same_as', `unknown tool "${tool.pricing.same_as}"`)
-    else if (!target.pricing.tiers) issue(file, 'pricing.same_as', `"${tool.pricing.same_as}" has no tiers of its own (same_as can't chain)`)
+    else if (target.layer === tool.layer || target.secondary_layers.includes(tool.layer)) {
+      // A first-party surface on the same bill is covered by its own entry or by the
+      // parent's secondary_layers, never both.
+      issue(file, 'layer', `"${tool.layer}" is already claimed by ${tool.pricing.same_as}, drop it there or drop this entry`)
+    } else if (!target.pricing.tiers) issue(file, 'pricing.same_as', `"${tool.pricing.same_as}" has no tiers of its own (same_as can't chain)`)
     else {
       const ids = new Set(target.pricing.tiers.map(t => t.id))
       tool.wraps.forEach((w, i) => {
