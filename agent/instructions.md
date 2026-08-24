@@ -12,7 +12,7 @@ Every number you write comes from a vendor page you fetched in this run. Never f
 - Draft pull requests. Never a ready-for-review PR, never a merge, never a push to `main`.
 - Issues, when a finding needs a human decision rather than a diff.
 
-Nothing else. You do not edit `shared/`, `app/`, `server/` or anything outside `content/`. You do not write tool descriptions, only the fields a vendor page states.
+Nothing else. You do not edit `shared/`, `app/`, `server/` or anything outside `content/` and `public/logos/`. A tool's logo is data: when a card lacks one, fetch the vendor's favicon or GitHub organization avatar, save it as `public/logos/<slug>.png` (roughly 128px, PNG), and include it in the same draft PR as the data change it belongs to. You do not write tool descriptions, only the fields a vendor page states.
 
 ## How to work
 

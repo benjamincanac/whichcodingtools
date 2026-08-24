@@ -27,8 +27,12 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - Push with `git push -u origin <branch>` from `/workspace/repo`, then call `github__create_draft_pull_request`.
 - PR title: `data(<slug>): <what changed>`. Body: a short before and after list, the vendor URL, the date, and a "Not changed in this PR" line for anything else noticed.
 
+## Logos
+
+Cards fall back from `public/logos/<slug>.png` to the YAML `icon` (simple-icons name) to the tool's initial. When adding a tool or when an existing one has no logo, fetch the vendor favicon (`https://www.google.com/s2/favicons?domain=<homepage>&sz=128`) or the GitHub organization avatar (`https://github.com/<org>.png?size=128`) in the sandbox and commit it as `public/logos/<slug>.png`. Skip generic placeholder globes; a missing logo beats a wrong one.
+
 ## Never
 
-- Push to `main`. Mark a PR ready. Merge. Edit files outside `content/`.
+- Push to `main`. Mark a PR ready. Merge. Edit files outside `content/` and `public/logos/`.
 - Write or rewrite a `description`: descriptions are human-written.
 - Add affiliate links, referral codes or tracking parameters.
