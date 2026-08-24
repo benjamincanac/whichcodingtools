@@ -1,0 +1,84 @@
+slug: grok-bot
+name: Grok Bot
+description: xAI's always-on cloud agents. Named bots share one persistent cloud computer per account with a browser, filesystem and terminal, and run in parallel. Signs in with Cursor.
+layer: cloud
+vendor: xAI (SpaceXAI)
+homepage: https://x.ai/bot
+links:
+  docs: https://docs.x.ai/grok-bot/overview
+  pricing: https://x.ai/bot
+platforms: [macos, windows, ios]
+install:
+  - method: download
+    url: https://x.ai/bot
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party]
+  plans: [cursor]
+  byok: none
+  local: false
+  notes: The docs do not name which Grok model version powers Bots. Bots sign in with a Cursor account, and a linked SuperGrok Plus or SuperGrok Heavy subscription also unlocks access without a paid Cursor plan.
+features: [browser-automation, sandboxing, scheduled-tasks, parallel-agents, mcp-client]
+pricing:
+  tiers:
+    - id: trial
+      name: One-time trial
+      price: 0
+      audience: individual
+      limits:
+        - A one-time trial without a SuperGrok or Cursor subscription, length and allowance not published
+    - id: supergrok-plus
+      name: SuperGrok Plus
+      price: 100
+      audience: individual
+      limits:
+        - Included with a SuperGrok Plus subscription, linked to your Cursor sign-in
+    - id: cursor-pro-plus
+      name: Cursor Pro+
+      price: 60
+      audience: individual
+      limits:
+        - Included with a Cursor Pro+ subscription
+    - id: cursor-ultra
+      name: Cursor Ultra
+      price: 200
+      audience: individual
+      limits:
+        - Included with a Cursor Ultra subscription
+    - id: cursor-teams
+      name: Cursor Teams
+      price: 40
+      per: user
+      audience: team
+      limits:
+        - Standard and Premium seats each get a weekly Grok Bot usage allowance, invoices combine Cursor and Grok Bot charges
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Rolling out, join through your Cursor account team
+  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by SuperGrok Plus, SuperGrok Heavy, Cursor Pro+, Cursor Ultra, a Cursor Teams seat, or a one-time trial. x.ai/bot and x.ai/pricing refused automated fetches on 2026-08-24. The SuperGrok Plus figure is carried from content/tools/grok-build.yml in this repo, itself read from x.ai/pricing through a proxy on 2026-08-23. SuperGrok Heavy's price was not shown on any page reachable this run. Cursor figures are carried from content/tools/cursor.yml, sourced from cursor.com/pricing. All figures need a human check.
+status: preview
+sources:
+  - url: https://docs.x.ai/grok-bot/overview
+    verified_at: 2026-08-24
+    covers: [general, features, models]
+  - url: https://docs.x.ai/grok-bot/get-started
+    verified_at: 2026-08-24
+    covers: [platforms, pricing]
+  - url: https://docs.x.ai/grok-bot/teams-and-enterprises
+    verified_at: 2026-08-24
+    covers: [pricing]
+  - url: https://docs.x.ai/grok-bot/computer-and-apps
+    verified_at: 2026-08-24
+    covers: [features]
+  - url: https://docs.x.ai/grok-bot/bots
+    verified_at: 2026-08-24
+    covers: [features, general]
+  - url: https://cursor.com/pricing
+    verified_at: 2026-08-24
+    covers: [pricing]
