@@ -18,7 +18,7 @@ const { data: tool, error } = await useFetch<ToolRecord>(`/api/tools/${slug.valu
 })
 
 if (!tool.value) {
-  // Renamed tools keep their old URL: the build emits a 301, this covers client-side navigation.
+  // Renamed tools keep their old URL: SSR answers with a real 301, client-side navigation replaces the route.
   const aliased = findByAlias(slug.value, tools.value)
   if (aliased) {
     await navigateTo(`/tools/${aliased.slug}`, { redirectCode: 301, replace: true })

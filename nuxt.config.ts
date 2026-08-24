@@ -8,6 +8,26 @@ export default defineNuxtConfig({
     'eve/nuxt'
   ],
 
+  $production: {
+    // Pages render on demand with ISR: they expire hourly so freshness badges keep aging,
+    // and /api/revalidate purges them early when content is pushed.
+    // Only GET data routes are cached: POST endpoints (revalidate, finder/parse) must stay plain functions.
+    routeRules: {
+      '/': { isr: 60 * 60 },
+      '/compare': { isr: 60 * 60 },
+      '/compare/**': { isr: 60 * 60 },
+      '/plans/**': { isr: 60 * 60 },
+      '/layers/**': { isr: 60 * 60 },
+      '/changelog': { isr: 60 * 60 },
+      '/llms.txt': { isr: 60 * 60 },
+      '/tools/**': { isr: 60 * 60 },
+      '/api/tools.json': { isr: 60 * 60 },
+      '/api/tools/**': { isr: 60 * 60 },
+      '/api/changelog.json': { isr: 60 * 60 },
+      '/api/content/**': { isr: 60 * 60 }
+    }
+  },
+
   devtools: {
     enabled: true
   },
@@ -62,7 +82,11 @@ export default defineNuxtConfig({
 
   icon: {
     clientBundle: {
-      scan: true
+      // The default globs already cover the tool icons in content/tools YAML;
+      // shared/enums.ts holds icons referenced nowhere else (platforms, hosts).
+      scan: {
+        globInclude: ['**/*.{vue,jsx,tsx,md,mdc,mdx,yml,yaml}', 'shared/**/*.ts']
+      }
     }
   },
 
