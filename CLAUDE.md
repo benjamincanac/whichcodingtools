@@ -1,6 +1,8 @@
 # whichcodingtools
 
-Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`, the site renders it, an eve agent keeps it fresh. Live at https://whichcodingtools.vercel.app. No affiliate links, no benchmarks, no LLM-written descriptions.
+Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`, the site renders it, an eve agent keeps it fresh. Live at https://whichcodingtools.vercel.app, future domain https://whichcoding.tools (`site.indexable` stays `false` until the switch). No affiliate links, no benchmarks, no LLM-written descriptions.
+
+`TODO.md` at the repo root is the living work list: check it at the start of a session, delete items when they are done.
 
 ## Commands
 

@@ -39,9 +39,11 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   site: {
-    url: process.env.NUXT_SITE_URL || 'https://whichcodingtools.vercel.app',
+    url: process.env.NUXT_SITE_URL || 'https://whichcoding.tools',
     name: 'whichcodingtools',
-    description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.'
+    description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.',
+    // Keep the site out of search until the domain switch, so Google never learns the vercel.app URL.
+    indexable: false
   },
 
   runtimeConfig: {
