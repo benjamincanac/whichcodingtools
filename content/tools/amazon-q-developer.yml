@@ -1,0 +1,74 @@
+slug: amazon-q-developer
+name: Amazon Q Developer
+description: AWS's assistant in IDE plugins and a CLI. New signups closed in May 2026 and support ends 30 April 2027, AWS points subscribers to Kiro.
+layer: extension
+secondary_layers: [harness]
+vendor: Amazon Web Services
+homepage: https://aws.amazon.com/q/developer/
+links:
+  docs: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html
+  pricing: https://aws.amazon.com/q/developer/pricing/
+  repo: https://github.com/aws/amazon-q-developer-cli
+icon: i-simple-icons-amazonwebservices
+platforms: [macos, windows, linux]
+hosts: [vscode, jetbrains, visual-studio]
+install:
+  - method: brew
+    command: brew install --cask amazon-q
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-q-vscode
+  - method: download
+    url: https://plugins.jetbrains.com/plugin/24267-amazon-q/
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: The CLI repo is Apache-2.0 OR MIT but AWS marks it no longer actively maintained, it ships closed source as Kiro CLI now. The service and IDE plugins are proprietary.
+models:
+  providers: [anthropic]
+  byok: none
+  local: false
+  notes: Claude models through Amazon Bedrock, signed in with an AWS Builder ID on Free or IAM Identity Center on Pro. The latest Claude models moved to Kiro exclusively on 29 May 2026.
+features: [mcp-client, tab-completion]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      overage:
+        kind: blocked
+      limits:
+        - 50 agentic requests and 1,000 lines of code transformation per month
+    - id: pro
+      name: Pro
+      price: 19
+      audience: team
+      overage:
+        kind: fixed
+        rate: 0.003
+        notes: Per line of code above the pooled 4,000 lines per user per month for Java and .NET transformation. The Pro agentic request limit is only described as increased, no number is published.
+      limits:
+        - Requires IAM Identity Center, admin dashboards, IP indemnity
+  notes: New signups stopped on 15 May 2026 and existing plans keep working until end of support on 30 April 2027. Amazon Q in the AWS Console is a separate surface and is not affected.
+status: sunset
+sunset_at: 2027-04-30
+successor: kiro
+sources:
+  - url: https://aws.amazon.com/q/developer/pricing/
+    verified_at: 2026-08-24
+    covers: [pricing]
+  - url: https://aws.amazon.com/q/developer/
+    verified_at: 2026-08-24
+    covers: [general, platforms, features]
+  - url: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.html
+    verified_at: 2026-08-24
+    covers: [platforms, models]
+  - url: https://aws.amazon.com/blogs/devops/amazon-q-developer-end-of-support-announcement/
+    verified_at: 2026-08-24
+    covers: [general, pricing]
+  - url: https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/qdev-mcp.html
+    verified_at: 2026-08-24
+    covers: [features]
+  - url: https://github.com/aws/amazon-q-developer-cli
+    verified_at: 2026-08-24
+    covers: [license]

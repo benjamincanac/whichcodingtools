@@ -1,0 +1,82 @@
+slug: dyad
+name: Dyad
+description: Open source app builder that runs as a desktop app instead of a cloud service. Free with your own keys, Pro adds bundled AI credits, code stays in local git.
+layer: app-builder
+secondary_layers: [app]
+vendor: Dyad Tech
+homepage: https://www.dyad.sh
+links:
+  docs: https://www.dyad.sh/docs
+  pricing: https://www.dyad.sh/pro
+  repo: https://github.com/dyad-sh/dyad
+  x: https://x.com/dyad_sh
+platforms: [macos, windows]
+install:
+  - method: download
+    url: https://www.dyad.sh/download
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/dyad-sh/dyad
+  notes: The src/pro directory is under FSL-1.1-ALv2 and converts to Apache-2.0 two years after each release.
+models:
+  providers: [anthropic, openai, google, openrouter]
+  byok: full
+  local: true
+  notes: The free tier is bring your own key only, including local models through Ollama. Dyad Pro and Max include monthly AI credits that work without a key.
+features: [mcp-client, checkpoints]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Bring your own API key, no sign up required, community support
+    - id: pro
+      name: Pro
+      price: 20
+      audience: individual
+      included:
+        amount: 200
+        unit: credits
+        period: month
+      limits:
+        - Pro modes for large codebases, Dyad Academy access
+    - id: max
+      name: Max
+      price: 79
+      audience: individual
+      included:
+        amount: 900
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        notes: Credits can be reloaded at any time at the same price.
+      limits:
+        - Prioritized office hours access
+  notes: Linux is not offered on the download page, only macOS and Windows builds.
+status: active
+sources:
+  - url: https://www.dyad.sh/pro
+    verified_at: 2026-08-24
+    covers: [pricing]
+  - url: https://www.dyad.sh
+    verified_at: 2026-08-24
+    covers: [general]
+  - url: https://www.dyad.sh/docs/guides/ai-models
+    verified_at: 2026-08-24
+    covers: [models]
+  - url: https://www.dyad.sh/download
+    verified_at: 2026-08-24
+    covers: [platforms]
+  - url: https://www.dyad.sh/docs/guides/versioning
+    verified_at: 2026-08-24
+    covers: [features]
+  - url: https://www.dyad.sh/blog/extend-dyad-with-mcp-servers
+    verified_at: 2026-08-24
+    covers: [features]
+  - url: https://github.com/dyad-sh/dyad
+    verified_at: 2026-08-24
+    covers: [license]

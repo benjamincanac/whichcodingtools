@@ -1,0 +1,68 @@
+slug: tabby
+name: Tabby
+description: Self-hosted open source code completion server with VS Code, JetBrains and Vim extensions. Runs local models or any OpenAI compatible endpoint.
+layer: extension
+vendor: TabbyML
+homepage: https://www.tabbyml.com
+links:
+  docs: https://tabby.tabbyml.com/docs/welcome/
+  pricing: https://www.tabbyml.com/pricing
+  repo: https://github.com/TabbyML/tabby
+  x: https://twitter.com/Tabby_ML
+platforms: [macos, windows, linux]
+hosts: [vscode, jetbrains, neovim]
+install:
+  - method: download
+    url: https://tabby.tabbyml.com/docs/quick-start/installation/docker/
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=TabbyML.vscode-tabby
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/TabbyML/tabby
+  notes: The ee directory is under the proprietary Tabby Enterprise License, everything else is Apache-2.0.
+models:
+  providers: [openai, anthropic]
+  byok: full
+  local: true
+  notes: Ships local completion and chat models such as StarCoder, Qwen2.5 Coder, CodeLlama and Codestral, and connects to OpenAI, Anthropic, Ollama or any OpenAI compatible endpoint through HTTP model connectors.
+features: [tab-completion]
+pricing:
+  tiers:
+    - id: community
+      name: Community
+      price: 0
+      audience: individual
+      limits:
+        - Up to 5 users, local deployment, completion, Answer Engine and inline chat
+    - id: team
+      name: Team
+      price: 19
+      audience: team
+      limits:
+        - Up to 50 users, usage reports, analytics, IDE telemetry policy enforcement
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Unlimited seats, customized deployment, group management, dedicated support
+  notes: The pricing page also lists annual Cloud tiers and usage pricing for Pochi, TabbyML's separate coding agent, which is not this entry. Tabby core has been quiet since mid 2026 while Pochi gets the activity.
+status: active
+sources:
+  - url: https://www.tabbyml.com/pricing
+    verified_at: 2026-08-24
+    covers: [pricing]
+  - url: https://www.tabbyml.com
+    verified_at: 2026-08-24
+    covers: [general]
+  - url: https://tabby.tabbyml.com/docs/welcome/
+    verified_at: 2026-08-24
+    covers: [platforms, general]
+  - url: https://tabby.tabbyml.com/docs/administration/model/
+    verified_at: 2026-08-24
+    covers: [models]
+  - url: https://github.com/TabbyML/tabby
+    verified_at: 2026-08-24
+    covers: [license, features, general]

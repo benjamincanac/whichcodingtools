@@ -1,0 +1,69 @@
+slug: rovo-dev
+name: Rovo Dev
+description: Atlassian's coding agent, run from the ACLI, the VS Code extension or as reviews on Bitbucket and GitHub. Paid per developer with monthly credits, no free tier.
+layer: harness
+secondary_layers: [extension, cloud]
+vendor: Atlassian
+homepage: https://www.atlassian.com/software/rovo-dev
+links:
+  docs: https://support.atlassian.com/rovo/docs/use-rovo-dev-cli/
+  pricing: https://www.atlassian.com/software/rovo-dev/pricing
+icon: i-simple-icons-atlassian
+platforms: [macos, windows, linux, web]
+hosts: [vscode]
+install:
+  - method: download
+    url: https://support.atlassian.com/rovo/docs/install-and-run-rovo-dev-cli-on-your-device/
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=Atlassian.atlascode
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: The agent ships inside Atlassian's ACLI and is closed source. The atlascode VS Code extension and the rovo-dev-action CI wrapper are Apache-2.0 on GitHub.
+models:
+  providers: [anthropic, openai]
+  byok: none
+  local: false
+  notes: Hosted OpenAI and Anthropic models switched with /models, each with its own credit multiplier. Signs in with an Atlassian account and a scoped API token.
+features: [mcp-client, subagents, worktrees, hooks, checkpoints, scheduled-tasks]
+pricing:
+  tiers:
+    - id: standard
+      name: Rovo Dev Standard
+      price: 20
+      audience: team
+      trial_days: 30
+      included:
+        amount: 2000
+        unit: credits
+        period: month
+      overage:
+        kind: fixed
+        rate: 0.01
+        notes: Per credit beyond the monthly allowance.
+      limits:
+        - The CLI is not available during the 30 day trial, only on a paid subscription
+  notes: Seats are bought per developer, no site wide rollout required. Annual billing exists for large orgs without a published price. Bundled credits on Jira plans are mentioned as a possibility, not a current entitlement.
+status: active
+sources:
+  - url: https://www.atlassian.com/software/rovo-dev/pricing
+    verified_at: 2026-08-24
+    covers: [pricing]
+  - url: https://www.atlassian.com/software/rovo-dev
+    verified_at: 2026-08-24
+    covers: [general, models, platforms]
+  - url: https://support.atlassian.com/rovo/docs/use-rovo-dev-cli/
+    verified_at: 2026-08-24
+    covers: [general, features]
+  - url: https://support.atlassian.com/rovo/docs/rovo-dev-cli-commands/
+    verified_at: 2026-08-24
+    covers: [features]
+  - url: https://support.atlassian.com/rovo/docs/use-worktree-mode-in-rovo-dev-cli/
+    verified_at: 2026-08-24
+    covers: [features]
+  - url: https://support.atlassian.com/rovo/docs/install-and-run-rovo-dev-in-the-ide/
+    verified_at: 2026-08-24
+    covers: [platforms]
+  - url: https://marketplace.visualstudio.com/items?itemName=Atlassian.atlascode
+    verified_at: 2026-08-24
+    covers: [license]

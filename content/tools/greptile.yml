@@ -1,0 +1,84 @@
+slug: greptile
+name: Greptile
+description: Reviews pull requests on GitHub and GitLab with parallel scoped agents and a repo graph for context. A CLI reviews locally, enterprises can self-host.
+layer: cloud
+vendor: Greptile
+homepage: https://www.greptile.com
+links:
+  docs: https://www.greptile.com/docs/introduction
+  pricing: https://www.greptile.com/pricing
+  changelog: https://www.greptile.com/changelog
+platforms: [web, macos, linux, windows]
+install:
+  - method: npm
+    command: npm i -g greptile@latest
+  - method: brew
+    command: brew install greptileai/tap/greptile
+  - method: curl
+    command: curl -fsSL https://raw.githubusercontent.com/greptileai/cli/main/install.sh | bash
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: The CLI repo on GitHub is MIT but only hosts the installer and published binary, the service is closed source.
+models:
+  providers: [anthropic, openai]
+  byok: partial
+  local: false
+  notes: Hosted reviews run on Claude and GPT models picked by Greptile. Self-hosted deployments choose their own provider among OpenAI, Anthropic, Bedrock, Azure OpenAI and Vertex AI.
+features: [diff-review, parallel-agents]
+pricing:
+  tiers:
+    - id: starter
+      name: Starter
+      price: 0
+      audience: individual
+      included:
+        amount: 50
+        unit: credits
+        period: month
+      limits:
+        - 1 active developer, unlimited repositories
+    - id: pro
+      name: Pro
+      price: 30
+      audience: team
+      trial_days: 14
+      included:
+        amount: 50
+        unit: credits
+        period: month
+        notes: Per seat.
+      overage:
+        kind: credits
+        rate: 1
+        notes: $1 per additional credit.
+      limits:
+        - Custom rules, unlimited external apps
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Self-hosting in your own infrastructure, SSO and SAML, GitHub Enterprise support
+  notes: A standard review costs 1 credit, a TREX test generation review costs 3. No annual price is published.
+status: active
+sources:
+  - url: https://www.greptile.com/pricing
+    verified_at: 2026-08-24
+    covers: [pricing]
+  - url: https://www.greptile.com
+    verified_at: 2026-08-24
+    covers: [general, features]
+  - url: https://www.greptile.com/docs/introduction
+    verified_at: 2026-08-24
+    covers: [general, platforms, features]
+  - url: https://www.greptile.com/docs/deployment-options
+    verified_at: 2026-08-24
+    covers: [models, platforms, license]
+  - url: https://www.greptile.com/changelog
+    verified_at: 2026-08-24
+    covers: [features]
+  - url: https://github.com/greptileai/cli
+    verified_at: 2026-08-24
+    covers: [license, platforms]

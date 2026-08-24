@@ -1,0 +1,59 @@
+slug: copilot-cli
+name: GitHub Copilot CLI
+description: GitHub's terminal agent on the Copilot subscription. Parallel subagents through /fleet, cloud sandboxes, worktrees and remote control from mobile.
+layer: harness
+vendor: GitHub
+homepage: https://github.com/features/copilot/cli
+links:
+  docs: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli
+  pricing: https://github.com/features/copilot/plans
+  changelog: https://github.com/github/copilot-cli/blob/main/changelog.md
+  repo: https://github.com/github/copilot-cli
+icon: i-simple-icons-githubcopilot
+platforms: [macos, windows, linux]
+install:
+  - method: npm
+    command: npm install -g @github/copilot
+  - method: brew
+    command: brew install copilot-cli
+  - method: winget
+    command: winget install GitHub.Copilot
+  - method: curl
+    command: curl -fsSL https://gh.io/copilot-install | bash
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: The GitHub repo carries a custom install-and-run license and holds the binary, changelog and installer, not the source.
+models:
+  providers: [anthropic, openai, google, xai, moonshot]
+  byok: partial
+  local: false
+  notes: Claude, GPT, Gemini, Grok and Kimi models switched with /model, the roster rotates with releases. Env vars point custom OpenAI compatible, Azure OpenAI or Anthropic endpoints at it.
+features: [worktrees, parallel-agents, subagents, mcp-client, acp-agent, sandboxing, remote-execution, mobile-companion, scheduled-tasks, diff-review, checkpoints, plugins, hooks]
+pricing:
+  same_as: github-copilot
+  bundled_with: copilot
+  notes: Draws from the shared GitHub AI Credits pool, 1 credit is $0.01 and usage-based billing replaced premium requests on 1 June 2026. The Free plan includes CLI and agent mode with limited usage. Sandboxing and the ACP server mode are public preview.
+status: active
+sources:
+  - url: https://github.com/features/copilot/plans
+    verified_at: 2026-08-24
+    covers: [pricing]
+  - url: https://github.com/features/copilot/cli
+    verified_at: 2026-08-24
+    covers: [general, features]
+  - url: https://raw.githubusercontent.com/github/copilot-cli/main/README.md
+    verified_at: 2026-08-24
+    covers: [platforms, models, features, license]
+  - url: https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli
+    verified_at: 2026-08-24
+    covers: [general, models, features]
+  - url: https://docs.github.com/en/copilot/reference/copilot-cli-reference/acp-server
+    verified_at: 2026-08-24
+    covers: [features]
+  - url: https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/
+    verified_at: 2026-08-24
+    covers: [pricing]
+  - url: https://raw.githubusercontent.com/github/copilot-cli/main/changelog.md
+    verified_at: 2026-08-24
+    covers: [features, models]
