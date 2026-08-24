@@ -14,13 +14,16 @@ export default defineNuxtConfig({
     // Only GET data routes are cached: POST endpoints (revalidate, finder/parse) must stay plain functions.
     routeRules: {
       '/': { isr: 60 * 60 },
-      '/compare': { isr: 60 * 60 },
+      // passQuery: without it the ISR function renders these pages with the query string stripped,
+      // while the cache still keys on the full URL: the filtered client then hydrates against
+      // unfiltered HTML and crashes. (/tools and /compare read route.query during SSR.)
+      '/compare': { isr: { expiration: 60 * 60, passQuery: true } },
       '/compare/**': { isr: 60 * 60 },
       '/plans/**': { isr: 60 * 60 },
       '/layers/**': { isr: 60 * 60 },
       '/changelog': { isr: 60 * 60 },
       '/llms.txt': { isr: 60 * 60 },
-      '/tools': { isr: 60 * 60 },
+      '/tools': { isr: { expiration: 60 * 60, passQuery: true } },
       '/tools/**': { isr: 60 * 60 },
       '/api/tools.json': { isr: 60 * 60 },
       '/api/tools/**': { isr: 60 * 60 },
