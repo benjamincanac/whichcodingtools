@@ -14,7 +14,8 @@ Work in `/workspace/repo`. Build the worklist: every tool that is not `status: s
 For each tool, follow the pricing-watch procedure for its pricing source (load the `pricing-watch` skill once for the rules), and additionally re-read the non-pricing sources against the fields their `covers` lists (platforms, models, features, license).
 
 - Anything changed: one draft PR per tool with the diff and bumped `verified_at` on the lines you re-read.
-- Nothing changed: bump `verified_at` on the source lines you actually re-read, and batch every no-change bump of the run into ONE draft PR titled `data: re-verify <n> tools with unchanged sources`. This is the one case where a date bump without a value diff is right, the comparison is the work, and the PR body lists each page checked.
+- Nothing changed: bump `verified_at` on the source lines you actually re-read, and batch every no-change bump of the run into ONE draft PR on branch `agent/re-verify-<YYYY-MM-DD>`, titled `data: re-verify <n> tools with unchanged sources`. This is the documented exception to the one PR per tool rule, and the one case where a date bump without a value diff is right: the comparison is the work, and the PR body lists each page checked.
+- No snapshot yet: a tool you re-read whose `content/snapshots/<slug>/pricing.txt` is missing gets one, written from the page text you just read and pushed with whichever PR that tool is already in, its own or the batched one. Most tools still have none, and the daily pricing sweep cannot diff a snapshot that does not exist.
 - Unreadable: same rule as pricing-watch, one issue per tool, ever.
 
 ## When nothing is warranted

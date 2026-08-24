@@ -20,20 +20,21 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - Renames are `aliases` on the current file with the date the old name stopped. A merged product keeps its file with `status: sunset`, `sunset_at` and a `successor`.
 - `sources[]`: bump `verified_at` only on the line whose page you actually read today.
 
-## Git conventions
+## Branch and PR conventions
 
-- Branch from `main`: `agent/<slug>-<topic>-<YYYY-MM-DD>`.
-- Commit subject: `data(<slug>): <what changed>` in lowercase, one line.
-- Run `pnpm validate` before committing. If it fails, fix the data, never the validator.
-- Push with `git push -u origin <branch>` from `/workspace/repo`, then call `github__create_draft_pull_request`.
+- Branch name: `agent/<slug>-<topic>-<YYYY-MM-DD>`. A new one starts from `main`.
+- Commit subject: `data(<slug>): <what changed>` in lowercase, one line, 8 to 120 characters.
+- Run `pnpm validate` before pushing. If it fails, fix the data, never the validator.
+- Edit the files in `/workspace/repo`, then push them with `github__push_files`: the branch, the commit message, and the paths relative to the checkout, 50 at most. It reads those files and commits them through the API, so `git checkout -b`, `git add` and `git commit` are not part of the flow, and `git push` does not work in the sandbox at all.
+- Then call `github__create_draft_pull_request`. Pushing to the branch of a pull request that is already open adds a commit to it instead.
 - PR title: `data(<slug>): <what changed>`. Body: a short before and after list, the vendor URL, the date, and a "Not changed in this PR" line for anything else noticed.
 
 ## Logos
 
-Cards fall back from `public/logos/<slug>.png` to the YAML `icon` (simple-icons name) to the tool's initial. When adding a tool or when an existing one has no logo, fetch the vendor favicon (`https://www.google.com/s2/favicons?domain=<homepage>&sz=128`) or the GitHub organization avatar (`https://github.com/<org>.png?size=128`) in the sandbox and commit it as `public/logos/<slug>.png`. Skip generic placeholder globes; a missing logo beats a wrong one.
+Cards fall back from `public/logos/<slug>.png` to the YAML `icon` (simple-icons name) to the tool's initial. When adding a tool or when an existing one has no logo, fetch the vendor favicon (`https://www.google.com/s2/favicons?domain=<homepage>&sz=128`) or the GitHub organization avatar (`https://github.com/<org>.png?size=128`) in the sandbox and push it as `public/logos/<slug>.png`. Skip generic placeholder globes; a missing logo beats a wrong one.
 
 ## Never
 
-- Push to `main`. Mark a PR ready. Merge. Edit files outside `content/` and `public/logos/`.
+- Mark a PR ready. Merge. `github__push_files` refuses `main` and every path outside `content/` and `public/logos/`, so do not spend a run routing around it.
 - Write or rewrite a `description`: descriptions are human-written.
 - Add affiliate links, referral codes or tracking parameters.
