@@ -25,9 +25,10 @@ export default githubChannel({
     const login = ctx.sender.login.toLowerCase()
     if (login === botName || login.endsWith('[bot]')) return null
     if (String(ctx.sender.id) === MAINTAINER_GITHUB_ID) return null
-    const raw = issue.raw as { issue?: { title?: string, labels?: { name: string }[] } }
-    const title = raw.issue?.title ?? ''
-    const labels = (raw.issue?.labels ?? []).map(l => l.name)
+    // issue.raw is the webhook payload's `issue` object itself, not the whole payload.
+    const raw = issue.raw as { title?: string, labels?: { name: string }[] }
+    const title = raw.title ?? ''
+    const labels = (raw.labels ?? []).map(l => l.name)
     if (!title.startsWith('[Tool]') && !labels.includes('tool')) return null
     const auth = defaultGitHubAuth(ctx)
     return {
