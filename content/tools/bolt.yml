@@ -8,6 +8,7 @@ links:
   docs: https://support.bolt.new
   pricing: https://bolt.new/pricing
   repo: https://github.com/stackblitz/bolt.new
+icon: i-simple-icons-stackblitz
 platforms: [web]
 license:
   spdx: proprietary

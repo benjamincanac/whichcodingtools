@@ -9,6 +9,7 @@ links:
   docs: https://ampcode.com/manual
   pricing: https://ampcode.com/pricing
   changelog: https://ampcode.com/news
+icon: i-simple-icons-sourcegraph
 platforms: [macos, linux, windows]
 hosts: [vscode, neovim, zed, jetbrains]
 install:

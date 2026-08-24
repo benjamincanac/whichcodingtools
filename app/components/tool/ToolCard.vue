@@ -21,7 +21,8 @@ const price = computed(() => {
   <UPageCard
     :to="`/tools/${tool.slug}`"
     variant="outline"
-    :ui="{ container: 'gap-y-3 p-4 sm:p-5', wrapper: 'gap-3', title: 'flex items-center gap-2', description: 'line-clamp-3' }"
+    class="min-w-0"
+    :ui="{ root: 'overflow-hidden', container: 'gap-y-3 p-4 sm:p-5', wrapper: 'gap-3 min-w-0 max-w-full', title: 'flex items-center gap-2', description: 'line-clamp-3' }"
   >
     <template #leading>
       <div class="flex w-full items-start justify-between gap-3">
@@ -40,7 +41,8 @@ const price = computed(() => {
           color="neutral"
           variant="outline"
           size="sm"
-          class="rounded-full shrink-0 mt-0.5"
+          class="rounded-full shrink min-w-0 mt-0.5"
+          :ui="{ label: 'truncate' }"
         >
           {{ optionLabel(LAYERS, tool.layer) }}
         </UBadge>
@@ -79,8 +81,8 @@ const price = computed(() => {
             {{ miss }}
           </UBadge>
         </div>
-        <div class="flex items-center justify-between gap-3 text-xs text-muted">
-          <div class="flex items-center gap-1.5">
+        <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 text-xs text-muted">
+          <div class="flex items-center gap-1.5 min-w-0">
             <UTooltip
               v-for="platform in platforms"
               :key="platform.value"
@@ -93,13 +95,13 @@ const price = computed(() => {
             </UTooltip>
             <span
               v-if="tool.open_source"
-              class="ml-1 font-mono"
+              class="ml-1 font-mono truncate"
             >{{ tool.license.spdx.split(' ')[0] }}</span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 shrink-0">
             <span
               v-if="price"
-              class="font-mono text-highlighted"
+              class="font-mono text-highlighted whitespace-nowrap"
             >{{ price }}</span>
             <ToolFreshness
               :freshness="tool.freshness"

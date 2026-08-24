@@ -21,7 +21,7 @@ export const LAYERS = [
 
 export const PLATFORMS = [
   { value: 'macos', label: 'macOS', icon: 'i-simple-icons-apple' },
-  { value: 'windows', label: 'Windows', icon: 'i-lucide-app-window-mac' },
+  { value: 'windows', label: 'Windows', icon: 'i-simple-icons-windows' },
   { value: 'linux', label: 'Linux', icon: 'i-simple-icons-linux' },
   { value: 'web', label: 'Web', icon: 'i-lucide-globe' },
   { value: 'ios', label: 'iOS', icon: 'i-lucide-smartphone' },

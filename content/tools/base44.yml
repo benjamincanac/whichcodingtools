@@ -7,6 +7,7 @@ homepage: https://base44.com
 links:
   docs: https://docs.base44.com
   pricing: https://base44.com/pricing
+icon: i-simple-icons-wix
 platforms: [web]
 license:
   spdx: proprietary

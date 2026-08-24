@@ -9,6 +9,7 @@ links:
   docs: https://antigravity.google/docs
   pricing: https://antigravity.google/pricing
   changelog: https://antigravity.google/changelog
+icon: i-simple-icons-google
 platforms: [macos, windows, linux]
 hosts: [vscode, visual-studio, jetbrains, zed]
 install:

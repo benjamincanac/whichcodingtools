@@ -7,7 +7,8 @@ Everything on the site comes from `content/tools/*.yml`. Edit a file, run `pnpm 
 1. Copy the closest existing file in `content/tools` to `content/tools/<slug>.yml`. The slug is lowercase, dashes only, and must equal the file name.
 2. Fill every field from the vendor's own pages. Descriptions are written by people, one or two factual sentences, no adjectives.
 3. Put the page you read in `sources` with today's date and what it covers. At least one source must cover `pricing`.
-4. Run `pnpm validate`.
+4. Optional: drop a square logo at `public/logos/<slug>.png` (128px is plenty). Cards fall back to the `icon` field (simple-icons name) and then to the tool's initial.
+5. Run `pnpm validate`.
 
 ## Fix a price or a fact
 

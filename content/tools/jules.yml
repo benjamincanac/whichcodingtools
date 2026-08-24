@@ -8,6 +8,7 @@ links:
   docs: https://jules.google/docs
   pricing: https://jules.google/docs/usage-limits
   changelog: https://jules.google/docs/changelog
+icon: i-simple-icons-google
 platforms: [web]
 install:
   - method: npm

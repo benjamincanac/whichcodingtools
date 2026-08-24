@@ -9,6 +9,7 @@ links:
   docs: https://kiro.dev/docs
   pricing: https://kiro.dev/pricing
   changelog: https://kiro.dev/changelog
+icon: i-simple-icons-amazonwebservices
 platforms: [macos, windows, linux, web, ios]
 install:
   - method: download

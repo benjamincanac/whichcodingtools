@@ -9,6 +9,7 @@ links:
   docs: https://cursor.com/docs
   pricing: https://cursor.com/pricing
   changelog: https://cursor.com/changelog
+icon: i-simple-icons-cursor
 platforms: [macos, windows, linux]
 install:
   - method: download

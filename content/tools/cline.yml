@@ -8,6 +8,7 @@ homepage: https://cline.bot
 links:
   docs: https://docs.cline.bot
   repo: https://github.com/cline/cline
+icon: i-simple-icons-cline
 platforms: [macos, windows, linux]
 hosts: [vscode, jetbrains]
 install:

@@ -46,7 +46,6 @@ export default defineAppConfig({
     },
     pageCard: {
       slots: {
-        root: 'bg-white dark:bg-muted',
         title: 'font-medium tracking-tight',
         description: 'text-sm text-toned'
       }
