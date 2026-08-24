@@ -10,13 +10,13 @@ function values<const T extends readonly EnumOption[]>(options: T) {
 }
 
 export const LAYERS = [
-  { value: 'harness', label: 'Terminal agent', description: 'Runs in your shell and edits the repo directly', icon: 'i-lucide-terminal' },
-  { value: 'editor', label: 'AI-native IDE', description: 'A full editor with the agent built in', icon: 'i-lucide-code-xml' },
-  { value: 'extension', label: 'Editor extension', description: 'Lives inside the editor you already use', icon: 'i-lucide-puzzle' },
-  { value: 'app', label: 'Desktop app', description: 'A first-party app that bundles an agent', icon: 'i-lucide-app-window' },
-  { value: 'orchestrator', label: 'Orchestrator', description: 'Runs several agents side by side', icon: 'i-lucide-layers' },
-  { value: 'cloud', label: 'Cloud agent', description: 'Works on your repo from a hosted sandbox', icon: 'i-lucide-cloud' },
-  { value: 'app-builder', label: 'App builder', description: 'Prompt-to-app products, adjacent to coding tools', icon: 'i-lucide-sparkles' }
+  { value: 'harness', label: 'Terminal agent', description: 'Runs in your shell and edits the repo directly' },
+  { value: 'editor', label: 'AI-native IDE', description: 'A full editor with the agent built in' },
+  { value: 'extension', label: 'Editor extension', description: 'Lives inside the editor you already use' },
+  { value: 'app', label: 'Desktop app', description: 'A first-party app that bundles an agent' },
+  { value: 'orchestrator', label: 'Orchestrator', description: 'Runs several agents side by side' },
+  { value: 'cloud', label: 'Cloud agent', description: 'Works on your repo from a hosted sandbox' },
+  { value: 'app-builder', label: 'App builder', description: 'Prompt-to-app products, adjacent to coding tools' }
 ] as const satisfies readonly EnumOption[]
 
 export const PLATFORMS = [
@@ -58,19 +58,19 @@ export const FEATURES = [
 ] as const satisfies readonly EnumOption[]
 
 export const PROVIDERS = [
-  { value: 'first-party', label: 'Vendor models', description: 'Models trained or hosted by the vendor itself' },
+  { value: 'first-party', label: 'Vendor models', description: 'Models trained or hosted by the vendor itself', icon: 'i-lucide-building-2' },
   { value: 'anthropic', label: 'Anthropic', icon: 'i-simple-icons-anthropic' },
   { value: 'openai', label: 'OpenAI', icon: 'i-simple-icons-openai' },
   { value: 'google', label: 'Google', icon: 'i-simple-icons-google' },
   { value: 'xai', label: 'xAI', icon: 'i-simple-icons-x' },
   { value: 'mistral', label: 'Mistral', icon: 'i-simple-icons-mistralai' },
-  { value: 'deepseek', label: 'DeepSeek' },
+  { value: 'deepseek', label: 'DeepSeek', icon: 'i-simple-icons-deepseek' },
   { value: 'meta', label: 'Meta', icon: 'i-simple-icons-meta' },
-  { value: 'moonshot', label: 'Moonshot' },
-  { value: 'alibaba', label: 'Alibaba' },
-  { value: 'zhipu', label: 'Zhipu' },
-  { value: 'minimax', label: 'MiniMax' },
-  { value: 'openrouter', label: 'OpenRouter' },
+  { value: 'moonshot', label: 'Moonshot', icon: 'i-simple-icons-moonshotai' },
+  { value: 'alibaba', label: 'Alibaba', icon: 'i-simple-icons-qwen' },
+  { value: 'zhipu', label: 'Zhipu', icon: 'i-lucide-box' },
+  { value: 'minimax', label: 'MiniMax', icon: 'i-simple-icons-minimax' },
+  { value: 'openrouter', label: 'OpenRouter', icon: 'i-simple-icons-openrouter' },
   { value: 'vercel-ai-gateway', label: 'Vercel AI Gateway', icon: 'i-simple-icons-vercel' }
 ] as const satisfies readonly EnumOption[]
 
@@ -78,7 +78,7 @@ export const PLANS = [
   { value: 'claude', label: 'Claude', description: 'Claude Pro, Max or Team', icon: 'i-simple-icons-anthropic' },
   { value: 'chatgpt', label: 'ChatGPT', description: 'ChatGPT Go, Plus, Pro or Business', icon: 'i-simple-icons-openai' },
   { value: 'copilot', label: 'GitHub Copilot', description: 'Copilot Pro, Pro+ or Business', icon: 'i-simple-icons-githubcopilot' },
-  { value: 'cursor', label: 'Cursor', description: 'Cursor Pro, Pro+ or Ultra' },
+  { value: 'cursor', label: 'Cursor', description: 'Cursor Pro, Pro+ or Ultra', icon: 'i-simple-icons-cursor' },
   { value: 'gemini', label: 'Google AI', description: 'Google AI Pro or Ultra', icon: 'i-simple-icons-googlegemini' },
   { value: 'grok', label: 'SuperGrok', description: 'xAI SuperGrok plans', icon: 'i-simple-icons-x' }
 ] as const satisfies readonly EnumOption[]

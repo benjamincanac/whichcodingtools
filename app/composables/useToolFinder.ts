@@ -85,19 +85,40 @@ export function useToolFinder() {
 
   const count = computed(() => requirementCount(requirements.value))
 
-  const { filter } = useFilter()
+  const { scoreItem } = useFilter()
+
+  /**
+   * Lower is better, null is no match at all. Identity only: descriptions name other products
+   * constantly, so searching them puts every wrapper that runs Claude Code under "claude".
+   */
+  function relevanceOf(tool: ToolRecord, q: string) {
+    const name = scoreItem(tool, q, ['name', 'slug'])
+    if (name !== null) return name
+    const vendor = scoreItem(tool, q, ['vendor'])
+    return vendor === null ? null : 3 + vendor
+  }
 
   const searched = computed(() => {
     const q = requirements.value.q.trim()
-    return q ? filter(tools.value, q, ['name', 'vendor', 'description', 'slug']) : tools.value
+    const relevance = new Map<string, number>()
+    if (!q) return { items: tools.value, relevance }
+    const items: ToolRecord[] = []
+    for (const tool of tools.value) {
+      const score = relevanceOf(tool, q)
+      if (score === null) continue
+      relevance.set(tool.slug, score)
+      items.push(tool)
+    }
+    return { items, relevance }
   })
 
   const matches = computed<ToolMatch[]>(() => {
     const req = requirements.value
-    const items = searched.value.map(tool => ({ tool, match: matchTool(tool, req, bySlug.value) }))
+    const items = searched.value.items.map(tool => ({ tool, match: matchTool(tool, req, bySlug.value) }))
     const price = (m: ToolMatch) => deltaPrice(m.match) ?? m.tool.entry_price ?? Number.POSITIVE_INFINITY
+    const rank = (m: ToolMatch) => searched.value.relevance.get(m.tool.slug) ?? 0
     const sorters: Record<SortKey, (a: ToolMatch, b: ToolMatch) => number> = {
-      match: (a, b) => a.match.missing.length - b.match.missing.length || price(a) - price(b) || b.tool.freshness.verified_at.localeCompare(a.tool.freshness.verified_at) || a.tool.name.localeCompare(b.tool.name),
+      match: (a, b) => a.match.missing.length - b.match.missing.length || rank(a) - rank(b) || price(a) - price(b) || b.tool.freshness.verified_at.localeCompare(a.tool.freshness.verified_at) || a.tool.name.localeCompare(b.tool.name),
       name: (a, b) => a.tool.name.localeCompare(b.tool.name),
       verified: (a, b) => b.tool.freshness.verified_at.localeCompare(a.tool.freshness.verified_at) || a.tool.name.localeCompare(b.tool.name),
       price: (a, b) => price(a) - price(b) || a.tool.name.localeCompare(b.tool.name)
