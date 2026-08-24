@@ -81,6 +81,29 @@ export async function createDraftPullRequest(input: { branch: string, title: str
   return { number: pr.number, url: pr.html_url }
 }
 
+/** Logins the agent's own writes show up under (Connect App in production, PAT fallback is not self). */
+const SELF_LOGINS = new Set(['whichcodingtools', 'whichcodingtools[bot]'])
+
+/**
+ * Close an issue the agent opened itself, with a comment stating the evidence.
+ * Refuses issues opened by anyone else and pull requests: those belong to people.
+ */
+export async function closeOwnIssue(number: number, comment: string) {
+  const issue = await githubApi<{ state: string, user: { login: string }, pull_request?: unknown }>('GET', `/repos/${REPO}/issues/${number}`)
+  if (issue.pull_request) {
+    throw new Error(`#${number} is a pull request, not an issue. The agent never closes pull requests.`)
+  }
+  if (!SELF_LOGINS.has(issue.user.login.toLowerCase())) {
+    throw new Error(`Issue #${number} was opened by ${issue.user.login}, not by the agent. Only a person closes it.`)
+  }
+  if (issue.state !== 'open') {
+    return { number, closed: false, note: 'already closed' }
+  }
+  await githubApi('POST', `/repos/${REPO}/issues/${number}/comments`, { body: comment })
+  await githubApi('PATCH', `/repos/${REPO}/issues/${number}`, { state: 'closed', state_reason: 'completed' })
+  return { number, closed: true }
+}
+
 export async function createIssue(input: { title: string, body: string, labels?: string[] }) {
   const issue = await githubApi<{ number: number, html_url: string }>('POST', `/repos/${REPO}/issues`, {
     title: input.title,

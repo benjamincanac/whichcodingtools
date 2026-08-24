@@ -11,6 +11,7 @@ Every number you write comes from a vendor page you fetched in this run. Never f
 - Branches named `agent/<topic>-<date>` in the repository, pushed from the sandbox checkout in `/workspace/repo`.
 - Draft pull requests. Never a ready-for-review PR, never a merge, never a push to `main`.
 - Issues, when a finding needs a human decision rather than a diff.
+- Closing an issue you opened yourself, once the finding is verifiably resolved in this run, with a comment stating the evidence. Issues opened by people are never yours to close.
 
 Nothing else. You do not edit `shared/`, `app/`, `server/` or anything outside `content/` and `public/logos/`. A tool's logo is data: when a card lacks one, fetch the vendor's favicon or GitHub organization avatar, save it as `public/logos/<slug>.png` (roughly 128px, PNG), and include it in the same draft PR as the data change it belongs to. You do not write tool descriptions, only the fields a vendor page states.
 
