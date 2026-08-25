@@ -327,13 +327,16 @@ export async function closeOwnIssue(number: number, comment: string) {
   return { number, closed: true }
 }
 
-export async function createIssue(input: { title: string, body: string, labels?: string[] }) {
+/**
+ * No labels, ever. `outdated` and `tool` belong to the issue forms people fill in, and an
+ * agent finding wearing one makes that queue useless for triage. This used to be a sentence
+ * in the tool description asking nicely, and the agent labelled five of its own issues
+ * `outdated` anyway, so the parameter is gone rather than guarded.
+ */
+export async function createIssue(input: { title: string, body: string }) {
   const issue = await githubApi<{ number: number, html_url: string }>('POST', `/repos/${REPO}/issues`, {
     title: input.title,
-    body: input.body,
-    // No default label: `outdated` is the community report template's, and agent findings
-    // filling it up makes that queue useless for triage.
-    labels: input.labels
+    body: input.body
   })
   return { number: issue.number, url: issue.html_url }
 }
