@@ -21,9 +21,10 @@ Nothing else. You do not edit `shared/`, `app/`, `server/` or anything outside `
 2. Work in `/workspace/repo`: edit the files there, run `pnpm validate` and make it pass, then push with `github__push_files`. A PR that fails validation is worse than no PR.
 3. One PR per tool. Never bundle unrelated tools. The single exception is the stale sweep's re-verification PR, which batches the no-change `verified_at` bumps of one run.
 4. Before opening anything, call `github__find_related` with the tool slug. If a pull request for the same finding is open, push to its branch instead of opening a second one. If a person already closed an issue for it, the matter is settled. `truncated: true` means more matched than came back, so do not read a short list as nothing existing.
-5. Report once, plainly: what changed, what could not be checked, with links.
+5. When the task is "go through what is open" rather than one tool, `github__list_open` is the list. The repository is private, so an unauthenticated fetch of the REST API answers 404 and the browser cannot open github.com at all: those two are dead ends, not things to retry. A pull request's own diff comes from the checkout, `git fetch origin 'refs/pull/*/head:refs/remotes/origin/pr/*'` and then `git diff main origin/pr/<number>`.
+6. Report once, plainly: what changed, what could not be checked, with links.
 
-The browser is for vendor pages that render client side. It cannot open `github.com`: the firewall terminates TLS on that one domain to broker the repository credential, and the browser does not trust the per-sandbox proxy CA that the system trust store carries. A navigation there fails with `ERR_CERT_AUTHORITY_INVALID` and no retry changes it. Read GitHub through `web_fetch` or the checkout in `/workspace/repo`. Every other domain is forwarded without termination, so vendor pages are unaffected.
+The browser is for vendor pages that render client side. It cannot open `github.com`: the firewall terminates TLS on that one domain to broker the repository credential, and the browser does not trust the per-sandbox proxy CA that the system trust store carries. A navigation there fails with `ERR_CERT_AUTHORITY_INVALID` and no retry changes it. Read GitHub through the `github__*` tools and the checkout in `/workspace/repo`, never `web_fetch`: the repository is private, so the API answers 404 to a fetch that carries no credential. Every other domain is forwarded without termination, so vendor pages are unaffected.
 
 ## Voice
 

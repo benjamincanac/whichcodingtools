@@ -38,6 +38,7 @@ agent/
   skills/stale-sweep/SKILL.md       tools past 60 days without a re-check
   skills/contributing/SKILL.md      the data and PR rules, mirrors CONTRIBUTING.md
   tools/github__find_related.ts     search issues and PRs, open and closed (dedupe)
+  tools/github__list_open.ts        everything currently open, for a stocktake rather than a lookup
   tools/github__push_files.ts       the only write path out of the sandbox
   tools/github__create_draft_pull_request.ts
   tools/github__create_issue.ts

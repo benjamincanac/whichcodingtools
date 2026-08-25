@@ -132,6 +132,58 @@ interface RelatedNode {
 }
 
 /**
+ * Everything currently open, for a stocktake rather than a lookup. `findRelated` searches by
+ * words, and `plainTerms` strips qualifiers on purpose, so there is no way to ask it for
+ * "all of them". The repository is private, which rules out reading the REST API without a
+ * credential, and the browser cannot reach github.com at all, so this is the list.
+ */
+const OPEN_QUERY = `query($q: String!, $first: Int!) {
+  search(query: $q, type: ISSUE, first: $first) {
+    issueCount
+    nodes {
+      __typename
+      ... on Issue { number title url createdAt author { login } labels(first: 10) { nodes { name } } }
+      ... on PullRequest { number title url createdAt author { login } headRefName isDraft }
+    }
+  }
+}`
+
+interface OpenNode {
+  __typename: string
+  number: number
+  title: string
+  url: string
+  createdAt: string
+  author: { login: string } | null
+  labels?: { nodes: { name: string }[] }
+  headRefName?: string
+  isDraft?: boolean
+}
+
+export async function listOpen(kind: 'all' | 'issue' | 'pull_request') {
+  const scope = kind === 'issue' ? ' is:issue' : kind === 'pull_request' ? ' is:pr' : ''
+  const q = `repo:${REPO} is:open${scope} sort:updated-desc`
+  const data = await githubGraphql<{ search: { issueCount: number, nodes: OpenNode[] } }>(OPEN_QUERY, { q, first: 100 })
+  const results = data.search.nodes
+    .filter(n => n.__typename === 'Issue' || n.__typename === 'PullRequest')
+    .map((n) => {
+      const pull = n.__typename === 'PullRequest'
+      return {
+        number: n.number,
+        title: n.title,
+        url: n.url,
+        kind: pull ? 'pull_request' as const : 'issue' as const,
+        created_at: n.createdAt.slice(0, 10),
+        author: n.author?.login ?? 'ghost',
+        labels: pull ? undefined : (n.labels?.nodes ?? []).map(l => l.name),
+        branch: pull ? n.headRefName : undefined,
+        draft: pull ? n.isDraft : undefined
+      }
+    })
+  return { results, truncated: data.search.issueCount > results.length }
+}
+
+/**
  * Issues and PRs mentioning `terms`, closed ones included: "one issue per tool, ever" has to
  * see an issue a person already closed, otherwise a permanently unreadable page gets the same
  * issue filed again every morning. Open PRs carry their branch so the caller can push to it.
