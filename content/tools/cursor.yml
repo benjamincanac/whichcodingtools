@@ -34,8 +34,9 @@ pricing:
       overage:
         kind: blocked
       limits:
-        - Limited agent requests
-        - Limited tab completions
+        - No credit card required
+        - Limited Agent requests
+        - Access to Composer
     - id: pro
       name: Pro
       price: 20
@@ -48,8 +49,6 @@ pricing:
       overage:
         kind: api-list
         notes: Usage-based billing at API list price once the included amount is used, opt-in.
-      limits:
-        - Unlimited tab completions
     - id: pro-plus
       name: Pro+
       price: 60
@@ -82,7 +81,10 @@ pricing:
       overage:
         kind: api-list
       limits:
-        - Per user per month
+        - SAML/OIDC SSO
+        - Agentic code reviews with Bugbot
+        - Usage analytics to understand team behavior
+        - Team-wide privacy mode
     - id: teams-premium
       name: Teams Premium
       price: 120
@@ -90,13 +92,12 @@ pricing:
       overage:
         kind: api-list
       limits:
-        - 5x the Teams Standard agent limits, per user per month
+        - 5x the Teams Standard agent limits
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
-  notes: Cursor's own guidance puts daily agent users at $60 to $100 a month and multi-agent users at $200 or more.
 status: active
 sources:
   - url: https://cursor.com/pricing
