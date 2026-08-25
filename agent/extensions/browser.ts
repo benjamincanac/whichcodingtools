@@ -10,6 +10,10 @@ import browser from '@agent-browser/eve'
  * thing a page can talk the model into is a commit on an `agent/*` branch under
  * `content/` or `public/logos/`. `contentBoundaries` marks page text as untrusted
  * in the transcript on top of that.
+ *
+ * One domain is out of reach rather than out of policy: `github.com` is the only one
+ * the firewall terminates TLS on, to broker the git credential, and the browser does
+ * not trust the per-sandbox proxy CA. The instructions send GitHub reads to `web_fetch`.
  */
 export default browser({
   contentBoundaries: true,

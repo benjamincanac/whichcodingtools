@@ -83,3 +83,5 @@ Writes go through the `whichcodingtools` GitHub App managed by Vercel Connect (c
 ## Browser
 
 Client-rendered pricing pages are read with `@agent-browser/eve`: when the plain fetch returns no prices, the sweep opens the URL in the sandbox browser and reads the rendered text. Only when both fail does a tool count as unreadable.
+
+The browser cannot open `github.com`, and that is a consequence of the brokering rather than a bug in either. The firewall terminates TLS only on domains carrying a `transform` rule, which is `github.com` alone, and it presents a per-sandbox CA that lands in the system trust store. The browser keeps its own store, so it reads that certificate as `ERR_CERT_AUTHORITY_INVALID`. Vendor pages are matched on SNI and forwarded without termination, so the sweep is unaffected; GitHub is read with `web_fetch` or out of the checkout. Fixing it properly means importing `/usr/local/share/ca-certificates/vercel-proxy-ca.pem` into the browser's own trust store per session, which is more moving parts than a domain the browser has no reason to visit is worth.
