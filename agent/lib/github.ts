@@ -330,6 +330,89 @@ export async function updateOwnPullRequest(input: { number: number, title?: stri
   return { number: updated.number, url: updated.html_url }
 }
 
+/**
+ * Until none is left, and case-insensitively. One pass over `</thread</thread>>` removes the
+ * inner tag and leaves a working one behind, which is how a comment would close its own fence
+ * and start addressing the model as itself.
+ */
+function stripThreadFence(text: string) {
+  const fence = /<\/\s*thread\s*>/gi
+  let out = text
+  let previous: string
+  do {
+    previous = out
+    out = out.replace(fence, '')
+  } while (out !== previous)
+  return out
+}
+
+/** A long argument is still an argument, but it does not need to arrive whole. */
+const MAX_THREAD_CHARS = 40_000
+
+interface ThreadComment {
+  user: { login: string } | null
+  created_at: string
+  body: string | null
+  state?: string
+}
+
+function transcript(parts: { author: string, at: string, kind: string, body: string }[]) {
+  const text = parts
+    .map(p => `--- ${p.author} ${p.kind} on ${p.at.slice(0, 10)} ---\n${stripThreadFence(p.body).trim()}`)
+    .join('\n\n')
+  const trimmed = text.length > MAX_THREAD_CHARS ? `${text.slice(0, MAX_THREAD_CHARS)}\n[trimmed]` : text
+  return `<thread>\n${trimmed}\n</thread>`
+}
+
+/**
+ * The discussion on an issue or pull request. Diffs come out of the checkout, but what people
+ * said about them only lives here, and a pass deciding what still needs a person cannot see
+ * an objection it never read. People wrote it, so it comes back fenced as data.
+ */
+export async function readThread(number: number) {
+  const issue = await githubApi<{ title: string, state: string, user: { login: string } | null, body: string | null, created_at: string, pull_request?: unknown }>('GET', `/repos/${REPO}/issues/${number}`)
+  const comments = await githubApi<ThreadComment[]>('GET', `/repos/${REPO}/issues/${number}/comments`, undefined, { per_page: '100' })
+  const pull = Boolean(issue.pull_request)
+  const reviews = pull
+    ? await githubApi<ThreadComment[]>('GET', `/repos/${REPO}/pulls/${number}/reviews`, undefined, { per_page: '100' })
+    : []
+  const parts = [
+    { author: issue.user?.login ?? 'ghost', at: issue.created_at, kind: 'opened it', body: issue.body ?? '' },
+    ...comments.map(c => ({ author: c.user?.login ?? 'ghost', at: c.created_at, kind: 'commented', body: c.body ?? '' })),
+    ...reviews.filter(r => r.body).map(r => ({ author: r.user?.login ?? 'ghost', at: r.created_at, kind: `reviewed (${r.state?.toLowerCase() ?? 'commented'})`, body: r.body ?? '' }))
+  ]
+  return {
+    number,
+    kind: pull ? 'pull_request' as const : 'issue' as const,
+    state: issue.state,
+    title: issue.title,
+    author: issue.user?.login ?? 'ghost',
+    discussion: transcript(parts)
+  }
+}
+
+/** A comment on any thread in the repository. The only way to say something without closing it. */
+export async function commentOnThread(number: number, body: string) {
+  const comment = await githubApi<{ html_url: string }>('POST', `/repos/${REPO}/issues/${number}/comments`, { body })
+  return { number, url: comment.html_url }
+}
+
+/**
+ * Close a pull request the agent opened, when its finding no longer holds: the change landed
+ * another way, the tier it added is gone from the page. A person's pull request is theirs.
+ */
+export async function closeOwnPullRequest(number: number, comment: string) {
+  const pr = await githubApi<{ head: { ref: string }, user: { login: string }, state: string }>('GET', `/repos/${REPO}/pulls/${number}`)
+  if (!isAgentLogin(pr.user.login)) {
+    throw new Error(`Pull request #${number} was opened by ${pr.user.login}, not the agent. Say so in a comment instead.`)
+  }
+  if (pr.state !== 'open') throw new Error(`Pull request #${number} is already ${pr.state}.`)
+  assertAgentBranch(pr.head.ref, 'close a pull request from')
+  await githubApi('POST', `/repos/${REPO}/issues/${number}/comments`, { body: comment })
+  await githubApi('PATCH', `/repos/${REPO}/pulls/${number}`, { state: 'closed' })
+  return { number, closed: true }
+}
+
 /** Logins the agent's own writes show up under (Connect App in production, PAT fallback is not self). */
 const SELF_LOGINS = new Set(['whichcodingtools', 'whichcodingtools[bot]'])
 

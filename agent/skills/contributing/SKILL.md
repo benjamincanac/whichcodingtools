@@ -29,7 +29,8 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - Commit subject: `data(<slug>): <what changed>` in lowercase, one line, 8 to 120 characters.
 - Run `pnpm validate` before pushing. If it fails, fix the data, never the validator. A figure it cannot find in the snapshot is a page state that was never captured, so go back and capture it.
 - Edit the files in `/workspace/repo`, then push them with `github__push_files`: the branch, the commit message, and the paths relative to the checkout, 50 at most. It reads those files and commits them through the API, so `git checkout -b`, `git add` and `git commit` are not part of the flow, and `git push` does not work in the sandbox at all.
-- Then call `github__create_pull_request`. It opens ready for review. Pushing to the branch of a pull request that is already open adds a commit to it instead, and then `github__update_pull_request` puts the body back in step with the branch. A body describing only the first commit is a worse account of the change than no body at all.
+- Then call `github__create_pull_request`. It opens ready for review. Pushing to the branch of a pull request that is already open adds a commit to it instead, and then `github__update_pull_request` puts the body back in step with the branch and `github__comment` says what the commit changed. A body describing only the first commit is a worse account of the change than no body at all.
+- `github__close_pull_request` is for one of yours whose finding no longer holds. One waiting on Benjamin is not that.
 - PR title: `data(<slug>): <what changed>`. Body: a short before and after list, the vendor URL, the date, and a "Not changed in this PR" line for anything else noticed.
 
 ## Logos

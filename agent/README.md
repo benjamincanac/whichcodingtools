@@ -41,10 +41,14 @@ agent/
   skills/triage/SKILL.md            a pass over every open issue and PR, checked against main
   tools/github__find_related.ts     search issues and PRs, open and closed (dedupe)
   tools/github__list_open.ts        everything currently open, for a stocktake rather than a lookup
+  tools/github__read_thread.ts      the discussion on one issue or PR, fenced as data
+  tools/github__comment.ts          say something in a thread without closing it
   tools/github__push_files.ts       the only write path out of the sandbox
   tools/github__create_pull_request.ts    opens ready for review, never merges
+  tools/github__update_pull_request.ts    keeps its title and body in step with the branch
   tools/github__create_issue.ts
   tools/github__close_issue.ts      close the agent's own issues once resolved, with evidence
+  tools/github__close_pull_request.ts  close one of its own whose finding no longer holds
   lib/github.ts                     REST helpers, the Git Data API push, Connect installation token (whichcodingtools[bot])
   lib/network-policy.ts             the read-only git firewall policy, shared by the sandbox and the hook
   lib/checkout.ts                   clone and refresh /workspace/repo, with exit codes actually checked
