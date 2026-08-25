@@ -51,7 +51,7 @@ pricing:
   notes: The pricing page refused automated fetches on 2026-08-23. ACU figures come from the August 2026 research corpus and need a human check.
 status: active
 sources:
-  - url: https://devin.ai/pricing
+  - url: https://docs.devin.ai/admin/billing/self-serve
     verified_at: 2026-08-23
     covers: [pricing]
   - url: https://docs.devin.ai/get-started/devin-intro

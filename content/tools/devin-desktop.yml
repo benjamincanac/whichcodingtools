@@ -66,7 +66,7 @@ aliases:
     until: 2025-04-15
     note: The company and product were called Codeium before the Windsurf rebrand.
 sources:
-  - url: https://devin.ai/pricing
+  - url: https://docs.devin.ai/admin/billing/self-serve
     verified_at: 2026-08-23
     covers: [pricing]
   - url: https://devin.ai/desktop
