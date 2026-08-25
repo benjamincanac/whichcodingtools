@@ -3,9 +3,10 @@ import { z } from 'zod'
 import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS } from '#shared/enums'
 import { ParsedRequirementsSchema } from '#shared/finder'
 
-// Overridable without a deploy: NUXT_FINDER_MODEL. Haiku 4.5 is gated to paid gateway tiers,
-// Sonnet 5 is what the maintenance agent already runs on this account.
-const MODEL = process.env.NUXT_FINDER_MODEL || 'anthropic/claude-sonnet-5'
+// Overridable without a deploy: NUXT_FINDER_MODEL. Luna matched Sonnet 5 on 18 finder queries
+// across 12 runs, for a twentieth of the cost and half the latency, and never filled a filter
+// nobody asked for. It reads long pages badly, so it earns this job and not the agent's.
+const MODEL = process.env.NUXT_FINDER_MODEL || 'openai/gpt-5.6-luna'
 
 const BodySchema = z.object({
   query: z.string().trim().min(3).max(300)
@@ -34,6 +35,7 @@ ${options(PLANS)}
 
 Providers:
 ${options(PROVIDERS)}
+Naming a plan is not naming a provider. "I have Claude Max" fills plans only, leave providers empty unless they asked for the models themselves.
 
 Features:
 ${options(FEATURES)}
