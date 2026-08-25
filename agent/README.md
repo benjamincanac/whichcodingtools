@@ -33,10 +33,12 @@ agent/
   schedules/pricing-watch.ts        daily 06:15 UTC, task mode (no chat channel needed)
   schedules/rename-watch.ts         Mondays 12:00 UTC
   schedules/stale-sweep.ts          Thursdays 12:00 UTC
+  schedules/triage.ts               Fridays 09:00 UTC, a pass over everything still open
   skills/pricing-watch/SKILL.md     the sweep procedure
   skills/rename-watch/SKILL.md      homepage redirects, new names, description drift
   skills/stale-sweep/SKILL.md       tools past 60 days without a re-check
   skills/contributing/SKILL.md      the data and PR rules, mirrors CONTRIBUTING.md
+  skills/triage/SKILL.md            a pass over every open issue and PR, checked against main
   tools/github__find_related.ts     search issues and PRs, open and closed (dedupe)
   tools/github__list_open.ts        everything currently open, for a stocktake rather than a lookup
   tools/github__push_files.ts       the only write path out of the sandbox
@@ -61,6 +63,10 @@ For every tool that is not sunset: fetch the pricing source, compare with the ca
 The sweep touches pricing fields only. Descriptions, features, wraps and licenses stay human-edited. Most tools have no snapshot yet, so they take the YAML comparison; the weekly stale sweep backfills the snapshots as it re-verifies.
 
 A snapshot is only ever written by `page-text.mjs`, either from a fetch or with `--stdin` from the text a browser rendered. That matters because `pnpm validate` reads those captures back: every `price`, `price_annual` and `included.amount` of a tool that has a snapshot must appear in one, so a figure nobody read cannot reach a pull request. A page that hides tiers behind a toggle needs one capture per state, `pricing.txt` plus `pricing-<state>.txt`. The same run also checks `mirrors`, the tiers that exist only because another tool's plan unlocks them, so a price change in one file fails the other until it follows.
+
+## What the weekly triage does
+
+Sweeps open threads, they do not close them. So on Fridays the agent calls `github__list_open`, fetches `refs/pull/*/head`, and reads each one against main as it stands: a pull request gets main merged into it and `pnpm validate` run on the result, which is the only thing that catches a PR that was green on its own commit and went wrong when main moved. It pushes the fix to that pull request's own branch when the fix is a pricing re-check, closes its own issues that the vendor has since resolved, and reports the rest. Closing a person's issue or a pull request stays Benjamin's.
 
 ## Trust
 
