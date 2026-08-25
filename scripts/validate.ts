@@ -57,6 +57,23 @@ function fmt(value: number | null | undefined) {
   return value === undefined ? 'none' : String(value)
 }
 
+/**
+ * Words the price column already renders. A limit built only out of these restates the price
+ * in the notes column, which is how a tier's real differentiators get pushed out to make room.
+ */
+const PRICE_WORDS = new Set(['a', 'and', 'annual', 'annually', 'billed', 'each', 'flat', 'mo', 'month', 'months', 'monthly', 'per', 'seat', 'seats', 'user', 'users', 'year', 'yr'])
+const UNIT_WORDS = new Set(['mo', 'month', 'months', 'seat', 'seats', 'user', 'users', 'year'])
+
+function restatesThePrice(limit: string) {
+  const words = limit.toLowerCase().match(/[a-z]+/g) ?? []
+  return words.length > 0 && words.every(w => PRICE_WORDS.has(w)) && words.some(w => UNIT_WORDS.has(w))
+}
+
+/** Dollar amounts written into prose, so they can be held to the same capture as a `price`. */
+function moneyIn(text: string) {
+  return [...text.matchAll(/\$\s?(\d[\d,]*(?:\.\d+)?)/g)].map(m => Number(m[1]!.replace(/,/g, '')))
+}
+
 const files = (await readdir(DIR)).filter(f => ['.yml', '.yaml'].includes(extname(f))).sort()
 
 for (const file of files) {
@@ -114,6 +131,14 @@ for (const [slug, tool] of tools) {
         if (w.min_tier && !ids.has(w.min_tier)) issue(file, `wraps.${i}.min_tier`, `"${w.min_tier}" is not a tier of ${tool.pricing.same_as}`)
       })
     }
+  }
+
+  for (const tier of tool.pricing.tiers ?? []) {
+    tier.limits.forEach((limit, i) => {
+      if (restatesThePrice(limit)) {
+        issue(file, `pricing.tiers.${tier.id}.limits.${i}`, `"${limit}" is what the price column already says, put the tier's own differentiators here`)
+      }
+    })
   }
 
   // A mirrored tier quotes another tool's plan, so it has to keep quoting the current one.
@@ -223,6 +248,24 @@ for (const slug of slugs) {
       if (!figureRe(value).test(captured)) {
         issue(file, `pricing.tiers.${tier.id}.${field}`, `${value} is not in content/snapshots/${slug}/, capture the page state that shows it`)
       }
+    }
+
+    // A dollar amount in prose is a claim about the page like any other. `overage.notes` and
+    // `included.notes` are exempt: those routinely quote an API rate card on another page.
+    const prose: [string, string][] = tier.limits.map((l, i) => [`limits.${i}`, l] as [string, string])
+    if (tier.notes) prose.push(['notes', tier.notes])
+    for (const [field, text] of prose) {
+      for (const amount of moneyIn(text)) {
+        if (!figureRe(amount).test(captured)) {
+          issue(file, `pricing.tiers.${tier.id}.${field}`, `$${amount} is not in content/snapshots/${slug}/, the page has to say it too`)
+        }
+      }
+    }
+  }
+
+  for (const amount of moneyIn(tool.pricing.notes ?? '')) {
+    if (!figureRe(amount).test(captured)) {
+      issue(file, 'pricing.notes', `$${amount} is not in content/snapshots/${slug}/, the page has to say it too`)
     }
   }
 }

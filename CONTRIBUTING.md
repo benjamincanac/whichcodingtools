@@ -33,6 +33,8 @@ Change the value, then bump `verified_at` on the source line you re-checked. If 
 
 A page that hides prices behind a toggle needs one capture per state, `pricing.txt` for the state it opens on and `pricing-<state>.txt` for the rest. If a figure genuinely has no page state that shows it, it does not belong in the file.
 
+The same goes for a dollar amount written into `limits`, a tier `notes` or `pricing.notes`. `overage.notes` and `included.notes` are exempt, since they usually quote an API rate card that lives on another page. And a `limits` entry built only out of price words is rejected outright: the price column already renders it, and it is usually sitting where the tier's real differentiators should be.
+
     node agent/sandbox/workspace/bin/page-text.mjs <url> > content/snapshots/<slug>/pricing.txt
     node agent/sandbox/workspace/bin/page-text.mjs --stdin <url> > content/snapshots/<slug>/pricing.txt   # rendered text on stdin
 

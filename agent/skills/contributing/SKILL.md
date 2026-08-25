@@ -17,6 +17,7 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - A tier needs a `price`, or `price_annual`, or `contact_sales: true`, or an `overage`. `price: null` with an `overage` is pay as you go. `price_from: true` when the page says "from".
 - `included` is what a paid tier bundles: `{ amount, unit: usd | credits | tokens | requests | completions | edits | messages, period, usd_value?, notes? }`.
 - `overage.kind` is one of `api-list`, `credits`, `fixed`, `rate-limited`, `blocked`.
+- `limits` are the tier's own differentiators as the page lists them. Anything the price column already renders ("per user per month") is rejected, and a dollar amount in `limits`, a tier `notes` or `pricing.notes` has to be in the tool's captures.
 - `mirrors: { tool, tier }` is for a tier that exists only because another tool's plan unlocks it. `pnpm validate` keeps the price equal to the source tier's, so when one moves the other fails until it follows.
 - `content/snapshots/<slug>/*.txt` is the page text a figure came from. It comes out of `page-text.mjs`, never out of a keyboard, and `pnpm validate` looks for every `price`, `price_annual` and `included.amount` inside it. A page with a price toggle gets one capture per state, `pricing.txt` plus `pricing-<state>.txt`.
 - Renames are `aliases` on the current file with the date the old name stopped. A merged product keeps its file with `status: sunset`, `sunset_at` and a `successor`.
