@@ -1,4 +1,4 @@
-import type { GitHubInboundContext } from 'eve/channels/github'
+import type { GitHubEventContext, GitHubInboundContext } from 'eve/channels/github'
 import { defaultGitHubAuth, githubChannel } from 'eve/channels/github'
 import { connect, isAgentLogin, REPO } from '../lib/github'
 import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, isAutonomous } from '../lib/trust'
@@ -72,9 +72,11 @@ export default githubChannel({
       // hand every channel turn the push the sandbox policy exists to withhold. The eyes
       // reaction is the part worth keeping; the hook applies the read-only policy.
       try {
-        await channel.thread.react('eyes')
-      } catch {
-        // A missing reaction is not worth failing a turn over.
+        await react(channel)
+      } catch (error) {
+        // A missing reaction is not worth failing a turn over, but it is worth a line. The
+        // no-op it replaces was silent, and the missing eyes read as "the hook never fired".
+        console.warn('[agent] Could not react on the thread:', error instanceof Error ? error.message : error)
       }
     },
     async 'turn.failed'(event, channel, ctx) {
@@ -88,6 +90,25 @@ export default githubChannel({
     }
   }
 })
+
+/**
+ * 👀 on the thread. `thread.react` targets the comment that triggered the turn and no-ops
+ * when there is none, which is every first-responder turn: an `issues` webhook carries an
+ * issue and no comment. Those react on the issue itself, so the reporter sees it start.
+ */
+async function react(channel: GitHubEventContext) {
+  const { issueNumber, owner, repo, triggeringCommentId } = channel.state
+  if (triggeringCommentId !== null || issueNumber === null) {
+    await channel.thread.react('eyes')
+    return
+  }
+  const res = await channel.github.request({
+    method: 'POST',
+    path: `/repos/${owner}/${repo}/issues/${issueNumber}/reactions`,
+    body: { content: 'eyes' }
+  })
+  if (!res.ok) console.warn(`[agent] Reaction on issue #${issueNumber} returned ${res.status}`)
+}
 
 /**
  * Whether the first responder has already replied in this thread. A failure here reads as
@@ -142,5 +163,5 @@ ${text}
 const FIRST_RESPONDER = `This is an unattended turn on a new "Add a tool" issue. Load the \`contributing\` skill, then:
 1. Read the issue body below. If it contains a YAML block, write it to /workspace/repo/content/tools/<slug>.yml and run \`pnpm validate\`. If it has no YAML, build a draft from whichever fields the form carries, most of them are optional, and the vendor pages you fetch from the homepage, leaving fields you could not verify out rather than guessed.
 2. If validation passes, push the file with \`github__push_files\` on branch \`agent/add-<slug>-<YYYY-MM-DD>\` and message \`data(<slug>): add <name>\`, then open a draft pull request that links this issue.
-3. Reply in the issue with one short comment: what you validated, the PR link, or the validation issues as a list the reporter can fix. Do not restate the rules.
+3. Finish with one short message: what you validated, the PR link, or the validation issues as a list the reporter can fix. There is no reply tool and you do not need one, your last message is posted in the issue as the reply. Write it to the reporter, do not restate the rules, and never describe your own tooling or what you could not call.
 You may not open issues, edit other files, or mark anything ready. If the issue is not actually about adding a tool, reply with one sentence saying a maintainer will look at it.`
