@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@agent-browser/eve':
         specifier: ^0.34.0
-        version: 0.34.0(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))
+        version: 0.34.0(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.79(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))
       '@comark/nuxt':
         specifier: ^0.6.2
         version: 0.6.2(5bf62ac3806332f54152e4cd8440b2be)
@@ -22,7 +22,7 @@ importers:
         version: 1.2.93
       '@nuxt/ui':
         specifier: ^4.11.0
-        version: 4.11.0(1a2068083ce50600db42f634194b3a1a)
+        version: 4.11.0(76fe8a71f5ca3027e2dba9c9ae7eec3f)
       '@nuxtjs/seo':
         specifier: ^5.3.14
         version: 5.3.14(23d3f5bc301a17c8c56162063a07639c)
@@ -31,7 +31,7 @@ importers:
         version: 2.6.2
       '@vercel/connect':
         specifier: ^1.0.0
-        version: 1.0.0(ai@7.0.77(zod@4.4.3))(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))
+        version: 1.0.0(ai@7.0.79(zod@4.4.3))(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.79(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))
       '@vercel/functions':
         specifier: ^3.9.5
         version: 3.9.5(ws@8.21.3)
@@ -40,13 +40,13 @@ importers:
         version: 14.4.0(vue@3.5.41(typescript@6.0.3))
       ai:
         specifier: ^7.0.77
-        version: 7.0.77(zod@4.4.3)
+        version: 7.0.79(zod@4.4.3)
       comark-content:
         specifier: https://pkg.pr.new/comark-content@717abb2
         version: https://pkg.pr.new/comark-content@717abb2(@vercel/functions@3.9.5(ws@8.21.3))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))
       eve:
         specifier: ^0.44.3
-        version: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
+        version: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.79(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
       nuxt:
         specifier: ^4.5.2
         version: 4.5.2(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.146.0)(@types/node@26.2.0)(@vercel/functions@3.9.5(ws@8.21.3))(@vue/compiler-sfc@3.5.41)(cac@7.0.0)(db0@0.3.4)(esbuild@0.28.2)(eslint@10.9.0(jiti@2.7.0)(supports-color@10.2.2))(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(magicast@0.5.4)(optionator@0.9.4)(oxc-parser@0.143.0)(rolldown@1.2.5)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.5)(rollup@4.62.5))(rollup@4.62.5)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.50.0)(tsx@4.23.12)(typescript@6.0.3)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))(vue-tsc@3.3.11(typescript@6.0.3))(yaml@2.9.0)
@@ -110,20 +110,20 @@ packages:
       '@vercel/sandbox':
         optional: true
 
-  '@ai-sdk/gateway@4.0.62':
-    resolution: {integrity: sha512-zR3pustGWhw5eUZHG+fJZx/V/PBe+LxdDpc5hDFWxozG/3MB/+eY62jn+YiR+9uOH+Hx63e5zJoeKLfZfPktWQ==}
+  '@ai-sdk/gateway@4.0.64':
+    resolution: {integrity: sha512-iayK1z11I0b3sgbP3j6eKQypfpwO5Fbtaq1Mkwv7YxwGQG1YTNr5QAjyYsSfqyf/58WUOLWz2cTBpk+ExZVgpw==}
     engines: {node: '>=22'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/provider-utils@5.0.29':
-    resolution: {integrity: sha512-7EIbwXiXKGa7EFk6tDZpuZBs6lxhEJpOuHeqrDb3Vd85uYdjwkdRuHnZDVDIIb2+QTSRmyph2NrXcbvuO/KAjQ==}
+  '@ai-sdk/provider-utils@5.0.30':
+    resolution: {integrity: sha512-9TyxUXolql77ntHIeygLqt7PO1O0HZPB73cJhLG2OsPecSBRIZhNXLxT1T7rlL6Zpm1eDoLMFrMV99kAJ28/Sg==}
     engines: {node: '>=22'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
 
-  '@ai-sdk/provider@4.0.7':
-    resolution: {integrity: sha512-6or44XprPzKbr8zkmzosowSE0pxkvJcoojBL+mCZvPUt3kvXp3XSNqeVun9golb1acEfSo6yaEBRT18h2VU+1Q==}
+  '@ai-sdk/provider@4.0.8':
+    resolution: {integrity: sha512-aWO7iwhFUGf347tCwNGggggfmZigaSu7TF739IZSrWWABUp7zkb4Cr3fMqvBe5EIS7ABJJu3Cadn0g/zs1G0QQ==}
     engines: {node: '>=22'}
 
   '@alloc/quick-lru@5.2.0':
@@ -2675,8 +2675,8 @@ packages:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
     engines: {node: '>= 14'}
 
-  ai@7.0.77:
-    resolution: {integrity: sha512-muLtBSTAUCreR77L16w4AFBiX2gK/RNt84EKp8m03SN9+MfNlC5EGqYYttRjYKV3xe0a33yj1Zawj1EnjejIWw==}
+  ai@7.0.79:
+    resolution: {integrity: sha512-zZkSUq6MgmXjwIfML2wkPFeQ5Azk8kGEWkciAtE0NgnFy3slj4ljsw5LvigsCbYXxTSVr+6iCHBTPZafpx1P0w==}
     engines: {node: '>=22'}
     peerDependencies:
       zod: ^3.25.76 || ^4.1.8
@@ -6214,33 +6214,33 @@ packages:
 
 snapshots:
 
-  '@agent-browser/eve@0.34.0(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))':
+  '@agent-browser/eve@0.34.0(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.79(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))':
     dependencies:
       '@agent-browser/sandbox': 0.34.0
-      eve: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
+      eve: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.79(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
       zod: 4.4.3
     transitivePeerDependencies:
       - '@vercel/sandbox'
 
   '@agent-browser/sandbox@0.34.0': {}
 
-  '@ai-sdk/gateway@4.0.62(zod@4.4.3)':
+  '@ai-sdk/gateway@4.0.64(zod@4.4.3)':
     dependencies:
-      '@ai-sdk/provider': 4.0.7
-      '@ai-sdk/provider-utils': 5.0.29(zod@4.4.3)
+      '@ai-sdk/provider': 4.0.8
+      '@ai-sdk/provider-utils': 5.0.30(zod@4.4.3)
       '@vercel/oidc': 3.2.0
       zod: 4.4.3
 
-  '@ai-sdk/provider-utils@5.0.29(zod@4.4.3)':
+  '@ai-sdk/provider-utils@5.0.30(zod@4.4.3)':
     dependencies:
-      '@ai-sdk/provider': 4.0.7
+      '@ai-sdk/provider': 4.0.8
       '@standard-schema/spec': 1.1.0
       '@workflow/serde': 4.1.0
       eventsource-parser: 3.1.1
       undici: 7.29.0
       zod: 4.4.3
 
-  '@ai-sdk/provider@4.0.7':
+  '@ai-sdk/provider@4.0.8':
     dependencies:
       json-schema: 0.4.0
 
@@ -7470,7 +7470,7 @@ snapshots:
       rc9: 3.0.1
       std-env: 4.2.0
 
-  '@nuxt/ui@4.11.0(1a2068083ce50600db42f634194b3a1a)':
+  '@nuxt/ui@4.11.0(76fe8a71f5ca3027e2dba9c9ae7eec3f)':
     dependencies:
       '@floating-ui/dom': 1.8.0
       '@iconify/vue': 5.0.1(vue@3.5.41(typescript@6.0.3))
@@ -7539,7 +7539,7 @@ snapshots:
     optionalDependencies:
       '@internationalized/date': 3.12.3
       '@internationalized/number': 3.6.7
-      ai: 7.0.77(zod@4.4.3)
+      ai: 7.0.79(zod@4.4.3)
       vue-router: 5.2.0(@vue/compiler-sfc@3.5.41)(esbuild@0.28.2)(rolldown@1.2.5)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))(vue@3.5.41(typescript@6.0.3))
       zod: 4.4.3
     transitivePeerDependencies:
@@ -8723,12 +8723,12 @@ snapshots:
     dependencies:
       execa: 5.1.1
 
-  '@vercel/connect@1.0.0(ai@7.0.77(zod@4.4.3))(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))':
+  '@vercel/connect@1.0.0(ai@7.0.79(zod@4.4.3))(eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.79(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)))':
     dependencies:
       '@vercel/oidc': 3.8.5
     optionalDependencies:
-      ai: 7.0.77(zod@4.4.3)
-      eve: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
+      ai: 7.0.79(zod@4.4.3)
+      eve: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.79(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
 
   '@vercel/functions@3.9.5(ws@8.21.3)':
     dependencies:
@@ -8978,11 +8978,11 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai@7.0.77(zod@4.4.3):
+  ai@7.0.79(zod@4.4.3):
     dependencies:
-      '@ai-sdk/gateway': 4.0.62(zod@4.4.3)
-      '@ai-sdk/provider': 4.0.7
-      '@ai-sdk/provider-utils': 5.0.29(zod@4.4.3)
+      '@ai-sdk/gateway': 4.0.64(zod@4.4.3)
+      '@ai-sdk/provider': 4.0.8
+      '@ai-sdk/provider-utils': 5.0.30(zod@4.4.3)
       zod: 4.4.3
 
   ajv@6.15.0:
@@ -9868,9 +9868,9 @@ snapshots:
 
   etag@1.8.1: {}
 
-  eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)):
+  eve@0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.79(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0)):
     dependencies:
-      ai: 7.0.77(zod@4.4.3)
+      ai: 7.0.79(zod@4.4.3)
       nitro: 3.0.260610-beta(@vercel/functions@3.9.5(ws@8.21.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
       undici: 8.9.0
     optionalDependencies:
