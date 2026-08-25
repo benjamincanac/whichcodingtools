@@ -62,7 +62,6 @@ pricing:
         kind: api-list
       limits:
         - 3x the Pro agent limits
-      notes: Price carried over from the August 2026 research corpus, the pricing page renders it client-side.
     - id: ultra
       name: Ultra
       price: 200
@@ -75,9 +74,8 @@ pricing:
         kind: api-list
       limits:
         - 20x the Pro agent limits
-      notes: Price carried over from the August 2026 research corpus, the pricing page renders it client-side.
     - id: teams
-      name: Teams
+      name: Teams Standard
       price: 40
       audience: team
       included:
@@ -87,7 +85,15 @@ pricing:
       overage:
         kind: api-list
       limits:
-        - Premium team seats get 5x the Standard agent limits at the same base price plus usage
+        - Per user per month
+    - id: teams-premium
+      name: Teams Premium
+      price: 120
+      audience: team
+      overage:
+        kind: api-list
+      limits:
+        - 5x the Teams Standard agent limits, per user per month
     - id: enterprise
       name: Enterprise
       price: null
@@ -97,7 +103,7 @@ pricing:
 status: active
 sources:
   - url: https://cursor.com/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-08-25
     covers: [pricing]
   - url: https://cursor.com/docs
     verified_at: 2026-08-23
