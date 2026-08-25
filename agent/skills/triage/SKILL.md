@@ -31,6 +31,7 @@ A pull request that was green on its own commit can still be wrong against main 
 
 - A page that could not be read: read it again the way pricing-watch does, the fetch first, the browser second, the vendor's other surfaces third. If it reads now, handle the tool normally and close the issue with `github__close_issue`, saying what was read and linking the pull request when one came out of it. If it still refuses, leave the issue open and post what it returned today with `github__comment`, so the thread carries the evidence rather than going quiet for a week.
 - A tool request: check whether `content/tools/<slug>.yml` is on main or in an open pull request. If it landed and the agent opened the issue, close it with the link. If a person opened it, say which pull request covers it and leave it to them.
+- An outdated report: the `outdated` label starts a responder of its own, so the thread should already carry its reply. If it does not, the channel missed the issue, so load the `outdated-report` skill and run it now rather than reporting it as untouched. If it does and the pull request it opened has landed, say so and leave the issue open, a person opened it.
 - Anything else: say whether it still holds and stop. An issue a person opened is theirs to close.
 
 ## Report

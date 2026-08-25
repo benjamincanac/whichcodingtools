@@ -27,7 +27,7 @@ agent/
   agent.ts                          model (anthropic/claude-sonnet-5 via AI Gateway), reasoning, token caps
   instructions.md                   identity and the rules above
   channels/eve.ts                   HTTP surface, Vercel OIDC or localhost auth
-  channels/github.ts                GitHub App via Vercel Connect: @whichcodingtools mentions (maintainer only) and the "Add a tool" first responder
+  channels/github.ts                GitHub App via Vercel Connect: @whichcodingtools mentions (maintainer only) and the two issue-form responders
   extensions/browser.ts             a real browser for pricing pages that render client side
   hooks/sandbox-refresh.ts          per-turn network policy refresh, re-clone when the workspace is gone
   schedules/pricing-watch.ts        daily 06:15 UTC, task mode (no chat channel needed)
@@ -38,6 +38,7 @@ agent/
   skills/rename-watch/SKILL.md      homepage redirects, new names, description drift
   skills/stale-sweep/SKILL.md       tools past 60 days without a re-check
   skills/contributing/SKILL.md      the data and PR rules, mirrors CONTRIBUTING.md
+  skills/outdated-report/SKILL.md   one reported field, re-read against its vendor page
   skills/triage/SKILL.md            a pass over every open issue and PR, checked against main
   tools/github__find_related.ts     search issues and PRs, open and closed (dedupe)
   tools/github__list_open.ts        everything currently open, for a stocktake rather than a lookup
@@ -91,7 +92,9 @@ Writes go through the `whichcodingtools` GitHub App managed by Vercel Connect (c
 ## GitHub channel
 
 - Benjamin mentions `@whichcodingtools` on an issue, PR or review comment: a normal turn under his identity, with the repo checked out.
-- A community "Add a tool" issue carrying the `tool` label starts an unattended first-responder turn: validate the YAML, open a PR when it passes, reply once in the thread with the result or the validation issues. The gate is the label, which the issue form applies server side, and not the `[Tool]` title prefix, which anyone can type into a blank issue. Benjamin, and only he, can label an issue `tool` afterwards to point the first responder at one that missed the form, his own included, which is how the path gets exercised end to end: labeling starts a credentialed unattended turn, so it is not something any collaborator with triage access gets to do. Because `labeled` fires for every label and the webhook hands the hook the issue rather than the event, that path skips issues the first responder already replied to, which is also what keeps the label the form applies at creation from starting a second turn next to `opened`. The issue body reaches the turn fenced as untrusted data. That turn cannot open or close issues, cannot park on approvals, and writes to `agent/add-*` branches only, so a line in a stranger's issue cannot aim a commit at a sweep's open pull request.
+- An issue carrying one of the two form labels starts an unattended responder turn. `tool` is the first responder: validate the YAML, open a PR when it passes, reply once in the thread with the result or the validation issues. `outdated` is the report responder: work out which field the report is about, re-read the vendor page the way the daily sweep does, and either open a PR that fixes the file or reply with what the page shows today. Both procedures live in skills, `contributing` and `outdated-report`.
+- The gate is the label, which each issue form applies server side, and not the `[Tool]` or `[Outdated]` title prefix, which anyone can type into a blank issue. GitHub drops a form label the repository does not carry without saying so, so both labels existing is what keeps the forms wired to anything. Benjamin, and only he, can add one afterwards to point a responder at an issue that missed the form: labeling starts a credentialed unattended turn, so it is not something any collaborator with triage access gets to do. Because `labeled` fires for every label and the webhook hands the hook the issue rather than the event, that path skips issues a responder already replied to, which is also what keeps the label the form applies at creation from starting a second turn next to `opened`.
+- The issue body reaches the turn fenced as untrusted data. Those turns cannot open or close issues, cannot park on approvals, and write to `agent/*` branches under `content/` and `public/logos/` only, so a line in a stranger's issue cannot aim a commit at a sweep's open pull request.
 
 ## Browser
 
