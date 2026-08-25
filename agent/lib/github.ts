@@ -288,14 +288,13 @@ export async function pushToAgentBranch(input: { branch: string, message: string
   return { branch: input.branch, commit: commit.sha, created: head === null, files: input.files.map(f => f.path) }
 }
 
-export async function createDraftPullRequest(input: { branch: string, title: string, body: string }) {
+export async function createPullRequest(input: { branch: string, title: string, body: string }) {
   assertAgentBranch(input.branch, 'open a pull request from')
   const pr = await githubApi<{ number: number, html_url: string }>('POST', `/repos/${REPO}/pulls`, {
     title: input.title,
     body: input.body,
     head: input.branch,
-    base: DEFAULT_BRANCH,
-    draft: true
+    base: DEFAULT_BRANCH
   })
   return { number: pr.number, url: pr.html_url }
 }

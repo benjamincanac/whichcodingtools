@@ -35,7 +35,7 @@ Both JSON routes are cached with ISR and purged when content changes.
 
 ## Self-maintenance
 
-An eve agent in [`agent/`](agent/) re-reads every vendor pricing page daily and opens a draft PR when a price changed. It never merges. See [agent/README.md](agent/README.md).
+An eve agent in [`agent/`](agent/) re-reads every vendor pricing page daily and opens a PR when a price changed. It never merges. See [agent/README.md](agent/README.md).
 
 ## Contribute
 

@@ -33,7 +33,7 @@ export function isAutonomous(auth: SessionAuth) {
 }
 
 /**
- * Who may write anything beyond a draft PR. An allow-list, so a dispatch path nobody
+ * Who may write anything at all. An allow-list, so a dispatch path nobody
  * thought about (a new channel, a hook, a subagent) fails closed instead of inheriting
  * the maintainer's reach.
  */

@@ -28,7 +28,7 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - Commit subject: `data(<slug>): <what changed>` in lowercase, one line, 8 to 120 characters.
 - Run `pnpm validate` before pushing. If it fails, fix the data, never the validator. A figure it cannot find in the snapshot is a page state that was never captured, so go back and capture it.
 - Edit the files in `/workspace/repo`, then push them with `github__push_files`: the branch, the commit message, and the paths relative to the checkout, 50 at most. It reads those files and commits them through the API, so `git checkout -b`, `git add` and `git commit` are not part of the flow, and `git push` does not work in the sandbox at all.
-- Then call `github__create_draft_pull_request`. Pushing to the branch of a pull request that is already open adds a commit to it instead.
+- Then call `github__create_pull_request`. It opens ready for review. Pushing to the branch of a pull request that is already open adds a commit to it instead.
 - PR title: `data(<slug>): <what changed>`. Body: a short before and after list, the vendor URL, the date, and a "Not changed in this PR" line for anything else noticed.
 
 ## Logos
@@ -37,6 +37,6 @@ Cards fall back from `public/logos/<slug>.png` to the YAML `icon` (simple-icons 
 
 ## Never
 
-- Mark a PR ready. Merge. `github__push_files` refuses `main` and every path outside `content/` and `public/logos/`, so do not spend a run routing around it.
+- Merge anything. `github__push_files` refuses `main` and every path outside `content/` and `public/logos/`, so do not spend a run routing around it.
 - Write or rewrite a `description`: descriptions are human-written.
 - Add affiliate links, referral codes or tracking parameters.

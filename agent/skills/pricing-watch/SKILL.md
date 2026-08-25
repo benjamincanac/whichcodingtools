@@ -1,11 +1,11 @@
 ---
 name: pricing-watch
-description: The daily sweep over content/tools. Re-reads every tool's pricing source, compares it with the stored snapshot, and opens a draft PR when a price, a tier or an included amount changed. Load this when the pricing-watch schedule fires or when asked to check pricing.
+description: The daily sweep over content/tools. Re-reads every tool's pricing source, compares it with the stored snapshot, and opens a PR when a price, a tier or an included amount changed. Load this when the pricing-watch schedule fires or when asked to check pricing.
 ---
 
 # Pricing watch
 
-The directory's promise is that every price carries the date someone checked the vendor page. This sweep is that someone, every day. The deliverable is a draft pull request per changed tool, an issue per page that could not be read, and one short report. Nothing merges without a person.
+The directory's promise is that every price carries the date someone checked the vendor page. This sweep is that someone, every day. The deliverable is a pull request per changed tool, an issue per page that could not be read, and one short report. Nothing merges without a person.
 
 ## Setup
 
@@ -20,7 +20,7 @@ Build the worklist from the files in `content/tools/*.yml`: for each tool take `
 2. Compare with the stored snapshots in `content/snapshots/<slug>/`, capture against capture of the same state, when they exist. `diff` is fine, but the decision is semantic: a changed dollar amount, a new or removed tier, a changed included amount, a changed overage rule or a rename is **material**. Reworded marketing copy, dates, cookie banners and navigation are **cosmetic**.
 3. Compare the page with the YAML as well, even when the snapshot did not change: the snapshot can be missing or stale, the YAML is the truth the site shows.
 4. Decide:
-   - **Material change**: write the new snapshots, edit `content/tools/<slug>.yml` to match the page (tiers, prices, included, overage, limits, notes), bump `verified_at` on that source line to today, run `pnpm validate`, then push both paths with `github__push_files` on branch `agent/<slug>-pricing-<YYYY-MM-DD>` and message `data(<slug>): <what changed>`, and open a draft PR with the before and after values and the vendor URL. Call `github__find_related` with the slug first: if a pull request for this tool is open, push to the `branch` it returns instead of starting a new one.
+   - **Material change**: write the new snapshots, edit `content/tools/<slug>.yml` to match the page (tiers, prices, included, overage, limits, notes), bump `verified_at` on that source line to today, run `pnpm validate`, then push both paths with `github__push_files` on branch `agent/<slug>-pricing-<YYYY-MM-DD>` and message `data(<slug>): <what changed>`, and open a PR with the before and after values and the vendor URL. Call `github__find_related` with the slug first: if a pull request for this tool is open, push to the `branch` it returns instead of starting a new one.
    - **No change**: do nothing for this tool. Do not bump `verified_at` by itself, a date without a diff a person can see is noise.
    - **Cosmetic change only**: do nothing. Tomorrow's run compares against the same snapshot and that is fine.
    - **No snapshot yet**: most tools still have none, so the comparison against the YAML in step 3 is the whole decision. Add the snapshot file to the PR if you open one, but do not open a PR only to add a snapshot: the stale sweep backfills the missing ones.

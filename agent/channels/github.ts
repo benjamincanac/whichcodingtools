@@ -16,7 +16,7 @@ function isHomeRepo(fullName: string) {
  * Two ways in:
  * - Benjamin mentions @whichcodingtools on an issue, PR or review comment: a normal turn with his identity.
  * - Someone opens an "Add a tool" issue: an unattended first-responder turn under a service principal
- *   that can reply in the thread and open a draft PR, nothing else.
+ *   that can reply in the thread and open a pull request, nothing else.
  */
 export default githubChannel({
   botName,
@@ -162,6 +162,6 @@ ${text}
 
 const FIRST_RESPONDER = `This is an unattended turn on a new "Add a tool" issue. Load the \`contributing\` skill, then:
 1. Read the issue body below. If it contains a YAML block, write it to /workspace/repo/content/tools/<slug>.yml and run \`pnpm validate\`. If it has no YAML, build a draft from whichever fields the form carries, most of them are optional, and the vendor pages you fetch from the homepage, leaving fields you could not verify out rather than guessed.
-2. If validation passes, push the file with \`github__push_files\` on branch \`agent/add-<slug>-<YYYY-MM-DD>\` and message \`data(<slug>): add <name>\`, then open a draft pull request that links this issue.
+2. If validation passes, push the file with \`github__push_files\` on branch \`agent/add-<slug>-<YYYY-MM-DD>\` and message \`data(<slug>): add <name>\`, then open a pull request that links this issue.
 3. Finish with one short message: what you validated, the PR link, or the validation issues as a list the reporter can fix. There is no reply tool and you do not need one, your last message is posted in the issue as the reply. Write it to the reporter, do not restate the rules, and never describe your own tooling or what you could not call.
-You may not open issues, edit other files, or mark anything ready. If the issue is not actually about adding a tool, reply with one sentence saying a maintainer will look at it.`
+You may not open issues, edit other files, or merge anything. If the issue is not actually about adding a tool, reply with one sentence saying a maintainer will look at it.`
