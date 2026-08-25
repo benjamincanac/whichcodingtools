@@ -1,0 +1,77 @@
+slug: crush
+name: Crush
+description: Terminal coding agent from Charm, written in Go. Works with almost any model provider through your own API keys, plus an optional first-party Hyper plan.
+layer: harness
+vendor: Charmbracelet, Inc.
+homepage: https://github.com/charmbracelet/crush
+links:
+  docs: https://github.com/charmbracelet/crush/blob/main/docs/config
+  pricing: https://hyper.charm.land
+  repo: https://github.com/charmbracelet/crush
+platforms: [macos, windows, linux, android]
+install:
+  - method: brew
+    command: brew install charmbracelet/tap/crush
+  - method: npm
+    command: npm install -g @charmland/crush
+  - method: winget
+    command: winget install charmbracelet.crush
+  - method: aur
+    command: yay -S crush-bin
+  - method: download
+    url: https://github.com/charmbracelet/crush/releases
+license:
+  spdx: FSL-1.1-MIT
+  kind: source-available
+  repo: https://github.com/charmbracelet/crush
+  notes: Functional Source License, converts to MIT after two years per release.
+models:
+  providers: [first-party, anthropic, openai, google, zhipu, minimax, openrouter, vercel-ai-gateway, alibaba, moonshot]
+  byok: full
+  local: true
+  notes: Paste an API key for Anthropic, OpenAI, Gemini, OpenRouter, Vercel AI Gateway, MiniMax, Z.ai, Moonshot, Alibaba and more, or run local models through Ollama, llama.cpp, LM Studio or OMLX. Amazon Bedrock and Google Vertex AI are supported through their own credential chains. Hyper is Charm's own first-party inference plan.
+features: [mcp-client, hooks]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 100
+        unit: credits
+        period: month
+        usd_value: 5
+        notes: Everyone gets 100 Hypercredits per month for the optional Hyper plan; 1 Hypercredit is 5 cents.
+      limits:
+        - Crush itself is free and open source, use it with your own provider API keys at no extra cost
+    - id: subscription
+      name: Hyper Subscription
+      price: 20
+      per: flat
+      audience: individual
+      included:
+        amount: 250
+        unit: credits
+        period: month
+        usd_value: 12.5
+        notes: 250 Hypercredits refreshing daily.
+      limits:
+        - Optional first-party inference plan for Crush, not required to use the agent
+    - id: prepaid
+      name: Hyper Prepaid Bundles
+      price: null
+      per: flat
+      audience: individual
+      overage:
+        kind: fixed
+        notes: "$5 for 100, $10 for 500 and $20 for 2,000 Hypercredits. Prepaid Hypercredits never expire."
+  notes: Crush has no license fee. Hyper is Charm's optional hosted inference plan for Crush, billed in Hypercredits currently worth 5 cents each.
+status: active
+sources:
+  - url: https://github.com/charmbracelet/crush
+    verified_at: 2026-08-25
+    covers: [platforms, license, models, features, general]
+  - url: https://hyper.charm.land
+    verified_at: 2026-08-25
+    covers: [pricing]
