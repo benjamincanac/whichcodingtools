@@ -24,7 +24,7 @@ Read the diff against main with `git diff main origin/pr/<number>`, then check i
 A pull request that was green on its own commit can still be wrong against main today, because its checks ran before whatever landed since. `pnpm validate` on the merged tree is the thing that says so. Go back to main with `git checkout -f main && git clean -fd` when you are done with one.
 
 - Merges clean and validates: say so and leave it, it is waiting on Benjamin.
-- Fails validation: name the rule it fails. When the fix is a pricing re-check, load the `pricing-watch` skill and redo that one tool properly on the merged branch, then push to the pull request's own branch with `github__push_files` so the fix lands in the thread that is already open. Never open a second pull request for a tool that already has one. `github__push_files` reads the files off disk, so the checkout has to be the merged branch when you call it.
+- Fails validation: name the rule it fails. When the fix is a pricing re-check, load the `pricing-watch` skill and redo that one tool properly on the merged branch, then push to the pull request's own branch with `github__push_files` so the fix lands in the thread that is already open. Never open a second pull request for a tool that already has one. `github__push_files` reads the files off disk, so the checkout has to be the merged branch when you call it, and `github__update_pull_request` rewrites the body afterwards so it describes what is on the branch now rather than what was on it in the morning.
 - Conflicts with main, or its change already landed: say which, and stop. Closing a pull request is Benjamin's call.
 
 ## For each issue

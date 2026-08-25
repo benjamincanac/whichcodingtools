@@ -211,6 +211,14 @@ export async function findRelated(terms: string) {
 
 /** The only ref namespace the agent can move, and the only paths it can write. */
 export const AGENT_BRANCH = /^agent\/[a-z0-9-]+$/
+
+/**
+ * What an unattended first-responder turn may touch. Its whole job is adding one new tool, so
+ * it gets its own namespace and cannot reach a sweep's open pull request, neither to append a
+ * commit nor to rewrite its body. The text it works from was written by a stranger, and
+ * `agent/*` alone would have let a line in that text aim at someone else's branch.
+ */
+export const ADD_BRANCH = /^agent\/add-[a-z0-9-]+$/
 const WRITABLE_PATH = /^(content\/[\w.-]+(\/[\w.-]+)*|public\/logos\/[a-z0-9-]+\.png)$/
 
 /**
@@ -297,6 +305,29 @@ export async function createPullRequest(input: { branch: string, title: string, 
     base: DEFAULT_BRANCH
   })
   return { number: pr.number, url: pr.html_url }
+}
+
+/**
+ * Retitle or rewrite the body of a pull request the agent opened. A branch keeps moving after
+ * the pull request is open, and a body describing the first commit is a worse account of the
+ * change than no body at all. Only title and body: state, base and draft are Benjamin's.
+ */
+export async function updateOwnPullRequest(input: { number: number, title?: string, body?: string, autonomous: boolean }) {
+  if (!input.title && !input.body) throw new Error('Nothing to change: pass a title, a body, or both.')
+  const pr = await githubApi<{ head: { ref: string }, user: { login: string }, state: string }>('GET', `/repos/${REPO}/pulls/${input.number}`)
+  if (!isAgentLogin(pr.user.login)) {
+    throw new Error(`Pull request #${input.number} was opened by ${pr.user.login}, not the agent. Comment on it instead.`)
+  }
+  if (pr.state !== 'open') throw new Error(`Pull request #${input.number} is ${pr.state}.`)
+  assertAgentBranch(pr.head.ref, 'edit a pull request from')
+  if (input.autonomous && !ADD_BRANCH.test(pr.head.ref)) {
+    throw new Error(`This turn edits agent/add-<slug>-<date> pull requests only, not ${JSON.stringify(pr.head.ref)}.`)
+  }
+  const updated = await githubApi<{ number: number, html_url: string }>('PATCH', `/repos/${REPO}/pulls/${input.number}`, {
+    ...(input.title ? { title: input.title } : {}),
+    ...(input.body ? { body: input.body } : {})
+  })
+  return { number: updated.number, url: updated.html_url }
 }
 
 /** Logins the agent's own writes show up under (Connect App in production, PAT fallback is not self). */

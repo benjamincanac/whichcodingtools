@@ -1,18 +1,10 @@
 import { defineTool } from 'eve/tools'
 import { z } from 'zod'
-import { AGENT_BRANCH, assertWritablePaths, pushToAgentBranch } from '../lib/github'
+import { ADD_BRANCH, AGENT_BRANCH, assertWritablePaths, pushToAgentBranch } from '../lib/github'
 import { isAutonomous } from '../lib/trust'
 
 /** A YAML file is a few KB and a logo is a few dozen. Anything near this is a mistake. */
 const MAX_BYTES = 2_000_000
-
-/**
- * What an unattended first-responder turn may move. Its whole job is adding one new tool, so
- * it gets its own namespace and cannot append a commit to a sweep's open pull request. The
- * text it works from was written by a stranger, and `agent/*` alone would have let a line in
- * that text aim the commit at someone else's branch.
- */
-const ADD_BRANCH = /^agent\/add-[a-z0-9-]+$/
 
 export default defineTool({
   description: 'Commit files from the checkout onto an agent branch. This is how work leaves the sandbox: `git push` does not work there, on purpose. Edit the files in /workspace/repo, run `pnpm validate`, then list what changed here. Pushing to the branch of an open pull request adds a commit to it.',
