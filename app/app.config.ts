@@ -1,6 +1,6 @@
 export default defineAppConfig({
   site: {
-    name: 'whichcodingtools',
+    name: 'whichcoding.tools',
     tagline: 'Find the AI coding tool that fits how you work.',
     repo: 'benjamincanac/whichcodingtools',
     branch: 'main'

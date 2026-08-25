@@ -41,7 +41,7 @@ export default defineNuxtConfig({
 
   site: {
     url: process.env.NUXT_SITE_URL || 'https://whichcoding.tools',
-    name: 'whichcodingtools',
+    name: 'whichcoding.tools',
     description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.'
   },
 
