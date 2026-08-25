@@ -2,6 +2,12 @@
 
 Everything on the site comes from `content/tools/*.yml`. Edit a file, run `pnpm validate`, open a pull request.
 
+## Without a checkout
+
+Two issue forms do the same job. [Add a tool](https://github.com/benjamincanac/whichcodingtools/issues/new?template=tool.yml) takes a homepage and whatever else you know, [Report outdated data](https://github.com/benjamincanac/whichcodingtools/issues/new?template=outdated.yml) takes a slug and what the vendor page says now. Both start an automated first pass: the maintenance agent reads the vendor page itself, opens a pull request when the page agrees with you, and replies in the thread when it does not. Nothing it opens is merged without a person.
+
+A blank issue starts none of that, the label each form applies is what routes it. A pull request you open yourself skips the round trip entirely.
+
 ## Add a tool
 
 1. Copy the closest existing file in `content/tools` to `content/tools/<slug>.yml`. The slug is lowercase, dashes only, and must equal the file name.

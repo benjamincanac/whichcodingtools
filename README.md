@@ -41,6 +41,8 @@ An eve agent in [`agent/`](agent/) re-reads every vendor pricing page daily and 
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md). Adding a tool is one YAML file and a pull request. Fixing a price is one line and a bumped `verified_at`.
 
+Without a checkout, the two issue forms do the same job: [Add a tool](https://github.com/benjamincanac/whichcodingtools/issues/new?template=tool.yml) and [Report outdated data](https://github.com/benjamincanac/whichcodingtools/issues/new?template=outdated.yml). Both start an automated first pass that reads the vendor page and opens a pull request for a person to review.
+
 ## License
 
 Code is MIT. The data license is still an open decision, CC BY 4.0 is the proposal.

@@ -4,6 +4,7 @@ import type { ToolMatch } from '~/composables/useToolFinder'
 const route = useRoute()
 const router = useRouter()
 const { tools, requirements, sort, update, reset, count, exact, close, hidden, matches } = useToolFinder()
+const issueUrl = useIssueUrl()
 
 /** Set by the landing page after the natural-language parse, shown once. */
 const why = computed(() => typeof route.query.why === 'string' ? route.query.why : '')
@@ -137,7 +138,10 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
           icon="i-lucide-search-x"
           title="Nothing comes close"
           :description="count ? `No tool satisfies ${count > 2 ? 'most of' : ''} what you picked${hidden ? `, ${hidden} miss three requirements or more` : ''}. Drop one and try again.` : 'No tool matches that search.'"
-          :actions="[{ label: 'Reset requirements', color: 'neutral', variant: 'outline', onClick: reset }]"
+          :actions="[
+            { label: 'Reset requirements', color: 'neutral', variant: 'outline', onClick: reset },
+            { label: 'Add a missing tool', color: 'neutral', variant: 'ghost', icon: 'i-lucide-plus', to: issueUrl('tool'), target: '_blank' }
+          ]"
         />
       </div>
     </UPage>

@@ -51,16 +51,14 @@ const headerLinks = computed(() => [
 ].filter(Boolean) as ButtonProps[])
 
 const yamlUrl = computed(() => `https://github.com/${site.repo}/blob/${site.branch}/content/tools/${t.value.slug}.yml`)
-const issueUrl = computed(() => {
-  const params = new URLSearchParams({ template: 'outdated.yml', title: `[${t.value.name}] Outdated data`, tool: t.value.slug })
-  return `https://github.com/${site.repo}/issues/new?${params}`
-})
+const issueUrl = useIssueUrl()
+const outdatedUrl = computed(() => issueUrl('outdated', { title: `[Outdated] ${t.value.name}`, tool: t.value.slug }))
 
 const asideLinks = computed<PageLink[]>(() => [
   { label: 'Compare with another tool', to: `/compare?tools=${t.value.slug}`, icon: 'i-lucide-columns-3' },
   { label: `All ${layerLabel.value.toLowerCase()}s`, to: `/layers/${t.value.layer}`, icon: 'i-lucide-layers' },
   { label: 'Edit this tool on GitHub', to: yamlUrl.value, target: '_blank', icon: 'i-lucide-pencil' },
-  { label: 'Report outdated data', to: issueUrl.value, target: '_blank', icon: 'i-lucide-flag' },
+  { label: 'Report outdated data', to: outdatedUrl.value, target: '_blank', icon: 'i-lucide-flag' },
   { label: 'JSON', to: `/api/tools/${t.value.slug}.json`, target: '_blank', icon: 'i-lucide-braces' },
   ...(t.value.links.changelog ? [{ label: 'Changelog', to: t.value.links.changelog, target: '_blank', icon: 'i-lucide-scroll-text' }] : [])
 ])
