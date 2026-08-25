@@ -74,10 +74,6 @@ pricing:
       name: Teams Standard
       price: 40
       audience: team
-      included:
-        amount: 20
-        unit: usd
-        usd_value: 20
       overage:
         kind: api-list
       limits:
@@ -85,6 +81,7 @@ pricing:
         - Agentic code reviews with Bugbot
         - Usage analytics to understand team behavior
         - Team-wide privacy mode
+      notes: cursor.com/pricing shows Teams Standard only as "$40 / user / mo." with no included-usage figure as of 2026-08-25, so no included.amount is recorded here.
     - id: teams-premium
       name: Teams Premium
       price: 120
