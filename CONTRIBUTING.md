@@ -24,7 +24,17 @@ Change the value, then bump `verified_at` on the source line you re-checked. If 
 - `pricing.same_as` points at another tool that carries the tiers (Claude desktop app reuses Claude Code's).
 - A vendor's second surface is its own file only when its `install`, `platforms` or `features` differ from the parent's (the Claude desktop app installs differently and has no web build). It carries `pricing.same_as` back, and its `layer` must not also appear in the parent's `secondary_layers`. Everything else is a `secondary_layers` entry on the one file.
 - A tier needs a `price`, or `price_annual`, or `contact_sales: true`, or an `overage`. `price: null` with an `overage` is pay as you go.
+- A tier that exists only because another tool's plan unlocks it carries `mirrors: { tool, tier }`. The price then has to equal that tier's, and `pnpm validate` says so the day the source moves, which is what keeps a wrapper from quoting a price the vendor retired.
 - Renames are `aliases` on the current file, with the date the old name stopped. The old slug keeps working as a 301. A product that was merged into another keeps its own file with `status: sunset` and a `successor`.
+
+## Snapshots
+
+`content/snapshots/<slug>/*.txt` is the vendor page text a figure came from, written by [`agent/sandbox/workspace/bin/page-text.mjs`](agent/sandbox/workspace/bin/page-text.mjs) and never by hand. When a tool has one, `pnpm validate` looks for every `price`, `price_annual` and `included.amount` of that tool in it and fails when a figure is not there.
+
+A page that hides prices behind a toggle needs one capture per state, `pricing.txt` for the state it opens on and `pricing-<state>.txt` for the rest. If a figure genuinely has no page state that shows it, it does not belong in the file.
+
+    node agent/sandbox/workspace/bin/page-text.mjs <url> > content/snapshots/<slug>/pricing.txt
+    node agent/sandbox/workspace/bin/page-text.mjs --stdin <url> > content/snapshots/<slug>/pricing.txt   # rendered text on stdin
 
 ## What we don't take
 

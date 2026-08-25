@@ -47,17 +47,19 @@ agent/
   lib/checkout.ts                   clone and refresh /workspace/repo, with exit codes actually checked
   lib/trust.ts                      who is the maintainer, which turns are unattended
   sandbox/sandbox.ts                template warming and per-session setup
-  sandbox/workspace/bin/page-text.mjs  fetches a vendor page as plain text
+  sandbox/workspace/bin/page-text.mjs  fetches a vendor page as plain text, or fences a rendered one from stdin
 ```
 
 ## What the daily sweep does
 
-For every tool that is not sunset: fetch the pricing source, compare with `content/snapshots/<slug>/pricing.txt` when there is one and with the YAML otherwise, and
+For every tool that is not sunset: fetch the pricing source, compare with the captures in `content/snapshots/<slug>/` when there are any and with the YAML otherwise, and
 - on a material change (price, tier, included amount, overage rule) open a draft PR that updates the YAML and the snapshot, with the before and after in the body,
 - on no change or a cosmetic change, do nothing (no `verified_at` bumps without a visible diff),
 - on a page that cannot be read (fetch and browser both), open one issue for that tool, once, and close it with evidence on the first run that reads the page again.
 
 The sweep touches pricing fields only. Descriptions, features, wraps and licenses stay human-edited. Most tools have no snapshot yet, so they take the YAML comparison; the weekly stale sweep backfills the snapshots as it re-verifies.
+
+A snapshot is only ever written by `page-text.mjs`, either from a fetch or with `--stdin` from the text a browser rendered. That matters because `pnpm validate` reads those captures back: every `price`, `price_annual` and `included.amount` of a tool that has a snapshot must appear in one, so a figure nobody read cannot reach a pull request. A page that hides tiers behind a toggle needs one capture per state, `pricing.txt` plus `pricing-<state>.txt`. The same run also checks `mirrors`, the tiers that exist only because another tool's plan unlocks them, so a price change in one file fails the other until it follows.
 
 ## Trust
 

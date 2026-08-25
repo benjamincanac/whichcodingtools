@@ -38,6 +38,16 @@ export const OverageSchema = z.object({
   notes: z.string().optional()
 })
 
+/**
+ * A tier that exists only because another tool's plan unlocks it, so the figure belongs to
+ * that tool's page and not to this one. `pnpm validate` keeps the copy equal to the source,
+ * which is what stops a wrapper from still quoting last month's price.
+ */
+export const MirrorSchema = z.object({
+  tool: slug,
+  tier: slug
+})
+
 export const TierSchema = z.object({
   id: slug,
   name: z.string().min(1),
@@ -50,6 +60,7 @@ export const TierSchema = z.object({
   trial_days: z.number().int().positive().optional(),
   included: IncludedSchema.optional(),
   overage: OverageSchema.optional(),
+  mirrors: MirrorSchema.optional(),
   limits: z.array(z.string()).default([]),
   notes: z.string().optional()
 }).refine(

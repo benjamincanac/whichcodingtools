@@ -22,6 +22,7 @@ Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`
 ## Rules that don't bend
 
 - Every fact in `content/tools` comes from a vendor page read that day; bump `verified_at` only on the source line you re-checked. Unverifiable figures carry a note saying so.
+- A figure is only as good as its capture. `content/snapshots/<slug>/*.txt` comes out of `page-text.mjs` and never out of a keyboard, and `pnpm validate` fails when a `price`, `price_annual` or `included.amount` is not in it. Toggled pages get one capture per state. A tier that mirrors another tool's plan carries `mirrors` so the two cannot drift apart.
 - Automation never merges data. The agent's only writes are draft PRs, issues (it may close its own once resolved, never a person's) and `agent/*` branches.
 - Descriptions are human-written, 40-180 chars, no marketing words, no em dashes anywhere in content.
 - Tool avatars: `public/logos/<slug>.png` → `icon` (simple-icons) → initial. Never pass an avatar `src` that can 404 (the img error can fire before hydration).

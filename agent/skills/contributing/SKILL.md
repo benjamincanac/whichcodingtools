@@ -17,6 +17,8 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - A tier needs a `price`, or `price_annual`, or `contact_sales: true`, or an `overage`. `price: null` with an `overage` is pay as you go. `price_from: true` when the page says "from".
 - `included` is what a paid tier bundles: `{ amount, unit: usd | credits | tokens | requests | completions | edits | messages, period, usd_value?, notes? }`.
 - `overage.kind` is one of `api-list`, `credits`, `fixed`, `rate-limited`, `blocked`.
+- `mirrors: { tool, tier }` is for a tier that exists only because another tool's plan unlocks it. `pnpm validate` keeps the price equal to the source tier's, so when one moves the other fails until it follows.
+- `content/snapshots/<slug>/*.txt` is the page text a figure came from. It comes out of `page-text.mjs`, never out of a keyboard, and `pnpm validate` looks for every `price`, `price_annual` and `included.amount` inside it. A page with a price toggle gets one capture per state, `pricing.txt` plus `pricing-<state>.txt`.
 - Renames are `aliases` on the current file with the date the old name stopped. A merged product keeps its file with `status: sunset`, `sunset_at` and a `successor`.
 - `sources[]`: bump `verified_at` only on the line whose page you actually read today.
 
@@ -24,7 +26,7 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 
 - Branch name: `agent/<slug>-<topic>-<YYYY-MM-DD>`. A new one starts from `main`.
 - Commit subject: `data(<slug>): <what changed>` in lowercase, one line, 8 to 120 characters.
-- Run `pnpm validate` before pushing. If it fails, fix the data, never the validator.
+- Run `pnpm validate` before pushing. If it fails, fix the data, never the validator. A figure it cannot find in the snapshot is a page state that was never captured, so go back and capture it.
 - Edit the files in `/workspace/repo`, then push them with `github__push_files`: the branch, the commit message, and the paths relative to the checkout, 50 at most. It reads those files and commits them through the API, so `git checkout -b`, `git add` and `git commit` are not part of the flow, and `git push` does not work in the sandbox at all.
 - Then call `github__create_draft_pull_request`. Pushing to the branch of a pull request that is already open adds a commit to it instead.
 - PR title: `data(<slug>): <what changed>`. Body: a short before and after list, the vendor URL, the date, and a "Not changed in this PR" line for anything else noticed.

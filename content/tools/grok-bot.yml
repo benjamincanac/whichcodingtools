@@ -33,18 +33,27 @@ pricing:
       name: SuperGrok Plus
       price: 100
       audience: individual
+      mirrors:
+        tool: grok-build
+        tier: supergrok-plus
       limits:
         - Included with a SuperGrok Plus subscription, linked to your Cursor sign-in
     - id: cursor-pro-plus
       name: Cursor Pro+
       price: 60
       audience: individual
+      mirrors:
+        tool: cursor
+        tier: pro-plus
       limits:
         - Included with a Cursor Pro+ subscription
     - id: cursor-ultra
       name: Cursor Ultra
       price: 200
       audience: individual
+      mirrors:
+        tool: cursor
+        tier: ultra
       limits:
         - Included with a Cursor Ultra subscription
     - id: cursor-teams
@@ -52,6 +61,9 @@ pricing:
       price: 40
       per: user
       audience: team
+      mirrors:
+        tool: cursor
+        tier: teams
       limits:
         - Standard and Premium seats each get a weekly Grok Bot usage allowance, invoices combine Cursor and Grok Bot charges
     - id: enterprise
