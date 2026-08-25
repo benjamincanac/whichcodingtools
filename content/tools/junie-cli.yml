@@ -1,0 +1,45 @@
+slug: junie-cli
+name: Junie CLI
+description: An AI coding agent by JetBrains that ships code from your terminal, IDE, or CI/CD pipeline, powered by any LLM you choose.
+layer: harness
+secondary_layers: [cloud]
+vendor: JetBrains
+homepage: https://junie.jetbrains.com/
+links:
+  docs: https://junie.jetbrains.com/docs/
+  pricing: https://junie.jetbrains.com/#pricing
+  repo: https://github.com/JetBrains/junie
+icon: i-simple-icons-jetbrains
+platforms: [macos, windows, linux]
+install:
+  - method: curl
+    command: curl -fsSL https://junie.jetbrains.com/install.sh | bash
+  - method: brew
+    command: brew tap jetbrains-junie/junie && brew install junie
+  - method: npm
+    command: npm install -g @jetbrains/junie
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: Use is subject to the JetBrains AI Service Terms of Service. The GitHub repo hosts install scripts and docs, not the agent's source.
+models:
+  providers: [anthropic, openai, google, xai, openrouter]
+  plans: [copilot]
+  byok: full
+  local: true
+  notes: JetBrains AI subscription gives access to Claude, Gemini, GPT and Grok models. BYOK works with Anthropic, OpenAI, Google, xAI, OpenRouter or a GitHub Copilot key, and custom or self-hosted endpoints such as LiteLLM, Ollama or LM Studio.
+features: [worktrees, subagents, mcp-client, diff-review, remote-execution, mobile-companion]
+pricing:
+  same_as: jetbrains-ai
+  notes: Junie CLI signs in with a JetBrains account (draws from the same AI Credits as the JetBrains AI subscription), a usage-based Junie API key, or BYOK, which needs no subscription.
+status: active
+sources:
+  - url: https://github.com/JetBrains/junie
+    verified_at: 2026-08-24
+    covers: [platforms, license, general]
+  - url: https://junie.jetbrains.com/
+    verified_at: 2026-08-24
+    covers: [pricing, features]
+  - url: https://junie.jetbrains.com/docs/junie-cli.html
+    verified_at: 2026-08-24
+    covers: [features, models, platforms]
