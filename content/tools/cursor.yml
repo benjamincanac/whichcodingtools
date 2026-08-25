@@ -66,14 +66,11 @@ pricing:
       name: Ultra
       price: 200
       audience: individual
-      included:
-        amount: 400
-        unit: usd
-        usd_value: 400
       overage:
         kind: api-list
       limits:
         - 20x the Pro agent limits
+      notes: cursor.com/docs/models-and-pricing lists Other Models usage as "Included" without a dollar figure as of 2026-08-25, so no included.amount is recorded here.
     - id: teams
       name: Teams Standard
       price: 40

@@ -35,16 +35,17 @@ Includes:
 - Access to Composer
 Download
 ### Individual
-$20 / mo.
+$60 / mo.
 ProPro+Ultra
-Everything in Hobby, plus:
-- Extended limits on Agent
+Everything in Pro, plus:
+- 3x Pro limits on Agent
 - Generous limits for Grok
 - Access to frontier models
 - MCPs, skills, and hooks
 - Cloud agents
 - Bugbot on usage-based billing
-Get Pro
+- Access to Grok Bot
+Get Pro+
 ### Teams
 $40 / user / mo.
 StandardPremium
@@ -60,17 +61,5 @@ Everything on Individual, plus:
 Get Teams
 ### Enterprise
 Custom
-Everything on Teams, plus:
-- Pooled usage
-- Invoice/PO billing
-- SCIM seat management
-- Repository, model, and MCP access controls
-- Auto-run, browser, and network controls
-- Audit logs and service accounts
-- AI code tracking API
-- Priority support and account management
 Contact Sales
-## Questions & Answers
-### How does usage-based pricing work?
-Every plan includes a set amount of model usage. On-demand usage allows you to continue using models after your included amount is consumed, billed in arrears. See our docs for more details.
 </untrusted-page-text>
