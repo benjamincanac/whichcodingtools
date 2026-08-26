@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
   const { tools, bySlug } = await loadToolsIndexed()
 
   // What to purge: the shared surfaces, the touched tools, and every page that lists them.
-  const paths = new Set<string>(['/', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/content/list', '/api/__sitemap__/urls'])
+  const paths = new Set<string>(['/', '/graveyard', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/content/list', '/api/__sitemap__/urls'])
   const pairs = relatedPairs(tools)
   for (const slug of touched) {
     paths.add(`/tools/${slug}`)

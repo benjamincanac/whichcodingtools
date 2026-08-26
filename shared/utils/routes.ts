@@ -1,6 +1,7 @@
 import { LAYERS, PLANS, type Plan } from '../enums'
 import type { ToolRecord } from '../types/tool'
 import { pairSlug, relatedPairs } from './compare'
+import { graveyardEntries } from './graveyard'
 import { planAccess } from './match'
 
 export interface SitePage {
@@ -23,9 +24,14 @@ export function sitePages(tools: ToolRecord[], bySlug: Map<string, ToolRecord>):
   const verified = (...slugs: string[]) => slugs.map(s => bySlug.get(s)?.freshness.verified_at).filter(Boolean).sort().at(-1)
   const newest = verified(...tools.map(t => t.slug))
 
+  // Only when something is in it: the page derives itself, so a corpus with no dead or renamed
+  // tool has no page to advertise.
+  const graves = graveyardEntries(tools, bySlug)
+
   const pages = [
     { route: '/tools', lastmod: newest },
     { route: '/compare', lastmod: newest },
+    ...(graves.length ? [{ route: '/graveyard', lastmod: verified(...graves.map(e => e.tool.slug)) }] : []),
     ...tools.map(tool => ({ route: `/tools/${tool.slug}`, lastmod: tool.freshness.verified_at })),
     ...LAYERS.map(layer => ({
       route: `/layers/${layer.value}`,

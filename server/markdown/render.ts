@@ -3,6 +3,7 @@ import { parsePair } from '#shared/utils/compare'
 import type { ToolRecord } from '#shared/types/tool'
 import type { MarkdownContext, MarkdownPage } from './context'
 import { renderCompareIndex, renderComparePage } from './compare'
+import { renderGraveyard } from './graveyard'
 import { renderLayerPage, renderPlanPage, renderToolsIndex } from './sections'
 import { renderToolPage } from './tool'
 
@@ -24,6 +25,8 @@ export function renderPage(ctx: MarkdownContext, route: string): MarkdownPage | 
       return tail ? toolPage(ctx, tail) : renderToolsIndex(ctx)
     case 'compare':
       return tail ? pairPage(ctx, tail) : renderCompareIndex(ctx)
+    case 'graveyard':
+      return tail ? null : renderGraveyard(ctx)
     case 'layers':
       return sectionPage(LAYERS, tail, layer => renderLayerPage(ctx, layer))
     case 'plans':

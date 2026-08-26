@@ -1,4 +1,5 @@
 import type { EnumOption, Layer, Plan } from '../enums'
+import type { GraveyardKind } from '../utils/graveyard'
 import { LAYERS, optionLabel } from '../enums'
 import type { ToolRecord } from '../types/tool'
 import { articleFor } from '../utils/text'
@@ -69,6 +70,32 @@ export const PLAN_GROUPS = [
   { key: 'signin', title: 'Signs in with it', description: 'Separate products that accept this account for model access.' },
   { key: 'wraps', title: 'Runs a tool on this plan', description: 'Hosts and orchestrators that reuse the login of a tool included in the plan. The chip is what they cost on top.' }
 ] as const
+
+export const GRAVEYARD_INDEX = {
+  title: 'What died, what it became',
+  description: 'Discontinued AI coding tools, the end-of-support dates that have been announced, and the renames. Every entry says where that product\'s users were pointed, from the same verified data as the rest of the directory.'
+}
+
+export const GRAVEYARD_INTRO = 'Products leave this market faster than they enter it, and the ones that leave take their documentation with them. This page is generated from the directory: a tool appears the day its file says it was discontinued, renamed or given an end date, and never because someone remembered to add it.'
+
+/**
+ * The three kinds, in the order the page reads. Each one is a different event, and saying so is
+ * the point: a shutdown, a date on the calendar and a rebrand are not interchangeable.
+ */
+export const GRAVEYARD_GROUPS: Record<GraveyardKind, { title: string, description: string }> = {
+  ending: {
+    title: 'End of support announced',
+    description: 'Still shipping, with a date on it. The vendor has said when it stops.'
+  },
+  discontinued: {
+    title: 'Discontinued',
+    description: 'No longer sold or shipped as it was. Some were merged into another product, some closed outright, and a few still exist behind a plan you can no longer buy.'
+  },
+  renamed: {
+    title: 'Renamed',
+    description: 'The same product under a different name. The old slug still resolves, so a link from before the change keeps working.'
+  }
+}
 
 export function pairPageTitle(a: Pick<ToolRecord, 'name'>, b: Pick<ToolRecord, 'name'>) {
   return `${a.name} vs ${b.name}`
