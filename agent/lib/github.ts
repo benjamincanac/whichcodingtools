@@ -1,4 +1,6 @@
 import { connectGitHubCredentials } from '@vercel/connect/eve'
+import type { SessionAuth } from 'eve/context'
+import { isAutonomous, isVisitor } from './trust'
 
 const HOME_REPO = 'benjamincanac/whichcodingtools'
 const REPO_SHAPE = /^[\w.-]+\/[\w.-]+$/
@@ -213,12 +215,12 @@ export async function findRelated(terms: string) {
 export const AGENT_BRANCH = /^agent\/[a-z0-9-]+$/
 
 /**
- * What an unattended first-responder turn may touch. Its whole job is adding one new tool, so
- * it gets its own namespace and cannot reach a sweep's open pull request, neither to append a
- * commit nor to rewrite its body. The text it works from was written by a stranger, and
- * `agent/*` alone would have let a line in that text aim at someone else's branch.
+ * The branch the stale sweep batches its no-change re-verifications onto, and the only shape CI
+ * merges without a person. It decides the label, and it is a namespace a limited turn may not
+ * enter at all: see `pushToAgentBranch`.
  */
-export const ADD_BRANCH = /^agent\/add-[a-z0-9-]+$/
+export const REVERIFY_BRANCH = /^agent\/re-verify-\d{4}-\d{2}-\d{2}$/
+
 const WRITABLE_PATH = /^(content\/[\w.-]+(\/[\w.-]+)*|public\/logos\/[a-z0-9-]+\.png)$/
 
 /**
@@ -268,11 +270,28 @@ async function refSha(branch: string) {
  * to main, nothing outside content/ and public/logos/". The instructions restate it, they
  * do not implement it.
  */
-export async function pushToAgentBranch(input: { branch: string, message: string, files: PushedFile[] }) {
+export async function pushToAgentBranch(input: { branch: string, message: string, files: PushedFile[], ownBranches?: string[] }) {
   assertAgentBranch(input.branch, 'write to')
   assertWritablePaths(input.files.map(f => f.path))
 
+  // The re-verification lane is reserved from a limited turn whether or not it exists yet, and
+  // the "yet" is the whole point. Refusing only a branch that is already there leaves the name
+  // free to claim: the sweep names its branch after a date that has not happened, so a limited
+  // turn could open `agent/re-verify-<future date>` first, push a diff of nothing but forward
+  // `verified_at` bumps, and `.github/workflows/agent-automerge.yml` would merge it with no
+  // person involved. A date with no re-read behind it is the one thing this agent must never
+  // produce, and that lane is the one place it reaches `main` unattended.
+  if (input.ownBranches && REVERIFY_BRANCH.test(input.branch)) {
+    throw new Error(`${JSON.stringify(input.branch)} is the re-verification lane, which CI merges without a person. This turn pushes to its own agent/<topic>-<date> branch.`)
+  }
+
   const head = await refSha(input.branch)
+  // `ownBranches` present means the turn is a limited one and may only move a ref it opened
+  // itself. Checked here rather than in the tool because this is where the ref is read
+  // anyway, and it is the last place before the branch moves.
+  if (input.ownBranches && head !== null && !input.ownBranches.includes(input.branch)) {
+    throw new Error(`Branch ${JSON.stringify(input.branch)} already exists and this turn did not open it. Push to a new agent/<topic>-<date> branch instead: adding a commit to someone else's branch is not something this turn does.`)
+  }
   const base = head ?? (await githubApi<{ object: { sha: string } }>('GET', `/repos/${REPO}/git/ref/heads/${DEFAULT_BRANCH}`)).object.sha
   const baseCommit = await githubApi<{ tree: { sha: string } }>('GET', `/repos/${REPO}/git/commits/${base}`)
 
@@ -297,13 +316,6 @@ export async function pushToAgentBranch(input: { branch: string, message: string
 }
 
 /**
- * The branch the stale sweep batches its no-change re-verifications onto, and the only shape CI
- * will merge without a person. The pattern lives here rather than only in the workflow because
- * it is also what decides the label.
- */
-export const REVERIFY_BRANCH = /^agent\/re-verify-\d{4}-\d{2}-\d{2}$/
-
-/**
  * Labels are derived from the branch, never passed in. The agent does not get to choose how its
  * own work is filed: a model that can pick a label eventually picks the wrong one, and this is
  * the same reason `createIssue` takes one hard-coded value.
@@ -312,12 +324,34 @@ export const REVERIFY_BRANCH = /^agent\/re-verify-\d{4}-\d{2}-\d{2}$/
  * the branch name, which `github__push_files` enforces, and never on a label, which anyone with
  * write access can add.
  */
-function labelsFor(branch: string) {
-  return REVERIFY_BRANCH.test(branch) ? ['agent', 're-verify'] : ['agent']
+function labelsFor(branch: string, auth?: SessionAuth) {
+  const labels = ['agent']
+  if (REVERIFY_BRANCH.test(branch)) labels.push('re-verify')
+
+  // Who caused it, which the branch name no longer says. `ADD_BRANCH` used to force the first
+  // responder onto `agent/add-*`, so a glance at the queue told you a stranger's issue was
+  // upstream of the diff. The `ownBranches` rule is the better confinement but it carries no
+  // such signal, and a sweep's pull request, an issue form's and one someone talked the agent
+  // into through a mention now arrive looking identical. That matters more since the
+  // re-verification lane started merging on its own: the queue is a thing to skim now.
+  if (auth) {
+    if (isVisitor(auth)) labels.push('visitor')
+    else if (isAutonomous(auth)) labels.push('responder')
+  }
+  return labels
 }
 
-export async function createPullRequest(input: { branch: string, title: string, body: string }) {
+export async function createPullRequest(input: { branch: string, title: string, body: string, ownBranches?: string[], auth?: SessionAuth }) {
   assertAgentBranch(input.branch, 'open a pull request from')
+  // Same rule as the push. Opening a pull request from a branch the turn did not write is how
+  // it would put its name on someone else's commits, and the auto-merge lane sharpens it: a
+  // pull request on `agent/re-verify-<date>` merges with no person involved once CI passes.
+  // `pushToAgentBranch` refuses that namespace outright, so a limited turn cannot have such a
+  // branch in `ownBranches` to begin with and this check never sees one. Both stay: the reserve
+  // is what stops the lane being claimed, this is what stops any other branch being borrowed.
+  if (input.ownBranches && !input.ownBranches.includes(input.branch)) {
+    throw new Error(`Branch ${JSON.stringify(input.branch)} was not opened by this turn. It opens pull requests from the branches it pushed itself.`)
+  }
   const pr = await githubApi<{ number: number, html_url: string }>('POST', `/repos/${REPO}/pulls`, {
     title: input.title,
     body: input.body,
@@ -328,7 +362,7 @@ export async function createPullRequest(input: { branch: string, title: string, 
   // A second call, because the create-pull endpoint ignores `labels`. A repository missing the
   // label logs and moves on: filterability is worth a round trip, it is not worth the pull
   // request, and unlike an issue form there is nothing downstream that stops without it.
-  const wanted = labelsFor(input.branch)
+  const wanted = labelsFor(input.branch, input.auth)
   const applied = await githubApi<{ name: string }[]>('POST', `/repos/${REPO}/issues/${pr.number}/labels`, { labels: wanted })
     .then(labels => labels.map(l => l.name))
     .catch((error) => {
@@ -348,7 +382,7 @@ export async function createPullRequest(input: { branch: string, title: string, 
  * the pull request is open, and a body describing the first commit is a worse account of the
  * change than no body at all. Only title and body: state, base and draft are Benjamin's.
  */
-export async function updateOwnPullRequest(input: { number: number, title?: string, body?: string, autonomous: boolean }) {
+export async function updateOwnPullRequest(input: { number: number, title?: string, body?: string, ownBranches?: string[] }) {
   if (!input.title && !input.body) throw new Error('Nothing to change: pass a title, a body, or both.')
   const pr = await githubApi<{ head: { ref: string }, user: { login: string }, state: string }>('GET', `/repos/${REPO}/pulls/${input.number}`)
   if (!isAgentLogin(pr.user.login)) {
@@ -356,8 +390,8 @@ export async function updateOwnPullRequest(input: { number: number, title?: stri
   }
   if (pr.state !== 'open') throw new Error(`Pull request #${input.number} is ${pr.state}.`)
   assertAgentBranch(pr.head.ref, 'edit a pull request from')
-  if (input.autonomous && !ADD_BRANCH.test(pr.head.ref)) {
-    throw new Error(`This turn edits agent/add-<slug>-<date> pull requests only, not ${JSON.stringify(pr.head.ref)}.`)
+  if (input.ownBranches && !input.ownBranches.includes(pr.head.ref)) {
+    throw new Error(`Pull request #${input.number} is on ${JSON.stringify(pr.head.ref)}, a branch this turn did not open. It edits the ones it opened itself.`)
   }
   const updated = await githubApi<{ number: number, html_url: string }>('PATCH', `/repos/${REPO}/pulls/${input.number}`, {
     ...(input.title ? { title: input.title } : {}),
