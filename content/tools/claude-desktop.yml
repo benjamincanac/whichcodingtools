@@ -1,5 +1,5 @@
 slug: claude-desktop
-name: Claude desktop app
+name: Claude Desktop
 description: Anthropic's desktop app with Chat, Cowork and Code tabs. The Code tab runs Claude Code sessions side by side with visual diffs and scheduled tasks. Linux is in beta.
 layer: app
 vendor: Anthropic

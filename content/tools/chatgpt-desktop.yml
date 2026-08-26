@@ -1,5 +1,5 @@
 slug: chatgpt-desktop
-name: ChatGPT desktop app
+name: ChatGPT Desktop
 description: OpenAI's desktop app with Chat, Work and Codex views. Codex runs parallel threads in worktrees, with scheduled tasks and Computer Use, on a ChatGPT login or an API key.
 layer: app
 vendor: OpenAI
