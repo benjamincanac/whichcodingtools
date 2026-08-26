@@ -343,10 +343,12 @@ function labelsFor(branch: string, auth?: SessionAuth) {
 
 export async function createPullRequest(input: { branch: string, title: string, body: string, ownBranches?: string[], auth?: SessionAuth }) {
   assertAgentBranch(input.branch, 'open a pull request from')
-  // Same rule as the push. Opening a pull request from a branch the turn did not write is
-  // how it would put its name on someone else's commits, and #44's auto-merge lane sharpens
-  // it: a pull request on `agent/re-verify-<date>` merges with no person involved once CI
-  // passes, so a sweep's branch is somewhere a limited turn could otherwise reach a merge.
+  // Same rule as the push. Opening a pull request from a branch the turn did not write is how
+  // it would put its name on someone else's commits, and the auto-merge lane sharpens it: a
+  // pull request on `agent/re-verify-<date>` merges with no person involved once CI passes.
+  // `pushToAgentBranch` refuses that namespace outright, so a limited turn cannot have such a
+  // branch in `ownBranches` to begin with and this check never sees one. Both stay: the reserve
+  // is what stops the lane being claimed, this is what stops any other branch being borrowed.
   if (input.ownBranches && !input.ownBranches.includes(input.branch)) {
     throw new Error(`Branch ${JSON.stringify(input.branch)} was not opened by this turn. It opens pull requests from the branches it pushed itself.`)
   }
