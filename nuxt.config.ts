@@ -1,3 +1,10 @@
+import { createRequire } from 'node:module'
+
+// satori loads harfbuzz's wasm from a runtime `__dirname` path, so node-file-trace never sees it
+// and the Vercel function ships hb.js without hb.wasm. harfbuzzjs is satori's dependency, not ours,
+// so it only resolves from there.
+const harfbuzzWasm = createRequire(createRequire(import.meta.url).resolve('satori')).resolve('harfbuzzjs/hb.wasm')
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -69,6 +76,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-06-30',
 
   nitro: {
+    externals: {
+      traceInclude: [harfbuzzWasm]
+    },
     vercel: {
       config: {
         // Lets /api/revalidate purge ISR pages with `x-prerender-revalidate`.
