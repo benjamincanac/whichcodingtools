@@ -1,6 +1,7 @@
 import type { GitHubEventContext, GitHubInboundContext } from 'eve/channels/github'
 import { defaultGitHubAuth, githubChannel } from 'eve/channels/github'
 import { connect, isAgentLogin, REPO } from '../lib/github'
+import { currentThread } from '../lib/thread'
 import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, isAutonomous } from '../lib/trust'
 
 const botName = 'whichcodingtools'
@@ -72,6 +73,9 @@ export default githubChannel({
       // it calls setNetworkPolicy with an unrestricted github.com credential, which would
       // hand every channel turn the push the sandbox policy exists to withhold. The eyes
       // reaction is the part worth keeping; the hook applies the read-only policy.
+      // Every turn, not once per session: state is durable and a session outlives the turn
+      // that opened it, so a stale number here would gag `github__comment` on the wrong thread.
+      currentThread.update(() => channel.state.issueNumber)
       try {
         await react(channel)
       } catch (error) {

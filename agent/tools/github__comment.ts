@@ -1,6 +1,7 @@
 import { defineTool } from 'eve/tools'
 import { z } from 'zod'
 import { commentOnThread } from '../lib/github'
+import { currentThread } from '../lib/thread'
 import { isTrustedWriter } from '../lib/trust'
 
 export default defineTool({
@@ -12,6 +13,12 @@ export default defineTool({
   async execute({ number, body }, ctx) {
     if (!isTrustedWriter(ctx.session.auth)) {
       throw new Error('This turn may not comment on other threads. Reply in your own thread instead.')
+    }
+    // The channel posts this turn's last message into the thread it was mentioned on, so a
+    // comment aimed there is the same text twice. Null on a schedule, where there is no
+    // channel and no reply coming, and every thread is someone else's.
+    if (number === currentThread.get()) {
+      throw new Error(`#${number} is the thread you are answering in: your last message is posted there as the reply. Put this in that message instead of commenting.`)
     }
     return commentOnThread(number, body)
   }
