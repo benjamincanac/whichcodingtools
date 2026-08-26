@@ -2,6 +2,7 @@ import { ToolSchema, type Tool } from '#shared/schema'
 import type { ToolRecord } from '#shared/types/tool'
 
 let cache: { ref: string, records: Promise<ToolRecord[]> } | undefined
+let indexed: { tools: ToolRecord[], bySlug: Map<string, ToolRecord> } | undefined
 
 async function load(): Promise<ToolRecord[]> {
   const content = await getContent()
@@ -29,4 +30,19 @@ export async function loadTools() {
 export async function loadTool(slug: string) {
   const tools = await loadTools()
   return tools.find(t => t.slug === slug)
+}
+
+/**
+ * Tools plus the slug index, which almost every caller needs.
+ *
+ * Keyed on the identity of the array `loadTools()` returns rather than on the content ref:
+ * that array is the same instance while the per-ref cache holds and a fresh one when the ref
+ * advances or in dev, so the Map can never outlive the records it indexes.
+ */
+export async function loadToolsIndexed() {
+  const tools = await loadTools()
+  if (!indexed || indexed.tools !== tools) {
+    indexed = { tools, bySlug: new Map(tools.map(t => [t.slug, t])) }
+  }
+  return indexed
 }
