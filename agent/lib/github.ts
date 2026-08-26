@@ -296,6 +296,26 @@ export async function pushToAgentBranch(input: { branch: string, message: string
   return { branch: input.branch, commit: commit.sha, created: head === null, files: input.files.map(f => f.path) }
 }
 
+/**
+ * The branch the stale sweep batches its no-change re-verifications onto, and the only shape CI
+ * will merge without a person. The pattern lives here rather than only in the workflow because
+ * it is also what decides the label.
+ */
+export const REVERIFY_BRANCH = /^agent\/re-verify-\d{4}-\d{2}-\d{2}$/
+
+/**
+ * Labels are derived from the branch, never passed in. The agent does not get to choose how its
+ * own work is filed: a model that can pick a label eventually picks the wrong one, and this is
+ * the same reason `createIssue` takes one hard-coded value.
+ *
+ * These are for filtering a queue, not for authorising anything. CI's auto-merge lane keys on
+ * the branch name, which `github__push_files` enforces, and never on a label, which anyone with
+ * write access can add.
+ */
+function labelsFor(branch: string) {
+  return REVERIFY_BRANCH.test(branch) ? ['agent', 're-verify'] : ['agent']
+}
+
 export async function createPullRequest(input: { branch: string, title: string, body: string }) {
   assertAgentBranch(input.branch, 'open a pull request from')
   const pr = await githubApi<{ number: number, html_url: string }>('POST', `/repos/${REPO}/pulls`, {
@@ -304,7 +324,23 @@ export async function createPullRequest(input: { branch: string, title: string, 
     head: input.branch,
     base: DEFAULT_BRANCH
   })
-  return { number: pr.number, url: pr.html_url }
+
+  // A second call, because the create-pull endpoint ignores `labels`. A repository missing the
+  // label logs and moves on: filterability is worth a round trip, it is not worth the pull
+  // request, and unlike an issue form there is nothing downstream that stops without it.
+  const wanted = labelsFor(input.branch)
+  const applied = await githubApi<{ name: string }[]>('POST', `/repos/${REPO}/issues/${pr.number}/labels`, { labels: wanted })
+    .then(labels => labels.map(l => l.name))
+    .catch((error) => {
+      console.warn(`[agent] Could not label PR #${pr.number}:`, error)
+      return [] as string[]
+    })
+  const missing = wanted.filter(label => !applied.includes(label))
+  if (missing.length > 0) {
+    console.warn(`[agent] PR #${pr.number} came back without ${missing.join(', ')}. Create the label in the repository.`)
+  }
+
+  return { number: pr.number, url: pr.html_url, labels: applied }
 }
 
 /**
