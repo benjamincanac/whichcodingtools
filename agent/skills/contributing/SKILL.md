@@ -41,5 +41,5 @@ Cards fall back from `public/logos/<slug>.png` to the YAML `icon` (simple-icons 
 ## Never
 
 - Merge anything. `github__push_files` refuses `main` and every path outside `content/` and `public/logos/`, so do not spend a run routing around it.
-- Write or rewrite a `description`: descriptions are human-written.
+- Rewrite the `description` of a tool that already has a file: those are human-written. A tool with no file yet is the exception, since `description` is required and no page states one: draft it from the homepage, 40 to 180 characters, factual, no marketing words, and open the pull request body with a line saying the description is a draft to rewrite.
 - Add affiliate links, referral codes or tracking parameters.

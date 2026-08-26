@@ -442,15 +442,26 @@ export async function closeOwnIssue(number: number, comment: string) {
 }
 
 /**
- * No labels, ever. `outdated` and `tool` belong to the issue forms people fill in, and an
- * agent finding wearing one makes that queue useless for triage. This used to be a sentence
- * in the tool description asking nicely, and the agent labelled five of its own issues
- * `outdated` anyway, so the parameter is gone rather than guarded.
+ * One label, `tool`, and only from the discovery pass. This parameter used to be free-form
+ * with a sentence in the tool description asking nicely, and the agent labelled five of its
+ * own findings `outdated` anyway, which made that queue useless for triage. So the type
+ * carries the policy now rather than the prose: `outdated` is not a value any caller can
+ * pass, and an agent finding still wears no label unless it is a candidate for the directory.
+ *
+ * The response is read back because a label that did not land means an issue the first
+ * responder never sees, and the caller has to hear that as an error rather than file a
+ * second one.
  */
-export async function createIssue(input: { title: string, body: string }) {
-  const issue = await githubApi<{ number: number, html_url: string }>('POST', `/repos/${REPO}/issues`, {
+export async function createIssue(input: { title: string, body: string, labels?: 'tool'[] }) {
+  const issue = await githubApi<{ number: number, html_url: string, labels?: { name: string }[] }>('POST', `/repos/${REPO}/issues`, {
     title: input.title,
-    body: input.body
+    body: input.body,
+    labels: input.labels
   })
-  return { number: issue.number, url: issue.html_url }
+  const applied = (issue.labels ?? []).map(l => l.name)
+  const missing = (input.labels ?? []).filter(label => !applied.includes(label))
+  if (missing.length > 0) {
+    throw new Error(`Issue #${issue.number} was opened but came back without ${missing.join(', ')}. It exists, so do not open a second one: report it and leave it to Benjamin.`)
+  }
+  return { number: issue.number, url: issue.html_url, labels: applied }
 }

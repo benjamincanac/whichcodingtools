@@ -27,14 +27,16 @@ agent/
   agent.ts                          model (anthropic/claude-sonnet-5 via AI Gateway), reasoning, token caps
   instructions.md                   identity and the rules above
   channels/eve.ts                   HTTP surface, Vercel OIDC or localhost auth
-  channels/github.ts                GitHub App via Vercel Connect: @whichcodingtools mentions (maintainer only) and the two issue-form responders
+  channels/github.ts                GitHub App via Vercel Connect: @whichcodingtools mentions (maintainer only), the two issue-form responders, and the agent's own `tool` candidates
   extensions/browser.ts             a real browser for pricing pages that render client side
   hooks/sandbox-refresh.ts          per-turn network policy refresh, re-clone when the workspace is gone
   schedules/pricing-watch.ts        daily 06:15 UTC, task mode (no chat channel needed)
+  schedules/discovery.ts            Tuesdays 12:00 UTC, the one pass that looks outside the corpus
   schedules/rename-watch.ts         Mondays 12:00 UTC
   schedules/stale-sweep.ts          Thursdays 12:00 UTC
   schedules/triage.ts               Fridays 09:00 UTC, a pass over everything still open
   skills/pricing-watch/SKILL.md     the sweep procedure
+  skills/discovery/SKILL.md         tools the directory does not carry yet, one candidate a week
   skills/rename-watch/SKILL.md      homepage redirects, new names, description drift
   skills/stale-sweep/SKILL.md       tools past 60 days without a re-check
   skills/contributing/SKILL.md      the data and PR rules, mirrors CONTRIBUTING.md
@@ -69,6 +71,14 @@ The sweep touches pricing fields only. Descriptions, features, wraps and license
 
 A snapshot is only ever written by `page-text.mjs`, either from a fetch or with `--stdin` from the text a browser rendered. That matters because `pnpm validate` reads those captures back: every `price`, `price_annual` and `included.amount` of a tool that has a snapshot must appear in one, so a figure nobody read cannot reach a pull request. A page that hides tiers behind a toggle needs one capture per state, `pricing.txt` plus `pricing-<state>.txt`. The same run also checks `mirrors`, the tiers that exist only because another tool's plan unlocks them, so a price change in one file fails the other until it follows.
 
+## What the weekly discovery does
+
+Every other pass reads `content/tools`. This one reads what is not in it, because a tool nobody reports is a tool the directory does not have. On Tuesdays the agent builds the set already covered (slugs, names, vendors, `aliases` and homepage domains, sunset files included), then looks in three places: the compatibility lists of the tools that already run other tools, Show HN through the Algolia API for the last eight days, and `web_search` for what neither of those can see. Candidates go through the scope rules in `skills/discovery/SKILL.md` (something you install or buy, in one of the seven layers, shipping today), get verified against their own homepage with `page-text.mjs`, and are deduped with `github__find_related` on the name and on the domain, closed threads included, so a candidate someone already turned down does not come back every week.
+
+It files at most one, as `[Tool] <name>` with the `tool` label and the body the "Add a tool" form produces. That is exactly what a person filing that form produces, so the first responder starts on it as soon as it exists and what lands for review is a pull request rather than a queue entry. One a week, because each one costs a review.
+
+The pass opens no pull request itself and edits no file. The loop it closes terminates by construction: the responder cannot open issues, so nothing it does comes back through `onIssue`.
+
 ## What the weekly triage does
 
 Sweeps open threads, they do not close them. So on Fridays the agent calls `github__list_open`, fetches `refs/pull/*/head`, and reads each one against main as it stands: a pull request gets main merged into it and `pnpm validate` run on the result, which is the only thing that catches a PR that was green on its own commit and went wrong when main moved. It pushes the fix to that pull request's own branch when the fix is a pricing re-check, closes its own issues that the vendor has since resolved, and reports the rest. Closing a person's issue or a pull request stays Benjamin's.
@@ -92,9 +102,10 @@ Writes go through the `whichcodingtools` GitHub App managed by Vercel Connect (c
 ## GitHub channel
 
 - Benjamin mentions `@whichcodingtools` on an issue, PR or review comment: a normal turn under his identity, with the repo checked out.
-- An issue carrying one of the two form labels starts an unattended responder turn. `tool` is the first responder: validate the YAML, open a PR when it passes, reply once in the thread with the result or the validation issues. `outdated` is the report responder: work out which field the report is about, re-read the vendor page the way the daily sweep does, and either open a PR that fixes the file or reply with what the page shows today. Both procedures live in skills, `contributing` and `outdated-report`.
+- An issue carrying one of the two form labels starts an unattended responder turn. `tool` is the first responder: validate the YAML, open a PR when it passes, reply once in the thread with the result or the validation issues. A request that carries no YAML gets its entry built from the vendor pages instead, `description` included, since that field is required and no page states it. That one line is a draft, flagged as such in the PR body, and it is the only prose in the corpus a model writes. `outdated` is the report responder: work out which field the report is about, re-read the vendor page the way the daily sweep does, and either open a PR that fixes the file or reply with what the page shows today. Both procedures live in skills, `contributing` and `outdated-report`.
 - The gate is the label, which each issue form applies server side, and not the `[Tool]` or `[Outdated]` title prefix, which anyone can type into a blank issue. GitHub drops a form label the repository does not carry without saying so, so both labels existing is what keeps the forms wired to anything. Benjamin, and only he, can add one afterwards to point a responder at an issue that missed the form: labeling starts a credentialed unattended turn, so it is not something any collaborator with triage access gets to do. Because `labeled` fires for every label and the webhook hands the hook the issue rather than the event, that path skips issues a responder already replied to, which is also what keeps the label the form applies at creation from starting a second turn next to `opened`.
-- The issue body reaches the turn fenced as untrusted data. Those turns cannot open or close issues, cannot park on approvals, and write to `agent/*` branches under `content/` and `public/logos/` only, so a line in a stranger's issue cannot aim a commit at a sweep's open pull request.
+- Every other bot stays filtered, and the agent's own login is the one exception, for `tool` alone: that is the discovery pass handing a candidate to the first responder. `github__create_issue` accepts no label but `tool` and refuses it on a title that is not `[Tool] <name>`, so a sweep cannot reach that dispatch by tidying a label onto a finding. The parameter used to be free-form, and the agent labelled five of its own findings `outdated` anyway, which is why the type carries the policy now instead of the tool description. A `labeled` event on one of those issues arrives with the bot as sender and is dropped by the maintainer check, so the label it was created with does not start a second turn.
+- The issue body reaches the turn fenced as untrusted data, the agent's own candidates included: the responder verifies every field against the vendor pages before it writes anything. Those turns cannot open or close issues, cannot park on approvals, and write to `agent/*` branches under `content/` and `public/logos/` only, so a line in a stranger's issue cannot aim a commit at a sweep's open pull request.
 
 ## Browser
 
