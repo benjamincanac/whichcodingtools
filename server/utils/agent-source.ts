@@ -1,6 +1,7 @@
 import { LAYERS, PLANS, optionLabel } from '#shared/enums'
 import {
   COMPARE_INDEX,
+  GRAVEYARD_INDEX,
   TOOLS_INDEX,
   layerPageTitle,
   pairPageDescription,
@@ -62,6 +63,8 @@ function describe(route: string, ctx: MarkdownContext): { title: string, descrip
       const [a, b] = pair ?? []
       return a && b ? { title: pairPageTitle(a, b), description: pairPageDescription(a, b) } : null
     }
+    case 'graveyard':
+      return tail ? null : GRAVEYARD_INDEX
     case 'layers': {
       const layer = LAYERS.find(l => l.value === tail)
       return layer ? { title: layerPageTitle(layer), description: layer.description } : null
