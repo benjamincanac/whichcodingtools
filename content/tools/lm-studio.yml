@@ -1,0 +1,82 @@
+slug: lm-studio
+name: LM Studio
+description: Desktop app for downloading and running local LLMs offline, with the Bionic agent for coding, documents and computer control using local or cloud open models.
+layer: app
+vendor: Element Labs, Inc.
+homepage: https://lmstudio.ai/
+links:
+  docs: https://lmstudio.ai/docs
+  pricing: https://lmstudio.ai/pricing
+  changelog: https://lmstudio.ai/changelog
+  discord: https://discord.gg/lmstudio
+  x: https://x.com/lmstudio
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://lmstudio.ai/download
+  - method: curl
+    command: curl -fsSL https://lmstudio.ai/install.sh | bash
+  - method: npm
+    command: npm install @lmstudio/sdk
+  - method: pip
+    command: pip install lmstudio
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: The app is proprietary under its own App Terms of Service, free for personal and commercial use. The companion lms CLI is developed separately under the MIT license.
+models:
+  local: true
+  byok: none
+  notes: Runs local GGUF and MLX models fully offline through llama.cpp and MLX. LM Studio's cloud offers optional pay-per-token access to hosted open models such as DeepSeek, GLM and Kimi with Zero Data Retention. The local server also exposes OpenAI and Anthropic compatible endpoints.
+features: [mcp-client, parallel-agents]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Run local LLMs with llama.cpp and MLX entirely offline
+        - State-of-the-art offline voice transcription
+        - Web search tool with Zero Data Retention when signed in
+        - LM Link for up to 5 devices
+    - id: cloud-credits
+      name: Pay as you go
+      price: null
+      audience: individual
+      overage:
+        kind: api-list
+        notes: Cloud inference for hosted open frontier models such as DeepSeek, GLM and Kimi is billed per token from purchased credits, priced per model on the pricing page. US-based infrastructure with Zero Data Retention by default.
+      limits:
+        - Buy cloud credits to run frontier open models without local hardware
+    - id: enterprise
+      name: Enterprise and Teams
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Deploy Bionic in LM Studio's Zero Data Retention cloud, on your own infrastructure, or on edge devices
+  notes: LM Studio's desktop app has no license fee. Bionic Pass, a separate subscription plan shown on the pricing page, is listed as coming soon with no published price yet.
+status: active
+sources:
+  - url: https://lmstudio.ai/pricing
+    verified_at: 2026-08-26
+    covers: [pricing]
+  - url: https://lmstudio.ai/enterprise
+    verified_at: 2026-08-26
+    covers: [pricing]
+  - url: https://lmstudio.ai/docs/app
+    verified_at: 2026-08-26
+    covers: [platforms, general]
+  - url: https://lmstudio.ai/docs/app/mcp
+    verified_at: 2026-08-26
+    covers: [features]
+  - url: https://lmstudio.ai/docs/bionic/projects-and-sessions
+    verified_at: 2026-08-26
+    covers: [features]
+  - url: https://lmstudio.ai/docs/developer
+    verified_at: 2026-08-26
+    covers: [models, general]
+  - url: https://beta.lmstudio.ai/app-terms
+    verified_at: 2026-08-26
+    covers: [license]
