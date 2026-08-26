@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { COMPARE_INDEX } from '#shared/content/pages'
 import { pairSlug } from '#shared/utils/compare'
 
 const route = useRoute()
@@ -24,8 +25,8 @@ const picked = computed(() => selected.value.map(s => bySlug.value.get(s)!))
 const pairUrl = computed(() => picked.value.length === 2 ? `/compare/${pairSlug(picked.value[0]!.slug, picked.value[1]!.slug)}` : null)
 
 useSeoMeta({
-  title: explicit.value && picked.value.length ? `Compare ${picked.value.map(t => t.name).join(', ')}` : 'Compare AI coding tools',
-  description: 'Side by side pricing, included usage, overage, BYOK, platforms, features and integrations for any AI coding tools, from vendor-verified data.'
+  title: explicit.value && picked.value.length ? `Compare ${picked.value.map(t => t.name).join(', ')}` : COMPARE_INDEX.title,
+  description: COMPARE_INDEX.description
 })
 
 defineOgImage('ToolSatori', {

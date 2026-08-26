@@ -1,7 +1,7 @@
 import { BYOK, FEATURES, LAYERS, LICENSE_KINDS, PLANS, PLATFORMS, PROVIDERS, optionLabel } from '../enums'
-import type { Tier } from '../schema'
 import type { ToolRecord } from '../types/tool'
-import { entryPrice, resolvePricing, teamPrice } from './pricing'
+import { OVERAGE_LABELS_SHORT, entryPrice, formatMoney, resolvePricing, teamPrice, topIndividualPrice } from './pricing'
+import { displayUrl, joinLabels } from './text'
 
 export interface CompareCell {
   text: string
@@ -25,25 +25,6 @@ export interface CompareGroup {
   rows: CompareRow[]
 }
 
-function list(values: string[], fallback = 'None') {
-  return values.length ? values.join(', ') : fallback
-}
-
-function topIndividual(tiers: Tier[]) {
-  const prices = tiers.filter(t => t.audience === 'individual' && t.price !== null).map(t => t.price as number)
-  return prices.length ? Math.max(...prices) : null
-}
-
-/** `https://www.augmentcode.com/` -> `augmentcode.com`, so a cell stays narrow. */
-function displayUrl(url: string) {
-  return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
-}
-
-function money(value: number | null, suffix = '/mo') {
-  if (value === null) return null
-  return value === 0 ? 'Free' : `$${value}${suffix}`
-}
-
 /** Rows for a side by side table. Each row has one cell per tool, in order. */
 export function compareTools(tools: ToolRecord[], bySlug: Map<string, ToolRecord>): CompareGroup[] {
   const pricing = tools.map(t => resolvePricing(t, bySlug))
@@ -52,16 +33,16 @@ export function compareTools(tools: ToolRecord[], bySlug: Map<string, ToolRecord
     { key: 'layer', label: 'Layer', cells: tools.map(t => ({ text: [t.layer, ...t.secondary_layers].map(l => optionLabel(LAYERS, l)).join(', ') })) },
     { key: 'vendor', label: 'Vendor', cells: tools.map(t => ({ text: t.vendor })) },
     { key: 'website', label: 'Website', cells: tools.map(t => ({ text: displayUrl(t.homepage), href: t.homepage })) },
-    { key: 'platforms', label: 'Platforms', cells: tools.map(t => ({ text: list(t.platforms.map(p => optionLabel(PLATFORMS, p))) })) },
+    { key: 'platforms', label: 'Platforms', cells: tools.map(t => ({ text: joinLabels(t.platforms.map(p => optionLabel(PLATFORMS, p))) })) },
     { key: 'license', label: 'License', cells: tools.map(t => ({ text: t.license.spdx === 'proprietary' ? 'Proprietary' : t.license.spdx, detail: optionLabel(LICENSE_KINDS, t.license.kind), ok: t.open_source ? true : undefined })) },
     { key: 'status', label: 'Status', cells: tools.map(t => ({ text: t.status, ok: t.status === 'sunset' ? false : undefined })) }
   ]
 
   const price: CompareRow[] = [
     { key: 'free', label: 'Free tier', cells: tools.map(t => ({ text: t.has_free_tier ? 'Yes' : 'No', ok: t.has_free_tier })) },
-    { key: 'entry', label: 'Entry price', cells: pricing.map(p => ({ text: money(entryPrice(p.tiers)) ?? (p.tiers.some(t => t.overage?.kind === 'api-list' && t.price === null) ? 'Usage-based' : 'Contact sales') })) },
-    { key: 'top', label: 'Top individual plan', cells: pricing.map(p => ({ text: money(topIndividual(p.tiers)) ?? '—' })) },
-    { key: 'team', label: 'Team seat', cells: pricing.map(p => ({ text: money(teamPrice(p.tiers), '/user/mo') ?? (p.tiers.some(t => t.audience !== 'individual') ? 'Contact sales' : '—') })) },
+    { key: 'entry', label: 'Entry price', cells: pricing.map(p => ({ text: formatMoney(entryPrice(p.tiers)) ?? (p.tiers.some(t => t.overage?.kind === 'api-list' && t.price === null) ? 'Usage-based' : 'Contact sales') })) },
+    { key: 'top', label: 'Top individual plan', cells: pricing.map(p => ({ text: formatMoney(topIndividualPrice(p.tiers)) ?? '—' })) },
+    { key: 'team', label: 'Team seat', cells: pricing.map(p => ({ text: formatMoney(teamPrice(p.tiers), '/user/mo') ?? (p.tiers.some(t => t.audience !== 'individual') ? 'Contact sales' : '—') })) },
     {
       key: 'included',
       label: 'Included usage',
@@ -78,16 +59,15 @@ export function compareTools(tools: ToolRecord[], bySlug: Map<string, ToolRecord
       label: 'Beyond the plan',
       cells: pricing.map((p) => {
         const kinds = new Set(p.tiers.map(t => t.overage?.kind).filter(Boolean))
-        const labels: Record<string, string> = { 'api-list': 'API list price', 'credits': 'Credit packs', 'fixed': 'Fixed rate', 'rate-limited': 'Rate limited', 'blocked': 'Blocked' }
         const markup = p.tiers.find(t => t.overage?.markup_pct)?.overage?.markup_pct
-        return { text: kinds.size ? [...kinds].map(k => labels[k!] ?? k).join(', ') + (markup ? ` +${markup}%` : '') : '—' }
+        return { text: kinds.size ? [...kinds].map(k => OVERAGE_LABELS_SHORT[k!] ?? k).join(', ') + (markup ? ` +${markup}%` : '') : '—' }
       })
     },
     { key: 'bundled', label: 'Part of a plan', cells: pricing.map(p => ({ text: p.bundled_with ? optionLabel(PLANS, p.bundled_with) : '—' })) }
   ]
 
   const models: CompareRow[] = [
-    { key: 'providers', label: 'Providers', cells: tools.map(t => ({ text: list(t.effective_providers.map(p => optionLabel(PROVIDERS, p)), '—'), detail: !t.models.providers?.length && t.effective_providers.length ? 'inherited' : undefined })) },
+    { key: 'providers', label: 'Providers', cells: tools.map(t => ({ text: joinLabels(t.effective_providers.map(p => optionLabel(PROVIDERS, p)), '—'), detail: !t.models.providers?.length && t.effective_providers.length ? 'inherited' : undefined })) },
     { key: 'byok', label: 'Bring your own key', cells: tools.map(t => ({ text: optionLabel(BYOK, t.models.byok), ok: t.models.byok === 'none' ? false : true })) },
     { key: 'local', label: 'Local models', cells: tools.map(t => ({ text: t.models.local ? 'Yes' : 'No', ok: t.models.local })) }
   ]
@@ -97,8 +77,8 @@ export function compareTools(tools: ToolRecord[], bySlug: Map<string, ToolRecord
     .map(f => ({ key: f.value, label: f.label, cells: tools.map(t => ({ text: t.features.includes(f.value) ? 'Yes' : 'No', ok: t.features.includes(f.value) })) }))
 
   const graph: CompareRow[] = [
-    { key: 'runs', label: 'Runs', cells: tools.map(t => ({ text: list(t.wraps.map(w => bySlug.get(w.tool)?.name ?? w.tool), '—') })) },
-    { key: 'runs-inside', label: 'Runs inside', cells: tools.map(t => ({ text: list(t.wrapped_by.map(s => bySlug.get(s)?.name ?? s), '—') })) },
+    { key: 'runs', label: 'Runs', cells: tools.map(t => ({ text: joinLabels(t.wraps.map(w => bySlug.get(w.tool)?.name ?? w.tool), '—') })) },
+    { key: 'runs-inside', label: 'Runs inside', cells: tools.map(t => ({ text: joinLabels(t.wrapped_by.map(s => bySlug.get(s)?.name ?? s), '—') })) },
     { key: 'verified', label: 'Pricing verified', cells: tools.map(t => ({ text: t.freshness.verified_at, ok: t.freshness.level === 'error' ? false : undefined })) }
   ]
 

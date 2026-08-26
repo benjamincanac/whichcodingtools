@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { LAYERS, PLANS, lowerLabel } from '#shared/enums'
+import { TOOLS_INDEX } from '#shared/content/pages'
 import type { ToolMatch } from '~/composables/useToolFinder'
 
 const route = useRoute()
@@ -10,10 +11,7 @@ const issueUrl = useIssueUrl()
 /** Set by the landing page after the natural-language parse, shown once. */
 const why = computed(() => typeof route.query.why === 'string' ? route.query.why : '')
 
-useSeoMeta({
-  title: 'Every AI coding tool, filtered by how you work',
-  description: 'Editors, terminal agents, orchestrators and cloud agents. Filter by platform, the plan you already pay for, models, budget and features. Pricing verified against vendor pages.'
-})
+useSeoMeta(TOOLS_INDEX)
 
 defineOgImage('ToolSatori', {
   headline: 'Tools',

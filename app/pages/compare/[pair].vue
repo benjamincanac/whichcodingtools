@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LAYERS, optionLabelLower } from '#shared/enums'
+import { pairIntro, pairPageDescription, pairPageTitle } from '#shared/content/pages'
 import { parsePair } from '#shared/utils/compare'
 
 const route = useRoute()
@@ -15,20 +15,16 @@ if (!pair || picked.length !== 2) {
 
 const [a, b] = picked as [NonNullable<typeof picked[number]>, NonNullable<typeof picked[number]>]
 
-function intro(t: typeof a) {
-  const label = optionLabelLower(LAYERS, t.layer)
-  return `${t.name} is ${/^[aeiou]/i.test(label) ? 'an' : 'a'} ${label} by ${t.vendor}`
-}
-const description = `${intro(a)}. ${intro(b)}. Every cell below is read from the directory data and points back to a vendor page.`
+const description = pairIntro(a, b)
 
 useSeoMeta({
-  title: `${a.name} vs ${b.name}`,
-  description: `${a.name} and ${b.name} side by side: pricing, included usage, overage, BYOK, platforms, features and what each one runs. Verified against vendor pages.`
+  title: pairPageTitle(a, b),
+  description: pairPageDescription(a, b)
 })
 
 defineOgImage('ToolSatori', {
   headline: 'Compare',
-  title: `${a.name} vs ${b.name}`,
+  title: pairPageTitle(a, b),
   description: `${a.description} ${b.description}`
 })
 </script>
@@ -37,7 +33,7 @@ defineOgImage('ToolSatori', {
   <UContainer>
     <UPage>
       <UPageHeader
-        :title="`${a.name} vs ${b.name}`"
+        :title="pairPageTitle(a, b)"
         :description="description"
         :links="[{ label: 'Add more tools', to: `/compare?tools=${a.slug},${b.slug}`, icon: 'i-lucide-plus', color: 'neutral', variant: 'solid' }]"
       />
