@@ -38,17 +38,16 @@ export default defineEventHandler(async (event) => {
   // Point every instance at the new commit before any page re-renders.
   const sha = await resolveContentSha(contentBranch(), { refresh: true })
   const content = await getContent()
-  const tools = await loadTools()
-  const slugs = new Set(tools.map(t => t.slug))
+  const { tools, bySlug } = await loadToolsIndexed()
 
   // What to purge: the shared surfaces, the touched tools, and every page that lists them.
-  const paths = new Set<string>(['/', '/compare', '/llms.txt', '/sitemap.xml', '/api/tools.json', '/api/content/list', '/api/__sitemap__/urls'])
+  const paths = new Set<string>(['/', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/content/list', '/api/__sitemap__/urls'])
   const pairs = relatedPairs(tools)
   for (const slug of touched) {
     paths.add(`/tools/${slug}`)
     paths.add(`/api/tools/${slug}.json`)
     paths.add(`/api/content/get/${slug}`)
-    const tool = tools.find(t => t.slug === slug)
+    const tool = bySlug.get(slug)
     if (!tool) continue
     paths.add(`/layers/${tool.layer}`)
     for (const layer of tool.secondary_layers) paths.add(`/layers/${layer}`)
@@ -57,12 +56,22 @@ export default defineEventHandler(async (event) => {
       if (a === slug || b === slug) paths.add(`/compare/${pairSlug(a, b)}`)
     }
     for (const host of tool.wrapped_by) paths.add(`/tools/${host}`)
-    for (const wrap of tool.wraps) if (slugs.has(wrap.tool)) paths.add(`/tools/${wrap.tool}`)
+    for (const wrap of tool.wraps) if (bySlug.has(wrap.tool)) paths.add(`/tools/${wrap.tool}`)
   }
   for (const plan of ['claude', 'chatgpt', 'copilot', 'cursor', 'gemini', 'grok']) paths.add(`/plans/${plan}`)
 
+  // Every page is served twice now, as HTML and as markdown under /raw. Purging only the page
+  // would leave an agent reading an hour-old price while the site shows the new one, which is
+  // worse than both being stale. `/` maps to /raw/index.md, the module's generated landing page.
+  for (const path of [...paths]) {
+    if (path.startsWith('/api') || path.includes('.')) continue
+    paths.add(path === '/' ? '/raw/index.md' : `/raw${path}.md`)
+  }
+
   const buildId = config.app.buildId
-  const urls = [...paths].flatMap(p => p.startsWith('/api') || p.endsWith('.txt') ? [p] : [p, `${p === '/' ? '' : p}/_payload.json?${buildId}`])
+  // A payload only exists for a rendered Vue page: the data routes, the text documents and the
+  // markdown twins have none, and asking for one is a guaranteed 404 per URL.
+  const urls = [...paths].flatMap(p => p.startsWith('/api') || p.includes('.') ? [p] : [p, `${p === '/' ? '' : p}/_payload.json?${buildId}`])
 
   const baseURL = `${getRequestProtocol(event)}://${getRequestHost(event, { xForwardedHost: true })}`
   const headers: Record<string, string> = { 'x-prerender-revalidate': bypassToken }

@@ -13,6 +13,10 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     '@vercel/analytics',
     '@vercel/speed-insights',
+    'nuxt-llms',
+    // Markdown twins under /raw/**, content negotiation for AI agents, /sitemap.md and the
+    // api-catalog. Owns /llms.txt through its nuxt-llms bridge.
+    'nuxt-agent-discovery',
     // The maintenance agent in agent/, deployed with the site (Vercel Cron, Sandbox, Workflow).
     'eve/nuxt'
   ],
@@ -37,7 +41,12 @@ export default defineNuxtConfig({
       '/api/tools/**': { isr: 60 * 60 },
       '/api/content/**': { isr: 60 * 60 },
       '/api/__sitemap__/urls': { isr: 60 * 60 },
-      '/sitemap.xml': { isr: 60 * 60 }
+      '/sitemap.xml': { isr: 60 * 60 },
+      // The agent surfaces. Safe to cache: a `.md` URL has one representation, so unlike a page
+      // there is no second variant a path-keyed cache could overwrite.
+      '/raw/**': { isr: 60 * 60 },
+      '/sitemap.md': { isr: 60 * 60 },
+      '/llms-full.txt': { isr: 60 * 60 }
     }
   },
 
@@ -79,11 +88,39 @@ export default defineNuxtConfig({
     externals: {
       traceInclude: [harfbuzzWasm]
     },
+    prerender: {
+      // `nuxt-llms` registers both of these as prerender routes. Nothing on this site is
+      // prerendered on purpose: `vercel.json` skips the build for content-only commits and
+      // /api/revalidate purges ISR instead, so a static llms.txt would freeze at deploy time
+      // with no way for the webhook to refresh it.
+      ignore: ['/llms.txt', '/llms-full.txt']
+    },
     vercel: {
       config: {
         // Lets /api/revalidate purge ISR pages with `x-prerender-revalidate`.
         bypassToken: process.env.VERCEL_BYPASS_TOKEN
       }
+    }
+  },
+
+  agentDiscovery: {
+    siteName: 'whichcoding.tools',
+    // Not `createComarkSource()`: the content files are pure YAML with no body, and four of the
+    // page types are computed and have no file at all. `server/markdown/` renders them instead.
+    source: '~~/server/utils/agent-source',
+    // Enumerated rather than '/**', and deliberately the same patterns as the ISR route rules
+    // above. The module reads those rules to decide which patterns get a CDN 307 instead of a
+    // rewrite, and a pattern that only half-overlaps a rule gets a duplicate pair of routes.
+    // The query is not preserved on the twins of /tools and /compare, which is fine: their
+    // markdown ignores the query and an agent that wants it filtered has /api/tools.json.
+    routes: ['/', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**'],
+    sitemap: {
+      markdown: { labels: { tools: 'Tools', compare: 'Comparisons', layers: 'Layers', plans: 'Plans' } }
+    },
+    discovery: {
+      links: [
+        { href: '/api/tools.json', rel: 'service-desc', type: 'application/json', anchor: '/api', title: 'Every tool as one JSON document' }
+      ]
     }
   },
 
@@ -108,6 +145,31 @@ export default defineNuxtConfig({
 
   linkChecker: {
     enabled: false
+  },
+
+  llms: {
+    domain: process.env.NUXT_SITE_URL || 'https://whichcoding.tools',
+    title: 'whichcoding.tools',
+    description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.',
+    // Only links that are not pages. A page link here would satisfy the bridge's "has page
+    // links" check and suppress the content source's whole listing.
+    sections: [
+      {
+        title: 'Data',
+        links: [
+          { title: 'API, every tool', description: 'The same records the site renders, as one JSON document.', href: '/api/tools.json' },
+          { title: 'Changelog, every data commit', href: 'https://github.com/benjamincanac/whichcodingtools/commits/main/content/tools' }
+        ]
+      }
+    ],
+    notes: [
+      'Data is one YAML file per tool in git, validated against a schema, every fact with a source URL and the date it was verified.',
+      'No affiliate links, no benchmarks, no LLM-written descriptions.'
+    ],
+    full: {
+      title: 'Complete directory',
+      description: 'Every tool page, layer page and plan page as one document. Comparisons are excluded, there are over 500 of them.'
+    }
   },
 
   ogImage: {
