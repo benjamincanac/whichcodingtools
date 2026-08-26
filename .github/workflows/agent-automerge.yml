@@ -96,9 +96,23 @@ jobs:
             | grep -vE '^[+-][[:space:]]*verified_at: [0-9]{4}-[0-9]{2}-[0-9]{2}$' || true)
           [ -z "$other" ] && : || refuse "changes a value, not only verified_at"
 
-          # A date bump that moves backwards is not a re-verification.
-          added=$(git diff -U0 "$BASE_SHA" "$HEAD_SHA" -- 'content/tools/*.yml' | grep -cE '^\+[[:space:]]*verified_at:' || true)
-          [ "$added" -gt 0 ] || refuse "no verified_at was bumped"
+          # A date bump that moves backwards is not a re-verification, and the format check above
+          # is happy to let one through. Every changed line here is a verified_at line, so the
+          # removals and the additions pair up in order, one per source that was re-read.
+          tmp=$(mktemp -d)
+          dates() { git diff -U0 "$BASE_SHA" "$HEAD_SHA" -- 'content/tools/*.yml' \
+            | grep -E "^[$1][[:space:]]*verified_at:" \
+            | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' || true; }
+          dates - > "$tmp/was"
+          dates + > "$tmp/now"
+
+          [ -s "$tmp/now" ] || refuse "no verified_at was bumped"
+          # An added date with no removed counterpart is a new source line, which is a data change
+          # whatever its shape, and the line check above would already have caught the url and
+          # covers lines beside it. Refusing here keeps the pairing below honest either way.
+          [ "$(wc -l < "$tmp/was")" -eq "$(wc -l < "$tmp/now")" ] || refuse "verified_at lines do not pair up"
+          backwards=$(paste "$tmp/was" "$tmp/now" | awk '$2 < $1 { print $1 " to " $2; exit }')
+          [ -z "$backwards" ] || refuse "a verified_at moved backwards, $backwards"
 
           echo "ok=yes" >> "$GITHUB_OUTPUT"
 
@@ -107,8 +121,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # --match-head-commit is what makes this fail closed. Everything above validated one
+          # SHA, but `gh pr merge` would otherwise merge whatever the PR head is by the time this
+          # step runs, so a commit pushed while ci was finishing would merge unvalidated.
           gh pr merge "${{ steps.pr.outputs.number }}" \
             --repo "${{ github.repository }}" \
+            --match-head-commit "${{ github.event.workflow_run.head_sha }}" \
             --squash --delete-branch \
             --subject "$(gh pr view "${{ steps.pr.outputs.number }}" --repo "${{ github.repository }}" --json title --jq .title)" \
             --body "Merged by agent-automerge: the diff is verified_at dates and new snapshots only."
