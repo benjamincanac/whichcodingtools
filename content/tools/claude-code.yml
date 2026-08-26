@@ -30,7 +30,7 @@ models:
   byok: full
   local: false
   notes: Anthropic models only, through claude.ai plans, an API key, Amazon Bedrock, Google Vertex AI or Microsoft Foundry.
-features: [subagents, parallel-agents, mcp-client, hooks, plugins, checkpoints, sandboxing, scheduled-tasks, remote-execution, mobile-companion, browser-automation, acp-agent]
+features: [worktrees, subagents, parallel-agents, mcp-client, hooks, plugins, checkpoints, sandboxing, scheduled-tasks, remote-execution, mobile-companion, browser-automation, acp-agent]
 pricing:
   bundled_with: claude
   tiers:
@@ -85,3 +85,6 @@ sources:
   - url: https://code.claude.com/docs/en/overview
     verified_at: 2026-08-23
     covers: [platforms, models, features, general]
+  - url: https://code.claude.com/docs/en/worktrees
+    verified_at: 2026-08-26
+    covers: [features]

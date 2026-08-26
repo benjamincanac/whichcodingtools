@@ -21,7 +21,7 @@ models:
   providers: [anthropic]
   byok: none
   local: false
-features: [parallel-agents, diff-review, scheduled-tasks, browser-automation, mcp-client, mobile-companion]
+features: [worktrees, parallel-agents, subagents, mcp-client, hooks, plugins, sandboxing, remote-execution, scheduled-tasks, browser-automation, diff-review, mobile-companion]
 wraps:
   - tool: claude-code
     via: sdk
@@ -39,3 +39,6 @@ sources:
   - url: https://code.claude.com/docs/en/overview
     verified_at: 2026-08-23
     covers: [wraps, models]
+  - url: https://code.claude.com/docs/en/desktop
+    verified_at: 2026-08-26
+    covers: [features]

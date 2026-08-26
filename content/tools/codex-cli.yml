@@ -25,7 +25,7 @@ models:
   byok: full
   local: false
   notes: OpenAI models only. Local models through an OpenAI-compatible endpoint are configurable but unsupported.
-features: [subagents, mcp-client, hooks, plugins, sandboxing, worktrees, acp-agent]
+features: [worktrees, subagents, mcp-client, hooks, plugins, sandboxing, checkpoints, remote-execution, diff-review, acp-agent]
 pricing:
   bundled_with: chatgpt
   tiers:
@@ -84,5 +84,5 @@ sources:
     verified_at: 2026-08-23
     covers: [platforms, features, license]
   - url: https://learn.chatgpt.com/docs/codex/cli
-    verified_at: 2026-08-24
-    covers: [general]
+    verified_at: 2026-08-26
+    covers: [general, features]
