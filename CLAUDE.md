@@ -17,14 +17,14 @@ Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`
 - Pages fetch the prerendered-per-request JSON routes (`/api/tools.json`, `/api/tools/[slug].json`), never comark directly. Computed fields (`open_source`, `pricing_model`, `wrapped_by`, `freshness`, `effective_providers`) live in `shared/utils/`, one source of truth for site and API.
 - ISR everywhere via `$production.routeRules` in `nuxt.config.ts`, hourly expiration. `POST /api/revalidate` is the GitHub push webhook that purges affected pages; `vercel.json` `ignoreCommand` skips builds for content-only commits, so data goes live through the webhook without a deploy.
 - The zod schema `shared/schema.ts` is read by the content source (via `z.toJSONSchema`), `scripts/validate.ts` and the API types. It must stay JSON-Schema-representable: no `.transform()`, dates as `z.string().date()`, refinements are enforced by the validate script only.
-- The eve agent in `agent/` deploys with the site (`eve/nuxt` module): daily pricing sweep, weekly rename-watch and stale-sweep, GitHub channel via Vercel Connect (`github/whichcodingtools`). Wiring in `agent/`, logic in `agent/lib/`, procedures in `agent/skills/*/SKILL.md`. See `agent/README.md`.
+- The eve agent in `agent/` deploys with the site (`eve/nuxt` module): daily pricing sweep, weekly discovery, rename-watch and stale-sweep, GitHub channel via Vercel Connect (`github/whichcodingtools`). Wiring in `agent/`, logic in `agent/lib/`, procedures in `agent/skills/*/SKILL.md`. See `agent/README.md`.
 
 ## Rules that don't bend
 
 - Every fact in `content/tools` comes from a vendor page read that day; bump `verified_at` only on the source line you re-checked. Unverifiable figures carry a note saying so.
 - A figure is only as good as its capture. `content/snapshots/<slug>/*.txt` comes out of `page-text.mjs` and never out of a keyboard, and `pnpm validate` fails when a `price`, `price_annual` or `included.amount` is not in it. Toggled pages get one capture per state. A tier that mirrors another tool's plan carries `mirrors` so the two cannot drift apart.
 - Automation never merges data. The agent's only writes are pull requests (ready for review, never merged), issues (it may close its own once resolved, never a person's) and `agent/*` branches.
-- Descriptions are human-written, 40-180 chars, no marketing words, no em dashes anywhere in content.
+- Descriptions are human-written, 40-180 chars, no marketing words, no em dashes anywhere in content. The single line a model writes is the draft description on a tool it adds that had no file, flagged in the PR body and rewritten before merge.
 - Tool avatars: `public/logos/<slug>.png` → `icon` (simple-icons) → initial. Never pass an avatar `src` that can 404 (the img error can fire before hydration).
 - Renames are dated `aliases` on the current file (301 comes from the slug page's SSR redirect); merged products keep their file with `status: sunset` + `successor`.
 - One entry per thing you buy. A vendor's second surface gets its own file only when its `install`, `platforms` or `features` differ from the parent's; it then carries `pricing.same_as` back, and that layer is its alone, never repeated in the parent's `secondary_layers` or description. `pnpm validate` enforces the overlap.

@@ -14,11 +14,13 @@ function isHomeRepo(fullName: string) {
 }
 
 /**
- * Two ways in:
+ * Three ways in:
  * - Benjamin mentions @whichcodingtools on an issue, PR or review comment: a normal turn with his identity.
  * - Someone files one of the issue forms: an unattended turn under a service principal that can
  *   reply in the thread and open a pull request, nothing else. `tool` builds a new entry,
  *   `outdated` re-reads one field of an existing one against its vendor page.
+ * - The weekly discovery pass files a `tool` candidate under the agent's own login, which is the
+ *   same first responder reached from the schedule side.
  */
 export default githubChannel({
   botName,
@@ -36,7 +38,13 @@ export default githubChannel({
     if (issue.action !== 'opened' && issue.action !== 'labeled') return null
     if (!isHomeRepo(ctx.repository.fullName)) return null
     const login = ctx.sender.login.toLowerCase()
-    if (login === botName || login.endsWith('[bot]')) return null
+    // Every other bot stays out: one of these labels starts an unattended turn holding write
+    // credentials, and that is not something a third-party app gets to trigger. The agent's
+    // own issue is the discovery pass handing a candidate to the first responder, and that
+    // hand-off terminates: the responder may not open issues, so nothing it does comes back
+    // through here.
+    const selfFiled = isAgentLogin(ctx.sender.login)
+    if (!selfFiled && (login === botName || login.endsWith('[bot]'))) return null
     // issue.raw is the webhook payload's `issue` object itself, not the whole payload.
     const raw = issue.raw as { title?: string, body?: string, labels?: { name: string }[] }
     const title = raw.title ?? ''
@@ -48,6 +56,9 @@ export default githubChannel({
     // issues he opens by hand carry no label and still start nothing.
     const responder = RESPONDERS.find(r => labels.includes(r.label))
     if (!responder) return null
+    // `tool` is the only thing the agent files for itself. An `outdated` issue under its own
+    // login would be it reporting itself, which no path opens and no turn should answer.
+    if (selfFiled && responder.label !== 'tool') return null
     if (issue.action === 'labeled') {
       // Who applied the label, not just who opened the issue. Anyone with triage access can
       // label, and labeling starts a credentialed unattended turn, so this is Benjamin's alone.
@@ -179,7 +190,7 @@ ${text}
 }
 
 const FIRST_RESPONDER = `This is an unattended turn on a new "Add a tool" issue. Load the \`contributing\` skill, then:
-1. Read the issue body below. If it contains a YAML block, write it to /workspace/repo/content/tools/<slug>.yml and run \`pnpm validate\`. If it has no YAML, build a draft from whichever fields the form carries, most of them are optional, and the vendor pages you fetch from the homepage, leaving fields you could not verify out rather than guessed.
+1. Read the issue body below. If it contains a YAML block, write it to /workspace/repo/content/tools/<slug>.yml and run \`pnpm validate\`. If it has no YAML, build a draft from whichever fields the form carries, most of them are optional, and the vendor pages you fetch from the homepage, leaving fields you could not verify out rather than guessed. \`description\` is the one field no vendor page states: use the line the issue carries when it has one, otherwise write a first draft from the homepage and say in the pull request body that it is a draft for a person to rewrite.
 2. If validation passes, push the file with \`github__push_files\` on branch \`agent/add-<slug>-<YYYY-MM-DD>\` and message \`data(<slug>): add <name>\`, then open a pull request that links this issue.
 3. Finish with one short message: what you validated, the PR link, or the validation issues as a list the reporter can fix. There is no reply tool and you do not need one, your last message is posted in the issue as the reply. Write it to the reporter, do not restate the rules, and never describe your own tooling or what you could not call.
 You may not open issues, edit other files, or merge anything. If the issue is not actually about adding a tool, reply with one sentence saying a maintainer will look at it.`
