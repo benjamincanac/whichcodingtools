@@ -1,5 +1,5 @@
 import type { EnumOption, Layer, Plan } from '../enums'
-import { LAYERS, optionLabel } from '../enums'
+import { FEATURES, HOSTS, LAYERS, LICENSE_KINDS, PLANS, PLATFORMS, STATUSES, lowerLabel, optionLabel, optionLabelLower } from '../enums'
 import type { ToolRecord } from '../types/tool'
 import { articleFor } from '../utils/text'
 
@@ -74,8 +74,150 @@ export function pairPageTitle(a: Pick<ToolRecord, 'name'>, b: Pick<ToolRecord, '
   return `${a.name} vs ${b.name}`
 }
 
-export function pairPageDescription(a: Pick<ToolRecord, 'name'>, b: Pick<ToolRecord, 'name'>) {
-  return `${a.name} and ${b.name} side by side: pricing, included usage, overage, BYOK, platforms, features and what each one runs. Verified against vendor pages.`
+/* ------------------------- comparison descriptions ------------------------- */
+
+/**
+ * The meta description of a comparison page.
+ *
+ * Five hundred and fifty-seven pages carrying one identical sentence is the thin-content
+ * signature search engines use to classify a site as a content farm, which is the exact thing
+ * this directory is positioned against. A crawler cannot tell that the data underneath is
+ * better than an affiliate site's, it sees the sentence.
+ *
+ * So every pair says what the two products are, then one thing that actually differs, picked by
+ * the first rule in `pairDelta` that fires. Every clause reads a field the schema guarantees or
+ * a value `shared/utils/` computes, which means `pnpm validate` passing is the same check that
+ * keeps these sentences true. Nothing infers, nothing is written by a model.
+ *
+ * Kept near 160 characters, which is what a search result shows before it truncates.
+ */
+export function pairPageDescription(a: ToolRecord, b: ToolRecord, now = new Date()): string {
+  const delta = pairDelta(a, b, now)
+  return delta ? `${pairIdentity(a, b)} ${delta}` : pairIdentity(a, b)
+}
+
+/** What the two things are. Always emitted, so no pair falls back to boilerplate. */
+function pairIdentity(a: ToolRecord, b: ToolRecord): string {
+  const layer = (t: ToolRecord) => optionLabelLower(LAYERS, t.layer)
+  return a.layer === b.layer
+    ? `${a.name} and ${b.name} are both ${layer(a)}s.`
+    : `${a.name} is ${articleFor(optionLabel(LAYERS, a.layer))}, ${b.name} is ${articleFor(optionLabel(LAYERS, b.layer))}.`
+}
+
+/**
+ * How a tool's cost reads mid-sentence.
+ *
+ * `has_free_tier` means one tier costs nothing, not that the product is free: Cursor has a free
+ * tier. Only `pricing_model: free` is the whole product, and even then every such tool in the
+ * corpus is bring-your-own-key, so it is never "free to run".
+ */
+function priceClause(t: ToolRecord): string {
+  if (t.entry_price === null) return t.pricing_model === 'usage' ? 'is usage-based' : 'is contact-sales only'
+  if (t.entry_price > 0) return `starts at $${t.entry_price}/mo`
+  return t.pricing_model === 'free' ? 'is free to install' : 'has a free tier'
+}
+
+/**
+ * A sunset date is not always in the past. Amazon Q Developer carries an end-of-support date
+ * eight months out, and "was discontinued in April 2027" is a confidently false sentence.
+ */
+function sunsetClause(t: ToolRecord, now: Date): string {
+  if (!t.sunset_at) return 'is discontinued'
+  const when = new Date(`${t.sunset_at}T00:00:00Z`)
+  const month = when.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })
+  return when.getTime() > now.getTime() ? `loses support in ${month}` : `was discontinued in ${month}`
+}
+
+/** The first value in declaration order that one tool has and the other does not. */
+function firstExtra<T extends string>(options: readonly EnumOption<T>[], mine: readonly T[], theirs: readonly T[]): EnumOption<T> | undefined {
+  return options.find(o => mine.includes(o.value) && !theirs.includes(o.value))
+}
+
+/** The `wraps` edge between the two, in whichever direction it exists. */
+function wrapEdge(a: ToolRecord, b: ToolRecord) {
+  const ab = a.wraps.find(w => w.tool === b.slug)
+  if (ab) return { host: a, guest: b, wrap: ab }
+  const ba = b.wraps.find(w => w.tool === a.slug)
+  return ba ? { host: b, guest: a, wrap: ba } : undefined
+}
+
+/**
+ * One sentence about the difference that matters most, first match wins.
+ *
+ * The order is deliberate. A dead product outranks its price, an edge in the `wraps` graph
+ * outranks a licence, and the cheap universal fields (platforms, hosts, features) sit at the
+ * bottom because they always differ and would otherwise swallow every pair.
+ *
+ * There is no "different layers, so they complement each other" rule. `relatedPairs` only builds
+ * same-layer pairs and `wraps` edges, and outside an edge that claim is false more often than
+ * not: people genuinely choose between an editor and a terminal agent.
+ */
+function pairDelta(a: ToolRecord, b: ToolRecord, now: Date): string | undefined {
+  const dead = [a, b].filter(t => t.status === 'sunset')
+  if (dead.length === 2) {
+    return `${a.name} ${sunsetClause(a, now)}, ${b.name} ${sunsetClause(b, now)}.`
+  }
+  if (dead.length === 1) {
+    const [gone] = dead as [ToolRecord]
+    const live = gone === a ? b : a
+    return `${gone.name} ${sunsetClause(gone, now)}, ${live.name} is ${live.status === 'preview' ? 'in preview' : optionLabelLower(STATUSES, live.status)}.`
+  }
+
+  const edge = wrapEdge(a, b)
+  if (edge) {
+    return edge.wrap.uses_subscription
+      ? `${edge.host.name} runs ${edge.guest.name} on the login you already have for it.`
+      : `${edge.host.name} runs ${edge.guest.name} with your own key, so model usage bills separately.`
+  }
+
+  const bundled = [a, b].filter(t => t.pricing.bundled_with)
+  if (bundled.length === 1) {
+    const [inPlan] = bundled as [ToolRecord]
+    const other = inPlan === a ? b : a
+    return `${inPlan.name} comes with ${optionLabel(PLANS, inPlan.pricing.bundled_with!)} plans, ${other.name} ${priceClause(other)}.`
+  }
+
+  if (a.open_source !== b.open_source) {
+    const open = a.open_source ? a : b
+    const closed = a.open_source ? b : a
+    return `${open.name} is open source (${open.license.spdx}), ${closed.name} is ${optionLabelLower(LICENSE_KINDS, closed.license.kind)}.`
+  }
+
+  if (a.entry_price !== b.entry_price) {
+    return `${a.name} ${priceClause(a)}, ${b.name} ${priceClause(b)}.`
+  }
+
+  if (a.models.local !== b.models.local) {
+    const local = a.models.local ? a : b
+    return `${local.name} runs local models, ${(local === a ? b : a).name} does not.`
+  }
+
+  if ((a.models.byok === 'none') !== (b.models.byok === 'none')) {
+    const byok = a.models.byok === 'none' ? b : a
+    return `${byok.name} takes your own API key, ${(byok === a ? b : a).name} does not.`
+  }
+
+  const platform = firstExtra(PLATFORMS, a.platforms, b.platforms) ?? firstExtra(PLATFORMS, b.platforms, a.platforms)
+  if (platform) {
+    const has = a.platforms.includes(platform.value) ? a : b
+    return `${has.name} has a ${platform.label} build, ${(has === a ? b : a).name} does not.`
+  }
+
+  const host = firstExtra(HOSTS, a.hosts, b.hosts) ?? firstExtra(HOSTS, b.hosts, a.hosts)
+  if (host) {
+    const has = a.hosts.includes(host.value) ? a : b
+    return `${has.name} installs into ${host.label}, ${(has === a ? b : a).name} does not.`
+  }
+
+  const feature = firstExtra(FEATURES, a.features, b.features) ?? firstExtra(FEATURES, b.features, a.features)
+  if (feature) {
+    const has = a.features.includes(feature.value) ? a : b
+    return `${has.name} has ${lowerLabel(feature.label)}, ${(has === a ? b : a).name} does not.`
+  }
+
+  // Nothing above fired, so the two records genuinely agree on every field worth a sentence.
+  // The identity clause still names both products, which no other pair's does.
+  return undefined
 }
 
 /** The lede on the comparison itself, which says what each product actually is. */
