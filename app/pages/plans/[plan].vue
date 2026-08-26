@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PLANS, type Plan } from '#shared/enums'
-import { PLAN_INTROS } from '#shared/content/pages'
+import { PLAN_GROUPS, PLAN_INTROS, planPageTitle } from '#shared/content/pages'
 import { planAccess, matchTool, EMPTY_REQUIREMENTS } from '#shared/utils/match'
 
 const route = useRoute()
@@ -17,15 +17,16 @@ const groups = computed(() => {
   const entries = tools.value
     .map(tool => ({ tool, access: planAccess(tool, plan.value as Plan, bySlug.value), match: matchTool(tool, req, bySlug.value) }))
     .filter(e => e.access)
-  return [
-    { key: 'included', title: 'Part of the plan', description: 'No extra bill, it is what you are paying for.', items: entries.filter(e => e.access!.included) },
-    { key: 'signin', title: 'Signs in with it', description: 'Separate products that accept this account for model access.', items: entries.filter(e => !e.access!.included && !e.access!.via) },
-    { key: 'wraps', title: 'Runs a tool on this plan', description: 'Hosts and orchestrators that reuse the login of a tool included in the plan. The chip is what they cost on top.', items: entries.filter(e => Boolean(e.access!.via)) }
-  ].filter(g => g.items.length)
+  const pick = {
+    included: () => entries.filter(e => e.access!.included),
+    signin: () => entries.filter(e => !e.access!.included && !e.access!.via),
+    wraps: () => entries.filter(e => Boolean(e.access!.via))
+  }
+  return PLAN_GROUPS.map(group => ({ ...group, items: pick[group.key]() })).filter(g => g.items.length)
 })
 
 useSeoMeta({
-  title: `What you can use with a ${plan.label} subscription`,
+  title: planPageTitle(plan),
   description: PLAN_INTROS[plan.value as Plan]
 })
 
@@ -40,7 +41,7 @@ defineOgImage('ToolSatori', {
   <UContainer>
     <UPage>
       <UPageHeader
-        :title="`What you can use with a ${plan.label} subscription`"
+        :title="planPageTitle(plan)"
         :description="PLAN_INTROS[plan.value as Plan]"
         :links="[{ label: 'Open in the finder', to: `/tools?plans=${plan.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'solid' }]"
       />

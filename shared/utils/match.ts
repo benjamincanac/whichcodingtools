@@ -2,6 +2,7 @@ import type { Feature, Host, Layer, Plan, Platform, Provider } from '../enums'
 import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS, lowerLabel, optionLabel } from '../enums'
 import type { CostDelta, ToolRecord } from '../types/tool'
 import { costDelta } from './pricing'
+import { articleFor } from './text'
 
 export interface Requirements {
   q: string
@@ -106,10 +107,6 @@ export function matchTool(tool: ToolRecord, req: Requirements, bySlug: Map<strin
   }
 
   return result
-}
-
-function articleFor(label: string) {
-  return `${/^[aeiou]/i.test(label) ? 'an' : 'a'} ${lowerLabel(label)}`
 }
 
 export function deltaPrice(match?: MatchResult): number | null {

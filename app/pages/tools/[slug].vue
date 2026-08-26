@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { ButtonProps, PageLink } from '@nuxt/ui'
-import type { EnumOption } from '#shared/enums'
-import { BYOK, FEATURES, HOSTS, LAYERS, LICENSE_KINDS, PLANS, PLATFORMS, PROVIDERS, STATUSES, optionLabel, optionLabelLower } from '#shared/enums'
+import { BYOK, LAYERS, LICENSE_KINDS, PLANS, STATUSES, optionLabel, optionLabelLower } from '#shared/enums'
 import type { ToolRecord } from '#shared/types/tool'
-import { findByAlias } from '#shared/utils/tools'
+import { toolPageTitle } from '#shared/content/pages'
+import { featureOptions, findByAlias, platformOptions, providerOptions, toolFacts } from '#shared/utils/tools'
 import { relativeDays } from '#shared/utils/freshness'
-import { resolvePricing } from '#shared/utils/pricing'
+import { entryPriceLabel, resolvePricing } from '#shared/utils/pricing'
 
 const route = useRoute()
 const { site } = useAppConfig()
@@ -31,10 +31,9 @@ if (!tool.value) {
 const t = computed(() => tool.value!)
 
 const layerLabel = computed(() => optionLabel(LAYERS, t.value.layer))
-const platforms = computed(() => PLATFORMS.filter(p => t.value.platforms.includes(p.value)))
-const hosts = computed(() => HOSTS.filter(h => t.value.hosts.includes(h.value)))
-const features = computed(() => FEATURES.filter(f => t.value.features.includes(f.value)))
-const providers = computed<EnumOption[]>(() => PROVIDERS.filter(p => t.value.effective_providers.includes(p.value)))
+const platforms = computed(() => platformOptions(t.value))
+const features = computed(() => featureOptions(t.value))
+const providers = computed(() => providerOptions(t.value))
 const inheritsProviders = computed(() => !t.value.models.providers?.length && t.value.effective_providers.length > 0)
 const successor = computed(() => t.value.successor ? bySlug.value.get(t.value.successor) : undefined)
 const signInPlans = computed(() => PLANS.filter(p => t.value.models.plans.includes(p.value)))
@@ -44,11 +43,7 @@ const planLinks = computed(() => {
   return PLANS.filter(p => p.value === bundled || t.value.models.plans.includes(p.value))
 })
 
-const priceLabel = computed(() => {
-  if (t.value.entry_price === null) return t.value.pricing_model === 'usage' ? 'Usage-based' : 'Contact sales'
-  if (t.value.entry_price === 0) return t.value.pricing_model === 'free' ? 'Free' : 'Free tier'
-  return `From $${t.value.entry_price}/mo`
-})
+const priceLabel = computed(() => entryPriceLabel(t.value))
 
 const headerLinks = computed(() => [
   { label: 'Website', to: t.value.homepage, target: '_blank', icon: 'i-lucide-globe', color: 'neutral' as const },
@@ -74,18 +69,10 @@ const maintainLinks = computed<PageLink[]>(() => [
   { label: 'Report outdated data', to: outdatedUrl.value, target: '_blank', icon: 'i-lucide-flag' }
 ])
 
-const facts = computed(() => [
-  { label: 'Layer', value: [layerLabel.value, ...t.value.secondary_layers.map(l => optionLabel(LAYERS, l))].join(', ') },
-  { label: 'Vendor', value: t.value.vendor },
-  { label: 'Platforms', value: platforms.value.map(p => p.label).join(', ') },
-  ...(hosts.value.length ? [{ label: 'Editors', value: hosts.value.map(h => h.label).join(', ') }] : []),
-  { label: 'License', value: t.value.license.spdx === 'proprietary' ? 'Proprietary' : t.value.license.spdx },
-  { label: 'Pricing', value: priceLabel.value },
-  { label: 'Status', value: optionLabel(STATUSES, t.value.status) }
-])
+const facts = computed(() => toolFacts(t.value))
 
 useSeoMeta({
-  title: `${t.value.name} pricing, platforms and integrations`,
+  title: toolPageTitle(t.value),
   description: t.value.description
 })
 

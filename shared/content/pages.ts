@@ -1,4 +1,7 @@
-import type { Layer, Plan } from '../enums'
+import type { EnumOption, Layer, Plan } from '../enums'
+import { LAYERS, optionLabel } from '../enums'
+import type { ToolRecord } from '../types/tool'
+import { articleFor } from '../utils/text'
 
 /**
  * Hand-written intros for the generated pages. Kept out of the enums so the
@@ -21,4 +24,62 @@ export const PLAN_INTROS: Record<Plan, string> = {
   cursor: 'Cursor plans include agent usage priced at model API rates. Orchestrators that drive the Cursor CLI agent reuse your Cursor account and its limits.',
   gemini: 'Google AI Pro and Ultra raise the Gemini CLI allowance above the free personal tier. Tools that run Gemini CLI with your Google account inherit that.',
   grok: 'SuperGrok plans give OAuth access to xAI models. A few terminal agents can sign in with that account instead of an API key.'
+}
+
+/* -------------------------------- headings -------------------------------- */
+
+/**
+ * What each generated page calls itself. One home, because a page now has two
+ * renderings: the Vue page and its markdown twin, and a listing that names them
+ * has to agree with both.
+ */
+
+export const TOOLS_INDEX = {
+  title: 'Every AI coding tool, filtered by how you work',
+  description: 'Editors, terminal agents, orchestrators and cloud agents. Filter by platform, the plan you already pay for, models, budget and features. Pricing verified against vendor pages.'
+}
+
+export const COMPARE_INDEX = {
+  title: 'Compare AI coding tools',
+  description: 'Side by side pricing, included usage, overage, BYOK, platforms, features and integrations for any AI coding tools, from vendor-verified data.'
+}
+
+export function toolPageTitle(tool: Pick<ToolRecord, 'name'>) {
+  return `${tool.name} pricing, platforms and integrations`
+}
+
+export function layerPageTitle(layer: EnumOption) {
+  return `${layer.label}s compared`
+}
+
+/** The heading over the tools that ship this layer as a second form. */
+export function layerSecondaryTitle(layer: EnumOption) {
+  return `Also available as ${articleFor(layer.label)}`
+}
+
+export const LAYER_SECONDARY_INTRO = 'Products whose primary form is something else but ship one of these too.'
+
+export function planPageTitle(plan: EnumOption) {
+  return `What you can use with a ${plan.label} subscription`
+}
+
+/** The three ways a tool can reach a plan, in the order the page lists them. */
+export const PLAN_GROUPS = [
+  { key: 'included', title: 'Part of the plan', description: 'No extra bill, it is what you are paying for.' },
+  { key: 'signin', title: 'Signs in with it', description: 'Separate products that accept this account for model access.' },
+  { key: 'wraps', title: 'Runs a tool on this plan', description: 'Hosts and orchestrators that reuse the login of a tool included in the plan. The chip is what they cost on top.' }
+] as const
+
+export function pairPageTitle(a: Pick<ToolRecord, 'name'>, b: Pick<ToolRecord, 'name'>) {
+  return `${a.name} vs ${b.name}`
+}
+
+export function pairPageDescription(a: Pick<ToolRecord, 'name'>, b: Pick<ToolRecord, 'name'>) {
+  return `${a.name} and ${b.name} side by side: pricing, included usage, overage, BYOK, platforms, features and what each one runs. Verified against vendor pages.`
+}
+
+/** The lede on the comparison itself, which says what each product actually is. */
+export function pairIntro(a: ToolRecord, b: ToolRecord) {
+  const what = (t: ToolRecord) => `${t.name} is ${articleFor(optionLabel(LAYERS, t.layer))} by ${t.vendor}`
+  return `${what(a)}. ${what(b)}. Every cell below is read from the directory data and points back to a vendor page.`
 }

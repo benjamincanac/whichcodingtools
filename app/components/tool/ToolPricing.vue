@@ -3,7 +3,7 @@ import type { TableColumn } from '@nuxt/ui'
 import { PLANS, optionLabel } from '#shared/enums'
 import type { Tier } from '#shared/schema'
 import type { ToolRecord } from '#shared/types/tool'
-import { resolvePricing } from '#shared/utils/pricing'
+import { includedText, overageText, priceDetail, priceText, resolvePricing } from '#shared/utils/pricing'
 
 const props = defineProps<{
   tool: ToolRecord
@@ -21,47 +21,6 @@ const columns: TableColumn<Tier>[] = [
   { accessorKey: 'overage', header: 'Beyond that' },
   { accessorKey: 'limits', header: 'Notes' }
 ]
-
-function priceText(tier: Tier) {
-  if (tier.contact_sales) return 'Contact sales'
-  if (tier.price === null) return tier.price_annual !== undefined ? `$${tier.price_annual}/mo annual` : 'Usage-based'
-  if (tier.price === 0) return 'Free'
-  return `${tier.price_from ? 'From ' : ''}$${tier.price}/mo`
-}
-
-function priceDetail(tier: Tier) {
-  const parts: string[] = []
-  if (tier.price !== null && tier.price > 0 && tier.per === 'user') parts.push('per user')
-  if (tier.price !== null && tier.price_annual !== undefined) parts.push(`$${tier.price_annual}/mo billed annually`)
-  if (tier.trial_days) parts.push(`${tier.trial_days}-day trial`)
-  return parts.join(' · ')
-}
-
-function includedText(tier: Tier) {
-  const inc = tier.included
-  if (!inc) return null
-  const unit = inc.unit === 'usd' ? `$${inc.amount}` : `${inc.amount.toLocaleString('en-US')} ${inc.unit}`
-  const period = inc.period === 'month' ? '/mo' : inc.period === 'week' ? '/wk' : ''
-  const value = inc.unit !== 'usd' && inc.usd_value !== undefined ? ` (≈ $${inc.usd_value})` : ''
-  return `${unit}${period}${value}`
-}
-
-const overageLabels: Record<string, string> = {
-  'api-list': 'API list price',
-  'credits': 'Credit packs',
-  'fixed': 'Fixed rate',
-  'rate-limited': 'Rate limited until reset',
-  'blocked': 'Blocked until upgrade'
-}
-
-function overageText(tier: Tier) {
-  const o = tier.overage
-  if (!o) return null
-  let text = overageLabels[o.kind] ?? o.kind
-  if (o.markup_pct) text += ` +${o.markup_pct}%`
-  if (o.rate !== undefined) text += `, $${o.rate} each`
-  return text
-}
 </script>
 
 <template>

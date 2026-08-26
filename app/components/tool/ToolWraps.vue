@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { WRAP_VIA, optionLabel } from '#shared/enums'
 import type { ToolRecord } from '#shared/types/tool'
-import { costDelta } from '#shared/utils/pricing'
+import { costDelta, deltaText } from '#shared/utils/pricing'
 
 const props = defineProps<{
   tool: ToolRecord
@@ -16,15 +16,6 @@ const runsInside = computed(() => props.tool.wrapped_by
   .map(slug => props.bySlug.get(slug))
   .filter((t): t is ToolRecord => Boolean(t))
   .map(host => ({ host, wrap: host.wraps.find(w => w.tool === props.tool.slug)!, delta: costDelta(host, props.tool.slug, props.bySlug) })))
-
-function deltaText(delta: ReturnType<typeof costDelta>) {
-  if (!delta) return ''
-  if (delta.api_usage) return 'Bills model usage separately'
-  if (delta.price === 0) return 'Free with your existing login'
-  if (delta.price === 'usage') return 'Usage-based'
-  if (delta.price === 'contact') return 'Contact sales'
-  return `$${delta.price}/mo${delta.tier ? ` on ${delta.tier}` : ''}, with your existing login`
-}
 </script>
 
 <template>

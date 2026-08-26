@@ -1,7 +1,9 @@
+import type { EnumOption } from '../enums'
+import { FEATURES, HOSTS, LAYERS, PLATFORMS, PROVIDERS, STATUSES, optionLabel } from '../enums'
 import type { Tool } from '../schema'
 import type { ToolRecord } from '../types/tool'
 import { computeFreshness } from './freshness'
-import { entryPrice, hasFreeTier, pricingModel, resolvePricing } from './pricing'
+import { entryPrice, entryPriceLabel, hasFreeTier, pricingModel, resolvePricing } from './pricing'
 
 export function isOpenSource(tool: Pick<Tool, 'license'>) {
   return tool.license.kind === 'open-source'
@@ -43,4 +45,40 @@ export function toRecords(tools: Tool[], now = new Date()): ToolRecord[] {
       freshness: computeFreshness(tool, now)
     }
   })
+}
+
+/* ------------------------------ presentation ------------------------------ */
+
+/**
+ * Enum options a tool carries, in declaration order rather than YAML order, so the same
+ * tool reads the same way on the page, in the markdown twin and in the OG image.
+ */
+export function platformOptions(tool: Pick<Tool, 'platforms'>): EnumOption[] {
+  return [...PLATFORMS].filter(p => tool.platforms.includes(p.value))
+}
+
+export function hostOptions(tool: Pick<Tool, 'hosts'>): EnumOption[] {
+  return [...HOSTS].filter(h => tool.hosts.includes(h.value))
+}
+
+export function featureOptions(tool: Pick<Tool, 'features'>): EnumOption[] {
+  return [...FEATURES].filter(f => tool.features.includes(f.value))
+}
+
+export function providerOptions(tool: Pick<ToolRecord, 'effective_providers'>): EnumOption[] {
+  return [...PROVIDERS].filter(p => tool.effective_providers.includes(p.value))
+}
+
+/** The spec sheet: the handful of facts that answer "what is this" without scrolling. */
+export function toolFacts(tool: ToolRecord): { label: string, value: string }[] {
+  const hosts = hostOptions(tool)
+  return [
+    { label: 'Layer', value: [tool.layer, ...tool.secondary_layers].map(l => optionLabel(LAYERS, l)).join(', ') },
+    { label: 'Vendor', value: tool.vendor },
+    { label: 'Platforms', value: platformOptions(tool).map(p => p.label).join(', ') },
+    ...(hosts.length ? [{ label: 'Editors', value: hosts.map(h => h.label).join(', ') }] : []),
+    { label: 'License', value: tool.license.spdx === 'proprietary' ? 'Proprietary' : tool.license.spdx },
+    { label: 'Pricing', value: entryPriceLabel(tool) },
+    { label: 'Status', value: optionLabel(STATUSES, tool.status) }
+  ]
 }

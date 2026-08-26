@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { LAYERS, lowerLabel, type Layer } from '#shared/enums'
-import { LAYER_INTROS } from '#shared/content/pages'
+import { LAYERS, type Layer } from '#shared/enums'
+import { LAYER_INTROS, LAYER_SECONDARY_INTRO, layerPageTitle, layerSecondaryTitle } from '#shared/content/pages'
 
 const route = useRoute()
 const layer = LAYERS.find(l => l.value === route.params.layer)
@@ -14,7 +14,7 @@ const primary = computed(() => tools.value.filter(t => t.layer === layer.value))
 const secondary = computed(() => tools.value.filter(t => t.secondary_layers.includes(layer.value as Layer)))
 
 useSeoMeta({
-  title: `${layer.label}s compared`,
+  title: layerPageTitle(layer),
   description: LAYER_INTROS[layer.value as Layer]
 })
 
@@ -51,11 +51,11 @@ defineOgImage('ToolSatori', {
         >
           <div>
             <h2 class="text-base font-medium tracking-tight text-highlighted">
-              Also available as {{ /^[aeiou]/i.test(layer.label) ? 'an' : 'a' }} {{ lowerLabel(layer.label) }}
+              {{ layerSecondaryTitle(layer) }}
               <span class="text-muted font-normal">({{ secondary.length }})</span>
             </h2>
             <p class="text-sm text-muted">
-              Products whose primary form is something else but ship one of these too.
+              {{ LAYER_SECONDARY_INTRO }}
             </p>
           </div>
 
