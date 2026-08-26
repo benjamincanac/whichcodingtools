@@ -212,6 +212,13 @@ export async function findRelated(terms: string) {
 /** The only ref namespace the agent can move, and the only paths it can write. */
 export const AGENT_BRANCH = /^agent\/[a-z0-9-]+$/
 
+/**
+ * The branch the stale sweep batches its no-change re-verifications onto, and the only shape CI
+ * merges without a person. It decides the label, and it is a namespace a limited turn may not
+ * enter at all: see `pushToAgentBranch`.
+ */
+export const REVERIFY_BRANCH = /^agent\/re-verify-\d{4}-\d{2}-\d{2}$/
+
 const WRITABLE_PATH = /^(content\/[\w.-]+(\/[\w.-]+)*|public\/logos\/[a-z0-9-]+\.png)$/
 
 /**
@@ -265,6 +272,17 @@ export async function pushToAgentBranch(input: { branch: string, message: string
   assertAgentBranch(input.branch, 'write to')
   assertWritablePaths(input.files.map(f => f.path))
 
+  // The re-verification lane is reserved from a limited turn whether or not it exists yet, and
+  // the "yet" is the whole point. Refusing only a branch that is already there leaves the name
+  // free to claim: the sweep names its branch after a date that has not happened, so a limited
+  // turn could open `agent/re-verify-<future date>` first, push a diff of nothing but forward
+  // `verified_at` bumps, and `.github/workflows/agent-automerge.yml` would merge it with no
+  // person involved. A date with no re-read behind it is the one thing this agent must never
+  // produce, and that lane is the one place it reaches `main` unattended.
+  if (input.ownBranches && REVERIFY_BRANCH.test(input.branch)) {
+    throw new Error(`${JSON.stringify(input.branch)} is the re-verification lane, which CI merges without a person. This turn pushes to its own agent/<topic>-<date> branch.`)
+  }
+
   const head = await refSha(input.branch)
   // `ownBranches` present means the turn is a limited one and may only move a ref it opened
   // itself. Checked here rather than in the tool because this is where the ref is read
@@ -295,6 +313,19 @@ export async function pushToAgentBranch(input: { branch: string, message: string
   return { branch: input.branch, commit: commit.sha, created: head === null, files: input.files.map(f => f.path) }
 }
 
+/**
+ * Labels are derived from the branch, never passed in. The agent does not get to choose how its
+ * own work is filed: a model that can pick a label eventually picks the wrong one, and this is
+ * the same reason `createIssue` takes one hard-coded value.
+ *
+ * These are for filtering a queue, not for authorising anything. CI's auto-merge lane keys on
+ * the branch name, which `github__push_files` enforces, and never on a label, which anyone with
+ * write access can add.
+ */
+function labelsFor(branch: string) {
+  return REVERIFY_BRANCH.test(branch) ? ['agent', 're-verify'] : ['agent']
+}
+
 export async function createPullRequest(input: { branch: string, title: string, body: string, ownBranches?: string[] }) {
   assertAgentBranch(input.branch, 'open a pull request from')
   // Same rule as the push. Opening a pull request from a branch the turn did not write is
@@ -310,7 +341,23 @@ export async function createPullRequest(input: { branch: string, title: string, 
     head: input.branch,
     base: DEFAULT_BRANCH
   })
-  return { number: pr.number, url: pr.html_url }
+
+  // A second call, because the create-pull endpoint ignores `labels`. A repository missing the
+  // label logs and moves on: filterability is worth a round trip, it is not worth the pull
+  // request, and unlike an issue form there is nothing downstream that stops without it.
+  const wanted = labelsFor(input.branch)
+  const applied = await githubApi<{ name: string }[]>('POST', `/repos/${REPO}/issues/${pr.number}/labels`, { labels: wanted })
+    .then(labels => labels.map(l => l.name))
+    .catch((error) => {
+      console.warn(`[agent] Could not label PR #${pr.number}:`, error)
+      return [] as string[]
+    })
+  const missing = wanted.filter(label => !applied.includes(label))
+  if (missing.length > 0) {
+    console.warn(`[agent] PR #${pr.number} came back without ${missing.join(', ')}. Create the label in the repository.`)
+  }
+
+  return { number: pr.number, url: pr.html_url, labels: applied }
 }
 
 /**

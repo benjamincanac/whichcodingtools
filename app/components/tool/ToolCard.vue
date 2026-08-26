@@ -2,6 +2,7 @@
 import { LAYERS, PLATFORMS, optionLabel } from '#shared/enums'
 import type { ToolRecord } from '#shared/types/tool'
 import { deltaLabel, type MatchResult } from '#shared/utils/match'
+import { entryPriceLabel } from '#shared/utils/pricing'
 
 const props = defineProps<{
   tool: ToolRecord
@@ -10,11 +11,7 @@ const props = defineProps<{
 
 const platforms = computed(() => PLATFORMS.filter(p => props.tool.platforms.includes(p.value)))
 const delta = computed(() => deltaLabel(props.match))
-const price = computed(() => {
-  if (props.tool.entry_price === null) return props.tool.pricing_model === 'usage' ? 'Usage-based' : null
-  if (props.tool.entry_price > 0) return `From $${props.tool.entry_price}/mo`
-  return props.tool.pricing_model === 'free' ? 'Free' : 'Free tier'
-})
+const price = computed(() => entryPriceLabel(props.tool))
 </script>
 
 <template>
@@ -93,10 +90,7 @@ const price = computed(() => {
             </UTooltip>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <span
-              v-if="price"
-              class="font-mono text-highlighted whitespace-nowrap"
-            >{{ price }}</span>
+            <span class="font-mono text-highlighted whitespace-nowrap">{{ price }}</span>
             <ToolFreshness
               :freshness="tool.freshness"
               variant="dot"

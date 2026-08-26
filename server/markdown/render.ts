@@ -1,5 +1,5 @@
 import { LAYERS, PLANS } from '#shared/enums'
-import { parsePair } from '#shared/utils/compare'
+import { pairSlug, parsePair } from '#shared/utils/compare'
 import type { ToolRecord } from '#shared/types/tool'
 import type { MarkdownContext, MarkdownPage } from './context'
 import { renderCompareIndex, renderComparePage } from './compare'
@@ -42,6 +42,9 @@ function toolPage(ctx: MarkdownContext, slug: string): MarkdownPage | null {
 function pairPage(ctx: MarkdownContext, param: string): MarkdownPage | null {
   const pair = parsePair(param)
   if (!pair) return null
+  // A reversed pair is not a second document. Returning null here is what hands it to
+  // `firstLeaf`, which redirects it, the same way the page answers 301.
+  if (pairSlug(pair[0], pair[1]) !== param) return null
   const picked = pair.map(slug => ctx.bySlug.get(slug)).filter(Boolean) as ToolRecord[]
   return picked.length === 2 ? renderComparePage(ctx, picked as [ToolRecord, ToolRecord]) : null
 }

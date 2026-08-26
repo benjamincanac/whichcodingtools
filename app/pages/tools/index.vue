@@ -5,7 +5,7 @@ import type { ToolMatch } from '~/composables/useToolFinder'
 
 const route = useRoute()
 const router = useRouter()
-const { tools, requirements, sort, update, reset, count, exact, close, hidden, matches } = useToolFinder()
+const { tools, requirements, sort, update, reset, count, plain, exact, close, hidden, matches } = useToolFinder()
 const issueUrl = useIssueUrl()
 
 /** Set by the landing page after the natural-language parse, shown once. */
@@ -60,11 +60,25 @@ const guide = computed(() => {
 })
 
 const grouped = computed<{ key: string, title?: string, description?: string, items: ToolMatch[] }[]>(() => {
-  if (!count.value) return [{ key: 'all', items: matches.value }]
-  return [
-    { key: 'exact', title: 'Matches everything', items: exact.value },
-    { key: 'close', title: 'Close matches', description: 'One or two requirements short. Each card says which.', items: close.value }
-  ]
+  if (count.value) {
+    return [
+      { key: 'exact', title: 'Matches everything', items: exact.value },
+      { key: 'close', title: 'Close matches', description: 'One or two requirements short. Each card says which.', items: close.value }
+    ]
+  }
+  // Nothing asked for: group by layer, the same shape the markdown twin at /raw/tools.md has.
+  // A flat list here has no order a visitor can read, since almost every tool starts at $0.
+  if (plain.value && sort.value === 'match') {
+    return LAYERS
+      .map(layer => ({
+        key: layer.value,
+        title: `${layer.label}s`,
+        description: layer.description,
+        items: matches.value.filter(m => m.tool.layer === layer.value)
+      }))
+      .filter(group => group.items.length)
+  }
+  return [{ key: 'all', items: matches.value }]
 })
 </script>
 
