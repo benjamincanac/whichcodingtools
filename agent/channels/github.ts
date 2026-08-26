@@ -26,7 +26,7 @@ export default githubChannel({
     if (!isHomeRepo(ctx.repository.fullName)) return null
     if (String(ctx.sender.id) !== MAINTAINER_GITHUB_ID) return null
     if (!mention.test(comment.body)) return null
-    return { auth: defaultGitHubAuth(ctx) }
+    return { auth: defaultGitHubAuth(ctx), context: [replyHere(ctx)] }
   },
   onIssue: async (ctx, issue) => {
     // `opened` is the form path: both forms apply their label server side. `labeled` is the
@@ -134,6 +134,19 @@ async function alreadyAnswered(ctx: GitHubInboundContext, issueNumber: number) {
 function briefly(message: string) {
   const line = message.split('\n', 1)[0]!.trim()
   return line.length > 200 ? `${line.slice(0, 200)}...` : line
+}
+
+/**
+ * The mention path is the one turn that holds `github__comment` and also has a channel to
+ * reply on. eve's built-in `message.completed` posts the last message into this same thread,
+ * so a `github__comment` aimed at it lands next to the reply and says everything twice.
+ * The unattended responders carry this in their own prompt; this is the same note for the
+ * path that had none.
+ */
+function replyHere(ctx: GitHubInboundContext) {
+  const number = ctx.conversation.issueNumber ?? ctx.conversation.pullRequestNumber
+  const here = number === null ? 'this thread' : `#${number}`
+  return `You are answering in ${here} and your last message is posted there as the reply. Do not call \`github__comment\` on ${here}: that posts a second copy alongside it. That tool is for a different thread, one this turn is not already in.`
 }
 
 const CLOSING_FENCE = /<\/\s*issue-body\s*>/gi
