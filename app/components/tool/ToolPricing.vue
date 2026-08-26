@@ -70,7 +70,10 @@ function overageText(tier: Tier) {
       v-if="pricing.bundled_with"
       class="text-sm text-toned"
     >
-      Included with {{ optionLabel(PLANS, pricing.bundled_with) }} plans<template v-if="sameAs">
+      Included with <NuxtLink
+        :to="`/plans/${pricing.bundled_with}`"
+        class="underline underline-offset-4 text-highlighted"
+      >{{ optionLabel(PLANS, pricing.bundled_with) }}</NuxtLink> plans<template v-if="sameAs">
         , same pricing as <NuxtLink
           :to="`/tools/${sameAs.slug}`"
           class="underline underline-offset-4 text-highlighted"
@@ -81,8 +84,8 @@ function overageText(tier: Tier) {
     <UTable
       :data="pricing.tiers"
       :columns="columns"
-      class="rounded-lg border border-default bg-white dark:bg-muted"
-      :ui="{ base: 'min-w-[640px]', th: 'text-xs uppercase tracking-wider font-medium text-muted', td: 'align-top text-sm', root: 'overflow-x-auto' }"
+      class="rounded-lg border border-default"
+      :ui="{ base: 'min-w-160', thead: '[&>tr]:first:bg-elevated/50', th: 'text-xs uppercase tracking-wider font-medium text-muted', td: 'align-top text-sm whitespace-pre-wrap', root: 'overflow-x-auto', separator: 'bg-border' }"
     >
       <template #name-cell="{ row }">
         <div class="font-medium text-highlighted">

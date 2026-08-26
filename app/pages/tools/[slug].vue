@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { ButtonProps, PageLink } from '@nuxt/ui'
 import type { EnumOption } from '#shared/enums'
-import { BYOK, FEATURES, HOSTS, LAYERS, LICENSE_KINDS, PLATFORMS, PROVIDERS, STATUSES, optionLabel } from '#shared/enums'
+import { BYOK, FEATURES, HOSTS, LAYERS, LICENSE_KINDS, PLANS, PLATFORMS, PROVIDERS, STATUSES, optionLabel, optionLabelLower } from '#shared/enums'
 import type { ToolRecord } from '#shared/types/tool'
 import { findByAlias } from '#shared/utils/tools'
 import { relativeDays } from '#shared/utils/freshness'
+import { resolvePricing } from '#shared/utils/pricing'
 
 const route = useRoute()
 const { site } = useAppConfig()
@@ -36,6 +37,12 @@ const features = computed(() => FEATURES.filter(f => t.value.features.includes(f
 const providers = computed<EnumOption[]>(() => PROVIDERS.filter(p => t.value.effective_providers.includes(p.value)))
 const inheritsProviders = computed(() => !t.value.models.providers?.length && t.value.effective_providers.length > 0)
 const successor = computed(() => t.value.successor ? bySlug.value.get(t.value.successor) : undefined)
+const signInPlans = computed(() => PLANS.filter(p => t.value.models.plans.includes(p.value)))
+/** Plan pages worth pointing at: the plan the tool is part of, plus the ones it signs in with. */
+const planLinks = computed(() => {
+  const bundled = resolvePricing(t.value, bySlug.value).bundled_with
+  return PLANS.filter(p => p.value === bundled || t.value.models.plans.includes(p.value))
+})
 
 const priceLabel = computed(() => {
   if (t.value.entry_price === null) return t.value.pricing_model === 'usage' ? 'Usage-based' : 'Contact sales'
@@ -47,20 +54,24 @@ const headerLinks = computed(() => [
   { label: 'Website', to: t.value.homepage, target: '_blank', icon: 'i-lucide-globe', color: 'neutral' as const },
   t.value.links.pricing && { label: 'Pricing', to: t.value.links.pricing, target: '_blank', icon: 'i-lucide-tag', color: 'neutral' as const, variant: 'outline' as const },
   t.value.links.repo && { label: 'Repo', to: t.value.links.repo, target: '_blank', icon: 'i-lucide-github', color: 'neutral' as const, variant: 'outline' as const },
-  t.value.links.docs && { label: 'Docs', to: t.value.links.docs, target: '_blank', icon: 'i-lucide-book-open', color: 'neutral' as const, variant: 'outline' as const }
+  t.value.links.docs && { label: 'Docs', to: t.value.links.docs, target: '_blank', icon: 'i-lucide-book-open', color: 'neutral' as const, variant: 'outline' as const },
+  t.value.links.changelog && { label: 'Changelog', to: t.value.links.changelog, target: '_blank', icon: 'i-lucide-scroll-text', color: 'neutral' as const, variant: 'outline' as const }
 ].filter(Boolean) as ButtonProps[])
 
 const yamlUrl = computed(() => `https://github.com/${site.repo}/blob/${site.branch}/content/tools/${t.value.slug}.yml`)
 const issueUrl = useIssueUrl()
 const outdatedUrl = computed(() => issueUrl('outdated', { title: `[Outdated] ${t.value.name}`, tool: t.value.slug }))
 
-const asideLinks = computed<PageLink[]>(() => [
+const exploreLinks = computed<PageLink[]>(() => [
   { label: 'Compare with another tool', to: `/compare?tools=${t.value.slug}`, icon: 'i-lucide-columns-3' },
-  { label: `All ${layerLabel.value.toLowerCase()}s`, to: `/layers/${t.value.layer}`, icon: 'i-lucide-layers' },
-  { label: 'Edit this tool on GitHub', to: yamlUrl.value, target: '_blank', icon: 'i-lucide-pencil' },
-  { label: 'Report outdated data', to: outdatedUrl.value, target: '_blank', icon: 'i-lucide-flag' },
-  { label: 'JSON', to: `/api/tools/${t.value.slug}.json`, target: '_blank', icon: 'i-lucide-braces' },
-  ...(t.value.links.changelog ? [{ label: 'Changelog', to: t.value.links.changelog, target: '_blank', icon: 'i-lucide-scroll-text' }] : [])
+  { label: `All ${optionLabelLower(LAYERS, t.value.layer)}s`, to: `/layers/${t.value.layer}`, icon: 'i-lucide-layers' },
+  ...planLinks.value.map(plan => ({ label: `Everything on ${plan.label}`, to: `/plans/${plan.value}`, icon: plan.icon })),
+  { label: 'JSON', to: `/api/tools/${t.value.slug}.json`, target: '_blank', icon: 'i-lucide-braces' }
+])
+
+const maintainLinks = computed<PageLink[]>(() => [
+  { label: 'Edit this tool', to: yamlUrl.value, target: '_blank', icon: 'i-lucide-pencil' },
+  { label: 'Report outdated data', to: outdatedUrl.value, target: '_blank', icon: 'i-lucide-flag' }
 ])
 
 const facts = computed(() => [
@@ -101,88 +112,74 @@ useSchemaOrg([
 
 <template>
   <UContainer v-if="tool">
-    <UPage :ui="{ root: 'lg:grid-cols-12 gap-8', center: 'lg:col-span-9', right: 'lg:col-span-3' }">
-      <div class="flex flex-col gap-10 py-8 lg:py-12">
-        <header class="flex flex-col gap-6">
-          <UButton
-            to="/tools"
-            label="All tools"
-            icon="i-lucide-arrow-left"
-            color="neutral"
-            variant="link"
-            size="sm"
-            class="self-start -ms-2.5"
+    <UPage :ui="{ root: 'lg:grid-cols-12', center: 'lg:col-span-9', right: 'lg:col-span-3' }">
+      <header class="flex flex-col gap-6 py-8">
+        <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+          <ToolAvatar
+            :tool="t"
+            size="3xl"
           />
-
-          <div class="flex flex-col sm:flex-row sm:items-start gap-5">
-            <ToolAvatar
-              :tool="t"
-              size="3xl"
-            />
-            <div class="flex flex-col gap-3 min-w-0">
-              <div class="flex flex-wrap items-center gap-2">
-                <h1 class="text-3xl sm:text-4xl font-medium tracking-tight text-highlighted">
-                  {{ t.name }}
-                </h1>
-                <UBadge
-                  :to="`/layers/${t.layer}`"
-                  color="neutral"
-                  variant="outline"
-                  class="rounded-full"
-                >
-                  {{ layerLabel }}
-                </UBadge>
-                <UBadge
-                  v-for="layer in t.secondary_layers"
-                  :key="layer"
-                  color="neutral"
-                  variant="soft"
-                  class="rounded-full"
-                >
-                  {{ optionLabel(LAYERS, layer) }}
-                </UBadge>
-                <UBadge
-                  v-if="t.status !== 'active'"
-                  :color="t.status === 'sunset' ? 'error' : 'warning'"
-                  variant="subtle"
-                  class="rounded-full"
-                >
-                  {{ optionLabel(STATUSES, t.status) }}
-                </UBadge>
-              </div>
-              <p class="text-base sm:text-lg text-toned max-w-2xl">
-                {{ t.description }}
-              </p>
-              <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
-                <span>{{ t.vendor }}</span>
-                <span class="flex items-center gap-1.5">
-                  <UIcon
-                    v-for="platform in platforms"
-                    :key="platform.value"
-                    :name="platform.icon!"
-                    class="size-4"
-                    :title="platform.label"
-                  />
-                </span>
-                <span class="font-mono text-highlighted">{{ priceLabel }}</span>
-                <ToolFreshness
-                  :freshness="t.freshness"
-                  variant="dot"
+          <div class="flex flex-col gap-3 min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              <h1 class="text-3xl sm:text-4xl font-medium tracking-tight text-highlighted">
+                {{ t.name }}
+              </h1>
+              <UBadge
+                :to="`/layers/${t.layer}`"
+                color="neutral"
+                variant="outline"
+                class="rounded-full"
+              >
+                {{ layerLabel }}
+              </UBadge>
+              <UBadge
+                v-for="layer in t.secondary_layers"
+                :key="layer"
+                color="neutral"
+                variant="soft"
+                class="rounded-full"
+              >
+                {{ optionLabel(LAYERS, layer) }}
+              </UBadge>
+              <UBadge
+                v-if="t.status !== 'active'"
+                :color="t.status === 'sunset' ? 'error' : 'warning'"
+                variant="subtle"
+                class="rounded-full"
+              >
+                {{ optionLabel(STATUSES, t.status) }}
+              </UBadge>
+            </div>
+            <p class="text-base sm:text-lg text-toned max-w-2xl">
+              {{ t.description }}
+            </p>
+            <!-- The aside spec sheet is hidden under lg, so the header carries these there and only there. -->
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted lg:hidden">
+              <span>{{ t.vendor }}</span>
+              <span class="flex items-center gap-1.5">
+                <UIcon
+                  v-for="platform in platforms"
+                  :key="platform.value"
+                  :name="platform.icon!"
+                  class="size-4"
+                  :title="platform.label"
                 />
-              </div>
+              </span>
+              <span class="font-mono text-highlighted">{{ priceLabel }}</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <UButton
+                v-for="link in headerLinks"
+                :key="link.label"
+                v-bind="link"
+                size="sm"
+              />
             </div>
           </div>
+        </div>
+      </header>
 
-          <div class="flex flex-wrap gap-2">
-            <UButton
-              v-for="link in headerLinks"
-              :key="link.label"
-              v-bind="link"
-              size="sm"
-            />
-          </div>
-        </header>
-
+      <UPageBody>
         <ToolAliasBanner
           v-if="t.aliases.length"
           :name="t.name"
@@ -259,6 +256,23 @@ useSchemaOrg([
                 icon="i-lucide-key-round"
               >
                 {{ optionLabel(BYOK, t.models.byok) }}
+              </UBadge>
+            </div>
+            <div
+              v-if="signInPlans.length"
+              class="flex flex-wrap items-center gap-1.5 text-sm text-muted"
+            >
+              <span>Signs in with</span>
+              <UBadge
+                v-for="plan in signInPlans"
+                :key="plan.value"
+                :to="`/plans/${plan.value}`"
+                :icon="plan.icon"
+                color="neutral"
+                variant="outline"
+                class="rounded-full"
+              >
+                {{ plan.label }}
               </UBadge>
             </div>
             <p
@@ -342,14 +356,17 @@ useSchemaOrg([
 
         <section class="flex flex-col gap-3">
           <div>
-            <h2 class="text-xl font-medium tracking-tight text-highlighted">
-              Sources
-            </h2>
+            <div class="flex flex-wrap items-center gap-2">
+              <h2 class="text-xl font-medium tracking-tight text-highlighted">
+                Sources
+              </h2>
+              <ToolFreshness :freshness="t.freshness" />
+            </div>
             <p class="text-sm text-muted">
               Every fact above points at a vendor page and the date someone last checked it.
             </p>
           </div>
-          <ul class="flex flex-col divide-y divide-default rounded-lg border border-default bg-white dark:bg-muted">
+          <ul class="flex flex-col divide-y divide-default rounded-lg border border-default bg-elevated/50">
             <li
               v-for="source in t.sources"
               :key="source.url"
@@ -385,7 +402,7 @@ useSchemaOrg([
             </li>
           </ul>
         </section>
-      </div>
+      </UPageBody>
 
       <template #right>
         <UPageAside :ui="{ root: 'pt-8 lg:pt-12' }">
@@ -395,7 +412,7 @@ useSchemaOrg([
               :key="fact.label"
               class="flex flex-col gap-0.5"
             >
-              <dt class="text-xs uppercase tracking-wider text-muted">
+              <dt class="text-[11px] uppercase tracking-wider font-medium text-dimmed">
                 {{ fact.label }}
               </dt>
               <dd class="text-highlighted">
@@ -403,10 +420,21 @@ useSchemaOrg([
               </dd>
             </div>
           </dl>
-          <USeparator class="my-6" />
+          <USeparator
+            class="my-6"
+            type="dashed"
+          />
+          <UPageLinks
+            title="Explore"
+            :links="exploreLinks"
+          />
+          <USeparator
+            class="my-6"
+            type="dashed"
+          />
           <UPageLinks
             title="Maintain"
-            :links="asideLinks"
+            :links="maintainLinks"
           />
         </UPageAside>
       </template>

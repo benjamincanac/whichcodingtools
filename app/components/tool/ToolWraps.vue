@@ -43,7 +43,7 @@ function deltaText(delta: ReturnType<typeof costDelta>) {
         >
           <NuxtLink
             :to="`/tools/${target!.slug}`"
-            class="flex items-start gap-3 rounded-lg border border-default bg-white dark:bg-muted p-3 hover:border-accented transition-colors"
+            class="flex items-start gap-3 rounded-lg border border-default bg-elevated/50 p-3 hover:border-accented transition-colors"
           >
             <ToolAvatar
               :tool="target!"
@@ -90,7 +90,7 @@ function deltaText(delta: ReturnType<typeof costDelta>) {
         >
           <NuxtLink
             :to="`/tools/${host.slug}`"
-            class="flex items-start gap-3 rounded-lg border border-default bg-white dark:bg-muted p-3 hover:border-accented transition-colors"
+            class="flex items-start gap-3 rounded-lg border border-default bg-elevated/50 p-3 hover:border-accented transition-colors"
           >
             <ToolAvatar
               :tool="host"

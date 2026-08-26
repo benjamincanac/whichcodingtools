@@ -11,9 +11,9 @@ const groups = computed(() => compareTools(props.tools, props.bySlug))
 </script>
 
 <template>
-  <div class="overflow-x-auto rounded-lg border border-default bg-white dark:bg-muted">
-    <table class="w-full min-w-[640px] text-sm">
-      <thead class="sticky top-0 z-10 bg-white dark:bg-muted">
+  <div class="overflow-x-auto rounded-lg border border-default relative">
+    <table class="w-full min-w-160 text-sm">
+      <thead class="sticky top-0 z-10">
         <tr class="border-b border-default">
           <th class="w-44 px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-muted" />
           <th
@@ -38,7 +38,7 @@ const groups = computed(() => compareTools(props.tools, props.bySlug))
         v-for="group in groups"
         :key="group.key"
       >
-        <tr class="border-y border-default bg-muted/60 dark:bg-elevated/30">
+        <tr class="border-y border-default bg-elevated/50">
           <th
             :colspan="tools.length + 1"
             class="px-4 py-2 text-left text-xs font-medium uppercase tracking-wider text-muted"
@@ -60,7 +60,7 @@ const groups = computed(() => compareTools(props.tools, props.bySlug))
           <td
             v-for="(cell, index) in row.cells"
             :key="index"
-            class="px-4 py-2.5 align-top"
+            class="px-4 py-2.5 align-top whitespace-pre-wrap max-w-60"
           >
             <div class="flex items-start gap-1.5">
               <UIcon
@@ -69,8 +69,19 @@ const groups = computed(() => compareTools(props.tools, props.bySlug))
                 class="mt-0.5 size-4 shrink-0"
                 :class="cell.ok ? 'text-success' : 'text-dimmed'"
               />
-              <div>
-                <div :class="cell.ok === false ? 'text-muted' : 'text-highlighted'">
+              <div class="min-w-0">
+                <ULink
+                  v-if="cell.href"
+                  :to="cell.href"
+                  target="_blank"
+                  class="break-all text-highlighted underline underline-offset-4"
+                >
+                  {{ cell.text }}
+                </ULink>
+                <div
+                  v-else
+                  :class="cell.ok === false ? 'text-muted' : 'text-highlighted'"
+                >
                   {{ cell.text }}
                 </div>
                 <div

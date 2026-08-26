@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { LAYERS, PLANS, lowerLabel } from '#shared/enums'
 import type { ToolMatch } from '~/composables/useToolFinder'
 
 const route = useRoute()
@@ -50,6 +51,16 @@ const summary = computed(() => {
   return `${matches.value.length} tool${matches.value.length === 1 ? '' : 's'}${q}. Pick what you need on the left to rank them.`
 })
 
+/** The written page behind a single picked plan or layer, so the finder points back at it. */
+const guide = computed(() => {
+  const { plans, where } = requirements.value
+  const plan = plans.length === 1 ? PLANS.find(p => p.value === plans[0]) : undefined
+  if (plan) return { label: `What a ${plan.label} subscription gets you`, to: `/plans/${plan.value}` }
+  const layer = where.length === 1 ? LAYERS.find(l => l.value === where[0]) : undefined
+  if (layer) return { label: `More about ${lowerLabel(layer.label)}s`, to: `/layers/${layer.value}` }
+  return null
+})
+
 const grouped = computed<{ key: string, title?: string, description?: string, items: ToolMatch[] }[]>(() => {
   if (!count.value) return [{ key: 'all', items: matches.value }]
   return [
@@ -61,9 +72,9 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
 
 <template>
   <UContainer>
-    <UPage :ui="{ root: 'lg:grid-cols-12 gap-8', left: 'lg:col-span-3', center: 'lg:col-span-9' }">
+    <UPage :ui="{ root: 'lg:grid-cols-12', left: 'lg:col-span-3', center: 'lg:col-span-9' }">
       <template #left>
-        <UPageAside :ui="{ root: 'pt-0 lg:pt-6 lg:pb-6' }">
+        <UPageAside>
           <ToolFinder
             :requirements="requirements"
             :count="count"
@@ -73,7 +84,7 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
         </UPageAside>
       </template>
 
-      <div class="flex flex-col gap-4 py-4 lg:py-6">
+      <UPageBody class="space-y-4">
         <UAlert
           v-if="why"
           color="neutral"
@@ -88,6 +99,11 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
 
         <p class="text-sm text-muted">
           {{ summary }}
+          <ULink
+            v-if="guide"
+            :to="guide.to"
+            class="text-highlighted underline underline-offset-4"
+          >{{ guide.label }}</ULink>
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3 sm:items-center">
@@ -103,6 +119,7 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
               <UKbd value="/" />
             </template>
           </UInput>
+
           <div class="flex items-center gap-2">
             <UButton
               :label="count ? `Requirements (${count})` : 'Requirements'"
@@ -143,13 +160,14 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
             { label: 'Add a missing tool', color: 'neutral', variant: 'ghost', icon: 'i-lucide-plus', to: issueUrl('tool'), target: '_blank' }
           ]"
         />
-      </div>
+      </UPageBody>
     </UPage>
 
     <USlideover
       v-model:open="open"
       title="What you need"
       side="left"
+      :transition="false"
     >
       <template #body>
         <ToolFinder

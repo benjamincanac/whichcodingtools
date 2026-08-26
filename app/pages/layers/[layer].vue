@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LAYERS, type Layer } from '#shared/enums'
+import { LAYERS, lowerLabel, type Layer } from '#shared/enums'
 import { LAYER_INTROS } from '#shared/content/pages'
 
 const route = useRoute()
@@ -27,44 +27,47 @@ defineOgImage('ToolSatori', {
 
 <template>
   <UContainer>
-    <UPageHeader
-      :title="`${layer.label}s`"
-      :description="LAYER_INTROS[layer.value as Layer]"
-      :ui="{ root: 'py-8 lg:py-12', description: 'max-w-3xl' }"
-      :links="[
-        { label: 'Compare all', to: `/compare?tools=${primary.slice(0, 4).map(t => t.slug).join(',')}`, icon: 'i-lucide-columns-3', color: 'neutral', variant: 'outline' },
-        { label: 'Open in the finder', to: `/tools?where=${layer.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'ghost' }
-      ]"
-    />
-    <div class="flex flex-col gap-10 pb-16">
-      <UPageGrid class="gap-4">
-        <ToolCard
-          v-for="tool in primary"
-          :key="tool.slug"
-          :tool="tool"
-        />
-      </UPageGrid>
-      <section
-        v-if="secondary.length"
-        class="flex flex-col gap-4"
-      >
-        <div>
-          <h2 class="text-base font-medium tracking-tight text-highlighted">
-            Also available as a {{ layer.label.toLowerCase() }}
-            <span class="text-muted font-normal">({{ secondary.length }})</span>
-          </h2>
-          <p class="text-sm text-muted">
-            Products whose primary form is something else but ship one of these too.
-          </p>
-        </div>
+    <UPage>
+      <UPageHeader
+        :title="`${layer.label}s`"
+        :description="LAYER_INTROS[layer.value as Layer]"
+        :links="[
+          { label: 'Compare all', to: `/compare?tools=${primary.slice(0, 4).map(t => t.slug).join(',')}`, icon: 'i-lucide-columns-3', color: 'neutral', variant: 'outline' },
+          { label: 'Open in the finder', to: `/tools?where=${layer.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'solid' }
+        ]"
+      />
+      <UPageBody>
         <UPageGrid class="gap-4">
           <ToolCard
-            v-for="tool in secondary"
+            v-for="tool in primary"
             :key="tool.slug"
             :tool="tool"
           />
         </UPageGrid>
-      </section>
-    </div>
+
+        <section
+          v-if="secondary.length"
+          class="flex flex-col gap-4"
+        >
+          <div>
+            <h2 class="text-base font-medium tracking-tight text-highlighted">
+              Also available as {{ /^[aeiou]/i.test(layer.label) ? 'an' : 'a' }} {{ lowerLabel(layer.label) }}
+              <span class="text-muted font-normal">({{ secondary.length }})</span>
+            </h2>
+            <p class="text-sm text-muted">
+              Products whose primary form is something else but ship one of these too.
+            </p>
+          </div>
+
+          <UPageGrid class="gap-4">
+            <ToolCard
+              v-for="tool in secondary"
+              :key="tool.slug"
+              :tool="tool"
+            />
+          </UPageGrid>
+        </section>
+      </UPageBody>
+    </UPage>
   </UContainer>
 </template>

@@ -9,7 +9,7 @@ const logos = new Set(Object.keys(import.meta.glob('../../../public/logos/*.png'
 
 withDefaults(defineProps<{
   tool: Pick<ToolRecord, 'slug' | 'name' | 'icon'>
-  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
+  size?: '3xs' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
 }>(), { size: 'md' })
 </script>
 

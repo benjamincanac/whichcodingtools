@@ -139,3 +139,15 @@ export type Plan = typeof PLANS[number]['value']
 export function optionLabel(options: readonly EnumOption[], value: string) {
   return options.find(o => o.value === value)?.label ?? value
 }
+
+/**
+ * A label as it reads mid-sentence. A word keeps its case when it carries a capital past the
+ * first letter, so "AI-native IDE" stays readable instead of turning into "ai-native ide".
+ */
+export function lowerLabel(label: string) {
+  return label.split(' ').map(word => /[A-Z]/.test(word.slice(1)) ? word : word.toLowerCase()).join(' ')
+}
+
+export function optionLabelLower(options: readonly EnumOption[], value: string) {
+  return lowerLabel(optionLabel(options, value))
+}

@@ -9,6 +9,8 @@ export interface CompareCell {
   detail?: string
   /** true = good, false = missing, undefined = neutral. Drives the icon. */
   ok?: boolean
+  /** Renders the text as an external link. */
+  href?: string
 }
 
 export interface CompareRow {
@@ -32,6 +34,11 @@ function topIndividual(tiers: Tier[]) {
   return prices.length ? Math.max(...prices) : null
 }
 
+/** `https://www.augmentcode.com/` -> `augmentcode.com`, so a cell stays narrow. */
+function displayUrl(url: string) {
+  return url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
+}
+
 function money(value: number | null, suffix = '/mo') {
   if (value === null) return null
   return value === 0 ? 'Free' : `$${value}${suffix}`
@@ -44,6 +51,7 @@ export function compareTools(tools: ToolRecord[], bySlug: Map<string, ToolRecord
   const general: CompareRow[] = [
     { key: 'layer', label: 'Layer', cells: tools.map(t => ({ text: [t.layer, ...t.secondary_layers].map(l => optionLabel(LAYERS, l)).join(', ') })) },
     { key: 'vendor', label: 'Vendor', cells: tools.map(t => ({ text: t.vendor })) },
+    { key: 'website', label: 'Website', cells: tools.map(t => ({ text: displayUrl(t.homepage), href: t.homepage })) },
     { key: 'platforms', label: 'Platforms', cells: tools.map(t => ({ text: list(t.platforms.map(p => optionLabel(PLATFORMS, p))) })) },
     { key: 'license', label: 'License', cells: tools.map(t => ({ text: t.license.spdx === 'proprietary' ? 'Proprietary' : t.license.spdx, detail: optionLabel(LICENSE_KINDS, t.license.kind), ok: t.open_source ? true : undefined })) },
     { key: 'status', label: 'Status', cells: tools.map(t => ({ text: t.status, ok: t.status === 'sunset' ? false : undefined })) }

@@ -25,7 +25,7 @@ const error = ref('')
 
 const examples = [
   'Terminal agent on Linux, I already pay for Claude Max',
-  'Inside VS Code with local models',
+  'Inside VS Code with open source local models',
   'Parallel agents with worktrees, free and open source',
   'Goes through Vercel AI Gateway',
   'Cloud agent I can trigger from a ticket'
@@ -62,78 +62,83 @@ defineShortcuts({
 </script>
 
 <template>
-  <UContainer class="flex flex-col items-center text-center gap-8 py-20 sm:py-28 lg:py-36">
-    <div class="flex flex-col items-center gap-4">
+  <UPageHero
+    :title="site.name"
+    description="Tell it how you work. It finds the AI coding tool that fits, with pricing checked against the vendor page."
+    :ui="{
+      headline: 'flex',
+      title: 'text-4xl sm:text-5xl font-medium tracking-tighter',
+      description: 'text-base sm:text-lg max-w-xl mx-auto text-pretty',
+      links: ''
+    }"
+  >
+    <template #headline>
       <span class="flex size-12 items-center justify-center rounded-xl bg-inverted text-inverted font-mono text-lg">&gt;_</span>
-      <h1 class="text-4xl sm:text-5xl font-medium tracking-tighter text-highlighted">
-        {{ site.name }}
-      </h1>
-      <p class="text-base sm:text-lg text-toned max-w-xl">
-        Tell it how you work. It finds the AI coding tool that fits, with pricing checked against the vendor page.
-      </p>
-    </div>
+    </template>
 
-    <form
-      class="w-full max-w-2xl flex flex-col gap-3"
-      @submit.prevent="go"
-    >
-      <UInput
-        ref="input"
-        v-model="query"
-        :placeholder="finderAi ? 'terminal agent on Linux, I already pay for Claude Max' : 'Search tools by name'"
-        size="xl"
-        class="w-full"
-        :ui="{ base: 'font-mono text-sm sm:text-base', trailing: 'pe-1.5' }"
-        :disabled="loading"
-        maxlength="300"
-        autofocus
-      >
-        <template #trailing>
-          <UButton
-            type="submit"
-            :label="finderAi ? 'Find' : 'Search'"
-            color="neutral"
-            size="sm"
-            :loading="loading"
-            :disabled="query.trim().length < 3"
-          />
-        </template>
-      </UInput>
-      <p
-        v-if="error"
-        class="text-sm text-error"
-      >
-        {{ error }}
-      </p>
-    </form>
-
-    <div
+    <template
       v-if="finderAi"
-      class="flex flex-wrap justify-center gap-1.5 max-w-2xl"
+      #links
     >
-      <UButton
-        v-for="example in examples"
-        :key="example"
-        :label="example"
-        color="neutral"
-        variant="soft"
-        size="xs"
-        class="rounded-full font-normal"
-        @click="useExample(example)"
-      />
-    </div>
+      <form
+        class="w-full max-w-2xl flex flex-col gap-3"
+        @submit.prevent="go"
+      >
+        <UInput
+          ref="input"
+          v-model="query"
+          :placeholder="finderAi ? 'terminal agent on Linux, I already pay for Claude Max' : 'Search tools by name'"
+          size="xl"
+          class="w-full max-w-xl mx-auto"
+          :disabled="loading"
+          :maxlength="67"
+          autofocus
+        >
+          <template #trailing>
+            <UButton
+              type="submit"
+              color="neutral"
+              variant="soft"
+              size="sm"
+              trailing-icon="i-lucide-chevron-right"
+              trailing
+              :loading="loading"
+              :disabled="query.trim().length < 3"
+              class="-me-1.5"
+            />
+          </template>
+        </UInput>
+        <p
+          v-if="error"
+          class="text-sm text-error"
+        >
+          {{ error }}
+        </p>
+      </form>
 
-    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted">
+      <div class="flex flex-wrap items-center justify-center gap-1.5 max-w-2xl mx-auto">
+        <UButton
+          v-for="example in examples"
+          :key="example"
+          :label="example"
+          color="neutral"
+          variant="soft"
+          size="xs"
+          class="rounded-full font-normal"
+          @click="useExample(example)"
+        />
+      </div>
+    </template>
+
+    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted py-4 mt-auto">
       <ULink
         to="/tools"
-        class="text-highlighted underline underline-offset-4"
       >
-        Browse all {{ tools.length }} tools
+        Explore {{ tools.length }} tools
       </ULink>
       <span>·</span>
       <ULink
         to="/compare"
-        class="hover:text-highlighted"
       >
         Compare
       </ULink>
@@ -141,12 +146,14 @@ defineShortcuts({
       <ULink
         to="/api/tools.json"
         target="_blank"
-        class="hover:text-highlighted"
       >
         JSON API
       </ULink>
       <span>·</span>
-      <span>No affiliate links. Data is open, in git.</span>
+      <ULink
+        :to="`https://github.com/${site.repo}/tree/main/content/tools`"
+        target="_blank"
+      >No affiliate links. Data is open, in git.</ULink>
     </div>
-  </UContainer>
+  </UPageHero>
 </template>

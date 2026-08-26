@@ -20,7 +20,7 @@ function onCopy(command: string) {
     <li
       v-for="entry in install"
       :key="entry.command ?? entry.url"
-      class="flex items-center gap-3 rounded-lg border border-default bg-white dark:bg-muted px-3 py-2"
+      class="flex items-center gap-3 rounded-lg border border-default bg-elevated/50 px-3 py-2"
     >
       <span class="w-16 shrink-0 font-mono text-xs uppercase tracking-wider text-muted">{{ entry.method }}</span>
       <template v-if="entry.command">

@@ -8,14 +8,6 @@ defineProps<{ error: NuxtError }>()
   <UApp>
     <AppHeader />
 
-    <UMain>
-      <UContainer class="py-24">
-        <UEmpty
-          :title="String(error.statusCode)"
-          :description="error.statusMessage || error.message"
-          :actions="[{ label: 'Back to the tools', to: '/tools', color: 'neutral' }]"
-        />
-      </UContainer>
-    </UMain>
+    <UError :error="error" />
   </UApp>
 </template>

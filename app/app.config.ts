@@ -10,9 +10,6 @@ export default defineAppConfig({
       primary: 'neutral',
       neutral: 'neutral'
     },
-    container: {
-      base: 'px-6'
-    },
     header: {
       slots: {
         root: 'backdrop-blur-none bg-default',
@@ -33,10 +30,10 @@ export default defineAppConfig({
     },
     pageHeader: {
       slots: {
-        root: 'border-b-0',
+        root: 'border-b-0 pb-0',
         headline: 'hidden',
         title: 'text-3xl sm:text-4xl font-medium tracking-tight',
-        description: 'text-base text-toned'
+        description: 'text-base text-toned max-w-4xl text-balance'
       }
     },
     pageSection: {

@@ -1,5 +1,5 @@
 import type { Feature, Host, Layer, Plan, Platform, Provider } from '../enums'
-import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS, optionLabel } from '../enums'
+import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS, lowerLabel, optionLabel } from '../enums'
 import type { CostDelta, ToolRecord } from '../types/tool'
 import { costDelta } from './pricing'
 
@@ -102,14 +102,14 @@ export function matchTool(tool: ToolRecord, req: Requirements, bySlug: Map<strin
   }
 
   for (const feature of req.features) {
-    check(tool.features.includes(feature), optionLabel(FEATURES, feature), `No ${optionLabel(FEATURES, feature).toLowerCase()}`)
+    check(tool.features.includes(feature), optionLabel(FEATURES, feature), `No ${lowerLabel(optionLabel(FEATURES, feature))}`)
   }
 
   return result
 }
 
 function articleFor(label: string) {
-  return /^[aeiou]/i.test(label) ? `an ${label.toLowerCase()}` : `a ${label.toLowerCase()}`
+  return `${/^[aeiou]/i.test(label) ? 'an' : 'a'} ${lowerLabel(label)}`
 }
 
 export function deltaPrice(match?: MatchResult): number | null {

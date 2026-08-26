@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LAYERS, optionLabel } from '#shared/enums'
+import { LAYERS, optionLabelLower } from '#shared/enums'
 import { parsePair } from '#shared/utils/compare'
 
 const route = useRoute()
@@ -16,9 +16,8 @@ if (!pair || picked.length !== 2) {
 const [a, b] = picked as [NonNullable<typeof picked[number]>, NonNullable<typeof picked[number]>]
 
 function intro(t: typeof a) {
-  const label = optionLabel(LAYERS, t.layer)
-  const lower = label === 'AI-native IDE' ? label : label.toLowerCase()
-  return `${t.name} is ${/^[aeiou]/i.test(lower) ? 'an' : 'a'} ${lower} by ${t.vendor}`
+  const label = optionLabelLower(LAYERS, t.layer)
+  return `${t.name} is ${/^[aeiou]/i.test(label) ? 'an' : 'a'} ${label} by ${t.vendor}`
 }
 const description = `${intro(a)}. ${intro(b)}. Every cell below is read from the directory data and points back to a vendor page.`
 
@@ -36,17 +35,19 @@ defineOgImage('ToolSatori', {
 
 <template>
   <UContainer>
-    <UPageHeader
-      :title="`${a.name} vs ${b.name}`"
-      :description="description"
-      :ui="{ root: 'py-8 lg:py-12' }"
-      :links="[{ label: 'Add more tools', to: `/compare?tools=${a.slug},${b.slug}`, icon: 'i-lucide-plus', color: 'neutral', variant: 'outline' }]"
-    />
-    <div class="pb-16">
-      <CompareTable
-        :tools="[a, b]"
-        :by-slug="bySlug"
+    <UPage>
+      <UPageHeader
+        :title="`${a.name} vs ${b.name}`"
+        :description="description"
+        :links="[{ label: 'Add more tools', to: `/compare?tools=${a.slug},${b.slug}`, icon: 'i-lucide-plus', color: 'neutral', variant: 'solid' }]"
       />
-    </div>
+
+      <UPageBody>
+        <CompareTable
+          :tools="[a, b]"
+          :by-slug="bySlug"
+        />
+      </UPageBody>
+    </UPage>
   </UContainer>
 </template>

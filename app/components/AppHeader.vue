@@ -4,9 +4,8 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 const { site } = useAppConfig()
 
 const items = computed<NavigationMenuItem[]>(() => [
-  { label: 'Tools', to: '/tools' },
+  { label: 'Explore', to: '/tools' },
   { label: 'Compare', to: '/compare' },
-  { label: 'Changelog', to: `https://github.com/${site.repo}/commits/${site.branch}/content/tools`, target: '_blank' },
   { label: 'API', to: '/api/tools.json', target: '_blank' },
   { label: 'GitHub', to: `https://github.com/${site.repo}`, target: '_blank' }
 ])
@@ -28,21 +27,13 @@ const items = computed<NavigationMenuItem[]>(() => [
 
     <template #right>
       <UColorModeButton />
-      <UButton
-        :to="`https://github.com/${site.repo}`"
-        target="_blank"
-        icon="i-simple-icons-github"
-        color="neutral"
-        variant="ghost"
-        aria-label="GitHub"
-      />
     </template>
 
     <template #body>
       <UNavigationMenu
         :items="items"
         color="neutral"
-        variant="link"
+        variant="pill"
         orientation="vertical"
         class="-mx-2.5"
       />

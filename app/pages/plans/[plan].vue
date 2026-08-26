@@ -38,42 +38,46 @@ defineOgImage('ToolSatori', {
 
 <template>
   <UContainer>
-    <UPageHeader
-      :title="`What you can use with a ${plan.label} subscription`"
-      :description="PLAN_INTROS[plan.value as Plan]"
-      :ui="{ root: 'py-8 lg:py-12', description: 'max-w-3xl' }"
-      :links="[{ label: 'Open in the finder', to: `/tools?plans=${plan.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'outline' }]"
-    />
-    <div class="flex flex-col gap-10 pb-16">
-      <section
-        v-for="group in groups"
-        :key="group.key"
-        class="flex flex-col gap-4"
-      >
-        <div>
-          <h2 class="text-base font-medium tracking-tight text-highlighted">
-            {{ group.title }}
-            <span class="text-muted font-normal">({{ group.items.length }})</span>
-          </h2>
-          <p class="text-sm text-muted">
-            {{ group.description }}
-          </p>
-        </div>
-        <UPageGrid class="gap-4">
-          <ToolCard
-            v-for="{ tool, match } in group.items"
-            :key="tool.slug"
-            :tool="tool"
-            :match="match"
-          />
-        </UPageGrid>
-      </section>
-      <UEmpty
-        v-if="!groups.length"
-        icon="i-lucide-wallet"
-        title="Nothing in the directory uses this plan yet"
-        :description="`No tool lists ${plan.label} as a plan it is part of or signs in with.`"
+    <UPage>
+      <UPageHeader
+        :title="`What you can use with a ${plan.label} subscription`"
+        :description="PLAN_INTROS[plan.value as Plan]"
+        :links="[{ label: 'Open in the finder', to: `/tools?plans=${plan.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'solid' }]"
       />
-    </div>
+
+      <UPageBody>
+        <section
+          v-for="group in groups"
+          :key="group.key"
+          class="flex flex-col gap-4"
+        >
+          <div>
+            <h2 class="text-base font-medium tracking-tight text-highlighted">
+              {{ group.title }}
+              <span class="text-muted font-normal">({{ group.items.length }})</span>
+            </h2>
+            <p class="text-sm text-muted">
+              {{ group.description }}
+            </p>
+          </div>
+
+          <UPageGrid class="gap-4">
+            <ToolCard
+              v-for="{ tool, match } in group.items"
+              :key="tool.slug"
+              :tool="tool"
+              :match="match"
+            />
+          </UPageGrid>
+        </section>
+
+        <UEmpty
+          v-if="!groups.length"
+          icon="i-lucide-wallet"
+          title="Nothing in the directory uses this plan yet"
+          :description="`No tool lists ${plan.label} as a plan it is part of or signs in with.`"
+        />
+      </UPageBody>
+    </UPage>
   </UContainer>
 </template>
