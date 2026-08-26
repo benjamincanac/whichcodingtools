@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@comark/nuxt',
     '@nuxtjs/seo',
     '@vercel/analytics',
+    '@vercel/speed-insights',
     // The maintenance agent in agent/, deployed with the site (Vercel Cron, Sandbox, Workflow).
     'eve/nuxt'
   ],
