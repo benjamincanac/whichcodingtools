@@ -32,6 +32,7 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - Then call `github__create_pull_request`. It opens ready for review. Pushing to the branch of a pull request that is already open adds a commit to it instead, and then `github__update_pull_request` puts the body back in step with the branch and `github__comment` says what the commit changed. A body describing only the first commit is a worse account of the change than no body at all.
 - `github__close_pull_request` is for one of yours whose finding no longer holds. One waiting on Benjamin is not that.
 - PR title: `data(<slug>): <what changed>`. Body: a short before and after list, the vendor URL, the date, and a "Not changed in this PR" line for anything else noticed.
+- A PR that resolves an issue opens its body with `Closes #<n>`, on its own line, keyword directly against the reference. `Closes the finding in #12` is a mention, not a link, and leaves the issue open once the PR merges. Check it landed: a linked PR shows the issue under "Development", and `gh pr view <n> --json closingIssuesReferences` lists it.
 
 ## Logos
 
