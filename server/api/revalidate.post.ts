@@ -1,4 +1,5 @@
 import { waitUntil } from '@vercel/functions'
+import { LAYER_VALUES, PLAN_VALUES } from '#shared/enums'
 import { pairSlug, relatedPairs } from '#shared/utils/compare'
 
 /**
@@ -41,8 +42,28 @@ export default defineEventHandler(async (event) => {
   const { tools, bySlug } = await loadToolsIndexed()
 
   // What to purge: the shared surfaces, the touched tools, and every page that lists them.
-  const paths = new Set<string>(['/', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/compare.json', '/api/content/list', '/api/__sitemap__/urls'])
+  const paths = new Set<string>(['/', '/tools', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/compare.json', '/api/content/list', '/api/__sitemap__/urls'])
   const pairs = relatedPairs(tools)
+
+  // Deleted files: the slug is in `touched` but the corpus no longer has the record, so nothing
+  // says which layer listed it, which pairs it was in, or which surviving pages named it. The
+  // `wrapped_by` direction is the one that has no trace at all: the deleted file's own `wraps`
+  // went with it, so the tools it pointed at cannot be found from what is left. Rather than
+  // guess, a removal purges the tool pages wholesale. It happens once in a long while.
+  const removed = [...touched].filter(slug => !bySlug.has(slug))
+  if (removed.length) {
+    for (const layer of LAYER_VALUES) paths.add(`/layers/${layer}`)
+    for (const tool of tools) paths.add(`/tools/${tool.slug}`)
+    // Against the survivors and against each other: two tools removed in the same push are in
+    // neither list, so their shared comparison would otherwise sit cached until it expired.
+    const others = [...tools.map(t => t.slug), ...removed]
+    for (const slug of removed) {
+      for (const other of others) {
+        if (other !== slug) paths.add(`/compare/${pairSlug(slug, other)}`)
+      }
+    }
+  }
+
   for (const slug of touched) {
     paths.add(`/tools/${slug}`)
     paths.add(`/api/tools/${slug}.json`)
@@ -58,7 +79,7 @@ export default defineEventHandler(async (event) => {
     for (const host of tool.wrapped_by) paths.add(`/tools/${host}`)
     for (const wrap of tool.wraps) if (bySlug.has(wrap.tool)) paths.add(`/tools/${wrap.tool}`)
   }
-  for (const plan of ['claude', 'chatgpt', 'copilot', 'cursor', 'gemini', 'grok']) paths.add(`/plans/${plan}`)
+  for (const plan of PLAN_VALUES) paths.add(`/plans/${plan}`)
 
   // Every page is served twice now, as HTML and as markdown under /raw. Purging only the page
   // would leave an agent reading an hour-old price while the site shows the new one, which is

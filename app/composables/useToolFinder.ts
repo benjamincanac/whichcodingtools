@@ -85,6 +85,9 @@ export function useToolFinder() {
 
   const count = computed(() => requirementCount(requirements.value))
 
+  /** Nothing asked for and nothing searched: the listing has no signal to rank on. */
+  const plain = computed(() => count.value === 0 && !requirements.value.q.trim())
+
   const { scoreItem } = useFilter()
 
   /**
@@ -117,11 +120,17 @@ export function useToolFinder() {
     const items = searched.value.items.map(tool => ({ tool, match: matchTool(tool, req, bySlug.value) }))
     const price = (m: ToolMatch) => deltaPrice(m.match) ?? m.tool.entry_price ?? Number.POSITIVE_INFINITY
     const rank = (m: ToolMatch) => searched.value.relevance.get(m.tool.slug) ?? 0
+    const name = (a: ToolMatch, b: ToolMatch) => a.tool.name.localeCompare(b.tool.name)
     const sorters: Record<SortKey, (a: ToolMatch, b: ToolMatch) => number> = {
-      match: (a, b) => a.match.missing.length - b.match.missing.length || rank(a) - rank(b) || price(a) - price(b) || b.tool.freshness.verified_at.localeCompare(a.tool.freshness.verified_at) || a.tool.name.localeCompare(b.tool.name),
-      name: (a, b) => a.tool.name.localeCompare(b.tool.name),
-      verified: (a, b) => b.tool.freshness.verified_at.localeCompare(a.tool.freshness.verified_at) || a.tool.name.localeCompare(b.tool.name),
-      price: (a, b) => price(a) - price(b) || a.tool.name.localeCompare(b.tool.name)
+      // "Best match" against nothing leaves every key tied: 66 of 77 tools start at $0, so price
+      // ties too and freshness used to break it, which put whatever the last sweep touched on
+      // top. Unfiltered the page groups by layer instead, and this orders inside the group.
+      match: plain.value
+        ? name
+        : (a, b) => a.match.missing.length - b.match.missing.length || rank(a) - rank(b) || price(a) - price(b) || b.tool.freshness.verified_at.localeCompare(a.tool.freshness.verified_at) || name(a, b),
+      name,
+      verified: (a, b) => b.tool.freshness.verified_at.localeCompare(a.tool.freshness.verified_at) || name(a, b),
+      price: (a, b) => price(a) - price(b) || name(a, b)
     }
     return items.sort(sorters[sort.value])
   })
@@ -132,5 +141,5 @@ export function useToolFinder() {
   const close = computed(() => matches.value.filter(m => m.match.missing.length > 0 && m.match.missing.length <= closeLimit.value))
   const hidden = computed(() => matches.value.length - exact.value.length - close.value.length)
 
-  return { tools, status, requirements, sort, update, reset, count, matches, exact, close, hidden }
+  return { tools, status, requirements, sort, update, reset, count, plain, matches, exact, close, hidden }
 }
