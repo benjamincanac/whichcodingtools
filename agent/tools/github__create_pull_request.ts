@@ -16,6 +16,8 @@ export default defineTool({
       throw new Error('This turn may not open a pull request. Say what you found instead.')
     }
     const limited = isLimited(ctx.session.auth)
-    return createPullRequest({ ...input, ...(limited ? { ownBranches: ownBranches.get() } : {}) })
+    // `auth` rather than a label: the provenance is read off the principal here, so it stays a
+    // thing the turn cannot choose about itself.
+    return createPullRequest({ ...input, auth: ctx.session.auth, ...(limited ? { ownBranches: ownBranches.get() } : {}) })
   }
 })

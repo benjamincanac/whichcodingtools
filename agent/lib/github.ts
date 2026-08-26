@@ -1,4 +1,6 @@
 import { connectGitHubCredentials } from '@vercel/connect/eve'
+import type { SessionAuth } from 'eve/context'
+import { isAutonomous, isVisitor } from './trust'
 
 const HOME_REPO = 'benjamincanac/whichcodingtools'
 const REPO_SHAPE = /^[\w.-]+\/[\w.-]+$/
@@ -322,11 +324,24 @@ export async function pushToAgentBranch(input: { branch: string, message: string
  * the branch name, which `github__push_files` enforces, and never on a label, which anyone with
  * write access can add.
  */
-function labelsFor(branch: string) {
-  return REVERIFY_BRANCH.test(branch) ? ['agent', 're-verify'] : ['agent']
+function labelsFor(branch: string, auth?: SessionAuth) {
+  const labels = ['agent']
+  if (REVERIFY_BRANCH.test(branch)) labels.push('re-verify')
+
+  // Who caused it, which the branch name no longer says. `ADD_BRANCH` used to force the first
+  // responder onto `agent/add-*`, so a glance at the queue told you a stranger's issue was
+  // upstream of the diff. The `ownBranches` rule is the better confinement but it carries no
+  // such signal, and a sweep's pull request, an issue form's and one someone talked the agent
+  // into through a mention now arrive looking identical. That matters more since the
+  // re-verification lane started merging on its own: the queue is a thing to skim now.
+  if (auth) {
+    if (isVisitor(auth)) labels.push('visitor')
+    else if (isAutonomous(auth)) labels.push('responder')
+  }
+  return labels
 }
 
-export async function createPullRequest(input: { branch: string, title: string, body: string, ownBranches?: string[] }) {
+export async function createPullRequest(input: { branch: string, title: string, body: string, ownBranches?: string[], auth?: SessionAuth }) {
   assertAgentBranch(input.branch, 'open a pull request from')
   // Same rule as the push. Opening a pull request from a branch the turn did not write is
   // how it would put its name on someone else's commits, and #44's auto-merge lane sharpens
@@ -345,7 +360,7 @@ export async function createPullRequest(input: { branch: string, title: string, 
   // A second call, because the create-pull endpoint ignores `labels`. A repository missing the
   // label logs and moves on: filterability is worth a round trip, it is not worth the pull
   // request, and unlike an issue form there is nothing downstream that stops without it.
-  const wanted = labelsFor(input.branch)
+  const wanted = labelsFor(input.branch, input.auth)
   const applied = await githubApi<{ name: string }[]>('POST', `/repos/${REPO}/issues/${pr.number}/labels`, { labels: wanted })
     .then(labels => labels.map(l => l.name))
     .catch((error) => {

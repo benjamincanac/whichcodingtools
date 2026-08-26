@@ -38,6 +38,12 @@ export function isAutonomous(auth: SessionAuth) {
     || auth.initiator?.principalId === AUTONOMOUS_PRINCIPAL
 }
 
+/** The visitor twin of `isAutonomous`, read the same pessimistic way and for the same reason. */
+export function isVisitor(auth: SessionAuth) {
+  return auth.current?.principalId === VISITOR_PRINCIPAL
+    || auth.initiator?.principalId === VISITOR_PRINCIPAL
+}
+
 /**
  * Either principal is one of the unattended tiers, read the same pessimistic way and for the
  * same reason: once a visitor has spoken in a thread, the narrower branch rule stays on it
