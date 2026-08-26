@@ -36,7 +36,13 @@ interface CommitDetail {
   html_url: string
   commit?: { committer?: { date?: string }, author?: { date?: string } }
   parents?: { sha: string }[]
-  files?: { filename: string, status: string }[]
+  files?: { filename: string, status: string, previous_filename?: string }[]
+}
+
+/** The HTTP status behind a failed `$fetch`, wherever ofetch hung it. */
+function statusOf(error: unknown): number | undefined {
+  const e = error as { status?: number, statusCode?: number, response?: { status?: number } }
+  return e?.response?.status ?? e?.statusCode ?? e?.status
 }
 
 function slugOf(path: string) {
@@ -47,18 +53,23 @@ function slugOf(path: string) {
 async function blobAt(ref: string, path: string): Promise<ToolLike | undefined> {
   const key = `blob:${ref}:${path}`
   const cached = await changesStorage.getItem<string>(key)
-  const text = cached ?? await (async () => {
+  let text = cached ?? undefined
+
+  if (text === undefined) {
     try {
       const file = await githubApi<{ content?: string, encoding?: string }>(`/repos/${githubRepo()}/contents/${path}`, { ref })
-      const decoded = file.content && file.encoding === 'base64' ? Buffer.from(file.content, 'base64').toString('utf8') : ''
-      await changesStorage.setItem(key, decoded)
-      return decoded
-    } catch {
-      // A 404 is the normal answer for the parent of a file that was added in this commit.
-      await changesStorage.setItem(key, '')
-      return ''
+      text = file.content && file.encoding === 'base64' ? Buffer.from(file.content, 'base64').toString('utf8') : ''
+    } catch (error) {
+      // Only a 404 means the file was not there, and it is the normal answer for the parent of a
+      // file added in this commit. Everything else has to propagate: a 403, a 429 or a 500 on one
+      // side of a diff would otherwise be stored as an empty file for a day, and an empty side
+      // reads as "added to the directory" or "removed from" it. A feed whose whole claim is that
+      // it reports real changes must not invent one out of a rate limit.
+      if (statusOf(error) !== 404) throw error
+      text = ''
     }
-  })()
+    await changesStorage.setItem(key, text)
+  }
 
   if (!text) return undefined
   try {
@@ -81,8 +92,11 @@ async function commitChanges(sha: string): Promise<ChangeCommit | undefined> {
 
   const tools: ChangedTool[] = []
   for (const file of touched) {
+    // A rename is one file under two paths. Reading the parent at the new path answers 404 and
+    // the change reads as an addition, which is exactly wrong for a directory that renames slugs.
+    const parentPath = file.previous_filename ?? file.filename
     const [before, after] = await Promise.all([
-      parent ? blobAt(parent, file.filename) : Promise.resolve(undefined),
+      parent ? blobAt(parent, parentPath) : Promise.resolve(undefined),
       file.status === 'removed' ? Promise.resolve(undefined) : blobAt(sha, file.filename)
     ])
     const lines = toolChanges(before, after)
@@ -119,7 +133,12 @@ export async function loadChanges(): Promise<ChangeCommit[]> {
     const entries: ChangeCommit[] = []
     for (const commit of commits) {
       if (entries.length >= MAX_ENTRIES) break
-      const entry = await commitChanges(commit.sha).catch(() => undefined)
+      const entry = await commitChanges(commit.sha).catch((error) => {
+        // One unreadable commit is a gap in the feed. Silently dropping it is fine, silently
+        // dropping it without a line in the log is how a permanent gap goes unnoticed.
+        console.error(`[changes] skipped ${commit.sha.slice(0, 7)}`, error)
+        return undefined
+      })
       if (entry) entries.push(entry)
     }
 

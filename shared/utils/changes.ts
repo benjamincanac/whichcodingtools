@@ -210,6 +210,18 @@ export function toolChanges(before: ToolLike | undefined, after: ToolLike | unde
   )
   if (wraps) lines.push(wraps)
 
+  // The set above only sees which tools it runs. Whether it reuses their login is the more
+  // interesting half, since it is the difference between a second bill and no second bill.
+  const reusedBefore = new Map((before.wraps ?? []).filter(w => w.tool).map(w => [w.tool!, w.uses_subscription ?? false]))
+  for (const wrap of after.wraps ?? []) {
+    if (!wrap.tool || !reusedBefore.has(wrap.tool)) continue
+    const now = wrap.uses_subscription ?? false
+    if (reusedBefore.get(wrap.tool) === now) continue
+    lines.push(now
+      ? `${wrap.tool} now runs on your existing login`
+      : `${wrap.tool} no longer runs on your existing login, model usage bills separately`)
+  }
+
   const aliases = setChange(
     'former names',
     before.aliases?.map(a => a.name).filter((n): n is string => Boolean(n)),
