@@ -297,9 +297,10 @@ export async function pushToAgentBranch(input: { branch: string, message: string
 
 export async function createPullRequest(input: { branch: string, title: string, body: string, ownBranches?: string[] }) {
   assertAgentBranch(input.branch, 'open a pull request from')
-  // Same rule as the push, and it matters most here: `agent-automerge.yml` merges a pull
-  // request on `agent/re-verify-<date>` with no person involved once CI passes. Opening one
-  // from a sweep's branch is the one way a limited turn could reach that.
+  // Same rule as the push. Opening a pull request from a branch the turn did not write is
+  // how it would put its name on someone else's commits, and the auto-merge lane #44 adds
+  // makes that sharper: a pull request on `agent/re-verify-<date>` merges with no person
+  // involved once CI passes, so a sweep's branch is somewhere a limited turn could reach one.
   if (input.ownBranches && !input.ownBranches.includes(input.branch)) {
     throw new Error(`Branch ${JSON.stringify(input.branch)} was not opened by this turn. It opens pull requests from the branches it pushed itself.`)
   }
