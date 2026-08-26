@@ -6,6 +6,7 @@ const { site } = useAppConfig()
 const items = computed<NavigationMenuItem[]>(() => [
   { label: 'Explore', to: '/tools' },
   { label: 'Compare', to: '/compare' },
+  { label: 'Changes', to: '/changes' },
   { label: 'API', to: '/api/tools.json', target: '_blank' },
   { label: 'GitHub', to: `https://github.com/${site.repo}`, target: '_blank' }
 ])

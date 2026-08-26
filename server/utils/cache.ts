@@ -20,6 +20,15 @@ export function contentCacheDriver(sha: string): Driver {
   return vercelRuntimeCache({ base: `content:${CONTENT_VERSION}:${sha}`, ttl: CONTENT_TTL })
 }
 
+/**
+ * Git history for `/changes`. A blob is keyed by the commit it was read at, so it is immutable
+ * and can live as long as the content cache; the assembled feed is keyed by the head SHA, so it
+ * is rebuilt only when a commit actually lands on `content/tools`.
+ */
+export const changesStorage = createStorage({
+  driver: onVercel() ? vercelRuntimeCache({ base: `changes:${CONTENT_VERSION}`, ttl: CONTENT_TTL }) : memoryDriver()
+})
+
 /** Branch to content SHA pointer, shared by every function instance so one GitHub call serves all of them. */
 export const refStorage = createStorage({
   driver: onVercel() ? vercelRuntimeCache({ base: 'content:refs', ttl: REF_TTL }) : memoryDriver()

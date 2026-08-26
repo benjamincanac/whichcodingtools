@@ -2,6 +2,7 @@ import { LAYERS, PLANS } from '#shared/enums'
 import { parsePair } from '#shared/utils/compare'
 import type { ToolRecord } from '#shared/types/tool'
 import type { MarkdownContext, MarkdownPage } from './context'
+import { renderChanges } from './changes'
 import { renderCompareIndex, renderComparePage } from './compare'
 import { renderLayerPage, renderPlanPage, renderToolsIndex } from './sections'
 import { renderToolPage } from './tool'
@@ -22,6 +23,8 @@ export function renderPage(ctx: MarkdownContext, route: string): MarkdownPage | 
       return null
     case 'tools':
       return tail ? toolPage(ctx, tail) : renderToolsIndex(ctx)
+    case 'changes':
+      return tail ? null : renderChanges(ctx)
     case 'compare':
       return tail ? pairPage(ctx, tail) : renderCompareIndex(ctx)
     case 'layers':

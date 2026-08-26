@@ -26,6 +26,9 @@ export function sitePages(tools: ToolRecord[], bySlug: Map<string, ToolRecord>):
   const pages = [
     { route: '/tools', lastmod: newest },
     { route: '/compare', lastmod: newest },
+    // Its content is git history, but the newest verification is the closest honest lastmod:
+    // a commit that changed a value bumped a `verified_at` in the same diff.
+    { route: '/changes', lastmod: newest },
     ...tools.map(tool => ({ route: `/tools/${tool.slug}`, lastmod: tool.freshness.verified_at })),
     ...LAYERS.map(layer => ({
       route: `/layers/${layer.value}`,

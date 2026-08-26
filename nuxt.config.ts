@@ -37,6 +37,9 @@ export default defineNuxtConfig({
       '/llms.txt': { isr: 60 * 60 },
       '/tools': { isr: { expiration: 60 * 60, passQuery: true } },
       '/tools/**': { isr: 60 * 60 },
+      '/changes': { isr: 60 * 60 },
+      '/changes.xml': { isr: 60 * 60 },
+      '/api/changes.json': { isr: 60 * 60 },
       '/api/tools.json': { isr: 60 * 60 },
       '/api/tools/**': { isr: 60 * 60 },
       '/api/content/**': { isr: 60 * 60 },
@@ -113,9 +116,9 @@ export default defineNuxtConfig({
     // rewrite, and a pattern that only half-overlaps a rule gets a duplicate pair of routes.
     // The query is not preserved on the twins of /tools and /compare, which is fine: their
     // markdown ignores the query and an agent that wants it filtered has /api/tools.json.
-    routes: ['/', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**'],
+    routes: ['/', '/tools', '/tools/**', '/compare', '/compare/**', '/changes', '/layers/**', '/plans/**'],
     sitemap: {
-      markdown: { labels: { tools: 'Tools', compare: 'Comparisons', layers: 'Layers', plans: 'Plans' } }
+      markdown: { labels: { tools: 'Tools', compare: 'Comparisons', changes: 'Changes', layers: 'Layers', plans: 'Plans' } }
     },
     discovery: {
       links: [
@@ -158,7 +161,8 @@ export default defineNuxtConfig({
         title: 'Data',
         links: [
           { title: 'API, every tool', description: 'The same records the site renders, as one JSON document.', href: '/api/tools.json' },
-          { title: 'Changelog, every data commit', href: 'https://github.com/benjamincanac/whichcodingtools/commits/main/content/tools' }
+          { title: 'Changelog, Atom', description: 'Every price, tier, plan and status change, newest first. Semantic changes only, a re-verification that changed nothing is not an entry.', href: '/changes.xml' },
+          { title: 'Changelog, JSON', description: 'The same list as data.', href: '/api/changes.json' }
         ]
       }
     ],

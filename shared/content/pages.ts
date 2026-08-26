@@ -70,6 +70,13 @@ export const PLAN_GROUPS = [
   { key: 'wraps', title: 'Runs a tool on this plan', description: 'Hosts and orchestrators that reuse the login of a tool included in the plan. The chip is what they cost on top.' }
 ] as const
 
+export const CHANGES_INDEX = {
+  title: 'What changed in AI coding tool pricing',
+  description: 'Every price, tier, plan and status change in the directory, newest first, derived from the data rather than from commit messages. Also an Atom feed at /changes.xml.'
+}
+
+export const CHANGES_INTRO = 'Every entry below comes from the diff of a tool\'s file, not from what the commit said it did. A re-check that confirmed the vendor page and changed nothing is not here: that is the absence of news, and listing it would drown the entries that matter.'
+
 export function pairPageTitle(a: Pick<ToolRecord, 'name'>, b: Pick<ToolRecord, 'name'>) {
   return `${a.name} vs ${b.name}`
 }

@@ -1,5 +1,6 @@
 import { LAYERS, PLANS, optionLabel } from '#shared/enums'
 import {
+  CHANGES_INDEX,
   COMPARE_INDEX,
   TOOLS_INDEX,
   layerPageTitle,
@@ -25,12 +26,14 @@ import { renderPage } from '../markdown/render'
  * by `server/markdown/`, which is also what makes a tool page and its twin impossible to drift.
  */
 
-async function context(): Promise<MarkdownContext> {
+async function context(route?: string): Promise<MarkdownContext> {
   const { tools, bySlug } = await loadToolsIndexed()
   return {
     tools,
     bySlug,
-    yamlUrl: slug => `https://github.com/${githubRepo()}/blob/${contentBranch()}/${contentDir()}/${slug}.yml`
+    yamlUrl: slug => `https://github.com/${githubRepo()}/blob/${contentBranch()}/${contentDir()}/${slug}.yml`,
+    // One route reads git rather than `content/tools`, and it is the only one that pays for it.
+    changes: route === '/changes' ? await loadChanges() : undefined
   }
 }
 
@@ -62,6 +65,8 @@ function describe(route: string, ctx: MarkdownContext): { title: string, descrip
       const [a, b] = pair ?? []
       return a && b ? { title: pairPageTitle(a, b), description: pairPageDescription(a, b) } : null
     }
+    case 'changes':
+      return tail ? null : CHANGES_INDEX
     case 'layers': {
       const layer = LAYERS.find(l => l.value === tail)
       return layer ? { title: layerPageTitle(layer), description: layer.description } : null
@@ -118,7 +123,7 @@ export default defineAgentContentSource({
    * instead of being a second hand-maintained list.
    */
   async get(route: string, event?: H3Event) {
-    const page = renderPage(await context(), route)
+    const page = renderPage(await context(route), route)
     if (!page) return null
     return {
       ...page,

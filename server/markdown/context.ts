@@ -1,4 +1,5 @@
 import type { ToolRecord } from '#shared/types/tool'
+import type { ChangeCommit } from '../utils/changes'
 
 /**
  * Everything a renderer needs, resolved once per request by the content source.
@@ -11,6 +12,11 @@ export interface MarkdownContext {
   bySlug: Map<string, ToolRecord>
   /** GitHub permalink to a tool's YAML file, the provenance line under Sources. */
   yamlUrl: (slug: string) => string
+  /**
+   * Git history, and the one thing here that is not derived from `content/tools`. Loaded only
+   * for `/changes`, because it is a network read and every other page would pay for it.
+   */
+  changes?: ChangeCommit[]
 }
 
 /**
