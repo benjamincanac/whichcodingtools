@@ -171,15 +171,31 @@ async function mayAsk(ctx: GitHubInboundContext, comment: GitHubComment) {
   return answers > 0 && answers < VISITOR_REPLY_CAP
 }
 
-/** How many comments in the thread are the agent's, or null when the count could not be read. */
+/** 100 is the endpoint's maximum, and 10 pages of it is a runaway guard, not a thread size. */
+const COMMENT_PAGE = 100
+const MAX_COMMENT_PAGES = 10
+
+/**
+ * How many comments in the thread are the agent's, or null when the count could not be read.
+ *
+ * Paginated, because the endpoint returns oldest first: a thread past 100 comments would hide
+ * every agent reply behind page 1 and read as one it never spoke in. It stops at the cap
+ * instead of counting to the end, since neither caller can use a larger number than that.
+ */
 async function agentComments(ctx: GitHubInboundContext, issueNumber: number) {
+  let count = 0
   try {
-    const res = await ctx.github.request<{ user?: { login?: string } }[]>({
-      method: 'GET',
-      path: `/repos/${REPO}/issues/${issueNumber}/comments?per_page=100`
-    })
-    if (!res.ok) throw new Error(`comments returned ${res.status}`)
-    return res.body.filter(c => isAgentLogin(c.user?.login ?? '')).length
+    for (let page = 1; page <= MAX_COMMENT_PAGES; page++) {
+      const res = await ctx.github.request<{ user?: { login?: string } }[]>({
+        method: 'GET',
+        path: `/repos/${REPO}/issues/${issueNumber}/comments?per_page=${COMMENT_PAGE}&page=${page}`
+      })
+      if (!res.ok) throw new Error(`comments returned ${res.status}`)
+      count += res.body.filter(c => isAgentLogin(c.user?.login ?? '')).length
+      // A short page is the last one, and every thread this repository has is one page.
+      if (count >= VISITOR_REPLY_CAP || res.body.length < COMMENT_PAGE) break
+    }
+    return count
   } catch (error) {
     console.warn('[agent] Could not count the agent comments on the thread:', error instanceof Error ? error.message : error)
     return null
