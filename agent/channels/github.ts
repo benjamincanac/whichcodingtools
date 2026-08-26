@@ -178,14 +178,24 @@ ${text}
 </issue-body>`
 }
 
+/**
+ * Both responders run once and get no follow-up. The mention path that starts another turn is
+ * the maintainer's alone, and a second label does not restart one either once `alreadyAnswered`
+ * sees the reply. So a turn that ends on a question parks the issue until Benjamin answers it by
+ * hand, and asks it in front of the reporter, because the last message is what gets posted.
+ */
+const NO_ONE_TO_ASK = `There is nobody to ask. This turn runs once and gets no follow-up: the reporter cannot start another one, and neither can you. Never end on a question, a numbered choice or a request to proceed. Decide, act, and say what you decided. When the request does not fit the schema, the reply is which part does not fit and why, written to the reporter.`
+
 const FIRST_RESPONDER = `This is an unattended turn on a new "Add a tool" issue. Load the \`contributing\` skill, then:
 1. Read the issue body below. If it contains a YAML block, write it to /workspace/repo/content/tools/<slug>.yml and run \`pnpm validate\`. If it has no YAML, build a draft from whichever fields the form carries, most of them are optional, and the vendor pages you fetch from the homepage, leaving fields you could not verify out rather than guessed.
 2. If validation passes, push the file with \`github__push_files\` on branch \`agent/add-<slug>-<YYYY-MM-DD>\` and message \`data(<slug>): add <name>\`, then open a pull request that links this issue.
 3. Finish with one short message: what you validated, the PR link, or the validation issues as a list the reporter can fix. There is no reply tool and you do not need one, your last message is posted in the issue as the reply. Write it to the reporter, do not restate the rules, and never describe your own tooling or what you could not call.
-You may not open issues, edit other files, or merge anything. If the issue is not actually about adding a tool, reply with one sentence saying a maintainer will look at it.`
+You may not open issues, edit other files, or merge anything. If the issue is not actually about adding a tool, reply with one sentence saying a maintainer will look at it.
+${NO_ONE_TO_ASK}`
 
 const OUTDATED_RESPONDER = `This is an unattended turn on a new "Outdated data" issue. Load the \`outdated-report\` skill and follow it: work out which tool and which field the report is about, re-read the vendor page yourself, and either open a pull request that fixes the file or reply with what the page says today. The report is a pointer, the vendor page is the evidence, and a report that turns out to be wrong is still an answer worth writing. Finish with one short message: there is no reply tool and you do not need one, your last message is posted in the issue as the reply. Write it to the reporter, do not restate the rules, and never describe your own tooling or what you could not call.
-You may not open issues, touch anything outside \`content/\` and \`public/logos/\`, or merge anything. If the issue is not actually about a fact on a tool page, reply with one sentence saying a maintainer will look at it.`
+You may not open issues, touch anything outside \`content/\` and \`public/logos/\`, or merge anything. If the issue is not actually about a fact on a tool page, reply with one sentence saying a maintainer will look at it.
+${NO_ONE_TO_ASK}`
 
 /**
  * One entry per issue form, in the order they are matched. The label is the gate, and GitHub
