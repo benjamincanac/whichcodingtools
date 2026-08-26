@@ -11,10 +11,19 @@ import { blocks, bullets, heading, lead, link, sentences } from './md'
 
 function entryLine(entry: GraveyardEntry): string {
   const tool = entry.tool
+  // The chain is in the headline for a rename, but not for a tool that was renamed and then shut
+  // down, whose headline is the shutdown. The page renders the chips either way, so without this
+  // the twin would quietly say less than the page.
+  const chain = entry.chain ?? []
+  const lineage = entry.kind !== 'renamed' && chain.length > 1
+    ? `Name history: ${chain.map(name => name.name).join(' \u2192 ')}`
+    : undefined
+
   return sentences(
     `${link(tool.name, `/tools/${tool.slug}`)} (${optionLabel(LAYERS, tool.layer)}, ${tool.vendor}, ${monthYear(entry.date)})`,
     graveyardHeadline(entry),
     tool.description,
+    lineage,
     entry.successor && `Successor: ${link(entry.successor.name, `/tools/${entry.successor.slug}`)}`
   )
 }
