@@ -15,6 +15,8 @@ For each tool, follow the pricing-watch procedure for its pricing source (load t
 
 - Anything changed: one PR per tool with the diff and bumped `verified_at` on the lines you re-read.
 - Nothing changed: bump `verified_at` on the source lines you actually re-read, and batch every no-change bump of the run into ONE PR on branch `agent/re-verify-<YYYY-MM-DD>`, titled `data: re-verify <n> tools with unchanged sources`. This is the documented exception to the one PR per tool rule, and the one case where a date bump without a value diff is right: the comparison is the work, and the PR body lists each page checked.
+
+  That branch is also the only one CI merges without a person, and it earns that by having nothing in it to read. `.github/workflows/agent-automerge.yml` refuses the merge the moment the diff holds anything but a `verified_at` line or a newly added snapshot, so a tool whose page turned out to have changed goes on its own branch even when the change is one character. Do not put a value fix in the batch to save a pull request. The body still lists every page, because the merge being automatic is exactly why the record has to be legible afterwards.
 - No snapshot yet: a tool you re-read whose `content/snapshots/<slug>/` is empty gets one, written by `page-text.mjs` and never by hand, and pushed with whichever PR that tool is already in, its own or the batched one. Most tools still have none, and the daily pricing sweep cannot diff a snapshot that does not exist. Backfilling one turns the figure check on for that tool, so `pnpm validate` will now ask for a capture of every price it carries, toggled states included.
 - Unreadable: same rule as pricing-watch, one issue per tool, ever.
 

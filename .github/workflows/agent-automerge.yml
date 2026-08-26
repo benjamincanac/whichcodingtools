@@ -1,0 +1,132 @@
+name: agent-automerge
+
+# The one lane where a pull request merges without a person.
+#
+# The daily sweeps open a pull request per changed tool and every one of those stays human: a
+# price is a claim, and a claim needs a reader. The stale sweep is different. It re-reads pages
+# that are past 60 days and batches the ones that said nothing into a single branch whose entire
+# diff is dates. There is nothing in it to review, and a queue that fills with nothing to review
+# is how the pull requests that do matter stop getting opened.
+#
+# This is a review policy, not a wider sandbox. Every existing guardrail is untouched: the agent
+# still cannot push anywhere but `agent/*`, still cannot reach outside `content/` and
+# `public/logos/`, and still cannot merge anything itself. The checks below run in CI, on the
+# diff, after `ci` has already passed.
+#
+# Keyed on the branch name rather than the label, because `github__push_files` enforces the
+# branch and anyone with write access can add a label.
+
+on:
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  merge:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find the pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          pr=$(gh api "repos/${{ github.repository }}/commits/$HEAD_SHA/pulls" \
+            --jq '[.[] | select(.state == "open")][0] // empty')
+          if [ -z "$pr" ]; then echo "no open pull request for $HEAD_SHA"; exit 0; fi
+
+          number=$(jq -r '.number' <<<"$pr")
+          head_ref=$(jq -r '.head.ref' <<<"$pr")
+          head_repo=$(jq -r '.head.repo.full_name' <<<"$pr")
+          base_sha=$(jq -r '.base.sha' <<<"$pr")
+
+          # A fork can name its branch anything, including the shape this lane trusts.
+          if [ "$head_repo" != "${{ github.repository }}" ]; then
+            echo "PR #$number comes from $head_repo, not this repository"; exit 0
+          fi
+          if ! grep -qE '^agent/re-verify-[0-9]{4}-[0-9]{2}-[0-9]{2}$' <<<"$head_ref"; then
+            echo "PR #$number is on $head_ref, which is not the re-verification lane"; exit 0
+          fi
+
+          {
+            echo "number=$number"
+            echo "base_sha=$base_sha"
+            echo "eligible=yes"
+          } >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v7
+        if: steps.pr.outputs.eligible == 'yes'
+        with:
+          fetch-depth: 0
+
+      - name: The diff must be dates and nothing else
+        if: steps.pr.outputs.eligible == 'yes'
+        id: check
+        env:
+          BASE_SHA: ${{ steps.pr.outputs.base_sha }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          git fetch --quiet origin "$BASE_SHA" "$HEAD_SHA"
+
+          refuse() { echo "not auto-mergeable: $1"; echo "ok=no" >> "$GITHUB_OUTPUT"; exit 0; }
+
+          # Nothing outside the two data directories. `public/logos/` is deliberately excluded:
+          # a new logo is a judgement about a vendor's mark, which is a thing to look at.
+          outside=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" \
+            | grep -vE '^content/(tools/[a-z0-9-]+\.yml|snapshots/[a-z0-9-]+/[a-zA-Z0-9._-]+\.txt)$' || true)
+          [ -z "$outside" ] && : || refuse "touches $(tr '\n' ' ' <<<"$outside")"
+
+          # A snapshot may only be added. Rewriting one is how a figure check gets talked round.
+          resnap=$(git diff --name-status "$BASE_SHA" "$HEAD_SHA" -- content/snapshots \
+            | grep -vE '^A' || true)
+          [ -z "$resnap" ] && : || refuse "modifies or deletes a snapshot"
+
+          # Every changed line in a tool file has to be a verified_at date. One added tier, one
+          # moved price, one edited note, and this drops back to a human.
+          other=$(git diff -U0 "$BASE_SHA" "$HEAD_SHA" -- 'content/tools/*.yml' \
+            | grep -E '^[+-]' \
+            | grep -vE '^(\+\+\+|---)' \
+            | grep -vE '^[+-][[:space:]]*verified_at: [0-9]{4}-[0-9]{2}-[0-9]{2}$' || true)
+          [ -z "$other" ] && : || refuse "changes a value, not only verified_at"
+
+          # A date bump that moves backwards is not a re-verification, and the format check above
+          # is happy to let one through. Every changed line here is a verified_at line, so the
+          # removals and the additions pair up in order, one per source that was re-read.
+          tmp=$(mktemp -d)
+          dates() { git diff -U0 "$BASE_SHA" "$HEAD_SHA" -- 'content/tools/*.yml' \
+            | grep -E "^[$1][[:space:]]*verified_at:" \
+            | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' || true; }
+          dates - > "$tmp/was"
+          dates + > "$tmp/now"
+
+          [ -s "$tmp/now" ] || refuse "no verified_at was bumped"
+          # An added date with no removed counterpart is a new source line, which is a data change
+          # whatever its shape, and the line check above would already have caught the url and
+          # covers lines beside it. Refusing here keeps the pairing below honest either way.
+          [ "$(wc -l < "$tmp/was")" -eq "$(wc -l < "$tmp/now")" ] || refuse "verified_at lines do not pair up"
+          backwards=$(paste "$tmp/was" "$tmp/now" | awk '$2 < $1 { print $1 " to " $2; exit }')
+          [ -z "$backwards" ] || refuse "a verified_at moved backwards, $backwards"
+
+          echo "ok=yes" >> "$GITHUB_OUTPUT"
+
+      - name: Merge
+        if: steps.pr.outputs.eligible == 'yes' && steps.check.outputs.ok == 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # --match-head-commit is what makes this fail closed. Everything above validated one
+          # SHA, but `gh pr merge` would otherwise merge whatever the PR head is by the time this
+          # step runs, so a commit pushed while ci was finishing would merge unvalidated.
+          gh pr merge "${{ steps.pr.outputs.number }}" \
+            --repo "${{ github.repository }}" \
+            --match-head-commit "${{ github.event.workflow_run.head_sha }}" \
+            --squash --delete-branch \
+            --subject "$(gh pr view "${{ steps.pr.outputs.number }}" --repo "${{ github.repository }}" --json title --jq .title)" \
+            --body "Merged by agent-automerge: the diff is verified_at dates and new snapshots only."
