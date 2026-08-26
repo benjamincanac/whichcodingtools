@@ -1,16 +1,25 @@
 <script setup lang="ts">
 import { pairIntro, pairPageDescription, pairPageTitle } from '#shared/content/pages'
-import { parsePair } from '#shared/utils/compare'
+import { pairSlug, parsePair } from '#shared/utils/compare'
 
 const route = useRoute()
 const { bySlug, ready } = useTools()
 await ready
 
-const pair = parsePair(String(route.params.pair))
+const param = String(route.params.pair)
+const pair = parsePair(param)
 const picked = pair ? pair.map(s => bySlug.value.get(s)).filter(Boolean) : []
 
 if (!pair || picked.length !== 2) {
   throw createError({ statusCode: 404, statusMessage: 'No such comparison', fatal: true })
+}
+
+// One comparison, one URL. The slugs are sorted in the canonical form, so a reversed URL is a
+// second page carrying the same table, which is the duplicate content this directory exists to
+// be the opposite of. SSR answers a real 301, client-side navigation replaces the route.
+const canonical = pairSlug(pair[0], pair[1])
+if (param !== canonical) {
+  await navigateTo(`/compare/${canonical}`, { redirectCode: 301, replace: true })
 }
 
 const [a, b] = picked as [NonNullable<typeof picked[number]>, NonNullable<typeof picked[number]>]

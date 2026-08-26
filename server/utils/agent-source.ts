@@ -8,7 +8,7 @@ import {
   planPageTitle,
   toolPageTitle
 } from '#shared/content/pages'
-import { parsePair } from '#shared/utils/compare'
+import { pairSlug, parsePair } from '#shared/utils/compare'
 import { sitePages } from '#shared/utils/routes'
 import { findByAlias } from '#shared/utils/tools'
 import { absolutizeMarkdownLinks, defineAgentContentSource, getAgentSiteUrl } from '#agent-discovery'
@@ -158,6 +158,15 @@ export default defineAgentContentSource({
   async firstLeaf(route: string) {
     if (route === '/layers') return `/layers/${LAYERS[0].value}`
     if (route === '/plans') return `/plans/${PLANS[0].value}`
+
+    // The reversed pair `renderPage` declined. The module answers 302 where the page answers 301.
+    if (route.startsWith('/compare/')) {
+      const param = route.slice('/compare/'.length)
+      const pair = parsePair(param)
+      if (!pair) return null
+      const canonical = pairSlug(pair[0], pair[1])
+      return canonical === param ? null : `/compare/${canonical}`
+    }
 
     const slug = route.startsWith('/tools/') ? route.slice('/tools/'.length) : undefined
     if (!slug || slug.includes('/')) return null
