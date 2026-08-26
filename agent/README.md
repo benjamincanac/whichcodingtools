@@ -27,7 +27,7 @@ agent/
   agent.ts                          model (anthropic/claude-sonnet-5 via AI Gateway), reasoning, token caps
   instructions.md                   identity and the rules above
   channels/eve.ts                   HTTP surface, Vercel OIDC or localhost auth
-  channels/github.ts                GitHub App via Vercel Connect: @whichcodingtools mentions (maintainer only), the two issue-form responders, and the agent's own `tool` candidates
+  channels/github.ts                GitHub App via Vercel Connect: @whichcodingtools mentions, the two issue-form responders, and the agent's own `tool` candidates
   extensions/browser.ts             a real browser for pricing pages that render client side
   hooks/sandbox-refresh.ts          per-turn network policy refresh, re-clone when the workspace is gone
   schedules/pricing-watch.ts        daily 06:15 UTC, task mode (no chat channel needed)
@@ -55,7 +55,8 @@ agent/
   lib/github.ts                     REST helpers, the Git Data API push, Connect installation token (whichcodingtools[bot])
   lib/network-policy.ts             the read-only git firewall policy, shared by the sandbox and the hook
   lib/checkout.ts                   clone and refresh /workspace/repo, with exit codes actually checked
-  lib/trust.ts                      who is the maintainer, which turns are unattended
+  lib/trust.ts                      who is the maintainer, which turns are unattended, who may push
+  lib/thread.ts                     the thread a turn stands in, and the branches it opened itself
   sandbox/sandbox.ts                template warming and per-session setup
   sandbox/workspace/bin/page-text.mjs  fetches a vendor page as plain text, or fences a rendered one from stdin
 ```
@@ -87,6 +88,10 @@ Sweeps open threads, they do not close them. So on Fridays the agent calls `gith
 
 Every check reads both principals on the session, `auth.current` and `auth.initiator`, never just the current one. eve keys a GitHub session per thread, so when Benjamin replies on an issue a stranger opened, the first-responder session resumes with the stranger's text still in the transcript and `current` flipped to him. `lib/trust.ts` is an allow-list, so a dispatch path nobody planned for fails closed instead of inheriting the maintainer's reach.
 
+Three tiers. `isTrustedWriter` is Benjamin and the schedules, and it is what `github__comment`, `github__create_issue` and both `close_*` ask for. `isTrustedAuthor` adds the two unattended principals, the first responder and the visitor, and it is what `github__push_files` and `github__create_pull_request` ask for. Those two used to gate on `isAutonomous` instead, which is a pessimistic "either principal" test and therefore the wrong shape for a grant: a principal nobody planned for read as not-autonomous and fell through into the whole `agent/*` namespace.
+
+What confines an unattended turn is the branch rule, not the tier. It may push to a branch it opened in this session and to no other, so a branch that already exists belongs to another run and stays out of reach, and both `github__create_pull_request` and `github__update_pull_request` only take those branches. Opening a pull request is held to the same rule for a sharper reason than editing one: `agent-automerge.yml` merges a pull request on `agent/re-verify-<date>` with no person involved once CI passes, so a pull request opened from a sweep's branch is the one way an unattended turn could reach a merge. The rule replaced an `agent/add-*` prefix match, which said the same thing for the first responder and happened to lock the `outdated` responder out of the `agent/<slug>-outdated-<date>` branch its own skill tells it to push.
+
 ## Running it
 
 - Production: the crons fire on their schedule. To run one now, Vercel project → Settings → Cron Jobs. Execution history is under Observability → Cron Jobs.
@@ -102,10 +107,12 @@ Writes go through the `whichcodingtools` GitHub App managed by Vercel Connect (c
 ## GitHub channel
 
 - Benjamin mentions `@whichcodingtools` on an issue, PR or review comment: a normal turn under his identity, with the repo checked out.
+- Anyone else mentions it: a turn under the visitor principal. It answers in the thread and may open a pull request off a branch it opens itself, and that is all: no comment on another thread, no issue, nothing outside `content/` and `public/logos/`. `github__read_thread` is the one tool it reaches without wider trust, and only for the thread it is standing in, since a mention can land on an issue the agent has never seen and then the comment is all it has. The comment arrives fenced the way an issue body does. Unlike the responders it gets follow-up, because the person can mention it again, so it is allowed to end on a question.
+- Who reaches that path: collaborators anywhere, on the `author_association` GitHub puts on the comment, since GitHub already decided they can push. Everyone else only on a thread the agent has already spoken in, which is its own pull requests and the issues it first-responded to, and only until it has answered ten times there. The repository is public and every mention boots a sandbox and checks the repo out, so an agent pull request would otherwise be a thread anyone can sit on. Bots are dropped first, the agent's own login included: `message.completed` posts the reply into the same thread, so a reply quoting the mention it answers would dispatch a turn on itself.
 - An issue carrying one of the two form labels starts an unattended responder turn. `tool` is the first responder: validate the YAML, open a PR when it passes, reply once in the thread with the result or the validation issues. A request that carries no YAML gets its entry built from the vendor pages instead, `description` included, since that field is required and no page states it. That one line is a draft, flagged as such in the PR body, and it is the only prose in the corpus a model writes. `outdated` is the report responder: work out which field the report is about, re-read the vendor page the way the daily sweep does, and either open a PR that fixes the file or reply with what the page shows today. Both procedures live in skills, `contributing` and `outdated-report`.
 - The gate is the label, which each issue form applies server side, and not the `[Tool]` or `[Outdated]` title prefix, which anyone can type into a blank issue. GitHub drops a form label the repository does not carry without saying so, so both labels existing is what keeps the forms wired to anything. Benjamin, and only he, can add one afterwards to point a responder at an issue that missed the form: labeling starts a credentialed unattended turn, so it is not something any collaborator with triage access gets to do. Because `labeled` fires for every label and the webhook hands the hook the issue rather than the event, that path skips issues a responder already replied to, which is also what keeps the label the form applies at creation from starting a second turn next to `opened`.
 - Every other bot stays filtered, and the agent's own login is the one exception, for `tool` alone: that is the discovery pass handing a candidate to the first responder. `github__create_issue` accepts no label but `tool` and refuses it on a title that is not `[Tool] <name>`, so a sweep cannot reach that dispatch by tidying a label onto a finding. The parameter used to be free-form, and the agent labelled five of its own findings `outdated` anyway, which is why the type carries the policy now instead of the tool description. A `labeled` event on one of those issues arrives with the bot as sender and is dropped by the maintainer check, so the label it was created with does not start a second turn.
-- The issue body reaches the turn fenced as untrusted data, the agent's own candidates included: the responder verifies every field against the vendor pages before it writes anything. Those turns cannot open or close issues, cannot park on approvals, and write to `agent/*` branches under `content/` and `public/logos/` only, so a line in a stranger's issue cannot aim a commit at a sweep's open pull request.
+- The issue body reaches the turn fenced as untrusted data, the agent's own candidates included: the responder verifies every field against the vendor pages before it writes anything. Those turns cannot open or close issues, cannot park on approvals, and write under `content/` and `public/logos/` on a branch they open themselves, so a line in a stranger's issue cannot aim a commit at a sweep's open pull request.
 
 ## Browser
 

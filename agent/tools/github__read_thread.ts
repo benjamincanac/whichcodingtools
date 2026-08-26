@@ -1,6 +1,7 @@
 import { defineTool } from 'eve/tools'
 import { z } from 'zod'
 import { readThread } from '../lib/github'
+import { currentThread } from '../lib/thread'
 import { isTrustedWriter } from '../lib/trust'
 
 export default defineTool({
@@ -9,8 +10,14 @@ export default defineTool({
     number: z.number().int().positive()
   }),
   async execute({ number }, ctx) {
-    if (!isTrustedWriter(ctx.session.auth)) {
-      throw new Error('This turn may not read other threads. Work from the issue you were given.')
+    // The exact inverse of `github__comment`: that one refuses the thread this turn is
+    // standing in, this one is the only thread a turn without wider trust may read. A mention
+    // can land on an issue the agent has never seen, and then the comment is all it has.
+    const own = currentThread.get()
+    if (!isTrustedWriter(ctx.session.auth) && number !== own) {
+      throw new Error(own === null
+        ? 'This turn may not read threads.'
+        : `This turn may only read #${own}, the thread it is answering in.`)
     }
     return readThread(number)
   }

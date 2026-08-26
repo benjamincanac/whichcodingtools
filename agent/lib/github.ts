@@ -212,13 +212,6 @@ export async function findRelated(terms: string) {
 /** The only ref namespace the agent can move, and the only paths it can write. */
 export const AGENT_BRANCH = /^agent\/[a-z0-9-]+$/
 
-/**
- * What an unattended first-responder turn may touch. Its whole job is adding one new tool, so
- * it gets its own namespace and cannot reach a sweep's open pull request, neither to append a
- * commit nor to rewrite its body. The text it works from was written by a stranger, and
- * `agent/*` alone would have let a line in that text aim at someone else's branch.
- */
-export const ADD_BRANCH = /^agent\/add-[a-z0-9-]+$/
 const WRITABLE_PATH = /^(content\/[\w.-]+(\/[\w.-]+)*|public\/logos\/[a-z0-9-]+\.png)$/
 
 /**
@@ -268,11 +261,17 @@ async function refSha(branch: string) {
  * to main, nothing outside content/ and public/logos/". The instructions restate it, they
  * do not implement it.
  */
-export async function pushToAgentBranch(input: { branch: string, message: string, files: PushedFile[] }) {
+export async function pushToAgentBranch(input: { branch: string, message: string, files: PushedFile[], ownBranches?: string[] }) {
   assertAgentBranch(input.branch, 'write to')
   assertWritablePaths(input.files.map(f => f.path))
 
   const head = await refSha(input.branch)
+  // `ownBranches` present means the turn is a limited one and may only move a ref it opened
+  // itself. Checked here rather than in the tool because this is where the ref is read
+  // anyway, and it is the last place before the branch moves.
+  if (input.ownBranches && head !== null && !input.ownBranches.includes(input.branch)) {
+    throw new Error(`Branch ${JSON.stringify(input.branch)} already exists and this turn did not open it. Push to a new agent/<topic>-<date> branch instead: adding a commit to someone else's branch is not something this turn does.`)
+  }
   const base = head ?? (await githubApi<{ object: { sha: string } }>('GET', `/repos/${REPO}/git/ref/heads/${DEFAULT_BRANCH}`)).object.sha
   const baseCommit = await githubApi<{ tree: { sha: string } }>('GET', `/repos/${REPO}/git/commits/${base}`)
 
@@ -296,8 +295,14 @@ export async function pushToAgentBranch(input: { branch: string, message: string
   return { branch: input.branch, commit: commit.sha, created: head === null, files: input.files.map(f => f.path) }
 }
 
-export async function createPullRequest(input: { branch: string, title: string, body: string }) {
+export async function createPullRequest(input: { branch: string, title: string, body: string, ownBranches?: string[] }) {
   assertAgentBranch(input.branch, 'open a pull request from')
+  // Same rule as the push, and it matters most here: `agent-automerge.yml` merges a pull
+  // request on `agent/re-verify-<date>` with no person involved once CI passes. Opening one
+  // from a sweep's branch is the one way a limited turn could reach that.
+  if (input.ownBranches && !input.ownBranches.includes(input.branch)) {
+    throw new Error(`Branch ${JSON.stringify(input.branch)} was not opened by this turn. It opens pull requests from the branches it pushed itself.`)
+  }
   const pr = await githubApi<{ number: number, html_url: string }>('POST', `/repos/${REPO}/pulls`, {
     title: input.title,
     body: input.body,
@@ -312,7 +317,7 @@ export async function createPullRequest(input: { branch: string, title: string, 
  * the pull request is open, and a body describing the first commit is a worse account of the
  * change than no body at all. Only title and body: state, base and draft are Benjamin's.
  */
-export async function updateOwnPullRequest(input: { number: number, title?: string, body?: string, autonomous: boolean }) {
+export async function updateOwnPullRequest(input: { number: number, title?: string, body?: string, ownBranches?: string[] }) {
   if (!input.title && !input.body) throw new Error('Nothing to change: pass a title, a body, or both.')
   const pr = await githubApi<{ head: { ref: string }, user: { login: string }, state: string }>('GET', `/repos/${REPO}/pulls/${input.number}`)
   if (!isAgentLogin(pr.user.login)) {
@@ -320,8 +325,8 @@ export async function updateOwnPullRequest(input: { number: number, title?: stri
   }
   if (pr.state !== 'open') throw new Error(`Pull request #${input.number} is ${pr.state}.`)
   assertAgentBranch(pr.head.ref, 'edit a pull request from')
-  if (input.autonomous && !ADD_BRANCH.test(pr.head.ref)) {
-    throw new Error(`This turn edits agent/add-<slug>-<date> pull requests only, not ${JSON.stringify(pr.head.ref)}.`)
+  if (input.ownBranches && !input.ownBranches.includes(pr.head.ref)) {
+    throw new Error(`Pull request #${input.number} is on ${JSON.stringify(pr.head.ref)}, a branch this turn did not open. It edits the ones it opened itself.`)
   }
   const updated = await githubApi<{ number: number, html_url: string }>('PATCH', `/repos/${REPO}/pulls/${input.number}`, {
     ...(input.title ? { title: input.title } : {}),
