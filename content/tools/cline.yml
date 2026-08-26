@@ -7,6 +7,7 @@ vendor: Cline Bot Inc.
 homepage: https://cline.bot
 links:
   docs: https://docs.cline.bot
+  pricing: https://cline.bot/pricing
   repo: https://github.com/cline/cline
 icon: i-simple-icons-cline
 platforms: [macos, windows, linux]
@@ -29,19 +30,40 @@ features: [mcp-client, plugins, checkpoints, browser-automation, hooks, subagent
 pricing:
   tiers:
     - id: free
-      name: Open source
+      name: Open Source
       price: 0
       audience: individual
       limits:
-        - You pay the model provider directly
-    - id: teams
-      name: Teams
+        - VS Code Extension and CLI
+        - Secure client-side architecture, model inference at cost or bring your own key
+        - MCP Marketplace, multi-root workspaces, community support
+    - id: clinepass
+      name: ClinePass
+      price: 9.99
+      audience: individual
+      notes: First month is $4.99 as an introductory promotion, then the standard rate of $9.99 per month applies. Additional processing fees may apply.
+      limits:
+        - Curated open weight models from Z.ai, Moonshot AI, DeepSeek, MiniMax, MiMo and Qwen
+        - Generous quotas versus standard API rate limits, no separate provider keys needed
+    - id: enterprise
+      name: Enterprise
       price: null
       contact_sales: true
-      audience: team
-      notes: Cline Teams and Enterprise add central billing and policy. Prices are not on the public site.
+      audience: enterprise
+      limits:
+        - All Open Source features plus the JetBrains extension
+        - SSO, SLA and dedicated support, centralized billing
+        - Role based access control, limit inference providers, team management dashboard, authentication logs
+      notes: Prices are not on the public site.
+  notes: Cline itself is free and open source. ClinePass is an optional paid subscription for curated open weight model access. Enterprise is contact-sales for team and security features.
 status: active
 sources:
+  - url: https://cline.bot/pricing
+    verified_at: 2026-08-26
+    covers: [pricing]
+  - url: https://cline.bot/cline-pass
+    verified_at: 2026-08-26
+    covers: [pricing]
   - url: https://cline.bot
     verified_at: 2026-08-23
-    covers: [pricing, platforms, models, features, license, general]
+    covers: [platforms, models, features, license, general]
