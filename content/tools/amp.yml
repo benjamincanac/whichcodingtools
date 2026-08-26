@@ -48,7 +48,10 @@ pricing:
       overage:
         kind: api-list
       limits:
-        - Low and medium modes, high mode with a linked ChatGPT subscription
+        - Use your ChatGPT subscription
+        - Use your 𝕏 Premium+/SuperGrok subscription
+        - Unlimited public/private repositories
+        - Low and medium modes, plus high mode with a linked ChatGPT subscription
       notes: Students and teachers pay $10 a month after education verification.
     - id: gigawatt
       name: Gigawatt
@@ -80,11 +83,11 @@ pricing:
 status: active
 sources:
   - url: https://ampcode.com/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-08-26
     covers: [pricing]
   - url: https://ampcode.com/manual
     verified_at: 2026-08-23
     covers: [platforms, models, features, general]
   - url: https://ampcode.com/news/amp-free-is-ad-free
-    verified_at: 2026-08-23
+    verified_at: 2026-08-26
     covers: [pricing]

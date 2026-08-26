@@ -1,0 +1,90 @@
+# https://ampcode.com/pricing
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Pricing — Amp
+Return to Amp
+Chronicle Docs Models Pricing Sign In Start
+Pricing
+Choose a monthly subscription for the best value, or pay for unconstrained usage at
+standard rates.
+Amp Subscription
+Megawatt
+$20/month
+All product features, and:
+750 hours of orbs
+Use your ChatGPT subscription
+Use your 𝕏 Premium+/SuperGrok subscription
+Unlimited public/private repositories
+$20 included agent usage
+Low & medium modes , plus high mode with a linked ChatGPT sub
+Sign Up to Subscribe
+Gigawatt
+$200/month
+Everything in Megawatt, and:
+1,000 hours of xxlarge orbs
+$200 included agent usage
+All modes , including high & ultra
+Sign Up to Subscribe
+Unconstrained
+Pay for what you use
+For teams and enterprises whose usage does not fit a monthly plan.
+All agent modes
+API pricing for model tokens and orbs
+Bring your own keys for inference
+Start with Usage Billing
+For Enterprises
+Add SSO, directory sync, admin controls, minimal data retention , and support. Contact Us
+What if I use all of the included usage on a subscription?
+You can add paid credits to keep using Amp until your subscription usage replenishes at the end of each monthly
+period.
+Can I use an Amp subscription in a team workspace?
+Yes. You can start a subscription on your own, and your workspace will pay for
+it. Workspace admins can also start subscriptions for their members (from the workspace members list ). There's no way yet to automatically start a new subscription for each member
+of a workspace.
+How much agent usage is included in the subscription plans?
+We give at least the subscription cost per month in agent usage. Depending on
+your usage patterns, you may get extra usage.
+Are there any additional fees for using a ChatGPT subscription ?
+No. Amp subscribers pay no per-token fees for usage through a linked ChatGPT subscription or other third-party subscription. You can use as many tokens as your third-party
+subscription allows.
+Why are the limits so generous?
+We want everyone to join us living life with parallel agents running in orbs at all times. For your monthly subscription price, you get at least that much usage
+of the agent with tokens from frontier models, a ridiculous amount of orb usage so
+you don't need to count the minutes, and unlimited usage of your other linked AI
+subscriptions.
+How do I cancel my subscription?
+You can cancel at any time in your user settings , and your subscription will not renew. You can keep using it for the rest of
+the monthly period. If you want a refund of your current month minus any actual
+usage costs you have incurred, email us .
+Are there any restrictions on how I can use my subscription?
+Each human can have at most two subscriptions. You can't directly resell the
+resource quotas from your subscription. The orbs are intended for use with Amp
+and are not to be used in violation of our Acceptable Use Policy .
+Is there an educational discount?
+Students and teachers can subscribe to Amp for $10/month with the Education
+Discount. Declare, on your honor, that you are a student or teacher to get it.
+Other questions?
+For general help with Amp, post on X and mention @AmpCode , or email amp-devs@ampcode.com .
+All Systems Operational
+Security
+Privacy Policy
+Terms of Service
+Product
+Start
+Sign In
+Docs
+What Are Orbs?
+Models
+Resources
+Chronicle
+Pricing
+Podcast
+Press Kit
+Guides
+How to Build an Agent
+Context Management
+Community
+𝕏 @ampcode
+Amp Insiders
+YouTube
+</untrusted-page-text>
