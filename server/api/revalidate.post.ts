@@ -1,4 +1,5 @@
 import { waitUntil } from '@vercel/functions'
+import { LAYER_VALUES, PLAN_VALUES } from '#shared/enums'
 import { pairSlug, relatedPairs } from '#shared/utils/compare'
 
 /**
@@ -41,14 +42,21 @@ export default defineEventHandler(async (event) => {
   const { tools, bySlug } = await loadToolsIndexed()
 
   // What to purge: the shared surfaces, the touched tools, and every page that lists them.
-  const paths = new Set<string>(['/', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/content/list', '/api/__sitemap__/urls'])
+  const paths = new Set<string>(['/', '/tools', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/content/list', '/api/__sitemap__/urls'])
   const pairs = relatedPairs(tools)
   for (const slug of touched) {
     paths.add(`/tools/${slug}`)
     paths.add(`/api/tools/${slug}.json`)
     paths.add(`/api/content/get/${slug}`)
     const tool = bySlug.get(slug)
-    if (!tool) continue
+    if (!tool) {
+      // The file was deleted, so there is no record left to say which layer listed it or which
+      // pairs it was in. Seven layer pages is cheap, and every pair it could have been in is a
+      // combination with a slug we still have. Only a removal pays for this.
+      for (const layer of LAYER_VALUES) paths.add(`/layers/${layer}`)
+      for (const other of tools) paths.add(`/compare/${pairSlug(slug, other.slug)}`)
+      continue
+    }
     paths.add(`/layers/${tool.layer}`)
     for (const layer of tool.secondary_layers) paths.add(`/layers/${layer}`)
     // Same definition the sitemap advertises: any other pair renders on demand and expires hourly.
@@ -58,7 +66,7 @@ export default defineEventHandler(async (event) => {
     for (const host of tool.wrapped_by) paths.add(`/tools/${host}`)
     for (const wrap of tool.wraps) if (bySlug.has(wrap.tool)) paths.add(`/tools/${wrap.tool}`)
   }
-  for (const plan of ['claude', 'chatgpt', 'copilot', 'cursor', 'gemini', 'grok']) paths.add(`/plans/${plan}`)
+  for (const plan of PLAN_VALUES) paths.add(`/plans/${plan}`)
 
   // Every page is served twice now, as HTML and as markdown under /raw. Purging only the page
   // would leave an agent reading an hour-old price while the site shows the new one, which is
