@@ -38,6 +38,7 @@ export default defineNuxtConfig({
       '/tools': { isr: { expiration: 60 * 60, passQuery: true } },
       '/tools/**': { isr: 60 * 60 },
       '/api/tools.json': { isr: 60 * 60 },
+      '/api/compare.json': { isr: 60 * 60 },
       '/api/tools/**': { isr: 60 * 60 },
       '/api/content/**': { isr: 60 * 60 },
       '/api/__sitemap__/urls': { isr: 60 * 60 },
@@ -158,6 +159,7 @@ export default defineNuxtConfig({
         title: 'Data',
         links: [
           { title: 'API, every tool', description: 'The same records the site renders, as one JSON document.', href: '/api/tools.json' },
+          { title: 'API, every comparison', description: 'The canonical pair list: both slugs and the URL. Comparisons are not enumerated in this file.', href: '/api/compare.json' },
           { title: 'Changelog, every data commit', href: 'https://github.com/benjamincanac/whichcodingtools/commits/main/content/tools' }
         ]
       }

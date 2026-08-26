@@ -34,6 +34,19 @@ async function context(): Promise<MarkdownContext> {
   }
 }
 
+/**
+ * What `llms.txt` and `sitemap.md` say instead of enumerating the comparisons.
+ *
+ * There are over five hundred of them and every one describes itself with the same sentence,
+ * which is 128KB of boilerplate in the document a reader opens to find out what is here. The
+ * URL pattern plus the pair list is the same reach in three lines. `## Optional` is the section
+ * the llms.txt spec keeps for exactly this, content a reader under context pressure can skip.
+ */
+const COMPARE_LISTING = {
+  section: 'Optional',
+  description: 'Any two tools side by side. Build the URL as /compare/{a}-vs-{b} with the two slugs in alphabetical order, markdown at /raw/compare/{a}-vs-{b}.md. Over five hundred pairs, listed at /api/compare.json rather than here.'
+}
+
 /** The section label a route is grouped under in `llms.txt`. */
 function section(route: string, ctx: MarkdownContext): string {
   const [, head, tail] = route.split('/')
@@ -43,7 +56,7 @@ function section(route: string, ctx: MarkdownContext): string {
   }
   if (head === 'layers') return 'Layers'
   if (head === 'plans') return 'Plans'
-  if (head === 'compare' && tail) return 'Comparisons'
+  if (head === 'compare') return COMPARE_LISTING.section
   return 'Pages'
 }
 
@@ -103,12 +116,21 @@ export default defineAgentContentSource({
 
     const ctx = await context()
     const entries: AgentListEntry[] = [{ route: '/', title: 'whichcoding.tools', section: 'Pages' }]
+    let compare: AgentListEntry | undefined
 
     for (const page of sitePages(ctx.tools, ctx.bySlug)) {
+      // The pairs are the one page type nothing enumerates. See COMPARE_LISTING.
+      if (page.route.startsWith('/compare/')) continue
       const described = describe(page.route, ctx)
       if (!described) continue
-      entries.push({ ...described, route: page.route, section: section(page.route, ctx), updatedAt: page.lastmod })
+      const entry = { ...described, route: page.route, section: section(page.route, ctx), updatedAt: page.lastmod }
+      if (page.route === '/compare') compare = { ...entry, description: COMPARE_LISTING.description }
+      else entries.push(entry)
     }
+
+    // Last, so the bridge pushes its group last: `## Optional` is only worth the bytes to a
+    // reader that already has everything above it.
+    if (compare) entries.push(compare)
     return entries
   },
 
