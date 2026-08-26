@@ -44,19 +44,32 @@ export default defineEventHandler(async (event) => {
   // What to purge: the shared surfaces, the touched tools, and every page that lists them.
   const paths = new Set<string>(['/', '/tools', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/content/list', '/api/__sitemap__/urls'])
   const pairs = relatedPairs(tools)
+
+  // Deleted files: the slug is in `touched` but the corpus no longer has the record, so nothing
+  // says which layer listed it, which pairs it was in, or which surviving pages named it. The
+  // `wrapped_by` direction is the one that has no trace at all: the deleted file's own `wraps`
+  // went with it, so the tools it pointed at cannot be found from what is left. Rather than
+  // guess, a removal purges the tool pages wholesale. It happens once in a long while.
+  const removed = [...touched].filter(slug => !bySlug.has(slug))
+  if (removed.length) {
+    for (const layer of LAYER_VALUES) paths.add(`/layers/${layer}`)
+    for (const tool of tools) paths.add(`/tools/${tool.slug}`)
+    // Against the survivors and against each other: two tools removed in the same push are in
+    // neither list, so their shared comparison would otherwise sit cached until it expired.
+    const others = [...tools.map(t => t.slug), ...removed]
+    for (const slug of removed) {
+      for (const other of others) {
+        if (other !== slug) paths.add(`/compare/${pairSlug(slug, other)}`)
+      }
+    }
+  }
+
   for (const slug of touched) {
     paths.add(`/tools/${slug}`)
     paths.add(`/api/tools/${slug}.json`)
     paths.add(`/api/content/get/${slug}`)
     const tool = bySlug.get(slug)
-    if (!tool) {
-      // The file was deleted, so there is no record left to say which layer listed it or which
-      // pairs it was in. Seven layer pages is cheap, and every pair it could have been in is a
-      // combination with a slug we still have. Only a removal pays for this.
-      for (const layer of LAYER_VALUES) paths.add(`/layers/${layer}`)
-      for (const other of tools) paths.add(`/compare/${pairSlug(slug, other.slug)}`)
-      continue
-    }
+    if (!tool) continue
     paths.add(`/layers/${tool.layer}`)
     for (const layer of tool.secondary_layers) paths.add(`/layers/${layer}`)
     // Same definition the sitemap advertises: any other pair renders on demand and expires hourly.
