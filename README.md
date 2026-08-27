@@ -50,4 +50,4 @@ Without a checkout, the two issue forms do the same job: [Add a tool](https://gi
 
 ## License
 
-Code is MIT. The data license is still an open decision, CC BY 4.0 is the proposal.
+Code is MIT. The data in `content/` is CC BY 4.0, see [LICENSE-DATA](LICENSE-DATA): use it anywhere, including commercially, as long as you credit whichcoding.tools and link back. Contributing a tool file puts it under the same terms.

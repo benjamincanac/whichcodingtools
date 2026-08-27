@@ -50,3 +50,7 @@ The same goes for a dollar amount written into `limits`, a tier `notes` or `pric
 - Benchmarks and scores.
 - Generated descriptions. If a model wrote it, rewrite it. The agent drafts one when it adds a tool that has no file yet, because the field is required and no vendor page states it, and it says so in the pull request. That draft is a starting point for the review, never the line that ships.
 - Pricing copied from a third-party comparison. Go to the vendor page.
+
+## License
+
+The data in `content/` is CC BY 4.0, the code is MIT. Opening a pull request means you are fine with your contribution going out under those terms.
