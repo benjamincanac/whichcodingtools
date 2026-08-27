@@ -50,7 +50,8 @@ defineOgImage('ToolSatori', {
             :to="pairUrl"
             icon="i-lucide-link"
             color="neutral"
-            variant="link"
+            variant="ghost"
+            class="rounded-full"
           />
         </template>
 

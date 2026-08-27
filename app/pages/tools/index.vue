@@ -125,7 +125,8 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
             icon="i-lucide-search"
             placeholder="Search by name or vendor"
             class="flex-1"
-            :ui="{ trailing: 'pe-1' }"
+            autofocus
+            :ui="{ trailing: 'pe-1.5' }"
           >
             <template #trailing>
               <UKbd value="/" />

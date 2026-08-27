@@ -62,7 +62,7 @@ const priceFlags = flags(PRICE_FLAGS)
 
 /** Indicator hidden: the row itself carries the state, so the icon takes the checkbox slot. */
 const rowUi = {
-  item: 'text-toned has-data-[state=checked]:text-highlighted py-1.5 hover:z-1',
+  item: 'text-toned has-data-[state=checked]:text-highlighted py-1.5',
   wrapper: 'flex-row items-center gap-2 text-start',
   label: 'font-normal text-inherit truncate'
 }
@@ -107,7 +107,8 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
         placeholder="Which editor?"
         icon="i-lucide-puzzle"
         size="sm"
-        class="w-full"
+        variant="filter"
+        class="w-full rounded-lg"
         @update:model-value="set('hosts', $event as Requirements['hosts'])"
       />
     </section>
@@ -160,7 +161,8 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
         placeholder="Providers it must support"
         icon="i-lucide-brain"
         size="sm"
-        class="w-full"
+        variant="filter"
+        class="w-full rounded-lg"
         @update:model-value="set('providers', $event as Requirements['providers'])"
       />
       <UCheckboxGroup
@@ -191,7 +193,7 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
         color="neutral"
         size="sm"
         class="my-2"
-        @update:model-value="budgetIndex = $event as number"
+        @update:model-value="budgetIndex = ($event as number)"
       />
       <UCheckboxGroup
         v-model="priceFlags"
@@ -216,7 +218,8 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
         placeholder="Features"
         icon="i-lucide-list-checks"
         size="sm"
-        class="w-full"
+        variant="filter"
+        class="w-full rounded-lg"
         @update:model-value="set('features', $event as Requirements['features'])"
       />
     </section>

@@ -10,17 +10,37 @@ export default defineAppConfig({
       primary: 'neutral',
       neutral: 'neutral'
     },
-    header: {
+    badge: {
       slots: {
-        root: 'backdrop-blur-none bg-default',
-        right: 'gap-2'
+        base: 'font-normal'
       }
     },
-    footer: {
+    checkbox: {
+      variants: {
+        variant: {
+          card: {
+            root: 'border-default'
+          }
+        }
+      }
+    },
+    checkboxGroup: {
+      variants: {
+        variant: {
+          table: {
+            item: 'border-default'
+          }
+        }
+      }
+    },
+    selectMenu: {
       slots: {
-        root: 'border-t border-default',
-        left: 'text-sm text-muted',
-        right: 'gap-x-2'
+        trailingIcon: 'group-data-[state=open]:rotate-180 transition-transform duration-100'
+      },
+      variants: {
+        variant: {
+          filter: 'ring ring-inset ring-default hover:ring-accented hover:bg-elevated/50 transition data-[state=open]:ring-accented data-[state=open]:bg-elevated/50'
+        }
       }
     },
     navigationMenu: {
@@ -31,25 +51,14 @@ export default defineAppConfig({
     pageHeader: {
       slots: {
         root: 'border-b-0 pb-0',
-        headline: 'hidden',
         title: 'text-3xl sm:text-4xl font-medium tracking-tight',
-        description: 'text-base text-toned max-w-4xl text-balance'
-      }
-    },
-    pageSection: {
-      slots: {
-        title: 'font-medium tracking-tight'
+        description: 'text-base text-toned max-w-4xl text-pretty'
       }
     },
     pageCard: {
       slots: {
         title: 'font-medium tracking-tight',
         description: 'text-sm text-toned'
-      }
-    },
-    badge: {
-      slots: {
-        base: 'font-normal'
       }
     }
   }

@@ -106,9 +106,9 @@ useSchemaOrg([
             :tool="t"
             size="3xl"
           />
-          <div class="flex flex-col gap-3 min-w-0">
+          <div class="flex flex-col gap-4 min-w-0">
             <div class="flex flex-wrap items-center gap-2">
-              <h1 class="text-3xl sm:text-4xl font-medium tracking-tight text-highlighted">
+              <h1 class="text-pretty text-highlighted text-3xl sm:text-4xl font-medium tracking-tight">
                 {{ t.name }}
               </h1>
               <UBadge
@@ -137,7 +137,7 @@ useSchemaOrg([
                 {{ optionLabel(STATUSES, t.status) }}
               </UBadge>
             </div>
-            <p class="text-base sm:text-lg text-toned max-w-2xl">
+            <p class="text-base text-toned text-pretty">
               {{ t.description }}
             </p>
             <!-- The aside spec sheet is hidden under lg, so the header carries these there and only there. -->
