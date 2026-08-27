@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="Triggers start a turn in the app runtime. The agent reads the repo and vendor pages in a Vercel Sandbox whose git push is refused at the firewall. Writes go through the github tools and the trust gate to agent branches, pull requests and issues on GitHub, which Benjamin merges. A Tool issue filed by discovery loops back into the webhook.">
+  <style>
+    svg { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; color: #e6edf3; }
+    .node { fill: #0d1117; stroke: #e6edf3; stroke-width: 1.2; }
+    .frame { fill: none; stroke: #3d444d; stroke-width: 1.2; stroke-dasharray: 5 4; }
+    .t { font-size: 12.5px; fill: #e6edf3; }
+    .b { font-weight: 600; }
+    .m { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 11.5px; }
+    .muted { fill: #8b949e; }
+    .lbl { font-size: 11px; fill: #8b949e; }
+    .head { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; fill: #8b949e; }
+    .edge { fill: none; stroke: #e6edf3; stroke-width: 1.3; }
+    .soft { stroke: #8b949e; stroke-dasharray: 4 4; }
+    .write { stroke: #2dd4bf; stroke-width: 2.4; }
+    .refused { stroke: #f85149; stroke-width: 1.4; stroke-dasharray: 3 4; }
+    .x { stroke: #f85149; stroke-width: 2; stroke-dasharray: none; }
+    .t.write { fill: #2dd4bf; stroke: none; font-weight: 600; }
+    .t.refused { fill: #f85149; stroke: none; }
+    .gate { fill: #11302f; stroke: #2dd4bf; stroke-width: 1.4; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e6edf3"/>
+    </marker>
+    <marker id="arrow-write" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2dd4bf"/>
+    </marker>
+    <marker id="arrow-soft" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+
+  <text class="t head" x="20" y="36">Triggers</text>
+  <text class="t head" x="290" y="36">App runtime · eve/nuxt on Vercel</text>
+  <text class="t head" x="700" y="36">Vercel Sandbox</text>
+
+  <rect class="node" x="20" y="50" width="210" height="150" rx="6"/>
+  <text class="t b" x="34" y="75">Vercel Cron</text>
+  <text class="t m" x="34" y="99">pricing-watch   daily</text>
+  <text class="t m" x="34" y="117">rename-watch   Mon</text>
+  <text class="t m" x="34" y="135">discovery      Tue</text>
+  <text class="t m" x="34" y="153">stale-sweep    Thu</text>
+  <text class="t m" x="34" y="171">triage         Fri</text>
+
+  <rect class="node" x="20" y="240" width="210" height="110" rx="6"/>
+  <text class="t b" x="34" y="265">GitHub App webhook</text>
+  <text class="t" x="34" y="290">@whichcodingtools mention</text>
+  <text class="t" x="34" y="308">issue labeled <tspan class="m">tool</tspan></text>
+  <text class="t" x="34" y="326">issue labeled <tspan class="m">outdated</tspan></text>
+
+  <path class="edge" d="M230,125 H265 V110"/>
+  <path class="edge" d="M230,295 H265 V110"/>
+  <path class="edge" d="M265,110 H310" marker-end="url(#arrow)"/>
+  <text class="t lbl" x="287" y="100" text-anchor="middle">turn</text>
+
+  <rect class="frame" x="290" y="50" width="330" height="420" rx="8"/>
+
+  <rect class="node" x="310" y="70" width="290" height="80" rx="6"/>
+  <text class="t b" x="324" y="95">agent.ts</text>
+  <text class="t" x="324" y="113">claude-sonnet-5 via AI Gateway</text>
+  <text class="t m muted" x="324" y="132">loads skills/&lt;task&gt;/SKILL.md</text>
+
+  <path class="edge" d="M455,150 V230" marker-end="url(#arrow)"/>
+  <text class="t lbl" x="463" y="194">calls</text>
+
+  <rect class="node" x="310" y="230" width="290" height="90" rx="6"/>
+  <text class="t b" x="324" y="255">tools/github__*</text>
+  <text class="t m" x="324" y="275">push_files · create_pull_request</text>
+  <text class="t m" x="324" y="293">create_issue · comment · close_*</text>
+  <text class="t m" x="324" y="311">update_pull_request · read_thread</text>
+
+  <path class="edge" d="M455,320 V370" marker-end="url(#arrow)"/>
+
+  <rect class="gate" x="310" y="370" width="290" height="80" rx="6"/>
+  <text class="t b" x="324" y="395">lib/trust.ts</text>
+  <text class="t" x="324" y="413">principal tier + a branch this turn opened</text>
+  <text class="t m muted" x="324" y="432">agent/* · content/ · public/logos/</text>
+
+  <path class="edge" d="M600,110 H700" marker-end="url(#arrow)"/>
+  <text class="t lbl" x="650" y="100" text-anchor="middle">reads in</text>
+
+  <rect class="frame" x="700" y="50" width="250" height="200" rx="8"/>
+  <rect class="node" x="715" y="80" width="220" height="60" rx="6"/>
+  <text class="t b" x="729" y="103">/workspace/repo</text>
+  <text class="t m muted" x="729" y="123">clone · pnpm validate</text>
+
+  <rect class="node" x="715" y="160" width="220" height="75" rx="6"/>
+  <text class="t b" x="729" y="183">page-text.mjs + browser</text>
+  <text class="t" x="729" y="201">vendor page to plain text</text>
+  <text class="t m muted" x="729" y="221">content/snapshots/&lt;slug&gt;</text>
+
+  <path class="edge" d="M935,197 H990" marker-end="url(#arrow)"/>
+  <text class="t lbl" x="962" y="188" text-anchor="middle">fetch</text>
+  <rect class="node" x="990" y="165" width="110" height="65" rx="10"/>
+  <text class="t b" x="1045" y="193" text-anchor="middle">Vendor</text>
+  <text class="t" x="1045" y="211" text-anchor="middle">pricing pages</text>
+
+  <path class="edge soft" d="M760,350 V250" marker-end="url(#arrow-soft)"/>
+  <text class="t lbl" x="752" y="300" text-anchor="end">clone, read-only</text>
+  <text class="t lbl" x="752" y="314" text-anchor="end">credential at the firewall</text>
+
+  <path class="edge refused" d="M890,250 V350"/>
+  <path class="edge x" d="M884,294 L896,306 M896,294 L884,306"/>
+  <text class="t lbl refused" x="900" y="300">git push</text>
+  <text class="t lbl refused" x="900" y="314">refused</text>
+
+  <path class="edge write" d="M600,410 H700" marker-end="url(#arrow-write)"/>
+  <text class="t lbl write" x="650" y="400" text-anchor="middle">only write path</text>
+  <text class="t lbl" x="650" y="428" text-anchor="middle">Git Data API</text>
+
+  <rect class="node" x="700" y="350" width="250" height="110" rx="8"/>
+  <text class="t b" x="714" y="375">GitHub repo</text>
+  <text class="t m" x="714" y="395">agent/* branches</text>
+  <text class="t" x="714" y="413">pull requests, ready for review</text>
+  <text class="t" x="714" y="431">its own issues, closed with evidence</text>
+  <text class="t muted" x="714" y="449">as whichcodingtools[bot]</text>
+
+  <path class="edge" d="M950,405 H990" marker-end="url(#arrow)"/>
+  <rect class="node" x="990" y="372" width="110" height="65" rx="10"/>
+  <text class="t b" x="1045" y="400" text-anchor="middle">Benjamin</text>
+  <text class="t" x="1045" y="418" text-anchor="middle">reviews, merges</text>
+
+  <path class="edge soft" d="M825,460 V498 H125 V350" marker-end="url(#arrow-soft)"/>
+  <text class="t lbl" x="475" y="492" text-anchor="middle">a [Tool] issue filed by discovery, or a label Benjamin adds, starts an unattended responder turn</text>
+</svg>

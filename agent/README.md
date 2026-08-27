@@ -2,6 +2,13 @@
 
 An [eve](https://eve.dev) agent that keeps `content/tools` fresh. It deploys with the site through the `eve/nuxt` module: the schedules become Vercel Cron jobs, the repo checkout runs in a Vercel Sandbox, the model goes through AI Gateway with the project's OIDC token.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/schema-dark.svg">
+  <img alt="A cron or a GitHub event starts a turn in the app runtime. The agent reads the repo and vendor pages in a Vercel Sandbox whose git push is refused at the firewall. Writes go through the github tools and the trust gate to agent branches, pull requests and issues on GitHub, which Benjamin merges." src="docs/schema.svg">
+</picture>
+
+The sandbox reads, the runtime writes. A turn starts from a cron or a GitHub event, reads inside a sandbox that can only clone, and the one way anything reaches the repository is `github__push_files` in the app runtime, which opens pull requests a person merges. The rest of this file is the detail behind that picture.
+
 ## Rules that do not bend
 
 - It never edits `content/tools` on `main`. Every change is a pull request a person merges.
