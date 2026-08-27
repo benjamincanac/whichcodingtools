@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ParsedRequirements } from '#shared/finder'
+import { LAYERS } from '#shared/enums'
 import { toRequirements } from '#shared/finder'
 import { toQuery } from '~/composables/useToolFinder'
 
@@ -130,30 +131,51 @@ defineShortcuts({
       </div>
     </template>
 
-    <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted py-4 mt-auto">
-      <ULink
-        to="/tools"
+    <div class="flex flex-col items-center gap-y-3 py-4 mt-auto">
+      <!-- The seven layer pages, which the hero otherwise reaches only through the filters on
+           /tools. Server rendered, so a crawler that runs no JavaScript still finds them. -->
+      <nav
+        aria-label="Browse by layer"
+        class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-sm text-muted"
       >
-        Explore {{ tools.length }} tools
-      </ULink>
-      <span>·</span>
-      <ULink
-        to="/compare"
-      >
-        Compare
-      </ULink>
-      <span>·</span>
-      <ULink
-        to="/api/tools.json"
-        target="_blank"
-      >
-        JSON API
-      </ULink>
-      <span>·</span>
-      <ULink
-        :to="`https://github.com/${site.repo}/tree/main/content/tools`"
-        target="_blank"
-      >No affiliate links. Data is open, in git.</ULink>
+        <ULink
+          v-for="layer in LAYERS"
+          :key="layer.value"
+          :to="`/layers/${layer.value}`"
+        >
+          {{ layer.label }}s
+        </ULink>
+      </nav>
+
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted">
+        <ULink
+          to="/tools"
+        >
+          Explore {{ tools.length }} tools
+        </ULink>
+        <span>·</span>
+        <ULink
+          to="/compare"
+        >
+          Compare
+        </ULink>
+        <span>·</span>
+        <ULink
+          to="/api/tools.json"
+          target="_blank"
+        >
+          JSON API
+        </ULink>
+        <span>·</span>
+        <ULink
+          :to="`https://github.com/${site.repo}/tree/main/content/tools`"
+          target="_blank"
+        >No affiliate links. Data is open, in git.</ULink>
+      </div>
+
+      <p class="max-w-xl text-center text-xs text-dimmed text-pretty">
+        Every price, plan and limit comes from a vendor page someone read on the date recorded next to it. One YAML file per tool, validated against a schema, with a source URL on every claim.
+      </p>
     </div>
   </UPageHero>
 </template>
