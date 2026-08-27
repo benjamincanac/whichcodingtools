@@ -33,8 +33,8 @@ const examples = [
 
 async function go() {
   const text = query.value.trim()
-  if (text.length < 3 || loading.value) return
-  if (!finderAi) {
+  if (loading.value) return
+  if (!finderAi || !text.length) {
     return navigateTo({ path: '/tools', query: { q: text } })
   }
   loading.value = true
@@ -87,7 +87,7 @@ defineShortcuts({
         <UInput
           ref="input"
           v-model="query"
-          :placeholder="finderAi ? 'terminal agent on Linux, I already pay for Claude Max' : 'Search tools by name'"
+          :placeholder="finderAi ? 'Goes through Vercel AI Gateway' : 'Search tools by name'"
           size="xl"
           class="w-full max-w-xl mx-auto"
           :disabled="loading"
@@ -103,7 +103,6 @@ defineShortcuts({
               trailing-icon="i-lucide-chevron-right"
               trailing
               :loading="loading"
-              :disabled="query.trim().length < 3"
               class="-me-1.5"
             />
           </template>
