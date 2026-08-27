@@ -43,6 +43,8 @@ export default defineNuxtConfig({
       '/api/content/**': { isr: 60 * 60 },
       '/api/__sitemap__/urls': { isr: 60 * 60 },
       '/sitemap.xml': { isr: 60 * 60 },
+      // Static apart from the origin: it describes the routes, not the data behind them.
+      '/openapi.json': { isr: 60 * 60 },
       // The agent surfaces. Safe to cache: a `.md` URL has one representation, so unlike a page
       // there is no second variant a path-keyed cache could overwrite.
       '/raw/**': { isr: 60 * 60 },
@@ -126,6 +128,10 @@ export default defineNuxtConfig({
     },
     discovery: {
       links: [
+        // First, so it heads the api-catalog and the recovery links in an error body: one
+        // document that describes every other one, including the agent surfaces the module
+        // generates its half of.
+        { href: '/openapi.json', rel: 'service-desc', type: 'application/openapi+json', anchor: '/api', title: 'OpenAPI 3.1 description of every endpoint and page' },
         { href: '/api/tools.json', rel: 'service-desc', type: 'application/json', anchor: '/api', title: 'Every tool as one JSON document' }
       ]
     }
@@ -164,6 +170,7 @@ export default defineNuxtConfig({
       {
         title: 'Data',
         links: [
+          { title: 'OpenAPI, every endpoint and page', description: 'The API surface as an OpenAPI 3.1 document, schemas included.', href: '/openapi.json' },
           { title: 'API, every tool', description: 'The same records the site renders, as one JSON document.', href: '/api/tools.json' },
           { title: 'API, every comparison', description: 'The canonical pair list: both slugs and the URL. Comparisons are not enumerated in this file.', href: '/api/compare.json' },
           { title: 'Changelog, every data commit', href: 'https://github.com/benjamincanac/whichcodingtools/commits/main/content/tools' }

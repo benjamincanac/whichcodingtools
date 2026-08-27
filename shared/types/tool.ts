@@ -1,7 +1,11 @@
 import type { Tool } from '../schema'
 
-export type PricingModel = 'free' | 'subscription' | 'usage' | 'hybrid'
-export type FreshnessLevel = 'success' | 'warning' | 'error'
+/** Runtime lists, not just types: `/openapi.json` publishes them as enums. */
+export const PRICING_MODELS = ['free', 'subscription', 'usage', 'hybrid'] as const
+export const FRESHNESS_LEVELS = ['success', 'warning', 'error'] as const
+
+export type PricingModel = typeof PRICING_MODELS[number]
+export type FreshnessLevel = typeof FRESHNESS_LEVELS[number]
 
 export interface Freshness {
   /** Date the pricing source was last verified. */
