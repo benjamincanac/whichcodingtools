@@ -54,7 +54,8 @@ function remove(slug: string) {
 
     <UModal
       v-model:open="open"
-      :ui="{ content: 'max-w-2xl' }"
+      :ui="{ content: 'sm:max-w-3xl h-full sm:h-112' }"
+      :transition="false"
     >
       <UButton
         :label="picked.length ? 'Add a tool' : 'Pick tools'"
@@ -70,7 +71,8 @@ function remove(slug: string) {
           value-key="value"
           placeholder="Search by name or vendor"
           close
-          class="h-96"
+          :ui="{ footer: 'flex items-center justify-between gap-2 px-2.5 py-1.5' }"
+          :fuse="{ resultLimit: 48 }"
           @update:open="open = $event"
         >
           <template #item-leading="{ item }">
@@ -81,16 +83,14 @@ function remove(slug: string) {
           </template>
 
           <template #footer>
-            <div class="flex items-center justify-between gap-2 px-2">
-              <span class="text-xs text-dimmed">{{ selected.length }} of {{ max }}{{ full ? ', remove one to add another' : '' }}</span>
-              <UButton
-                label="Done"
-                color="neutral"
-                variant="ghost"
-                size="xs"
-                @click="open = false"
-              />
-            </div>
+            <span class="text-xs text-dimmed">{{ selected.length }} of {{ max }}{{ full ? ', remove one to add another' : '' }}</span>
+            <UButton
+              label="Done"
+              color="neutral"
+              variant="soft"
+              size="xs"
+              @click="open = false"
+            />
           </template>
         </UCommandPalette>
       </template>
