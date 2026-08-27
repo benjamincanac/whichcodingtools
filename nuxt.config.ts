@@ -63,6 +63,12 @@ export default defineNuxtConfig({
     description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.'
   },
 
+  ui: {
+    experimental: {
+      componentDetection: true
+    }
+  },
+
   runtimeConfig: {
     // NUXT_GITHUB_TOKEN, NUXT_WEBHOOK_SECRET, NUXT_BYPASS_TOKEN (or the unprefixed env vars)
     githubToken: '',
