@@ -93,10 +93,12 @@ function errorResponse(description: string): Json {
 /**
  * The JSON endpoints. Everything under `/api`, minus the webhook and the sitemap source.
  *
- * The `Json` suffix on the operation ids is load-bearing: `/tools` is a page, and the operation
- * the module generates for it is already called `getTools`.
+ * Exported so the route can hand them to `agentDiscoveryOpenApi()`, which claims every
+ * `operationId` here before deriving its own. The `Json` suffix is kept anyway: with the ids
+ * reserved the module would rename its `/tools` page operation to `getTools2` instead, and a
+ * generated client calling `getTools2()` for a page is worse than the suffix.
  */
-function apiPaths(): Json {
+export function apiPaths(): Json {
   return {
     '/api/tools.json': {
       get: {
