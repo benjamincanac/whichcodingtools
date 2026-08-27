@@ -11,9 +11,8 @@ import {
 import { pairSlug, parsePair } from '#shared/utils/compare'
 import { sitePages } from '#shared/utils/routes'
 import { findByAlias } from '#shared/utils/tools'
-import { absolutizeMarkdownLinks, defineAgentContentSource, getAgentSiteUrl } from '#agent-discovery'
+import { defineAgentContentSource } from '#agent-discovery'
 import type { AgentListEntry, AgentSectionSelector } from 'nuxt-agent-discovery'
-import type { H3Event } from 'h3'
 import type { MarkdownContext } from '../markdown/context'
 import { renderPage } from '../markdown/render'
 
@@ -90,28 +89,22 @@ function describe(route: string, ctx: MarkdownContext): { title: string, descrip
 
 export default defineAgentContentSource({
   /**
-   * The set `/llms-full.txt` is built from, and its only caller.
+   * Everything `sitemap.md`, `llms.txt` and `llms-full.txt` advertise, read from the same
+   * `sitePages()` that feeds `sitemap.xml`, so the four cannot disagree about which pages
+   * exist.
    *
-   * Deliberately narrower than `list()`: `relatedPairs()` produces over five hundred
-   * comparisons, and concatenating them would make the full document tens of megabytes of
-   * mostly repeated tables. Every one still renders through `get()` on demand.
-   */
-  async routes() {
-    const ctx = await context()
-    return sitePages(ctx.tools, ctx.bySlug).map(page => page.route).filter(route => !route.startsWith('/compare/'))
-  },
-
-  /**
-   * Everything `sitemap.md` and `llms.txt` advertise, which is what `sitemap.xml` advertises,
-   * so the three cannot disagree about which pages exist.
+   * The comparisons are the one page type held back, and the one place the four differ:
+   * `relatedPairs()` produces over five hundred of them, every one describing itself with the
+   * same sentence, so `sitemap.xml` takes them all and the documents a reader opens describe
+   * the URL pattern instead. See COMPARE_LISTING. Every pair still renders through `get()`.
    *
-   * `null` for any selector is load-bearing, not a stub. The `llms-full.txt` hook resolves each
-   * declared `llms.sections` entry through here first and only falls back to `routes()` when
-   * none of them resolve. This site declares one section of hand-written links, and `nuxt-llms`
-   * unshifts a "Documentation Sets" one; declining both is what leaves `routes()` in charge.
-   * Teach this a selector and the full document silently narrows to it.
+   * `null` for any selector is load-bearing, not a stub. Both bridges resolve each declared
+   * `llms.sections` entry through here first and only fall back to the whole listing when none
+   * of them resolve. This site declares one section of hand-written links, and `nuxt-llms`
+   * unshifts a "Documentation Sets" one; declining both is what leaves the listing in charge.
+   * Teach this a selector and `llms-full.txt` silently narrows to it.
    */
-  async list(_event?: H3Event, selector?: AgentSectionSelector) {
+  async list(selector?: AgentSectionSelector) {
     if (selector) return null
 
     const ctx = await context()
@@ -139,15 +132,10 @@ export default defineAgentContentSource({
    * discovery registry. That keeps the resources block there in step with the `Link` header
    * instead of being a second hand-maintained list.
    */
-  async get(route: string, event?: H3Event) {
-    const page = renderPage(await context(), route)
-    if (!page) return null
-    return {
-      ...page,
-      // A document read detached from the site needs absolute links. Fenced blocks and inline
-      // code spans are left alone, so the install commands survive.
-      markdown: event ? absolutizeMarkdownLinks(page.markdown, getAgentSiteUrl(event)) : page.markdown
-    }
+  async get(route: string) {
+    // The module absolutizes the site-relative links on the way out, leaving fenced blocks and
+    // inline code spans alone, so the install commands survive.
+    return renderPage(await context(), route)
   },
 
   /**
