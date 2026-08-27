@@ -28,19 +28,85 @@ models:
   notes: Hosted models on Pro, or your own keys, Ollama and LM Studio on every plan.
 features: [acp-client, mcp-client, tab-completion, diff-review, remote-execution, subagents]
 wraps:
+  - tool: augment-code
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as Auggie CLI.
   - tool: claude-code
     via: acp
     uses_subscription: true
     min_tier: personal
     notes: Runs the Claude Agent with its own login. Zed does not charge for external agents.
+  - tool: cline
+    via: acp
+    uses_subscription: true
+    min_tier: personal
   - tool: codex-cli
     via: acp
     uses_subscription: true
     min_tier: personal
+  - tool: copilot-cli
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as GitHub Copilot, the CLI in ACP server mode.
+  - tool: cursor
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: devin
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: factory
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as Factory Droid.
   - tool: gemini-cli
     via: acp
     uses_subscription: true
     min_tier: personal
+  - tool: google-antigravity
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: goose
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: grok-build
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: junie-cli
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: kilo-code
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as Kilo.
+  - tool: kimi-code
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as Kimi CLI.
+  - tool: mistral-vibe
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: opencode
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+  - tool: qoder
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as Qoder CLI.
 pricing:
   tiers:
     - id: personal
@@ -84,8 +150,11 @@ sources:
     verified_at: 2026-08-23
     covers: [pricing]
   - url: https://zed.dev/docs/ai/external-agents
-    verified_at: 2026-08-23
+    verified_at: 2026-08-27
     covers: [wraps, models]
   - url: https://github.com/zed-industries/zed
     verified_at: 2026-08-23
     covers: [platforms, features, license]
+  - url: https://agentclientprotocol.com/registry
+    verified_at: 2026-08-27
+    covers: [wraps]

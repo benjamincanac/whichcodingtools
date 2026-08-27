@@ -23,24 +23,86 @@ models:
   notes: Cloud models from OpenAI, Google, Anthropic and xAI through the JetBrains AI service, Mellum for completions. Your own keys for Anthropic, OpenAI, OpenAI-compatible providers and Google Vertex AI, plus Ollama and LM Studio, work in chat and agents without a JetBrains AI subscription.
 features: [acp-client, mcp-client, tab-completion]
 wraps:
+  - tool: augment-code
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+    notes: Listed as Auggie CLI.
   - tool: claude-code
     via: acp
     uses_subscription: true
     min_tier: ai-free
     notes: Listed as Claude Agent. Connects with your own subscription, no AI Credits used.
+  - tool: cline
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
   - tool: codex-cli
     via: acp
     uses_subscription: true
     min_tier: ai-free
-  - tool: gemini-cli
+  - tool: copilot-cli
     via: acp
     uses_subscription: true
     min_tier: ai-free
+    notes: Listed as GitHub Copilot, the CLI in ACP server mode.
   - tool: cursor
     via: acp
     uses_subscription: true
     min_tier: ai-free
     notes: The FAQ names Cursor and GitHub Copilot as ACP agents you can connect with your own subscription.
+  - tool: devin
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: factory
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+    notes: Listed as Factory Droid.
+  - tool: gemini-cli
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: google-antigravity
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: goose
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: grok-build
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: junie-cli
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: kilo-code
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+    notes: Listed as Kilo.
+  - tool: kimi-code
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+    notes: Listed as Kimi CLI.
+  - tool: mistral-vibe
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: opencode
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+  - tool: qoder
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+    notes: Listed as Qoder CLI.
 pricing:
   tiers:
     - id: ai-free
@@ -135,3 +197,9 @@ sources:
   - url: https://www.jetbrains.com/help/ai/jetbrains-ai.html
     verified_at: 2026-08-23
     covers: [general]
+  - url: https://blog.jetbrains.com/ai/2026/01/acp-agent-registry/
+    verified_at: 2026-08-27
+    covers: [wraps]
+  - url: https://agentclientprotocol.com/registry
+    verified_at: 2026-08-27
+    covers: [wraps]

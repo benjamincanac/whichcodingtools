@@ -28,7 +28,7 @@ models:
   byok: full
   local: true
   notes: JetBrains AI subscription gives access to Claude, Gemini, GPT and Grok models. BYOK works with Anthropic, OpenAI, Google, xAI, OpenRouter or a GitHub Copilot key, and custom or self-hosted endpoints such as LiteLLM, Ollama or LM Studio.
-features: [worktrees, subagents, mcp-client, diff-review, remote-execution, mobile-companion]
+features: [worktrees, subagents, mcp-client, diff-review, remote-execution, mobile-companion, acp-agent]
 pricing:
   same_as: jetbrains-ai
   notes: Junie CLI signs in with a JetBrains account (draws from the same AI Credits as the JetBrains AI subscription), a usage-based Junie API key, or BYOK, which needs no subscription.
@@ -43,3 +43,6 @@ sources:
   - url: https://junie.jetbrains.com/docs/junie-cli.html
     verified_at: 2026-08-24
     covers: [features, models, platforms]
+  - url: https://junie.jetbrains.com/docs/junie-cli-acp.html
+    verified_at: 2026-08-27
+    covers: [features]

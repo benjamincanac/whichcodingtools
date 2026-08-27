@@ -26,7 +26,7 @@ models:
   byok: full
   local: true
   notes: Any OpenAI-compatible endpoint, plus Bedrock, Azure and Vertex.
-features: [mcp-client, plugins, checkpoints, browser-automation, hooks, subagents]
+features: [mcp-client, plugins, checkpoints, browser-automation, hooks, subagents, acp-agent]
 pricing:
   tiers:
     - id: free
@@ -67,3 +67,6 @@ sources:
   - url: https://cline.bot
     verified_at: 2026-08-23
     covers: [platforms, models, features, license, general]
+  - url: https://docs.cline.bot/usage/acp
+    verified_at: 2026-08-27
+    covers: [features]

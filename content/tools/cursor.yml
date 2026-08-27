@@ -24,7 +24,7 @@ models:
   byok: partial
   local: false
   notes: Your own API keys work for chat but not for agent features on Cursor Router.
-features: [parallel-agents, subagents, worktrees, mcp-client, hooks, plugins, browser-automation, diff-review, checkpoints, tab-completion, remote-execution]
+features: [parallel-agents, subagents, worktrees, mcp-client, hooks, plugins, browser-automation, diff-review, checkpoints, tab-completion, remote-execution, acp-agent]
 pricing:
   tiers:
     - id: hobby
@@ -103,3 +103,6 @@ sources:
   - url: https://cursor.com/docs
     verified_at: 2026-08-23
     covers: [platforms, models, features]
+  - url: https://cursor.com/docs/cli/acp
+    verified_at: 2026-08-27
+    covers: [features]

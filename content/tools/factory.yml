@@ -26,7 +26,7 @@ models:
   byok: partial
   local: true
   notes: Custom models and your own keys work in the Droid CLI and the desktop app only, not in the hosted web or mobile surfaces. BYOK is free up to an allowance on individual plans.
-features: [subagents, mcp-client, hooks, plugins, sandboxing, browser-automation, parallel-agents, scheduled-tasks, remote-execution, diff-review, mobile-companion]
+features: [subagents, mcp-client, hooks, plugins, sandboxing, browser-automation, parallel-agents, scheduled-tasks, remote-execution, diff-review, mobile-companion, acp-agent]
 pricing:
   tiers:
     - id: pro
@@ -95,3 +95,6 @@ sources:
   - url: https://docs.factory.ai/droid-cli/overview
     verified_at: 2026-08-23
     covers: [features, general]
+  - url: https://docs.factory.ai/integrations/zed
+    verified_at: 2026-08-27
+    covers: [features]

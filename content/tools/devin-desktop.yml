@@ -18,7 +18,29 @@ models:
   providers: [anthropic, openai, google, xai, first-party]
   byok: partial
   local: false
-features: [parallel-agents, subagents, sandboxing, mcp-client, tab-completion, diff-review, browser-automation]
+features: [parallel-agents, subagents, sandboxing, mcp-client, tab-completion, diff-review, browser-automation, acp-client]
+wraps:
+  - tool: claude-code
+    via: acp
+    uses_subscription: true
+    min_tier: free
+    notes: Listed as Claude Agent. Billing and terms are between you and the agent provider, not Cognition.
+  - tool: codex-cli
+    via: acp
+    uses_subscription: true
+    min_tier: free
+  - tool: gemini-cli
+    via: acp
+    uses_subscription: true
+    min_tier: free
+  - tool: junie-cli
+    via: acp
+    uses_subscription: true
+    min_tier: free
+  - tool: opencode
+    via: acp
+    uses_subscription: true
+    min_tier: free
 pricing:
   tiers:
     - id: free
@@ -72,3 +94,6 @@ sources:
   - url: https://devin.ai/desktop
     verified_at: 2026-08-23
     covers: [platforms, models, features, general]
+  - url: https://docs.devin.ai/desktop/acp
+    verified_at: 2026-08-27
+    covers: [features]

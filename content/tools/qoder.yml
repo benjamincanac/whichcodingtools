@@ -22,7 +22,7 @@ models:
   byok: partial
   local: false
   notes: Built in tiers (Auto, Ultimate, Performance, Efficient, Lite) plus named Qwen, DeepSeek, GLM, Kimi and MiniMax models billed at per model credit rates. Your own API key works only for Alibaba Cloud Model Studio, DeepSeek, Z.ai, Kimi, MiniMax and Xiaomi MiMo.
-features: [subagents, parallel-agents, mcp-client, hooks, plugins, sandboxing, scheduled-tasks, browser-automation, mobile-companion, tab-completion, diff-review]
+features: [subagents, parallel-agents, mcp-client, hooks, plugins, sandboxing, scheduled-tasks, browser-automation, mobile-companion, tab-completion, diff-review, acp-agent]
 pricing:
   tiers:
     - id: free
@@ -112,3 +112,6 @@ sources:
   - url: https://qoder.com
     verified_at: 2026-08-23
     covers: [platforms, general]
+  - url: https://docs.qoder.com/cli/acp
+    verified_at: 2026-08-27
+    covers: [features]

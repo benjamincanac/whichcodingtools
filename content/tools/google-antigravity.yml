@@ -25,7 +25,7 @@ models:
   byok: none
   local: false
   notes: Gemini 3.7, 3.6 and 3.5 Flash and Gemini 3.1 Pro on every plan. Claude Sonnet 4.6 and Opus 4.6 and gpt-oss-120b on Free, Plus, Pro and Ultra but not on Enterprise. The docs do not mention your own keys or local models.
-features: [worktrees, subagents, browser-automation, mcp-client, scheduled-tasks, hooks, plugins, diff-review, sandboxing, tab-completion]
+features: [worktrees, subagents, browser-automation, mcp-client, scheduled-tasks, hooks, plugins, diff-review, sandboxing, tab-completion, acp-agent]
 pricing:
   bundled_with: gemini
   tiers:
@@ -91,4 +91,7 @@ sources:
     covers: [general]
   - url: https://antigravity.google/docs/cli/sandbox/
     verified_at: 2026-08-23
+    covers: [features]
+  - url: https://antigravity.google/docs/ide/extensions/zed
+    verified_at: 2026-08-27
     covers: [features]
