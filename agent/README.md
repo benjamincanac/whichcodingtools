@@ -40,11 +40,13 @@ agent/
   schedules/pricing-watch.ts        daily 06:15 UTC, task mode (no chat channel needed)
   schedules/discovery.ts            Tuesdays 12:00 UTC, the one pass that looks outside the corpus
   schedules/rename-watch.ts         Mondays 12:00 UTC
+  schedules/acp-watch.ts            Wednesdays 12:00 UTC, the ACP Agent Registry read against the corpus
   schedules/stale-sweep.ts          Thursdays 12:00 UTC
   schedules/triage.ts               Fridays 09:00 UTC, a pass over everything still open
   skills/pricing-watch/SKILL.md     the sweep procedure
   skills/discovery/SKILL.md         tools the directory does not carry yet, one candidate a week
   skills/rename-watch/SKILL.md      homepage redirects, new names, description drift
+  skills/acp-watch/SKILL.md         acp-agent flags, and the wraps of the registry's two clients
   skills/stale-sweep/SKILL.md       tools past 60 days without a re-check
   skills/contributing/SKILL.md      the data and PR rules, mirrors CONTRIBUTING.md
   skills/outdated-report/SKILL.md   one reported field, re-read against its vendor page
@@ -81,11 +83,19 @@ A snapshot is only ever written by `page-text.mjs`, either from a fetch or with 
 
 ## What the weekly discovery does
 
-Every other pass reads `content/tools`. This one reads what is not in it, because a tool nobody reports is a tool the directory does not have. On Tuesdays the agent builds the set already covered (slugs, names, vendors, `aliases` and homepage domains, sunset files included), then looks in three places: the compatibility lists of the tools that already run other tools, Show HN through the Algolia API for the last eight days, and `web_search` for what neither of those can see. Candidates go through the scope rules in `skills/discovery/SKILL.md` (something you install or buy, in one of the seven layers, shipping today), get verified against their own homepage with `page-text.mjs`, and are deduped with `github__find_related` on the name and on the domain, closed threads included, so a candidate someone already turned down does not come back every week.
+Every other pass reads `content/tools`. This one reads what is not in it, because a tool nobody reports is a tool the directory does not have. On Tuesdays the agent builds the set already covered (slugs, names, vendors, `aliases` and homepage domains, sunset files included), then looks in four places: the compatibility lists of the tools that already run other tools, the ACP Agent Registry, Show HN through the Algolia API for the last eight days, and `web_search` for what none of those can see. Candidates go through the scope rules in `skills/discovery/SKILL.md` (something you install or buy, in one of the seven layers, shipping today), get verified against their own homepage with `page-text.mjs`, and are deduped with `github__find_related` on the name and on the domain, closed threads included, so a candidate someone already turned down does not come back every week.
 
 It files at most one, as `[Tool] <name>` with the `tool` label and the body the "Add a tool" form produces. That is exactly what a person filing that form produces, so the first responder starts on it as soon as it exists and what lands for review is a pull request rather than a queue entry. One a week, because each one costs a review.
 
 The pass opens no pull request itself and edits no file. The loop it closes terminates by construction: the responder cannot open issues, so nothing it does comes back through `onIssue`.
+
+## What the weekly ACP watch does
+
+`acp-agent` is the one compatibility fact in the corpus with a canonical list behind it. The [ACP Agent Registry](https://agentclientprotocol.com/registry) is a single JSON file that JetBrains IDEs and Zed both install from, and it gains entries most weeks. On Wednesdays the agent reads it, matches entries to slugs on domain and name, and separates the agents a vendor ships from the adapters third parties wrote around a vendor's CLI. Only the first kind counts.
+
+An entry is a trigger, not a citation. Before the flag goes on a file the pass finds the vendor's own ACP page, usually through `docs.<domain>/llms.txt` or the sitemap, reads it with `page-text.mjs` and records it as a source the way a price is recorded. It also keeps the `wraps` of `zed` and `jetbrains-ai` in step, since installing from the registry is the documented path in both, while every other `acp-client` in the corpus keeps the shorter list its own docs give.
+
+One pull request a week or none, and no new files: an entry with no slug goes in the report for the Tuesday discovery pass, which reads the same registry.
 
 ## What the weekly triage does
 

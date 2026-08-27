@@ -17,7 +17,7 @@ Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`
 - Pages fetch the prerendered-per-request JSON routes (`/api/tools.json`, `/api/tools/[slug].json`), never comark directly. Computed fields (`open_source`, `pricing_model`, `wrapped_by`, `freshness`, `effective_providers`) live in `shared/utils/`, one source of truth for site and API.
 - ISR everywhere via `$production.routeRules` in `nuxt.config.ts`, hourly expiration. `POST /api/revalidate` is the GitHub push webhook that purges affected pages; `vercel.json` `ignoreCommand` skips builds for content-only commits, so data goes live through the webhook without a deploy.
 - The zod schema `shared/schema.ts` is read by the content source (via `z.toJSONSchema`), `scripts/validate.ts` and the API types. It must stay JSON-Schema-representable: no `.transform()`, dates as `z.string().date()`, refinements are enforced by the validate script only.
-- The eve agent in `agent/` deploys with the site (`eve/nuxt` module): daily pricing sweep, weekly discovery, rename-watch and stale-sweep, GitHub channel via Vercel Connect (`github/whichcodingtools`). Wiring in `agent/`, logic in `agent/lib/`, procedures in `agent/skills/*/SKILL.md`. See `agent/README.md`.
+- The eve agent in `agent/` deploys with the site (`eve/nuxt` module): daily pricing sweep, weekly discovery, rename-watch, acp-watch and stale-sweep, GitHub channel via Vercel Connect (`github/whichcodingtools`). Wiring in `agent/`, logic in `agent/lib/`, procedures in `agent/skills/*/SKILL.md`. See `agent/README.md`.
 
 ## Rules that don't bend
 

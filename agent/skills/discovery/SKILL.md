@@ -25,13 +25,19 @@ Match a candidate on the domain first and on the name second.
 
 ## Sources
 
-Three, each bounded. A source that returns nothing is a normal run.
+Four, each bounded. A source that returns nothing is a normal run.
 
 **What the corpus already runs.** The cheapest source and the highest signal. Take every tool with a non-empty `wraps` and every `layer: orchestrator`, then read its `homepage` and `links.docs`:
 
     node /workspace/bin/page-text.mjs <url> > /tmp/<slug>.txt
 
 and pull out the agents it says it detects, runs or supports. That list is maintained by people who follow this space full time. A name in it with no slug is a candidate a second party already vouched for.
+
+**The ACP Agent Registry.** One file, and the only list in this space a second party curates and dates:
+
+    curl -s https://cdn.agentclientprotocol.com/registry/v1/latest/registry.json
+
+Every entry is an agent JetBrains IDEs and Zed can install in one click, with a `website`, a `repository` and an `authors` line. An entry whose domain matches no `homepage` is a candidate somebody already shipped, packaged and got accepted, which is a stronger signal than a launch post. Read `authors` before filing: an adapter a personal account wrote around a vendor's CLI is not a product, and the tool it wraps usually already has a file. The Wednesday `acp-watch` pass reads the same file for the corpus side, so anything it names in its report with no slug is here for you.
 
 **Show HN.** Launches land there the day they ship:
 
