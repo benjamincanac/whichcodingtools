@@ -64,7 +64,7 @@ pricing:
 status: active
 sources:
   - url: https://sweep.dev/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-08-27
     covers: [pricing, platforms]
   - url: https://docs.sweep.dev
     verified_at: 2026-08-23
