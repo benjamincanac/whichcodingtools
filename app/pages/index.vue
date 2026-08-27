@@ -97,11 +97,12 @@ defineShortcuts({
           <template #trailing>
             <UButton
               type="submit"
+              aria-label="Submit search"
               color="neutral"
               variant="soft"
               size="sm"
-              trailing-icon="i-lucide-chevron-right"
               trailing
+              trailing-icon="i-lucide-chevron-right"
               :loading="loading"
               class="-me-1.5"
             />
