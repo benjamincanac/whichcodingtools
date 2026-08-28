@@ -23,60 +23,27 @@ wraps:
   - tool: claude-code
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
     notes: Listed as Claude Agent. Billing and terms are between you and the agent provider, not Cognition.
   - tool: codex-cli
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
   - tool: gemini-cli
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
   - tool: junie-cli
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
   - tool: opencode
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
 pricing:
-  tiers:
-    - id: free
-      name: Free
-      price: 0
-      audience: individual
-      overage:
-        kind: blocked
-      limits:
-        - Limited monthly credits
-    - id: pro
-      name: Pro
-      price: 20
-      audience: individual
-      included:
-        amount: 500
-        unit: credits
-        notes: Credits are consumed per prompt at a rate that depends on the model
-      overage:
-        kind: credits
-        notes: Additional credit packs billed separately.
-    - id: teams
-      name: Teams
-      price: 40
-      audience: team
-      included:
-        amount: 500
-        unit: credits
-      overage:
-        kind: credits
-    - id: enterprise
-      name: Enterprise
-      price: null
-      contact_sales: true
-      audience: enterprise
-  notes: The pricing page refused automated fetches on 2026-08-23. Tier figures come from the August 2026 research corpus and need a human check.
+  same_as: devin
+  notes: Devin Desktop is billed on the same Free/Pro/Max/Teams self-serve plans as Devin; a Pro or Max plan, or a Teams full seat, includes Devin Desktop access.
 status: active
 aliases:
   - slug: windsurf
@@ -89,7 +56,7 @@ aliases:
     note: The company and product were called Codeium before the Windsurf rebrand.
 sources:
   - url: https://docs.devin.ai/admin/billing/self-serve
-    verified_at: 2026-08-23
+    verified_at: 2026-08-28
     covers: [pricing]
   - url: https://devin.ai/desktop
     verified_at: 2026-08-23
