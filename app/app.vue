@@ -38,7 +38,7 @@ useSeoMeta({
 
     <AppHeader />
 
-    <UMain>
+    <UMain class="flex flex-col">
       <NuxtPage />
     </UMain>
   </UApp>

@@ -6,7 +6,6 @@ import { toRequirements } from '#shared/finder'
 import { toQuery } from '~/composables/useToolFinder'
 
 const { site } = useAppConfig()
-const { tools } = await useTools()
 
 useSeoMeta({
   title: 'Find the AI coding tool that fits how you work',
@@ -23,7 +22,7 @@ const query = ref('')
 const loading = ref(false)
 
 const examples = [
-  'Goes through Vercel AI Gateway',
+  'Runs on Vercel AI Gateway, one key for every model',
   'Terminal agent on macOS, I already pay for Claude Max',
   'Inside VS Code with open source local models',
   'An IDE with the agent built in, checkpoints to roll back',
@@ -80,6 +79,8 @@ defineShortcuts({
     :title="site.name"
     description="Tell it how you work. It finds the AI coding tool that fits, with pricing checked against the vendor page."
     :ui="{
+      root: 'flex-1 flex flex-col',
+      container: 'flex-1',
       headline: 'flex',
       title: 'text-4xl sm:text-5xl font-medium tracking-tighter',
       description: 'text-base sm:text-lg max-w-xl mx-auto text-pretty',
@@ -137,39 +138,11 @@ defineShortcuts({
       </div>
     </template>
 
-    <div class="flex flex-col items-center gap-y-4 py-4 mt-auto">
-      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted">
-        <ULink to="/tools">
-          Explore {{ tools.length }} tools
-        </ULink>
-        <span>·</span>
-        <ULink to="/compare">
-          Compare
-        </ULink>
-        <span>·</span>
-        <ULink
-          :to="`${API_BASE}/tools.json`"
-          target="_blank"
-        >
-          JSON API
-        </ULink>
-        <span>·</span>
-        <ULink
-          :to="`https://github.com/${site.repo}/tree/main/content/tools`"
-          target="_blank"
-        >
-          Data on GitHub
-        </ULink>
-      </div>
-
-      <section class="flex flex-col items-center gap-y-1.5">
-        <h2 class="text-xs font-medium uppercase tracking-wider text-dimmed">
-          How the data is checked
-        </h2>
-        <p class="max-w-xl text-center text-xs text-dimmed text-pretty">
-          Every price, plan and limit comes from a vendor page someone read on the date recorded next to it. One YAML file per tool, validated against a schema, with a source URL on every claim. No affiliate links.
-        </p>
-      </section>
-    </div>
+    <p class="absolute bottom-4 sm:bottom-6 lg:bottom-8 inset-x-0 text-[13px] text-dimmed text-pretty whitespace-pre-wrap text-center">
+      Every price, plan and limit comes from a vendor page someone read on the date recorded next to it.<br> One YAML file per tool, validated against a schema, with a source URL on every claim. <ULink
+        :to="`https://github.com/${site.repo}/tree/main/content/tools`"
+        target="_blank"
+      >No affiliate links, data on GitHub.</ULink>
+    </p>
   </UPageHero>
 </template>
