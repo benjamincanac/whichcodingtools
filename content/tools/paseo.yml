@@ -14,7 +14,7 @@ install:
   - method: download
     url: https://paseo.sh/download
 license:
-  spdx: AGPL-3.0-only
+  spdx: Apache-2.0
   kind: open-source
   repo: https://github.com/getpaseo/paseo
 models:
@@ -60,5 +60,5 @@ sources:
     verified_at: 2026-08-23
     covers: [pricing, platforms, wraps, features, general]
   - url: https://github.com/getpaseo/paseo
-    verified_at: 2026-08-23
+    verified_at: 2026-08-28
     covers: [license, platforms, wraps, features]
