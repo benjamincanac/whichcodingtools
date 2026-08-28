@@ -14,12 +14,11 @@ const slug = computed(() => String(route.params.slug))
 
 // Both are registered before either is awaited: the corpus and this tool are independent
 // requests, and awaiting them in turn cost a full round trip on every render.
-const { tools, bySlug, ready } = useTools()
+const toolsRequest = useTools()
 const toolRequest = useFetch<ToolRecord>(`${API_BASE}/tools/${slug.value}.json`, {
   key: `tool-${slug.value}`
 })
-await Promise.all([ready, toolRequest])
-const { data: tool, error } = toolRequest
+const [{ tools, bySlug }, { data: tool, error }] = await Promise.all([toolsRequest, toolRequest])
 
 if (!tool.value) {
   // Renamed tools keep their old URL: SSR answers with a real 301, client-side navigation replaces the route.

@@ -6,8 +6,7 @@ import { toRequirements } from '#shared/finder'
 import { toQuery } from '~/composables/useToolFinder'
 
 const { site } = useAppConfig()
-const { tools, ready } = useTools()
-await ready
+const { tools } = await useTools()
 
 useSeoMeta({
   title: 'Find the AI coding tool that fits how you work',
