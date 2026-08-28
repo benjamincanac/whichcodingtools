@@ -1,7 +1,10 @@
 <script setup lang="ts">
-const { site } = useAppConfig()
 const route = useRoute()
+const { site } = useAppConfig()
 const { siteUrl, rawPrefix } = useRuntimeConfig().public.agentDiscovery
+const colorMode = useColorMode()
+
+const themeColor = computed(() => colorMode.value === 'dark' ? 'black' : '#fafafa')
 
 /**
  * The markdown twin of the current page, so a client that reads the HTML can find it without
@@ -15,6 +18,10 @@ const markdownAlternate = computed(() => route.path === '/'
 useHead({
   htmlAttrs: { lang: 'en' },
   titleTemplate: title => title ? `${title} · ${site.name}` : site.name,
+  meta: [
+    { name: 'color-scheme', content: 'light dark' },
+    { key: 'theme-color', name: 'theme-color', content: themeColor }
+  ],
   link: () => [
     { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
     { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32.png' },
