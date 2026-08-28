@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { API_BASE, API_VERSION, SUNSET_NOTICE_DAYS } from '#shared/api'
+import { API_BASE, API_VERSION, SUNSET_NOTICE_DAYS, isVersionedApiPath } from '#shared/api'
 import { ParsedRequirementsSchema } from '#shared/finder'
 import { toolJsonSchema } from '#shared/schema'
 import { FRESHNESS_LEVELS, PRICING_MODELS } from '#shared/types/tool'
@@ -186,8 +186,13 @@ export function apiPaths(): Json {
  * invitation to integrate against it. The pages and the discovery documents are untouched.
  */
 function publishable(paths: Json): Json {
+  // On a segment boundary, not a string prefix: `/apiary` is an ordinary page and must not be
+  // judged an API path at all. The versioned half defers to `isVersionedApiPath()` rather than
+  // testing the prefix again here, which is what kept `/api/v10/...` out.
+  const underApi = (path: string) => path === '/api' || path.startsWith('/api/')
+
   return Object.fromEntries(
-    Object.entries(paths).filter(([path]) => !path.startsWith('/api') || path.startsWith(API_BASE))
+    Object.entries(paths).filter(([path]) => !underApi(path) || isVersionedApiPath(path))
   )
 }
 

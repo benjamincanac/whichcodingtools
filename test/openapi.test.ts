@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- the document is plain JSON with no static shape, so the assertions walk it untyped. */
 import { describe, expect, it } from 'vitest'
 import { siteOpenApi, type DiscoveryFragments } from '../server/utils/openapi'
-import { API_BASE } from '#shared/api'
+import { API_BASE, isVersionedApiPath } from '#shared/api'
 import { toolJsonSchema } from '#shared/schema'
 import { FRESHNESS_LEVELS, PRICING_MODELS } from '#shared/types/tool'
 import { loadRecords } from './content'
@@ -33,6 +33,10 @@ const discovery: DiscoveryFragments = {
     // Unversioned on purpose: the module could pick up a route like this, and the document must
     // not publish it beside the versioned API. Without it the prefix check passes by construction.
     '/api/content/list': { get: { operationId: 'getContentList' } },
+    // A near miss on each side of the boundary. `/api/v10` is not this version, and `/apiary` is
+    // not an API path at all: a string-prefix test gets both of them wrong, in both directions.
+    '/api/v10/tools.json': { get: { operationId: 'getToolsV10' } },
+    '/apiary': { get: { operationId: 'getApiary' } },
     // A path the site also describes, to prove which side wins.
     '/api/v1/tools.json': { get: { operationId: 'generated' } }
   },
@@ -132,9 +136,17 @@ describe('the API surface', () => {
   })
 
   it('serves every endpoint under the versioned prefix, nothing beside it', () => {
-    const own = Object.keys(doc.paths).filter(path => path.startsWith('/api'))
+    const own = Object.keys(doc.paths).filter(path => path === '/api' || path.startsWith('/api/'))
     expect(own.length).toBeGreaterThan(0)
-    expect(own.filter(path => !path.startsWith(API_BASE))).toEqual([])
+    expect(own.filter(path => !isVersionedApiPath(path))).toEqual([])
+  })
+
+  it('judges the boundary by segment, so a near miss is not mistaken either way', () => {
+    // Dropped: neither is the versioned surface.
+    expect(doc.paths['/api/content/list']).toBeUndefined()
+    expect(doc.paths['/api/v10/tools.json']).toBeUndefined()
+    // Kept: an ordinary page that merely starts with the same letters.
+    expect(doc.paths['/apiary']).toBeDefined()
   })
 
   it('advertises the version header on every JSON response', () => {
