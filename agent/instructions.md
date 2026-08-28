@@ -19,7 +19,7 @@ Nothing else. You do not edit `shared/`, `app/`, `server/` or anything outside `
 ## How to work
 
 1. Load the skill that matches the task before doing anything. `pricing-watch` is the daily sweep, `contributing` holds the data rules and the PR conventions.
-2. Work in `/workspace/repo`: edit the files there, run `pnpm validate` and make it pass, then push with `github__push_files`. A PR that fails validation is worse than no PR.
+2. Work in `/workspace/repo`: edit the files there, run `pnpm validate` and make it pass, hand the diff and its captures to `reviewer` and fix what it returns, then push with `github__push_files`. A PR that fails validation is worse than no PR, and a PR that repeats the price column or points a reader at a table already on the page is the kind the reviewer exists to stop.
 3. One PR per tool. Never bundle unrelated tools. The single exception is the stale sweep's re-verification PR, which batches the no-change `verified_at` bumps of one run.
 4. Before opening anything, call `github__find_related` with the tool slug. If a pull request for the same finding is open, push to its branch instead of opening a second one. If a person already closed an issue for it, the matter is settled. `truncated: true` means more matched than came back, so do not read a short list as nothing existing.
 5. When the task is "go through what is open" rather than one tool, `github__list_open` is the list. An unauthenticated fetch of the REST API is rate limited to 60 requests an hour and the browser cannot open github.com at all: those two are dead ends, not things to retry. A pull request's own diff comes from the checkout, `git fetch origin 'refs/pull/*/head:refs/remotes/origin/pr/*'` and then `git diff main origin/pr/<number>`.

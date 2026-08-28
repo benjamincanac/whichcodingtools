@@ -71,6 +71,12 @@ function restatesThePrice(limit: string) {
   return words.length > 0 && words.every(w => PRICE_WORDS.has(w)) && words.some(w => UNIT_WORDS.has(w))
 }
 
+/** "See the Devin entry" and its variants: a sentence that sends the reader to one of `names`. */
+function pointsAt(text: string, names: string[]) {
+  const escaped = names.map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  return new RegExp(`\\bsee\\b[^.]*\\b(?:${escaped})\\b`, 'i').test(text)
+}
+
 /** Dollar amounts written into prose, so they can be held to the same capture as a `price`. */
 function moneyIn(text: string) {
   return [...text.matchAll(/\$\s?(\d[\d,]*(?:\.\d+)?)/g)].map(m => Number(m[1]!.replace(/,/g, '')))
@@ -146,6 +152,11 @@ for (const [slug, tool] of tools) {
       tool.wraps.forEach((w, i) => {
         if (w.min_tier && !ids.has(w.min_tier)) issue(file, `wraps.${i}.min_tier`, `"${w.min_tier}" is not a tier of ${tool.pricing.same_as}`)
       })
+      // The page opens with "Same pricing as <target>" and renders its whole table, so a note
+      // sending the reader to that entry points at what is already in front of them.
+      if (tool.pricing.notes && pointsAt(tool.pricing.notes, [target.name, target.slug])) {
+        issue(file, 'pricing.notes', `the page already shows ${target.name}'s tiers through same_as, say what differs here instead of pointing at that entry`)
+      }
     }
   }
 
@@ -153,6 +164,10 @@ for (const [slug, tool] of tools) {
     tier.limits.forEach((limit, i) => {
       if (restatesThePrice(limit)) {
         issue(file, `pricing.tiers.${tier.id}.limits.${i}`, `"${limit}" is what the price column already says, put the tier's own differentiators here`)
+      } else if (tier.price !== null && tier.price > 0 && moneyIn(limit).includes(tier.price)) {
+        // "$40/month per full seat" beside a Price column that says $40/mo. A different amount,
+        // an account minimum or a seat bundle, is the one thing only `limits` can carry.
+        issue(file, `pricing.tiers.${tier.id}.limits.${i}`, `"${limit}" repeats the tier's own price, the price column already shows it`)
       }
     })
   }

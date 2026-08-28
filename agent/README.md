@@ -63,6 +63,7 @@ agent/
   tools/github__close_issue.ts      close the agent's own issues once resolved, with evidence
   tools/github__close_pull_request.ts  close one of its own whose finding no longer holds
   tools/ask_question.ts             disables eve's built-in question tool, which the GitHub channel would post as a comment
+  subagents/reviewer/               a diff read the way the site renders it, on Opus, before any pull request opens or grows
   lib/github.ts                     REST helpers, the Git Data API push, Connect installation token (whichcodingtools[bot])
   lib/network-policy.ts             the read-only git firewall policy, shared by the sandbox and the hook
   lib/checkout.ts                   clone and refresh /workspace/repo, with exit codes actually checked
@@ -71,6 +72,10 @@ agent/
   sandbox/sandbox.ts                template warming and per-session setup
   sandbox/workspace/bin/page-text.mjs  fetches a vendor page as plain text, or fences a rendered one from stdin
 ```
+
+## Review before a pull request
+
+The sweep writes YAML and never looks at what the site makes of it, which is where its misses live: a limit that repeats the price column, a note that points at a table already on the page, a `wraps[].min_tier` whose meaning changed when the tiers did. `subagents/reviewer/` is a declared subagent on Opus with its own instructions and no checkout, so the root hands it the diff, the captures and the URLs in one message and gets findings back, before the first push and before any follow-up commit. The `contributing` skill says when and what to send. Two of the misses were mechanical enough to go into `pnpm validate` instead: a `limits` entry quoting the tier's own price, and a `pricing.notes` on a `same_as` tool that sends the reader to the target's entry.
 
 ## What the daily sweep does
 
