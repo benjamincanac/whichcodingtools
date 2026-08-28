@@ -69,7 +69,6 @@ function restatesThePrice(limit: string) {
   return words.length > 0 && words.every(w => PRICE_WORDS.has(w)) && words.some(w => UNIT_WORDS.has(w))
 }
 
-/** Dollar amounts written into prose, so they can be held to the same capture as a `price`. */
 /**
  * A note saying something is "not in the directory" is a claim about this repository, not about
  * the vendor's page. Nothing re-reads it: the sweeps check a file against its sources, and this
@@ -77,6 +76,7 @@ function restatesThePrice(limit: string) {
  */
 const COVERAGE_CLAIM = /\bnot\s+(?:yet\s+)?[a-z ]{0,30}?(?:in (?:the|this) directory|tracked here|listed here|covered here)\b/i
 
+/** Dollar amounts written into prose, so they can be held to the same capture as a `price`. */
 function moneyIn(text: string) {
   return [...text.matchAll(/\$\s?(\d[\d,]*(?:\.\d+)?)/g)].map(m => Number(m[1]!.replace(/,/g, '')))
 }
