@@ -8,7 +8,9 @@ const props = withDefaults(defineProps<{
   variant?: 'dot' | 'badge'
 }>(), { variant: 'badge' })
 
-const label = computed(() => `Pricing verified ${relativeDays(props.freshness.verified_at)}`)
+const now = useNow()
+const relative = computed(() => relativeDays(props.freshness.verified_at, now.value))
+const label = computed(() => `Pricing verified ${relative.value}`)
 const dotClass = computed(() => ({
   success: 'bg-success',
   warning: 'bg-warning',
@@ -26,12 +28,7 @@ const dotClass = computed(() => ({
         class="size-1.5 rounded-full"
         :class="dotClass"
       />
-      <ClientOnly>
-        {{ relativeDays(freshness.verified_at) }}
-        <template #fallback>
-          {{ freshness.verified_at }}
-        </template>
-      </ClientOnly>
+      {{ relative }}
     </span>
     <UBadge
       v-else
@@ -44,12 +41,7 @@ const dotClass = computed(() => ({
         class="size-1.5 rounded-full"
         :class="dotClass"
       />
-      <ClientOnly>
-        {{ label }}
-        <template #fallback>
-          Pricing verified {{ freshness.verified_at }}
-        </template>
-      </ClientOnly>
+      {{ label }}
     </UBadge>
   </UTooltip>
 </template>
