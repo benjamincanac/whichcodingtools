@@ -6,7 +6,6 @@ import { toRequirements } from '#shared/finder'
 import { toQuery } from '~/composables/useToolFinder'
 
 const { site } = useAppConfig()
-const { public: { finderAi } } = useRuntimeConfig()
 const { tools, ready } = useTools()
 await ready
 
@@ -23,7 +22,6 @@ defineOgImage('ToolSatori', {
 
 const query = ref('')
 const loading = ref(false)
-const error = ref('')
 
 const examples = [
   'Terminal agent on Linux, I already pay for Claude Max',
@@ -36,11 +34,10 @@ const examples = [
 async function go() {
   const text = query.value.trim()
   if (loading.value) return
-  if (!finderAi || !text.length) {
+  if (!text.length) {
     return navigateTo({ path: '/tools', query: { q: text } })
   }
   loading.value = true
-  error.value = ''
   try {
     const { parsed } = await $fetch<{ parsed: ParsedRequirements }>('/api/finder/parse', { method: 'POST', body: { query: text } })
     await navigateTo({ path: '/tools', query: { ...toQuery(toRequirements(parsed)), why: parsed.summary } })
@@ -93,10 +90,7 @@ defineShortcuts({
       <span class="flex size-12 items-center justify-center rounded-xl bg-inverted text-inverted font-mono text-lg">&gt;_</span>
     </template>
 
-    <template
-      v-if="finderAi"
-      #links
-    >
+    <template #links>
       <form
         class="w-full max-w-2xl flex flex-col gap-3"
         @submit.prevent="go"
@@ -133,12 +127,6 @@ defineShortcuts({
             />
           </template>
         </UInput>
-        <p
-          v-if="error"
-          class="text-sm text-error"
-        >
-          {{ error }}
-        </p>
       </form>
 
       <div class="flex flex-wrap items-center justify-center gap-1.5 max-w-2xl mx-auto">
