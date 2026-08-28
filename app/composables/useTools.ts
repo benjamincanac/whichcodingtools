@@ -21,17 +21,23 @@ export function useTools(view: 'full' | 'summary' = 'summary') {
   return toolsFor(view)
 }
 
+/**
+ * Same contract as `useFetch`: the fields are usable synchronously, and the object is a promise
+ * that settles with the request. A page that reads `tools` during setup awaits it at the top; a
+ * composable destructures it as is and stays synchronous, so nothing runs after an await without
+ * the component instance.
+ */
 function toolsFor<T extends ToolSummary>(view: 'full' | 'summary') {
-  const asyncData = useFetch<ToolsPayload<T>>(`${API_BASE}/tools.json`, {
+  const request = useFetch<ToolsPayload<T>>(`${API_BASE}/tools.json`, {
     key: `tools:${view}`,
     query: view === 'summary' ? { view: 'summary' } : undefined,
     default: () => ({ count: 0, generated_at: '', view, tools: [] as T[] })
   })
-  const { data, status, error } = asyncData
+  const { data, status, error } = request
 
   const tools = computed(() => data.value?.tools ?? [])
   const bySlug = computed(() => new Map(tools.value.map(t => [t.slug, t])))
 
-  /** `await ready` in a page that reads `tools` synchronously during setup. */
-  return { tools, bySlug, status, error, generatedAt: computed(() => data.value?.generated_at), ready: asyncData }
+  const result = { tools, bySlug, status, error, generatedAt: computed(() => data.value?.generated_at) }
+  return Object.assign(request.then(() => result), result)
 }

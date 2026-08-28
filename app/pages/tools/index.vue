@@ -6,10 +6,10 @@ import type { ToolMatch } from '~/composables/useToolFinder'
 
 const route = useRoute()
 const router = useRouter()
-const { tools, ready, requirements, sort, update, reset, count, plain, exact, close, hidden, matches } = useToolFinder()
 // Awaited like every other page, so arriving here from a link does not paint an empty grid
-// for a tick before the corpus lands.
-await ready
+// for a tick before the corpus lands. The finder shares the request by key.
+await useTools()
+const { tools, requirements, sort, update, reset, count, plain, exact, close, hidden, matches } = useToolFinder()
 const issueUrl = useIssueUrl()
 
 /** Set by the landing page after the natural-language parse, shown once. */

@@ -63,7 +63,7 @@ export function toQuery(req: Requirements, sort: SortKey = 'match'): LocationQue
 export function useToolFinder() {
   const route = useRoute()
   const router = useRouter()
-  const { tools, bySlug, status, ready } = useTools()
+  const { tools, bySlug, status } = useTools()
 
   const requirements = computed<Requirements>({
     get: () => fromQuery(route.query),
@@ -141,5 +141,5 @@ export function useToolFinder() {
   const close = computed(() => matches.value.filter(m => m.match.missing.length > 0 && m.match.missing.length <= closeLimit.value))
   const hidden = computed(() => matches.value.length - exact.value.length - close.value.length)
 
-  return { tools, status, ready, requirements, sort, update, reset, count, plain, matches, exact, close, hidden }
+  return { tools, status, requirements, sort, update, reset, count, plain, matches, exact, close, hidden }
 }

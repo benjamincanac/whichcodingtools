@@ -3,8 +3,7 @@ import { pairIntro, pairPageDescription, pairPageTitle } from '#shared/content/p
 import { pairSlug, parsePair } from '#shared/utils/compare'
 
 const route = useRoute()
-const { bySlug, ready } = useTools()
-await ready
+const { bySlug } = await useTools()
 
 const param = String(route.params.pair)
 const pair = parsePair(param)
