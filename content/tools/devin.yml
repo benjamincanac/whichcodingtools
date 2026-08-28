@@ -18,41 +18,63 @@ models:
 features: [parallel-agents, sandboxing, browser-automation, mcp-client, scheduled-tasks, diff-review, acp-agent]
 pricing:
   tiers:
-    - id: core
-      name: Core
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Limited Devin usage
+        - Access to Devin Review
+        - Access to DeepWiki
+    - id: pro
+      name: Pro
       price: 20
       audience: individual
-      included:
-        amount: 9
-        unit: credits
-        usd_value: 20
-        notes: Roughly nine ACUs, consumed per task
       overage:
         kind: credits
-        rate: 2.25
-        notes: Additional ACUs billed at $2.25 each.
-    - id: team
-      name: Team
-      price: 500
-      per: flat
+        notes: On-demand credits fund usage past the quota, same dollar value as the legacy ACUs.
+      limits:
+        - Daily and weekly usage quota shared across Devin sessions, Devin CLI and Devin Desktop
+        - Pay-as-you-go on-demand credits once the quota runs out
+        - Slack, Linear and MCP integrations
+    - id: max
+      name: Max
+      price: 200
+      audience: individual
+      overage:
+        kind: credits
+        notes: On-demand credits fund usage past the quota, same dollar value as the legacy ACUs.
+      limits:
+        - Everything in Pro
+        - Significantly larger weekly usage quota than Pro, with no daily cap
+    - id: teams
+      name: Teams
+      price: 40
       audience: team
-      included:
-        amount: 250
-        unit: credits
-        usd_value: 500
       overage:
         kind: credits
-        rate: 2
+        notes: Shared on-demand credits fund flex-seat usage and any full-seat usage past its quota.
+      limits:
+        - Every Teams account has an $80/month minimum
+        - Full seat is $40/month and includes a Pro-equivalent quota and Devin Desktop access
+        - Flex seats are free and unlimited, and draw only from the shared on-demand credit pool
+        - Unlimited members
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
-  notes: The pricing page refused automated fetches on 2026-08-23. ACU figures come from the August 2026 research corpus and need a human check.
+      limits:
+        - Billed in Agent Compute Units at the rate set in the order form
+        - Enterprise ACUs are distinct from self-serve quota and on-demand credits
+  notes: Cognition replaced the ACU-priced Core/Team plans with self-serve Free/Pro/Max/Teams plans, each with a usage quota and pay-as-you-go on-demand credits; Enterprise still bills in ACUs per contract. devin.ai/pricing still returns HTTP 429 to automated fetches, this reads the docs.devin.ai self-serve and enterprise billing pages instead.
 status: active
 sources:
   - url: https://docs.devin.ai/admin/billing/self-serve
-    verified_at: 2026-08-23
+    verified_at: 2026-08-28
+    covers: [pricing]
+  - url: https://docs.devin.ai/admin/billing/enterprise
+    verified_at: 2026-08-28
     covers: [pricing]
   - url: https://docs.devin.ai/get-started/devin-intro
     verified_at: 2026-08-23
