@@ -176,12 +176,14 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
         </div>
 
         <template v-if="matches.length && (exact.length || close.length || !count)">
+          <!-- Two rows of the three-column grid are in view on load; the rest stays lazy. -->
           <ToolMatchList
-            v-for="group in grouped"
+            v-for="(group, index) in grouped"
             :key="group.key"
             :title="group.title"
             :description="group.description"
             :items="group.items"
+            :eager="index === 0 ? 6 : 0"
           />
         </template>
 

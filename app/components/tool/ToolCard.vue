@@ -7,6 +7,8 @@ import { entryPriceLabel } from '#shared/utils/pricing'
 const props = defineProps<{
   tool: ToolSummary
   match?: MatchResult
+  /** Above the fold: the logo loads with the page instead of waiting for the lazy threshold. */
+  eager?: boolean
 }>()
 
 const platforms = computed(() => PLATFORMS.filter(p => props.tool.platforms.includes(p.value)))
@@ -24,7 +26,10 @@ const price = computed(() => entryPriceLabel(props.tool))
     <template #leading>
       <div class="flex w-full items-start justify-between gap-3 min-w-0">
         <div class="flex items-center gap-2 min-w-0">
-          <ToolAvatar :tool="tool" />
+          <ToolAvatar
+            :tool="tool"
+            :eager="eager"
+          />
           <div class="min-w-0">
             <p class="font-medium tracking-tight text-highlighted leading-tight">
               {{ tool.name }}

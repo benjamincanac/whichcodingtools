@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import type { ToolMatch } from '~/composables/useToolFinder'
 
-defineProps<{
+withDefaults(defineProps<{
   title?: string
   description?: string
   items: ToolMatch[]
-}>()
+  /** How many leading cards sit above the fold and load their logo eagerly. */
+  eager?: number
+}>(), { eager: 0 })
 </script>
 
 <template>
@@ -27,10 +29,11 @@ defineProps<{
     </div>
     <UPageGrid class="gap-4">
       <ToolCard
-        v-for="item in items"
+        v-for="(item, index) in items"
         :key="item.tool.slug"
         :tool="item.tool"
         :match="item.match"
+        :eager="index < eager"
       />
     </UPageGrid>
   </section>
