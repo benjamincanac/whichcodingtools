@@ -109,7 +109,7 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
         size="sm"
         variant="filter"
         class="w-full rounded-lg"
-        :class="requirements.hosts.length ? 'ring-inverted/50! bg-elevated!' : ''"
+        :class="requirements.hosts.length ? 'not-focus-visible:ring-inverted/50! bg-elevated!' : ''"
         @update:model-value="set('hosts', $event as Requirements['hosts'])"
       />
     </section>
@@ -164,7 +164,7 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
         size="sm"
         variant="filter"
         class="w-full rounded-lg"
-        :class="requirements.providers.length ? 'ring-inverted/50! bg-elevated!' : ''"
+        :class="requirements.providers.length ? 'not-focus-visible:ring-inverted/50! bg-elevated!' : ''"
         @update:model-value="set('providers', $event as Requirements['providers'])"
       />
       <UCheckboxGroup
@@ -222,7 +222,7 @@ const tileUi = { ...rowUi, wrapper: undefined, fieldset: 'grid grid-cols-3 gap-1
         size="sm"
         variant="filter"
         class="w-full rounded-lg"
-        :class="requirements.features.length ? 'ring-inverted/50! bg-elevated!' : ''"
+        :class="requirements.features.length ? 'not-focus-visible:ring-inverted/50! bg-elevated!' : ''"
         @update:model-value="set('features', $event as Requirements['features'])"
       />
     </section>

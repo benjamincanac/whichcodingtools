@@ -53,11 +53,3 @@
   --ui-border-accented: var(--ui-color-neutral-800);
   --ui-border-inverted: var(--ui-color-neutral-50);
 }
-
-*, ::before, ::after {
-  @apply outline-inverted/25;
-}
-
-*:focus-visible, *:has(> a:focus-visible) {
-  --tw-ring-color: var(--ui-border-inverted);
-}

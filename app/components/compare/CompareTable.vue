@@ -21,7 +21,7 @@ const groups = computed(() => compareTools(props.tools, props.bySlug))
             :key="tool.slug"
             class="px-4 py-3 text-left align-top"
           >
-            <NuxtLink
+            <ULink
               :to="`/tools/${tool.slug}`"
               class="flex items-center gap-2 font-medium text-highlighted hover:underline underline-offset-4"
             >
@@ -30,7 +30,7 @@ const groups = computed(() => compareTools(props.tools, props.bySlug))
                 size="sm"
               />
               {{ tool.name }}
-            </NuxtLink>
+            </ULink>
           </th>
         </tr>
       </thead>

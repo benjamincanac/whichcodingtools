@@ -36,7 +36,7 @@ const runsInside = computed(() => props.tool.wrapped_by
         >
           <NuxtLink
             :to="`/tools/${target!.slug}`"
-            class="flex items-start gap-3 rounded-lg border border-default bg-elevated/50 p-3 hover:border-accented transition-colors"
+            class="flex items-start gap-3 rounded-lg border border-default bg-elevated/50 p-3 hover:border-accented transition outline-inverted/25 focus-visible:outline-3 focus-visible:border-inverted"
           >
             <ToolAvatar
               :tool="target!"
@@ -83,7 +83,7 @@ const runsInside = computed(() => props.tool.wrapped_by
         >
           <NuxtLink
             :to="`/tools/${host.slug}`"
-            class="flex items-start gap-3 rounded-lg border border-default bg-elevated/50 p-3 hover:border-accented transition-colors"
+            class="flex items-start gap-3 rounded-lg border border-default bg-elevated/50 p-3 hover:border-accented transition outline-inverted/25 focus-visible:outline-3 focus-visible:border-inverted"
           >
             <ToolAvatar
               :tool="host"

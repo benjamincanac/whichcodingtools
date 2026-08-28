@@ -39,7 +39,7 @@ export default defineAppConfig({
       },
       variants: {
         variant: {
-          filter: 'ring ring-inset ring-default hover:ring-accented hover:bg-elevated/50 transition data-[state=open]:ring-accented data-[state=open]:bg-elevated/50'
+          filter: 'ring ring-inset ring-default hover:ring-accented hover:bg-elevated/50 transition data-[state=open]:ring-accented data-[state=open]:bg-elevated/50 outline-inverted/25 focus-visible:outline-3 focus-visible:ring-inverted'
         }
       }
     },
