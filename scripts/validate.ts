@@ -80,7 +80,11 @@ for (const file of files) {
   const stem = basename(file, extname(file))
   let data: unknown
   try {
-    data = parseYaml(await readFile(join(DIR, file), 'utf8'))
+    const raw = await readFile(join(DIR, file), 'utf8')
+    // An em dash reads as a model wrote the line. Cheap to check, and the corpus has none,
+    // so the first one to appear is the one worth catching.
+    if (raw.includes('\u2014')) issue(file, '', 'em dash in content, use a comma or a second sentence')
+    data = parseYaml(raw)
   } catch (error) {
     issue(file, '', `YAML parse error: ${(error as Error).message}`)
     continue

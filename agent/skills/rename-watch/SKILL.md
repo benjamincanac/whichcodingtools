@@ -32,7 +32,7 @@ A fact that belongs in a schema field is worth the same issue. Sign-in providers
 
 For each real signal, one issue, titled with the observation, not a conclusion: `windsurf.com now redirects to devin.ai`, `fx.sh no longer mentions SuperGrok sign-in`. Body: the URLs, the status codes, what the rendered page calls the product, the description line and the sentence on the page that disagrees with it, the date, and which schema change it would imply (`aliases` entry, `successor`, `homepage` update). Dedupe with `github__find_related` on the tool slug first: one open issue per tool covering everything found for it that week, and a signal whose issue a person already closed stays closed.
 
-Never edit the YAML in this sweep. Renames change slugs and redirects, a person decides those. Never draft replacement wording for a description either: report what no longer holds and stop there, the line is human-written.
+Never edit the YAML in this sweep. Renames change slugs and redirects, a person decides those. Do not draft replacement wording for a description either: report what no longer holds and stop there, the turn that fixes it reads the page itself.
 
 ## When nothing is warranted
 
