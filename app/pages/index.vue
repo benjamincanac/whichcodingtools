@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ParsedRequirements } from '#shared/finder'
+import { useIntervalFn } from '@vueuse/core'
 import { LAYERS } from '#shared/enums'
 import { toRequirements } from '#shared/finder'
 import { toQuery } from '~/composables/useToolFinder'
@@ -56,6 +57,21 @@ function useExample(text: string) {
   go()
 }
 
+// The placeholder cycles through the examples while the field is empty. Tab, or ArrowRight as the
+// shell convention, accepts the one on screen. With text in the field both keys keep their default,
+// so the form stays reachable by keyboard.
+const placeholderIndex = ref(0)
+const placeholder = computed(() => examples[placeholderIndex.value]!)
+useIntervalFn(() => {
+  if (!query.value) placeholderIndex.value = (placeholderIndex.value + 1) % examples.length
+}, 5000)
+
+function acceptPlaceholder(event: KeyboardEvent) {
+  if (query.value) return
+  event.preventDefault()
+  query.value = placeholder.value
+}
+
 const input = useTemplateRef('input')
 defineShortcuts({
   '/': () => input.value?.inputRef?.focus()
@@ -88,14 +104,22 @@ defineShortcuts({
         <UInput
           ref="input"
           v-model="query"
-          :placeholder="finderAi ? 'Goes through Vercel AI Gateway' : 'Search tools by name'"
+          :placeholder="placeholder"
           size="xl"
           class="w-full max-w-xl mx-auto"
           :disabled="loading"
           :maxlength="67"
           autofocus
+          @keydown.tab="acceptPlaceholder"
+          @keydown.right="acceptPlaceholder"
         >
           <template #trailing>
+            <UKbd
+              v-if="!query"
+              value="Tab"
+              variant="subtle"
+              class="hidden md:inline-flex me-1"
+            />
             <UButton
               type="submit"
               aria-label="Submit search"
