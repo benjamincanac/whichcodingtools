@@ -1,4 +1,5 @@
 import { API_BASE } from '#shared/api'
+import { CRAWLER_PAGE } from '#shared/content/crawler'
 import { LAYERS, PLANS, optionLabel } from '#shared/enums'
 import {
   COMPARE_INDEX,
@@ -109,7 +110,10 @@ export default defineAgentContentSource({
     if (selector) return null
 
     const ctx = await context()
-    const entries: AgentListEntry[] = [{ route: '/', title: 'whichcoding.tools', section: 'Pages' }]
+    const entries: AgentListEntry[] = [
+      { route: '/', title: 'whichcoding.tools', section: 'Pages' },
+      { route: '/crawler', title: CRAWLER_PAGE.title, description: CRAWLER_PAGE.description, section: 'Pages' }
+    ]
     let compare: AgentListEntry | undefined
 
     for (const page of sitePages(ctx.tools, ctx.bySlug)) {

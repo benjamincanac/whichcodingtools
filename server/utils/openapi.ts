@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { API_BASE, API_VERSION, SUNSET_NOTICE_DAYS, isVersionedApiPath } from '#shared/api'
+import { API_BASE, API_VERSION, DATA_LICENSE, SUNSET_NOTICE_DAYS, isVersionedApiPath } from '#shared/api'
 // Relative rather than auto-imported: `test/openapi.test.ts` imports this module directly,
 // outside Nitro, where nothing is auto-imported.
 import { ParsedRequirementsSchema } from './finder'
@@ -119,10 +119,11 @@ function toolsResponse(view: 'full' | 'summary', ref: string): Json {
     properties: {
       count: { type: 'integer' },
       generated_at: { type: 'string', format: 'date-time' },
+      license: { $ref: '#/components/schemas/DataLicense' },
       view: { type: 'string', const: view },
       tools: { type: 'array', items: { $ref: `#/components/schemas/${ref}` } }
     },
-    required: ['count', 'generated_at', 'view', 'tools']
+    required: ['count', 'generated_at', 'license', 'view', 'tools']
   }
 }
 
@@ -290,9 +291,13 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
         '',
         `A current version carries no deprecation headers, and that absence is the signal. When one is superseded every response from it gains a \`Deprecation\` date (RFC 9745), then a \`Sunset\` date (RFC 8594) at least ${SUNSET_NOTICE_DAYS} days later, and a \`Link\` header naming the replacement with \`rel="successor-version"\`. Nothing is removed before the sunset date.`,
         '',
-        `\`/api/content/**\` is outside this policy: it is the content layer's own debugging handler, it answers documents rather than records, and it can change without notice.`
+        `\`/api/content/**\` is outside this policy: it is the content layer's own debugging handler, it answers documents rather than records, and it can change without notice.`,
+        '',
+        '## Terms',
+        '',
+        `The data is ${DATA_LICENSE.name}: use it anywhere, including commercially. ${DATA_LICENSE.attribution}. Every data envelope repeats this in its \`license\` key, and the full text is at ${DATA_LICENSE.url}. The code behind the site is MIT.`
       ].join('\n'),
-      license: { name: 'MIT', identifier: 'MIT' },
+      license: { name: DATA_LICENSE.name, identifier: DATA_LICENSE.spdx },
       contact: { name: 'Source and issues', url: 'https://github.com/benjamincanac/whichcodingtools' }
     },
     servers: [{ url: siteUrl, description: 'Production' }],
@@ -321,6 +326,16 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
           description: 'What a card renders: the date pricing was last verified, and how old that makes it. `/api/v1/tools/{slug}.json` carries `oldest` and `computed_at` too.'
         },
         Error: errorSchema,
+        DataLicense: {
+          type: 'object',
+          description: 'The terms the records in this response are published under.',
+          properties: {
+            spdx: { type: 'string', enum: [DATA_LICENSE.spdx] },
+            url: { type: 'string', format: 'uri', description: 'The full license text.' },
+            attribution: { type: 'string', description: 'The credit the license asks for.' }
+          },
+          required: ['spdx', 'url', 'attribution']
+        },
         // Two shapes, told apart by `view`, so a generated client asking for one is not handed
         // the type of the other.
         ToolsResponse: {
@@ -332,6 +347,7 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
           properties: {
             count: { type: 'integer' },
             generated_at: { type: 'string', format: 'date-time' },
+            license: { $ref: '#/components/schemas/DataLicense' },
             ordering: { type: 'string', description: 'States the rule that gives each comparison exactly one URL.' },
             pattern: { type: 'string', description: 'How to build a comparison URL.' },
             markdown_pattern: { type: 'string', description: 'The same comparison as Markdown.' },
@@ -349,7 +365,7 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
               }
             }
           },
-          required: ['count', 'generated_at', 'ordering', 'pattern', 'markdown_pattern', 'pairs']
+          required: ['count', 'generated_at', 'license', 'ordering', 'pattern', 'markdown_pattern', 'pairs']
         },
         ParsedRequirements: component(
           z.toJSONSchema(ParsedRequirementsSchema, { io: 'output', unrepresentable: 'any' }) as Json,

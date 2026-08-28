@@ -38,3 +38,15 @@ export function isVersionedApiPath(path: string): boolean {
   const pathname = path.split('?')[0]!
   return pathname === API_BASE || pathname.startsWith(`${API_BASE}/`)
 }
+
+/**
+ * The terms every machine-readable surface attaches to the data. The JSON envelopes, the OpenAPI
+ * document, `llms.txt` and the markdown twins all read this one object, so the credit line
+ * cannot drift between them. Code is MIT, see `LICENSE`; this is the data grant only.
+ */
+export const DATA_LICENSE = {
+  spdx: 'CC-BY-4.0',
+  name: 'CC BY 4.0',
+  url: 'https://github.com/benjamincanac/whichcodingtools/blob/main/LICENSE-DATA',
+  attribution: 'Credit whichcoding.tools and link to https://whichcoding.tools'
+} as const

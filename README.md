@@ -43,7 +43,7 @@ For agents, every page has a markdown twin at `/raw/<path>.md`, and asking a pag
 
 ## Self-maintenance
 
-An eve agent in [`agent/`](agent/) re-reads every vendor pricing page daily and opens a PR when a price changed. It never merges. See [agent/README.md](agent/README.md).
+An eve agent in [`agent/`](agent/) re-reads every vendor pricing page daily and opens a PR when a price changed. It never merges. It identifies itself and honours robots.txt, see [whichcoding.tools/crawler](https://whichcoding.tools/crawler) and [agent/README.md](agent/README.md).
 
 ## Contribute
 
@@ -53,4 +53,6 @@ Without a checkout, the two issue forms do the same job: [Add a tool](https://gi
 
 ## License
 
-Code is MIT. The data in `content/` is CC BY 4.0, see [LICENSE-DATA](LICENSE-DATA): use it anywhere, including commercially, as long as you credit whichcoding.tools and link back. Contributing a tool file puts it under the same terms.
+Code is MIT. The tool data in `content/tools/` is CC BY 4.0, see [LICENSE-DATA](LICENSE-DATA): use it anywhere, including commercially, as long as you credit whichcoding.tools and link back. Contributing a tool file puts it under the same terms.
+
+The captures under `content/snapshots/` are verbatim excerpts of vendor pages, kept to verify prices. They are not covered by that grant and stay under their original terms.

@@ -3,6 +3,7 @@ import { pairSlug, parsePair } from '#shared/utils/compare'
 import type { ToolRecord } from '#shared/types/tool'
 import type { MarkdownContext, MarkdownPage } from './context'
 import { renderCompareIndex, renderComparePage } from './compare'
+import { renderCrawlerPage } from './crawler'
 import { renderLayerPage, renderPlanPage, renderToolsIndex } from './sections'
 import { renderToolPage } from './tool'
 
@@ -28,6 +29,8 @@ export function renderPage(ctx: MarkdownContext, route: string): MarkdownPage | 
       return sectionPage(LAYERS, tail, layer => renderLayerPage(ctx, layer))
     case 'plans':
       return sectionPage(PLANS, tail, plan => renderPlanPage(ctx, plan))
+    case 'crawler':
+      return tail === undefined ? renderCrawlerPage() : null
     default:
       return null
   }

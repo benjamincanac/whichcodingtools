@@ -1,3 +1,5 @@
+import { DATA_LICENSE } from '#shared/api'
+
 /**
  * Every tool as one document.
  *
@@ -12,6 +14,7 @@ export default defineEventHandler(async (event) => {
   return {
     count: tools.length,
     generated_at: new Date().toISOString(),
+    license: { spdx: DATA_LICENSE.spdx, url: DATA_LICENSE.url, attribution: DATA_LICENSE.attribution },
     view: summary ? 'summary' : 'full',
     tools: summary ? tools.map(toSummary) : tools
   }

@@ -1,3 +1,4 @@
+import { DATA_LICENSE } from '#shared/api'
 import { pairSlug, relatedPairs } from '#shared/utils/compare'
 
 /**
@@ -17,6 +18,7 @@ export default defineEventHandler(async () => {
   return {
     count: pairs.length,
     generated_at: new Date().toISOString(),
+    license: { spdx: DATA_LICENSE.spdx, url: DATA_LICENSE.url, attribution: DATA_LICENSE.attribution },
     ordering: 'The two slugs in a pair are sorted alphabetically, so each comparison has exactly one URL.',
     pattern: '/compare/{a}-vs-{b}',
     markdown_pattern: '/raw/compare/{a}-vs-{b}.md',

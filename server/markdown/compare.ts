@@ -3,6 +3,7 @@ import { COMPARE_INDEX, pairIntro, pairPageDescription, pairPageTitle } from '#s
 import type { ToolRecord } from '#shared/types/tool'
 import { compareTools } from '#shared/utils/compare'
 import type { MarkdownContext, MarkdownPage } from './context'
+import { dataLicense } from './footer'
 import { blocks, bullets, compareCell, heading, lead, link, table } from './md'
 
 /**
@@ -27,7 +28,8 @@ export function renderComparePage(ctx: MarkdownContext, [a, b]: [ToolRecord, Too
     markdown: blocks(
       lead(pairPageTitle(a, b), pairIntro(a, b)),
       tables(ctx, [a, b]),
-      blocks(heading(2, 'Related'), `${link('Add more tools', `/compare?tools=${a.slug},${b.slug}`)}, up to four at a time.`)
+      blocks(heading(2, 'Related'), `${link('Add more tools', `/compare?tools=${a.slug},${b.slug}`)}, up to four at a time.`),
+      dataLicense()
     )
   }
 }
@@ -49,7 +51,8 @@ export function renderCompareIndex(ctx: MarkdownContext): MarkdownPage {
       blocks(
         heading(2, 'What a comparison covers'),
         bullets(compareTools(ctx.tools, ctx.bySlug).map(group => `**${group.label}**: ${group.rows.map(row => row.label).join(', ')}`))
-      )
+      ),
+      dataLicense()
     )
   }
 }

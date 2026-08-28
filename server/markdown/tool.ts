@@ -7,6 +7,7 @@ import { displayUrl, joinLabels } from '#shared/utils/text'
 import { featureOptions, providerOptions, toolFacts } from '#shared/utils/tools'
 import type { MarkdownContext, MarkdownPage } from './context'
 import { blocks, bullets, code, definitions, heading, lead, link, sentences, table } from './md'
+import { dataLicense } from './footer'
 import { toolLine } from './groups'
 
 /** The label under a link, without the scheme, the way the page renders every external URL. */
@@ -198,7 +199,8 @@ export function renderToolPage(ctx: MarkdownContext, tool: ToolRecord): Markdown
       install(tool),
       license(tool),
       sources(ctx, tool),
-      related(tool, plans)
+      related(tool, plans),
+      dataLicense()
     )
   }
 }
