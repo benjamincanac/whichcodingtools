@@ -9,6 +9,7 @@ import { basename, extname, join } from 'node:path'
 import { parse as parseYaml } from 'yaml'
 import spdxParse from 'spdx-expression-parse'
 import { ToolSchema, type Tool } from '../shared/schema'
+import { LOGO_DIR, LOGO_MAX_BYTES, isPng } from './logo-limits'
 
 const DIR = join(process.cwd(), 'content/tools')
 const SNAPSHOTS = join(process.cwd(), 'content/snapshots')
@@ -267,6 +268,21 @@ for (const slug of slugs) {
     if (!figureRe(amount).test(captured)) {
       issue(file, 'pricing.notes', `$${amount} is not in content/snapshots/${slug}/, the page has to say it too`)
     }
+  }
+}
+
+/* ------------------------------- logos -------------------------------- */
+
+// A card falls back to the icon when there is no logo, so the file is optional. When it does
+// exist it is a real PNG and it is small: the largest avatar on the site is 48 css pixels, and
+// `pnpm logos --write` is what brings a file back inside these limits.
+for (const logo of (await readdir(LOGO_DIR)).filter(f => extname(f) === '.png').sort()) {
+  const buf = await readFile(join(LOGO_DIR, logo))
+  const where = `public/logos/${logo}`
+  if (!isPng(buf)) {
+    issue(where, '', 'not a PNG despite the extension, so it is served as the wrong content type. Run `pnpm logos --write`')
+  } else if (buf.byteLength > LOGO_MAX_BYTES) {
+    issue(where, '', `${buf.byteLength} bytes, over the ${LOGO_MAX_BYTES} limit. Run \`pnpm logos --write\``)
   }
 }
 

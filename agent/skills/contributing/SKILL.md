@@ -38,6 +38,8 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 
 Cards fall back from `public/logos/<slug>.png` to the YAML `icon` (simple-icons name) to the tool's initial. When adding a tool or when an existing one has no logo, fetch the vendor favicon (`https://www.google.com/s2/favicons?domain=<homepage>&sz=128`) or the GitHub organization avatar (`https://github.com/<org>.png?size=128`) in the sandbox and push it as `public/logos/<slug>.png`. Skip generic placeholder globes; a missing logo beats a wrong one.
 
+It has to be a real PNG under 24 KB, and `pnpm validate` fails when it is not. The two sources above already answer at 128 pixels, which is what the site needs, so a file that fails is usually a JPEG with a `.png` name. `pnpm logos --write` resizes and re-encodes it, and reports the ones only a smaller source image can fix.
+
 ## Never
 
 - Merge anything. `github__push_files` refuses `main` and every path outside `content/` and `public/logos/`, so do not spend a run routing around it.
