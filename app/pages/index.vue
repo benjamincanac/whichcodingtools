@@ -104,8 +104,8 @@ defineShortcuts({
           :disabled="loading"
           :maxlength="67"
           autofocus
-          @keydown.tab="acceptPlaceholder"
-          @keydown.right="acceptPlaceholder"
+          @keydown.tab.exact="acceptPlaceholder"
+          @keydown.right.exact="acceptPlaceholder"
         >
           <template #trailing>
             <UKbd
