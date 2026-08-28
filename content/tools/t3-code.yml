@@ -35,7 +35,13 @@ wraps:
   - tool: cursor
     via: cli
     uses_subscription: true
-    notes: Drives the Cursor CLI agent. Grok Build and OpenCode are supported too but not in the directory yet.
+    notes: Drives the Cursor CLI agent.
+  - tool: grok-build
+    via: cli
+    uses_subscription: true
+  - tool: opencode
+    via: cli
+    uses_subscription: true
 pricing:
   tiers:
     - id: free
