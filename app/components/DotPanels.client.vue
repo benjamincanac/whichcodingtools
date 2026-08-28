@@ -8,6 +8,14 @@ import {
   ProgressiveBlur,
   RadialGradient
 } from 'shaders/vue'
+
+const colorMode = useColorMode()
+
+// Light mode draws only the dots: the canvas stays transparent so the page background shows through.
+const dark = computed(() => colorMode.value === 'dark')
+const palette = computed(() => dark.value
+  ? { a: '#1a1a1a', b: '#050505', grid: '#141414', dots: '#e5e5e5' }
+  : { a: '#ffffff', b: '#ffffff', grid: '#ffffff', dots: '#171717' })
 </script>
 
 <template>
@@ -32,18 +40,20 @@ import {
           x: 0.2,
           y: 1
         }"
-        color-a="#1a1a1a"
-        color-b="#050505"
+        :color-a="palette.a"
+        :color-b="palette.b"
         color-space="oklab"
         :radius="0.66"
+        :visible="dark"
       />
       <Grid
         :cells="6"
-        color="#141414"
+        :color="palette.grid"
         :thickness="0"
+        :visible="dark"
       />
       <DotGrid
-        color="#e5e5e5"
+        :color="palette.dots"
         :density="60"
         :dot-size="0.06"
         :twinkle="1"
@@ -59,7 +69,7 @@ import {
     />
     <FilmGrain
       :strength="0.02"
-      :visible="true"
+      :visible="dark"
     />
   </Shader>
 </template>
