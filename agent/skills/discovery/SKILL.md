@@ -1,6 +1,6 @@
 ---
 name: discovery
-description: Weekly look outside the corpus for AI coding tools the directory does not carry yet, from what the tools already in it run, from Show HN and from web search. Files one candidate as a "[Tool]" issue the first responder builds the entry from. Load this when the discovery schedule fires or when asked to look for tools that are missing.
+description: Weekly look outside the corpus for AI coding tools the directory does not carry yet, from what the tools already in it run, the ACP registry, Vercel's AI Gateway coding agents guide and apps leaderboard, Show HN, GitHub topic search and web search. Files one candidate as a "[Tool]" issue the first responder builds the entry from. Load this when the discovery schedule fires or when asked to look for tools that are missing.
 ---
 
 # Discovery
@@ -25,7 +25,7 @@ Match a candidate on the domain first and on the name second.
 
 ## Sources
 
-Four, each bounded. A source that returns nothing is a normal run.
+Seven, each bounded. A source that returns nothing is a normal run.
 
 **What the corpus already runs.** The cheapest source and the highest signal. Take every tool with a non-empty `wraps` and every `layer: orchestrator`, then read its `homepage` and `links.docs`:
 
@@ -39,17 +39,36 @@ and pull out the agents it says it detects, runs or supports. That list is maint
 
 Every entry is an agent JetBrains IDEs and Zed can install in one click, with a `website`, a `repository` and an `authors` line. An entry whose domain matches no `homepage` is a candidate somebody already shipped, packaged and got accepted, which is a stronger signal than a launch post. Read `authors` before filing: an adapter a personal account wrote around a vendor's CLI is not a product, and the tool it wraps usually already has a file. The Wednesday `acp-watch` pass reads the same file for the corpus side, so anything it names in its report with no slug is here for you.
 
+**The Vercel AI Gateway coding agents guide.** Vercel writes one docs page per agent its `vercel ai-gateway coding-agents setup` command knows how to configure, and the sitemap lists them:
+
+    curl -s https://vercel.com/docs/sitemap.md | grep -oE '/docs/ai-gateway/coding-agents/[a-z0-9-]+' | sort -u
+
+Sixteen slugs at the time of writing. A page here means a harness with enough users that Vercel wrote a setup path for it, which is a second party vouching the same way a `wraps` list does. A slug with no file in the corpus is a candidate. When the slug alone does not settle the match, read `https://vercel.com/docs<path>` with `Accept: text/markdown` for the vendor URL.
+
+**The Vercel AI Gateway apps leaderboard.** Opted-in apps ranked by token volume and by spend, from real gateway traffic, anonymized and cached for a day:
+
+    curl -s "https://vercel.com/api/ai/leaderboard-export?dataset=apps"
+
+Each row carries a `name`, a `url` and a one-line `description`. Match on the domain of `url`. Most rows are not coding tools, a tutoring app or a matchmaking service, and the `description` says which. A coding agent ranked here has real usage, and this is the source that would have caught Command Code at rank 1 the week nobody had filed it. The data is CC-BY-4.0, so name the leaderboard in the evidence.
+
 **Show HN.** Launches land there the day they ship:
 
     curl -sG https://hn.algolia.com/api/v1/search_by_date \
       --data-urlencode tags=story \
       --data-urlencode "numericFilters=created_at_i>$(date -u -d '8 days ago' +%s)" \
       --data-urlencode 'query=coding agent' \
-      --data-urlencode hitsPerPage=50
+      --data-urlencode hitsPerPage=200
 
-Eight days, so a run that slips overlaps the previous one instead of leaving a hole. Repeat the query for `code editor`, `cli agent` and `coding assistant`. Read the titles and the story URLs, not the comments.
+Eight days, so a run that slips overlaps the previous one instead of leaving a hole. `coding agent` alone returns over a hundred stories in that window, so keep `hitsPerPage` well above it and check `nbHits` in the response: when it is larger than the page, ask for `page=1` as well rather than reading the first page as the whole week. Repeat the query for `code editor`, `cli agent` and `coding assistant`. Read the titles and the story URLs, not the comments.
 
-**`web_search`.** A handful of standing queries for what the first two cannot see, a tool that launched on its own blog or a rename you have no domain for yet. It is provider-managed, so a run where it answers nothing at all is not a failure and not worth retrying: the other two sources carry the pass.
+**GitHub topic search.** Repositories tagged `coding-agent`, created in the last month, by stars:
+
+    curl -s -H "Accept: application/vnd.github+json" \
+      "https://api.github.com/search/repositories?q=topic:coding-agent+created:>$(date -u -d '30 days ago' +%F)&sort=stars&per_page=30"
+
+Unauthenticated, ten calls a minute, and this one call is the whole source. Match the `homepage` field on the domain first and the repository name second. Stars in a first month are a launch signal and nothing more: half of what carries the tag is a framework, a skill pack or a research artifact, so read the README before believing the topic and let the scope list below send those back.
+
+**`web_search`.** A handful of standing queries for what the others cannot see, a tool that launched on its own blog or a rename you have no domain for yet. It is provider-managed, so a run where it answers nothing at all is not a failure and not worth retrying: the other sources carry the pass.
 
 ## What belongs
 
