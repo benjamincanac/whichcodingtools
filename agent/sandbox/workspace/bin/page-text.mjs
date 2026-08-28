@@ -7,7 +7,25 @@
 //
 //   node /workspace/bin/page-text.mjs <url>
 //   node /workspace/bin/page-text.mjs --stdin <url> < rendered.txt
+//
+// Exit codes: 0 text on stdout, 1 the fetch failed, 2 bad usage, 3 the origin's robots.txt
+// reserves the page and it was not fetched. The last one is not a failure, it is an answer.
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+
 const MAX_CHARS = 200_000
+
+// Who is asking, on every request this script makes. Kept in sync with shared/content/crawler.ts,
+// which is what the URL in it renders. The browser fallback cannot set one, so it sends Chromium's.
+const USER_AGENT = 'whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)'
+/** The product token a robots.txt group names to address this crawler in particular. */
+const ROBOTS_TOKEN = 'whichcodingtools-agent'
+// One process reads one page, so the cache that lets a run read one robots.txt per origin has
+// to outlive the process. The sandbox's tmpdir does, and it dies with the sandbox.
+const ROBOTS_CACHE_DIR = join(tmpdir(), 'whichcodingtools-robots')
+const ROBOTS_TTL_MS = 60 * 60 * 1000
+const EXIT_RESERVED = 3
 
 // Named entities worth decoding on a pricing page. `amp` is deliberately not here: it decodes
 // last, further down, so "&amp;lt;" stays the text "&lt;" instead of turning into "<".
@@ -137,14 +155,132 @@ async function fromStdin(url) {
   emit(url, LOOKS_LIKE_HTML.test(input) ? htmlToText(input) : toLines(input))
 }
 
+/**
+ * The groups of a robots.txt, RFC 9309 shape: a run of `User-agent` lines opens a group and the
+ * `Allow` and `Disallow` lines under it belong to it. Every other line is ignored, comments too.
+ */
+function parseRobots(text) {
+  const groups = []
+  let current = null
+  let opening = false
+  for (const raw of text.split('\n')) {
+    const line = raw.replace(/#.*/, '').trim()
+    const colon = line.indexOf(':')
+    if (colon < 0) continue
+    const field = line.slice(0, colon).trim().toLowerCase()
+    const value = line.slice(colon + 1).trim()
+    if (field === 'user-agent') {
+      if (!opening) {
+        current = { agents: [], rules: [] }
+        groups.push(current)
+        opening = true
+      }
+      current.agents.push(value.toLowerCase())
+    } else if ((field === 'allow' || field === 'disallow') && current) {
+      opening = false
+      // An empty Disallow reserves nothing, so there is nothing to keep.
+      if (value) current.rules.push({ allow: field === 'allow', path: value })
+    }
+  }
+  return groups
+}
+
+function escapeRe(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+/** `*` matches any run of characters and a trailing `$` pins the end, the two wildcards the RFC defines. */
+function ruleMatches(rule, path) {
+  const anchored = rule.path.endsWith('$')
+  const pattern = (anchored ? rule.path.slice(0, -1) : rule.path).split('*').map(escapeRe).join('.*')
+  return new RegExp(`^${pattern}${anchored ? '$' : ''}`).test(path)
+}
+
+/**
+ * The reservation that covers `path`, or `null`. The groups addressed to this crawler win over
+ * `*`, and among the rules that match the longest path wins, an `Allow` breaking a tie. That is
+ * the RFC's precedence, and it is what lets a vendor reserve `/` and still open `/pricing`.
+ */
+function reservation(groups, path) {
+  const ours = groups.filter(g => g.agents.some(a => a.includes(ROBOTS_TOKEN)))
+  const chosen = ours.length ? ours : groups.filter(g => g.agents.includes('*'))
+  let winner = null
+  for (const rule of chosen.flatMap(g => g.rules)) {
+    if (!ruleMatches(rule, path)) continue
+    if (!winner || rule.path.length > winner.path.length || (rule.path.length === winner.path.length && rule.allow)) winner = rule
+  }
+  if (!winner || winner.allow) return null
+  return { group: ours.length ? ROBOTS_TOKEN : '*', rule: `Disallow: ${winner.path}` }
+}
+
+/** The origin's robots.txt, fetched at most once an hour per origin across every call in a run. */
+async function robotsFor(origin) {
+  const file = join(ROBOTS_CACHE_DIR, `${encodeURIComponent(origin)}.json`)
+  try {
+    const cached = JSON.parse(await readFile(file, 'utf8'))
+    if (Date.now() - cached.at < ROBOTS_TTL_MS) return cached
+  } catch {
+    // No cache yet, or an unreadable one. Either way the fetch below decides.
+  }
+  let entry
+  try {
+    const res = await fetch(`${origin}/robots.txt`, {
+      redirect: 'follow',
+      signal: AbortSignal.timeout(10_000),
+      headers: { 'user-agent': USER_AGENT, 'accept': 'text/plain' }
+    })
+    entry = { at: Date.now(), status: res.status, text: res.ok ? await res.text() : '' }
+  } catch (err) {
+    entry = { at: Date.now(), status: 0, text: '', error: err.message }
+  }
+  try {
+    await mkdir(ROBOTS_CACHE_DIR, { recursive: true })
+    await writeFile(file, JSON.stringify(entry))
+  } catch {
+    // A cache that cannot be written costs one more request per page, nothing else.
+  }
+  return entry
+}
+
+/**
+ * Whether the vendor reserved this page from crawlers in the one machine-readable form there is.
+ * The legal footing for reading these pages at all is the text and data mining exception, which
+ * holds only where the rightsholder has not reserved it that way, so this runs before every fetch.
+ *
+ * RFC 9309 draws the line at the file: a missing one (4xx) reserves nothing, an unreachable one
+ * (5xx, network) means assume everything is, and the page waits for the next run instead of being
+ * read on a guess.
+ */
+async function robotsVerdict(url) {
+  const { origin, pathname, search } = new URL(url)
+  const robots = await robotsFor(origin)
+  if (robots.status === 0 || robots.status >= 500) return { unreachable: true, reason: robots.error ?? `HTTP ${robots.status}` }
+  if (!robots.text) return null
+  return reservation(parseRobots(robots.text), pathname + search)
+}
+
 async function fromFetch(url) {
+  const verdict = await robotsVerdict(url)
+  if (verdict?.unreachable) {
+    console.error(`robots.txt at ${new URL(url).origin} is unreachable (${verdict.reason}), which RFC 9309 says to read as a reservation. Not fetched.`)
+    console.error('This is not a failed fetch. Report it as reserved and let the next run try again.')
+    process.exitCode = EXIT_RESERVED
+    return
+  }
+  if (verdict) {
+    console.error(`robots.txt at ${new URL(url).origin} reserves this page (group: ${verdict.group}, rule: ${verdict.rule}). Not fetched.`)
+    console.error('This is not a failed fetch and not an unreadable page: the vendor asked crawlers to stay away. Report it as reserved, do not open it in the browser and do not open an issue.')
+    process.exitCode = EXIT_RESERVED
+    return
+  }
+
   let res
   try {
     res = await fetch(url, {
       redirect: 'follow',
       signal: AbortSignal.timeout(20_000),
       headers: {
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36 whichcodingtools-agent',
+        'user-agent': USER_AGENT,
         'accept': 'text/html,application/xhtml+xml'
       }
     })

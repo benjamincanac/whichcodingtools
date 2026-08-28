@@ -14,6 +14,7 @@ The sandbox reads, the runtime writes. A turn starts from a cron or a GitHub eve
 - It never edits `content/tools` on `main`. Every change is a pull request a person merges.
 - The only writes it can reach are commits on `agent/*` branches under `content/` and `public/logos/`, pull requests, issues, and closing its own issues once the finding is resolved.
 - Every number it writes comes from a vendor page it fetched in that run, never from memory.
+- It says who it is, `whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)`, and it reads an origin's robots.txt before any page there. A page reserved from it is reported, never fetched.
 
 ## How those rules are enforced
 

@@ -14,6 +14,11 @@ import browser from '@agent-browser/eve'
  * One domain is out of reach rather than out of policy: `github.com` is the only one
  * the firewall terminates TLS on, to broker the git credential, and the browser does
  * not trust the per-sandbox proxy CA. The instructions send GitHub reads to `web_fetch`.
+ *
+ * The user agent is Chromium's own. `page-text.mjs` identifies itself as
+ * `whichcodingtools-agent` and checks robots.txt before every fetch, but this extension
+ * exposes no user agent option, so the browser cannot say the same. The skills only open
+ * a page here after that fetch ran, which is what keeps a reserved page out of it.
  */
 export default browser({
   contentBoundaries: true,
