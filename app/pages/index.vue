@@ -108,12 +108,6 @@ defineShortcuts({
           @keydown.right.exact="acceptPlaceholder"
         >
           <template #trailing>
-            <UKbd
-              v-if="!query"
-              value="Tab"
-              variant="subtle"
-              class="hidden md:inline-flex me-1"
-            />
             <UButton
               type="submit"
               aria-label="Submit search"
