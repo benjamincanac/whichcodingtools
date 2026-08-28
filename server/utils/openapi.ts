@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { API_BASE, API_VERSION, SUNSET_NOTICE_DAYS, isVersionedApiPath } from '#shared/api'
+import { API_BASE, API_VERSION, DATA_LICENSE, SUNSET_NOTICE_DAYS, isVersionedApiPath } from '#shared/api'
 import { ParsedRequirementsSchema } from '#shared/finder'
 import { toolJsonSchema } from '#shared/schema'
 import { FRESHNESS_LEVELS, PRICING_MODELS } from '#shared/types/tool'
@@ -216,9 +216,13 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
         '',
         `A current version carries no deprecation headers, and that absence is the signal. When one is superseded every response from it gains a \`Deprecation\` date (RFC 9745), then a \`Sunset\` date (RFC 8594) at least ${SUNSET_NOTICE_DAYS} days later, and a \`Link\` header naming the replacement with \`rel="successor-version"\`. Nothing is removed before the sunset date.`,
         '',
-        `\`/api/content/**\` is outside this policy: it is the content layer's own debugging handler, it answers documents rather than records, and it can change without notice.`
+        `\`/api/content/**\` is outside this policy: it is the content layer's own debugging handler, it answers documents rather than records, and it can change without notice.`,
+        '',
+        '## Terms',
+        '',
+        `The data is ${DATA_LICENSE.name}: use it anywhere, including commercially. ${DATA_LICENSE.attribution}. Every data envelope repeats this in its \`license\` key, and the full text is at ${DATA_LICENSE.url}. The code behind the site is MIT.`
       ].join('\n'),
-      license: { name: 'MIT', identifier: 'MIT' },
+      license: { name: DATA_LICENSE.name, identifier: DATA_LICENSE.spdx },
       contact: { name: 'Source and issues', url: 'https://github.com/benjamincanac/whichcodingtools' }
     },
     servers: [{ url: siteUrl, description: 'Production' }],
@@ -242,20 +246,32 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
         Tool: toolSchema(),
         Freshness: freshnessSchema,
         Error: errorSchema,
+        DataLicense: {
+          type: 'object',
+          description: 'The terms the records in this response are published under.',
+          properties: {
+            spdx: { type: 'string', enum: [DATA_LICENSE.spdx] },
+            url: { type: 'string', format: 'uri', description: 'The full license text.' },
+            attribution: { type: 'string', description: 'The credit the license asks for.' }
+          },
+          required: ['spdx', 'url', 'attribution']
+        },
         ToolsResponse: {
           type: 'object',
           properties: {
             count: { type: 'integer' },
             generated_at: { type: 'string', format: 'date-time' },
+            license: { $ref: '#/components/schemas/DataLicense' },
             tools: { type: 'array', items: { $ref: '#/components/schemas/Tool' } }
           },
-          required: ['count', 'generated_at', 'tools']
+          required: ['count', 'generated_at', 'license', 'tools']
         },
         ComparePairsResponse: {
           type: 'object',
           properties: {
             count: { type: 'integer' },
             generated_at: { type: 'string', format: 'date-time' },
+            license: { $ref: '#/components/schemas/DataLicense' },
             ordering: { type: 'string', description: 'States the rule that gives each comparison exactly one URL.' },
             pattern: { type: 'string', description: 'How to build a comparison URL.' },
             markdown_pattern: { type: 'string', description: 'The same comparison as Markdown.' },
@@ -273,7 +289,7 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
               }
             }
           },
-          required: ['count', 'generated_at', 'ordering', 'pattern', 'markdown_pattern', 'pairs']
+          required: ['count', 'generated_at', 'license', 'ordering', 'pattern', 'markdown_pattern', 'pairs']
         },
         ParsedRequirements: component(
           z.toJSONSchema(ParsedRequirementsSchema, { io: 'output', unrepresentable: 'any' }) as Json,

@@ -22,6 +22,7 @@ install:
 license:
   spdx: proprietary
   kind: proprietary
+  repo: https://github.com/aws/amazon-q-developer-cli
   notes: The CLI repo is Apache-2.0 OR MIT but AWS marks it no longer actively maintained, it ships closed source as Kiro CLI now. The service and IDE plugins are proprietary.
 models:
   providers: [anthropic]
@@ -70,5 +71,5 @@ sources:
     verified_at: 2026-08-24
     covers: [features]
   - url: https://github.com/aws/amazon-q-developer-cli
-    verified_at: 2026-08-24
+    verified_at: 2026-08-28
     covers: [license]

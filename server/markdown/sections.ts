@@ -13,6 +13,7 @@ import {
 import { EMPTY_REQUIREMENTS, deltaLabel, matchTool, planAccess } from '#shared/utils/match'
 import type { MarkdownContext, MarkdownPage } from './context'
 import { blocks, heading, lead, link } from './md'
+import { dataLicense } from './footer'
 import { pricedToolLine, toolGroup, toolLine } from './groups'
 
 /** The three list pages: same shape, different grouping rule. */
@@ -30,7 +31,8 @@ export function renderLayerPage(ctx: MarkdownContext, layer: EnumOption): Markdo
       lead(`${layer.label}s`, intro),
       toolGroup(2, `${layer.label}s`, undefined, primary.map(pricedToolLine)),
       secondary.length > 0 && toolGroup(2, layerSecondaryTitle(layer), LAYER_SECONDARY_INTRO, secondary.map(pricedToolLine)),
-      blocks(heading(2, 'Related'), link('Open in the finder', `/tools?where=${value}`))
+      blocks(heading(2, 'Related'), link('Open in the finder', `/tools?where=${value}`)),
+      dataLicense()
     )
   }
 }
@@ -66,7 +68,8 @@ export function renderPlanPage(ctx: MarkdownContext, plan: EnumOption): Markdown
       groups.length
         ? groups.join('\n\n')
         : `No tool lists ${plan.label} as a plan it is part of or signs in with.`,
-      blocks(heading(2, 'Related'), link('Open in the finder', `/tools?plans=${value}`))
+      blocks(heading(2, 'Related'), link('Open in the finder', `/tools?plans=${value}`)),
+      dataLicense()
     )
   }
 }
@@ -91,7 +94,8 @@ export function renderToolsIndex(ctx: MarkdownContext): MarkdownPage {
       blocks(heading(2, 'Related'), [
         `- ${link('Compare any two', '/compare')}`,
         ...PLANS.map(plan => `- ${link(planPageTitle(plan), `/plans/${plan.value}`)}`)
-      ].join('\n'))
+      ].join('\n')),
+      dataLicense()
     )
   }
 }

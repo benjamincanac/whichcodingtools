@@ -34,6 +34,7 @@ export default defineNuxtConfig({
       '/compare/**': { isr: 60 * 60 },
       '/plans/**': { isr: 60 * 60 },
       '/layers/**': { isr: 60 * 60 },
+      '/crawler': { isr: 60 * 60 },
       '/llms.txt': { isr: 60 * 60 },
       '/tools': { isr: { expiration: 60 * 60, passQuery: true } },
       '/tools/**': { isr: 60 * 60 },
@@ -128,7 +129,7 @@ export default defineNuxtConfig({
     // rewrite, and a pattern that only half-overlaps a rule gets a duplicate pair of routes.
     // The query is not preserved on the twins of /tools and /compare, which is fine: their
     // markdown ignores the query and an agent that wants it filtered has /api/v1/tools.json.
-    routes: ['/', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**'],
+    routes: ['/', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**', '/crawler'],
     sitemap: {
       markdown: { labels: { tools: 'Tools', compare: 'Comparisons', layers: 'Layers', plans: 'Plans' } }
     },
@@ -185,7 +186,8 @@ export default defineNuxtConfig({
     ],
     notes: [
       'Data is one YAML file per tool in git, validated against a schema, every fact with a source URL and the date it was verified.',
-      'No affiliate links, no benchmarks, no LLM-written descriptions.'
+      'No affiliate links, no benchmarks, no LLM-written descriptions.',
+      'Data is CC BY 4.0: use it anywhere, credit whichcoding.tools and link to https://whichcoding.tools. Code is MIT.'
     ],
     full: {
       title: 'Complete directory',
