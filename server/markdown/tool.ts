@@ -187,7 +187,7 @@ export function renderToolPage(ctx: MarkdownContext, tool: ToolRecord): Markdown
       status(ctx, tool),
       definitions([
         ...toolFacts(tool).map(fact => [fact.label, fact.value] as [string, string]),
-        ['JSON', `/api/tools/${tool.slug}.json`]
+        ['JSON', `/api/v1/tools/${tool.slug}.json`]
       ]),
       blocks(heading(2, 'Links'), bullets([link('Website', tool.homepage), ...links])),
       pricing(ctx, tool),

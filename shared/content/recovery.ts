@@ -16,6 +16,7 @@ export interface RecoveryLink {
 
 export const RECOVERY_PAGES: RecoveryLink[] = [
   { label: 'Every tool', to: '/tools' },
+  { label: 'Developers', to: '/developers' },
   { label: 'Compare two tools', to: '/compare' },
   { label: 'Sitemap', to: '/sitemap.xml', external: true }
 ]
@@ -25,5 +26,5 @@ export const RECOVERY_DOCUMENTS: RecoveryLink[] = [
   { label: 'llms.txt', to: '/llms.txt', external: true },
   { label: 'sitemap.md', to: '/sitemap.md', external: true },
   { label: 'openapi.json', to: '/openapi.json', external: true },
-  { label: 'tools.json', to: '/api/tools.json', external: true }
+  { label: 'tools.json', to: '/api/v1/tools.json', external: true }
 ]

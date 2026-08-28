@@ -37,9 +37,10 @@ export default defineNuxtConfig({
       '/llms.txt': { isr: 60 * 60 },
       '/tools': { isr: { expiration: 60 * 60, passQuery: true } },
       '/tools/**': { isr: 60 * 60 },
-      '/api/tools.json': { isr: 60 * 60 },
-      '/api/compare.json': { isr: 60 * 60 },
-      '/api/tools/**': { isr: 60 * 60 },
+      '/developers': { isr: 60 * 60 },
+      '/api/v1/tools.json': { isr: 60 * 60 },
+      '/api/v1/compare.json': { isr: 60 * 60 },
+      '/api/v1/tools/**': { isr: 60 * 60 },
       '/api/content/**': { isr: 60 * 60 },
       '/api/__sitemap__/urls': { isr: 60 * 60 },
       '/sitemap.xml': { isr: 60 * 60 },
@@ -87,6 +88,16 @@ export default defineNuxtConfig({
     }
   },
 
+  // 301s from the unversioned paths the API used to live at. Top level rather than `$production`
+  // so a local build behaves like the deploy. 308 on the finder: it is a POST, and 301 would
+  // turn it into a GET and drop the body.
+  routeRules: {
+    '/api/tools.json': { redirect: { to: '/api/v1/tools.json', statusCode: 301 } },
+    '/api/tools/**': { redirect: { to: '/api/v1/tools/**', statusCode: 301 } },
+    '/api/compare.json': { redirect: { to: '/api/v1/compare.json', statusCode: 301 } },
+    '/api/finder/parse': { redirect: { to: '/api/v1/finder/parse', statusCode: 308 } }
+  },
+
   experimental: {
     payloadExtraction: false
   },
@@ -122,7 +133,7 @@ export default defineNuxtConfig({
     // rewrite, and a pattern that only half-overlaps a rule gets a duplicate pair of routes.
     // The query is not preserved on the twins of /tools and /compare, which is fine: their
     // markdown ignores the query and an agent that wants it filtered has /api/tools.json.
-    routes: ['/', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**'],
+    routes: ['/', '/developers', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**'],
     sitemap: {
       markdown: { labels: { tools: 'Tools', compare: 'Comparisons', layers: 'Layers', plans: 'Plans' } }
     },
@@ -131,8 +142,9 @@ export default defineNuxtConfig({
         // First, so it heads the api-catalog and the recovery links in an error body: one
         // document that describes every other one, including the agent surfaces the module
         // generates its half of.
-        { href: '/openapi.json', rel: 'service-desc', type: 'application/openapi+json', anchor: '/api', title: 'OpenAPI 3.1 description of every endpoint and page' },
-        { href: '/api/tools.json', rel: 'service-desc', type: 'application/json', anchor: '/api', title: 'Every tool as one JSON document' }
+        { href: '/openapi.json', rel: 'service-desc', type: 'application/openapi+json', anchor: '/api/v1', title: 'OpenAPI 3.1 description of every endpoint and page' },
+        { href: '/api/v1/tools.json', rel: 'service-desc', type: 'application/json', anchor: '/api/v1', title: 'Every tool as one JSON document' },
+        { href: '/developers', rel: 'service-doc', type: 'text/html', anchor: '/api/v1', title: 'Developers: the API, its versioning policy and the markdown surface' }
       ]
     }
   },
@@ -171,8 +183,8 @@ export default defineNuxtConfig({
         title: 'Data',
         links: [
           { title: 'OpenAPI, every endpoint and page', description: 'The API surface as an OpenAPI 3.1 document, schemas included.', href: '/openapi.json' },
-          { title: 'API, every tool', description: 'The same records the site renders, as one JSON document.', href: '/api/tools.json' },
-          { title: 'API, every comparison', description: 'The canonical pair list: both slugs and the URL. Comparisons are not enumerated in this file.', href: '/api/compare.json' },
+          { title: 'API, every tool', description: 'The same records the site renders, as one JSON document.', href: '/api/v1/tools.json' },
+          { title: 'API, every comparison', description: 'The canonical pair list: both slugs and the URL. Comparisons are not enumerated in this file.', href: '/api/v1/compare.json' },
           { title: 'Changelog, every data commit', href: 'https://github.com/benjamincanac/whichcodingtools/commits/main/content/tools' }
         ]
       }

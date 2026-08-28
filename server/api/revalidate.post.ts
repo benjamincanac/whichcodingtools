@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
   const { tools, bySlug } = await loadToolsIndexed()
 
   // What to purge: the shared surfaces, the touched tools, and every page that lists them.
-  const paths = new Set<string>(['/', '/tools', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/tools.json', '/api/compare.json', '/api/content/list', '/api/__sitemap__/urls'])
+  const paths = new Set<string>(['/', '/tools', '/compare', '/llms.txt', '/llms-full.txt', '/sitemap.xml', '/sitemap.md', '/api/v1/tools.json', '/api/compare.json', '/api/content/list', '/api/__sitemap__/urls'])
   const pairs = relatedPairs(tools)
 
   // Deleted files: the slug is in `touched` but the corpus no longer has the record, so nothing
@@ -66,7 +66,7 @@ export default defineEventHandler(async (event) => {
 
   for (const slug of touched) {
     paths.add(`/tools/${slug}`)
-    paths.add(`/api/tools/${slug}.json`)
+    paths.add(`/api/v1/tools/${slug}.json`)
     paths.add(`/api/content/get/${slug}`)
     const tool = bySlug.get(slug)
     if (!tool) continue

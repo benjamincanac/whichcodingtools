@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ParsedRequirements } from '#shared/finder'
+import { API_BASE } from '#shared/api'
 import { LAYERS } from '#shared/enums'
 import { toRequirements } from '#shared/finder'
 import { toQuery } from '~/composables/useToolFinder'
@@ -41,7 +42,7 @@ async function go() {
   loading.value = true
   error.value = ''
   try {
-    const { parsed } = await $fetch<{ parsed: ParsedRequirements }>('/api/finder/parse', { method: 'POST', body: { query: text } })
+    const { parsed } = await $fetch<{ parsed: ParsedRequirements }>(`${API_BASE}/finder/parse`, { method: 'POST', body: { query: text } })
     await navigateTo({ path: '/tools', query: { ...toQuery(toRequirements(parsed)), why: parsed.summary } })
   } catch {
     // The model is unavailable: fall back to a plain text search so the input still does something.
@@ -131,51 +132,65 @@ defineShortcuts({
       </div>
     </template>
 
-    <div class="flex flex-col items-center gap-y-3 py-4 mt-auto">
+    <div class="flex flex-col items-center gap-y-4 py-4 mt-auto">
       <!-- The seven layer pages, which the hero otherwise reaches only through the filters on
-           /tools. Server rendered, so a crawler that runs no JavaScript still finds them. -->
+           /tools. Server rendered, so a crawler that runs no JavaScript still finds them, and
+           under a real heading so the page has a structure rather than one h1 and a wall. -->
       <nav
-        aria-label="Browse by layer"
-        class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-sm text-muted"
+        aria-labelledby="browse-by-layer"
+        class="flex flex-col items-center gap-y-2"
       >
-        <ULink
-          v-for="layer in LAYERS"
-          :key="layer.value"
-          :to="`/layers/${layer.value}`"
+        <h2
+          id="browse-by-layer"
+          class="text-xs font-medium uppercase tracking-wider text-dimmed"
         >
-          {{ layer.label }}s
-        </ULink>
+          Browse by layer
+        </h2>
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-sm text-muted">
+          <ULink
+            v-for="layer in LAYERS"
+            :key="layer.value"
+            :to="`/layers/${layer.value}`"
+            :title="layer.description"
+          >
+            {{ layer.label }}s
+          </ULink>
+        </div>
       </nav>
 
       <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted">
-        <ULink
-          to="/tools"
-        >
+        <ULink to="/tools">
           Explore {{ tools.length }} tools
         </ULink>
         <span>·</span>
-        <ULink
-          to="/compare"
-        >
+        <ULink to="/compare">
           Compare
         </ULink>
         <span>·</span>
+        <ULink to="/developers">
+          Developers
+        </ULink>
+        <span>·</span>
         <ULink
-          to="/api/tools.json"
+          :to="`${API_BASE}/tools.json`"
           target="_blank"
         >
           JSON API
         </ULink>
-        <span>·</span>
-        <ULink
-          :to="`https://github.com/${site.repo}/tree/main/content/tools`"
-          target="_blank"
-        >No affiliate links. Data is open, in git.</ULink>
       </div>
 
-      <p class="max-w-xl text-center text-xs text-dimmed text-pretty">
-        Every price, plan and limit comes from a vendor page someone read on the date recorded next to it. One YAML file per tool, validated against a schema, with a source URL on every claim.
-      </p>
+      <section class="flex flex-col items-center gap-y-1.5">
+        <h2 class="text-xs font-medium uppercase tracking-wider text-dimmed">
+          How the data is checked
+        </h2>
+        <p class="max-w-xl text-center text-xs text-dimmed text-pretty">
+          Every price, plan and limit comes from a vendor page someone read on the date recorded next to it. One YAML file per tool, validated against a schema, with a source URL on every claim.
+          <ULink
+            :to="`https://github.com/${site.repo}/tree/main/content/tools`"
+            target="_blank"
+          >No affiliate links. Data is open, in git.</ULink>
+        </p>
+      </section>
     </div>
   </UPageHero>
 </template>

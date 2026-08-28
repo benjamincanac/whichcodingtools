@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { API_BASE, API_VERSION, SUNSET_NOTICE_DAYS } from '#shared/api'
 import { ParsedRequirementsSchema } from '#shared/finder'
 import { toolJsonSchema } from '#shared/schema'
 import { FRESHNESS_LEVELS, PRICING_MODELS } from '#shared/types/tool'
@@ -83,7 +84,11 @@ const errorSchema: Json = {
 }
 
 function jsonResponse(description: string, schema: Json): Json {
-  return { description, content: { 'application/json': { schema } } }
+  return {
+    description,
+    headers: { 'API-Version': { $ref: '#/components/headers/ApiVersion' } },
+    content: { 'application/json': { schema } }
+  }
 }
 
 function errorResponse(description: string): Json {
@@ -100,7 +105,7 @@ function errorResponse(description: string): Json {
  */
 export function apiPaths(): Json {
   return {
-    '/api/tools.json': {
+    [`${API_BASE}/tools.json`]: {
       get: {
         tags: ['Data'],
         operationId: 'getToolsJson',
@@ -111,7 +116,7 @@ export function apiPaths(): Json {
         }
       }
     },
-    '/api/tools/{slug}.json': {
+    [`${API_BASE}/tools/{slug}.json`]: {
       get: {
         tags: ['Data'],
         operationId: 'getToolJson',
@@ -131,7 +136,7 @@ export function apiPaths(): Json {
         }
       }
     },
-    '/api/compare.json': {
+    [`${API_BASE}/compare.json`]: {
       get: {
         tags: ['Data'],
         operationId: 'getComparePairs',
@@ -142,7 +147,7 @@ export function apiPaths(): Json {
         }
       }
     },
-    '/api/finder/parse': {
+    [`${API_BASE}/finder/parse`]: {
       post: {
         tags: ['Data'],
         operationId: 'parseFinderQuery',
@@ -184,12 +189,21 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
         '',
         'Every figure comes from a vendor page that someone read on the date recorded next to it, and every page of this site is available as Markdown: append `.md` to its URL or send `Accept: text/markdown`.',
         '',
-        'No affiliate links, no benchmarks, no LLM-written descriptions. Read only, no authentication, no rate limit beyond the CDN. Responses are cached for an hour and purged when the data behind them changes.'
+        'No affiliate links, no benchmarks, no LLM-written descriptions. Read only, no authentication, no rate limit beyond the CDN. Responses are cached for an hour and purged when the data behind them changes.',
+        '',
+        '## Versioning',
+        '',
+        `The JSON API lives under \`${API_BASE}\` and every response carries \`API-Version: ${API_VERSION}\`. Adding a field or an endpoint is not a new version: a client that reads the fields it knows keeps working. Removing a field, renaming one, or changing what one means is what \`v2\` would be for.`,
+        '',
+        `A current version carries no deprecation headers, and that absence is the signal. When one is superseded every response from it gains a \`Deprecation\` date (RFC 9745), then a \`Sunset\` date (RFC 8594) at least ${SUNSET_NOTICE_DAYS} days later, and a \`Link\` header naming the replacement with \`rel="successor-version"\`. Nothing is removed before the sunset date.`,
+        '',
+        `\`/api/content/**\` is outside this policy: it is the content layer's own debugging handler, it answers documents rather than records, and it can change without notice.`
       ].join('\n'),
       license: { name: 'MIT', identifier: 'MIT' },
       contact: { name: 'Source and issues', url: 'https://github.com/benjamincanac/whichcodingtools' }
     },
     servers: [{ url: siteUrl, description: 'Production' }],
+    externalDocs: { description: 'Developers: the API, its versioning policy and the markdown surface', url: `${siteUrl}/developers` },
     // Read only and public, so no scheme applies. Declared rather than left out: an absent
     // `security` reads as undecided, an empty one says there is nothing to send.
     security: [],
@@ -197,7 +211,13 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
     // The site's own paths last, so a richer description here replaces a generated one.
     paths: { ...discovery.paths, ...apiPaths() },
     components: {
-      headers: discovery.components.headers,
+      headers: {
+        ...discovery.components.headers,
+        ApiVersion: {
+          description: `The version of the contract that produced the response, matching the \`${API_BASE}\` in its URL. A response carrying no \`Deprecation\` header is current.`,
+          schema: { type: 'string', enum: [API_VERSION] }
+        }
+      },
       responses: discovery.components.responses,
       schemas: {
         ...discovery.components.schemas,

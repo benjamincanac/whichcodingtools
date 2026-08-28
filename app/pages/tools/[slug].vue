@@ -14,7 +14,7 @@ const slug = computed(() => String(route.params.slug))
 const { tools, bySlug, ready } = useTools()
 await ready
 
-const { data: tool, error } = await useFetch<ToolRecord>(`/api/tools/${slug.value}.json`, {
+const { data: tool, error } = await useFetch<ToolRecord>(`/api/v1/tools/${slug.value}.json`, {
   key: `tool-${slug.value}`
 })
 
@@ -61,7 +61,7 @@ const exploreLinks = computed<PageLink[]>(() => [
   { label: 'Compare with another tool', to: `/compare?tools=${t.value.slug}`, icon: 'i-lucide-columns-3' },
   { label: `All ${optionLabelLower(LAYERS, t.value.layer)}s`, to: `/layers/${t.value.layer}`, icon: 'i-lucide-layers' },
   ...planLinks.value.map(plan => ({ label: `Everything on ${plan.label}`, to: `/plans/${plan.value}`, icon: plan.icon })),
-  { label: 'JSON', to: `/api/tools/${t.value.slug}.json`, target: '_blank', icon: 'i-lucide-braces' }
+  { label: 'JSON', to: `/api/v1/tools/${t.value.slug}.json`, target: '_blank', icon: 'i-lucide-braces' }
 ])
 
 const maintainLinks = computed<PageLink[]>(() => [

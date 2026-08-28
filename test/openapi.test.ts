@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- the document is plain JSON with no static shape, so the assertions walk it untyped. */
 import { describe, expect, it } from 'vitest'
 import { siteOpenApi, type DiscoveryFragments } from '../server/utils/openapi'
+import { API_BASE } from '#shared/api'
 import { toolJsonSchema } from '#shared/schema'
 import { FRESHNESS_LEVELS, PRICING_MODELS } from '#shared/types/tool'
 import { loadRecords } from './content'
@@ -30,7 +31,7 @@ const discovery: DiscoveryFragments = {
     '/llms.txt': { get: { operationId: 'getLlmsTxt' } },
     '/.well-known/api-catalog': { get: { operationId: 'getApiCatalog' } },
     // A path the site also describes, to prove which side wins.
-    '/api/tools.json': { get: { operationId: 'generated' } }
+    '/api/v1/tools.json': { get: { operationId: 'generated' } }
   },
   components: {
     headers: { Vary: { schema: { type: 'string' } } },
@@ -100,22 +101,22 @@ describe('merging the discovery half', () => {
   })
 
   it('lets the site replace a generated path with its own description', () => {
-    expect(doc.paths['/api/tools.json'].get.operationId).toBe('getToolsJson')
+    expect(doc.paths[`${API_BASE}/tools.json`].get.operationId).toBe('getToolsJson')
   })
 })
 
 describe('the API surface', () => {
   it('describes every JSON endpoint the site serves', () => {
     expect(Object.keys(doc.paths)).toEqual(expect.arrayContaining([
-      '/api/tools.json',
-      '/api/tools/{slug}.json',
-      '/api/compare.json',
-      '/api/finder/parse'
+      `${API_BASE}/tools.json`,
+      `${API_BASE}/tools/{slug}.json`,
+      `${API_BASE}/compare.json`,
+      `${API_BASE}/finder/parse`
     ]))
   })
 
   it('declares the slug parameter with the schema pattern slugs are validated against', () => {
-    const [parameter] = doc.paths['/api/tools/{slug}.json'].get.parameters
+    const [parameter] = doc.paths[`${API_BASE}/tools/{slug}.json`].get.parameters
     expect(parameter.name).toBe('slug')
     expect(parameter.in).toBe('path')
     expect(parameter.required).toBe(true)
@@ -124,11 +125,40 @@ describe('the API surface', () => {
   })
 
   it('documents the finder failure modes, which are the only ones a caller can hit', () => {
-    expect(Object.keys(doc.paths['/api/finder/parse'].post.responses)).toEqual(['200', '400', '502', '503'])
+    expect(Object.keys(doc.paths[`${API_BASE}/finder/parse`].post.responses)).toEqual(['200', '400', '502', '503'])
+  })
+
+  it('serves every endpoint under the versioned prefix, nothing beside it', () => {
+    const own = Object.keys(doc.paths).filter(path => path.startsWith('/api'))
+    expect(own.length).toBeGreaterThan(0)
+    expect(own.every(path => path.startsWith(API_BASE))).toBe(true)
+  })
+
+  it('advertises the version header on every JSON response', () => {
+    const responses = Object.entries(doc.paths as Json)
+      .filter(([path]) => path.startsWith(API_BASE))
+      .flatMap(([, item]) => Object.values(item as Json))
+      .flatMap(operation => Object.values((operation as Json).responses as Json))
+    expect(responses.length).toBeGreaterThan(0)
+    for (const response of responses) {
+      const headers = (response as Json).headers as Json | undefined
+      const ref = (response as Json).$ref
+      // A 4xx points at a shared component; the ones defined inline carry the header.
+      if (!ref) expect(headers?.['API-Version']).toEqual({ $ref: '#/components/headers/ApiVersion' })
+    }
+    expect(doc.components.headers.ApiVersion).toBeDefined()
+  })
+
+  it('publishes the deprecation policy an agent integrates against', () => {
+    expect(doc.info.description).toContain('Deprecation')
+    expect(doc.info.description).toContain('Sunset')
+    expect(doc.info.description).toContain('successor-version')
+    expect(doc.externalDocs.url).toMatch(/\/developers$/)
   })
 
   it('leaves the webhook and the sitemap source out', () => {
     expect(doc.paths['/api/revalidate']).toBeUndefined()
+    expect(doc.paths['/api/v1/revalidate']).toBeUndefined()
     expect(doc.paths['/api/__sitemap__/urls']).toBeUndefined()
   })
 })

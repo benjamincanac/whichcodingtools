@@ -1,4 +1,5 @@
 import { LAYERS, PLANS, optionLabel } from '#shared/enums'
+import { DEVELOPERS_INDEX } from '#shared/content/developers'
 import {
   COMPARE_INDEX,
   TOOLS_INDEX,
@@ -43,7 +44,7 @@ async function context(): Promise<MarkdownContext> {
  */
 const COMPARE_LISTING = {
   section: 'Optional',
-  description: 'Any two tools side by side. Build the URL as /compare/{a}-vs-{b} with the two slugs in alphabetical order, markdown at /raw/compare/{a}-vs-{b}.md. Over five hundred pairs, listed at /api/compare.json rather than here.'
+  description: 'Any two tools side by side. Build the URL as /compare/{a}-vs-{b} with the two slugs in alphabetical order, markdown at /raw/compare/{a}-vs-{b}.md. Over five hundred pairs, listed at /api/v1/compare.json rather than here.'
 }
 
 /** The section label a route is grouped under in `llms.txt`. */
@@ -108,7 +109,12 @@ export default defineAgentContentSource({
     if (selector) return null
 
     const ctx = await context()
-    const entries: AgentListEntry[] = [{ route: '/', title: 'whichcoding.tools', section: 'Pages' }]
+    const entries: AgentListEntry[] = [
+      { route: '/', title: 'whichcoding.tools', section: 'Pages' },
+      // Not in `sitePages()`: it is a static route the sitemap module finds by itself, and it
+      // describes the API rather than the data, so no tool's `verified_at` dates it.
+      { route: '/developers', title: DEVELOPERS_INDEX.title, description: DEVELOPERS_INDEX.description, section: 'Pages' }
+    ]
     let compare: AgentListEntry | undefined
 
     for (const page of sitePages(ctx.tools, ctx.bySlug)) {
