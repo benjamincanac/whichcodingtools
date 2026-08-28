@@ -9,6 +9,7 @@ import { basename, extname, join } from 'node:path'
 import { parse as parseYaml } from 'yaml'
 import spdxParse from 'spdx-expression-parse'
 import { ToolSchema, type Tool } from '../shared/schema'
+import { claimsDirectoryCoverage } from './rules'
 
 const DIR = join(process.cwd(), 'content/tools')
 const SNAPSHOTS = join(process.cwd(), 'content/snapshots')
@@ -68,13 +69,6 @@ function restatesThePrice(limit: string) {
   const words = limit.toLowerCase().match(/[a-z]+/g) ?? []
   return words.length > 0 && words.every(w => PRICE_WORDS.has(w)) && words.some(w => UNIT_WORDS.has(w))
 }
-
-/**
- * A note saying something is "not in the directory" is a claim about this repository, not about
- * the vendor's page. Nothing re-reads it: the sweeps check a file against its sources, and this
- * one turns false when an unrelated entry lands, so it rots in place. `wraps` states coverage.
- */
-const COVERAGE_CLAIM = /\bnot\s+(?:yet\s+)?[a-z ]{0,30}?(?:in (?:the|this) directory|tracked here|listed here|covered here)\b/i
 
 /** Dollar amounts written into prose, so they can be held to the same capture as a `price`. */
 function moneyIn(text: string) {
@@ -199,7 +193,7 @@ for (const [slug, tool] of tools) {
     ...(tool.pricing.tiers ?? []).map((t): [string, string | undefined] => [`pricing.tiers.${t.id}.notes`, t.notes])
   ]
   for (const [path, text] of prose) {
-    if (text && COVERAGE_CLAIM.test(text)) {
+    if (text && claimsDirectoryCoverage(text)) {
       issue(file, path, 'a note cannot say what this directory covers, that claim goes stale on its own. State it in wraps or leave it out')
     }
   }
