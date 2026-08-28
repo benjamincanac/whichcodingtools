@@ -14,7 +14,7 @@
  * other hand: in this corpus it means this one, and a note using it in another sense is still
  * worth a second read.
  */
-const COVERAGE_CLAIM = /\b(?:not|never|excluded|missing|absent)\b[a-z' ]{0,30}?(?:(?:in|from|on) (?:the|this) directory|(?:tracked|listed|covered|included|carried) here)\b|\b(?:untracked|unlisted) here\b/i
+const COVERAGE_CLAIM = /\b(?:not|never|excluded|missing|absent)\b[a-z' ]{0,30}?(?:(?:in|from|on) (?:(?:the|this) )?directory|(?:tracked|listed|covered|included|carried) here)\b|\b(?:untracked|unlisted) here\b/i
 
 export function claimsDirectoryCoverage(text: string) {
   return COVERAGE_CLAIM.test(text)

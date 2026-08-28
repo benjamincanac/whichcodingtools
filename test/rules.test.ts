@@ -20,7 +20,9 @@ describe('a note that claims what this directory covers', () => {
       'Qwen Code is missing from this directory.',
       'Goose is supported but untracked here.',
       'Cline also runs and is unlisted here.',
-      'Devin is supported but never covered here.'
+      'Devin is supported but never covered here.',
+      'Kiro also runs but is not in directory.',
+      'Amp is supported, excluded from directory for now.'
     ]) {
       expect(claimsDirectoryCoverage(note), note).toBe(true)
     }
