@@ -177,6 +177,20 @@ export function apiPaths(): Json {
   }
 }
 
+/**
+ * Discovery paths minus anything under `/api` that is not the versioned surface.
+ *
+ * The module generates its half from the route config, and a site can mount things under `/api`
+ * that carry no compatibility promise: this one has the content layer's debugging handler and
+ * the push webhook there. Publishing one of those beside `/api/v1` in the same document is an
+ * invitation to integrate against it. The pages and the discovery documents are untouched.
+ */
+function publishable(paths: Json): Json {
+  return Object.fromEntries(
+    Object.entries(paths).filter(([path]) => !path.startsWith('/api') || path.startsWith(API_BASE))
+  )
+}
+
 export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Json {
   return {
     openapi: '3.1.0',
@@ -189,7 +203,7 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
         '',
         'Every figure comes from a vendor page that someone read on the date recorded next to it, and every page of this site is available as Markdown: append `.md` to its URL or send `Accept: text/markdown`.',
         '',
-        'No affiliate links, no benchmarks, no LLM-written descriptions. Read only, no authentication, no rate limit beyond the CDN. Responses are cached for an hour and purged when the data behind them changes.',
+        'No affiliate links, no benchmarks, no LLM-written descriptions. No authentication. The data endpoints are GETs cached for an hour and purged when the data behind them changes; the finder is a POST that calls a model, is not cached, and is the one endpoint worth calling sparingly.',
         '',
         '## Versioning',
         '',
@@ -208,7 +222,7 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
     security: [],
     tags: [...discovery.tags, { name: 'Data', description: 'The directory as JSON.' }],
     // The site's own paths last, so a richer description here replaces a generated one.
-    paths: { ...discovery.paths, ...apiPaths() },
+    paths: { ...publishable(discovery.paths), ...apiPaths() },
     components: {
       headers: {
         ...discovery.components.headers,

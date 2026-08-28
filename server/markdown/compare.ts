@@ -1,3 +1,4 @@
+import { API_BASE } from '#shared/api'
 import { COMPARE_INDEX, pairIntro, pairPageDescription, pairPageTitle } from '#shared/content/pages'
 import type { ToolRecord } from '#shared/types/tool'
 import { compareTools } from '#shared/utils/compare'
@@ -42,7 +43,7 @@ export function renderCompareIndex(ctx: MarkdownContext): MarkdownPage {
     markdown: blocks(
       lead(COMPARE_INDEX.title, COMPARE_INDEX.description),
       `Any two tools make a page at \`/compare/<a>-vs-<b>\`, with the slugs in alphabetical order. Up to four at a time at \`/compare?tools=<a>,<b>,<c>\`.`,
-      `Every slug is listed on ${link('the tools index', '/tools')}, and ${link('/api/v1/tools.json', '/api/v1/tools.json')} carries the same data as one document.`,
+      `Every slug is listed on ${link('the tools index', '/tools')}, and ${link(`${API_BASE}/tools.json`, `${API_BASE}/tools.json`)} carries the same data as one document.`,
       // Every tool, not a sample pair: the feature rows are the ones any tool in the
       // directory has, so a two-tool sample would advertise two features out of sixteen.
       blocks(

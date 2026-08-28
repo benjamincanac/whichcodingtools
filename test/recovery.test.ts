@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { API_BASE } from '#shared/api'
 import { RECOVERY_DOCUMENTS, RECOVERY_PAGES } from '#shared/content/recovery'
-import { renderPage } from '../server/markdown/render'
-import { markdownContext } from './content'
+import { sitePages } from '#shared/utils/routes'
+import { loadRecords } from './content'
 
 const links = [...RECOVERY_PAGES, ...RECOVERY_DOCUMENTS]
 
@@ -17,13 +17,12 @@ describe('where the error page points next', () => {
     expect(new Set(links.map(link => link.to)).size).toBe(links.length)
   })
 
-  it('sends a person to pages that render', async () => {
-    // `renderPage()` is what decides a route is a page: it backs every `/raw/**.md` twin, so a
-    // route it declines is a route the site 404s. Cheaper and stricter than listing the pages
-    // again here, and it covers the static routes `sitePages()` deliberately leaves out.
-    const ctx = await markdownContext()
+  it('sends a person to pages the site renders', async () => {
+    const records = await loadRecords()
+    const routes = new Set(sitePages(records, new Map(records.map(r => [r.slug, r]))).map(page => page.route))
+
     for (const link of RECOVERY_PAGES.filter(l => !l.external)) {
-      expect(renderPage(ctx, link.to), `${link.to} is not a page this site serves`).toBeTruthy()
+      expect(routes.has(link.to), `${link.to} is not a page this site serves`).toBe(true)
     }
   })
 

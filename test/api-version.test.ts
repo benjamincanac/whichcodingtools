@@ -17,7 +17,7 @@ describe('the versioned API surface', () => {
     expect(isVersionedApiPath('/api/v1/tools.json')).toBe(true)
     expect(isVersionedApiPath('/api/v1/tools/claude-code.json')).toBe(true)
     expect(isVersionedApiPath('/api/v1/finder/parse')).toBe(true)
-    expect(isVersionedApiPath('/api/v1/tools.json?x=1#y')).toBe(true)
+    expect(isVersionedApiPath('/api/v1/tools.json?q=terminal')).toBe(true)
   })
 
   it('leaves the internal endpoints unversioned, since nothing is promised about them', () => {

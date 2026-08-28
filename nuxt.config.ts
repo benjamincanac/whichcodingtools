@@ -131,7 +131,7 @@ export default defineNuxtConfig({
     // above. The module reads those rules to decide which patterns get a CDN 307 instead of a
     // rewrite, and a pattern that only half-overlaps a rule gets a duplicate pair of routes.
     // The query is not preserved on the twins of /tools and /compare, which is fine: their
-    // markdown ignores the query and an agent that wants it filtered has /api/tools.json.
+    // markdown ignores the query and an agent that wants it filtered has /api/v1/tools.json.
     routes: ['/', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**'],
     sitemap: {
       markdown: { labels: { tools: 'Tools', compare: 'Comparisons', layers: 'Layers', plans: 'Plans' } }

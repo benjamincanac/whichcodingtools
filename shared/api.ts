@@ -34,6 +34,7 @@ export const SUNSET_NOTICE_DAYS = 180
  * stamping them with a version would claim a stability promise this site does not make.
  */
 export function isVersionedApiPath(path: string): boolean {
-  const pathname = path.split('?')[0]!.split('#')[0]!
+  // `event.path` is origin-form, so it carries a query and never a fragment.
+  const pathname = path.split('?')[0]!
   return pathname === API_BASE || pathname.startsWith(`${API_BASE}/`)
 }

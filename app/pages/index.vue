@@ -151,7 +151,6 @@ defineShortcuts({
             v-for="layer in LAYERS"
             :key="layer.value"
             :to="`/layers/${layer.value}`"
-            :title="layer.description"
           >
             {{ layer.label }}s
           </ULink>
@@ -173,6 +172,13 @@ defineShortcuts({
         >
           JSON API
         </ULink>
+        <span>·</span>
+        <ULink
+          :to="`https://github.com/${site.repo}/tree/main/content/tools`"
+          target="_blank"
+        >
+          Data on GitHub
+        </ULink>
       </div>
 
       <section class="flex flex-col items-center gap-y-1.5">
@@ -180,11 +186,7 @@ defineShortcuts({
           How the data is checked
         </h2>
         <p class="max-w-xl text-center text-xs text-dimmed text-pretty">
-          Every price, plan and limit comes from a vendor page someone read on the date recorded next to it. One YAML file per tool, validated against a schema, with a source URL on every claim.
-          <ULink
-            :to="`https://github.com/${site.repo}/tree/main/content/tools`"
-            target="_blank"
-          >No affiliate links. Data is open, in git.</ULink>
+          Every price, plan and limit comes from a vendor page someone read on the date recorded next to it. One YAML file per tool, validated against a schema, with a source URL on every claim. No affiliate links.
         </p>
       </section>
     </div>

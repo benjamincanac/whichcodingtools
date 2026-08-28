@@ -1,3 +1,4 @@
+import { API_BASE } from '#shared/api'
 import { LAYERS, PLANS, optionLabel } from '#shared/enums'
 import {
   COMPARE_INDEX,
@@ -43,7 +44,7 @@ async function context(): Promise<MarkdownContext> {
  */
 const COMPARE_LISTING = {
   section: 'Optional',
-  description: 'Any two tools side by side. Build the URL as /compare/{a}-vs-{b} with the two slugs in alphabetical order, markdown at /raw/compare/{a}-vs-{b}.md. Over five hundred pairs, listed at /api/v1/compare.json rather than here.'
+  description: `Any two tools side by side. Build the URL as /compare/{a}-vs-{b} with the two slugs in alphabetical order, markdown at /raw/compare/{a}-vs-{b}.md. Over five hundred pairs, listed at ${API_BASE}/compare.json rather than here.`
 }
 
 /** The section label a route is grouped under in `llms.txt`. */

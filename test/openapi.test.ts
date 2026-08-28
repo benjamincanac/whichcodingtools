@@ -30,6 +30,9 @@ const discovery: DiscoveryFragments = {
     '/sitemap.md': { get: { operationId: 'getSitemapMarkdown' } },
     '/llms.txt': { get: { operationId: 'getLlmsTxt' } },
     '/.well-known/api-catalog': { get: { operationId: 'getApiCatalog' } },
+    // Unversioned on purpose: the module could pick up a route like this, and the document must
+    // not publish it beside the versioned API. Without it the prefix check passes by construction.
+    '/api/content/list': { get: { operationId: 'getContentList' } },
     // A path the site also describes, to prove which side wins.
     '/api/v1/tools.json': { get: { operationId: 'generated' } }
   },
@@ -131,7 +134,7 @@ describe('the API surface', () => {
   it('serves every endpoint under the versioned prefix, nothing beside it', () => {
     const own = Object.keys(doc.paths).filter(path => path.startsWith('/api'))
     expect(own.length).toBeGreaterThan(0)
-    expect(own.every(path => path.startsWith(API_BASE))).toBe(true)
+    expect(own.filter(path => !path.startsWith(API_BASE))).toEqual([])
   })
 
   it('advertises the version header on every JSON response', () => {
@@ -142,9 +145,7 @@ describe('the API surface', () => {
     expect(responses.length).toBeGreaterThan(0)
     for (const response of responses) {
       const headers = (response as Json).headers as Json | undefined
-      const ref = (response as Json).$ref
-      // A 4xx points at a shared component; the ones defined inline carry the header.
-      if (!ref) expect(headers?.['API-Version']).toEqual({ $ref: '#/components/headers/ApiVersion' })
+      expect(headers?.['API-Version']).toEqual({ $ref: '#/components/headers/ApiVersion' })
     }
     expect(doc.components.headers.ApiVersion).toBeDefined()
   })
