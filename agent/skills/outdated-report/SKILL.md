@@ -1,6 +1,6 @@
 ---
 name: outdated-report
-description: One reported field, re-read against the vendor page it came from. Load this when an "Outdated data" issue starts a turn, or when asked to check one tool against what a reporter says has changed.
+description: A reported field, re-read against the vendor page it came from, and with it whatever else that page's source line covers. Load this when an "Outdated data" issue starts a turn, or when asked to check one tool against what a reporter says has changed.
 ---
 
 # Outdated report
@@ -20,7 +20,7 @@ Work in `/workspace/repo`, already on the latest main. Load `contributing` for t
 1. Read `content/tools/<slug>.yml` and find the field the report is about. `shared/schema.ts` says what shape it has to keep.
 2. Re-read the vendor page that covers that field. A page that cannot be read is a reply saying what the fetch and the browser each returned, and which other vendor surfaces you tried. It is not a guess and not a new issue, the thread you are already in is the issue.
 3. Decide against the page, never against the report:
-   - **The page agrees with the reporter**: fix the field, bump `verified_at` on the source line you re-read and no other, write the snapshot when the field is a price, run `pnpm validate`, then push to `agent/<slug>-outdated-<YYYY-MM-DD>` with message `data(<slug>): <what changed>` and open a pull request whose body opens with `Closes #<n>` for this issue and shows the before and after with the URL and the date. The keyword has to sit directly against the reference, `Closes #12`, never `Closes the finding in #12`, or GitHub records a mention and the issue stays open after the merge.
+   - **The page agrees with the reporter**: fix the field, fix whatever else that line's `covers` names and the page now contradicts, bump `verified_at` on the source line you re-read and no other, write the snapshot when the field is a price, run `pnpm validate`, then push to `agent/<slug>-outdated-<YYYY-MM-DD>` with message `data(<slug>): <what changed>` and open a pull request whose body opens with `Closes #<n>` for this issue and shows the before and after with the URL and the date. The keyword has to sit directly against the reference, `Closes #12`, never `Closes the finding in #12`, or GitHub records a mention and the issue stays open after the merge.
    - **The page agrees with the file**: change nothing. Say what the page shows today, with the URL. A report that turns out to be wrong is still worth the read, and `verified_at` still does not move without a diff a person can see.
    - **Neither**: the page moved somewhere the report did not describe. Fix what the page states, and say in the pull request body what the reporter said and what you found instead.
 4. Call `github__find_related` with the slug before you push. A tool that already has a pull request open takes the change on that branch, with `github__update_pull_request` putting the body back in step. Never a second pull request for a tool that already has one.
