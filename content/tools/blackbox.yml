@@ -30,37 +30,26 @@ models:
 features: [mcp-client, parallel-agents, browser-automation, tab-completion, diff-review, hooks, plugins, remote-execution]
 pricing:
   tiers:
-    - id: free
-      name: Free
-      price: 0
-      audience: individual
-      limits:
-        - The VS Code extension listing reads "Free. No credit card" with a BLACKBOX AI account and no API key
-      notes: Limits of the free extension are not published on the public site.
-    - id: api
-      name: Pay per token
-      price: null
-      audience: individual
-      overage:
-        kind: api-list
-        notes: List rates per 1M tokens, for example Nemotron 3 Ultra at $0.32 input and $0.80 output, Kimi K2.7 Code at $0.74 and $3.50.
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
+      overage:
+        kind: api-list
+        notes: The contract is quoted against these per-token list rates, for example Nemotron 3 Ultra at $0.32 input and $0.80 output, Kimi K2.7 Code at $0.74 and $3.50. Rates improve further as committed spend grows, about 5 percent off closed models and 10 percent off open models.
       limits:
-        - Annual committed spend through a purchase order, 5 percent off closed models and 10 percent off open models
-        - Single-tenant deployment, SAML SSO, SCIM, audit logs, dedicated Remote Agent runners, Agents API
-  notes: The public pricing page lists only per-token rates and an Enterprise commit, with no seats. app.blackbox.ai refused automated fetches on 2026-08-23, so any individual subscription sold inside the app could not be verified. Multi-agent mode dispatches to Claude Code, Codex and Gemini, but the site does not say whether it runs your own installs and logins, so no wraps are recorded.
+        - Annual purchase order, committed spend metered per token as it is consumed, unused balance expires at the end of the billing period
+        - Dedicated forward-deployed engineer, implementation included at no extra cost
+        - Dedicated single-tenant deployment, data residency, guaranteed TPM and custom rate limits
+        - SAML SSO, SCIM, RBAC, audit logs, zero data retention under contract and DPA, PII removed before closed models
+        - Dedicated Remote Agent runners with SSO, Agents API for cloud coding agents
+  notes: The pricing page no longer lists a Free plan or a self-serve pay-per-token tier that were on file before 2026-08-28. Every tier now requires an enterprise commit made through sales, quoted against reference per-token rates; there is no signup that bypasses it. Multi-agent mode dispatches to Claude Code, Codex and Gemini, but the site does not say whether it runs your own installs and logins, so no wraps are recorded.
 status: active
 sources:
   - url: https://www.blackbox.ai/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-08-28
     covers: [pricing, models]
-  - url: https://marketplace.visualstudio.com/items?itemName=Blackboxapp.blackbox
-    verified_at: 2026-08-23
-    covers: [pricing, features]
   - url: https://www.blackbox.ai/vs-code
     verified_at: 2026-08-23
     covers: [features, models, platforms]
