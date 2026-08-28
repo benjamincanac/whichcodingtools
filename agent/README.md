@@ -62,6 +62,7 @@ agent/
   tools/github__create_issue.ts
   tools/github__close_issue.ts      close the agent's own issues once resolved, with evidence
   tools/github__close_pull_request.ts  close one of its own whose finding no longer holds
+  tools/ask_question.ts             disables eve's built-in question tool, which the GitHub channel would post as a comment
   lib/github.ts                     REST helpers, the Git Data API push, Connect installation token (whichcodingtools[bot])
   lib/network-policy.ts             the read-only git firewall policy, shared by the sandbox and the hook
   lib/checkout.ts                   clone and refresh /workspace/repo, with exit codes actually checked

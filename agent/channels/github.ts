@@ -228,7 +228,7 @@ function briefly(message: string) {
 function replyHere(ctx: GitHubInboundContext) {
   const number = ctx.conversation.issueNumber ?? ctx.conversation.pullRequestNumber
   const here = number === null ? 'this thread' : `#${number}`
-  return `You are answering in ${here} and your last message is posted there as the reply. Do not call \`github__comment\` on ${here}: that posts a second copy alongside it. That tool is for a different thread, one this turn is not already in.`
+  return `You are answering in ${here} and your last message is posted there as the reply. It is the answer, not a draft: write it and stop, never ask whether to post it. Do not call \`github__comment\` on ${here}: that posts a second copy alongside it. That tool is for a different thread, one this turn is not already in.`
 }
 
 /**
