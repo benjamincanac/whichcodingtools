@@ -39,7 +39,8 @@ export function computeFreshness(tool: Pick<Tool, 'sources' | 'status'>, now = n
   }
 }
 
-export function relativeDays(date: string, now = new Date()) {
+/** `now` is the record's `computed_at`, the clock that decided its level, never the browser's. */
+export function relativeDays(date: string, now: Date) {
   const days = daysSince(date, now)
   if (days === 0) return 'today'
   if (days === 1) return 'yesterday'

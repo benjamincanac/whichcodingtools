@@ -3,13 +3,13 @@ import type { Freshness } from '#shared/types/tool'
 import { relativeDays } from '#shared/utils/freshness'
 
 const props = withDefaults(defineProps<{
-  // The two fields a badge renders, which is what a list payload carries.
-  freshness: Pick<Freshness, 'verified_at' | 'level'>
+  // What a badge renders, which is what a list payload carries. `computed_at` is the clock that
+  // set `level`, so the label counts from the same moment and the two cannot disagree.
+  freshness: Pick<Freshness, 'verified_at' | 'level' | 'computed_at'>
   variant?: 'dot' | 'badge'
 }>(), { variant: 'badge' })
 
-const now = useNow()
-const relative = computed(() => relativeDays(props.freshness.verified_at, now.value))
+const relative = computed(() => relativeDays(props.freshness.verified_at, new Date(props.freshness.computed_at)))
 const label = computed(() => `Pricing verified ${relative.value}`)
 const dotClass = computed(() => ({
   success: 'bg-success',

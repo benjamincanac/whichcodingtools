@@ -84,7 +84,7 @@ export function toSummary(tool: ToolRecord): ToolSummary {
       return wrap
     }),
     aliases: aliases.map(alias => ({ slug: alias.slug })),
-    freshness: { verified_at: freshness.verified_at, level: freshness.level }
+    freshness: { verified_at: freshness.verified_at, level: freshness.level, computed_at: freshness.computed_at }
   }
 }
 

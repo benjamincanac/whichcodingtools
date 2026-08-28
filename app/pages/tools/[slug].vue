@@ -76,7 +76,7 @@ const headerLinks = computed(() => [
 
 const yamlUrl = computed(() => `https://github.com/${site.repo}/blob/${site.branch}/content/tools/${t.value.slug}.yml`)
 const issueUrl = useIssueUrl()
-const now = useNow()
+const renderedAt = computed(() => new Date(t.value.freshness.computed_at))
 const outdatedUrl = computed(() => issueUrl('outdated', { title: `[Outdated] ${t.value.name}`, tool: t.value.slug }))
 
 const exploreLinks = computed<PageLink[]>(() => [
@@ -401,7 +401,7 @@ useSchemaOrg([
                   {{ cover }}
                 </UBadge>
                 <span class="text-xs text-muted whitespace-nowrap">
-                  {{ relativeDays(source.verified_at, now) }}
+                  {{ relativeDays(source.verified_at, renderedAt) }}
                 </span>
               </div>
             </li>

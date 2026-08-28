@@ -86,7 +86,7 @@ const grouped = computed<{ key: string, title?: string, description?: string, it
     return [
       { key: 'exact', title: 'Matches everything', items: exact.value },
       { key: 'close', title: 'Close matches', description: 'One or two requirements short. Each card says which.', items: close.value }
-    ]
+    ].filter(group => group.items.length)
   }
   // Nothing asked for: group by layer, the same shape the markdown twin at /raw/tools.md has.
   // A flat list here has no order a visitor can read, since almost every tool starts at $0.

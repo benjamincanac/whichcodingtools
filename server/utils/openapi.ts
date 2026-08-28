@@ -322,8 +322,8 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
         ToolSummary: toolSummarySchema(),
         Freshness: freshnessSchema,
         FreshnessSummary: {
-          ...withoutProperties(freshnessSchema, { oldest: true, computed_at: true }),
-          description: 'What a card renders: the date pricing was last verified, and how old that makes it. `/api/v1/tools/{slug}.json` carries `oldest` and `computed_at` too.'
+          ...withoutProperties(freshnessSchema, { oldest: true }),
+          description: 'What a card renders: the date pricing was last verified, how old that makes it, and the clock that decided. `/api/v1/tools/{slug}.json` carries `oldest` too.'
         },
         Error: errorSchema,
         DataLicense: {

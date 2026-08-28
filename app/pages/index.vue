@@ -79,8 +79,8 @@ defineShortcuts({
     :title="site.name"
     description="Tell it how you work. It finds the AI coding tool that fits, with pricing checked against the vendor page."
     :ui="{
-      root: 'flex-1 flex flex-col',
-      container: 'flex-1',
+      root: 'flex flex-col min-h-[calc(100vh-var(--ui-header-height))]',
+      container: 'flex-1 flex flex-col lg:flex',
       headline: 'flex',
       title: 'text-4xl sm:text-5xl font-medium tracking-tighter',
       description: 'text-base sm:text-lg max-w-xl mx-auto text-pretty'
@@ -141,8 +141,9 @@ defineShortcuts({
       </div>
     </template>
 
-    <p class="absolute bottom-4 sm:bottom-6 lg:bottom-8 inset-x-0 text-[13px] text-dimmed text-pretty whitespace-pre-wrap text-center">
-      Every price, plan and limit comes from a vendor page someone read on the date recorded next to it.<br> One YAML file per tool, validated against a schema, with a source URL on every claim. <ULink
+    <!-- In flow under the wrapper, so it can never overlap the form. The negative margin eats the container padding down to the same offsets on every breakpoint. -->
+    <p class="mt-auto -mb-20 sm:-mb-26 lg:-mb-32 text-[13px] text-dimmed text-pretty text-center">
+      Every price, plan and limit comes from a vendor page someone read on the date recorded next to it.<br class="hidden sm:block"> One YAML file per tool, validated against a schema, with a source URL on every claim. <ULink
         :to="`https://github.com/${site.repo}/tree/main/content/tools`"
         target="_blank"
       >No affiliate links, data on GitHub.</ULink>

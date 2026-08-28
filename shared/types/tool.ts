@@ -58,7 +58,7 @@ export interface ToolSummary extends Omit<ToolRecord, 'sources' | 'install' | 'l
   wraps: Omit<Tool['wraps'][number], 'notes'>[]
   /** Only the slug: the 301 from a renamed URL is all a list view does with an alias. */
   aliases: Pick<Tool['aliases'][number], 'slug'>[]
-  freshness: Pick<Freshness, 'verified_at' | 'level'>
+  freshness: Pick<Freshness, 'verified_at' | 'level' | 'computed_at'>
 }
 
 export interface CostDelta {
