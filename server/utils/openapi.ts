@@ -289,7 +289,7 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
               }
             }
           },
-          required: ['count', 'generated_at', 'ordering', 'pattern', 'markdown_pattern', 'pairs']
+          required: ['count', 'generated_at', 'license', 'ordering', 'pattern', 'markdown_pattern', 'pairs']
         },
         ParsedRequirements: component(
           z.toJSONSchema(ParsedRequirementsSchema, { io: 'output', unrepresentable: 'any' }) as Json,

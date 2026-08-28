@@ -26,6 +26,8 @@ const ROBOTS_TOKEN = 'whichcodingtools-agent'
 const ROBOTS_CACHE_DIR = join(tmpdir(), 'whichcodingtools-robots')
 const ROBOTS_TTL_MS = 60 * 60 * 1000
 const EXIT_RESERVED = 3
+/** RFC 9309 asks for at least five. Each hop gets its own robots.txt verdict, see fetchChecked. */
+const MAX_REDIRECTS = 5
 
 // Named entities worth decoding on a pricing page. `amp` is deliberately not here: it decodes
 // last, further down, so "&amp;lt;" stays the text "&lt;" instead of turning into "<".
@@ -259,31 +261,39 @@ async function robotsVerdict(url) {
   return reservation(parseRobots(robots.text), pathname + search)
 }
 
-async function fromFetch(url) {
-  const verdict = await robotsVerdict(url)
-  if (verdict?.unreachable) {
-    console.error(`robots.txt at ${new URL(url).origin} is unreachable (${verdict.reason}), which RFC 9309 says to read as a reservation. Not fetched.`)
-    console.error('This is not a failed fetch. Report it as reserved and let the next run try again.')
-    process.exitCode = EXIT_RESERVED
-    return
-  }
-  if (verdict) {
-    console.error(`robots.txt at ${new URL(url).origin} reserves this page (group: ${verdict.group}, rule: ${verdict.rule}). Not fetched.`)
-    console.error('This is not a failed fetch and not an unreadable page: the vendor asked crawlers to stay away. Report it as reserved, do not open it in the browser and do not open an issue.')
-    process.exitCode = EXIT_RESERVED
-    return
-  }
-
-  let res
-  try {
-    res = await fetch(url, {
-      redirect: 'follow',
-      signal: AbortSignal.timeout(20_000),
+/**
+ * The page, with robots.txt checked on every hop. `redirect: 'follow'` would carry the first
+ * URL's verdict onto a target nobody checked, and a pricing page that moved to another path or
+ * another host is exactly the case. One 20 second budget covers the whole chain, as before.
+ */
+async function fetchChecked(url) {
+  const signal = AbortSignal.timeout(20_000)
+  let current = url
+  for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
+    const verdict = await robotsVerdict(current)
+    if (verdict) return { verdict, url: current }
+    const res = await fetch(current, {
+      redirect: 'manual',
+      signal,
       headers: {
         'user-agent': USER_AGENT,
         'accept': 'text/html,application/xhtml+xml'
       }
     })
+    const location = res.headers.get('location')
+    if (res.status >= 300 && res.status < 400 && location) {
+      current = new URL(location, current).href
+      continue
+    }
+    return { res, url: current }
+  }
+  return { tooMany: true, url: current }
+}
+
+async function fromFetch(url) {
+  let outcome
+  try {
+    outcome = await fetchChecked(url)
   } catch (err) {
     if (err.name === 'TimeoutError' || err.name === 'AbortError') {
       console.error(`timeout after 20s fetching ${url}`)
@@ -293,20 +303,41 @@ async function fromFetch(url) {
     process.exitCode = 1
     return
   }
+
+  const { verdict, res } = outcome
+  // Named where it was stopped: after a redirect that is not the URL the caller passed.
+  const where = outcome.url === url ? 'this page' : outcome.url
+  if (verdict?.unreachable) {
+    console.error(`robots.txt at ${new URL(outcome.url).origin} is unreachable (${verdict.reason}), which RFC 9309 says to read as a reservation. ${where} was not fetched.`)
+    console.error('This is not a failed fetch. Report it as reserved and let the next run try again.')
+    process.exitCode = EXIT_RESERVED
+    return
+  }
+  if (verdict) {
+    console.error(`robots.txt at ${new URL(outcome.url).origin} reserves ${where} (group: ${verdict.group}, rule: ${verdict.rule}). Not fetched.`)
+    console.error('This is not a failed fetch and not an unreadable page: the vendor asked crawlers to stay away. Report it as reserved, do not open it in the browser and do not open an issue.')
+    process.exitCode = EXIT_RESERVED
+    return
+  }
+  if (outcome.tooMany) {
+    console.error(`more than ${MAX_REDIRECTS} redirects from ${url}, last at ${outcome.url}`)
+    process.exitCode = 1
+    return
+  }
   if (!res.ok) {
-    console.error(`HTTP ${res.status} ${res.statusText} for ${url}`)
+    console.error(`HTTP ${res.status} ${res.statusText} for ${outcome.url}`)
     // 403 and 429 on a marketing page are almost always bot protection rather than a real
     // rate limit, so retrying the same URL is the one thing that cannot work. Vendors rarely
     // put the same wall on their docs, and the docs usually carry the same figures.
     if (BLOCKED.has(res.status)) {
       console.error('This looks like bot protection, not a rate limit. Retrying this URL will not help.')
       console.error('Try the rendered page in the browser, then the vendor\'s other surfaces before calling it unreadable:')
-      console.error(`  docs.${new URL(url).hostname.replace(/^www\./, '')}, help.<domain>, /docs, /changelog, a billing or developer pricing page`)
+      console.error(`  docs.${new URL(outcome.url).hostname.replace(/^www\./, '')}, help.<domain>, /docs, /changelog, a billing or developer pricing page`)
     }
     process.exitCode = 1
     return
   }
-  emit(res.url, htmlToText(await res.text()))
+  emit(outcome.url, htmlToText(await res.text()))
 }
 
 async function main() {
