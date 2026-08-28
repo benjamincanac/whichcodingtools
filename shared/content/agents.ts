@@ -34,6 +34,7 @@ export const NOT_FOR = [
 export const HOW_TO_CALL = [
   `Every tool as one document: \`${API_BASE}/tools.json\`. One tool: \`${API_BASE}/tools/{slug}.json\`.`,
   `Two tools side by side: \`/compare/{a}-vs-{b}\` with the slugs in alphabetical order. The pairs worth listing are at \`${API_BASE}/compare.json\`.`,
+  'Filter the directory on the query string of `/tools`: `where`, `hosts`, `platforms`, `plans`, `providers` and `features` take comma-separated values, `local`, `byok`, `free` and `oss` take `1`, `budget` takes USD per month. The allowed values for each are the enums in `/openapi.json`. Build this yourself rather than calling the finder: it is deterministic and free, and the finder exists to turn a person\'s sentence into these same parameters.',
   'Any page as markdown: append `.md` to its URL, or send `Accept: text/markdown`.',
-  'The full schema, including every field on a tool record: `/openapi.json`.'
+  'The full schema, including every field on a tool record and every filter value: `/openapi.json`. It is a site-level document, not part of the versioned API, because it describes the pages and the discovery files too.'
 ]

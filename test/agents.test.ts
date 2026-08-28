@@ -39,6 +39,22 @@ describe('the when-to-use guidance', () => {
     expect(calls).toContain('Accept: text/markdown')
   })
 
+  it('documents the filters an agent should build instead of calling the finder', async () => {
+    const { FEATURE_VALUES, HOST_VALUES, LAYER_VALUES, PLAN_VALUES, PLATFORM_VALUES, PROVIDER_VALUES } = await import('#shared/enums')
+    const calls = HOW_TO_CALL.join(' ')
+
+    // The six list filters `/tools` reads off the query string, named exactly as it reads them.
+    for (const key of ['where', 'hosts', 'platforms', 'plans', 'providers', 'features']) {
+      expect(calls, `${key} is not documented`).toContain(`\`${key}\``)
+    }
+    for (const key of ['local', 'byok', 'free', 'oss', 'budget']) {
+      expect(calls, `${key} is not documented`).toContain(`\`${key}\``)
+    }
+    // The values themselves stay in the schema rather than being restated here, where they would rot.
+    expect([LAYER_VALUES, HOST_VALUES, PLATFORM_VALUES, PLAN_VALUES, PROVIDER_VALUES, FEATURE_VALUES].every(v => v.length > 0)).toBe(true)
+    expect(calls).toMatch(/finder/i)
+  })
+
   it('never names an unversioned API path, which only redirects', () => {
     const prose = [WHEN_TO_USE_LEAD, ...GOOD_FOR, ...NOT_FOR, ...HOW_TO_CALL].join(' ')
     const paths = [...prose.matchAll(/\/api\/[a-z0-9/{}.-]+/g)].map(m => m[0])
