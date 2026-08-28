@@ -1,6 +1,6 @@
 # whichcodingtools
 
-Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`, the site renders it, an eve agent keeps it fresh. Live at https://whichcoding.tools. No affiliate links, no benchmarks, no LLM-written descriptions.
+Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`, the site renders it, an eve agent keeps it fresh. Live at https://whichcoding.tools. No affiliate links, no benchmarks.
 
 `.claude/TODO.md` is the living work list, untracked on purpose: check it at the start of a session, delete items when they are done.
 
@@ -24,7 +24,7 @@ Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`
 - Every fact in `content/tools` comes from a vendor page read that day; bump `verified_at` only on the source line you re-checked. Unverifiable figures carry a note saying so.
 - A figure is only as good as its capture. `content/snapshots/<slug>/*.txt` comes out of `page-text.mjs` and never out of a keyboard, and `pnpm validate` fails when a `price`, `price_annual` or `included.amount` is not in it. Toggled pages get one capture per state. A tier that mirrors another tool's plan carries `mirrors` so the two cannot drift apart.
 - Automation never merges data. The agent's only writes are pull requests (ready for review, never merged), issues (it may close its own once resolved, never a person's) and `agent/*` branches.
-- Descriptions are human-written, 40-180 chars, no marketing words, no em dashes anywhere in content. The single line a model writes is the draft description on a tool it adds that had no file, flagged in the PR body and rewritten before merge.
+- Descriptions are 40-180 chars, no marketing words, no em dashes anywhere in content, which `pnpm validate` rejects. The agent rewrites one when a vendor page contradicts a claim in it and says so in the PR body. It never rewords a line the page still supports.
 - Tool avatars: `public/logos/<slug>.png` → `icon` (simple-icons) → initial. Never pass an avatar `src` that can 404 (the img error can fire before hydration).
 - Renames are dated `aliases` on the current file (301 comes from the slug page's SSR redirect); merged products keep their file with `status: sunset` + `successor`.
 - One entry per thing you buy. A vendor's second surface gets its own file only when its `install`, `platforms` or `features` differ from the parent's; it then carries `pricing.same_as` back, and that layer is its alone, never repeated in the parent's `secondary_layers` or description. `pnpm validate` enforces the overlap.

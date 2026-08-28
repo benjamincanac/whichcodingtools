@@ -33,7 +33,7 @@ A wrong or missing logo is a data report like any other, and `public/logos/<slug
 
 ## Limits
 
-The fields a vendor page states: pricing, platforms, models, features, licenses, links, logos. Not `description`, which is human-written here. Not the schema, the site, or anything outside `content/` and `public/logos/`. A report about the site itself, or one asking for a tool to be added or removed, gets one sentence saying a maintainer will look at it.
+The fields a vendor page states: pricing, platforms, models, features, licenses, links, logos, and the `description` when a page contradicts a claim in it. Not the schema, the site, or anything outside `content/` and `public/logos/`. A report about the site itself, or one asking for a tool to be added or removed, gets one sentence saying a maintainer will look at it.
 
 ## Reply
 

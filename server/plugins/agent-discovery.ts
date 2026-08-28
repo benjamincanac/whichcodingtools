@@ -44,7 +44,7 @@ export default defineNitroPlugin((nitroApp) => {
     index.body.push(
       'An open directory of AI coding tools: editors, terminal agents, orchestrators, cloud agents and the products built on top of them.',
       '',
-      'Every fact comes from a vendor page that someone read on the date recorded next to it. One YAML file per tool in git, validated against a schema, with a source URL and a verified date on every claim. No affiliate links, no benchmarks, no LLM-written descriptions.',
+      'Every fact comes from a vendor page that someone read on the date recorded next to it. One YAML file per tool in git, validated against a schema, with a source URL and a verified date on every claim. No affiliate links and no benchmarks.',
       '',
       'Prices are the part that rots fastest, so each tool page carries the date its pricing was last checked. If a figure looks wrong it probably is, and the file it came from is linked at the bottom of the page.',
       '',

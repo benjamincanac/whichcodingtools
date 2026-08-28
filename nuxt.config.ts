@@ -201,6 +201,24 @@ export default defineNuxtConfig({
     zeroRuntime: false
   },
 
+  /**
+   * The brand as an entity, so a search engine can tie the name to something rather than
+   * guessing. The site already emits `WebSite` and `WebPage`; this is the `Organization` those
+   * hang off, and `sameAs` is the one signal that says which GitHub project is the same thing.
+   *
+   * It will not make an unlinked domain rank for its own name. It is what makes the name
+   * resolvable once something does link to it.
+   */
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: 'whichcoding.tools',
+      description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.',
+      logo: '/icon-512.png',
+      sameAs: ['https://github.com/benjamincanac/whichcodingtools']
+    }
+  },
+
   sitemap: {
     // Nothing is prerendered (ISR), so the module only discovers the static routes on its own.
     // Every data-driven page comes from this source: tools, layers, plans and the compare pairs

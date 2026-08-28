@@ -70,7 +70,7 @@ pricing:
       contact_sales: true
       audience: enterprise
       notes: Annual billing only. SAML SSO, SCIM, audit logs, uptime SLA, custom integrations.
-  notes: Paid plans add remote workspaces and team features, not model usage. Copilot and any other CLI agent also run but are not tracked here. Windows is not available yet and an iOS app is listed as coming soon.
+  notes: Paid plans add remote workspaces and team features, not model usage. Copilot and any other CLI agent also run. Windows is not available yet and an iOS app is listed as coming soon.
 status: active
 sources:
   - url: https://superset.sh/pricing

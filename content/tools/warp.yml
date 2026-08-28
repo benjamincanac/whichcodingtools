@@ -124,7 +124,7 @@ pricing:
       audience: enterprise
       limits:
         - Shared credit pools, bring your own LLM, self hosted agents
-  notes: Third party CLI agents run with their own logins and cost no Warp credits. Copilot CLI, Amp, Auggie, Droid, Antigravity, Hermes and Mistral Vibe are also detected but are not in this directory.
+  notes: Third party CLI agents run with their own logins and cost no Warp credits. Copilot CLI, Amp, Auggie, Droid, Antigravity, Hermes and Mistral Vibe are also detected.
 status: active
 sources:
   - url: https://www.warp.dev/pricing

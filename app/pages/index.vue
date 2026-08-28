@@ -2,7 +2,6 @@
 import type { ParsedRequirements } from '#shared/finder'
 import { useIntervalFn } from '@vueuse/core'
 import { API_BASE } from '#shared/api'
-import { LAYERS } from '#shared/enums'
 import { toRequirements } from '#shared/finder'
 import { toQuery } from '~/composables/useToolFinder'
 
@@ -140,30 +139,6 @@ defineShortcuts({
     </template>
 
     <div class="flex flex-col items-center gap-y-4 py-4 mt-auto">
-      <!-- The seven layer pages, which the hero otherwise reaches only through the filters on
-           /tools. Server rendered, so a crawler that runs no JavaScript still finds them, and
-           under a real heading so the page has a structure rather than one h1 and a wall. -->
-      <nav
-        aria-labelledby="browse-by-layer"
-        class="flex flex-col items-center gap-y-2"
-      >
-        <h2
-          id="browse-by-layer"
-          class="text-xs font-medium uppercase tracking-wider text-dimmed"
-        >
-          Browse by layer
-        </h2>
-        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-sm text-muted">
-          <ULink
-            v-for="layer in LAYERS"
-            :key="layer.value"
-            :to="`/layers/${layer.value}`"
-          >
-            {{ layer.label }}s
-          </ULink>
-        </div>
-      </nav>
-
       <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted">
         <ULink to="/tools">
           Explore {{ tools.length }} tools

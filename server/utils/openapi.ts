@@ -282,7 +282,7 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
         '',
         'Every figure comes from a vendor page that someone read on the date recorded next to it, and every page of this site is available as Markdown: append `.md` to its URL or send `Accept: text/markdown`.',
         '',
-        'No affiliate links, no benchmarks, no LLM-written descriptions. No authentication. The data endpoints are GETs cached for an hour and purged when the data behind them changes; the finder is a POST that calls a model, is not cached, and is the one endpoint worth calling sparingly.',
+        'No affiliate links and no benchmarks. No authentication. The data endpoints are GETs cached for an hour and purged when the data behind them changes; the finder is a POST that calls a model, keeps each parsed sentence for a day, and is the one endpoint worth calling sparingly.',
         '',
         '## Versioning',
         '',
@@ -361,8 +361,8 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
             parsed: { $ref: '#/components/schemas/ParsedRequirements' },
             usage: {
               type: 'object',
-              description: 'Tokens the parse cost.',
-              properties: { input: { type: 'integer' }, output: { type: 'integer' } }
+              description: 'Tokens the parse cost. `cached` is the share of `input` read from the provider prompt cache.',
+              properties: { input: { type: 'integer' }, output: { type: 'integer' }, cached: { type: 'integer' } }
             }
           },
           required: ['parsed']
