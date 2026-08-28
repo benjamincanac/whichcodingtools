@@ -74,16 +74,30 @@ function moneyIn(text: string) {
   return [...text.matchAll(/\$\s?(\d[\d,]*(?:\.\d+)?)/g)].map(m => Number(m[1]!.replace(/,/g, '')))
 }
 
+/** Every string in a parsed document, however deeply nested. */
+function* strings(value: unknown): Generator<string> {
+  if (typeof value === 'string') yield value
+  else if (Array.isArray(value)) for (const v of value) yield* strings(v)
+  else if (value && typeof value === 'object') for (const v of Object.values(value)) yield* strings(v)
+}
+
 const files = (await readdir(DIR)).filter(f => ['.yml', '.yaml'].includes(extname(f))).sort()
 
 for (const file of files) {
   const stem = basename(file, extname(file))
+  const raw = await readFile(join(DIR, file), 'utf8')
   let data: unknown
   try {
-    data = parseYaml(await readFile(join(DIR, file), 'utf8'))
+    data = parseYaml(raw)
   } catch (error) {
     issue(file, '', `YAML parse error: ${(error as Error).message}`)
     continue
+  }
+
+  // An em dash reads as a model wrote the line. The raw text catches one in a comment, the
+  // decoded strings catch one written as a `\u2014` escape, which the raw text does not hold.
+  if (raw.includes('\u2014') || [...strings(data)].some(s => s.includes('\u2014'))) {
+    issue(file, '', 'em dash in content, use a comma or a second sentence')
   }
 
   const result = ToolSchema.safeParse(data)

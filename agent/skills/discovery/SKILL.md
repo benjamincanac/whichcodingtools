@@ -11,7 +11,7 @@ One candidate per run. The issue you open carries the `tool` label and the shape
 
 ## What this pass does not do
 
-It opens no pull request and edits nothing in `content/tools`. You open one issue and stop. The entry is written by the responder turn that issue starts, from the vendor pages as they read that minute, and the `description` is its first draft to write and Benjamin's line to rewrite.
+It opens no pull request and edits nothing in `content/tools`. You open one issue and stop. The entry is written by the responder turn that issue starts, from the vendor pages as they read that minute, and the `description` is drafted there from the vendor pages it reads.
 
 ## Known set
 

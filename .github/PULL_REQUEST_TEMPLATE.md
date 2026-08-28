@@ -8,4 +8,4 @@
 - [ ] `verified_at` bumped on the source lines I re-checked
 - [ ] `pnpm validate` passes
 - [ ] No affiliate links, referral codes or tracking parameters
-- [ ] Description written by a person
+- [ ] Any `description` change fixes a claim a vendor page contradicts, not the wording

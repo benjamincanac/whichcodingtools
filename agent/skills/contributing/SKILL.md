@@ -21,6 +21,7 @@ Everything on the site comes from `content/tools/*.yml`, validated by `shared/sc
 - `mirrors: { tool, tier }` is for a tier that exists only because another tool's plan unlocks it. `pnpm validate` keeps the price equal to the source tier's, so when one moves the other fails until it follows.
 - `content/snapshots/<slug>/*.txt` is the page text a figure came from. It comes out of `page-text.mjs`, never out of a keyboard, and `pnpm validate` looks for every `price`, `price_annual` and `included.amount` inside it. A page with a price toggle gets one capture per state, `pricing.txt` plus `pricing-<state>.txt`.
 - Renames are `aliases` on the current file with the date the old name stopped. A merged product keeps its file with `status: sunset`, `sunset_at` and a `successor`.
+- `description`: 40 to 180 characters, factual, no marketing words, no em dashes. Rewrite one when a vendor page contradicts what it claims, and say in the pull request body what the old line said and what the page says instead. Fix the claim and leave the rest of the sentence alone.
 - `sources[]`: bump `verified_at` only on the line whose page you actually read today, and only when every field its `covers` names still matches that page. A field you know to be wrong under a fresh date hides itself: the stale sweep works off the oldest `verified_at` and will not open that tool again for sixty days. Fix it, or leave the date where it is.
 
 ## Branch and PR conventions
@@ -41,5 +42,5 @@ Cards fall back from `public/logos/<slug>.png` to the YAML `icon` (simple-icons 
 ## Never
 
 - Merge anything. `github__push_files` refuses `main` and every path outside `content/` and `public/logos/`, so do not spend a run routing around it.
-- Rewrite the `description` of a tool that already has a file: those are human-written. A tool with no file yet is the exception, since `description` is required and no page states one: draft it from the homepage, 40 to 180 characters, factual, no marketing words, and open the pull request body with a line saying the description is a draft to rewrite.
+- Reword a `description` no page contradicts. Rewriting a line to your own taste is not a fix, and it buries the ones that are.
 - Add affiliate links, referral codes or tracking parameters.
