@@ -37,7 +37,6 @@ export default defineNuxtConfig({
       '/llms.txt': { isr: 60 * 60 },
       '/tools': { isr: { expiration: 60 * 60, passQuery: true } },
       '/tools/**': { isr: 60 * 60 },
-      '/developers': { isr: 60 * 60 },
       '/api/v1/tools.json': { isr: 60 * 60 },
       '/api/v1/compare.json': { isr: 60 * 60 },
       '/api/v1/tools/**': { isr: 60 * 60 },
@@ -133,7 +132,7 @@ export default defineNuxtConfig({
     // rewrite, and a pattern that only half-overlaps a rule gets a duplicate pair of routes.
     // The query is not preserved on the twins of /tools and /compare, which is fine: their
     // markdown ignores the query and an agent that wants it filtered has /api/tools.json.
-    routes: ['/', '/developers', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**'],
+    routes: ['/', '/tools', '/tools/**', '/compare', '/compare/**', '/layers/**', '/plans/**'],
     sitemap: {
       markdown: { labels: { tools: 'Tools', compare: 'Comparisons', layers: 'Layers', plans: 'Plans' } }
     },
@@ -143,8 +142,7 @@ export default defineNuxtConfig({
         // document that describes every other one, including the agent surfaces the module
         // generates its half of.
         { href: '/openapi.json', rel: 'service-desc', type: 'application/openapi+json', anchor: '/api/v1', title: 'OpenAPI 3.1 description of every endpoint and page' },
-        { href: '/api/v1/tools.json', rel: 'service-desc', type: 'application/json', anchor: '/api/v1', title: 'Every tool as one JSON document' },
-        { href: '/developers', rel: 'service-doc', type: 'text/html', anchor: '/api/v1', title: 'Developers: the API, its versioning policy and the markdown surface' }
+        { href: '/api/v1/tools.json', rel: 'service-desc', type: 'application/json', anchor: '/api/v1', title: 'Every tool as one JSON document' }
       ]
     }
   },

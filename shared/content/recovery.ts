@@ -16,7 +16,6 @@ export interface RecoveryLink {
 
 export const RECOVERY_PAGES: RecoveryLink[] = [
   { label: 'Every tool', to: '/tools' },
-  { label: 'Developers', to: '/developers' },
   { label: 'Compare two tools', to: '/compare' },
   { label: 'Sitemap', to: '/sitemap.xml', external: true }
 ]

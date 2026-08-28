@@ -153,7 +153,6 @@ describe('the API surface', () => {
     expect(doc.info.description).toContain('Deprecation')
     expect(doc.info.description).toContain('Sunset')
     expect(doc.info.description).toContain('successor-version')
-    expect(doc.externalDocs.url).toMatch(/\/developers$/)
   })
 
   it('leaves the webhook and the sitemap source out', () => {

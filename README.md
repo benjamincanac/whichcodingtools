@@ -33,11 +33,11 @@ pnpm dev
 - `/api/v1/compare.json` the canonical pair list, plus the URL pattern for the pairs it does not enumerate
 - `/api/v1/finder/parse` turns one sentence into finder filters, the only route that calls a model
 - `/api/content/list` and `/api/content/get/<slug>` the raw documents served by comark-content, unversioned and outside the policy below
-- `/openapi.json` describes all of the above and every page, `/developers` is the same thing for people
+- `/openapi.json` describes all of the above and every page, including the versioning policy in `info.description`
 
 Every GET route is cached with ISR and purged when content changes. `POST /api/v1/finder/parse` and `POST /api/revalidate` stay uncached.
 
-The public surface lives under `/api/v1` and every response carries `API-Version: 1`. The unversioned paths it used to live at still answer, with a 301 (308 on the finder, which is a POST). Adding a field is not a new version; removing or renaming one is. A current version carries no deprecation headers, and when one is superseded it gains `Deprecation`, then `Sunset` at least 180 days later, and a `Link` naming the successor. The policy is stated once in [`shared/api.ts`](shared/api.ts) and read from there by the middleware, the OpenAPI document and `/developers`.
+The public surface lives under `/api/v1` and every response carries `API-Version: 1`. The unversioned paths it used to live at still answer, with a 301 (308 on the finder, which is a POST). Adding a field is not a new version; removing or renaming one is. A current version carries no deprecation headers, and when one is superseded it gains `Deprecation`, then `Sunset` at least 180 days later, and a `Link` naming the successor. The policy is stated once in [`shared/api.ts`](shared/api.ts), read from there by the middleware and published in `openapi.json` under `info.description`.
 
 For agents, every page has a markdown twin at `/raw/<path>.md`, and asking a page URL for `text/markdown` returns it. `/llms.txt`, `/llms-full.txt` and `/sitemap.md` list what is there.
 

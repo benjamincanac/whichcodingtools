@@ -1,5 +1,4 @@
 import { LAYERS, PLANS, optionLabel } from '#shared/enums'
-import { DEVELOPERS_INDEX } from '#shared/content/developers'
 import {
   COMPARE_INDEX,
   TOOLS_INDEX,
@@ -109,12 +108,7 @@ export default defineAgentContentSource({
     if (selector) return null
 
     const ctx = await context()
-    const entries: AgentListEntry[] = [
-      { route: '/', title: 'whichcoding.tools', section: 'Pages' },
-      // Not in `sitePages()`: it is a static route the sitemap module finds by itself, and it
-      // describes the API rather than the data, so no tool's `verified_at` dates it.
-      { route: '/developers', title: DEVELOPERS_INDEX.title, description: DEVELOPERS_INDEX.description, section: 'Pages' }
-    ]
+    const entries: AgentListEntry[] = [{ route: '/', title: 'whichcoding.tools', section: 'Pages' }]
     let compare: AgentListEntry | undefined
 
     for (const page of sitePages(ctx.tools, ctx.bySlug)) {

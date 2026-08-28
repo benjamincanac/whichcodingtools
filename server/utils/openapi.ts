@@ -203,7 +203,6 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
       contact: { name: 'Source and issues', url: 'https://github.com/benjamincanac/whichcodingtools' }
     },
     servers: [{ url: siteUrl, description: 'Production' }],
-    externalDocs: { description: 'Developers: the API, its versioning policy and the markdown surface', url: `${siteUrl}/developers` },
     // Read only and public, so no scheme applies. Declared rather than left out: an absent
     // `security` reads as undecided, an empty one says there is nothing to send.
     security: [],

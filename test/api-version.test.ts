@@ -34,6 +34,6 @@ describe('the versioned API surface', () => {
   it('does not match a path that merely starts with the prefix', () => {
     expect(isVersionedApiPath('/api/v10/tools.json')).toBe(false)
     expect(isVersionedApiPath('/api/v1x')).toBe(false)
-    expect(isVersionedApiPath('/developers')).toBe(false)
+    expect(isVersionedApiPath('/tools')).toBe(false)
   })
 })

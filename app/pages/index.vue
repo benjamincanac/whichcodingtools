@@ -167,10 +167,6 @@ defineShortcuts({
           Compare
         </ULink>
         <span>·</span>
-        <ULink to="/developers">
-          Developers
-        </ULink>
-        <span>·</span>
         <ULink
           :to="`${API_BASE}/tools.json`"
           target="_blank"

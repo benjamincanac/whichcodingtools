@@ -1,9 +1,8 @@
 /**
  * The version the JSON API is served at, and how a change to it is announced.
  *
- * In `shared/` rather than `server/` because three places have to agree: the middleware that
- * stamps the header, the OpenAPI document that describes it, and the `/developers` page that
- * promises it.
+ * In `shared/` rather than `server/` because two places have to agree: the middleware that
+ * stamps the header and the OpenAPI document that publishes the policy.
  *
  * The whole public surface lives under `/api/v1`. An addition (a new field, a new endpoint) is
  * not a new version: a client that reads the fields it knows keeps working, which is the only

@@ -3,7 +3,6 @@ import { pairSlug, parsePair } from '#shared/utils/compare'
 import type { ToolRecord } from '#shared/types/tool'
 import type { MarkdownContext, MarkdownPage } from './context'
 import { renderCompareIndex, renderComparePage } from './compare'
-import { renderDevelopers } from './developers'
 import { renderLayerPage, renderPlanPage, renderToolsIndex } from './sections'
 import { renderToolPage } from './tool'
 
@@ -29,9 +28,6 @@ export function renderPage(ctx: MarkdownContext, route: string): MarkdownPage | 
       return sectionPage(LAYERS, tail, layer => renderLayerPage(ctx, layer))
     case 'plans':
       return sectionPage(PLANS, tail, plan => renderPlanPage(ctx, plan))
-    // The one page that describes the site rather than the data, so it takes no context.
-    case 'developers':
-      return tail ? null : renderDevelopers()
     default:
       return null
   }
