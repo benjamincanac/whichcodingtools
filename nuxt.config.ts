@@ -80,10 +80,6 @@ export default defineNuxtConfig({
       repo: 'benjamincanac/whichcodingtools',
       branch: 'main',
       contentDir: 'content/tools'
-    },
-    public: {
-      // Natural language finder, needs AI_GATEWAY_API_KEY (or Vercel OIDC) at runtime.
-      finderAi: Boolean(process.env.AI_GATEWAY_API_KEY || process.env.VERCEL)
     }
   },
 

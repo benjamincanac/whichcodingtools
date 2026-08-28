@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { ParsedRequirements } from '#shared/finder'
+import { useIntervalFn } from '@vueuse/core'
 import { LAYERS } from '#shared/enums'
 import { toRequirements } from '#shared/finder'
 import { toQuery } from '~/composables/useToolFinder'
 
 const { site } = useAppConfig()
-const { public: { finderAi } } = useRuntimeConfig()
 const { tools, ready } = useTools()
 await ready
 
@@ -22,24 +22,23 @@ defineOgImage('ToolSatori', {
 
 const query = ref('')
 const loading = ref(false)
-const error = ref('')
 
 const examples = [
-  'Terminal agent on Linux, I already pay for Claude Max',
-  'Inside VS Code with open source local models',
-  'Parallel agents with worktrees, free and open source',
   'Goes through Vercel AI Gateway',
+  'Terminal agent on macOS, I already pay for Claude Max',
+  'Inside VS Code with open source local models',
+  'An IDE with the agent built in, checkpoints to roll back',
+  'Parallel agents with worktrees, free and open source',
   'Cloud agent I can trigger from a ticket'
 ]
 
 async function go() {
   const text = query.value.trim()
   if (loading.value) return
-  if (!finderAi || !text.length) {
+  if (!text.length) {
     return navigateTo({ path: '/tools', query: { q: text } })
   }
   loading.value = true
-  error.value = ''
   try {
     const { parsed } = await $fetch<{ parsed: ParsedRequirements }>('/api/finder/parse', { method: 'POST', body: { query: text } })
     await navigateTo({ path: '/tools', query: { ...toQuery(toRequirements(parsed)), why: parsed.summary } })
@@ -54,6 +53,21 @@ async function go() {
 function useExample(text: string) {
   query.value = text
   go()
+}
+
+// The placeholder cycles through the examples while the field is empty. Tab, or ArrowRight as the
+// shell convention, accepts the one on screen. With text in the field both keys keep their default,
+// so the form stays reachable by keyboard.
+const placeholderIndex = ref(0)
+const placeholder = computed(() => examples[placeholderIndex.value]!)
+useIntervalFn(() => {
+  if (!query.value) placeholderIndex.value = (placeholderIndex.value + 1) % examples.length
+}, 5000)
+
+function acceptPlaceholder(event: KeyboardEvent) {
+  if (query.value) return
+  event.preventDefault()
+  query.value = placeholder.value
 }
 
 const input = useTemplateRef('input')
@@ -77,10 +91,7 @@ defineShortcuts({
       <span class="flex size-12 items-center justify-center rounded-xl bg-inverted text-inverted font-mono text-lg">&gt;_</span>
     </template>
 
-    <template
-      v-if="finderAi"
-      #links
-    >
+    <template #links>
       <form
         class="w-full max-w-2xl flex flex-col gap-3"
         @submit.prevent="go"
@@ -88,12 +99,14 @@ defineShortcuts({
         <UInput
           ref="input"
           v-model="query"
-          :placeholder="finderAi ? 'Goes through Vercel AI Gateway' : 'Search tools by name'"
+          :placeholder="placeholder"
           size="xl"
           class="w-full max-w-xl mx-auto"
           :disabled="loading"
           :maxlength="67"
           autofocus
+          @keydown.tab.exact="acceptPlaceholder"
+          @keydown.right.exact="acceptPlaceholder"
         >
           <template #trailing>
             <UButton
@@ -109,12 +122,6 @@ defineShortcuts({
             />
           </template>
         </UInput>
-        <p
-          v-if="error"
-          class="text-sm text-error"
-        >
-          {{ error }}
-        </p>
       </form>
 
       <div class="flex flex-wrap items-center justify-center gap-1.5 max-w-2xl mx-auto">
