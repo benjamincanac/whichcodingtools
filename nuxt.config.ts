@@ -210,7 +210,6 @@ export default defineNuxtConfig({
     identity: {
       type: 'Organization',
       name: 'whichcoding.tools',
-      description: 'An open, always-fresh directory of AI coding tools. Data in git, no affiliate links.',
       logo: '/icon-512.png',
       sameAs: ['https://github.com/benjamincanac/whichcodingtools']
     }
