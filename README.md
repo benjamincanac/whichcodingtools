@@ -53,4 +53,6 @@ Without a checkout, the two issue forms do the same job: [Add a tool](https://gi
 
 ## License
 
-Code is MIT. The data in `content/` is CC BY 4.0, see [LICENSE-DATA](LICENSE-DATA): use it anywhere, including commercially, as long as you credit whichcoding.tools and link back. Contributing a tool file puts it under the same terms.
+Code is MIT. The tool data in `content/tools/` is CC BY 4.0, see [LICENSE-DATA](LICENSE-DATA): use it anywhere, including commercially, as long as you credit whichcoding.tools and link back. Contributing a tool file puts it under the same terms.
+
+The captures under `content/snapshots/` are verbatim excerpts of vendor pages, kept to verify prices. They are not covered by that grant and stay under their original terms.

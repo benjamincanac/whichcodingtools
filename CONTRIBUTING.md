@@ -53,4 +53,4 @@ The same goes for a dollar amount written into `limits`, a tier `notes` or `pric
 
 ## License
 
-The data in `content/` is CC BY 4.0, the code is MIT. Opening a pull request means you are fine with your contribution going out under those terms.
+The tool data in `content/tools/` is CC BY 4.0, the code is MIT. Opening a pull request means you are fine with your contribution going out under those terms. The captures under `content/snapshots/` are verbatim excerpts of vendor pages, kept to verify prices. They are not covered by that grant and stay under their original terms.
