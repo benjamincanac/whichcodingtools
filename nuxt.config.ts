@@ -185,7 +185,8 @@ export default defineNuxtConfig({
     ],
     notes: [
       'Data is one YAML file per tool in git, validated against a schema, every fact with a source URL and the date it was verified.',
-      'No affiliate links, no benchmarks, no LLM-written descriptions.'
+      'No affiliate links, no benchmarks, no LLM-written descriptions.',
+      'Data is CC BY 4.0: use it anywhere, credit whichcoding.tools and link to https://whichcoding.tools. Code is MIT.'
     ],
     full: {
       title: 'Complete directory',
