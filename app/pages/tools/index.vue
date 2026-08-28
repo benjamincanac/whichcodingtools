@@ -32,7 +32,12 @@ const typed = ref(requirements.value.q)
 watch(() => requirements.value.q, (q) => {
   if (q !== typed.value) typed.value = q
 })
-const commitSearch = useDebounceFn((q: string) => update('q', q), 200)
+// The guard is what makes `reset()` stick: it clears `requirements.q`, the watcher pulls
+// `typed` back with it, and a keystroke still waiting out its delay would otherwise land
+// afterwards and put the old search back.
+const commitSearch = useDebounceFn((q: string) => {
+  if (q === typed.value) update('q', q)
+}, 200)
 const search = computed({
   get: () => typed.value,
   set: (q: string) => {

@@ -38,8 +38,10 @@ for (const file of files) {
     .toBuffer()
 
   const reasons = [notPng && 'not a png', heavy && `${before.byteLength}B`].filter(Boolean).join(', ')
-  if (after.byteLength > LOGO_MAX_BYTES && !notPng) {
-    stuck.push(`${file} (${reasons}): re-encodes to ${after.byteLength}B, still over. Needs a smaller source image.`)
+  // Writing a result that is still over the cap would only move the failure to `pnpm validate`,
+  // and a JPEG is no exception: converting one is not worth leaving an oversized file behind.
+  if (after.byteLength > LOGO_MAX_BYTES) {
+    stuck.push(`${file} (${reasons}): re-encodes to ${after.byteLength}B, over the ${LOGO_MAX_BYTES} cap. Needs a smaller source image.`)
     continue
   }
   if (write) {

@@ -62,6 +62,70 @@ function toolSchema(): Json {
   }
 }
 
+/**
+ * The fields `toSummary()` drops, as a tree: `true` removes the property, an object recurses
+ * into it. Spelled once here so the schema and the transform cannot disagree about the answer,
+ * and `test/summary.test.ts` compares this document's property names against a real summary.
+ */
+const SUMMARY_DROPS: DropTree = {
+  sources: true,
+  install: true,
+  links: true,
+  license: { repo: true, notes: true },
+  models: { notes: true },
+  wraps: { notes: true },
+  aliases: { name: true, until: true, note: true },
+  pricing: {
+    notes: true,
+    tiers: { price_annual: true, price_from: true, trial_days: true, mirrors: true, limits: true, notes: true, included: { notes: true }, overage: { rate: true, notes: true } }
+  }
+}
+
+interface DropTree { [key: string]: true | DropTree }
+
+/** Walks `properties` and `items`, so it reaches a tier inside `pricing.tiers` the same way. */
+function withoutProperties(schema: Json, drops: DropTree): Json {
+  if (schema.items) return { ...schema, items: withoutProperties(schema.items as Json, drops) }
+  const source = schema.properties as Json | undefined
+  if (!source || !Object.keys(source).length) return schema
+  const properties: Json = {}
+  for (const [key, value] of Object.entries(source)) {
+    const drop = drops[key]
+    if (drop === true) continue
+    properties[key] = drop ? withoutProperties(value as Json, drop) : value
+  }
+  const required = (schema.required as string[] | undefined)?.filter(key => key in properties)
+  return { ...schema, properties, ...(required ? { required } : {}) }
+}
+
+/** `Tool` with the tool-page-only fields taken out, which is what `?view=summary` returns. */
+function toolSummarySchema(): Json {
+  const schema = withoutProperties(toolSchema(), SUMMARY_DROPS)
+  return {
+    ...schema,
+    properties: {
+      ...(schema.properties as Json),
+      // `freshness` is a `$ref`, so the drop tree cannot reach into it. It gets its own component.
+      freshness: { $ref: '#/components/schemas/FreshnessSummary' }
+    },
+    description: 'One tool as a list view reads it: the full record without the fields only a tool page renders. Fetch `/api/v1/tools/{slug}.json` for those.'
+  }
+}
+
+/** One shape of the tools document, with `view` pinned so a client can tell them apart. */
+function toolsResponse(view: 'full' | 'summary', ref: string): Json {
+  return {
+    type: 'object',
+    properties: {
+      count: { type: 'integer' },
+      generated_at: { type: 'string', format: 'date-time' },
+      view: { type: 'string', const: view },
+      tools: { type: 'array', items: { $ref: `#/components/schemas/${ref}` } }
+    },
+    required: ['count', 'generated_at', 'view', 'tools']
+  }
+}
+
 const freshnessSchema: Json = {
   type: 'object',
   description: 'How old the data behind a tool is. Dates are the day a person read the vendor page, never a build date.',
@@ -250,17 +314,18 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
       schemas: {
         ...discovery.components.schemas,
         Tool: toolSchema(),
+        ToolSummary: toolSummarySchema(),
         Freshness: freshnessSchema,
+        FreshnessSummary: {
+          ...withoutProperties(freshnessSchema, { oldest: true, computed_at: true }),
+          description: 'The two dates a card renders. `/api/v1/tools/{slug}.json` carries the other two.'
+        },
         Error: errorSchema,
+        // Two shapes, told apart by `view`, so a generated client asking for one is not handed
+        // the type of the other.
         ToolsResponse: {
-          type: 'object',
-          properties: {
-            count: { type: 'integer' },
-            generated_at: { type: 'string', format: 'date-time' },
-            view: { type: 'string', enum: ['full', 'summary'], description: 'Which shape `tools` is in, echoing the `view` parameter.' },
-            tools: { type: 'array', items: { $ref: '#/components/schemas/Tool' }, description: 'Full records, or the same records with the tool-page-only fields dropped when `view=summary`.' }
-          },
-          required: ['count', 'generated_at', 'view', 'tools']
+          description: 'Every tool. `view` says which shape the records are in.',
+          oneOf: [toolsResponse('full', 'Tool'), toolsResponse('summary', 'ToolSummary')]
         },
         ComparePairsResponse: {
           type: 'object',
