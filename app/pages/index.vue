@@ -25,8 +25,9 @@ const loading = ref(false)
 
 const examples = [
   'Goes through Vercel AI Gateway',
-  'Terminal agent on Linux, I already pay for Claude Max',
+  'Terminal agent on macOS, I already pay for Claude Max',
   'Inside VS Code with open source local models',
+  'An IDE with the agent built in, checkpoints to roll back',
   'Parallel agents with worktrees, free and open source',
   'Cloud agent I can trigger from a ticket'
 ]
