@@ -1,3 +1,4 @@
+import { API_BASE } from '#shared/api'
 import { BYOK, LAYERS, LICENSE_KINDS, PLANS, STATUSES, WRAP_VIA, optionLabel, optionLabelLower } from '#shared/enums'
 import { toolPageTitle } from '#shared/content/pages'
 import type { ToolRecord } from '#shared/types/tool'
@@ -187,7 +188,7 @@ export function renderToolPage(ctx: MarkdownContext, tool: ToolRecord): Markdown
       status(ctx, tool),
       definitions([
         ...toolFacts(tool).map(fact => [fact.label, fact.value] as [string, string]),
-        ['JSON', `/api/tools/${tool.slug}.json`]
+        ['JSON', `${API_BASE}/tools/${tool.slug}.json`]
       ]),
       blocks(heading(2, 'Links'), bullets([link('Website', tool.homepage), ...links])),
       pricing(ctx, tool),

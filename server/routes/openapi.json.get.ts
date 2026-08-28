@@ -8,7 +8,7 @@ import { agentDiscoveryOpenApi, getAgentSiteUrl } from '#agent-discovery'
  *
  * `paths` goes to the module so it claims this site's operation ids before deriving its own.
  * Without it the two halves name operations in ignorance of each other, and `/tools` (a page)
- * and `/api/tools.json` both land on `getTools`.
+ * and `/api/v1/tools.json` both land on `getTools`.
  */
 export default defineEventHandler((event) => {
   setResponseHeader(event, 'Content-Type', 'application/openapi+json; charset=utf-8')

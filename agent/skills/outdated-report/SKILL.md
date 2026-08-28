@@ -25,7 +25,7 @@ Work in `/workspace/repo`, already on the latest main. Load `contributing` for t
    - **Neither**: the page moved somewhere the report did not describe. Fix what the page states, and say in the pull request body what the reporter said and what you found instead.
 4. Call `github__find_related` with the slug before you push. A tool that already has a pull request open takes the change on that branch, with `github__update_pull_request` putting the body back in step. Never a second pull request for a tool that already has one.
 
-One report is one field. A page you had to read anyway can turn up a second thing that is wrong, and that goes in the pull request body under "Not changed in this PR" rather than into the diff.
+A page you had to read anyway can turn up a second thing that is wrong, and where it goes depends on the source line. A field that line's `covers` already names goes in the diff next to the reported one, because bumping `verified_at` on a line whose `covers` you know to be wrong is the file claiming a freshness it does not have, and the stale sweep will not come back to that tool for sixty days. Anything that line does not cover goes in the pull request body under "Not changed in this PR". A second fix too big to make today is a reason to leave `verified_at` alone and say so in the body, never a reason to bump it anyway.
 
 ## Logos
 

@@ -1,3 +1,4 @@
+import { API_BASE } from '#shared/api'
 import type { ToolRecord } from '#shared/types/tool'
 
 interface ToolsPayload {
@@ -8,7 +9,7 @@ interface ToolsPayload {
 
 /** The whole corpus, fetched once from the static JSON API and shared across pages. */
 export function useTools() {
-  const asyncData = useFetch<ToolsPayload>('/api/tools.json', {
+  const asyncData = useFetch<ToolsPayload>(`${API_BASE}/tools.json`, {
     key: 'tools',
     default: () => ({ count: 0, generated_at: '', tools: [] })
   })

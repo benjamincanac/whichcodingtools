@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { API_BASE } from '#shared/api'
 import { RECOVERY_DOCUMENTS, RECOVERY_PAGES } from '#shared/content/recovery'
 import { sitePages } from '#shared/utils/routes'
 import { loadRecords } from './content'
@@ -27,13 +28,19 @@ describe('where the error page points next', () => {
 
   it('sends an agent to the documents that enumerate the whole site', () => {
     // Every one of these is registered in `nuxt.config.ts`: `/llms.txt` and `/sitemap.md` by
-    // nuxt-agent-discovery, `/openapi.json` by `server/routes`, `/api/tools.json` by the API.
+    // nuxt-agent-discovery, `/openapi.json` by `server/routes`, the API by `server/api/v1`.
     expect(RECOVERY_DOCUMENTS.map(link => link.to)).toEqual([
       '/llms.txt',
       '/sitemap.md',
       '/openapi.json',
-      '/api/tools.json'
+      `${API_BASE}/tools.json`
     ])
     expect(RECOVERY_DOCUMENTS.every(link => link.external)).toBe(true)
+  })
+
+  it('never points at an unversioned API path, which only redirects', () => {
+    for (const link of links) {
+      expect(link.to.startsWith('/api/') && !link.to.startsWith(API_BASE), `${link.to} is unversioned`).toBe(false)
+    }
   })
 })

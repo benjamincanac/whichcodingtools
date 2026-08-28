@@ -1,3 +1,4 @@
+import { API_BASE } from '#shared/api'
 import { LAYERS, PLANS, type EnumOption, type Layer, type Plan } from '#shared/enums'
 import {
   LAYER_INTROS,
@@ -72,7 +73,7 @@ export function renderPlanPage(ctx: MarkdownContext, plan: EnumOption): Markdown
 
 /**
  * The finder is a query-driven page, so its twin drops the query and lists the whole corpus by
- * layer. An agent that wants it filtered has `/api/tools.json`.
+ * layer. An agent that wants it filtered has the JSON API.
  */
 export function renderToolsIndex(ctx: MarkdownContext): MarkdownPage {
   const groups = LAYERS
@@ -85,7 +86,7 @@ export function renderToolsIndex(ctx: MarkdownContext): MarkdownPage {
     description: TOOLS_INDEX.description,
     markdown: blocks(
       lead(TOOLS_INDEX.title, TOOLS_INDEX.description),
-      `Every tool below, and every field behind it, is also one JSON document at ${link('/api/tools.json', '/api/tools.json')}. The finder itself takes filters on the query string, which this page ignores.`,
+      `Every tool below, and every field behind it, is also one JSON document at ${link(`${API_BASE}/tools.json`, `${API_BASE}/tools.json`)}. The finder itself takes filters on the query string, which this page ignores.`,
       groups.join('\n\n'),
       blocks(heading(2, 'Related'), [
         `- ${link('Compare any two', '/compare')}`,
