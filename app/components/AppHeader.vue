@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+const route = useRoute()
 const { site } = useAppConfig()
 
 const items = computed<NavigationMenuItem[]>(() => [
@@ -12,7 +13,10 @@ const items = computed<NavigationMenuItem[]>(() => [
 </script>
 
 <template>
-  <UHeader to="/">
+  <UHeader
+    to="/"
+    :class="route.path === '/' ? 'bg-transparent border-transparent backdrop-blur-none' : ''"
+  >
     <template #title>
       <AppLogo />
     </template>

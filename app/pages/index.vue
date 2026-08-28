@@ -83,10 +83,13 @@ defineShortcuts({
       container: 'flex-1',
       headline: 'flex',
       title: 'text-4xl sm:text-5xl font-medium tracking-tighter',
-      description: 'text-base sm:text-lg max-w-xl mx-auto text-pretty',
-      links: ''
+      description: 'text-base sm:text-lg max-w-xl mx-auto text-pretty'
     }"
   >
+    <template #top>
+      <DotPanels class="absolute inset-0 -top-(--ui-header-height) -z-1 opacity-25" />
+    </template>
+
     <template #headline>
       <span class="flex size-12 items-center justify-center rounded-xl bg-inverted text-inverted font-mono text-lg">&gt;_</span>
     </template>
