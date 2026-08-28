@@ -61,10 +61,3 @@
 *:focus-visible, *:has(> a:focus-visible) {
   --tw-ring-color: var(--ui-border-inverted);
 }
-
-@layer base {
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
-}
