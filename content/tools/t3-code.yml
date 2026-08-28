@@ -3,7 +3,7 @@ name: T3 Code
 description: Ping Labs' open source control surface for the agents already installed on your machine. Desktop, web, iOS and Android clients over one local harness, with native git worktrees.
 layer: orchestrator
 vendor: Ping Labs
-homepage: https://t3.gg/code
+homepage: https://t3.codes/
 links:
   repo: https://github.com/pingdotgg/t3code
 platforms: [macos, windows, linux, web, ios, android]
@@ -48,5 +48,5 @@ pricing:
 status: preview
 sources:
   - url: https://github.com/pingdotgg/t3code
-    verified_at: 2026-08-23
+    verified_at: 2026-08-28
     covers: [pricing, platforms, wraps, features, license, general]
