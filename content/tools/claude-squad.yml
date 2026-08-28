@@ -52,7 +52,7 @@ pricing:
       audience: individual
       limits:
         - You pay the agent or model provider you sign in with
-  notes: Needs tmux and the GitHub CLI. Amp also runs but is not tracked here.
+  notes: Needs tmux and the GitHub CLI. Amp also runs.
 status: active
 sources:
   - url: https://github.com/smtg-ai/claude-squad

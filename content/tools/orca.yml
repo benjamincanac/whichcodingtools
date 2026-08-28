@@ -64,7 +64,7 @@ pricing:
       contact_sales: true
       audience: enterprise
       notes: Self-hosting guidance, org-level configuration defaults and SOC 2 readiness support, no price published.
-  notes: Orca is free and open source. The README also lists Copilot, Grok, Amp, Goose, Cline, Devin and any other CLI agent, which are not tracked here.
+  notes: Orca is free and open source. The README also lists Copilot, Grok, Amp, Goose, Cline, Devin and any other CLI agent.
 status: active
 sources:
   - url: https://www.onorca.dev

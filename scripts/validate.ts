@@ -9,6 +9,7 @@ import { basename, extname, join } from 'node:path'
 import { parse as parseYaml } from 'yaml'
 import spdxParse from 'spdx-expression-parse'
 import { ToolSchema, type Tool } from '../shared/schema'
+import { claimsDirectoryCoverage } from './rules'
 
 const DIR = join(process.cwd(), 'content/tools')
 const SNAPSHOTS = join(process.cwd(), 'content/snapshots')
@@ -184,6 +185,18 @@ for (const [slug, tool] of tools) {
     if (w.tool === slug) issue(file, `wraps.${i}.tool`, 'a tool cannot wrap itself')
     else if (!tools.has(w.tool)) issue(file, `wraps.${i}.tool`, `unknown tool "${w.tool}"`)
   })
+
+  const prose: [string, string | undefined][] = [
+    ['models.notes', tool.models?.notes],
+    ['pricing.notes', tool.pricing.notes],
+    ...tool.wraps.map((w, i): [string, string | undefined] => [`wraps.${i}.notes`, w.notes]),
+    ...(tool.pricing.tiers ?? []).map((t): [string, string | undefined] => [`pricing.tiers.${t.id}.notes`, t.notes])
+  ]
+  for (const [path, text] of prose) {
+    if (text && claimsDirectoryCoverage(text)) {
+      issue(file, path, 'a note cannot say what this directory covers, that claim goes stale on its own. State it in wraps or leave it out')
+    }
+  }
 }
 
 // Cycles in wraps

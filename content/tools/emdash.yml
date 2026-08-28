@@ -58,7 +58,7 @@ pricing:
       contact_sales: true
       audience: enterprise
       notes: Contact form only, no price published.
-  notes: The site links Cloud and Enterprise pages without prices. Amp, Copilot, Devin, Droid and Qwen Code also run but are not tracked here.
+  notes: The site links Cloud and Enterprise pages without prices. Amp, Copilot, Devin, Droid and Qwen Code also run.
 status: preview
 sources:
   - url: https://emdash.com/
