@@ -318,7 +318,7 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
         Freshness: freshnessSchema,
         FreshnessSummary: {
           ...withoutProperties(freshnessSchema, { oldest: true, computed_at: true }),
-          description: 'The two dates a card renders. `/api/v1/tools/{slug}.json` carries the other two.'
+          description: 'What a card renders: the date pricing was last verified, and how old that makes it. `/api/v1/tools/{slug}.json` carries `oldest` and `computed_at` too.'
         },
         Error: errorSchema,
         // Two shapes, told apart by `view`, so a generated client asking for one is not handed
