@@ -86,9 +86,9 @@ defineShortcuts({
       description: 'text-base sm:text-lg max-w-xl mx-auto text-pretty'
     }"
   >
-    <template #top>
+    <!-- <template #top>
       <DotPanels class="absolute inset-0 -top-(--ui-header-height) -z-1 opacity-25" />
-    </template>
+    </template> -->
 
     <template #headline>
       <span class="flex size-12 items-center justify-center rounded-xl bg-inverted text-inverted font-mono text-lg">&gt;_</span>
