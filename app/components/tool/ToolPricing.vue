@@ -26,18 +26,26 @@ const columns: TableColumn<Tier>[] = [
 <template>
   <div class="flex flex-col gap-4">
     <p
-      v-if="pricing.bundled_with"
+      v-if="pricing.bundled_with || sameAs"
       class="text-sm text-toned"
     >
-      Included with <NuxtLink
-        :to="`/plans/${pricing.bundled_with}`"
-        class="underline underline-offset-4 text-highlighted"
-      >{{ optionLabel(PLANS, pricing.bundled_with) }}</NuxtLink> plans<template v-if="sameAs">
-        , same pricing as <NuxtLink
+      <template v-if="pricing.bundled_with">
+        Included with <NuxtLink
+          :to="`/plans/${pricing.bundled_with}`"
+          class="underline underline-offset-4 text-highlighted"
+        >{{ optionLabel(PLANS, pricing.bundled_with) }}</NuxtLink> plans<template v-if="sameAs">
+          , same pricing as <NuxtLink
+            :to="`/tools/${sameAs.slug}`"
+            class="underline underline-offset-4 text-highlighted"
+          >{{ sameAs.name }}</NuxtLink>
+        </template>.
+      </template>
+      <template v-else-if="sameAs">
+        Same pricing as <NuxtLink
           :to="`/tools/${sameAs.slug}`"
           class="underline underline-offset-4 text-highlighted"
-        >{{ sameAs.name }}</NuxtLink>
-      </template>.
+        >{{ sameAs.name }}</NuxtLink>.
+      </template>
     </p>
 
     <UTable
