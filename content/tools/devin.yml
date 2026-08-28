@@ -1,6 +1,6 @@
 slug: devin
 name: Devin
-description: Cognition's cloud software engineer. Works in its own VM from a Slack message, a ticket or the web app, and bills Enterprise by Agent Compute Units on top of an order form.
+description: Cognition's cloud software engineer. Works in its own VM from a Slack message, a ticket or the web app, and bills self-serve plans by quota, Enterprise by Agent Compute Units.
 layer: cloud
 vendor: Cognition
 homepage: https://devin.ai
@@ -22,6 +22,9 @@ pricing:
       name: Free
       price: 0
       audience: individual
+      overage:
+        kind: blocked
+        notes: Free plan users must upgrade to a paid plan to buy on-demand credits.
       limits:
         - Limited Devin usage
         - Access to Devin Review
@@ -56,7 +59,7 @@ pricing:
         notes: Shared on-demand credits fund flex-seat usage and any full-seat usage past its quota.
       limits:
         - Every Teams account has an $80/month minimum
-        - Full seat is $40/month and includes a Pro-equivalent quota and Devin Desktop access
+        - Full seat includes a Pro-equivalent quota and Devin Desktop access
         - Flex seats are free and unlimited, and draw only from the shared on-demand credit pool
         - Unlimited members
     - id: enterprise

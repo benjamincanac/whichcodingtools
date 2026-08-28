@@ -23,27 +23,27 @@ wraps:
   - tool: claude-code
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
     notes: Listed as Claude Agent. Billing and terms are between you and the agent provider, not Cognition.
   - tool: codex-cli
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
   - tool: gemini-cli
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
   - tool: junie-cli
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
   - tool: opencode
     via: acp
     uses_subscription: true
-    min_tier: free
+    min_tier: pro
 pricing:
   same_as: devin
-  notes: Devin Desktop is billed on the same Free/Pro/Max/Teams self-serve plans as Devin; a Pro or Max plan, or a Teams full seat, includes Devin Desktop access. See the devin tool entry for tier prices.
+  notes: Devin Desktop is billed on the same Free/Pro/Max/Teams self-serve plans as Devin; a Pro or Max plan, or a Teams full seat, includes Devin Desktop access.
 status: active
 aliases:
   - slug: windsurf
