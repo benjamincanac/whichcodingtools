@@ -53,7 +53,7 @@ pricing:
       audience: individual
       limits:
         - You pay the agent or model provider you sign in with
-  notes: No paid plan and no pricing page. No telemetry or forced login. Copilot is also supported but not tracked here.
+  notes: No paid plan and no pricing page. No telemetry or forced login. Copilot is also supported.
 status: active
 sources:
   - url: https://paseo.sh

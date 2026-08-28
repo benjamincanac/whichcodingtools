@@ -74,7 +74,7 @@ pricing:
       audience: individual
       limits:
         - You pay for the agents and the optional naming provider, nothing for dmux itself
-  notes: Needs tmux 3.0 or later, Node.js 18 and Git 2.20. Qwen CLI and Crush CLI are supported too but not in the directory. The npm package points at github.com/formkit/dmux, which redirects to standardagents/dmux.
+  notes: Needs tmux 3.0 or later, Node.js 18 and Git 2.20. Qwen CLI and Crush CLI are supported too. The npm package points at github.com/formkit/dmux, which redirects to standardagents/dmux.
 status: active
 sources:
   - url: https://github.com/standardagents/dmux

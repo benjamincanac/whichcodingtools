@@ -55,7 +55,7 @@ pricing:
       audience: individual
       limits:
         - Local workspaces, you pay the agent you sign in with
-  notes: Paid subscriptions were terminated with the 10 April 2026 shutdown and the hosted remote features were removed 30 days later. Local use continues. Amp, Copilot, Droid and Qwen Code also run but are not tracked here.
+  notes: Paid subscriptions were terminated with the 10 April 2026 shutdown and the hosted remote features were removed 30 days later. Local use continues. Amp, Copilot, Droid and Qwen Code also run.
 status: sunset
 sunset_at: 2026-04-10
 sources:

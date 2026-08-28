@@ -70,6 +70,13 @@ function restatesThePrice(limit: string) {
 }
 
 /** Dollar amounts written into prose, so they can be held to the same capture as a `price`. */
+/**
+ * A note saying something is "not in the directory" is a claim about this repository, not about
+ * the vendor's page. Nothing re-reads it: the sweeps check a file against its sources, and this
+ * one turns false when an unrelated entry lands, so it rots in place. `wraps` states coverage.
+ */
+const COVERAGE_CLAIM = /\bnot\s+(?:yet\s+)?[a-z ]{0,30}?(?:in (?:the|this) directory|tracked here|listed here|covered here)\b/i
+
 function moneyIn(text: string) {
   return [...text.matchAll(/\$\s?(\d[\d,]*(?:\.\d+)?)/g)].map(m => Number(m[1]!.replace(/,/g, '')))
 }
@@ -174,6 +181,18 @@ for (const [slug, tool] of tools) {
     if (w.tool === slug) issue(file, `wraps.${i}.tool`, 'a tool cannot wrap itself')
     else if (!tools.has(w.tool)) issue(file, `wraps.${i}.tool`, `unknown tool "${w.tool}"`)
   })
+
+  const prose: [string, string | undefined][] = [
+    ['models.notes', tool.models?.notes],
+    ['pricing.notes', tool.pricing.notes],
+    ...tool.wraps.map((w, i): [string, string | undefined] => [`wraps.${i}.notes`, w.notes]),
+    ...(tool.pricing.tiers ?? []).map((t): [string, string | undefined] => [`pricing.tiers.${t.id}.notes`, t.notes])
+  ]
+  for (const [path, text] of prose) {
+    if (text && COVERAGE_CLAIM.test(text)) {
+      issue(file, path, 'a note cannot say what this directory covers, that claim goes stale on its own. State it in wraps or leave it out')
+    }
+  }
 }
 
 // Cycles in wraps

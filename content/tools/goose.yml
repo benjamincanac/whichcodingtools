@@ -54,7 +54,7 @@ pricing:
       audience: individual
       limits:
         - Bring your own keys or subscriptions, there is no hosted plan
-  notes: goose is free. Amp is also available as an ACP provider but is not listed in this directory.
+  notes: goose is free. Amp is also available as an ACP provider.
 status: active
 sources:
   - url: https://github.com/aaif-goose/goose

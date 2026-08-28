@@ -86,7 +86,7 @@ pricing:
       contact_sales: true
       audience: enterprise
       notes: Self-hosted cloud execution and CodeRouter, SSO and SAML, audit logs, SOC 2 and an SLA.
-  notes: The terminal itself is free and open source. Paid plans add Cloud VMs, CodeRouter and the iOS app. goose, Kiro and Amp also run but are not tracked here. A one time Founders Edition is also sold for early access, price not on the pricing page. The iOS app is in beta on TestFlight.
+  notes: The terminal itself is free and open source. Paid plans add Cloud VMs, CodeRouter and the iOS app. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access, price not on the pricing page. The iOS app is in beta on TestFlight.
 status: active
 sources:
   - url: https://cmux.com/pricing
