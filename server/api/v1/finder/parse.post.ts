@@ -2,7 +2,6 @@ import { createHash } from 'node:crypto'
 import { generateText, Output } from 'ai'
 import { z } from 'zod'
 import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS } from '#shared/enums'
-import { ParsedRequirementsSchema } from '#shared/finder'
 
 // Overridable without a deploy: NUXT_FINDER_MODEL. Luna matched Sonnet 5 on 18 finder queries
 // across 12 runs, for a twentieth of the cost and half the latency, and never filled a filter

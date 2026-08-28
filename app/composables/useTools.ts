@@ -1,17 +1,31 @@
 import { API_BASE } from '#shared/api'
-import type { ToolRecord } from '#shared/types/tool'
+import type { ToolRecord, ToolSummary } from '#shared/types/tool'
 
-interface ToolsPayload {
+interface ToolsPayload<T> {
   count: number
   generated_at: string
-  tools: ToolRecord[]
+  view: 'full' | 'summary'
+  tools: T[]
 }
 
-/** The whole corpus, fetched once from the static JSON API and shared across pages. */
-export function useTools() {
-  const asyncData = useFetch<ToolsPayload>(`${API_BASE}/tools.json`, {
-    key: 'tools',
-    default: () => ({ count: 0, generated_at: '', tools: [] })
+/**
+ * The whole corpus, fetched once from the JSON API and shared across pages.
+ *
+ * Summary by default: this document is inlined into the payload of every page that calls it,
+ * and a list view reads about half of each record. A page that needs the other half fetches
+ * the one tool it is about from `/api/v1/tools/<slug>.json`.
+ */
+export function useTools(): ReturnType<typeof toolsFor<ToolSummary>>
+export function useTools(view: 'full'): ReturnType<typeof toolsFor<ToolRecord>>
+export function useTools(view: 'full' | 'summary' = 'summary') {
+  return toolsFor(view)
+}
+
+function toolsFor<T extends ToolSummary>(view: 'full' | 'summary') {
+  const asyncData = useFetch<ToolsPayload<T>>(`${API_BASE}/tools.json`, {
+    key: `tools:${view}`,
+    query: view === 'summary' ? { view: 'summary' } : undefined,
+    default: () => ({ count: 0, generated_at: '', view, tools: [] as T[] })
   })
   const { data, status, error } = asyncData
 

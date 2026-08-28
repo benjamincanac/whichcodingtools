@@ -1,7 +1,7 @@
 import type { EnumOption } from '../enums'
 import { FEATURES, HOSTS, LAYERS, PLATFORMS, PROVIDERS, STATUSES, optionLabel } from '../enums'
 import type { Tool } from '../schema'
-import type { ToolRecord } from '../types/tool'
+import type { ToolRecord, ToolSummary } from '../types/tool'
 import { computeFreshness } from './freshness'
 import { entryPrice, entryPriceLabel, hasFreeTier, pricingModel, resolvePricing } from './pricing'
 
@@ -26,7 +26,8 @@ export function effectiveProviders<T extends Pick<Tool, 'slug' | 'models' | 'wra
   return [...inherited].sort()
 }
 
-export function findByAlias<T extends Pick<Tool, 'aliases'>>(slug: string, tools: T[]) {
+/** The slug is all it matches on, so a summary's trimmed aliases are enough. */
+export function findByAlias<T extends { aliases: { slug: string }[] }>(slug: string, tools: T[]) {
   return tools.find(t => t.aliases.some(a => a.slug === slug))
 }
 
@@ -45,6 +46,46 @@ export function toRecords(tools: Tool[], now = new Date()): ToolRecord[] {
       freshness: computeFreshness(tool, now)
     }
   })
+}
+
+/**
+ * The record a list view gets. Every page that ranks, groups or compares inlines the whole
+ * corpus into its payload, and it reads about half of each record: this drops the other half.
+ *
+ * Field by field it is `ToolSummary`, and the types are what keep the two honest. Adding a
+ * field back here without adding it there does not compile, and reading a dropped field in a
+ * component that takes a summary does not compile either.
+ */
+export function toSummary(tool: ToolRecord): ToolSummary {
+  const { sources, install, links, license, models, pricing, wraps, aliases, freshness, ...rest } = tool
+  void sources
+  void install
+  void links
+  return {
+    ...rest,
+    license: { spdx: license.spdx, kind: license.kind },
+    models: { providers: models.providers, plans: models.plans, byok: models.byok, local: models.local },
+    pricing: {
+      same_as: pricing.same_as,
+      bundled_with: pricing.bundled_with,
+      tiers: pricing.tiers?.map(tier => ({
+        id: tier.id,
+        name: tier.name,
+        price: tier.price,
+        per: tier.per,
+        audience: tier.audience,
+        contact_sales: tier.contact_sales,
+        ...(tier.included ? { included: { amount: tier.included.amount, unit: tier.included.unit, period: tier.included.period, usd_value: tier.included.usd_value } } : {}),
+        ...(tier.overage ? { overage: { kind: tier.overage.kind, markup_pct: tier.overage.markup_pct } } : {})
+      }))
+    },
+    wraps: wraps.map(({ notes, ...wrap }) => {
+      void notes
+      return wrap
+    }),
+    aliases: aliases.map(alias => ({ slug: alias.slug })),
+    freshness: { verified_at: freshness.verified_at, level: freshness.level }
+  }
 }
 
 /* ------------------------------ presentation ------------------------------ */

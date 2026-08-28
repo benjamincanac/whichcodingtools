@@ -1,6 +1,8 @@
 import { z } from 'zod'
 import { API_BASE, API_VERSION, DATA_LICENSE, SUNSET_NOTICE_DAYS, isVersionedApiPath } from '#shared/api'
-import { ParsedRequirementsSchema } from '#shared/finder'
+// Relative rather than auto-imported: `test/openapi.test.ts` imports this module directly,
+// outside Nitro, where nothing is auto-imported.
+import { ParsedRequirementsSchema } from './finder'
 import { toolJsonSchema } from '#shared/schema'
 import { FRESHNESS_LEVELS, PRICING_MODELS } from '#shared/types/tool'
 
@@ -60,6 +62,71 @@ function toolSchema(): Json {
   }
 }
 
+/**
+ * The fields `toSummary()` drops, as a tree: `true` removes the property, an object recurses
+ * into it. Spelled once here so the schema and the transform cannot disagree about the answer,
+ * and `test/summary.test.ts` compares this document's property names against a real summary.
+ */
+const SUMMARY_DROPS: DropTree = {
+  sources: true,
+  install: true,
+  links: true,
+  license: { repo: true, notes: true },
+  models: { notes: true },
+  wraps: { notes: true },
+  aliases: { name: true, until: true, note: true },
+  pricing: {
+    notes: true,
+    tiers: { price_annual: true, price_from: true, trial_days: true, mirrors: true, limits: true, notes: true, included: { notes: true }, overage: { rate: true, notes: true } }
+  }
+}
+
+interface DropTree { [key: string]: true | DropTree }
+
+/** Walks `properties` and `items`, so it reaches a tier inside `pricing.tiers` the same way. */
+function withoutProperties(schema: Json, drops: DropTree): Json {
+  if (schema.items) return { ...schema, items: withoutProperties(schema.items as Json, drops) }
+  const source = schema.properties as Json | undefined
+  if (!source || !Object.keys(source).length) return schema
+  const properties: Json = {}
+  for (const [key, value] of Object.entries(source)) {
+    const drop = drops[key]
+    if (drop === true) continue
+    properties[key] = drop ? withoutProperties(value as Json, drop) : value
+  }
+  const required = (schema.required as string[] | undefined)?.filter(key => key in properties)
+  return { ...schema, properties, ...(required ? { required } : {}) }
+}
+
+/** `Tool` with the tool-page-only fields taken out, which is what `?view=summary` returns. */
+function toolSummarySchema(): Json {
+  const schema = withoutProperties(toolSchema(), SUMMARY_DROPS)
+  return {
+    ...schema,
+    properties: {
+      ...(schema.properties as Json),
+      // `freshness` is a `$ref`, so the drop tree cannot reach into it. It gets its own component.
+      freshness: { $ref: '#/components/schemas/FreshnessSummary' }
+    },
+    description: 'One tool as a list view reads it: the full record without the fields only a tool page renders. Fetch `/api/v1/tools/{slug}.json` for those.'
+  }
+}
+
+/** One shape of the tools document, with `view` pinned so a client can tell them apart. */
+function toolsResponse(view: 'full' | 'summary', ref: string): Json {
+  return {
+    type: 'object',
+    properties: {
+      count: { type: 'integer' },
+      generated_at: { type: 'string', format: 'date-time' },
+      license: { $ref: '#/components/schemas/DataLicense' },
+      view: { type: 'string', const: view },
+      tools: { type: 'array', items: { $ref: `#/components/schemas/${ref}` } }
+    },
+    required: ['count', 'generated_at', 'license', 'view', 'tools']
+  }
+}
+
 const freshnessSchema: Json = {
   type: 'object',
   description: 'How old the data behind a tool is. Dates are the day a person read the vendor page, never a build date.',
@@ -111,6 +178,14 @@ export function apiPaths(): Json {
         operationId: 'getToolsJson',
         summary: 'Every tool',
         description: 'The whole directory in one document, the same records every page on this site renders.',
+        parameters: [{
+          name: 'view',
+          in: 'query',
+          required: false,
+          description: '`summary` drops the fields only a tool page renders: `sources`, `install`, `links`, and the `notes` on pricing, models, license, wraps and tiers. It is what this site\'s list pages fetch. Omit it for the full record.',
+          schema: { type: 'string', enum: ['full', 'summary'], default: 'full' },
+          example: 'summary'
+        }],
         responses: {
           200: jsonResponse('Every tool.', { $ref: '#/components/schemas/ToolsResponse' })
         }
@@ -244,7 +319,12 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
       schemas: {
         ...discovery.components.schemas,
         Tool: toolSchema(),
+        ToolSummary: toolSummarySchema(),
         Freshness: freshnessSchema,
+        FreshnessSummary: {
+          ...withoutProperties(freshnessSchema, { oldest: true, computed_at: true }),
+          description: 'What a card renders: the date pricing was last verified, and how old that makes it. `/api/v1/tools/{slug}.json` carries `oldest` and `computed_at` too.'
+        },
         Error: errorSchema,
         DataLicense: {
           type: 'object',
@@ -256,15 +336,11 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
           },
           required: ['spdx', 'url', 'attribution']
         },
+        // Two shapes, told apart by `view`, so a generated client asking for one is not handed
+        // the type of the other.
         ToolsResponse: {
-          type: 'object',
-          properties: {
-            count: { type: 'integer' },
-            generated_at: { type: 'string', format: 'date-time' },
-            license: { $ref: '#/components/schemas/DataLicense' },
-            tools: { type: 'array', items: { $ref: '#/components/schemas/Tool' } }
-          },
-          required: ['count', 'generated_at', 'license', 'tools']
+          description: 'Every tool. `view` says which shape the records are in.',
+          oneOf: [toolsResponse('full', 'Tool'), toolsResponse('summary', 'ToolSummary')]
         },
         ComparePairsResponse: {
           type: 'object',

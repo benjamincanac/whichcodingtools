@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { WRAP_VIA, optionLabel } from '#shared/enums'
-import type { ToolRecord } from '#shared/types/tool'
+import type { ToolRecord, ToolSummary } from '#shared/types/tool'
 import { costDelta, deltaText } from '#shared/utils/pricing'
 
+// The page's own tool in full, because a wrap's `notes` are rendered here, and everything it
+// links to as a summary: a name, a layer and the tier a cost delta is priced off.
 const props = defineProps<{
   tool: ToolRecord
-  bySlug: Map<string, ToolRecord>
+  bySlug: Map<string, ToolSummary>
 }>()
 
 const runs = computed(() => props.tool.wraps
@@ -14,7 +16,7 @@ const runs = computed(() => props.tool.wraps
 
 const runsInside = computed(() => props.tool.wrapped_by
   .map(slug => props.bySlug.get(slug))
-  .filter((t): t is ToolRecord => Boolean(t))
+  .filter((t): t is ToolSummary => Boolean(t))
   .map(host => ({ host, wrap: host.wraps.find(w => w.tool === props.tool.slug)!, delta: costDelta(host, props.tool.slug, props.bySlug) })))
 </script>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ToolRecord } from '#shared/types/tool'
+import type { ToolSummary } from '#shared/types/tool'
 
 /**
  * Slugs with a committed logo, resolved at build time. Passing a src that 404s is not an
@@ -8,9 +8,11 @@ import type { ToolRecord } from '#shared/types/tool'
 const logos = new Set(Object.keys(import.meta.glob('../../../public/logos/*.png')).map(path => path.split('/').pop()!.replace('.png', '')))
 
 withDefaults(defineProps<{
-  tool: Pick<ToolRecord, 'slug' | 'name' | 'icon'>
+  tool: Pick<ToolSummary, 'slug' | 'name' | 'icon'>
   size?: '3xs' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
-}>(), { size: 'md' })
+  /** Set on the one avatar above the fold, a tool page header. A grid of 77 stays lazy. */
+  eager?: boolean
+}>(), { size: 'md', eager: false })
 </script>
 
 <template>
@@ -20,6 +22,8 @@ withDefaults(defineProps<{
     :text="tool.name.slice(0, 1)"
     :alt="tool.name"
     :size="size"
+    :loading="eager ? 'eager' : 'lazy'"
+    decoding="async"
     class="bg-elevated text-highlighted font-medium ring-1 ring-default"
     :ui="{ icon: 'text-highlighted' }"
   />

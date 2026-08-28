@@ -1,16 +1,34 @@
 import type { Pricing, Tier, Tool } from '../schema'
-import type { CostDelta, PricingModel, ToolRecord } from '../types/tool'
+import type { CostDelta, PricingModel, SummaryTier, ToolRecord } from '../types/tool'
 
-type ToolLike = Pick<Tool, 'slug' | 'pricing' | 'wraps'>
-
-/** Follow `same_as` once so the caller always sees tiers. */
-export function resolvePricing<T extends ToolLike>(tool: T, bySlug: Map<string, T>): Pricing & { tiers: Tier[] } {
-  const target = tool.pricing.same_as ? bySlug.get(tool.pricing.same_as) : undefined
-  const tiers = tool.pricing.tiers ?? target?.pricing.tiers ?? []
-  return { ...tool.pricing, bundled_with: tool.pricing.bundled_with ?? target?.pricing.bundled_with, tiers }
+/**
+ * Generic over the tier, because a list view holds `SummaryTier` and a tool page holds the
+ * full `Tier`, and both need to resolve `same_as` and read a price. The tier type flows
+ * through, so a caller with full tiers still gets full tiers back and can render the table.
+ */
+type ToolLike = Pick<Tool, 'slug'> & {
+  pricing: Pick<Pricing, 'same_as' | 'bundled_with'> & { tiers?: SummaryTier[] }
+  wraps: Omit<Tool['wraps'][number], 'notes'>[]
 }
 
-export function hasFreeTier(tiers: Tier[]) {
+type TierOf<K> = K extends { pricing: { tiers?: (infer T)[] } } ? T : never
+
+/**
+ * Follow `same_as` once so the caller always sees tiers.
+ *
+ * The tool and the map are typed apart because they are not always the same shape: a tool
+ * page holds its own full record and looks other tools up in the summary corpus. The tier
+ * type flows out of both, so a caller holding full records still gets full tiers back.
+ */
+export function resolvePricing<A extends ToolLike, B extends ToolLike>(tool: A, bySlug: Map<string, B>): Omit<A['pricing'], 'tiers'> & { tiers: (TierOf<A> | TierOf<B>)[] } {
+  const target = tool.pricing.same_as ? bySlug.get(tool.pricing.same_as) : undefined
+  // Either the tool's own tiers or the mirrored tool's, and the caller is told it may be both.
+  // Spreading a generic is opaque to the compiler, so the shape is asserted rather than inferred.
+  const tiers = tool.pricing.tiers ?? target?.pricing.tiers ?? []
+  return { ...tool.pricing, bundled_with: tool.pricing.bundled_with ?? target?.pricing.bundled_with, tiers } as Omit<A['pricing'], 'tiers'> & { tiers: (TierOf<A> | TierOf<B>)[] }
+}
+
+export function hasFreeTier(tiers: SummaryTier[]) {
   return tiers.some(t => t.price === 0)
 }
 
@@ -23,21 +41,21 @@ export function pricingModel(tiers: Tier[]): PricingModel {
 }
 
 /** Cheapest flat monthly price an individual can pay, including free. */
-export function entryPrice(tiers: Tier[]) {
+export function entryPrice(tiers: SummaryTier[]) {
   const prices = tiers
     .filter(t => t.audience !== 'enterprise' && !t.contact_sales && t.price !== null)
     .map(t => t.price as number)
   return prices.length ? Math.min(...prices) : null
 }
 
-export function teamPrice(tiers: Tier[]) {
+export function teamPrice(tiers: SummaryTier[]) {
   const prices = tiers
     .filter(t => t.audience === 'team' && !t.contact_sales && t.price !== null)
     .map(t => t.price as number)
   return prices.length ? Math.min(...prices) : null
 }
 
-export function cheapestTier(tiers: Tier[]) {
+export function cheapestTier<T extends SummaryTier>(tiers: T[]) {
   return [...tiers]
     .filter(t => t.price !== null)
     .sort((a, b) => (a.price as number) - (b.price as number))[0]
@@ -47,7 +65,7 @@ export function cheapestTier(tiers: Tier[]) {
  * What `tool` costs on top of a plan the visitor already pays for.
  * `haveSlug` is the wrapped tool (e.g. `claude-code`).
  */
-export function costDelta<T extends ToolLike>(tool: T, haveSlug: string, bySlug: Map<string, T>): CostDelta | null {
+export function costDelta<A extends ToolLike, B extends ToolLike>(tool: A, haveSlug: string, bySlug: Map<string, B>): CostDelta | null {
   const wrap = tool.wraps.find(w => w.tool === haveSlug)
   if (!wrap) return null
   const pricing = resolvePricing(tool, bySlug)
@@ -71,7 +89,7 @@ export function formatMoney(value: number | null, suffix = '/mo') {
 }
 
 /** Priciest flat monthly plan an individual can buy, the top of the personal range. */
-export function topIndividualPrice(tiers: Tier[]) {
+export function topIndividualPrice(tiers: SummaryTier[]) {
   const prices = tiers.filter(t => t.audience === 'individual' && t.price !== null).map(t => t.price as number)
   return prices.length ? Math.max(...prices) : null
 }

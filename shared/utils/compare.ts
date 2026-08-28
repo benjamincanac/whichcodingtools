@@ -1,5 +1,5 @@
 import { BYOK, FEATURES, LAYERS, LICENSE_KINDS, PLANS, PLATFORMS, PROVIDERS, optionLabel } from '../enums'
-import type { ToolRecord } from '../types/tool'
+import type { ToolSummary } from '../types/tool'
 import { OVERAGE_LABELS_SHORT, entryPrice, formatMoney, resolvePricing, teamPrice, topIndividualPrice } from './pricing'
 import { displayUrl, joinLabels } from './text'
 
@@ -26,7 +26,7 @@ export interface CompareGroup {
 }
 
 /** Rows for a side by side table. Each row has one cell per tool, in order. */
-export function compareTools(tools: ToolRecord[], bySlug: Map<string, ToolRecord>): CompareGroup[] {
+export function compareTools(tools: ToolSummary[], bySlug: Map<string, ToolSummary>): CompareGroup[] {
   const pricing = tools.map(t => resolvePricing(t, bySlug))
 
   const general: CompareRow[] = [
@@ -102,7 +102,7 @@ export function pairSlug(a: string, b: string) {
  * demand, it is just not in the sitemap or the purge list. 68 tools make 2278 combinations
  * and most of them are noise.
  */
-export function relatedPairs(tools: Pick<ToolRecord, 'slug' | 'layer' | 'wraps'>[]): [string, string][] {
+export function relatedPairs(tools: Pick<ToolSummary, 'slug' | 'layer' | 'wraps'>[]): [string, string][] {
   const slugs = new Set(tools.map(t => t.slug))
   const pairs = new Map<string, [string, string]>()
   const add = (a: string, b: string) => {

@@ -3,7 +3,8 @@ import type { Freshness } from '#shared/types/tool'
 import { relativeDays } from '#shared/utils/freshness'
 
 const props = withDefaults(defineProps<{
-  freshness: Freshness
+  // The two fields a badge renders, which is what a list payload carries.
+  freshness: Pick<Freshness, 'verified_at' | 'level'>
   variant?: 'dot' | 'badge'
 }>(), { variant: 'badge' })
 
