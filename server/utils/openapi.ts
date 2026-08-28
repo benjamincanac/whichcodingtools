@@ -1,6 +1,8 @@
 import { z } from 'zod'
 import { API_BASE, API_VERSION, SUNSET_NOTICE_DAYS, isVersionedApiPath } from '#shared/api'
-import { ParsedRequirementsSchema } from '#shared/finder'
+// Relative rather than auto-imported: `test/openapi.test.ts` imports this module directly,
+// outside Nitro, where nothing is auto-imported.
+import { ParsedRequirementsSchema } from './finder'
 import { toolJsonSchema } from '#shared/schema'
 import { FRESHNESS_LEVELS, PRICING_MODELS } from '#shared/types/tool'
 
@@ -111,6 +113,14 @@ export function apiPaths(): Json {
         operationId: 'getToolsJson',
         summary: 'Every tool',
         description: 'The whole directory in one document, the same records every page on this site renders.',
+        parameters: [{
+          name: 'view',
+          in: 'query',
+          required: false,
+          description: '`summary` drops the fields only a tool page renders: `sources`, `install`, `links`, and the `notes` on pricing, models, license, wraps and tiers. It is what this site\'s list pages fetch. Omit it for the full record.',
+          schema: { type: 'string', enum: ['full', 'summary'], default: 'full' },
+          example: 'summary'
+        }],
         responses: {
           200: jsonResponse('Every tool.', { $ref: '#/components/schemas/ToolsResponse' })
         }
@@ -247,9 +257,10 @@ export function siteOpenApi(siteUrl: string, discovery: DiscoveryFragments): Jso
           properties: {
             count: { type: 'integer' },
             generated_at: { type: 'string', format: 'date-time' },
-            tools: { type: 'array', items: { $ref: '#/components/schemas/Tool' } }
+            view: { type: 'string', enum: ['full', 'summary'], description: 'Which shape `tools` is in, echoing the `view` parameter.' },
+            tools: { type: 'array', items: { $ref: '#/components/schemas/Tool' }, description: 'Full records, or the same records with the tool-page-only fields dropped when `view=summary`.' }
           },
-          required: ['count', 'generated_at', 'tools']
+          required: ['count', 'generated_at', 'view', 'tools']
         },
         ComparePairsResponse: {
           type: 'object',

@@ -1,6 +1,6 @@
 import type { Feature, Host, Layer, Plan, Platform, Provider } from '../enums'
 import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS, lowerLabel, optionLabel } from '../enums'
-import type { CostDelta, ToolRecord } from '../types/tool'
+import type { CostDelta, ToolSummary } from '../types/tool'
 import { costDelta } from './pricing'
 import { articleFor } from './text'
 
@@ -49,7 +49,7 @@ export function requirementCount(req: Requirements) {
 }
 
 /** Is `plan` usable inside `tool`, directly or through a wrapped tool that reuses its login? */
-export function planAccess(tool: ToolRecord, plan: Plan, bySlug: Map<string, ToolRecord>, seen = new Set<string>()): { included: boolean, via?: string } | null {
+export function planAccess(tool: ToolSummary, plan: Plan, bySlug: Map<string, ToolSummary>, seen = new Set<string>()): { included: boolean, via?: string } | null {
   if (tool.pricing.bundled_with === plan) return { included: true }
   if (tool.models.plans.includes(plan)) return { included: false }
   seen.add(tool.slug)
@@ -62,7 +62,7 @@ export function planAccess(tool: ToolRecord, plan: Plan, bySlug: Map<string, Too
   return null
 }
 
-export function matchTool(tool: ToolRecord, req: Requirements, bySlug: Map<string, ToolRecord>): MatchResult {
+export function matchTool(tool: ToolSummary, req: Requirements, bySlug: Map<string, ToolSummary>): MatchResult {
   const result: MatchResult = { satisfied: [], missing: [] }
   const check = (ok: boolean, label: string, miss: string) => (ok ? result.satisfied : result.missing).push(ok ? label : miss)
 

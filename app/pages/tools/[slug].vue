@@ -12,12 +12,14 @@ const route = useRoute()
 const { site } = useAppConfig()
 const slug = computed(() => String(route.params.slug))
 
+// Both are registered before either is awaited: the corpus and this tool are independent
+// requests, and awaiting them in turn cost a full round trip on every render.
 const { tools, bySlug, ready } = useTools()
-await ready
-
-const { data: tool, error } = await useFetch<ToolRecord>(`${API_BASE}/tools/${slug.value}.json`, {
+const toolRequest = useFetch<ToolRecord>(`${API_BASE}/tools/${slug.value}.json`, {
   key: `tool-${slug.value}`
 })
+await Promise.all([ready, toolRequest])
+const { data: tool, error } = toolRequest
 
 if (!tool.value) {
   // Renamed tools keep their old URL: SSR answers with a real 301, client-side navigation replaces the route.
@@ -31,6 +33,25 @@ if (!tool.value) {
 
 const t = computed(() => tool.value!)
 
+/**
+ * A tool whose pricing mirrors another one renders that tool's tier table in full, and the
+ * corpus is summary shaped, so its tiers carry only the columns a card reads. Fetch the one
+ * record the table is actually about. Four tools point at another today.
+ */
+const mirrors = computed(() => t.value.pricing.same_as)
+const { data: mirrored } = await useFetch<ToolRecord | null>(() => `${API_BASE}/tools/${mirrors.value}.json`, {
+  key: () => `tool-pricing-${mirrors.value ?? 'own'}`,
+  immediate: Boolean(mirrors.value),
+  default: () => null
+})
+
+/** Full records for the two tools the pricing table can name, over the summary corpus. */
+const pricingBySlug = computed(() => {
+  const map = new Map<string, ToolRecord>([[t.value.slug, t.value]])
+  if (mirrored.value) map.set(mirrored.value.slug, mirrored.value)
+  return map
+})
+
 const layerLabel = computed(() => optionLabel(LAYERS, t.value.layer))
 const platforms = computed(() => platformOptions(t.value))
 const features = computed(() => featureOptions(t.value))
@@ -40,7 +61,7 @@ const successor = computed(() => t.value.successor ? bySlug.value.get(t.value.su
 const signInPlans = computed(() => PLANS.filter(p => t.value.models.plans.includes(p.value)))
 /** Plan pages worth pointing at: the plan the tool is part of, plus the ones it signs in with. */
 const planLinks = computed(() => {
-  const bundled = resolvePricing(t.value, bySlug.value).bundled_with
+  const bundled = resolvePricing(t.value, pricingBySlug.value).bundled_with
   return PLANS.filter(p => p.value === bundled || t.value.models.plans.includes(p.value))
 })
 
@@ -106,6 +127,7 @@ useSchemaOrg([
           <ToolAvatar
             :tool="t"
             size="3xl"
+            eager
           />
           <div class="flex flex-col gap-4 min-w-0">
             <div class="flex flex-wrap items-center gap-2">
@@ -190,7 +212,7 @@ useSchemaOrg([
           </h2>
           <ToolPricing
             :tool="t"
-            :by-slug="bySlug"
+            :by-slug="pricingBySlug"
           />
         </section>
 

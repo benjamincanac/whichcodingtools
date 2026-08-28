@@ -37,7 +37,10 @@ export default defineNuxtConfig({
       '/llms.txt': { isr: 60 * 60 },
       '/tools': { isr: { expiration: 60 * 60, passQuery: true } },
       '/tools/**': { isr: 60 * 60 },
-      '/api/v1/tools.json': { isr: 60 * 60 },
+      // `view` picks the full record or the slim one the site's list pages read. Without
+      // passQuery the ISR function never sees it and every caller gets whichever variant
+      // warmed the cache first.
+      '/api/v1/tools.json': { isr: { expiration: 60 * 60, passQuery: true, allowQuery: ['view'] } },
       '/api/v1/compare.json': { isr: 60 * 60 },
       '/api/v1/tools/**': { isr: 60 * 60 },
       '/api/content/**': { isr: 60 * 60 },

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { LAYERS, PLATFORMS, optionLabel } from '#shared/enums'
-import type { ToolRecord } from '#shared/types/tool'
+import type { ToolSummary } from '#shared/types/tool'
 import { deltaLabel, type MatchResult } from '#shared/utils/match'
 import { entryPriceLabel } from '#shared/utils/pricing'
 
 const props = defineProps<{
-  tool: ToolRecord
+  tool: ToolSummary
   match?: MatchResult
 }>()
 

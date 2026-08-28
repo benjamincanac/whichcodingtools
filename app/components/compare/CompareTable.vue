@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { ToolRecord } from '#shared/types/tool'
+import type { ToolSummary } from '#shared/types/tool'
 import { compareTools } from '#shared/utils/compare'
 
 const props = defineProps<{
-  tools: ToolRecord[]
-  bySlug: Map<string, ToolRecord>
+  tools: ToolSummary[]
+  bySlug: Map<string, ToolSummary>
 }>()
 
 const groups = computed(() => compareTools(props.tools, props.bySlug))

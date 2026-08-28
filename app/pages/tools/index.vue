@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import { useDebounceFn } from '@vueuse/core'
 import { LAYERS, PLANS, lowerLabel } from '#shared/enums'
 import { TOOLS_INDEX } from '#shared/content/pages'
 import type { ToolMatch } from '~/composables/useToolFinder'
 
 const route = useRoute()
 const router = useRouter()
-const { tools, requirements, sort, update, reset, count, plain, exact, close, hidden, matches } = useToolFinder()
+const { tools, ready, requirements, sort, update, reset, count, plain, exact, close, hidden, matches } = useToolFinder()
+// Awaited like every other page, so arriving here from a link does not paint an empty grid
+// for a tick before the corpus lands.
+await ready
 const issueUrl = useIssueUrl()
 
 /** Set by the landing page after the natural-language parse, shown once. */
@@ -19,9 +23,22 @@ defineOgImage('ToolSatori', {
   description: 'Editors, terminal agents, orchestrators and cloud agents with verified pricing and the graph of what runs what.'
 })
 
+/**
+ * The input is local and the URL follows it. Writing `router.replace` on every keystroke put
+ * a history entry and a full re-rank behind each character; the filters stay deep linkable,
+ * they just settle once typing pauses.
+ */
+const typed = ref(requirements.value.q)
+watch(() => requirements.value.q, (q) => {
+  if (q !== typed.value) typed.value = q
+})
+const commitSearch = useDebounceFn((q: string) => update('q', q), 200)
 const search = computed({
-  get: () => requirements.value.q,
-  set: (q: string) => update('q', q)
+  get: () => typed.value,
+  set: (q: string) => {
+    typed.value = q
+    commitSearch(q)
+  }
 })
 
 const searchInput = useTemplateRef('searchInput')

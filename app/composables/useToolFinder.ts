@@ -3,13 +3,13 @@ import type { LocationQuery, LocationQueryRaw } from 'vue-router'
 import { useFilter } from '@nuxt/ui/composables/useFilter'
 import type { Feature, Host, Layer, Plan, Platform, Provider } from '#shared/enums'
 import { FEATURE_VALUES, HOST_VALUES, LAYER_VALUES, PLAN_VALUES, PLATFORM_VALUES, PROVIDER_VALUES } from '#shared/enums'
-import type { ToolRecord } from '#shared/types/tool'
+import type { ToolSummary } from '#shared/types/tool'
 import { EMPTY_REQUIREMENTS, deltaPrice, matchTool, requirementCount, type MatchResult, type Requirements } from '#shared/utils/match'
 
 export type SortKey = 'match' | 'name' | 'verified' | 'price'
 
 export interface ToolMatch {
-  tool: ToolRecord
+  tool: ToolSummary
   match: MatchResult
 }
 
@@ -63,7 +63,7 @@ export function toQuery(req: Requirements, sort: SortKey = 'match'): LocationQue
 export function useToolFinder() {
   const route = useRoute()
   const router = useRouter()
-  const { tools, bySlug, status } = useTools()
+  const { tools, bySlug, status, ready } = useTools()
 
   const requirements = computed<Requirements>({
     get: () => fromQuery(route.query),
@@ -94,7 +94,7 @@ export function useToolFinder() {
    * Lower is better, null is no match at all. Identity only: descriptions name other products
    * constantly, so searching them puts every wrapper that runs Claude Code under "claude".
    */
-  function relevanceOf(tool: ToolRecord, q: string) {
+  function relevanceOf(tool: ToolSummary, q: string) {
     const name = scoreItem(tool, q, ['name', 'slug'])
     if (name !== null) return name
     const vendor = scoreItem(tool, q, ['vendor'])
@@ -105,7 +105,7 @@ export function useToolFinder() {
     const q = requirements.value.q.trim()
     const relevance = new Map<string, number>()
     if (!q) return { items: tools.value, relevance }
-    const items: ToolRecord[] = []
+    const items: ToolSummary[] = []
     for (const tool of tools.value) {
       const score = relevanceOf(tool, q)
       if (score === null) continue
@@ -141,5 +141,5 @@ export function useToolFinder() {
   const close = computed(() => matches.value.filter(m => m.match.missing.length > 0 && m.match.missing.length <= closeLimit.value))
   const hidden = computed(() => matches.value.length - exact.value.length - close.value.length)
 
-  return { tools, status, requirements, sort, update, reset, count, plain, matches, exact, close, hidden }
+  return { tools, status, ready, requirements, sort, update, reset, count, plain, matches, exact, close, hidden }
 }

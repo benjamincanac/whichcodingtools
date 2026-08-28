@@ -1,6 +1,6 @@
 import type { EnumOption, Layer, Plan } from '../enums'
 import { FEATURES, HOSTS, LAYERS, LICENSE_KINDS, PLANS, PLATFORMS, STATUSES, lowerLabel, optionLabel, optionLabelLower } from '../enums'
-import type { ToolRecord } from '../types/tool'
+import type { ToolSummary } from '../types/tool'
 import { articleFor } from '../utils/text'
 
 /**
@@ -44,7 +44,7 @@ export const COMPARE_INDEX = {
   description: 'Side by side pricing, included usage, overage, BYOK, platforms, features and integrations for any AI coding tools, from vendor-verified data.'
 }
 
-export function toolPageTitle(tool: Pick<ToolRecord, 'name'>) {
+export function toolPageTitle(tool: Pick<ToolSummary, 'name'>) {
   return `${tool.name} pricing, platforms and integrations`
 }
 
@@ -70,7 +70,7 @@ export const PLAN_GROUPS = [
   { key: 'wraps', title: 'Runs a tool on this plan', description: 'Hosts and orchestrators that reuse the login of a tool included in the plan. The chip is what they cost on top.' }
 ] as const
 
-export function pairPageTitle(a: Pick<ToolRecord, 'name'>, b: Pick<ToolRecord, 'name'>) {
+export function pairPageTitle(a: Pick<ToolSummary, 'name'>, b: Pick<ToolSummary, 'name'>) {
   return `${a.name} vs ${b.name}`
 }
 
@@ -91,14 +91,14 @@ export function pairPageTitle(a: Pick<ToolRecord, 'name'>, b: Pick<ToolRecord, '
  *
  * Kept near 160 characters, which is what a search result shows before it truncates.
  */
-export function pairPageDescription(a: ToolRecord, b: ToolRecord, now = new Date()): string {
+export function pairPageDescription(a: ToolSummary, b: ToolSummary, now = new Date()): string {
   const delta = pairDelta(a, b, now)
   return delta ? `${pairIdentity(a, b)} ${delta}` : pairIdentity(a, b)
 }
 
 /** What the two things are. Always emitted, so no pair falls back to boilerplate. */
-function pairIdentity(a: ToolRecord, b: ToolRecord): string {
-  const layer = (t: ToolRecord) => optionLabelLower(LAYERS, t.layer)
+function pairIdentity(a: ToolSummary, b: ToolSummary): string {
+  const layer = (t: ToolSummary) => optionLabelLower(LAYERS, t.layer)
   return a.layer === b.layer
     ? `${a.name} and ${b.name} are both ${layer(a)}s.`
     : `${a.name} is ${articleFor(optionLabel(LAYERS, a.layer))}, ${b.name} is ${articleFor(optionLabel(LAYERS, b.layer))}.`
@@ -111,7 +111,7 @@ function pairIdentity(a: ToolRecord, b: ToolRecord): string {
  * tier. Only `pricing_model: free` is the whole product, and even then every such tool in the
  * corpus is bring-your-own-key, so it is never "free to run".
  */
-function priceClause(t: ToolRecord): string {
+function priceClause(t: ToolSummary): string {
   if (t.entry_price === null) return t.pricing_model === 'usage' ? 'is usage-based' : 'is contact-sales only'
   if (t.entry_price > 0) return `starts at $${t.entry_price}/mo`
   return t.pricing_model === 'free' ? 'is free to install' : 'has a free tier'
@@ -121,7 +121,7 @@ function priceClause(t: ToolRecord): string {
  * A sunset date is not always in the past. Amazon Q Developer carries an end-of-support date
  * eight months out, and "was discontinued in April 2027" is a confidently false sentence.
  */
-function sunsetClause(t: ToolRecord, now: Date): string {
+function sunsetClause(t: ToolSummary, now: Date): string {
   if (!t.sunset_at) return 'is discontinued'
   const when = new Date(`${t.sunset_at}T00:00:00Z`)
   const month = when.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })
@@ -134,7 +134,7 @@ function firstExtra<T extends string>(options: readonly EnumOption<T>[], mine: r
 }
 
 /** The `wraps` edge between the two, in whichever direction it exists. */
-function wrapEdge(a: ToolRecord, b: ToolRecord) {
+function wrapEdge(a: ToolSummary, b: ToolSummary) {
   const ab = a.wraps.find(w => w.tool === b.slug)
   if (ab) return { host: a, guest: b, wrap: ab }
   const ba = b.wraps.find(w => w.tool === a.slug)
@@ -152,13 +152,13 @@ function wrapEdge(a: ToolRecord, b: ToolRecord) {
  * same-layer pairs and `wraps` edges, and outside an edge that claim is false more often than
  * not: people genuinely choose between an editor and a terminal agent.
  */
-function pairDelta(a: ToolRecord, b: ToolRecord, now: Date): string | undefined {
+function pairDelta(a: ToolSummary, b: ToolSummary, now: Date): string | undefined {
   const dead = [a, b].filter(t => t.status === 'sunset')
   if (dead.length === 2) {
     return `${a.name} ${sunsetClause(a, now)}, ${b.name} ${sunsetClause(b, now)}.`
   }
   if (dead.length === 1) {
-    const [gone] = dead as [ToolRecord]
+    const [gone] = dead as [ToolSummary]
     const live = gone === a ? b : a
     return `${gone.name} ${sunsetClause(gone, now)}, ${live.name} is ${live.status === 'preview' ? 'in preview' : optionLabelLower(STATUSES, live.status)}.`
   }
@@ -172,7 +172,7 @@ function pairDelta(a: ToolRecord, b: ToolRecord, now: Date): string | undefined 
 
   const bundled = [a, b].filter(t => t.pricing.bundled_with)
   if (bundled.length === 1) {
-    const [inPlan] = bundled as [ToolRecord]
+    const [inPlan] = bundled as [ToolSummary]
     const other = inPlan === a ? b : a
     return `${inPlan.name} comes with ${optionLabel(PLANS, inPlan.pricing.bundled_with!)} plans, ${other.name} ${priceClause(other)}.`
   }
@@ -221,7 +221,7 @@ function pairDelta(a: ToolRecord, b: ToolRecord, now: Date): string | undefined 
 }
 
 /** The lede on the comparison itself, which says what each product actually is. */
-export function pairIntro(a: ToolRecord, b: ToolRecord) {
-  const what = (t: ToolRecord) => `${t.name} is ${articleFor(optionLabel(LAYERS, t.layer))} by ${t.vendor}`
+export function pairIntro(a: ToolSummary, b: ToolSummary) {
+  const what = (t: ToolSummary) => `${t.name} is ${articleFor(optionLabel(LAYERS, t.layer))} by ${t.vendor}`
   return `${what(a)}. ${what(b)}. Every cell below is read from the directory data and points back to a vendor page.`
 }

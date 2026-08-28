@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { LAYERS } from '#shared/enums'
-import type { ToolRecord } from '#shared/types/tool'
+import type { ToolSummary } from '#shared/types/tool'
 
 const props = defineProps<{
-  tools: ToolRecord[]
+  tools: ToolSummary[]
   max: number
 }>()
 

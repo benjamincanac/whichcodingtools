@@ -1,4 +1,4 @@
-import type { Tool } from '../schema'
+import type { Tier, Tool } from '../schema'
 
 /** Runtime lists, not just types: `/openapi.json` publishes them as enums. */
 export const PRICING_MODELS = ['free', 'subscription', 'usage', 'hybrid'] as const
@@ -29,6 +29,36 @@ export interface ToolRecord extends Tool {
   /** Slugs of tools that wrap this one. */
   wrapped_by: string[]
   freshness: Freshness
+}
+
+/**
+ * A tier with the prose taken out. Everything the ranking, the compare table and the cost
+ * deltas read, and nothing a card never shows: `notes`, `limits`, `mirrors`, the annual and
+ * trial figures all belong to the pricing table on a tool page.
+ */
+export type SummaryTier = Pick<Tier, 'id' | 'name' | 'price' | 'per' | 'audience' | 'contact_sales'> & {
+  included?: Omit<NonNullable<Tier['included']>, 'notes'>
+  overage?: Pick<NonNullable<Tier['overage']>, 'kind' | 'markup_pct'>
+}
+
+/**
+ * What a list view needs, which is most of a record minus the long tail nobody reads until
+ * they open a tool. The whole corpus is inlined into the payload of every page that ranks,
+ * groups or compares, so the fields dropped here are the ones that were being paid for on
+ * `/`, `/tools`, `/layers/*`, `/plans/*` and `/compare` without ever being rendered.
+ *
+ * Dropped: `sources` (freshness is already computed), `install`, `links`, and the `notes`
+ * fields on pricing, models, license, wraps and tiers. A tool page fetches the full record
+ * from `/api/v1/tools/<slug>.json`, so nothing that needs them goes without.
+ */
+export interface ToolSummary extends Omit<ToolRecord, 'sources' | 'install' | 'links' | 'license' | 'models' | 'pricing' | 'wraps' | 'aliases' | 'freshness'> {
+  license: Pick<Tool['license'], 'spdx' | 'kind'>
+  models: Pick<Tool['models'], 'providers' | 'plans' | 'byok' | 'local'>
+  pricing: Pick<Tool['pricing'], 'same_as' | 'bundled_with'> & { tiers?: SummaryTier[] }
+  wraps: Omit<Tool['wraps'][number], 'notes'>[]
+  /** Only the slug: the 301 from a renamed URL is all a list view does with an alias. */
+  aliases: Pick<Tool['aliases'][number], 'slug'>[]
+  freshness: Pick<Freshness, 'verified_at' | 'level'>
 }
 
 export interface CostDelta {
