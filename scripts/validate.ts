@@ -4,6 +4,7 @@
  *
  *   pnpm validate
  */
+import { execSync } from 'node:child_process'
 import { readdir, readFile } from 'node:fs/promises'
 import { basename, extname, join } from 'node:path'
 import { parse as parseYaml } from 'yaml'
@@ -325,6 +326,56 @@ for (const logo of (await readdir(LOGO_DIR)).filter(f => extname(f) === '.png').
     issue(where, '', 'not a PNG despite the extension, so it is served as the wrong content type. Run `pnpm logos --write`')
   } else if (buf.byteLength > LOGO_MAX_BYTES) {
     issue(where, '', `${buf.byteLength} bytes, over the ${LOGO_MAX_BYTES} limit. Run \`pnpm logos --write\``)
+  }
+}
+
+/* ------------------------------ freshness ------------------------------ */
+
+// `--fresh` is the agent's pre-push gate. A run that pauses across days resumes believing the
+// pages it read before the pause are still today's: the dates parse, the figures match the
+// captures, and nothing else in the data can tell that "read that day" is three days old.
+// Manual edits run plain `pnpm validate`.
+if (process.argv.includes('--fresh')) {
+  const changed = new Map<string, 'new' | 'edited'>()
+  const note = (status: string, path: string | undefined) => {
+    if (!path?.startsWith('content/tools/') || !['.yml', '.yaml'].includes(extname(path))) return
+    if (status.includes('D')) return
+    const file = basename(path)
+    if (changed.get(file) !== 'new') changed.set(file, /[A?]/.test(status) ? 'new' : 'edited')
+  }
+  const git = (cmd: string) => execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).split('\n').filter(Boolean)
+  try {
+    // Uncommitted work, which is all the sandbox flow ever has, then branch commits for a
+    // checkout that commits locally. A base that is not there changes nothing: the working
+    // tree lines already carried the sandbox case.
+    for (const line of git('git status --porcelain -- content/tools')) {
+      note(line.slice(0, 2), line.slice(3).split(' -> ').pop())
+    }
+    for (const base of ['origin/main', 'main']) {
+      try {
+        for (const line of git(`git diff --name-status ${base}...HEAD -- content/tools`)) {
+          const [status, ...paths] = line.split('\t')
+          note(status!, paths.at(-1))
+        }
+        break
+      } catch { /* base not present in this checkout */ }
+    }
+  } catch {
+    issue('--fresh', '', 'git is unavailable, so there is no telling which files this run changed')
+  }
+
+  // Today or yesterday, so a run that started before midnight is not failed by its own clock.
+  const cutoff = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
+  for (const [file, how] of changed) {
+    const tool = tools.get(basename(file, extname(file)))
+    if (!tool) continue // a parse or schema failure above already owns this file
+    const stale = tool.sources.filter(s => s.verified_at < cutoff)
+    if (how === 'new' ? stale.length > 0 : stale.length === tool.sources.length) {
+      const what = how === 'new'
+        ? `${stale.length} of ${tool.sources.length} sources predate this run`
+        : 'no verified_at was bumped to today'
+      issue(file, 'sources', `${what}: a fact ships from a page read the day it ships, re-read the pages and bump the lines you re-checked`)
+    }
   }
 }
 
