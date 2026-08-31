@@ -1,6 +1,6 @@
 import { BYOK, FEATURES, LAYERS, LICENSE_KINDS, PLANS, PLATFORMS, PROVIDERS, optionLabel } from '../enums'
 import type { ToolSummary } from '../types/tool'
-import { OVERAGE_LABELS_SHORT, entryPrice, formatMoney, resolvePricing, teamPrice, topIndividualPrice } from './pricing'
+import { OVERAGE_LABELS_SHORT, cheapestTier, entryPrice, formatMoney, resolvePricing, topIndividualPrice } from './pricing'
 import { displayUrl, joinLabels } from './text'
 
 export interface CompareCell {
@@ -42,7 +42,15 @@ export function compareTools(tools: ToolSummary[], bySlug: Map<string, ToolSumma
     { key: 'free', label: 'Free tier', cells: tools.map(t => ({ text: t.has_free_tier ? 'Yes' : 'No', ok: t.has_free_tier })) },
     { key: 'entry', label: 'Entry price', cells: pricing.map(p => ({ text: formatMoney(entryPrice(p.tiers)) ?? (p.tiers.some(t => t.overage?.kind === 'api-list' && t.price === null) ? 'Usage-based' : 'Contact sales') })) },
     { key: 'top', label: 'Top individual plan', cells: pricing.map(p => ({ text: formatMoney(topIndividualPrice(p.tiers)) ?? '—' })) },
-    { key: 'team', label: 'Team seat', cells: pricing.map(p => ({ text: formatMoney(teamPrice(p.tiers), '/user/mo') ?? (p.tiers.some(t => t.audience !== 'individual') ? 'Contact sales' : '—') })) },
+    // A team tier can pool one flat fee instead of billing per seat, and "$40/user/mo" on a
+    // pooled plan overstates every seat after the first.
+    { key: 'team', label: 'Team plan', cells: pricing.map((p) => {
+      const team = cheapestTier(p.tiers.filter(t => t.audience === 'team' && !t.contact_sales))
+      return {
+        text: formatMoney(team?.price ?? null, team?.per === 'flat' ? '/mo' : '/user/mo') ?? (p.tiers.some(t => t.audience !== 'individual') ? 'Contact sales' : '—'),
+        detail: team?.per === 'flat' ? 'flat, pooled for the team' : undefined
+      }
+    }) },
     {
       key: 'included',
       label: 'Included usage',
