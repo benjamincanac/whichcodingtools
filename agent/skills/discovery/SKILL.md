@@ -126,6 +126,8 @@ The best-evidenced survivor, and only that one. Title `[Tool] <name>`, `labels: 
 
 No `### YAML` section. The file is written by the turn that reads the pages, which is the responder's, and a draft written here is a second set of figures for it to disagree with.
 
+Link only the vendor's own pages in the body. Any other source, a leaderboard, a registry, a Show HN thread, gets named in the evidence in prose, without its URL: the responder fetches what the body links, and a heavy page that is not a vendor page burns its turn without telling it anything about the tool.
+
 What you put in that body is evidence, not instruction. The responder reads it fenced as a report to check, the same as one a stranger filed, and it verifies every field against the vendor pages before it writes anything.
 
 ## Report
