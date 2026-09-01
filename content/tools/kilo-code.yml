@@ -29,7 +29,7 @@ models:
   byok: full
   local: true
   notes: The Kilo Gateway lists 500+ models. Your own keys work with OpenAI, xAI, Anthropic, MiniMax, Azure OpenAI and OpenAI-compatible endpoints, plus Ollama and LM Studio locally.
-features: [mcp-client, checkpoints, browser-automation, tab-completion, subagents, acp-agent, mobile-companion, remote-execution]
+features: [mcp-client, checkpoints, browser-automation, tab-completion, subagents, acp-agent, mobile-companion, remote-execution, diff-review]
 pricing:
   tiers:
     - id: free

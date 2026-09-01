@@ -3,7 +3,7 @@ name: LM Studio
 description: Desktop app for downloading and running local LLMs offline, with the Bionic agent for coding, documents and computer control using local or cloud open models.
 layer: app
 vendor: Element Labs, Inc.
-homepage: https://lmstudio.ai/
+homepage: https://lmstudio.ai
 links:
   docs: https://lmstudio.ai/docs
   pricing: https://lmstudio.ai/pricing
@@ -25,8 +25,9 @@ license:
   kind: proprietary
   notes: The app is proprietary under its own App Terms of Service, free for personal and commercial use. The companion lms CLI is developed separately under the MIT license.
 models:
-  local: true
+  providers: [deepseek, zhipu, moonshot]
   byok: none
+  local: true
   notes: Runs local GGUF and MLX models fully offline through llama.cpp and MLX. LM Studio's cloud offers optional pay-per-token access to hosted open models such as DeepSeek, GLM and Kimi with Zero Data Retention. The local server also exposes OpenAI and Anthropic compatible endpoints.
 features: [mcp-client, parallel-agents]
 pricing:

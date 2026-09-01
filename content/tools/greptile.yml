@@ -47,6 +47,7 @@ pricing:
         amount: 50
         unit: credits
         period: month
+        usd_value: 50
         notes: Per seat.
       overage:
         kind: credits

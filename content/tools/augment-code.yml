@@ -23,7 +23,7 @@ models:
   byok: none
   local: false
   notes: Claude, GPT, Gemini, Grok, GLM and Kimi models hosted by Augment, plus Prism routing. No mention of your own keys in the docs.
-features: [mcp-client, subagents, hooks, plugins, acp-agent, scheduled-tasks, tab-completion, remote-execution]
+features: [mcp-client, subagents, hooks, plugins, acp-agent, scheduled-tasks, tab-completion, remote-execution, parallel-agents]
 pricing:
   tiers:
     - id: business

@@ -4,7 +4,7 @@ description: An AI coding agent by JetBrains that ships code from your terminal,
 layer: harness
 secondary_layers: [cloud]
 vendor: JetBrains
-homepage: https://junie.jetbrains.com/
+homepage: https://junie.jetbrains.com
 links:
   docs: https://junie.jetbrains.com/docs/
   pricing: https://junie.jetbrains.com/#pricing

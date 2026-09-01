@@ -57,7 +57,7 @@ wraps:
     uses_subscription: true
     min_tier: free
     notes: Runs the Cursor CLI agent with your Cursor account.
-  - tool: github-copilot
+  - tool: copilot-cli
     via: cli
     uses_subscription: true
     min_tier: free

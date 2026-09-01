@@ -22,7 +22,7 @@ license:
   repo: https://github.com/TabbyML/tabby
   notes: The ee directory is under the proprietary Tabby Enterprise License, everything else is Apache-2.0.
 models:
-  providers: [openai, anthropic]
+  providers: [openai, anthropic, alibaba, meta, mistral]
   byok: full
   local: true
   notes: Ships local completion and chat models such as StarCoder, Qwen2.5 Coder, CodeLlama and Codestral, and connects to OpenAI, Anthropic, Ollama or any OpenAI compatible endpoint through HTTP model connectors.

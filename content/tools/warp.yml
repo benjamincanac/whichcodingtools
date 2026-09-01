@@ -83,6 +83,7 @@ pricing:
       included:
         amount: 1500
         unit: credits
+        period: month
         usd_value: 20
         notes: 1,500 credits, $20 of agent usage at API rates
       overage:
@@ -98,6 +99,7 @@ pricing:
       included:
         amount: 18000
         unit: credits
+        period: month
         usd_value: 240
         notes: 18,000 credits, 12 times the Build allotment
       overage:
@@ -111,6 +113,7 @@ pricing:
       included:
         amount: 1500
         unit: credits
+        period: month
         usd_value: 20
         notes: 1,500 credits per seat
       overage:
