@@ -56,7 +56,7 @@ sources:
     verified_at: 2026-08-23
     covers: [pricing, general]
   - url: https://docs.cloud.google.com/gemini/docs/codeassist/overview
-    verified_at: 2026-08-23
+    verified_at: 2026-09-01
     covers: [platforms, features, models, general]
   - url: https://docs.cloud.google.com/gemini/docs/quotas
     verified_at: 2026-08-23
