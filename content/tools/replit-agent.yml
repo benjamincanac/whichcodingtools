@@ -1,8 +1,8 @@
 slug: replit-agent
 name: Replit Agent
 description: Replit's agent builds, tests and publishes web and mobile apps from a prompt inside the hosted Replit workspace, with checkpoints, a real-browser tester and credits on paid plans.
-layer: cloud
-secondary_layers: [app-builder]
+layer: app-builder
+secondary_layers: [cloud]
 vendor: Replit
 homepage: https://replit.com
 links:

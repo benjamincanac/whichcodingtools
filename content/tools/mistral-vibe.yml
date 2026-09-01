@@ -29,7 +29,7 @@ models:
   byok: full
   local: true
   notes: Mistral models by default, through a Mistral plan or an API key from Mistral Studio. The docs say the CLI also runs fully offline with local models or against any compatible API key, configured as a provider in config.toml.
-features: [subagents, mcp-client, hooks, acp-agent, tab-completion]
+features: [subagents, mcp-client, hooks, acp-agent, tab-completion, sandboxing]
 pricing:
   tiers:
     - id: free

@@ -64,7 +64,7 @@ pricing:
       per: flat
       audience: individual
       overage:
-        kind: fixed
+        kind: credits
         notes: "$5 for 100, $10 for 500 and $20 for 2,000 Hypercredits. Prepaid Hypercredits never expire."
   notes: Crush has no license fee. Hyper is Charm's optional hosted inference plan for Crush, billed in Hypercredits currently worth 5 cents each.
 status: active

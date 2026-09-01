@@ -18,7 +18,7 @@ license:
   spdx: proprietary
   kind: proprietary
 models:
-  providers: [first-party, deepseek, zhipu, moonshot, minimax]
+  providers: [alibaba, deepseek, zhipu, moonshot, minimax]
   byok: partial
   local: false
   notes: Built in tiers (Auto, Ultimate, Performance, Efficient, Lite) plus named Qwen, DeepSeek, GLM, Kimi and MiniMax models billed at per model credit rates. Your own API key works only for Alibaba Cloud Model Studio, DeepSeek, Z.ai, Kimi, MiniMax and Xiaomi MiMo.
@@ -42,11 +42,11 @@ pricing:
       included:
         amount: 2000
         unit: credits
+        period: month
         usd_value: 20
         notes: 2,000 credits per month for premium models, unused credits expire at the end of the cycle
       overage:
         kind: credits
-        rate: 20
         notes: Credit packs at $20 per 1,500 credits, valid one month.
     - id: pro-plus
       name: Pro+
@@ -55,10 +55,10 @@ pricing:
       included:
         amount: 6000
         unit: credits
+        period: month
         usd_value: 60
       overage:
         kind: credits
-        rate: 20
     - id: ultra
       name: Ultra
       price: 200
@@ -66,10 +66,10 @@ pricing:
       included:
         amount: 20000
         unit: credits
+        period: month
         usd_value: 200
       overage:
         kind: credits
-        rate: 20
     - id: teams
       name: Teams
       price: 40
@@ -77,6 +77,7 @@ pricing:
       included:
         amount: 3000
         unit: credits
+        period: month
         notes: 3,000 credits per seat per month since 2026-04-30
       overage:
         kind: credits

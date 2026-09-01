@@ -22,11 +22,11 @@ license:
   kind: open-source
   repo: https://github.com/MoonshotAI/kimi-code
 models:
-  providers: [first-party, anthropic, openai, google]
+  providers: [moonshot, anthropic, openai, google]
   byok: full
   local: false
   notes: Kimi models through the Kimi Code OAuth login or a platform.kimi.com API key. Anthropic, OpenAI, Google and other compatible providers are configured by hand in config.toml with your own key.
-features: [mcp-client, subagents, parallel-agents, hooks, plugins, acp-agent]
+features: [mcp-client, subagents, parallel-agents, hooks, plugins, acp-agent, scheduled-tasks]
 pricing:
   tiers:
     - id: adagio

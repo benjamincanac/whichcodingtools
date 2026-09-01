@@ -37,6 +37,7 @@ pricing:
         amount: 2000
         unit: credits
         period: month
+        usd_value: 20
       overage:
         kind: fixed
         rate: 0.01

@@ -11,6 +11,7 @@ links:
   repo: https://github.com/openai/codex
 icon: i-simple-icons-openai
 platforms: [macos, linux, windows]
+hosts: [vscode]
 install:
   - method: npm
     command: npm install -g @openai/codex

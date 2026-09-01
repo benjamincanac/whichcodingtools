@@ -20,7 +20,7 @@ models:
   byok: partial
   local: false
   notes: Sweep runs its own models for autocomplete and meters chat and agent usage in API credits. BYOK is documented for Claude Sonnet 4.5 and GLM 4.6 only. The VS Code extension is a .vsix from GitHub releases rather than a marketplace listing.
-features: [tab-completion, mcp-client]
+features: [tab-completion, mcp-client, diff-review]
 pricing:
   tiers:
     - id: trial

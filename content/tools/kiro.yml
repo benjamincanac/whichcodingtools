@@ -45,6 +45,7 @@ pricing:
         amount: 1000
         unit: credits
         period: month
+        usd_value: 40
       overage:
         kind: credits
         rate: 0.04
@@ -56,6 +57,7 @@ pricing:
         amount: 2000
         unit: credits
         period: month
+        usd_value: 80
       overage:
         kind: credits
         rate: 0.04
@@ -67,6 +69,7 @@ pricing:
         amount: 5000
         unit: credits
         period: month
+        usd_value: 200
       overage:
         kind: credits
         rate: 0.04
@@ -78,6 +81,7 @@ pricing:
         amount: 10000
         unit: credits
         period: month
+        usd_value: 400
       overage:
         kind: credits
         rate: 0.04

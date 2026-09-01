@@ -25,7 +25,7 @@ pricing:
       audience: individual
       included:
         amount: 25
-        unit: messages
+        unit: credits
         period: month
         notes: 25 message credits and 100 integration credits a month
       overage:
@@ -39,7 +39,7 @@ pricing:
       audience: individual
       included:
         amount: 100
-        unit: messages
+        unit: credits
         period: month
         notes: 100 message credits and 2,000 integration credits a month
       overage:
@@ -54,7 +54,7 @@ pricing:
       audience: individual
       included:
         amount: 250
-        unit: messages
+        unit: credits
         period: month
         notes: 250 message credits and 10,000 integration credits a month
       overage:
@@ -68,7 +68,7 @@ pricing:
       audience: individual
       included:
         amount: 500
-        unit: messages
+        unit: credits
         period: month
         notes: 500 message credits and 20,000 integration credits a month
       overage:
@@ -82,7 +82,7 @@ pricing:
       audience: individual
       included:
         amount: 1200
-        unit: messages
+        unit: credits
         period: month
         notes: 1,200 message credits and 50,000 integration credits a month
       overage:

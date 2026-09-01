@@ -50,15 +50,11 @@ pricing:
       name: Pro
       price: 50
       audience: individual
-      included:
-        amount: 1
-        unit: credits
-        period: month
-        notes: A bundle of Conductor Cloud workspace hours, amount not published on the pricing page
       overage:
         kind: credits
       limits:
         - Conductor Cloud, multiplayer with up to 5 Pro users, Conductor API
+      notes: Includes a bundle of Conductor Cloud workspace hours, amount not published on the pricing page
     - id: teams
       name: Teams
       price: 60

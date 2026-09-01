@@ -19,7 +19,7 @@ license:
   repo: https://github.com/xai-org/grok-build
   notes: First party code is Apache-2.0. Vendored ports of codex and opencode keep their own licenses in the repo notices.
 models:
-  providers: [first-party, anthropic, openai]
+  providers: [xai, anthropic, openai]
   byok: full
   local: true
   notes: Defaults to xAI hosted Grok models. Custom endpoints accept OpenAI Chat Completions, Responses or Anthropic Messages protocols with your own key, including Ollama and other local servers.
