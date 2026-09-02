@@ -23,6 +23,9 @@ const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'lowercase letters, 
 const isoDate = z.string().date()
 const url = z.url()
 
+/** The tier default the validate script also checks against, one literal for both. */
+export const DEFAULT_PER = 'user' as const
+
 export const IncludedSchema = z.object({
   amount: z.number().nonnegative(),
   unit: z.enum(INCLUDED_UNITS),
@@ -54,7 +57,7 @@ export const TierSchema = z.object({
   price: z.number().nonnegative().nullable(),
   price_annual: z.number().nonnegative().optional(),
   price_from: z.boolean().default(false),
-  per: z.enum(PRICE_PER).default('user'),
+  per: z.enum(PRICE_PER).default(DEFAULT_PER),
   audience: z.enum(AUDIENCES),
   contact_sales: z.boolean().default(false),
   trial_days: z.number().int().positive().optional(),

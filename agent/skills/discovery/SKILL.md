@@ -87,7 +87,7 @@ A fork is a tool when it ships as its own product with its own pricing, and is n
 
 ## Verify before filing
 
-Read the candidate's own homepage with `page-text.mjs`, the browser second when the fetch comes back with no readable text. Three things have to hold: the product exists and ships today, the page states a price or says it is free, and it is the kind of thing the source claimed. A candidate whose page cannot be read is not filed. Say so in the report and let it come back next week.
+Read the candidate's own homepage with `page-text.mjs`, the browser second when the fetch comes back with no readable text, and never when it exits 3, which is a page the vendor's robots.txt reserves and a candidate to report as such. Three things have to hold: the product exists and ships today, the page states a price or says it is free, and it is the kind of thing the source claimed. A candidate whose page cannot be read is not filed. Say so in the report and let it come back next week.
 
 ## Dedupe
 

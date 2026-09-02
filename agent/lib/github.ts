@@ -136,8 +136,8 @@ interface RelatedNode {
 /**
  * Everything currently open, for a stocktake rather than a lookup. `findRelated` searches by
  * words, and `plainTerms` strips qualifiers on purpose, so there is no way to ask it for
- * "all of them". The repository is private, which rules out reading the REST API without a
- * credential, and the browser cannot reach github.com at all, so this is the list.
+ * "all of them". The REST API without a credential is rate limited to almost nothing and the
+ * browser cannot reach github.com at all, so this is the list.
  */
 const OPEN_QUERY = `query($q: String!, $first: Int!) {
   search(query: $q, type: ISSUE, first: $first) {
@@ -249,6 +249,11 @@ export interface PushedFile {
   path: string
   /** base64, so a PNG logo travels the same way a YAML file does. */
   content: string
+}
+
+/** Whether a branch exists on GitHub, for the claim a limited turn makes before it pushes. */
+export async function branchExists(branch: string) {
+  return (await refSha(branch)) !== null
 }
 
 /** GET that reads a missing ref as "not there yet" rather than an error. */
@@ -418,38 +423,81 @@ function stripThreadFence(text: string) {
 
 /** A long argument is still an argument, but it does not need to arrive whole. */
 const MAX_THREAD_CHARS = 40_000
+/** What the opening text keeps when the thread is trimmed; the rest of the room goes to the newest comments. */
+const OPENING_KEEP = 8_000
+/** 100 is the endpoint's maximum, and five pages of it is a runaway guard, not a thread size. */
+const THREAD_PAGE = 100
+const MAX_THREAD_PAGES = 5
 
 interface ThreadComment {
   user: { login: string } | null
-  created_at: string
+  created_at?: string
+  /** Reviews carry this instead of `created_at`. */
+  submitted_at?: string
   body: string | null
   state?: string
+  /** Inline review comments: the file and line the note sits on. */
+  path?: string
+  line?: number | null
+  original_line?: number | null
 }
 
-function transcript(parts: { author: string, at: string, kind: string, body: string }[]) {
-  const text = parts
-    .map(p => `--- ${p.author} ${p.kind} on ${p.at.slice(0, 10)} ---\n${stripThreadFence(p.body).trim()}`)
-    .join('\n\n')
-  const trimmed = text.length > MAX_THREAD_CHARS ? `${text.slice(0, MAX_THREAD_CHARS)}\n[trimmed]` : text
-  return `<thread>\n${trimmed}\n</thread>`
+interface ThreadPart {
+  author: string
+  at: string
+  kind: string
+  body: string
+}
+
+/** Every page of a list endpoint, oldest first, which is the order GitHub returns them in. */
+async function allPages<T>(path: string) {
+  const items: T[] = []
+  for (let page = 1; page <= MAX_THREAD_PAGES; page++) {
+    const batch = await githubApi<T[]>('GET', path, undefined, { per_page: String(THREAD_PAGE), page: String(page) })
+    items.push(...batch)
+    if (batch.length < THREAD_PAGE) break
+  }
+  return items
+}
+
+/**
+ * The opening text, then everything said since in the order it was said. A trim takes from the
+ * front of the discussion, never its end: the newest comment is the objection a pass is looking
+ * for, and it used to be the first thing a `slice(0, MAX)` threw away.
+ */
+function transcript(opening: ThreadPart, later: ThreadPart[]) {
+  const render = (p: ThreadPart) => `--- ${p.author} ${p.kind} on ${p.at.slice(0, 10)} ---\n${stripThreadFence(p.body).trim()}`
+  let head = render(opening)
+  let tail = later.sort((a, b) => a.at.localeCompare(b.at)).map(render).join('\n\n')
+  if (head.length + tail.length > MAX_THREAD_CHARS) {
+    if (head.length > OPENING_KEEP) head = `${head.slice(0, OPENING_KEEP)}\n[opening text trimmed]`
+    const room = MAX_THREAD_CHARS - head.length
+    if (tail.length > room) tail = `[${tail.length - room} earlier characters trimmed]\n${tail.slice(tail.length - room)}`
+  }
+  return `<thread>\n${[head, tail].filter(Boolean).join('\n\n')}\n</thread>`
 }
 
 /**
  * The discussion on an issue or pull request. Diffs come out of the checkout, but what people
  * said about them only lives here, and a pass deciding what still needs a person cannot see
- * an objection it never read. People wrote it, so it comes back fenced as data.
+ * an objection it never read. On a pull request that includes the inline review comments and
+ * a review's verdict even when it came with no summary, which is how "changes requested" with
+ * three notes on the diff usually arrives. People wrote it, so it comes back fenced as data.
  */
 export async function readThread(number: number) {
   const issue = await githubApi<{ title: string, state: string, user: { login: string } | null, body: string | null, created_at: string, pull_request?: unknown }>('GET', `/repos/${REPO}/issues/${number}`)
-  const comments = await githubApi<ThreadComment[]>('GET', `/repos/${REPO}/issues/${number}/comments`, undefined, { per_page: '100' })
+  const comments = await allPages<ThreadComment>(`/repos/${REPO}/issues/${number}/comments`)
   const pull = Boolean(issue.pull_request)
-  const reviews = pull
-    ? await githubApi<ThreadComment[]>('GET', `/repos/${REPO}/pulls/${number}/reviews`, undefined, { per_page: '100' })
-    : []
-  const parts = [
-    { author: issue.user?.login ?? 'ghost', at: issue.created_at, kind: 'opened it', body: issue.body ?? '' },
-    ...comments.map(c => ({ author: c.user?.login ?? 'ghost', at: c.created_at, kind: 'commented', body: c.body ?? '' })),
-    ...reviews.filter(r => r.body).map(r => ({ author: r.user?.login ?? 'ghost', at: r.created_at, kind: `reviewed (${r.state?.toLowerCase() ?? 'commented'})`, body: r.body ?? '' }))
+  const reviews = pull ? await allPages<ThreadComment>(`/repos/${REPO}/pulls/${number}/reviews`) : []
+  const inline = pull ? await allPages<ThreadComment>(`/repos/${REPO}/pulls/${number}/comments`) : []
+  const opening: ThreadPart = { author: issue.user?.login ?? 'ghost', at: issue.created_at, kind: 'opened it', body: issue.body ?? '' }
+  const later: ThreadPart[] = [
+    ...comments.map(c => ({ author: c.user?.login ?? 'ghost', at: c.created_at ?? '', kind: 'commented', body: c.body ?? '' })),
+    // A bodiless COMMENTED review is the wrapper GitHub puts around inline notes, listed below.
+    ...reviews
+      .filter(r => r.body || (r.state && r.state !== 'COMMENTED' && r.state !== 'PENDING'))
+      .map(r => ({ author: r.user?.login ?? 'ghost', at: r.submitted_at ?? r.created_at ?? '', kind: `reviewed (${r.state?.toLowerCase() ?? 'commented'})`, body: r.body || '(no summary)' })),
+    ...inline.map(c => ({ author: c.user?.login ?? 'ghost', at: c.created_at ?? '', kind: `commented on ${c.path ?? 'the diff'}${c.line ?? c.original_line ? `:${c.line ?? c.original_line}` : ''}`, body: c.body ?? '' }))
   ]
   return {
     number,
@@ -457,7 +505,7 @@ export async function readThread(number: number) {
     state: issue.state,
     title: issue.title,
     author: issue.user?.login ?? 'ghost',
-    discussion: transcript(parts)
+    discussion: transcript(opening, later)
   }
 }
 

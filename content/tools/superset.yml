@@ -61,6 +61,7 @@ pricing:
       name: Pro
       price: 20
       price_annual: 15
+      per: flat
       audience: team
       limits:
         - Unlimited users, remote workspaces, Linear and Slack integrations

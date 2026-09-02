@@ -48,7 +48,6 @@ pricing:
         amount: 60
         unit: usd
         usd_value: 60
-        period: month
         notes: $12 of usage per five hours, $30 per week and $60 per month on open weight models such as Kimi K3, GLM-5.2, DeepSeek V4 and Qwen 3.8 Max
       overage:
         kind: blocked

@@ -9,6 +9,14 @@ export const AUTONOMOUS_PRINCIPAL = 'github:whichcodingtools-first-responder'
 /** Principal stamped on a mention from anyone who is not the maintainer. */
 export const VISITOR_PRINCIPAL = 'github:whichcodingtools-visitor'
 
+/**
+ * Principal stamped on the unattended review of a person's pull request. In no allow-list at
+ * all: it reads the branch and the vendor pages, and the one thing it produces is the comment
+ * the channel posts from its last message. A review that could push would be a review that
+ * could edit the branch it is judging.
+ */
+export const REVIEW_PRINCIPAL = 'github:whichcodingtools-pr-review'
+
 /** eve's own principal on a schedule-dispatched turn, matched on all three fields. */
 const SCHEDULE_PRINCIPAL = { authenticator: 'app', principalId: 'eve:app', principalType: 'runtime' }
 
@@ -36,6 +44,12 @@ export function isSchedule(auth: SessionAuthContext | null) {
 export function isAutonomous(auth: SessionAuth) {
   return auth.current?.principalId === AUTONOMOUS_PRINCIPAL
     || auth.initiator?.principalId === AUTONOMOUS_PRINCIPAL
+}
+
+/** The review twin of `isAutonomous`, read the same pessimistic way and for the same reason. */
+export function isReviewer(auth: SessionAuth) {
+  return auth.current?.principalId === REVIEW_PRINCIPAL
+    || auth.initiator?.principalId === REVIEW_PRINCIPAL
 }
 
 /** The visitor twin of `isAutonomous`, read the same pessimistic way and for the same reason. */

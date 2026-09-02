@@ -15,8 +15,8 @@ license:
   spdx: proprietary
   kind: proprietary
 models:
-  providers: [first-party]
-  plans: [cursor]
+  providers: [xai]
+  plans: [cursor, grok]
   byok: none
   local: false
   notes: The docs do not name which Grok model version powers Bots. Bots sign in with a Cursor account, and a linked SuperGrok Plus or SuperGrok Heavy subscription also unlocks access without a paid Cursor plan.
@@ -59,7 +59,6 @@ pricing:
     - id: cursor-teams
       name: Cursor Teams
       price: 40
-      per: user
       audience: team
       mirrors:
         tool: cursor

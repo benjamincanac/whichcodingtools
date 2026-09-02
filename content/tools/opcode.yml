@@ -5,9 +5,10 @@ layer: orchestrator
 vendor: Asterisk
 homepage: https://opcode.sh
 links:
+  docs: https://github.com/winfunc/opcode
   repo: https://github.com/winfunc/opcode
   x: https://x.com/getAsterisk
-platforms: [macos, linux, windows]
+platforms: [macos, linux]
 install:
   - method: download
     url: https://github.com/winfunc/opcode/releases

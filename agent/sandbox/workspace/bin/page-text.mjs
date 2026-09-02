@@ -15,6 +15,10 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 const MAX_CHARS = 200_000
+/** Bytes read off the wire before the body is cut. A pricing page is tens of KB; this is a moved URL now serving a video. */
+const MAX_BYTES = 4_000_000
+/** What a capture can be made of. A PDF or an image is not page text, and a 200 does not make it one. */
+const TEXT_TYPES = /^(text\/|application\/(xhtml\+xml|xml|json|ld\+json|rss\+xml|atom\+xml))/
 
 // Who is asking, on every request this script makes. Kept in sync with shared/content/crawler.ts,
 // which is what the URL in it renders. The browser fallback cannot set one, so it sends Chromium's.
@@ -282,12 +286,59 @@ async function fetchChecked(url) {
     })
     const location = res.headers.get('location')
     if (res.status >= 300 && res.status < 400 && location) {
-      current = new URL(location, current).href
+      const next = new URL(location, current)
+      // A vendor page can send the chain anywhere, and discovery reads URLs strangers posted.
+      if (!isPublicWeb(next)) return { unsafe: next.href, url: current }
+      current = next.href
       continue
     }
     return { res, url: current }
   }
   return { tooMany: true, url: current }
+}
+
+/** http or https on a public host: no loopback, link-local or private range, however spelled. */
+function isPublicWeb(url) {
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') return false
+  const host = url.hostname.toLowerCase().replace(/^\[|\]$/g, '')
+  if (host === 'localhost' || host.endsWith('.localhost') || host.endsWith('.local') || host.endsWith('.internal')) return false
+  const v4 = host.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/)
+  if (v4) {
+    const [a, b] = [Number(v4[1]), Number(v4[2])]
+    return !(a === 0 || a === 10 || a === 127 || (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || a >= 224)
+  }
+  if (host.includes(':')) {
+    return !(host === '::1' || host === '::' || /^(fc|fd|fe[89ab])/.test(host) || host.startsWith('::ffff:'))
+  }
+  return true
+}
+
+/** The body up to MAX_BYTES, decoded with the charset the response names when it names one. */
+async function readCapped(res) {
+  const chunks = []
+  let size = 0
+  let cut = false
+  const reader = res.body?.getReader()
+  if (!reader) return { text: await res.text(), cut }
+  for (;;) {
+    const { done, value } = await reader.read()
+    if (done) break
+    chunks.push(value)
+    size += value.byteLength
+    if (size > MAX_BYTES) {
+      cut = true
+      await reader.cancel()
+      break
+    }
+  }
+  const charset = /charset=([\w-]+)/i.exec(res.headers.get('content-type') ?? '')?.[1]
+  let decoder
+  try {
+    decoder = new TextDecoder(charset ?? 'utf-8')
+  } catch {
+    decoder = new TextDecoder()
+  }
+  return { text: decoder.decode(Buffer.concat(chunks)), cut }
 }
 
 async function fromFetch(url) {
@@ -307,6 +358,11 @@ async function fromFetch(url) {
   const { verdict, res } = outcome
   // Named where it was stopped: after a redirect that is not the URL the caller passed.
   const where = outcome.url === url ? 'this page' : outcome.url
+  if (outcome.unsafe) {
+    console.error(`${outcome.url} redirects to ${outcome.unsafe}, which is not a public web address. Not followed.`)
+    process.exitCode = 1
+    return
+  }
   if (verdict?.unreachable) {
     console.error(`robots.txt at ${new URL(outcome.url).origin} is unreachable (${verdict.reason}), which RFC 9309 says to read as a reservation. ${where} was not fetched.`)
     console.error('This is not a failed fetch. Report it as reserved and let the next run try again.')
@@ -337,7 +393,15 @@ async function fromFetch(url) {
     process.exitCode = 1
     return
   }
-  emit(outcome.url, htmlToText(await res.text()))
+  const type = (res.headers.get('content-type') ?? '').toLowerCase()
+  if (type && !TEXT_TYPES.test(type)) {
+    console.error(`${outcome.url} is ${type.split(';')[0].trim()}, not a page. A PDF, an image or a download is not a capture: find the page the figures are written on.`)
+    process.exitCode = 1
+    return
+  }
+  const body = await readCapped(res)
+  if (body.cut) console.error(`# [body cut at ${MAX_BYTES} bytes]`)
+  emit(outcome.url, htmlToText(body.text))
 }
 
 async function main() {

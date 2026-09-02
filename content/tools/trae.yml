@@ -16,7 +16,7 @@ license:
   spdx: proprietary
   kind: proprietary
 models:
-  providers: [openai, google, first-party, minimax, moonshot, anthropic, deepseek, xai, openrouter, vercel-ai-gateway]
+  providers: [first-party, openai, google, minimax, moonshot, anthropic, deepseek, xai, openrouter, vercel-ai-gateway]
   byok: full
   local: true
   notes: Built-in GPT-5.4 and 5.2, Gemini 3.1 Pro and 3 Flash, Seed-2.1-Turbo, MiniMax M3 and M2.7 and Kimi K2.5. GPT and MiniMax are not offered to US users. Custom models with your own key from Google, OpenAI, DeepSeek, Anthropic, xAI, OpenRouter, Vercel AI Gateway, Azure, AWS, Ollama and others, or any OpenAI or Anthropic compatible endpoint.

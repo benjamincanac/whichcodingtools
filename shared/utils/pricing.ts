@@ -48,13 +48,6 @@ export function entryPrice(tiers: SummaryTier[]) {
   return prices.length ? Math.min(...prices) : null
 }
 
-export function teamPrice(tiers: SummaryTier[]) {
-  const prices = tiers
-    .filter(t => t.audience === 'team' && !t.contact_sales && t.price !== null)
-    .map(t => t.price as number)
-  return prices.length ? Math.min(...prices) : null
-}
-
 export function cheapestTier<T extends SummaryTier>(tiers: T[]) {
   return [...tiers]
     .filter(t => t.price !== null)

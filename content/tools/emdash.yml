@@ -7,6 +7,7 @@ homepage: https://emdash.com
 links:
   docs: https://emdash.com/docs
   changelog: https://emdash.com/changelog
+  pricing: https://emdash.com/enterprise
   repo: https://github.com/generalaction/emdash
   discord: https://discord.com/invite/f2fv7YxuR2
   x: https://x.com/emdashsh
@@ -61,7 +62,7 @@ pricing:
   notes: The site links Cloud and Enterprise pages without prices. Amp, Copilot, Devin, Droid and Qwen Code also run.
 status: preview
 sources:
-  - url: https://emdash.com/
+  - url: https://emdash.com
     verified_at: 2026-08-23
     covers: [pricing, platforms, features, general]
   - url: https://emdash.com/enterprise

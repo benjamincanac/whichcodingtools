@@ -5,6 +5,7 @@ layer: orchestrator
 vendor: Farouq Aldori
 homepage: https://github.com/farouqaldori/vibe-notch
 links:
+  docs: https://github.com/farouqaldori/vibe-notch
   repo: https://github.com/farouqaldori/vibe-notch
   changelog: https://github.com/farouqaldori/vibe-notch/releases
 platforms: [macos]

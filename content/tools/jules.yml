@@ -45,6 +45,9 @@ pricing:
       name: Google AI Pro
       price: 19.99
       audience: individual
+      mirrors:
+        tool: google-antigravity
+        tier: google-ai-pro
       overage:
         kind: rate-limited
       limits:
@@ -55,6 +58,9 @@ pricing:
       price: 99.99
       price_from: true
       audience: individual
+      mirrors:
+        tool: google-antigravity
+        tier: google-ai-ultra
       overage:
         kind: rate-limited
       limits:

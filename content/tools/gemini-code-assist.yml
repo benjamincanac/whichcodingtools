@@ -23,7 +23,7 @@ models:
   byok: none
   local: false
   notes: Gemini models hosted by Google Cloud, Gemini 3 on the Preview release channel for Standard and Enterprise. Google AI Pro and Ultra accounts stopped being served on June 18, 2026.
-features: [mcp-client, tab-completion]
+features: [mcp-client, tab-completion, diff-review]
 pricing:
   tiers:
     - id: standard
@@ -56,7 +56,7 @@ sources:
     verified_at: 2026-08-23
     covers: [pricing, general]
   - url: https://docs.cloud.google.com/gemini/docs/codeassist/overview
-    verified_at: 2026-08-23
+    verified_at: 2026-09-01
     covers: [platforms, features, models, general]
   - url: https://docs.cloud.google.com/gemini/docs/quotas
     verified_at: 2026-08-23
