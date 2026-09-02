@@ -48,6 +48,6 @@ sources:
   - url: https://roocodeinc.github.io/Roo-Code/providers/
     verified_at: 2026-08-23
     covers: [models]
-  - url: https://roomote.dev/
+  - url: https://roomote.dev
     verified_at: 2026-08-23
     covers: [general]
