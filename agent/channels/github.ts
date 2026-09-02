@@ -2,11 +2,35 @@ import type { GitHubComment, GitHubEventContext, GitHubInboundContext } from 'ev
 import { defaultGitHubAuth, githubChannel } from 'eve/channels/github'
 import { connect, isAgentLogin, REPO } from '../lib/github'
 import { currentThread } from '../lib/thread'
-import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, VISITOR_PRINCIPAL, isAutonomous } from '../lib/trust'
+import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, VISITOR_PRINCIPAL, isAutonomous, isTrustedWriter } from '../lib/trust'
 
 const botName = 'whichcodingtools'
 // Left boundary too, so support@whichcodingtools.dev in a comment does not start a turn.
 const mention = new RegExp(`(?<![A-Za-z0-9_-])@${botName}(?=$|[^A-Za-z0-9_-])`, 'i')
+
+/**
+ * What a turn posts when it cannot go on: the token cap, a failed step, a session eve gave up
+ * on. One sentence, the same in every case, because the reporter is a stranger reading a public
+ * thread and the reason is the maintainer's to read in the logs. The marker is an HTML comment
+ * GitHub does not render: `agentComments` reads it back to tell this line from an answer, so
+ * the sentence can be reworded without flipping every thread that already carries the old one.
+ */
+const UNFINISHED_MARK = '<!-- whichcodingtools: unfinished -->'
+const UNFINISHED = `I could not finish processing this automatically. A maintainer will take a look.\n${UNFINISHED_MARK}`
+
+/**
+ * The answers eve's session-limit prompt accepts: an option id, its label, or its position.
+ * The channel strips the mention before matching, and a reply that reaches a parked session
+ * answers its prompt whoever wrote it. The prompt only ever stays parked on Benjamin's own
+ * turn, so a bare answer from anyone else has no question behind it and is dropped before it
+ * can grant a budget he never saw asked for. The cost is that nobody else can say exactly one
+ * of these five words to the agent, which no procedure of its asks for.
+ */
+const CONTINUATION_ANSWERS = new Set(['approve', 'continue', 'stop', '1', '2'])
+
+function isContinuationAnswer(body: string) {
+  return CONTINUATION_ANSWERS.has(body.replace(mention, '').trim().toLowerCase())
+}
 
 /** The event has to come from the repository the tools write to. */
 function isHomeRepo(fullName: string) {
@@ -40,6 +64,7 @@ export default githubChannel({
     if (String(ctx.sender.id) === MAINTAINER_GITHUB_ID) {
       return { auth, context: [replyHere(ctx)] }
     }
+    if (isContinuationAnswer(comment.body)) return null
     if (!await mayAsk(ctx, comment)) return null
     return {
       auth: { ...auth, principalId: VISITOR_PRINCIPAL, principalType: 'service' },
@@ -110,11 +135,63 @@ export default githubChannel({
         console.warn('[agent] Could not react on the thread:', error instanceof Error ? error.message : error)
       }
     },
+    async 'input.requested'(event, channel, ctx) {
+      // Replaces eve's default, which renders every input request as a comment. The one request
+      // this agent raises is eve's own session-limit prompt (`ask_question` is disabled and no
+      // tool asks for approval), and the default posted it into #67 word for word: the token
+      // figure, a numbered Approve and Stop, "answer by mentioning me". That prompt grants
+      // spend, and a public thread is not where spend gets granted.
+      if (event.requests.length === 0) return
+      const here = channel.state.issueNumber === null ? 'a thread' : `#${channel.state.issueNumber}`
+      const limit = event.requests.find(request => request.kind === 'session-limit')
+      if (limit === undefined) {
+        // Nothing raises one today. Should that change, a question nobody can see parks the
+        // session and queues every later comment behind it, so it is rendered rather than hidden.
+        console.warn(`[agent] Input request on ${here}: ${event.requests.map(request => request.kind).join(', ')}.`)
+        for (const request of event.requests) await channel.thread.post(renderRequest(request))
+        return
+      }
+      const { kind, limit: cap, usedTokens } = limit.action.input as { kind?: string, limit?: number, usedTokens?: number }
+      console.warn(`[agent] Session ${ctx.session.id} on ${here} hit its ${kind ?? 'token'} cap, ${usedTokens} of ${cap}.`)
+      // The drop filter in `onComment` runs before dispatch, where the live options are out of
+      // reach, so it holds a copy of them. A change in eve would otherwise open the prompt to
+      // anyone on the thread without a line anywhere saying so.
+      const options = limit.options ?? []
+      const uncovered = options.filter((option, index) => ![option.id, option.label, String(index + 1)].every(answer => CONTINUATION_ANSWERS.has(answer.toLowerCase())))
+      if (uncovered.length > 0) console.error(`[agent] eve's session-limit options are now ${uncovered.map(option => `${option.id}/${option.label}`).join(', ')}, which CONTINUATION_ANSWERS does not cover.`)
+      // An allow-list, like every trust check that lets something privileged happen: only a
+      // session that is Benjamin's on both principals gets asked. He has to hear it, because a
+      // comment that answers neither option queues behind the prompt and eve does not ask twice.
+      // The labels come off the request so the reply keeps matching if eve renames them.
+      if (isTrustedWriter(ctx.session.auth)) {
+        const answer = (index: number, fallback: string) => `\`@${botName} ${options[index]?.label ?? fallback}\``
+        await channel.thread.post(`This run hit its ${kind ?? ''} token cap, ${compact(cap)} over the session. Reply ${answer(0, 'Approve')} to go on with a fresh budget, or ${answer(1, 'Stop')} to end it. Anything else posted here waits behind that answer.`)
+        return
+      }
+      // Everyone else's turn ends here. eve keeps the session parked on the prompt, and a parked
+      // session queues every later comment and label on its thread behind an answer nobody may
+      // give, so the session is moved off the thread instead: re-keyed to an address no webhook
+      // resolves, the way the Slack channel follows a thread whose id changed. The thread's own
+      // address comes free, the next mention or label on it starts a fresh session, and the
+      // parked one sits unreachable until eve's session timeout retires it.
+      await channel.thread.post(UNFINISHED)
+      if (channel.continuation === undefined) {
+        console.error(`[agent] No continuation on the parked session ${ctx.session.id}, so ${here} stays queued behind eve's prompt.`)
+        return
+      }
+      channel.continuation.rekey(`${channel.continuation.token}:parked:${Date.now()}`)
+    },
+    async 'session.failed'(event, channel) {
+      // eve's default posts "This session could not recover from an error" with an error id and
+      // "Start a new comment to continue." It fires right after `turn.failed` on the same
+      // failure, which has already said the one line the thread gets, so this one only logs.
+      console.error(`[agent] Session ${event.sessionId} failed on #${channel.state.issueNumber}: ${event.code} ${briefly(event.message)}`)
+    },
     async 'turn.failed'(event, channel, ctx) {
       // Both principals, like every other trust check: a thread a stranger started stays
       // neutral even when the failing turn is one Benjamin triggered later in it.
       if (isAutonomous(ctx.session.auth)) {
-        await channel.thread.post('I could not finish processing this automatically. A maintainer will take a look.')
+        await channel.thread.post(UNFINISHED)
         return
       }
       await channel.thread.post(`I hit an error while handling this (${briefly(event.message)}). Mention me again to retry.`)
@@ -163,12 +240,13 @@ async function mayAsk(ctx: GitHubInboundContext, comment: GitHubComment) {
   if (COLLABORATOR.has(association)) return true
   const number = ctx.conversation.issueNumber ?? ctx.conversation.pullRequestNumber
   if (number === null) return false
-  const answers = await agentComments(ctx, number)
+  const spoken = await agentComments(ctx, number)
   // Fails closed, which is the opposite value from `alreadyAnswered` reading the same count.
   // There a failure has to mean "already answered" so nothing starts; here it has to mean
   // "never spoke" for the same reason. One helper, and each caller picks its own default.
-  if (answers === null) return false
-  return answers > 0 && answers < VISITOR_REPLY_CAP
+  if (spoken === null) return false
+  // An unfinished turn is not an answer to talk to, but it did boot the sandbox the cap meters.
+  return spoken.answered > 0 && spoken.total < VISITOR_REPLY_CAP
 }
 
 /** 100 is the endpoint's maximum, and 10 pages of it is a runaway guard, not a thread size. */
@@ -177,23 +255,30 @@ const MAX_COMMENT_PAGES = 10
 
 /**
  * How many comments in the thread are the agent's, or null when the count could not be read.
+ * `total` is every one of them and `answered` leaves out the unfinished-turn line: a thread
+ * holding nothing but that line is still unanswered, so relabelling it restarts the responder,
+ * while the turn that posted it still spent the sandbox the visitor cap meters.
  *
  * Paginated, because the endpoint returns oldest first: a thread past 100 comments would hide
  * every agent reply behind page 1 and read as one it never spoke in. It stops at the cap
  * instead of counting to the end, since neither caller can use a larger number than that.
  */
 async function agentComments(ctx: GitHubInboundContext, issueNumber: number) {
-  let count = 0
+  const count = { total: 0, answered: 0 }
   try {
     for (let page = 1; page <= MAX_COMMENT_PAGES; page++) {
-      const res = await ctx.github.request<{ user?: { login?: string } }[]>({
+      const res = await ctx.github.request<{ user?: { login?: string }, body?: string }[]>({
         method: 'GET',
         path: `/repos/${REPO}/issues/${issueNumber}/comments?per_page=${COMMENT_PAGE}&page=${page}`
       })
       if (!res.ok) throw new Error(`comments returned ${res.status}`)
-      count += res.body.filter(c => isAgentLogin(c.user?.login ?? '')).length
+      for (const comment of res.body) {
+        if (!isAgentLogin(comment.user?.login ?? '')) continue
+        count.total += 1
+        if (!(comment.body ?? '').includes(UNFINISHED_MARK)) count.answered += 1
+      }
       // A short page is the last one, and every thread this repository has is one page.
-      if (count >= VISITOR_REPLY_CAP || res.body.length < COMMENT_PAGE) break
+      if (count.total >= VISITOR_REPLY_CAP || res.body.length < COMMENT_PAGE) break
     }
     return count
   } catch (error) {
@@ -208,8 +293,31 @@ async function agentComments(ctx: GitHubInboundContext, issueNumber: number) {
  * not something to do on a guess, and Benjamin can always relabel.
  */
 async function alreadyAnswered(ctx: GitHubInboundContext, issueNumber: number) {
-  const answers = await agentComments(ctx, issueNumber)
-  return answers === null || answers > 0
+  const spoken = await agentComments(ctx, issueNumber)
+  return spoken === null || spoken.answered > 0
+}
+
+/**
+ * eve's default rendering of a request this agent does not raise today: the prompt, numbered
+ * options, how to answer. Kept because a request nobody rendered parks the session in silence.
+ */
+function renderRequest(request: { prompt: string, options?: readonly { label: string, description?: string }[], allowFreeform?: boolean }) {
+  const lines = [request.prompt]
+  if (request.options?.length) {
+    lines.push('', ...request.options.map((option, index) => `${index + 1}. ${option.label}${option.description ? ` - ${option.description}` : ''}`))
+    lines.push('', `Answer by mentioning me in a reply, e.g. \`@${botName} ${request.options[0]!.label}\`.`)
+  }
+  if (request.allowFreeform) lines.push('', 'You can also reply with a custom answer.')
+  return lines.join('\n')
+}
+
+/** eve's own shape for a token figure: 6M, 120K. */
+function compact(count: number | undefined) {
+  if (count === undefined) return '?'
+  const trim = (value: number, suffix: string) => `${value.toFixed(1).replace(/\.0$/, '')}${suffix}`
+  if (count >= 1e6) return trim(count / 1e6, 'M')
+  if (count >= 1e3) return trim(count / 1e3, 'K')
+  return trim(count, '')
 }
 
 /** First line, capped. `event.message` can carry a whole GitHub API response body. */
