@@ -44,6 +44,7 @@ agent/
   schedules/acp-watch.ts            Wednesdays 12:00 UTC, the ACP Agent Registry read against the corpus
   schedules/stale-sweep.ts          Thursdays 12:00 UTC
   schedules/triage.ts               Fridays 09:00 UTC, a pass over everything still open
+  schedules/consistency-sweep.ts    monthly, the 1st 13:00 UTC, the corpus read side by side
   skills/pricing-watch/SKILL.md     the sweep procedure
   skills/discovery/SKILL.md         tools the directory does not carry yet, one candidate a week
   skills/rename-watch/SKILL.md      homepage redirects, new names, description drift
@@ -52,6 +53,7 @@ agent/
   skills/contributing/SKILL.md      the data and PR rules, mirrors CONTRIBUTING.md
   skills/outdated-report/SKILL.md   one reported field, re-read against its vendor page
   skills/triage/SKILL.md            a pass over every open issue and PR, checked against main
+  skills/consistency-sweep/SKILL.md the same fact encoded two ways in two files
   tools/github__find_related.ts     search issues and PRs, open and closed (dedupe)
   tools/github__list_open.ts        everything currently open, for a stocktake rather than a lookup
   tools/github__read_thread.ts      the discussion on one issue or PR, fenced as data
@@ -107,6 +109,10 @@ One pull request a week or none, and no new files: an entry with no slug goes in
 ## What the weekly triage does
 
 Sweeps open threads, they do not close them. So on Fridays the agent calls `github__list_open`, fetches `refs/pull/*/head`, and reads each one against main as it stands: a pull request gets main merged into it and `pnpm validate` run on the result, which is the only thing that catches a PR that was green on its own commit and went wrong when main moved. It pushes the fix to that pull request's own branch when the fix is a pricing re-check, closes its own issues that the vendor has since resolved, and reports the rest. Closing a person's issue or a pull request stays Benjamin's.
+
+## What the monthly consistency sweep does
+
+Every sweep above diffs one file against its own vendor sources, so two files can each be faithful to their page and still encode the same fact differently: the same product shape under two `layer` values, the same vendor plan priced twice with no `mirrors`, a capability asserted in a tier limit that never made it into `features`. On the 1st the agent reads the whole corpus side by side and files the drift worth a decision as one consolidated evidence issue, quoting both sides of each finding. It edits nothing and reads no vendor page: what needs a page read belongs to the stale sweep, and the deterministic half of this class is `pnpm validate`'s job now (named providers over `first-party`, a fixed overage without a rate, a `usd_value` derivable from a credit allowance's own rate, an explicit `per: user`, a trailing slash on a bare domain URL, an install method with no matching platform, an extension layer with no hosts).
 
 ## Trust
 
