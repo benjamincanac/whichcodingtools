@@ -31,8 +31,10 @@ It is first party when `authors` names the tool's own `vendor`, or when `distrib
 
 The registry is the trigger. The source is the vendor's documentation, read in this run, the same rule a price lives under. The ACP page is rarely linked from the marketing site, so start with the two indexes that list it:
 
-    curl -s https://docs.example.com/llms.txt | grep -i acp
-    curl -s https://docs.example.com/sitemap.xml | grep -io 'https://[^<]*acp[^<]*'
+    node /workspace/bin/page-text.mjs https://docs.example.com/llms.txt | grep -i acp
+    node /workspace/bin/page-text.mjs https://docs.example.com/sitemap.xml | grep -io 'https://[^<]*acp[^<]*'
+
+Through the script rather than `curl`, so the origin's robots.txt is read first.
 
 Then read the page with `node /workspace/bin/page-text.mjs <url>`. No vendor page that documents it, no flag: say so in the report and let the next run try again. A registry entry is not a citation.
 

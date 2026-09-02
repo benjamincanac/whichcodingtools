@@ -11,14 +11,14 @@ Products in this space rename over the air. Windsurf became Devin Desktop in pla
 
 Work in `/workspace/repo`. For every tool that is not `status: sunset`, take `homepage` and every URL in `links`.
 
-For each URL run `curl -sIL -o /dev/null -w '%{http_code} %{url_effective}' <url>` in the sandbox and look at where it landed:
+For each URL run `curl -sIL -A 'whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)' -o /dev/null -w '%{http_code} %{url_effective}' <url>` in the sandbox and look at where it landed. That is a HEAD for the status and the landing URL, no page body, and it says who is asking: reading a page goes through `node /workspace/bin/page-text.mjs <url>`, which checks robots.txt first, and the browser only after that script ran.
 
-- **Different registrable domain** than the recorded one (`windsurf.com` landing on `devin.ai`): strong rename or acquisition signal. Also open the final page with the browser and read the product name it shows.
+- **Different registrable domain** than the recorded one (`windsurf.com` landing on `devin.ai`): strong rename or acquisition signal. Also read the final page and the product name it shows.
 - **Same domain, page shows a different product name** than `name`: rename signal.
 - **404 or 410 on the homepage**: possible shutdown. Check the vendor's blog or repo README with the browser before concluding anything.
 - **Redirect within the same domain** (path moves, http to https, trailing slash): not a finding. Fix nothing.
 
-Then read the homepage itself: `node /workspace/bin/page-text.mjs <final url> > /tmp/<slug>.txt`. Use the browser when the fetch returns no readable text. That text answers the name question above, and it is also the input to the next section.
+Then read the homepage itself: `node /workspace/bin/page-text.mjs <final url> > /tmp/<slug>.txt`. Use the browser when the fetch returns no readable text and did not exit 3: exit 3 is a page the vendor's robots.txt reserves, reported as such and never opened. That text answers the name question above, and it is also the input to the next section.
 
 ## Description drift
 
