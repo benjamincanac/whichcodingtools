@@ -1,0 +1,73 @@
+slug: jcode
+name: jcode
+description: Open source terminal coding agent from Solo Systems, written in Rust. Several agents work the same repo as a swarm, with optional hosted inference at $10 a month.
+layer: harness
+vendor: Solo Systems
+homepage: https://jcode.sh
+links:
+  docs: https://jcode.sh/docs
+  pricing: https://jcode.sh/pricing
+  repo: https://github.com/1jehuang/jcode
+  discord: https://discord.gg/nBe9vGyK9a
+platforms: [linux, macos, windows, android]
+install:
+  - method: curl
+    command: curl -fsSL https://jcode.sh/install | bash
+  - method: brew
+    command: brew tap 1jehuang/jcode && brew install jcode
+  - method: download
+    url: https://github.com/1jehuang/jcode/releases
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/1jehuang/jcode
+models:
+  providers: [first-party, anthropic, openai, google, xai, mistral, deepseek, meta, moonshot, alibaba, zhipu, minimax, openrouter]
+  plans: [claude, chatgpt, gemini, copilot]
+  byok: full
+  local: true
+  notes: Built-in login flows cover Claude, ChatGPT and Codex, Gemini, GitHub Copilot, Azure OpenAI, the Alibaba Cloud coding plan, Fireworks, MiniMax, Meta Muse, LM Studio and Ollama. Anything else goes through the shared OpenAI compatible provider, either as a named profile or a self-hosted endpoint. Several accounts can be registered per provider and switched with /account.
+features: [parallel-agents, subagents, mcp-client, browser-automation]
+pricing:
+  tiers:
+    - id: free
+      name: Jcode software
+      price: 0
+      audience: individual
+      limits:
+        - The full open source agent has no feature gates
+        - You pay your own providers, through API keys, a supported OAuth subscription or local models
+    - id: hosted
+      name: Hosted inference
+      price: 10
+      per: flat
+      audience: individual
+      included:
+        amount: 20
+        unit: usd
+        period: month
+        usd_value: 20
+        notes: Every successful monthly payment grants $20 of inference credit, which does not accumulate.
+      overage:
+        kind: api-list
+        notes: Past the credit, inference is billed at 90 percent of the provider API price, on top of the subscription.
+      limits:
+        - Monthly hard cap defaults to $100 per UTC month, lower it to $0 or raise it with no product maximum
+        - Warning emails start at $20 of monthly usage and double from there
+    - id: enterprise
+      name: Enterprise
+      price: null
+      audience: enterprise
+      contact_sales: true
+      limits:
+        - Centralized billing and usage management
+        - Deployment and integration guidance, security and procurement review, priority support
+  notes: The agent itself is free. Hosted inference is an optional router run by the vendor and is not required to use jcode.
+status: active
+sources:
+  - url: https://jcode.sh/pricing
+    verified_at: 2026-09-02
+    covers: [pricing, license, general]
+  - url: https://github.com/1jehuang/jcode
+    verified_at: 2026-09-02
+    covers: [platforms, models, features, license, general]
