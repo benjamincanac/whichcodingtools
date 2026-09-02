@@ -1,9 +1,10 @@
 import { defineHook } from 'eve/hooks'
-import { hasCheckout, prepareCheckout } from '../lib/checkout'
+import { prepareCheckout } from '../lib/checkout'
 import { brokeredGitPolicy } from '../lib/network-policy'
+import { workingBranch } from '../lib/thread'
 
 /**
- * Reapply the brokered credential every turn, and re-clone when the workspace is gone.
+ * Reapply the brokered credential every turn, and put the checkout where this turn starts.
  *
  * `onSession` runs once per durable session, but a GitHub App installation token lasts about
  * an hour while a GitHub thread's session lives for days, and a provider-loss replacement
@@ -11,6 +12,13 @@ import { brokeredGitPolicy } from '../lib/network-policy'
  * whose git reads fail. Neither can hand the sandbox more than it had: the factory baseline
  * carries no credential and nothing here can push, so a refresh that fails costs read access
  * and never grants write access. That is why this warns instead of failing the turn.
+ *
+ * The checkout moves every turn too, not only when it is missing. Main moves under a thread
+ * that lives for days, and a file edited on the main of last Monday and pushed on Thursday
+ * carries a commit that reverts everything that landed in it since. So each turn starts at the
+ * remote tip: of the branch this session last pushed to, which is where its work is, or of
+ * main. What the previous turn pushed is on that branch; what it did not push is gone, and was
+ * abandoned when that turn ended.
  */
 export default defineHook({
   events: {
@@ -18,12 +26,12 @@ export default defineHook({
       try {
         const sandbox = await ctx.getSandbox()
         await sandbox.setNetworkPolicy(await brokeredGitPolicy())
-        // Only when it is actually missing: a checkout reset mid-thread would throw away
-        // edits the previous turn made. The answer is passed along so it is asked once.
-        const present = await hasCheckout(sandbox)
-        if (!present) await prepareCheckout(sandbox, present)
+        const wanted = workingBranch.get()
+        const ref = await prepareCheckout(sandbox, undefined, wanted)
+        // A branch that is gone from the remote merged or was deleted; main is the place again.
+        if (wanted !== null && ref !== wanted) workingBranch.update(() => null)
       } catch (error) {
-        console.warn('[agent] Could not refresh the sandbox credential:', error instanceof Error ? error.message : error)
+        console.warn('[agent] Could not refresh the sandbox:', error instanceof Error ? error.message : error)
       }
     }
   }

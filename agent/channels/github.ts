@@ -1,8 +1,16 @@
-import type { GitHubComment, GitHubEventContext, GitHubInboundContext } from 'eve/channels/github'
+import type { GitHubChannelState, GitHubComment, GitHubEventContext, GitHubInboundContext } from 'eve/channels/github'
 import { defaultGitHubAuth, githubChannel } from 'eve/channels/github'
 import { connect, isAgentLogin, REPO } from '../lib/github'
 import { currentThread } from '../lib/thread'
 import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, VISITOR_PRINCIPAL, isAutonomous, isTrustedWriter } from '../lib/trust'
+
+/**
+ * The label a form applies fires `labeled` right behind `opened`, with the filer as sender,
+ * and the responder `opened` started has not replied yet, so `alreadyAnswered` cannot tell
+ * that event from a label Benjamin adds by hand. A hand-applied label comes minutes or days
+ * later; this is the line between the two.
+ */
+const LABEL_AFTER_OPEN_MS = 120_000
 
 const botName = 'whichcodingtools'
 // Left boundary too, so support@whichcodingtools.dev in a comment does not start a turn.
@@ -30,6 +38,21 @@ const CONTINUATION_ANSWERS = new Set(['approve', 'continue', 'stop', '1', '2'])
 
 function isContinuationAnswer(body: string) {
   return CONTINUATION_ANSWERS.has(body.replace(mention, '').trim().toLowerCase())
+}
+
+/**
+ * Sessions whose `turn.failed` already posted, so the `session.failed` eve emits in the same
+ * step does not post the same line again. Both events run in the same process when they come
+ * as a pair; when they do not, the worst case is the duplicate this used to always produce.
+ */
+const failuresPosted = new Set<string>()
+
+/**
+ * The issue or pull request a channel turn stands in. An inline review comment sets only the
+ * pull request number on the state, and the issue number stays null.
+ */
+function threadNumber(state: GitHubChannelState) {
+  return state.issueNumber ?? state.pullRequestNumber
 }
 
 /** The event has to come from the repository the tools write to. */
@@ -86,7 +109,7 @@ export default githubChannel({
     const selfFiled = isAgentLogin(ctx.sender.login)
     if (!selfFiled && (login === botName || login.endsWith('[bot]'))) return null
     // issue.raw is the webhook payload's `issue` object itself, not the whole payload.
-    const raw = issue.raw as { title?: string, body?: string, labels?: { name: string }[] }
+    const raw = issue.raw as { title?: string, body?: string, created_at?: string, labels?: { name: string }[] }
     const title = raw.title ?? ''
     const labels = (raw.labels ?? []).map(l => l.name)
     // The label, never the title: the forms apply theirs server side, while blank issues are
@@ -103,11 +126,13 @@ export default githubChannel({
       // Who applied the label, not just who opened the issue. Anyone with triage access can
       // label, and labeling starts a credentialed unattended turn, so this is Benjamin's alone.
       if (String(ctx.sender.id) !== MAINTAINER_GITHUB_ID) return null
+      // The form's own label arrives seconds after `opened`, which already started the turn.
+      const createdAt = Date.parse(raw.created_at ?? '')
+      if (Number.isFinite(createdAt) && Date.now() - createdAt < LABEL_AFTER_OPEN_MS) return null
       // `labeled` fires for every label added, and eve hands this hook the issue rather than
       // the event, so "was this the label just added" is not a question it can ask. Ask the
       // one that matters instead, otherwise a second label during triage runs the whole
-      // response again on an issue that already has its reply and its PR, and the label the
-      // form applied at creation does not start a turn next to `opened`.
+      // response again on an issue that already has its reply and its PR.
       if (await alreadyAnswered(ctx, issue.issueNumber)) return null
     }
     const auth = defaultGitHubAuth(ctx)
@@ -126,7 +151,7 @@ export default githubChannel({
       // reaction is the part worth keeping; the hook applies the read-only policy.
       // Every turn, not once per session: state is durable and a session outlives the turn
       // that opened it, so a stale number here would gag `github__comment` on the wrong thread.
-      currentThread.update(() => channel.state.issueNumber)
+      currentThread.update(() => threadNumber(channel.state))
       try {
         await react(channel)
       } catch (error) {
@@ -142,12 +167,32 @@ export default githubChannel({
       // figure, a numbered Approve and Stop, "answer by mentioning me". That prompt grants
       // spend, and a public thread is not where spend gets granted.
       if (event.requests.length === 0) return
-      const here = channel.state.issueNumber === null ? 'a thread' : `#${channel.state.issueNumber}`
+      const number = threadNumber(channel.state)
+      const here = number === null ? 'a thread' : `#${number}`
       const limit = event.requests.find(request => request.kind === 'session-limit')
+      const kinds = event.requests.map(request => request.kind).join(', ')
+      // An allow-list, like every trust check that lets something privileged happen: only a
+      // session that is Benjamin's on both principals gets asked anything. Everyone else's turn
+      // ends here. eve keeps the session parked on the request, and a parked session queues
+      // every later comment and label on its thread behind an answer nobody may give, so the
+      // session is moved off the thread instead: re-keyed to an address no webhook resolves,
+      // the way the Slack channel follows a thread whose id changed. The thread's own address
+      // comes free, the next mention or label on it starts a fresh session, and the parked one
+      // sits unreachable until eve's session timeout retires it.
+      if (!isTrustedWriter(ctx.session.auth)) {
+        console.warn(`[agent] Session ${ctx.session.id} on ${here} asked for input (${kinds}) on a turn that may not ask. Parked and moved off the thread.`)
+        await channel.thread.post(UNFINISHED)
+        if (channel.continuation === undefined) {
+          console.error(`[agent] No continuation on the parked session ${ctx.session.id}, so ${here} stays queued behind eve's prompt.`)
+          return
+        }
+        channel.continuation.rekey(`${channel.continuation.token}:parked:${Date.now()}`)
+        return
+      }
       if (limit === undefined) {
         // Nothing raises one today. Should that change, a question nobody can see parks the
         // session and queues every later comment behind it, so it is rendered rather than hidden.
-        console.warn(`[agent] Input request on ${here}: ${event.requests.map(request => request.kind).join(', ')}.`)
+        console.warn(`[agent] Input request on ${here}: ${kinds}.`)
         for (const request of event.requests) await channel.thread.post(renderRequest(request))
         return
       }
@@ -159,42 +204,34 @@ export default githubChannel({
       const options = limit.options ?? []
       const uncovered = options.filter((option, index) => ![option.id, option.label, String(index + 1)].every(answer => CONTINUATION_ANSWERS.has(answer.toLowerCase())))
       if (uncovered.length > 0) console.error(`[agent] eve's session-limit options are now ${uncovered.map(option => `${option.id}/${option.label}`).join(', ')}, which CONTINUATION_ANSWERS does not cover.`)
-      // An allow-list, like every trust check that lets something privileged happen: only a
-      // session that is Benjamin's on both principals gets asked. He has to hear it, because a
-      // comment that answers neither option queues behind the prompt and eve does not ask twice.
-      // The labels come off the request so the reply keeps matching if eve renames them.
-      if (isTrustedWriter(ctx.session.auth)) {
-        const answer = (index: number, fallback: string) => `\`@${botName} ${options[index]?.label ?? fallback}\``
-        await channel.thread.post(`This run hit its ${kind ?? ''} token cap, ${compact(cap)} over the session. Reply ${answer(0, 'Approve')} to go on with a fresh budget, or ${answer(1, 'Stop')} to end it. Anything else posted here waits behind that answer.`)
-        return
-      }
-      // Everyone else's turn ends here. eve keeps the session parked on the prompt, and a parked
-      // session queues every later comment and label on its thread behind an answer nobody may
-      // give, so the session is moved off the thread instead: re-keyed to an address no webhook
-      // resolves, the way the Slack channel follows a thread whose id changed. The thread's own
-      // address comes free, the next mention or label on it starts a fresh session, and the
-      // parked one sits unreachable until eve's session timeout retires it.
-      await channel.thread.post(UNFINISHED)
-      if (channel.continuation === undefined) {
-        console.error(`[agent] No continuation on the parked session ${ctx.session.id}, so ${here} stays queued behind eve's prompt.`)
-        return
-      }
-      channel.continuation.rekey(`${channel.continuation.token}:parked:${Date.now()}`)
+      // He has to hear it, because a comment that answers neither option queues behind the
+      // prompt and eve does not ask twice. The labels come off the request so the reply keeps
+      // matching if eve renames them.
+      const answer = (index: number, fallback: string) => `\`@${botName} ${options[index]?.label ?? fallback}\``
+      await channel.thread.post(`This run hit its ${kind ?? ''} token cap, ${compact(cap)} over the session. Reply ${answer(0, 'Approve')} to go on with a fresh budget, or ${answer(1, 'Stop')} to end it. Anything else posted here waits behind that answer.`)
     },
     async 'session.failed'(event, channel) {
       // eve's default posts "This session could not recover from an error" with an error id and
-      // "Start a new comment to continue." It fires right after `turn.failed` on the same
-      // failure, which has already said the one line the thread gets, so this one only logs.
-      console.error(`[agent] Session ${event.sessionId} failed on #${channel.state.issueNumber}: ${event.code} ${briefly(event.message)}`)
+      // "Start a new comment to continue." The id belongs in the logs. A failure inside the tool
+      // loop emits `turn.failed` first and this right behind it, in the same step, and the thread
+      // has its one line already; a failure outside the loop, a step that threw before the model
+      // ran, emits this alone, and then the line is owed here or the thread gets the eyes and
+      // silence. No `ctx` on this event, so the session id is what ties the two together.
+      console.error(`[agent] Session ${event.sessionId} failed on #${threadNumber(channel.state)}: ${event.code} ${briefly(event.message)}`)
+      if (failuresPosted.delete(event.sessionId)) return
+      await channel.thread.post(UNFINISHED)
     },
     async 'turn.failed'(event, channel, ctx) {
+      failuresPosted.add(ctx.session.id)
       // Both principals, like every other trust check: a thread a stranger started stays
       // neutral even when the failing turn is one Benjamin triggered later in it.
       if (isAutonomous(ctx.session.auth)) {
         await channel.thread.post(UNFINISHED)
         return
       }
-      await channel.thread.post(`I hit an error while handling this (${briefly(event.message)}). Mention me again to retry.`)
+      // Marked like the other, so a thread where the agent only ever failed does not count as
+      // one it answered in, which is what opens a thread to strangers' mentions.
+      await channel.thread.post(`I hit an error while handling this (${briefly(event.message)}). Mention me again to retry.\n${UNFINISHED_MARK}`)
     }
   }
 })
@@ -205,17 +242,18 @@ export default githubChannel({
  * issue and no comment. Those react on the issue itself, so the reporter sees it start.
  */
 async function react(channel: GitHubEventContext) {
-  const { issueNumber, owner, repo, triggeringCommentId } = channel.state
-  if (triggeringCommentId !== null || issueNumber === null) {
+  const { owner, repo, triggeringCommentId } = channel.state
+  const number = threadNumber(channel.state)
+  if (triggeringCommentId !== null || number === null) {
     await channel.thread.react('eyes')
     return
   }
   const res = await channel.github.request({
     method: 'POST',
-    path: `/repos/${owner}/${repo}/issues/${issueNumber}/reactions`,
+    path: `/repos/${owner}/${repo}/issues/${number}/reactions`,
     body: { content: 'eyes' }
   })
-  if (!res.ok) console.warn(`[agent] Reaction on issue #${issueNumber} returned ${res.status}`)
+  if (!res.ok) console.warn(`[agent] Reaction on issue #${number} returned ${res.status}`)
 }
 
 /** Associations GitHub gives someone who can already push to the repository. */
@@ -259,26 +297,36 @@ const MAX_COMMENT_PAGES = 10
  * holding nothing but that line is still unanswered, so relabelling it restarts the responder,
  * while the turn that posted it still spent the sandbox the visitor cap meters.
  *
- * Paginated, because the endpoint returns oldest first: a thread past 100 comments would hide
- * every agent reply behind page 1 and read as one it never spoke in. It stops at the cap
- * instead of counting to the end, since neither caller can use a larger number than that.
+ * Two endpoints, because a reply to an inline review comment lands in the pull request's
+ * review threads and never on the issue timeline; the second answers 404 for an issue.
+ * Paginated, because both return oldest first: a thread past 100 comments would hide every
+ * agent reply behind page 1 and read as one it never spoke in. It stops at the cap instead of
+ * counting to the end, since neither caller can use a larger number than that.
  */
 async function agentComments(ctx: GitHubInboundContext, issueNumber: number) {
   const count = { total: 0, answered: 0 }
+  const timelines = [
+    { path: `/repos/${REPO}/issues/${issueNumber}/comments`, pullOnly: false },
+    { path: `/repos/${REPO}/pulls/${issueNumber}/comments`, pullOnly: true }
+  ]
   try {
-    for (let page = 1; page <= MAX_COMMENT_PAGES; page++) {
-      const res = await ctx.github.request<{ user?: { login?: string }, body?: string }[]>({
-        method: 'GET',
-        path: `/repos/${REPO}/issues/${issueNumber}/comments?per_page=${COMMENT_PAGE}&page=${page}`
-      })
-      if (!res.ok) throw new Error(`comments returned ${res.status}`)
-      for (const comment of res.body) {
-        if (!isAgentLogin(comment.user?.login ?? '')) continue
-        count.total += 1
-        if (!(comment.body ?? '').includes(UNFINISHED_MARK)) count.answered += 1
+    for (const { path, pullOnly } of timelines) {
+      for (let page = 1; page <= MAX_COMMENT_PAGES; page++) {
+        const res = await ctx.github.request<{ user?: { login?: string }, body?: string }[]>({
+          method: 'GET',
+          path: `${path}?per_page=${COMMENT_PAGE}&page=${page}`
+        })
+        if (pullOnly && res.status === 404) break
+        if (!res.ok) throw new Error(`comments returned ${res.status}`)
+        for (const comment of res.body) {
+          if (!isAgentLogin(comment.user?.login ?? '')) continue
+          count.total += 1
+          if (!(comment.body ?? '').includes(UNFINISHED_MARK)) count.answered += 1
+        }
+        // A short page is the last one, and every thread this repository has is one page.
+        if (count.total >= VISITOR_REPLY_CAP || res.body.length < COMMENT_PAGE) break
       }
-      // A short page is the last one, and every thread this repository has is one page.
-      if (count.total >= VISITOR_REPLY_CAP || res.body.length < COMMENT_PAGE) break
+      if (count.total >= VISITOR_REPLY_CAP) break
     }
     return count
   } catch (error) {
