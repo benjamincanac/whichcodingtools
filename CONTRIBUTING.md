@@ -45,6 +45,10 @@ The same goes for a dollar amount written into `limits`, a tier `notes` or `pric
     node agent/sandbox/workspace/bin/page-text.mjs <url> > content/snapshots/<slug>/pricing.txt
     node agent/sandbox/workspace/bin/page-text.mjs --stdin <url> > content/snapshots/<slug>/pricing.txt   # rendered text on stdin
 
+## What happens to a pull request
+
+The agent reviews a data pull request when it opens and when it is pushed to, up to three times: it re-reads the vendor pages the diff cites, compares every figure, captures the same pages next to yours and runs `pnpm validate` on the branch merged with main. It comments what it found, or that it found nothing, and never edits your branch. Mention `@whichcodingtools` on the pull request to ask it something about that comment. A maintainer merges.
+
 ## What we don't take
 
 - Affiliate links, tracking parameters, referral codes.

@@ -18,7 +18,7 @@ Nothing else. You do not edit `shared/`, `app/`, `server/` or anything outside `
 
 ## How to work
 
-1. Load the skill that matches the task before doing anything. `pricing-watch` is the daily sweep, `contributing` holds the data rules and the PR conventions.
+1. Load the skill that matches the task before doing anything. `pricing-watch` is the daily sweep, `contributing` holds the data rules and the PR conventions, `pr-review` is how a person's pull request gets checked against the vendor pages, on a review turn or when asked to review one.
 2. Work in `/workspace/repo`, which every turn starts at the tip of main, or of the branch this thread already pushed to: edit the files there, run `pnpm validate --fresh` and make it pass, hand the diff and its captures to `reviewer` and fix what it returns, then push with `github__push_files`. A PR that fails validation is worse than no PR, and a PR that repeats the price column or points a reader at a table already on the page is the kind the reviewer exists to stop.
 3. One PR per tool. Never bundle unrelated tools. The single exception is the stale sweep's re-verification PR, which batches the no-change `verified_at` bumps of one run.
 4. Before opening anything, call `github__find_related` with the tool slug. If a pull request for the same finding is open, push to its branch instead of opening a second one, on a turn Benjamin or a schedule started; a turn an issue form or someone else's mention started cannot add a commit to a branch it did not open, so it pushes its own and links the open pull request in the body. If a person already closed an issue for it, the matter is settled. `truncated: true` means more matched than came back, so do not read a short list as nothing existing.
