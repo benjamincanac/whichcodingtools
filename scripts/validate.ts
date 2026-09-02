@@ -9,9 +9,10 @@ import { readdir, readFile } from 'node:fs/promises'
 import { basename, extname, join } from 'node:path'
 import { parse as parseYaml } from 'yaml'
 import spdxParse from 'spdx-expression-parse'
-import { ToolSchema, type Tool } from '../shared/schema'
+import { DEFAULT_PER, ToolSchema, type Tool } from '../shared/schema'
+import type { INSTALL_METHODS, Platform } from '../shared/enums'
 import { LOGO_DIR, LOGO_MAX_BYTES, isPng } from './logo-limits'
-import { claimsDirectoryCoverage } from './rules'
+import { claimsDirectoryCoverage, escapeRegExp, namedProviderFor } from './rules'
 
 const DIR = join(process.cwd(), 'content/tools')
 const SNAPSHOTS = join(process.cwd(), 'content/snapshots')
@@ -74,13 +75,21 @@ function restatesThePrice(limit: string) {
 
 /** "See the Devin entry" and its variants: a sentence that sends the reader to one of `names`. */
 function pointsAt(text: string, names: string[]) {
-  const escaped = names.map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+  const escaped = names.map(escapeRegExp).join('|')
   return new RegExp(`\\bsee\\b[^.]*\\b(?:${escaped})\\b`, 'i').test(text)
 }
 
 /** Dollar amounts written into prose, so they can be held to the same capture as a `price`. */
 function moneyIn(text: string) {
   return [...text.matchAll(/\$\s?(\d[\d,]*(?:\.\d+)?)/g)].map(m => Number(m[1]!.replace(/,/g, '')))
+}
+
+/** Install methods that only exist on certain platforms; the others install anywhere. */
+const IMPLIED_PLATFORMS: Partial<Record<typeof INSTALL_METHODS[number], Platform[]>> = {
+  'winget': ['windows'],
+  'aur': ['linux'],
+  'app-store': ['ios', 'macos', 'android'],
+  'brew': ['macos', 'linux']
 }
 
 /** Every string in a parsed document, however deeply nested. */
@@ -123,6 +132,23 @@ for (const file of files) {
   tools.set(tool.slug, tool)
   fileOf.set(tool.slug, file)
   checkSpdx(file, tool.license.spdx)
+
+  // Zod fills defaults before anything downstream sees the tool, so a `per` that was written
+  // out explicitly is only visible here, in the raw document.
+  const doc = data as { pricing?: { tiers?: { id?: string, per?: string }[] } }
+  for (const t of doc.pricing?.tiers ?? []) {
+    if (t.per === DEFAULT_PER) issue(file, `pricing.tiers.${t.id}.per`, `"${DEFAULT_PER}" is the default, drop the line`)
+  }
+  const urls: [string, string | undefined][] = [
+    ['homepage', tool.homepage],
+    ['license.repo', tool.license.repo],
+    ...Object.entries(tool.links).map(([k, v]): [string, string | undefined] => [`links.${k}`, v]),
+    ...tool.sources.map((s, i): [string, string | undefined] => [`sources.${i}.url`, s.url]),
+    ...tool.install.map((s, i): [string, string | undefined] => [`install.${i}.url`, s.url])
+  ]
+  for (const [path, url] of urls) {
+    if (url && /^https?:\/\/[^/]+\/$/i.test(url)) issue(file, path, 'trailing slash on a bare domain, drop it')
+  }
 }
 
 // Cross-file checks
@@ -139,6 +165,26 @@ for (const [slug, tool] of tools) {
   }
 
   if (tool.successor && !tools.has(tool.successor)) issue(file, 'successor', `unknown tool "${tool.successor}"`)
+
+  if (tool.models.providers?.includes('first-party')) {
+    const named = namedProviderFor(tool.vendor)
+    if (named && tool.models.providers.includes(named)) {
+      issue(file, 'models.providers', `"${named}" already covers the models of "${tool.vendor}", drop first-party`)
+    } else if (named) {
+      issue(file, 'models.providers', `vendor "${tool.vendor}" has the "${named}" provider entry, use it instead of first-party`)
+    }
+  }
+
+  if ((tool.layer === 'extension' || tool.secondary_layers.includes('extension')) && !tool.hosts.length) {
+    issue(file, 'hosts', 'an extension layer needs the hosts it installs into')
+  }
+
+  tool.install.forEach((inst, i) => {
+    const implied = IMPLIED_PLATFORMS[inst.method]
+    if (implied && !implied.some(p => tool.platforms.includes(p))) {
+      issue(file, `install.${i}.method`, `"${inst.method}" implies ${implied.join(' or ')} and platforms lists neither`)
+    }
+  })
 
   if (tool.pricing.same_as) {
     const target = tools.get(tool.pricing.same_as)
@@ -162,6 +208,15 @@ for (const [slug, tool] of tools) {
   }
 
   for (const tier of tool.pricing.tiers ?? []) {
+    if (tier.overage?.kind === 'fixed' && tier.overage.rate === undefined) {
+      issue(file, `pricing.tiers.${tier.id}.overage`, 'kind "fixed" without a rate says nothing, use kind "credits" for prepaid packs or record the rate')
+    }
+    // Only a `credits` overage prices the included unit itself; a `fixed` or `api-list` rate
+    // can be per line or per token, and a mirrored tier's figures belong to the source tool.
+    if (!tier.mirrors && tier.included?.unit === 'credits' && tier.included.usd_value === undefined && tier.overage?.kind === 'credits' && (tier.overage.rate ?? 0) > 0) {
+      const value = Math.round(tier.included.amount * tier.overage.rate! * 100) / 100
+      issue(file, `pricing.tiers.${tier.id}.included.usd_value`, `the tier's own overage rate puts this allowance at $${value}, record it as usd_value`)
+    }
     tier.limits.forEach((limit, i) => {
       if (restatesThePrice(limit)) {
         issue(file, `pricing.tiers.${tier.id}.limits.${i}`, `"${limit}" is what the price column already says, put the tier's own differentiators here`)
