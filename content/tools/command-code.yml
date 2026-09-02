@@ -1,9 +1,9 @@
 slug: command-code
 name: Command Code
-description: Terminal coding agent that learns a developer's coding taste and gives access to open and frontier models.
+description: Terminal coding agent and desktop app that learns a developer's coding taste and gives access to open and frontier models.
 layer: harness
 secondary_layers: [app]
-vendor: Langbase, Inc. d/b/a Command Code
+vendor: Langbase, Inc.
 homepage: https://commandcode.ai
 links:
   docs: https://commandcode.ai/docs
@@ -21,13 +21,14 @@ install:
 license:
   spdx: proprietary
   kind: proprietary
-  notes: The CLI source is visible in a public GitHub repo but the npm package lists the license as UNLICENSED, so no open license is granted.
+  repo: https://github.com/CommandCodeAI/command-code
+  notes: Operated by Langbase, Inc. d/b/a Command Code. The CLI source is visible in a public GitHub repo but the npm package lists the license as UNLICENSED, so no open license is granted.
 models:
   providers: [anthropic, openai, google, xai, deepseek, moonshot, alibaba, zhipu, minimax]
   plans: [chatgpt, copilot]
   byok: full
   local: true
-  notes: Ships curated first-party access to Claude, GPT, Gemini, Grok, DeepSeek, Kimi, Qwen, GLM and MiniMax models. BYOK connects any OpenAI or Anthropic-compatible endpoint, including local servers like Ollama or vLLM, or a ChatGPT Pro/Plus or GitHub Copilot subscription.
+  notes: Ships curated first-party access to Claude, GPT, Gemini, Grok, DeepSeek, Kimi, Qwen, GLM, Tencent Hunyuan and MiniMax models. BYOK connects any OpenAI or Anthropic-compatible endpoint, including local servers like Ollama or vLLM, or a ChatGPT Pro/Plus or GitHub Copilot subscription.
 features: [worktrees, subagents, mcp-client, hooks, checkpoints, scheduled-tasks, plugins]
 pricing:
   tiers:
@@ -57,7 +58,7 @@ pricing:
         amount: 70
         unit: usd
         period: month
-        notes: Per-model credit allowances across 29+ models, up to $70 of usage on each.
+        notes: Per-model credit allowances across 29+ models, up to $70 of usage on each. Deals on some models can raise effective usage to up to ~$100.
       overage:
         kind: api-list
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
@@ -79,8 +80,8 @@ pricing:
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
       limits:
         - Around 100K requests a month
-        - Adds premium models such as Claude, GPT and Gemini to the shared credit pool
-        - Standard rate limits, per-request cost and token analytics
+        - Part of the $80 credit allowance is earmarked for premium models (Claude Sonnet, GPT and Gemini)
+        - Standard rate limits, usage analytics
         - Discord community support
     - id: max-10x
       name: Max 10x
@@ -91,6 +92,7 @@ pricing:
         amount: 150
         unit: usd
         period: month
+        notes: Deals on some models can raise effective usage to up to $300.
       overage:
         kind: api-list
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
@@ -108,6 +110,7 @@ pricing:
         amount: 300
         unit: usd
         period: month
+        notes: Deals on some models can raise effective usage to up to $600.
       overage:
         kind: api-list
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
@@ -123,7 +126,8 @@ pricing:
       audience: individual
       overage:
         kind: api-list
-        notes: Pay-as-you-go OpenAI and Anthropic compatible API access billed at the underlying model API rate with no markup, on top of the base fee.
+        markup_pct: 0
+        notes: Pay-as-you-go OpenAI and Anthropic compatible API access billed at the underlying model API rate, on top of the $15 base fee.
       limits:
         - OpenAI and Anthropic compatible API endpoints for any client
         - Open source and premium models
@@ -134,9 +138,6 @@ pricing:
       price: 40
       per: flat
       audience: team
-      overage:
-        kind: api-list
-        notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
       limits:
         - Around 35K requests a month, pooled in one bucket for the whole team
         - Open source and premium models
@@ -157,44 +158,44 @@ pricing:
 status: active
 sources:
   - url: https://commandcode.ai/
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [general]
   - url: https://commandcode.ai/terms
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [general]
   - url: https://commandcode.ai/pricing
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [pricing]
   - url: https://commandcode.ai/desktop
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [platforms]
   - url: https://commandcode.ai/docs/byok
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [models]
   - url: https://commandcode.ai/models
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [models]
   - url: https://commandcode.ai/docs/agents
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [features]
   - url: https://commandcode.ai/docs/worktrees
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [features]
   - url: https://commandcode.ai/docs/mcp
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [features]
   - url: https://commandcode.ai/docs/hooks
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [features]
   - url: https://commandcode.ai/docs/sessions
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [features]
   - url: https://commandcode.ai/docs/background-tasks
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [features]
   - url: https://commandcode.ai/docs/skills
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [features]
   - url: https://registry.npmjs.org/command-code
-    verified_at: 2026-08-28
+    verified_at: 2026-09-02
     covers: [license]

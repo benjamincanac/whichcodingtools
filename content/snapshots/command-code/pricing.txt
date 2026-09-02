@@ -27,7 +27,6 @@ MiMo
 Up to 99% off MiMo V2.5
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
-Free on MiniMax M3 & M2.7
 Limited usage analytics
 Discord community support
 ✦ New
@@ -46,7 +45,6 @@ $ 60 on DeepSeek V4 Flash
 + 27 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
-Free on MiniMax M3 & M2.7
 Usage analytics
 Discord community support
 Pro $20 Max 10× Max 20×
@@ -63,7 +61,6 @@ MiMo
 Up to 99% off MiMo V2.5
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
-Free on MiniMax M3 & M2.7
 Usage analytics
 Higher rate limits
 Priority support
@@ -139,12 +136,6 @@ Free
 Free
 Free
 Free
-MiniMax M3 & M2.7 effective usage Requests cost no credits through September 5, 2026
-Free
-Free
-Free
-Free
-Free
 Typical request volume Approx, depends on chosen models
 ~15K
 ~75K
@@ -192,8 +183,6 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$50
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-MiniMax M3 & M2.7 effective usage Requests cost no credits through September 5, 2026
-Free
 Typical request volume Approx, depends on chosen models
 ~15K
 Roll-over top-ups
@@ -229,8 +218,6 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$100
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-MiniMax M3 & M2.7 effective usage Requests cost no credits through September 5, 2026
-Free
 Typical request volume Approx, depends on chosen models
 ~75K
 Roll-over top-ups
@@ -264,8 +251,6 @@ $57
 MiMo V2.5 effective usage Credits go up to 5× further
 ~$150
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
-Free
-MiniMax M3 & M2.7 effective usage Requests cost no credits through September 5, 2026
 Free
 Typical request volume Approx, depends on chosen models
 ~100K
@@ -301,8 +286,6 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$750
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-MiniMax M3 & M2.7 effective usage Requests cost no credits through September 5, 2026
-Free
 Typical request volume Approx, depends on chosen models
 ~219K
 Roll-over top-ups
@@ -336,8 +319,6 @@ MiniMax M3 effective usage Credits go up to 2× further
 MiMo V2.5 effective usage Credits go up to 5× further
 ~$1,500
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
-Free
-MiniMax M3 & M2.7 effective usage Requests cost no credits through September 5, 2026
 Free
 Typical request volume Approx, depends on chosen models
 ~437K
@@ -406,12 +387,12 @@ David Thyresson
 GP · PWV · RedwoodSDK contributor
 // ship
 Changelog
-v 1.38.0
-320 releases shipped
-FEAT Let custom agents pin a reasoning effort next to their model
-FEAT Add reasoning effort support for Tencent Hy4 Preview
-FEAT Add Tencent Hy4 Preview, routed through OpenRouter
-FEAT Add Qwen 3.8 Flash
+v 1.40.1
+328 releases shipped
+FEAT Filter feature models on ZDR
+FIX List only ZDR-capable feature models and apply compatible picks immediately
+FEAT Add Fable 5.1
+FEAT Add low, high, and max reasoning effort support for Kimi K3
 Read full changelog
 +104k
 Ready to code with your taste? Join 29K+ developers who stopped fixing AI code and started shipping with their coding preferences.
@@ -440,4 +421,5 @@ GitHub
 LinkedIn
 Discord
 © 2026 Command Code, 2261 Market St #5698, San Francisco, CA 94114. All rights reserved.
+English
 </untrusted-page-text>
