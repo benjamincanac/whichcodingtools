@@ -27,6 +27,7 @@ MiMo
 Up to 99% off MiMo V2.5
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
+Free on LongCat 2.0
 Limited usage analytics
 Discord community support
 ✦ New
@@ -42,9 +43,10 @@ $ 70 on GLM-5.2
 $ 70 on Tencent Hy3
 $ 70 on Qwen 3.8 27B
 $ 60 on DeepSeek V4 Flash
-+ 27 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
++ 28 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
+Free on LongCat 2.0
 Usage analytics
 Discord community support
 Pro $20 Max 10× Max 20×
@@ -61,6 +63,7 @@ MiMo
 Up to 99% off MiMo V2.5
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
+Free on LongCat 2.0
 Usage analytics
 Higher rate limits
 Priority support
@@ -136,6 +139,12 @@ Free
 Free
 Free
 Free
+LongCat 2.0 effective usage Requests cost no credits while it lasts
+Free
+Free
+Free
+Free
+Free
 Typical request volume Approx, depends on chosen models
 ~15K
 ~75K
@@ -183,6 +192,8 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$50
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
+LongCat 2.0 effective usage Requests cost no credits while it lasts
+Free
 Typical request volume Approx, depends on chosen models
 ~15K
 Roll-over top-ups
@@ -218,6 +229,8 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$100
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
+LongCat 2.0 effective usage Requests cost no credits while it lasts
+Free
 Typical request volume Approx, depends on chosen models
 ~75K
 Roll-over top-ups
@@ -251,6 +264,8 @@ $57
 MiMo V2.5 effective usage Credits go up to 5× further
 ~$150
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
+Free
+LongCat 2.0 effective usage Requests cost no credits while it lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~100K
@@ -286,6 +301,8 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$750
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
+LongCat 2.0 effective usage Requests cost no credits while it lasts
+Free
 Typical request volume Approx, depends on chosen models
 ~219K
 Roll-over top-ups
@@ -319,6 +336,8 @@ MiniMax M3 effective usage Credits go up to 2× further
 MiMo V2.5 effective usage Credits go up to 5× further
 ~$1,500
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
+Free
+LongCat 2.0 effective usage Requests cost no credits while it lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~437K
@@ -387,12 +406,12 @@ David Thyresson
 GP · PWV · RedwoodSDK contributor
 // ship
 Changelog
-v 1.40.1
-328 releases shipped
-FEAT Filter feature models on ZDR
-FIX List only ZDR-capable feature models and apply compatible picks immediately
-FEAT Add Fable 5.1
-FEAT Add low, high, and max reasoning effort support for Kimi K3
+v 1.47.0
+335 releases shipped
+FIX Mark Grok 4.6 as vision-capable
+FEAT read_file now reads Word, PowerPoint, Excel, OpenDocument, RTF, EPUB and PDF files as Markdown, windowed like text, in single and multi-file reads; a scanned PDF names its image-only pages and the pdftoppm command to render them. The converter installs into the user cache on the first document read instead of shipping with the CLI.
+FEAT Auto compact improvements
+FEAT Add browser sign in through local callback server
 Read full changelog
 +104k
 Ready to code with your taste? Join 29K+ developers who stopped fixing AI code and started shipping with their coding preferences.

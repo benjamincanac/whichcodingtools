@@ -75,12 +75,13 @@ pricing:
         amount: 80
         unit: usd
         period: month
+        notes: Deals bring usage up to about $120. $20 of the pool covers premium models (Claude Sonnet, GPT & Gemini).
       overage:
         kind: api-list
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
       limits:
         - Around 100K requests a month
-        - Part of the $80 credit allowance is earmarked for premium models (Claude Sonnet, GPT and Gemini)
+        - Per-model allowances
         - Standard rate limits, usage analytics
         - Discord community support
     - id: max-10x
@@ -157,45 +158,45 @@ pricing:
   notes: Each paid tier bills a flat monthly fee plus a processing fee. Select premium models (GPT-5.6 Luna, Grok 4.5, Qwen Max and Plus) are included on every plan, and top-up credits roll over and never expire.
 status: active
 sources:
-  - url: https://commandcode.ai/
-    verified_at: 2026-09-02
+  - url: https://commandcode.ai
+    verified_at: 2026-09-04
     covers: [general]
   - url: https://commandcode.ai/terms
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [general]
   - url: https://commandcode.ai/pricing
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [pricing]
   - url: https://commandcode.ai/desktop
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [platforms]
   - url: https://commandcode.ai/docs/byok
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [models]
   - url: https://commandcode.ai/models
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [models]
   - url: https://commandcode.ai/docs/agents
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [features]
   - url: https://commandcode.ai/docs/worktrees
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [features]
   - url: https://commandcode.ai/docs/mcp
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [features]
   - url: https://commandcode.ai/docs/hooks
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [features]
   - url: https://commandcode.ai/docs/sessions
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [features]
   - url: https://commandcode.ai/docs/background-tasks
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [features]
   - url: https://commandcode.ai/docs/skills
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [features]
   - url: https://registry.npmjs.org/command-code
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [license]
