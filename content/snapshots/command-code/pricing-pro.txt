@@ -1,0 +1,71 @@
+# https://commandcode.ai/pricing
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Docs
+Features
+About
+Pricing
+Contact
+GOAT
+Sign Up
+## A plan for every kind of code. Pick yours.
+Transparent pricing. No markup. Cancel anytime.
+// For individuals
+### Hello, command code.
+From a buck a month to all-out, all-models. Swap, upgrade, or cancel — whenever.
+✦placeholder
+### Go
+$1/month+ processing fee
+$10 in credits includedUp to $20 usage with deals
+A buck. Lots of code.
+Subscribe
+What's included
+- ~15K requests
+- taste-1 model access
+- $20 on MiniMax M3
+- Up to 99% off MiMo V2.5
+- Free on Laguna S 2.1
+- Free on LongCat 2.0
+- Limited usage analytics
+- Discord community support
+✦New
+### GOAT
+$10/month+ processing fee
+$70 in credits includedUp to ~$100 usage with deals
+Best value subscription in market.
+Subscribe
+What's included
+- ~75K requests
+- taste-1 model access
+- Per-model allowances
+- $70 on GPT-5.6 Sol
+- $70 on GLM-5.2
+- $70 on Tencent Hy3
+- $70 on Qwen 3.8 27B
+- $60 on DeepSeek V4 Flash
+- + 28 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
+- Free on Laguna S 2.1
+- Free on LongCat 2.0
+- Usage analytics
+- Discord community support
+Pro $20Max 10×Max 20×
+### Pro
+$20/month+ processing fee
+$80 in credits includedUp to ~$120 usage with deals
+Every model. One pool.
+Get started
+What's included
+- ~100K requests
+- taste-1 model access
+- Per-model allowances
+- $80 on GPT-5.6 Sol
+- $80 on GLM-5.2
+- $80 on Tencent Hy3
+- $80 on Qwen 3.8 27B
+- $20 on premium: Claude Sonnet, GPT & Gemini
+- + 29 more models: Kimi, DeepSeek, Qwen, MiniMax, MiMo
+- Free on Laguna S 2.1
+- Free on LongCat 2.0
+- Usage analytics
+- Discord community support
+</untrusted-page-text>
