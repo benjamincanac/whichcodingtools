@@ -19,3 +19,11 @@ export const currentThread = defineState<number | null>('agent.current-thread', 
  * first one's session and can still add a commit to the branch it opened.
  */
 export const ownBranches = defineState<string[]>('agent.own-branches', () => [])
+
+/**
+ * The branch this session last pushed to, its own or not, which is where its work now is. The
+ * turn hook checks it out at the start of the next turn, so a follow-up edits the file the pull
+ * request carries rather than main's copy of it, and the next push does not quietly revert the
+ * first turn's diff. Null until the session has pushed, and again once that branch is gone.
+ */
+export const workingBranch = defineState<string | null>('agent.working-branch', () => null)

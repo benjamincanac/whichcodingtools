@@ -1,0 +1,95 @@
+slug: multica
+name: Multica
+description: Self-hostable platform that assigns issues to AI coding agent CLIs like Claude Code and Codex, and tracks their work in one workspace.
+layer: orchestrator
+vendor: Multica, Inc.
+homepage: https://multica.ai
+links:
+  docs: https://multica.ai/docs
+  changelog: https://multica.ai/changelog
+  repo: https://github.com/multica-ai/multica
+  discord: https://discord.gg/W8gYBn226t
+  x: https://x.com/MulticaAI
+platforms: [macos, windows, linux, web]
+install:
+  - method: download
+    url: https://multica.ai/download
+  - method: curl
+    command: curl -fsSL https://raw.githubusercontent.com/multica-ai/multica/main/scripts/install.sh | bash
+  - method: brew
+    command: brew install multica-ai/tap/multica
+license:
+  spdx: LicenseRef-Multica-License
+  kind: source-available
+  repo: https://github.com/multica-ai/multica
+  notes: Apache License 2.0 text plus added conditions that block providing Multica as a hosted service to third parties, paid or not, and block embedding it in a commercially distributed product, without a separate commercial license. The vendor calls it open source, but the added conditions make it source-available.
+models:
+  plans: []
+  byok: partial
+  local: false
+  notes: The self-hosted server takes an OpenAI-compatible key and endpoint (MULTICA_LLM_API_KEY, MULTICA_LLM_BASE_URL) for a narrow server-side assist layer, chat auto-titling and follow-up question suggestions. It is not used to run agents. Each wrapped AI coding tool keeps its own model access and its own account or key.
+features: [parallel-agents, remote-execution, scheduled-tasks, acp-client]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    notes: Named on the homepage as one of the coding agents Multica works with, runs with its own login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    notes: Named on the homepage as one of the coding agents Multica works with.
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    notes: Named on the homepage as one of the coding agents Multica works with.
+  - tool: copilot-cli
+    via: cli
+    uses_subscription: true
+  - tool: hermes
+    via: cli
+    uses_subscription: true
+pricing:
+  tiers:
+    - id: self-hosted
+      name: Self-Hosted
+      price: 0
+      per: flat
+      audience: team
+      limits:
+        - Full source under the Multica License, self-hosted with Docker Compose, a single binary, or Kubernetes
+        - No artificial cap on the number of agents, limited only by your own hardware
+    - id: cloud
+      name: Hosted cloud
+      price: null
+      contact_sales: true
+      per: flat
+      audience: team
+      limits:
+        - Cloud runtime is waitlist only, not live yet
+  notes: Cloud-hosted agent runtimes are a waitlist, not live yet. The local daemon and self-hosted runtimes work today.
+status: active
+sources:
+  - url: https://multica.ai
+    verified_at: 2026-09-02
+    covers: [general, features, pricing]
+  - url: https://multica.ai/download
+    verified_at: 2026-09-02
+    covers: [platforms, pricing]
+  - url: https://multica.ai/docs/daemon-runtimes
+    verified_at: 2026-09-02
+    covers: [wraps, general]
+  - url: https://multica.ai/docs/providers
+    verified_at: 2026-09-02
+    covers: [wraps, features]
+  - url: https://multica.ai/docs/cli
+    verified_at: 2026-09-02
+    covers: [platforms, general, features]
+  - url: https://multica.ai/docs/environment-variables
+    verified_at: 2026-09-02
+    covers: [models]
+  - url: https://github.com/multica-ai/multica
+    verified_at: 2026-09-02
+    covers: [models, general]
+  - url: https://raw.githubusercontent.com/multica-ai/multica/main/LICENSE
+    verified_at: 2026-09-02
+    covers: [license]

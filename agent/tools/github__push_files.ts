@@ -1,7 +1,7 @@
 import { defineTool } from 'eve/tools'
 import { z } from 'zod'
-import { AGENT_BRANCH, assertWritablePaths, pushToAgentBranch } from '../lib/github'
-import { ownBranches } from '../lib/thread'
+import { AGENT_BRANCH, REVERIFY_BRANCH, assertWritablePaths, branchExists, pushToAgentBranch } from '../lib/github'
+import { ownBranches, workingBranch } from '../lib/thread'
 import { isLimited, isTrustedAuthor } from '../lib/trust'
 
 /** A YAML file is a few KB and a logo is a few dozen. Anything near this is a mistake. */
@@ -29,9 +29,17 @@ export default defineTool({
       return { path, content: Buffer.from(bytes).toString('base64') }
     }))
     const limited = isLimited(ctx.session.auth)
+    // Claimed before the push rather than after it. State commits with the step, and eve can
+    // re-run a step that was interrupted after the ref was already created: a claim made after
+    // the push would then be lost, the branch would exist unowned, and the turn would be locked
+    // out of its own work. Only a branch nobody has yet, so a refused push claims nothing that
+    // was not free, and never the re-verification lane, which the push refuses outright.
+    if (limited && !REVERIFY_BRANCH.test(branch) && !(await branchExists(branch))) {
+      ownBranches.update(own => own.includes(branch) ? own : [...own, branch])
+    }
     const pushed = await pushToAgentBranch({ branch, message, files, ...(limited ? { ownBranches: ownBranches.get() } : {}) })
-    // After the push, so a refused one does not claim a branch the turn never opened.
-    if (limited && pushed.created) ownBranches.update(own => own.includes(branch) ? own : [...own, branch])
+    // Where the next turn of this session starts from.
+    workingBranch.update(() => branch)
     return pushed
   }
 })

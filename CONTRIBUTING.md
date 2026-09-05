@@ -27,6 +27,7 @@ Change the value, then bump `verified_at` on the source line you re-checked. If 
 - `license.kind` is `open-source` only for OSI licenses. Elastic, BSL and friends are `source-available`. `spdx` takes an SPDX expression, or `proprietary`.
 - `wraps` is for tools that run another tool. `uses_subscription: true` means the wrapped tool's own login is reused (Conductor running your Claude Code). `via: api` with a pasted key is `uses_subscription: false`.
 - `models.plans` lists consumer plans the tool can sign in with without being part of them (fx with a ChatGPT account). `pricing.bundled_with` is for tools that are part of the plan (Claude Code in Claude Pro).
+- `models.providers` uses the named value when the vendor has one: xAI's tools declare `xai`, Moonshot's declare `moonshot`, the way Claude Code declares `anthropic`. `first-party` is only for vendors the enum does not name (Cursor's own models, Devin's), and `pnpm validate` rejects the mix-up.
 - `pricing.same_as` points at another tool that carries the tiers (Claude desktop app reuses Claude Code's).
 - A vendor's second surface is its own file only when its `install`, `platforms` or `features` differ from the parent's (the Claude desktop app installs differently and has no web build). It carries `pricing.same_as` back, and its `layer` must not also appear in the parent's `secondary_layers`. Everything else is a `secondary_layers` entry on the one file.
 - A tier needs a `price`, or `price_annual`, or `contact_sales: true`, or an `overage`. `price: null` with an `overage` is pay as you go.
@@ -43,6 +44,10 @@ The same goes for a dollar amount written into `limits`, a tier `notes` or `pric
 
     node agent/sandbox/workspace/bin/page-text.mjs <url> > content/snapshots/<slug>/pricing.txt
     node agent/sandbox/workspace/bin/page-text.mjs --stdin <url> > content/snapshots/<slug>/pricing.txt   # rendered text on stdin
+
+## What happens to a pull request
+
+The agent reviews a data pull request when it opens and when it is pushed to, up to three times: it re-reads the vendor pages the diff cites, compares every figure, captures the same pages next to yours and runs `pnpm validate` on the branch merged with main. It comments what it found, or that it found nothing, and never edits your branch. Mention `@whichcodingtools` on the pull request to ask it something about that comment. A maintainer merges.
 
 ## What we don't take
 

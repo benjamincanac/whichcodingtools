@@ -1,5 +1,24 @@
 import { describe, expect, it } from 'vitest'
-import { claimsDirectoryCoverage } from '~~/scripts/rules'
+import { claimsDirectoryCoverage, namedProviderFor } from '~~/scripts/rules'
+
+describe('a vendor that is a named provider', () => {
+  it('maps the spellings the corpus and the vendors use', () => {
+    expect(namedProviderFor('xAI (SpaceXAI)')).toBe('xai')
+    expect(namedProviderFor('Moonshot AI')).toBe('moonshot')
+    expect(namedProviderFor('Mistral, Inc.')).toBe('mistral')
+    expect(namedProviderFor('Z.ai')).toBe('zhipu')
+    expect(namedProviderFor('Qwen')).toBe('alibaba')
+    expect(namedProviderFor('Alibaba')).toBe('alibaba')
+    expect(namedProviderFor('Anthropic')).toBe('anthropic')
+    expect(namedProviderFor('Meta Platforms, Inc.')).toBe('meta')
+  })
+
+  it('leaves alone the vendors that only look like one', () => {
+    for (const vendor of ['Metabob', 'Cursor', 'Cognition', 'Charmbracelet, Inc.', 'Nous Research', 'Anysphere', 'Element Labs, Inc.']) {
+      expect(namedProviderFor(vendor), vendor).toBeUndefined()
+    }
+  })
+})
 
 describe('a note that claims what this directory covers', () => {
   it('catches the phrasings the corpus had drifted into', () => {

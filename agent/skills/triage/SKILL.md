@@ -9,7 +9,7 @@ Threads outlive the finding that opened them. A pull request goes stale when mai
 
 ## Procedure
 
-Work in `/workspace/repo`, already on the latest main. Call `github__list_open`: the repository is private, so that tool is the list. An unauthenticated fetch of the REST API answers 404 and the browser cannot open github.com, and neither is worth a retry.
+Work in `/workspace/repo`, already on the latest main. Call `github__list_open`: that tool is the list. An unauthenticated fetch of the REST API is rate limited to 60 requests an hour and the browser cannot open github.com, and neither is worth a retry.
 
 Read each thread with `github__read_thread` before deciding anything about it. The diff says what changed, the thread says whether a person already objected, already answered, or is waiting on something. Bring the pull request refs in once, they are not part of a normal clone:
 

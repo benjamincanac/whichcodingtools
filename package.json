@@ -34,7 +34,7 @@
     "comark-content": "https://pkg.pr.new/comark-content@717abb2",
     "eve": "^0.44.3",
     "nuxt": "^4.5.2",
-    "nuxt-agent-discovery": "^0.1.1",
+    "nuxt-agent-discovery": "^0.3.0",
     "nuxt-llms": "^0.2.0",
     "satori": "^0.33.3",
     "shaders": "^3.1.463",

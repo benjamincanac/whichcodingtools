@@ -37,7 +37,7 @@ sources:
   - url: https://github.com/JetBrains/junie
     verified_at: 2026-08-24
     covers: [platforms, license, general]
-  - url: https://junie.jetbrains.com/
+  - url: https://junie.jetbrains.com
     verified_at: 2026-08-24
     covers: [pricing, features]
   - url: https://junie.jetbrains.com/docs/junie-cli.html

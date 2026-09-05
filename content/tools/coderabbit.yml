@@ -92,7 +92,7 @@ sources:
   - url: https://docs.coderabbit.ai/faq.md
     verified_at: 2026-08-23
     covers: [models, pricing]
-  - url: https://docs.coderabbit.ai/
+  - url: https://docs.coderabbit.ai
     verified_at: 2026-08-23
     covers: [platforms, general]
   - url: https://docs.coderabbit.ai/overview/ide-cli-review.md

@@ -13,7 +13,8 @@ import browser from '@agent-browser/eve'
  *
  * One domain is out of reach rather than out of policy: `github.com` is the only one
  * the firewall terminates TLS on, to broker the git credential, and the browser does
- * not trust the per-sandbox proxy CA. The instructions send GitHub reads to `web_fetch`.
+ * not trust the per-sandbox proxy CA. The instructions send GitHub reads to the
+ * `github__*` tools and the checkout.
  *
  * The user agent is Chromium's own. `page-text.mjs` identifies itself as
  * `whichcodingtools-agent` and checks robots.txt before every fetch, but this extension

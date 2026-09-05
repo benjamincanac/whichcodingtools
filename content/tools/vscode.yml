@@ -57,7 +57,7 @@ pricing:
   notes: VS Code has no price of its own. Extensions in this directory that run inside it, such as Cline, list vscode in their hosts.
 status: active
 sources:
-  - url: https://code.visualstudio.com/
+  - url: https://code.visualstudio.com
     verified_at: 2026-08-23
     covers: [pricing, platforms, general]
   - url: https://code.visualstudio.com/docs/copilot/setup

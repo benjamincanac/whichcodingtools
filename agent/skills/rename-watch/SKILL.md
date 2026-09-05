@@ -11,14 +11,14 @@ Products in this space rename over the air. Windsurf became Devin Desktop in pla
 
 Work in `/workspace/repo`. For every tool that is not `status: sunset`, take `homepage` and every URL in `links`.
 
-For each URL run `curl -sIL -o /dev/null -w '%{http_code} %{url_effective}' <url>` in the sandbox and look at where it landed:
+For each URL run `curl -sIL -A 'whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)' -o /dev/null -w '%{http_code} %{url_effective}' <url>` in the sandbox and look at where it landed. That is a HEAD for the status and the landing URL, no page body, and it says who is asking: reading a page goes through `node /workspace/bin/page-text.mjs <url>`, which checks robots.txt first, and the browser only after that script ran.
 
-- **Different registrable domain** than the recorded one (`windsurf.com` landing on `devin.ai`): strong rename or acquisition signal. Also open the final page with the browser and read the product name it shows.
+- **Different registrable domain** than the recorded one (`windsurf.com` landing on `devin.ai`): strong rename or acquisition signal. Also read the final page and the product name it shows.
 - **Same domain, page shows a different product name** than `name`: rename signal.
 - **404 or 410 on the homepage**: possible shutdown. Check the vendor's blog or repo README with the browser before concluding anything.
 - **Redirect within the same domain** (path moves, http to https, trailing slash): not a finding. Fix nothing.
 
-Then read the homepage itself: `node /workspace/bin/page-text.mjs <final url> > /tmp/<slug>.txt`. Use the browser when the fetch returns no readable text. That text answers the name question above, and it is also the input to the next section.
+Then read the homepage itself: `node /workspace/bin/page-text.mjs <final url> > /tmp/<slug>.txt`. Use the browser when the fetch returns no readable text and did not exit 3: exit 3 is a page the vendor's robots.txt reserves, reported as such and never opened. That text answers the name question above, and it is also the input to the next section.
 
 ## Description drift
 
@@ -30,7 +30,7 @@ A fact that belongs in a schema field is worth the same issue. Sign-in providers
 
 ## Deliver
 
-For each real signal, one issue, titled with the observation, not a conclusion: `windsurf.com now redirects to devin.ai`, `fx.sh no longer mentions SuperGrok sign-in`. Body: the URLs, the status codes, what the rendered page calls the product, the description line and the sentence on the page that disagrees with it, the date, and which schema change it would imply (`aliases` entry, `successor`, `homepage` update). Dedupe with `github__find_related` on the tool slug first: one open issue per tool covering everything found for it that week, and a signal whose issue a person already closed stays closed.
+For each real signal, one issue, titled with the observation, not a conclusion: `windsurf.com now redirects to devin.ai`, `fx.sh no longer mentions SuperGrok sign-in`. Body: the URLs, the status codes, what the rendered page calls the product, the description line and the sentence on the page that disagrees with it, the date, and which schema change it would imply (`aliases` entry, `successor`, `homepage` update). For a rename, spell the alias out: the old slug, the old name and the `until` date the evidence supports, so the fix is a copy and not a second investigation. A rename settled by editing the description alone is how trae ended up "now called TraeCode" with no alias on file. Dedupe with `github__find_related` on the tool slug first: one open issue per tool covering everything found for it that week, and a signal whose issue a person already closed stays closed.
 
 Never edit the YAML in this sweep. Renames change slugs and redirects, a person decides those. Do not draft replacement wording for a description either: report what no longer holds and stop there, the turn that fixes it reads the page itself.
 

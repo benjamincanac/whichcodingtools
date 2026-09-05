@@ -9,7 +9,7 @@ links:
   pricing: https://jcode.sh/pricing
   repo: https://github.com/1jehuang/jcode
   discord: https://discord.gg/nBe9vGyK9a
-platforms: [linux, macos, windows, android]
+platforms: [linux, macos, windows]
 install:
   - method: curl
     command: curl -fsSL https://jcode.sh/install | bash
@@ -66,8 +66,8 @@ pricing:
 status: active
 sources:
   - url: https://jcode.sh/pricing
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [pricing, license, general]
   - url: https://github.com/1jehuang/jcode
-    verified_at: 2026-09-02
+    verified_at: 2026-09-04
     covers: [platforms, models, features, license, general]

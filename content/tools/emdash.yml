@@ -62,7 +62,7 @@ pricing:
   notes: The site links Cloud and Enterprise pages without prices. Amp, Copilot, Devin, Droid and Qwen Code also run.
 status: preview
 sources:
-  - url: https://emdash.com/
+  - url: https://emdash.com
     verified_at: 2026-08-23
     covers: [pricing, platforms, features, general]
   - url: https://emdash.com/enterprise
