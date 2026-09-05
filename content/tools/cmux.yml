@@ -62,35 +62,43 @@ pricing:
       name: Free
       price: 0
       audience: individual
+      overage:
+        kind: blocked
       limits:
         - Native terminal, every CLI agent with your own keys, browser panels, socket API, skills
-        - Local session history and a one time Cloud VM trial
+        - Local session history, no Cloud VMs
     - id: pro
       name: Pro
-      price: 30
-      price_annual: 24
+      price: 50
+      price_annual: 40
+      per: flat
       audience: individual
+      overage:
+        kind: blocked
       limits:
-        - Cloud agents on Cloud VMs, 20 active compute hours per month on a 4 vCPU / 16 GB VM, then usage based
-        - CodeRouter, the cmux iOS app, email support
+        - Cloud agents on Cloud VMs, up to 50 Cloud VMs, each with 5 vCPU, 20 GB RAM and 32 GB disk
+        - The cmux iOS app and email support
     - id: team
       name: Team
-      price: 35
-      price_annual: 28
+      price: 60
+      price_annual: 48
       audience: team
+      overage:
+        kind: blocked
       limits:
-        - Team wide CodeRouter with aggregate usage and cost analytics
+        - Centralized billing for your whole team
+        - 50 Cloud VMs per user, priority support
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
-      notes: Self-hosted cloud execution and CodeRouter, SSO and SAML, audit logs, SOC 2 and an SLA.
-  notes: The terminal itself is free and open source. Paid plans add Cloud VMs, CodeRouter and the iOS app. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access, price not on the pricing page. The iOS app is in beta on TestFlight.
+      notes: Self-hosted Cloud execution and networking, SSO and SAML sign-in, centralized admin and shared team rules, audit logs, custom VM limits and volume pricing, SOC 2 and an SLA.
+  notes: The terminal itself is free and open source. Paid plans include up to 50 Cloud VMs, with no metering or overages. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access, price not on the pricing page. The iOS app is in beta on TestFlight.
 status: active
 sources:
   - url: https://cmux.com/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-04
     covers: [pricing]
   - url: https://cmux.com
     verified_at: 2026-08-23
