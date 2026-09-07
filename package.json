@@ -26,7 +26,7 @@
     "@nuxtjs/seo": "^5.3.14",
     "@resvg/resvg-js": "^2.6.2",
     "@vercel/analytics": "^2.0.1",
-    "@vercel/connect": "^1.0.0",
+    "@vercel/connect": "^2.0.2",
     "@vercel/functions": "^3.9.5",
     "@vercel/speed-insights": "^2.0.0",
     "@vueuse/core": "^14.4.0",
