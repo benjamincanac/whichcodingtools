@@ -74,7 +74,7 @@ const SUMMARY_DROPS: DropTree = {
   license: { repo: true, notes: true },
   models: { notes: true },
   wraps: { notes: true },
-  aliases: { name: true, until: true, note: true },
+  aliases: { until: true, note: true },
   pricing: {
     notes: true,
     tiers: { price_annual: true, price_from: true, trial_days: true, mirrors: true, limits: true, notes: true, included: { notes: true }, overage: { rate: true, notes: true } }

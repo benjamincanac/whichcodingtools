@@ -93,12 +93,15 @@ export function useToolFinder() {
   /**
    * Lower is better, null is no match at all. Identity only: descriptions name other products
    * constantly, so searching them puts every wrapper that runs Claude Code under "claude".
+   * A former name counts as identity too, "windsurf" has to find Devin Desktop.
    */
   function relevanceOf(tool: ToolSummary, q: string) {
     const name = scoreItem(tool, q, ['name', 'slug'])
     if (name !== null) return name
+    const alias = scoreItem({ names: tool.aliases.map(a => a.name) }, q, ['names'])
+    if (alias !== null) return 3 + alias
     const vendor = scoreItem(tool, q, ['vendor'])
-    return vendor === null ? null : 3 + vendor
+    return vendor === null ? null : 6 + vendor
   }
 
   const searched = computed(() => {
