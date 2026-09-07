@@ -32,20 +32,23 @@ pricing:
         - Publish 1 live project
     - id: core
       name: Core
-      price: 25
-      price_annual: 20
+      price: 20
+      price_annual: 17
       audience: individual
       included:
-        amount: 25
+        amount: 20
         unit: usd
-        usd_value: 25
-        notes: $25 of monthly credits toward Power and Max mode, plus a Free Mode allowance
+        usd_value: 20
+        notes: $20 of monthly credits toward the most powerful models
       overage:
         kind: credits
         notes: Effort-based pay as you go once monthly credits run out.
       limits:
-        - 2 parallel agents
+        - AI integrations
+        - More free agent usage
+        - Plan mode
         - Unlimited workspaces
+        - Remove "Made with Replit" badge
     - id: pro
       name: Pro
       price: 100
@@ -60,7 +63,9 @@ pricing:
         kind: credits
       limits:
         - 10 parallel agents
+        - Premium Support
         - Up to 15 collaborators and 50 viewers
+        - Database rollback up to 28 days
     - id: enterprise
       name: Enterprise
       price: null
@@ -72,11 +77,11 @@ pricing:
 status: active
 sources:
   - url: https://replit.com/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-07
     covers: [pricing]
   - url: https://docs.replit.com/chat/agent-modes
-    verified_at: 2026-08-23
-    covers: [pricing, models]
+    verified_at: 2026-09-07
+    covers: [models]
   - url: https://docs.replit.com/chat/model-selector
     verified_at: 2026-08-23
     covers: [models]
