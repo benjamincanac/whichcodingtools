@@ -57,6 +57,16 @@ pricing:
       limits:
         - About 10x the Pro usage
         - Early access to new features
+    - id: teams
+      name: Teams
+      price: 60
+      per: flat
+      audience: team
+      limits:
+        - Up to 10 seats with centralized billing
+        - Everything in Pro for each seat
+        - "Droid Computers: 10 hours a month shared across the team"
+      notes: Plus $40 per seat per month on top of the $60 team fee.
     - id: business
       name: Business
       price: null
@@ -75,10 +85,13 @@ pricing:
 status: active
 sources:
   - url: https://factory.ai/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-08
     covers: [pricing]
   - url: https://docs.factory.ai/pricing/individuals
-    verified_at: 2026-08-23
+    verified_at: 2026-09-08
+    covers: [pricing]
+  - url: https://docs.factory.ai/pricing/organizations
+    verified_at: 2026-09-08
     covers: [pricing]
   - url: https://docs.factory.ai/models
     verified_at: 2026-08-23
