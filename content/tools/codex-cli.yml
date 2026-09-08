@@ -63,11 +63,14 @@ pricing:
         - 5x or 20x the Plus allowance depending on the Pro tier
     - id: business
       name: ChatGPT Business
-      price: 20
+      price: 25
+      price_annual: 20
       audience: team
       overage:
         kind: rate-limited
-      notes: Billed annually, two seats minimum.
+      limits:
+        - Two user minimum
+      notes: The $20 annual rate requires 2 or more users.
     - id: api
       name: API key
       price: null
@@ -79,7 +82,7 @@ pricing:
 status: active
 sources:
   - url: https://learn.chatgpt.com/docs/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-08
     covers: [pricing, models]
   - url: https://github.com/openai/codex
     verified_at: 2026-08-23
