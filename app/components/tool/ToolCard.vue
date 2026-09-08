@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LAYERS, PLATFORMS, optionLabel } from '#shared/enums'
+import { LAYERS, PLATFORMS, STATUSES, type EnumOption, optionLabel } from '#shared/enums'
 import type { ToolSummary } from '#shared/types/tool'
 import { deltaLabel, type MatchResult } from '#shared/utils/match'
 import { entryPriceLabel } from '#shared/utils/pricing'
@@ -14,6 +14,11 @@ const props = defineProps<{
 const platforms = computed(() => PLATFORMS.filter(p => props.tool.platforms.includes(p.value)))
 const delta = computed(() => deltaLabel(props.match))
 const price = computed(() => entryPriceLabel(props.tool))
+const statusHint = computed(() => {
+  if (props.tool.status === 'sunset') return `Discontinued${props.tool.sunset_at ? ` on ${props.tool.sunset_at}` : ''}`
+  const option: EnumOption | undefined = STATUSES.find(s => s.value === props.tool.status)
+  return option?.description ?? ''
+})
 </script>
 
 <template>
@@ -81,8 +86,8 @@ const price = computed(() => entryPriceLabel(props.tool))
             {{ miss }}
           </UBadge>
         </div>
-        <div class="flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 text-xs text-muted">
-          <div class="flex items-center gap-1.5 min-w-0">
+        <div class="flex flex-wrap items-center justify-between gap-x-0.5 gap-y-1.5 text-xs text-muted">
+          <div class="flex items-center gap-1 min-w-0">
             <UTooltip
               v-for="platform in platforms"
               :key="platform.value"
@@ -94,9 +99,23 @@ const price = computed(() => entryPriceLabel(props.tool))
               />
             </UTooltip>
           </div>
-          <div class="flex items-center gap-2 shrink-0">
+          <div class="flex items-center gap-1.5 shrink-0">
             <span class="font-mono text-highlighted whitespace-nowrap">{{ price }}</span>
+            <!-- A sunset tool's freshness is frozen by design, so the badge takes its slot. A preview tool keeps both. -->
+            <UTooltip
+              v-if="tool.status !== 'active'"
+              :text="statusHint"
+            >
+              <UBadge
+                :color="tool.status === 'sunset' ? 'error' : 'warning'"
+                variant="subtle"
+                size="sm"
+                class="rounded-full"
+                :label="optionLabel(STATUSES, tool.status)"
+              />
+            </UTooltip>
             <ToolFreshness
+              v-if="tool.status !== 'sunset'"
               :freshness="tool.freshness"
               variant="dot"
             />
