@@ -31,7 +31,7 @@ export function renderLayerPage(ctx: MarkdownContext, layer: EnumOption): Markdo
       lead(`${layer.label}s`, intro),
       toolGroup(2, `${layer.label}s`, undefined, primary.map(pricedToolLine)),
       secondary.length > 0 && toolGroup(2, layerSecondaryTitle(layer), LAYER_SECONDARY_INTRO, secondary.map(pricedToolLine)),
-      blocks(heading(2, 'Related'), link('Open in the finder', `/tools?where=${value}`)),
+      blocks(heading(2, 'Related'), link('Open in the finder', `/?where=${value}`)),
       dataLicense()
     )
   }
@@ -68,7 +68,7 @@ export function renderPlanPage(ctx: MarkdownContext, plan: EnumOption): Markdown
       groups.length
         ? groups.join('\n\n')
         : `No tool lists ${plan.label} as a plan it is part of or signs in with.`,
-      blocks(heading(2, 'Related'), link('Open in the finder', `/tools?plans=${value}`)),
+      blocks(heading(2, 'Related'), link('Open in the finder', `/?plans=${value}`)),
       dataLicense()
     )
   }

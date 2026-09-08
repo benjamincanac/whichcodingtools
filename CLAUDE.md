@@ -31,7 +31,7 @@ Open directory of AI coding tools. Data is one YAML per tool in `content/tools/`
 
 ## Gotchas that cost time once
 
-- ISR pages that read `route.query` during SSR need `isr: { passQuery: true }` (`/tools`, `/compare`), otherwise Vercel renders them queryless, caches per full URL, and hydration crashes.
+- ISR pages that read `route.query` during SSR need `isr: { passQuery: true }` (`/`, `/compare`), otherwise Vercel renders them queryless, caches per full URL, and hydration crashes.
 - A `/x/**` route rule does not cover `/x` itself.
 - pnpm has a `minimumReleaseAge` gate; `@nuxt/ui` and `eve` are excluded in `pnpm-workspace.yaml`.
 - `@nuxt/ui`'s `useFilter` is exported but not auto-imported; icon names referenced only in YAML or `shared/` are bundled via the `icon.clientBundle.scan.globInclude` config.

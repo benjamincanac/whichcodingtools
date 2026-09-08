@@ -32,7 +32,7 @@ defineOgImage('ToolSatori', {
         :description="LAYER_INTROS[layer.value as Layer]"
         :links="[
           { label: 'Compare all', to: `/compare?tools=${primary.slice(0, 4).map(t => t.slug).join(',')}`, icon: 'i-lucide-columns-3', color: 'neutral', variant: 'outline' },
-          { label: 'Open in the finder', to: `/tools?where=${layer.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'solid' }
+          { label: 'Open in the finder', to: `/?where=${layer.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'solid' }
         ]"
       />
       <UPageBody>

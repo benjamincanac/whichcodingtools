@@ -227,7 +227,7 @@ export function apiPaths(): Json {
         tags: ['Data'],
         operationId: 'parseFinderQuery',
         summary: 'Turn one sentence into filters',
-        description: 'What the box on the homepage calls. The model only fills the filters, the ranking behind `/tools` is deterministic. Agents that already know what they want should build the query string themselves rather than pay for this.',
+        description: 'What the box on the homepage calls. The model only fills the filters, the ranking behind the homepage is deterministic. Agents that already know what they want should build the query string themselves rather than pay for this.',
         requestBody: {
           required: true,
           content: {

@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
-const route = useRoute()
 const { site } = useAppConfig()
 
 const items = computed<NavigationMenuItem[]>(() => [
-  { label: 'Explore', to: '/tools' },
+  { label: 'Explore', to: '/' },
   { label: 'Compare', to: '/compare' },
   { label: 'API', to: '/api/v1/tools.json', target: '_blank' },
   { label: 'GitHub', to: `https://github.com/${site.repo}`, target: '_blank' }
@@ -15,7 +14,6 @@ const items = computed<NavigationMenuItem[]>(() => [
 <template>
   <UHeader
     to="/"
-    :class="route.path === '/' ? 'bg-transparent border-transparent backdrop-blur-none' : ''"
   >
     <template #title>
       <AppLogo />

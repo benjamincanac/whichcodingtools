@@ -42,7 +42,7 @@ defineOgImage('ToolSatori', {
       <UPageHeader
         :title="planPageTitle(plan)"
         :description="PLAN_INTROS[plan.value as Plan]"
-        :links="[{ label: 'Open in the finder', to: `/tools?plans=${plan.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'solid' }]"
+        :links="[{ label: 'Open in the finder', to: `/?plans=${plan.value}`, icon: 'i-lucide-sliders-horizontal', color: 'neutral', variant: 'solid' }]"
       />
 
       <UPageBody>

@@ -15,8 +15,8 @@ export interface RecoveryLink {
   external?: boolean
 }
 
+// No "every tool" entry: the listing is the homepage, and the button above these already goes there.
 export const RECOVERY_PAGES: RecoveryLink[] = [
-  { label: 'Every tool', to: '/tools' },
   { label: 'Compare two tools', to: '/compare' },
   { label: 'Sitemap', to: '/sitemap.xml', external: true }
 ]
