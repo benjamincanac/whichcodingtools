@@ -7,6 +7,7 @@ Download for Mac
 Docs Blog Changelog Community Jobs
 Download for Mac
 Pricing
+Already paid? Connect Founder's Edition
 Monthly Annual Save 20%
 Free
 $0 /mo
@@ -23,7 +24,7 @@ $40 /mo, billed yearly
 Get Pro
 Everything in Free, plus:
 Cloud agents on Cloud VMs in isolated remote sandboxes
-Up to 50 Cloud VMs, each with 5 vCPU, 20 GB RAM, and 32 GB disk
+Up to 50 Cloud VMs, each with its own resources; default size 8 GB RAM and 32 GB disk, with 4 to 64 GB RAM available
 Unlimited workspaces
 The cmux iOS app and email support
 Team
@@ -55,7 +56,7 @@ Local CLI agents with your own keys
 Vertical tabs, splits, notifications, socket API
 Cloud agents on Cloud VMs -
 Concurrent Cloud VMs - 50 50 per user Custom
-Cloud VM size - 5 vCPU, 20 GB RAM, 32 GB disk 5 vCPU, 20 GB RAM, 32 GB disk Custom
+Resources per Cloud VM - Default 8 GB RAM and 32 GB disk; 4 to 64 GB RAM, disk up to 256 GB Default 8 GB RAM and 32 GB disk; 4 to 64 GB RAM, disk up to 256 GB Custom
 Workspaces Unlimited Unlimited Unlimited Unlimited
 iOS app -
 SSO and SAML sign-in - - -
@@ -68,11 +69,11 @@ FAQ
 Is the terminal really free?
 Yes. The macOS app is open source and free forever. Local agents run with your own API keys at no cost to you. Cloud VMs are part of the paid plans.
 What are Cloud VMs?
-Persistent Linux machines in the cloud: pets, not cattle. Following the Zen of cmux, a machine is a primitive, not a managed solution: it keeps its files, installed tools, and state, and what you build on it is yours. Agents clone repositories, run commands, and open pull requests there without touching your Mac. Pro and Team include up to 50 machines per user, each with 5 vCPU, 20 GB of RAM, and 32 GB of disk.
+Persistent Linux machines in the cloud: pets, not cattle. Following the Zen of cmux, a machine is a primitive, not a managed solution: it keeps its files, installed tools, and state, and what you build on it is yours. Agents clone repositories, run commands, and open pull requests there without touching your Mac. Pro includes up to 50 machines. Team includes up to 50 Cloud VMs per user. Each machine has its own CPU, memory, and disk. The default size is 8 GB RAM and 32 GB disk; sizes from 4 to 64 GB RAM are available. Disks can grow up to 256 GB. There is no metering or overage billing.
 Do I still need Tailscale for the iOS app?
 No. The iOS app pairs with your Mac over the built-in cmux iroh network. You can also bring your own networking, like Tailscale. Enterprise can self-host.
 How does billing work?
-Pro is $50/mo, or $40/mo when billed annually (a 20% savings). Team is $60/user/mo, or $48/user/mo when billed annually. Paid plans include up to 50 Cloud VMs per user, with no metering or overages. The terminal and local agents stay free.
+Pro is $50/mo, or $40/mo when billed annually (a 20% savings). Team is $60/user/mo, or $48/user/mo when billed annually. Paid plans include up to 50 Cloud VMs per user. Each machine has its own CPU, memory, and disk, with no metering or overage billing. The terminal and local agents stay free.
 Can I self-host the cloud?
 Yes, on Enterprise. Run agent execution on your own infrastructure or fully air-gapped, so source code never leaves your network.
 Do you have a team plan?
