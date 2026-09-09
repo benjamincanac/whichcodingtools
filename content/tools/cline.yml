@@ -41,7 +41,7 @@ pricing:
       name: ClinePass
       price: 9.99
       audience: individual
-      notes: First month is $4.99 as an introductory promotion, then the standard rate of $9.99 per month applies. Additional processing fees may apply.
+      notes: Additional processing fees may apply.
       limits:
         - Curated open weight models from Z.ai, Moonshot AI, DeepSeek, MiniMax, MiMo and Qwen
         - Generous quotas versus standard API rate limits, no separate provider keys needed
@@ -59,10 +59,10 @@ pricing:
 status: active
 sources:
   - url: https://cline.bot/pricing
-    verified_at: 2026-08-26
+    verified_at: 2026-09-09
     covers: [pricing]
   - url: https://cline.bot/cline-pass
-    verified_at: 2026-08-26
+    verified_at: 2026-09-09
     covers: [pricing]
   - url: https://cline.bot
     verified_at: 2026-08-23
