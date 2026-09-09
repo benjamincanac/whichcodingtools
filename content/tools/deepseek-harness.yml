@@ -1,0 +1,54 @@
+slug: deepseek-harness
+name: DeepSeek Harness
+description: Open source agent harness from DeepSeek with a browser UI, in developer preview, bring your own key for DeepSeek and catalog providers such as Anthropic or OpenAI.
+layer: harness
+vendor: DeepSeek
+homepage: https://www.deepseek.com/harness/en/
+links:
+  docs: https://deepseek-harness.github.io/deepseek-harness/en/guide/providers
+  repo: https://github.com/deepseek-ai/deepseek-harness
+icon: i-simple-icons-deepseek
+platforms: [macos, windows]
+install:
+  - method: npm
+    command: npx @deepseek-ai/dsh web
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/deepseek-ai/deepseek-harness
+models:
+  providers: [deepseek, anthropic, openai]
+  byok: full
+  local: false
+  notes: The DeepSeek card takes an API key directly. Adding a catalog provider covers named providers such as Anthropic or OpenAI with a pasted key, or deployments needing native credentials instead, such as AWS credentials for Bedrock, an ADC project for Vertex, an api-version for Azure, or OAuth for Codex. A custom provider is defined by its own base URL, API protocol and credential, for a company gateway, a self-hosted server or a provider missing from the catalog, and model discovery calls the OpenAI-compatible GET /models endpoint.
+features: [subagents, mcp-client]
+pricing:
+  tiers:
+    - id: free
+      name: Open Source
+      price: 0
+      audience: individual
+      limits:
+        - MIT licensed, run it from npm or from source
+        - Bring your own API key or credentials for the model provider you configure
+  notes: DeepSeek Harness is free and open source under MIT; model access uses your own provider key or credentials.
+status: preview
+sources:
+  - url: https://www.deepseek.com/harness/en/
+    verified_at: 2026-09-08
+    covers: [pricing, general, features]
+  - url: https://github.com/deepseek-ai/deepseek-harness
+    verified_at: 2026-09-08
+    covers: [license, general]
+  - url: https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/package.json
+    verified_at: 2026-09-08
+    covers: [platforms]
+  - url: https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/apps/desktop/package.json
+    verified_at: 2026-09-08
+    covers: [platforms]
+  - url: https://deepseek-harness.github.io/deepseek-harness/en/guide/providers
+    verified_at: 2026-09-08
+    covers: [models]
+  - url: https://deepseek-harness.github.io/deepseek-harness/guide/mcp-memory
+    verified_at: 2026-09-08
+    covers: [features]
