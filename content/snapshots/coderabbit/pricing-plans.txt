@@ -98,7 +98,7 @@ Open-source projects receive Team features with no paid subscription required. O
 Includes everything in Free, plus PR reviews, higher rate limits, integration, Knowledge base, linter and SAST tool support, analytics, docstrings, autofix, and [usage-based add-on](/management/usage-based-addon) access.
 ### Team plan ⓘ
 **\$48 per developer per month** billed annually, or **\$60** month-to-month.
-Everything in Essentials, plus tasks and actions upstream and downstream of the review process: [CodeRabbit Plan](/plan/index) and issue planning, unit test generation, merge conflict resolution, and other pre/post-merge actions. Team also offers higher [rate limits](#rate-limits).
+Everything in Essentials, plus tasks and actions upstream and downstream of the review process: [Triage](/triage), [CodeRabbit Plan](/plan/index), issue planning, unit test generation, merge conflict resolution, and other pre/post-merge actions. Team also offers higher [rate limits](#rate-limits).
 ### Advanced plan
 **\$90 per developer per month**, billed monthly in USD.
 Everything in Team, plus continuous pull request security review through CodeRabbit Security. AI Deep Scan is usage-based and billed separately.
@@ -110,7 +110,7 @@ Essentials was previously called Pro, and Team was previously called Pro+. Advan
 | Capability | Essentials | Team | Advanced | Enterprise |
 | ----------------------------------------------------------------------------- | ------------ | ------------ | ----------- | ----------- |
 | AI code review, Autofix, Docstrings, MCP, and built-in Pre-Merge Checks | Included | Included | Included | Included |
-| Triage | Included | Included | Included | Included |
+| Triage | Not included | Included | Included | Included |
 | Change Stack core experience | Included | Included | Included | Included |
 | Change Stack AI chat and coding-agent tasks | Not included | Included | Included | Included |
 | CI fixer, issue planning, unit test generation, and merge-conflict resolution | Not included | Included | Included | Included |

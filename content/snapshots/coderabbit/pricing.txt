@@ -75,10 +75,10 @@ Custom setup including ALB, etc.
 EU SaaS deployment
 Contact us
 Add-ons
-CodeRabbit Security
-Full codebase scans with variable, usage-based pricing
-Continuous security monitoring of your repositories
-Full codebase scan — usage-based billing
+CodeRabbit Security Scan
+AI-native security scanning that traces data flow across your codebase to find exploitable vulnerabilities and help you fix them.
+Scan your full codebase
+Variable, usage-based pricing
 Get a free trial
 Usage-based reviews
 Pay-as-you-go CLI and PR reviews
@@ -86,21 +86,13 @@ Unlimited code reviews across every agentic coding loop
 Full control over usage and scaling through the dashboard
 Pay as you go after included limits, with a configurable monthly spending cap
 Manage usage
-Cloud Coding Agent
-First turn included, then $0.4 per agent minute.
-Run repository-backed coding tasks in the cloud
-Review progress and steer work while it runs
-Deliver completed changes as pull requests
+CodeRabbit Agent
+Run coding tasks in the cloud, use CodeRabbit in Slack, and build automations. Billed based on how many minutes your agents run.
+$0.40 per agent minute
+Trial and free minutes are used before paid usage
+Paid access for everyone in your organization when enabled
 Set a monthly spending cap
-Start coding
-CodeRabbit Agent for Slack
-Pay only for what you use: $0.4 per agent minute.
-Investigate incidents and troubleshoot customer tickets
-Automate recurring tasks and respond to alerts with triggers
-Plan features and break down work
-Generate code and open pull requests
-Summarize progress and report instantly
-Get a free trial
+Try CodeRabbit Agent
 Compare plans
 Essentials
 Agentic AI reviews on PRs & CLI
@@ -232,7 +224,7 @@ There is no total limit on the number of pull requests or repositories you can r
 How do usage-based reviews work?
 Usage-based reviews let eligible PR and CLI reviews continue after your plan’s included limit is reached. Admins can choose Automatic, On demand, or Off and set a monthly spending cap. Continued reviews cost $0.25 per reviewed file and are added to the monthly invoice. Enterprise customers can arrange usage-based billing with their account team.
 How are add-ons priced?
-Add-on charges are separate from your base plan and vary by product and usage. Usage-based reviews are billed per reviewed file beyond included limits, and full codebase security scans use variable pricing based on the scan. Cloud Coding Agent includes the first turn, then costs $0.4 per agent minute. CodeRabbit Agent for Slack costs $0.4 per active agent minute; only active Slack agent runtime is counted.
+Add-on charges are separate from your base plan. Usage-based reviews are billed per reviewed file beyond included limits. CodeRabbit Security Scan uses variable pricing based on the scan. CodeRabbit Agent costs $0.40 per agent minute for cloud coding tasks, Slack, and automations. You are billed based on how many minutes your agents run, after applicable trial and free minutes are used. Enabling paid Agent usage gives everyone in your organization access, with a configurable monthly spending cap.
 Which plans include CodeRabbit Security?
 Continuous security monitoring and security reviews on pull requests are included with Advanced and Enterprise. Full codebase scans are available separately with usage-based pricing.
 Will I be charged for all the developers in my organization?

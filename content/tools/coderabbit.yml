@@ -72,7 +72,7 @@ pricing:
         notes: Usage-based add-on for reviews above the hourly limit, $0.25 per reviewed file.
       limits:
         - 8 PR, 8 IDE and 8 CLI reviews per developer per hour, 300 files per review, 75 chat messages per hour
-        - 10 MCP connections, 5 multi-repo analysis repositories, custom pre-merge checks, unit tests, merge conflict resolution, coding plans
+        - 10 MCP connections, 5 multi-repo analysis repositories, custom pre-merge checks, unit tests, merge conflict resolution, coding plans, Triage
       notes: Previously called Pro+, same price. Existing Pro+ customers keep their old 10 reviews per hour allowance.
     - id: advanced
       name: Advanced
@@ -96,17 +96,17 @@ pricing:
       limits:
         - 12 PR, 12 IDE and 12 CLI reviews per developer per hour, 300 files per review, 100 chat messages per hour
         - 20 MCP connections, 20 multi-repo analysis repositories, self-hosting, SSO, RBAC, audit logs, API access
-  notes: Per seat, seats can be reassigned between developers. Annual billing saves 20 percent. Full codebase security scans use variable pricing based on the scan, not a flat fee. The Cloud Coding Agent includes the first turn, then bills $0.40 per agent minute; the Slack agent bills $0.40 per active agent minute.
+  notes: Per seat, seats can be reassigned between developers. Annual billing saves 20 percent. CodeRabbit Security Scan uses variable pricing based on the scan, not a flat fee. CodeRabbit Agent covers cloud coding tasks, Slack and automations, and bills 40 cents per agent minute, after trial and free minutes are used.
 status: active
 sources:
   - url: https://www.coderabbit.ai/pricing
-    verified_at: 2026-09-08
+    verified_at: 2026-09-09
     covers: [pricing]
   - url: https://docs.coderabbit.ai/management/plans.md
-    verified_at: 2026-09-08
+    verified_at: 2026-09-09
     covers: [pricing]
   - url: https://docs.coderabbit.ai/faq.md
-    verified_at: 2026-09-08
+    verified_at: 2026-09-09
     covers: [models, pricing]
   - url: https://docs.coderabbit.ai
     verified_at: 2026-08-23
@@ -115,7 +115,7 @@ sources:
     verified_at: 2026-08-23
     covers: [platforms, features]
   - url: https://docs.coderabbit.ai/cli/index.md
-    verified_at: 2026-09-08
+    verified_at: 2026-09-09
     covers: [platforms, pricing]
   - url: https://docs.coderabbit.ai/knowledge-base/mcp-context.md
     verified_at: 2026-08-23
