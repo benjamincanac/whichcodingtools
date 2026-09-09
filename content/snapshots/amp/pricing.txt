@@ -16,14 +16,12 @@ Use your ChatGPT subscription
 Use your 𝕏 Premium+/SuperGrok subscription
 Unlimited public/private repositories
 $20 included agent usage
-Low & medium modes , plus high mode with a linked ChatGPT sub
 Sign Up to Subscribe
 Gigawatt
 $200/month
 Everything in Megawatt, and:
 1,000 hours of xxlarge orbs
 $200 included agent usage
-All modes , including high & ultra
 Sign Up to Subscribe
 Unconstrained
 Pay for what you use
@@ -37,10 +35,11 @@ Add SSO, directory sync, admin controls, minimal data retention , and support. C
 What if I use all of the included usage on a subscription?
 You can add paid credits to keep using Amp until your subscription usage replenishes at the end of each monthly
 period.
-Can I use an Amp subscription in a team workspace?
-Yes. You can start a subscription on your own, and your workspace will pay for
-it. Workspace admins can also start subscriptions for their members (from the workspace members list ). There's no way yet to automatically start a new subscription for each member
-of a workspace.
+Can I use an Amp subscription in a workspace?
+Yes, for non-Enterprise workspaces. You can start a subscription on your own,
+and your workspace will pay for it. Workspace admins can also start
+subscriptions for their members (from the workspace members list ), or get a workspace subscription that ensures all members have Megawatt or
+Gigawatt.
 How much agent usage is included in the subscription plans?
 We give at least the subscription cost per month in agent usage. Depending on
 your usage patterns, you may get extra usage.
@@ -70,6 +69,7 @@ Security
 Privacy Policy
 Terms of Service
 Product
+Download App
 Start
 Sign In
 Docs

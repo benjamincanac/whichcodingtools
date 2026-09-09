@@ -1,0 +1,38 @@
+# https://ampcode.com/news/amp-free-is-ad-free
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Amp Free Is Ad-Free - Amp
+Return to Amp
+Chronicle // [ News ] Amp Free Is Ad-Free
+March 30, 2026
+Amp Free Is Ad-Free
+When you use Amp Free, you won't see ads anymore.
+We know many of you loved the ads, advertisers were happy, and we quickly grew ad sales to a $10M+ USD annual run rate, but the world has changed since we introduced ads in October 2025.
+The launches of Gemini 3 Pro, Opus 4.5, and GPT-5.2 Codex starting in late November 2025 changed the world, and in this new world, ads don't make sense. Ads just don't pay for enough frontier tokens to make a difference, and token consumption is only going up from here.
+Along with this, OpenAI now offers subscription plans with even more aggressive discounts than what Anthropic offered before. You can pay OpenAI $20/month to get (seemingly) $1000+/month in tokens. This gives you a lot more "free" usage than Amp's ad-supported free tier and is a better choice if cost is your top concern.
+What about the $10 daily free usage of Amp? For now, most who have it will keep getting it, without ads. We'll be pausing it for some less-active users. As we ship updates to Amp, you can expect the free daily grant to be more available and more generous for people using Amp in the recommended ways, and less so for people using older Amp versions and workflows. We'll let you know before we make that change. Think of it as a bonus for staying on the frontier with us.
+Update (2026-05-23): We’re pausing or reducing further Amp Free’s daily allowance for more users and restricting use of free credits by older client releases.
+All Systems Operational
+Security
+Privacy Policy
+Terms of Service
+Product
+Download App
+Start
+Sign In
+Docs
+What Are Orbs?
+Models
+Resources
+Chronicle
+Pricing
+Podcast
+Press Kit
+Guides
+How to Build an Agent
+Context Management
+Community
+𝕏 @ampcode
+Amp Insiders
+YouTube
+</untrusted-page-text>
