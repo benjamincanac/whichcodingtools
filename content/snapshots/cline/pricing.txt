@@ -5,12 +5,12 @@ Pricing - Cline AI Coding Agent
 IDE CLI SDK ClinePass Docs
 More
 Sign In
-67k
+68k
 IDE CLI SDK ClinePass Docs
 More
 SpecDriven Plan Enterprise Blog Learn MCP Marketplace Models FAQ Careers Support Contact Sales GitHub
 Sign In
-67k
+68k
 Simple, transparent pricing
 Cline is free for individual developers. Pay only for AI inference on a usage basis - no subscriptions, no vendor lock-in.
 Open Source
