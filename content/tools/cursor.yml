@@ -49,6 +49,8 @@ pricing:
       overage:
         kind: api-list
         notes: Usage-based billing at API list price once the included amount is used, opt-in.
+      limits:
+        - Grok Bot access
     - id: pro-plus
       name: Pro+
       price: 60
@@ -61,6 +63,7 @@ pricing:
         kind: api-list
       limits:
         - 3x the Pro agent limits
+        - Higher Grok Bot usage limits
     - id: ultra
       name: Ultra
       price: 200
@@ -69,7 +72,7 @@ pricing:
         kind: api-list
       limits:
         - 20x the Pro agent limits
-      notes: cursor.com/docs/models-and-pricing lists Other Models usage as "Included" without a dollar figure as of 2026-08-25, so no included.amount is recorded here.
+        - Highest Grok Bot usage limits
     - id: teams
       name: Teams Standard
       price: 40
@@ -81,7 +84,7 @@ pricing:
         - Agentic code reviews with Bugbot
         - Usage analytics to understand team behavior
         - Team-wide privacy mode
-      notes: cursor.com/pricing shows Teams Standard only as "$40 / user / mo." with no included-usage figure as of 2026-08-25, so no included.amount is recorded here.
+        - Grok Bot access
     - id: teams-premium
       name: Teams Premium
       price: 120
@@ -90,15 +93,18 @@ pricing:
         kind: api-list
       limits:
         - 5x the Teams Standard agent limits
+        - Higher Grok Bot usage limits
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
+      limits:
+        - Access, network, and audit controls for Grok Bot
 status: active
 sources:
   - url: https://cursor.com/pricing
-    verified_at: 2026-08-25
+    verified_at: 2026-09-13
     covers: [pricing]
   - url: https://cursor.com/docs
     verified_at: 2026-08-23
