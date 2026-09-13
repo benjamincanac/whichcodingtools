@@ -33,7 +33,7 @@ pricing:
     - id: core
       name: Core
       price: 20
-      price_annual: 17
+      price_annual: 18
       audience: individual
       included:
         amount: 20
@@ -52,7 +52,7 @@ pricing:
     - id: pro
       name: Pro
       price: 100
-      price_annual: 95
+      price_annual: 90
       audience: individual
       included:
         amount: 100
@@ -77,7 +77,7 @@ pricing:
 status: active
 sources:
   - url: https://replit.com/pricing
-    verified_at: 2026-09-07
+    verified_at: 2026-09-13
     covers: [pricing]
   - url: https://docs.replit.com/chat/agent-modes
     verified_at: 2026-09-07
