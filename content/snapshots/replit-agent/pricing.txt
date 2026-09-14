@@ -42,55 +42,66 @@ Customer Stories
 Gallery
 Blog
 Newsroom
-Log in Create account
 Contact sales Log in Create account
 Products
 CREATE
-Design Apps & Websites Slides
+Design
+Apps & Websites
+Slides
 PLATFORM
-Agents Databases Integrations Security
+Agents
+Databases
+Integrations
+Security
 Solutions
 BY ROLE
-Founders Product Managers Designers Engineers Operations IT
+Founders
+Product Managers
+Designers
+Engineers
+Operations
+IT
 BY USE CASE
-Apps Websites Landing Pages Dashboards Prototypes Chatbots
+Apps
+Websites
+Landing Pages
+Dashboards
+Prototypes
+Chatbots
 Pricing
 Enterprise
 Resources
 LEARN & SUPPORT
-Docs Community Support Replit Experts Partners
+Docs
+Community
+Support
+Replit Experts
+Partners
 DISCOVER
-Customer Stories Gallery Blog Newsroom
-Contact sales Log in Create account
+Customer Stories
+Gallery
+Blog
+Newsroom
+Log in Create account
 Pricing Choose the best plan for you.
 Monthly
 Yearly
-Up to 15% off
-Starter Free
-Daily agent credits
-Explore what's possible:
-Free daily usage
-Create anything from slides to apps
-Built-in database
-Publish 1 live project
-Run one background task at a time
-Sign up
+Up to 10% off
 Core
-$20 $17 / month, billed annually
+$20 $18 / month, billed annually
 AI integrations
-Everything in Starter plus:
-More free agent usage
+Up to 30 hours of chat on Free Mode
+Up to 60 projects on Free Mode
 $20 towards most powerful models
 Plan mode
 Unlimited workspaces
-Remove "Made with Replit" badge
-Upgrade to Core
+Select Core
 Pro
-$100 $95 / month, billed annually
+$100 $90 / month, billed annually
 10 parallel agents
 Premium Support
 Everything in Core plus:
-Even more free agent usage
+Even more Free Mode usage to chat and create
 $100 towards most powerful models
 Up to 15 collaborators
 Invite up to 50 viewers
@@ -123,9 +134,9 @@ All rights reserved. Copyright © 2026 Replit, Inc.
 Handy Links
 Resources Help How to guides Status Certifications Partnerships
 Legal
-Terms of Service Commercial Agreement Privacy Subprocessors DPA Report Abuse
+Terms of Service Pro Agreement Enterprise Agreement Privacy Subprocessors DPA Report Abuse
 Company
-About Us News Careers Brand Center Contact Us
+About News Careers Brand Center Contact Us
 Social
-Twitter/X YouTube Linkedin Instagram Facebook Tiktok
+X / Twitter YouTube Linkedin Instagram Facebook TikTok
 </untrusted-page-text>
