@@ -6,7 +6,7 @@ let indexed: { tools: ToolRecord[], bySlug: Map<string, ToolRecord> } | undefine
 
 async function load(): Promise<ToolRecord[]> {
   const content = await getContent()
-  const files = await content.list('tools')
+  const files = await content.list()
   const tools: Tool[] = []
   for (const file of files) {
     const result = ToolSchema.safeParse(file.data)

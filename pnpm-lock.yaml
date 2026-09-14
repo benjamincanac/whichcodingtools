@@ -149,8 +149,8 @@ importers:
         specifier: ^7.0.77
         version: 7.0.77(zod@4.4.3)
       comark-content:
-        specifier: https://pkg.pr.new/comark-content@717abb2
-        version: https://pkg.pr.new/comark-content@717abb2(@vercel/functions@3.9.5(ws@8.21.3))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))
+        specifier: ^0.4.0
+        version: 0.4.0(@vercel/functions@3.9.5(ws@8.21.3))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))
       eve:
         specifier: ^0.44.3
         version: 0.44.3(@vercel/functions@3.9.5(ws@8.21.3))(ai@7.0.77(zod@4.4.3))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.2)(microsandbox@0.6.14)(rollup@4.62.5)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
@@ -3134,9 +3134,8 @@ packages:
   colortranslator@5.0.0:
     resolution: {integrity: sha512-Z3UPUKasUVDFCDYAjP2fmlVRf1jFHJv1izAmPjiOa0OCIw1W7iC8PZ2GsoDa8uZv+mKyWopxxStT9q05+27h7w==}
 
-  comark-content@https://pkg.pr.new/comark-content@717abb2:
-    resolution: {integrity: sha512-0v73c0Iub3e68UvLBcAymc/28KKP80vY8mrYGAU43ZFNvOk6H/KOEgr5hTLD8FF5e1LISnjFqMx1SuugguweZg==, tarball: https://pkg.pr.new/comark-content@717abb2}
-    version: 0.3.0
+  comark-content@0.4.0:
+    resolution: {integrity: sha512-wUCFpDdEl9tNXcAFVMkqpQL+Aa5hcg1YL5X8r+5oAohQkofRp+We4puz6QP4XR33MPbasA41pPfIVf4j+WrT4Q==}
     hasBin: true
 
   comark@0.6.2:
@@ -9578,7 +9577,7 @@ snapshots:
 
   colortranslator@5.0.0: {}
 
-  comark-content@https://pkg.pr.new/comark-content@717abb2(@vercel/functions@3.9.5(ws@8.21.3))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2)):
+  comark-content@0.4.0(@vercel/functions@3.9.5(ws@8.21.3))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2)):
     dependencies:
       citty: 0.2.2
       comark: 0.6.2
