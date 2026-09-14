@@ -29,62 +29,79 @@ models:
 features: [subagents, parallel-agents, mcp-client, browser-automation, remote-execution, scheduled-tasks, plugins]
 pricing:
   tiers:
-    - id: free
-      name: Amp Free
+    - id: hobby
+      name: Hobby
       price: 0
       audience: individual
       overage:
-        kind: blocked
-      notes: Not on the pricing page. The March 30, 2026 news post describes a $10 daily usage grant, ad-free, kept for existing accounts and paused or reduced for some users since May 2026. The schema has no daily period, so the grant is not modelled as included usage.
+        kind: api-list
+      limits:
+        - Use your own runners for free
+        - Use your ChatGPT subscription and other subscriptions
+        - Bring your own keys (BYOK), no Amp token fees or limits
+        - Public/private repositories
+      notes: The March 30, 2026 news post describes a $10 daily usage grant, ad-free, kept for existing accounts and paused or reduced for some users since May 2026.
     - id: megawatt
       name: Megawatt
       price: 20
       audience: individual
-      included:
-        amount: 20
-        unit: usd
-        usd_value: 20
-        notes: $20 of agent usage and 750 hours of orbs
       overage:
         kind: api-list
       limits:
-        - Use your ChatGPT subscription
-        - Use your 𝕏 Premium+/SuperGrok subscription
+        - 45,000 minutes of orbin' time
+        - Use your ChatGPT subscription and other subscriptions
+        - Bring your own keys (BYOK), no Amp token fees or limits
         - Unlimited public/private repositories
-      notes: Students and teachers pay $10 a month after education verification.
+        - Use your own domains for portals
+      notes: Students and teachers pay $10 a month for Megawatt. A paid tier includes orbin' time and Amp credits for inference on all models.
     - id: gigawatt
       name: Gigawatt
       price: 200
       audience: individual
-      included:
-        amount: 200
-        unit: usd
-        usd_value: 200
-        notes: $200 of agent usage and 1,000 hours of xxlarge orbs
       overage:
         kind: api-list
-    - id: unconstrained
-      name: Unconstrained
-      price: null
+      limits:
+        - 480,000 minutes of orbin' time
+        - Use your ChatGPT subscription and other subscriptions
+        - Bring your own keys (BYOK), no Amp token fees or limits
+        - Unlimited public/private repositories
+        - Use your own domains for portals
+    - id: teams
+      name: Teams
+      price: 0
+      per: flat
       audience: team
-      overage:
-        kind: api-list
-        notes: API pricing for model tokens and orbs, or bring your own keys for inference.
+      notes: No extra charge for creating a workspace. Members can be on Hobby, Megawatt, or Gigawatt, and billing is shared and pooled.
+      limits:
+        - Members can be on different tiers, Hobby, Megawatt, or Gigawatt
+        - Team thread sharing, multiplayer, and permissions
+        - Shared portals, plugins, and skills
+        - User management, controls, and analytics
+        - Shared billing and pooled credits
+        - SAML/OIDC SSO
+        - Shared BYOK and model routing
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
       limits:
-        - SSO, directory sync, admin controls, minimal data retention, support
+        - Pooled credits only, no paid user seats
+        - SCIM user directory sync
+        - Spend limits and reporting
+        - Audit logs and network/MCP access controls
+        - IP allowlisting and regional endpoints
+        - Higher resource quotas and rate limits
+        - Priority support, invoicing, and custom terms
+        - Forward-Deployed Engineering help available
 status: active
 sources:
   - url: https://ampcode.com/pricing
-    verified_at: 2026-09-09
+    verified_at: 2026-09-13
     covers: [pricing]
   - url: https://ampcode.com/manual
     verified_at: 2026-08-23
     covers: [platforms, models, features, general]
   - url: https://ampcode.com/news/amp-free-is-ad-free
-    verified_at: 2026-09-09
+    verified_at: 2026-09-13
     covers: [pricing]
