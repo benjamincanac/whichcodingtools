@@ -1,4 +1,4 @@
-import { comarkContent, type ComarkContent, type JsonSchema, type Source } from 'comark-content'
+import { comarkContent, type JsonSchema, type Source } from 'comark-content'
 import fs from 'comark-content/sources/fs'
 import github from 'comark-content/sources/github'
 import yaml from 'comark-content/plugins/yaml'
@@ -15,7 +15,9 @@ import { toolJsonSchema } from '#shared/schema'
  * merged data PR is live after the push webhook without a redeploy.
  */
 
-let instance: Promise<ComarkContent> | undefined
+type Content = ReturnType<typeof createContent>
+
+let instance: Promise<Content> | undefined
 let instanceRef: string | undefined
 
 function source(ref: string): Source {
@@ -36,7 +38,7 @@ function source(ref: string): Source {
 
 export function createContent(ref: string) {
   return comarkContent({
-    sources: { tools: source(ref) },
+    source: source(ref),
     plugins: [
       // In dev a bad file should be loud. In production CI already validated what was merged,
       // so a surprise is dropped with a log line instead of taking the site down.
@@ -54,7 +56,7 @@ export function contentRef() {
 }
 
 /** Shared instance, rebuilt when the content SHA on the branch advances. */
-export async function getContent(): Promise<ComarkContent> {
+export async function getContent(): Promise<Content> {
   const ref = await resolveContentSha(contentBranch())
   if (instance && instanceRef !== ref) {
     console.log(`[content] ${instanceRef} -> ${ref}`)
