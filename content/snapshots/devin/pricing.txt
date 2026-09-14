@@ -45,6 +45,7 @@ Working with Devin
 Devin Review
 Stacked PRs
 Devin Session Tools
+Voice mode
 Computer Use
 Browser Authentication
 Testing & Video Recordings
@@ -63,7 +64,7 @@ Dynamic Workflows
 Product Guides
 Knowledge
 Skills
-Plugin marketplace
+Plugins
 Set up your plugin ecosystem
 Session Insights
 Secrets & Site Cookies
@@ -116,7 +117,7 @@ Managing your plan
 Billing
 Self-serve plans
 Copy page Copy page
-Compare Devin’s self-serve plans and understand usage quota and on-demand credits
+Compare Devin’s Free, Pro, Max, and Teams self-serve plans, including seat types, the Teams minimum, usage quota, and on-demand credits.
 Copy page Copy page
 Devin has four self-serve plans you can sign up for directly at app.devin.ai . For authoritative pricing, see the Devin pricing page . This page explains how the plans relate to each other and how billing mechanics work.
 ​
@@ -125,7 +126,7 @@ Plan For Price Members
 Free Individuals trying Devin Free 1
 Pro Individual users $20/month 1
 Max Power users who need more quota $200/month 1
-Teams Teams working with Devin together $80/month minimum Unlimited
+Teams Teams working with Devin together $80/month minimum Up to 200
 The Pro and Max plans are individual plans. They cannot be shared across multiple users. If you want multiple people to use Devin under a single subscription, you need the Teams plan.
 ​
 Free
@@ -147,8 +148,8 @@ Max is for individual users who consistently exceed the Pro quota. It includes e
 Like Pro, Max is a single-user plan and does not support multiple members.
 ​
 Teams
-The Teams plan is Devin’s self-serve plan for teams of any size. Key properties:
-Unlimited members : invite as many teammates as you want.
+The Teams plan is Devin’s self-serve plan for teams of up to 200 users. Key properties:
+Up to 200 members : invite teammates until your organization reaches 200 users. Larger teams should contact sales about Enterprise.
 $80/month minimum : every Teams account pays at least $80/month.
 Each member gets either a full seat or a flex seat .
 On-demand credits are shared across the whole team.
@@ -160,7 +161,7 @@ $40/month per seat , billed as a fixed recurring line item. Best for members who
 A daily and weekly usage quota equivalent to the Pro plan
 Access to Devin Desktop
 Flex seat
-Free . Teams can have unlimited flex seats. Best for occasional users. Flex seats:
+Free . There is no separate limit on flex seats, but every member (full or flex) counts toward the 200-user cap. Best for occasional users. Flex seats:
 Draw entirely from the team’s shared pool of on-demand credits
 Do not include Devin Desktop access
 Have no fixed monthly charge per seat

@@ -60,8 +60,8 @@ pricing:
       limits:
         - Every Teams account has an $80/month minimum
         - Full seat includes a Pro-equivalent quota and Devin Desktop access
-        - Flex seats are free and unlimited, and draw only from the shared on-demand credit pool
-        - Unlimited members
+        - Flex seats are free, and draw only from the shared on-demand credit pool
+        - Up to 200 members total, full and flex seats both count toward the cap
     - id: enterprise
       name: Enterprise
       price: null
@@ -74,10 +74,10 @@ pricing:
 status: active
 sources:
   - url: https://docs.devin.ai/admin/billing/self-serve
-    verified_at: 2026-08-28
+    verified_at: 2026-09-13
     covers: [pricing]
   - url: https://docs.devin.ai/admin/billing/enterprise
-    verified_at: 2026-08-28
+    verified_at: 2026-09-13
     covers: [pricing]
   - url: https://docs.devin.ai/get-started/devin-intro
     verified_at: 2026-08-23
