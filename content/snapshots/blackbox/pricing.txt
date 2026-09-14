@@ -54,7 +54,7 @@ Your contract is quoted against the per-token rates below as a reference point. 
 Everything, by plan.
 Enterprise
 Products & surfaces
-Core surfaces: API, CLI, VS Code ✓
+Core surfaces: API, CLI ✓
 Agents API: cloud coding agents ✓
 /multi-agent + Chairman LLM orchestration ✓ metered
 Remote Agent: cloud sandboxes ✓
@@ -83,18 +83,18 @@ We suppress retention and training on routed traffic through provider terms and 
 Transparent token pricing
 Priced per 1M tokens. We bill input, output, and cached reads separately. These are list rates. We quote contracts against them, and your rate improves as committed spend grows.
 MODEL TYPE CONTEXT INPUT / 1M OUTPUT / 1M CACHE READ / 1M
+moonshotai
+kimi-k3 Text 1M $3.00 $15.00 $0.30
 zai
-glm-5.2 Text 1M $1.40 $4.40 $0.26
-moonshotai
-kimi-k2.7-code-highspeed Code 262K $1.90 $8.00 $0.38
-moonshotai
-kimi-k2.7-code Code 262K $0.74 $3.50 $0.15
-nvidia
-nemotron-3-ultra-550b-a55b Text 1M $0.32 $0.80 $0.08
+glm-5.3 Text 1M $1.40 $4.40 $0.14
+deepseek
+deepseek-v4-pro-0813 Text 1M $0.66 $1.98 $0.07
 alibaba
-qwen3.7-plus Text 1M $0.32 $1.28 -
-minimax
-minimax-m3 Text 1M $0.60 $2.40 $0.12
+qwen3.8-max Text 1M $2.00 $6.00 $0.25
+deepseek
+deepseek-v4.1-flash Text 1M $0.30 $1.20 $0.03
+tencent
+hy4-preview Text 1M $0.83 $2.50 $0.04
 $0.44
 BLENDED / 1M ON NEMOTRON 3 ULTRA · #1 SPEED
 2.7×
@@ -108,7 +108,7 @@ Questions, answered
 How does the commit work?
 You commit to a token volume through a purchase order, and the balance decreases as your teams consume it, metered at the published per-model rates above. Commits are sized so that a director or VP can sign without an approval chain, and then expand. You can watch the balance in real time in the dashboard, and intelligent routing and prompt caching extend the same commit 10–20% , even on closed models.
 What does the commit cover?
-Every surface uses the same balance: Enterprise Inference , the Blackbox Router , the API, the CLI, the Agents API, and the VS Code extension. Metering is per token, not per seat, and the contract specifies how seats are treated.
+Every surface uses the same balance: Enterprise Inference , the Blackbox Router , the API, the CLI, and the Agents API. Metering is per token, not per seat, and the contract specifies how seats are treated.
 What happens to unused commitment?
 It expires at the end of the billing period. We send spend alerts at 75% and 90% of your commit, so nothing expires without warning. Size the commit to your minimum usage.
 Is there a platform fee?
@@ -137,7 +137,7 @@ Enterprise Inference Blackbox Router Model catalog Nemotron 3 Ultra Compare mode
 DEPLOYMENT
 Security overview Dedicated deployment Zero data retention Microsoft Azure Talk to sales
 DEVELOPERS
-Docs API Reference Command Line VS Code Extension Log in
+Docs API Reference Command Line Log in
 COMPANY
 Mission Contact Us Support Careers Blog Press Kit Brand Guide
 © 2026 BLACKBOX AI TECHNOLOGIES INC. · ALL SYSTEMS OPERATIONAL PRIVACY · TERMS
