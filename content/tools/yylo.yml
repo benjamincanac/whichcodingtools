@@ -1,0 +1,60 @@
+slug: yylo
+name: YYLO
+description: Command-line orchestrator for coding agents, repeatable workflows, and receipt-backed repository changes. Typed task, validation, merge, and release-readiness boundaries.
+layer: orchestrator
+vendor: JUNO AI INC.
+homepage: https://yylo.dev
+links:
+  repo: https://github.com/yylo-dev/yylo
+platforms: [macos, linux]
+install:
+  - method: npm
+    command: npm install --global '@yylo/cli@latest'
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/yylo-dev/yylo
+models:
+  byok: full
+  local: false
+  notes: Delegates to the coding agent you install and configure. Pi is optional and supports multiple providers; the shipped claude.py and codex.py services wrap the installed Claude Code and Codex CLIs.
+features: [worktrees]
+wraps:
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: yy pi runs the installed Pi coding agent with its own provider configuration.
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: claude.py service, "A wrapper for Anthropic Claude CLI with configurable options" (src/templates/services/README.md).
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: codex.py service, "A wrapper for OpenAI Codex CLI with configurable options" (src/templates/services/README.md).
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - You pay the agent or model provider you configure
+  notes: YYLO has no paid plan.
+status: active
+sources:
+  - url: https://github.com/yylo-dev/yylo
+    verified_at: 2026-09-13
+    covers: [pricing, license, features, models, general]
+  - url: https://github.com/yylo-dev/yylo/blob/main/src/templates/services/README.md
+    verified_at: 2026-09-13
+    covers: [wraps]
+  - url: https://yylo.dev
+    verified_at: 2026-09-13
+    covers: [general]
+  - url: https://github.com/yylo-dev/yylo/blob/main/package.json
+    verified_at: 2026-09-13
+    covers: [platforms]
