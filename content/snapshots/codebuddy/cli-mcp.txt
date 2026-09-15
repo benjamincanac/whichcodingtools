@@ -1,0 +1,975 @@
+# https://www.codebuddy.ai/docs/cli/mcp
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+MCP (Model Context Protocol) Usage Documentation | Tencent Cloud Code Assistant CodeBuddy – AI Code Editor
+Skip to content
+CLI IDE CLI WorkBuddy
+IDE
+CLI
+WorkBuddy
+Search K
+🌐 EN ▼
+Menu
+Return to top
+Sidebar Navigation
+Getting Started
+Overview
+Quickstart
+Installation
+Common Workflows
+Interactive Mode
+Headless Mode
+Troubleshooting
+Best Practices
+Monorepos and Large Repositories
+Dynamic Workflows
+Workflow stdio Protocol
+Configuration
+Settings
+Models
+Memory
+Status Line
+Environment Variables
+Directory Structure
+Monitoring
+Terminal Configuration
+IDE Integrations
+ACP Protocol
+GitLab CI/CD
+Dev Container
+MCP
+MCP First-Run Status
+MCP Apps Integration Guide
+Tool Deferred Loading Override
+Slash Commands
+Custom Keybindings
+Features
+Sub-Agents
+Agent Teams
+Skills
+Hooks Guide
+Plugins
+Plugin Marketplaces
+Checkpointing
+Git Worktree
+Remote Control
+Web UI
+WeCom Bot Setup (WebSocket)
+Daemon Mode
+Automation
+Goal
+Scheduled Tasks
+Channels [Beta]
+Security
+Security Overview
+Identity and Access Management
+Permission Modes
+Permission Rules (Permissions)
+Bash Sandboxing
+Reference
+CLI Reference
+Hooks Reference
+Plugins Reference
+Cost Management
+Tools Reference
+Channels Reference [Beta]
+HTTP API (Beta)
+Prewarm Process
+SDK
+Quickstart
+Python SDK Reference
+TypeScript SDK Reference
+Hook System
+Permission Control
+Session Management
+SDK Custom Tools
+SDK MCP Integration
+SDK Demo Projects
+Release Notes
+Overview
+v2.140.0
+v2.139.0
+v2.138.0
+v2.137.1
+v2.137.0
+v2.136.0
+v2.135.0
+v2.134.0
+v2.132.0
+v2.131.0
+v2.130.0
+v2.129.0
+v2.128.1
+v2.128.0
+v2.127.3
+v2.127.2
+v2.127.0
+v2.126.0
+v2.125.5
+v2.125.4
+v2.125.3
+v2.125.2
+v2.125.1
+v2.125.0
+v2.124.1
+v2.124.0
+v2.123.1
+v2.123.0
+v2.122.0
+v2.121.3
+v2.121.2
+v2.121.1
+v2.121.0
+v2.120.0
+v2.119.4
+v2.119.3
+v2.119.2
+v2.119.1
+v2.119.0
+v2.118.2
+v2.118.1
+v2.118.0
+v2.117.2
+v2.117.1
+v2.117.0
+v2.116.0
+v2.115.0
+v2.114.3
+v2.114.2
+v2.114.1
+v2.114.0
+v2.113.0
+v2.112.1
+v2.112.0
+v2.111.0
+v2.110.0
+v2.109.3
+v2.109.2
+v2.109.1
+v2.109.0
+v2.108.2
+v2.108.1
+v2.108.0
+v2.107.0
+v2.106.7
+v2.106.6
+v2.106.5
+v2.106.4
+v2.106.3
+v2.106.2
+v2.106.1
+v2.106.0
+v2.105.2
+v2.105.1
+v2.105.0
+v2.103.4
+v2.103.3
+v2.103.2
+v2.103.1
+v2.103.0
+v2.102.0
+v2.101.0
+v2.100.2
+v2.100.1
+v2.100.0
+v2.99.1
+v2.99.0
+v2.98.1
+v2.98.0
+v2.97.5
+v2.97.4
+v2.97.3
+v2.97.2
+v2.97.1
+v2.97.0
+v2.96.1
+v2.96.0
+v2.95.1
+v2.95.0
+v2.94.4
+v2.94.3
+v2.94.2
+v2.94.1
+v2.94.0
+v2.93.7
+v2.93.6
+v2.93.5
+v2.93.4
+v2.93.3
+v2.93.2
+v2.93.1
+v2.93.0
+v2.92.0
+v2.91.0
+v2.90.0
+v2.89.0
+v2.88.0
+v2.87.0
+v2.86.0
+v2.85.0
+v2.84.0
+v2.83.1
+v2.83.0
+v2.82.0
+v2.81.2
+v2.81.1
+v2.81.0
+v2.80.0
+v2.79.1
+v2.79.0
+v2.78.1
+v2.78.0
+v2.77.1
+v2.77.0
+v2.76.0
+v2.75.0
+v2.74.0
+v2.73.0
+v2.72.0
+v2.71.1
+v2.71.0
+v2.70.1
+v2.70.0
+v2.69.0
+v2.68.0
+v2.67.0
+v2.66.2
+v2.66.1
+v2.66.0
+v2.65.1
+v2.65.0
+v2.64.2
+v2.64.1
+v2.64.0
+v2.63.5
+v2.63.4
+v2.63.3
+v2.63.2
+v2.63.1
+v2.63.0
+v2.62.1
+v2.62.0
+v2.61.3
+v2.61.2
+v2.61.1
+v2.61.0
+v2.60.0
+v2.59.0
+v2.58.0
+v2.57.1
+v2.57.0
+v2.56.1
+v2.56.0
+v2.55.1
+v2.55.0
+v2.54.0
+v2.53.0
+v2.52.6
+v2.52.5
+v2.52.4
+v2.52.3
+v2.52.2
+v2.52.1
+v2.52.0
+v2.51.2
+v2.51.1
+v2.51.0
+v2.50.7
+v2.50.6
+v2.50.5
+v2.50.4
+v2.50.3
+v2.50.2
+v2.50.1
+v2.50.0
+v2.49.7
+v2.49.6
+v2.49.5
+v2.49.3
+v2.49.2
+v2.49.1
+v2.49.0
+v2.48.1
+v2.48.0
+v2.47.0
+v2.46.0
+v2.45.1
+v2.45.0
+v2.44.1
+v2.44.0
+v2.43.1
+v2.43.0
+v2.42.3
+v2.42.1
+v2.42.0
+v2.41.8
+v2.41.7
+v2.41.6
+v2.41.5
+v2.41.4
+v2.41.3
+v2.41.2
+v2.41.1
+v2.41.0
+v2.40.1
+v2.40.0
+v2.39.0
+v2.38.2
+v2.38.1
+v2.38.0
+🚀 CodeBuddy Code v2.37.20 Release
+v2.37.19
+v2.37.18
+v2.37.17
+v2.37.16
+v2.37.15
+v2.37.14
+v2.37.13
+v2.37.12
+v2.37.11
+v2.37.10
+v2.37.9
+v2.37.8
+v2.37.7
+v2.37.6
+v2.37.5
+v2.37.4
+v2.37.3
+v2.37.2
+v2.37.1
+v2.37.0
+v2.36.3
+v2.36.2
+v2.36.1
+v2.36.0
+v2.35.0
+v2.34.1
+v2.34.0
+v2.33.1
+v2.33.0
+v2.32.0
+v2.31.2
+v2.31.1
+v2.31.0
+v2.30.1
+v2.30.0
+v2.29.0
+v2.28.1
+v2.28.0
+v2.27.3
+v2.27.2
+v2.27.1
+v2.27.0
+v2.26.0
+v2.25.1
+v2.25.0
+v2.24.0
+v2.23.5
+v2.23.0
+v2.23.4
+v2.23.3
+v2.23.2
+v2.22.0
+v2.21.0
+v2.20.1
+v2.20.0
+v2.19.2
+v2.19.1
+v2.19.0
+v2.18.0
+v2.17.0
+v2.16.0
+v2.15.1
+v2.15.0
+v2.14.1
+v2.14.0
+v2.13.0
+v2.12.0
+v2.11.0
+v2.10.1
+v2.10.0
+v2.9.0
+v2.8.6
+v2.8.5
+v2.8.4
+v2.8.3
+v2.8.2
+v2.8.1
+v2.8.0
+v2.7.0
+v2.6.1
+v2.6.0
+v2.5.0
+v2.4.0
+v2.3.1
+On this page
+MCP (Model Context Protocol) Usage Documentation ​
+Overview ​
+MCP (Model Context Protocol) is an open standard that allows CodeBuddy to integrate with external tools and data sources. Through MCP, you can extend CodeBuddy's functionality by connecting to various external services, databases, APIs, and more.
+Core Concepts ​
+MCP Server ​
+An MCP server is an independent process that provides tools, resources, and prompts. CodeBuddy communicates with these servers through different transport protocols.
+MCP Prompts Integration ​
+MCP servers can provide Prompts (prompt templates), which are automatically converted into CodeBuddy's slash commands. When an MCP server is connected:
+Prompts provided by the server are automatically registered as slash commands
+Command name format: /server-name:prompt-name
+Supports dynamic parameters, collecting user input through an interactive interface
+Command execution calls the MCP server's prompts/get interface to retrieve complete content
+Supports real-time monitoring of configuration changes, automatically updating the list of available commands
+Transport Types ​
+STDIO : Communication with local processes via standard input/output
+SSE : Communication with remote services via Server-Sent Events
+HTTP : Communication with remote services via HTTP streaming
+Configuration Scope ​
+user : Global user configuration, applied to all projects
+project : Project-level configuration, applied to specific projects
+local : Local configuration, applied only to the current session or workspace
+For services with the same name (i.e., configurations with the same name across multiple scopes), the effective priority is: local > project > user
+Security Approval Mechanism ​
+MCP servers in the project scope require user approval upon first connection to ensure security. The system displays detailed server information, and users can choose to approve or deny the connection.
+Approval in Non-Interactive Mode (-p/--print) ​
+In non-interactive mode (such as when using the -p/--print parameter), since approval cannot be done through the UI, you need to pre-configure allowed MCP servers using the --settings parameter:
+bash
+# Method 1: Allow all project MCP servers
+codebuddy --settings '{"enableAllProjectMcpServers": true}' -p "your prompt"
+# Method 2: Allow specific MCP servers
+codebuddy --settings '{"enabledMcpjsonServers": ["server-name-1", "server-name-2"]}' -p "your prompt"
+Tool Permission Management ​
+MCP tools support a complete permission management system that allows precise control over which tools can be used:
+Permission Rule Types ​
+The permission system supports three rule types (ordered by priority):
+Deny rules (deny) - Block the use of specified tools (highest priority)
+Ask rules (ask) - Require user confirmation before using tools (overrides allow rules)
+Allow rules (allow) - Allow tool use without manual approval
+MCP Permission Rule Format ​
+MCP tool names follow the format mcp__<server-name>__<tool-name> , split by double underscores __ (a single underscore is just an ordinary character in a name). Rules come in three forms:
+Server-level Permissions ​
+mcp__server-name
+Matches every tool prefixed with mcp__server-name__ , i.e. all tools of that server. Equivalent form: mcp__server-name__* .
+Tool-level Permissions ​
+mcp__server-name__tool-name
+Matches only that one tool.
+All MCP Tools ​
+mcp__*
+Matches every MCP tool, but only works in deny and ask . In allow it does nothing — list servers individually to grant access in bulk.
+Notes:
+Rules are case-insensitive; hyphens, dots and similar symbols are treated as underscores, so mcp__web-search equals mcp__web_search
+* can only replace the entire last segment. mcp__git* and mcp__github__get_* match no tool, and no error is reported
+MCP tools only honor rules starting with mcp__ ; a bare * has no effect on them. To disable them all, use "deny": ["mcp__*"]
+Configuration Examples ​
+Approve All Tools from a Server ​
+Allows every tool prefixed with mcp__github__ .
+json
+{
+"permissions" : {
+"allow" : [
+"mcp__github"
+]
+}
+}
+Approve Only Specific Tools ​
+json
+{
+"permissions" : {
+"allow" : [
+"mcp__github__get_issue" ,
+"mcp__github__list_issues"
+]
+}
+}
+Deny Specific Tools ​
+json
+{
+"permissions" : {
+"deny" : [
+"mcp__dangerous_server__delete_file"
+]
+}
+}
+Deny All Tools from a Server ​
+Denies every tool prefixed with mcp__filesystem__ .
+json
+{
+"permissions" : {
+"deny" : [
+"mcp__filesystem"
+]
+}
+}
+Deny All MCP Tools ​
+json
+{
+"permissions" : {
+"deny" : [
+"mcp__*"
+]
+}
+}
+Configuration Files ​
+Configuration File Locations ​
+Configuration files use a priority mechanism. The system searches for files in priority order and reads the first existing file. When writing, if a file already exists, it writes to the first existing file; if none exist, it creates the highest priority file.
+USER Scope ​
+Priority order (highest to lowest):
+~/.codebuddy/.mcp.json (recommended)
+~/.codebuddy/mcp.json (deprecated)
+~/.codebuddy.json (legacy configuration file)
+Read rules : The system searches in the above order and reads the first existing file.
+Write rules :
+If any of the above files exist, writes to the first existing file
+If none exist, creates ~/.codebuddy/.mcp.json (highest priority)
+PROJECT Scope ​
+Priority order (highest to lowest):
+<project root directory>/.mcp.json (recommended)
+<project root directory>/mcp.json (deprecated)
+Read rules : The system searches in the above order and reads the first existing file.
+Write rules :
+If any of the above files exist, writes to the first existing file
+If none exist, creates <project root directory>/.mcp.json (highest priority)
+LOCAL Scope ​
+Local scope configuration is actually saved in the user scope configuration file, differentiated by project through the projects field.
+File path: ~/.codebuddy.json#/projects/<workspace_path>
+#/projects/<workspace_path> uses JSON Pointer syntax to point to a specific location in the JSON document. For detailed information about JSON Pointer, please refer to: https://datatracker.ietf.org/doc/html/rfc6901
+Note :
+The system does not merge multiple configuration files within the same scope; it only uses the first existing file
+See the configuration file format section below for examples.
+Configuration File Format ​
+MCP configuration files support the JSONC (JSON with Comments) format, allowing comments to be added to configurations for improved readability and maintainability.
+JSONC Supported Features ​
+Single-line comments : Use // to add inline or end-of-line comments
+Multi-line comments : Use /* */ to add block comments
+Trailing commas : A comma can be added after the last element in arrays and objects
+Basic Configuration Format ​
+jsonc
+{
+// MCP server configuration
+"mcpServers" : {
+"server-name" : {
+"type" : "stdio|sse|http" ,
+"command" : "command path" ,
+"args" : [ "arg1" , "arg2" ],
+"env" : {
+"ENV_VAR" : "value"
+},
+"url" : "http://example.com/mcp" ,
+"headers" : {
+"Authorization" : "Bearer token"
+},
+"description" : "Server description"
+}
+},
+// The projects field is only valid in the user scope file and identifies local scope configurations
+"projects" : {
+"/path/to/project" : {
+"mcpServers" : {
+"local-server" : {
+"type" : "stdio" ,
+"command" : "./local-tool"
+}
+}
+}
+}
+}
+Full Example with Comments ​
+jsonc
+{
+// MCP Server Configuration for CodeBuddy
+// This file configures the MCP servers used by the project
+"mcpServers" : {
+/*
+* Filesystem Server
+* Provides file system access capabilities
+* Docs: https://github.com/modelcontextprotocol/servers
+*/
+"filesystem" : {
+"type" : "stdio" ,
+"command" : "npx" ,
+"args" : [
+"-y" ,
+"@modelcontextprotocol/server-filesystem" ,
+"/path/to/workspace" , // Workspace directory path
+],
+"env" : {
+"DEBUG" : "true" , // Enable debug mode
+},
+},
+// HTTP API server example
+"api-server" : {
+"type" : "http" ,
+"url" : "http://localhost:3000/mcp" , // Local development server
+"headers" : {
+"Authorization" : "Bearer your-token" ,
+},
+},
+},
+// Disabled servers list (for reference)
+"disabledMcpServers" : [
+"deprecated-server" ,
+],
+}
+Note :
+Standard JSON format files are still fully compatible
+Clear error messages are provided when parsing errors occur
+**Note**: The `type` field is optional. If not specified, the system will automatically infer based on the configuration content:
+- When the `command` field is present, infers `stdio` type
+- When the `url` field is present, infers `http` type
+It is recommended to explicitly specify the `type` field to ensure configuration accuracy.
+### Environment Variable Expansion
+MCP configuration supports environment variable expansion, allowing you to reference system environment variables in your configuration. This is useful for sharing configurations across teams, managing sensitive information (such as API keys and tokens), and supporting environment-specific configurations (development, testing, production).
+#### Supported Syntax
+- **`${VAR_NAME}`** - Expands to the value of the environment variable VAR_NAME
+- **`${VAR_NAME:-default_value}`** - Uses the default value if VAR_NAME is not set
+#### Variable Naming Rules
+- Variable names must start with an uppercase letter or underscore `[A-Z_]`
+- Subsequent characters can only be uppercase letters, digits, or underscores `[A-Z0-9_]*`
+- Variables with lowercase letters, mixed case, or starting with a digit will not be expanded
+#### Supported Configuration Fields
+Environment variables can be expanded in the following configuration fields:
+**STDIO type configuration**:
+- `command` - Executable file path or command
+- `args` - Each argument in the command line arguments list
+- `env` - Environment variable values (keys are not expanded)
+**SSE/HTTP/Remote type configuration**:
+- `url` - Service endpoint URL
+- `headers` - HTTP request header values (keys are not expanded)
+#### Error Handling
+**Behavior when an environment variable is not set**:
+- If the environment variable is not set and **has a default value**, the default value is used
+- If the environment variable is not set and **has no default value**, the original placeholder (`${VAR}`) is preserved, and a WARNING message is reported in diagnostics
+This means the configuration will not fail due to missing environment variables; instead, it preserves the placeholder and issues a warning.
+#### Example Configurations
+**Example 1: STDIO type server with environment variables**
+```json
+{
+"mcpServers": {
+"python-tools": {
+"type": "stdio",
+"command": "${PYTHON_PATH:-python}",
+"args": [
+"-m",
+"my_mcp_server",
+"--config",
+"${CONFIG_DIR:-/etc/config}"
+],
+"env": {
+"PYTHONPATH": "${PYTHON_LIB_PATH}",
+"DEBUG": "${DEBUG_MODE:-false}",
+"API_KEY": "${API_KEY}"
+}
+}
+}
+}
+Example 2: HTTP type server with environment variables and default values
+json
+{
+"mcpServers" : {
+"api-server" : {
+"type" : "http" ,
+"url" : "${API_BASE_URL:-https://api.example.com}/mcp" ,
+"headers" : {
+"Authorization" : "Bearer ${API_TOKEN}" ,
+"X-API-Version" : "${API_VERSION:-v1}" ,
+"User-Agent" : "CodeBuddy/${CODEBUDDY_VERSION:-1.0}"
+}
+}
+}
+}
+Common Use Cases ​
+Team shared configuration
+bash
+# Use environment variables in .mcp.json
+# Each team member sets environment variables locally
+export API_TOKEN = "their-personal-token"
+export LOCAL_TOOL_PATH = "/home/user/tools"
+Environment-specific configuration
+bash
+# Development environment
+export API_BASE_URL = "http://localhost:3000"
+# Production environment
+export API_BASE_URL = "https://api.production.com"
+Managing sensitive information
+json
+{
+"headers" : {
+"Authorization" : "Bearer ${MY_API_KEY}"
+}
+}
+Store API keys in environment variables instead of writing them directly in configuration files.
+Diagnostics and Debugging ​
+When environment variables are expanded in configuration, you can understand the expansion results through the following methods:
+If an environment variable is not set and has no default value, the system will issue a WARNING diagnostic
+You can use the /mcp command to view MCP server configuration and diagnostic information
+Diagnostic messages will list all missing environment variables
+Example diagnostic message :
+Missing environment variables: API_TOKEN, DATABASE_URL
+Configuration Structure Details ​
+Depending on the transport type, MCP server configurations have different structures:
+STDIO Type Configuration ​
+Communication with local processes via standard input/output.
+Field Type Required Description
+type string Yes Fixed value "stdio"
+command string Yes Executable file path or command
+args Array<string> No Command line arguments list
+env Object No Environment variable key-value pairs
+defer_loading boolean No Whether to defer tool loading (default false)
+tools Object No Tool-level configuration, can override server-level settings
+Example :
+json
+{
+"type" : "stdio" ,
+"command" : "python" ,
+"args" : [ "-m" , "my_mcp_server" ],
+"env" : {
+"PYTHONPATH" : "/path/to/tools" ,
+"DEBUG" : "true"
+}
+}
+SSE Type Configuration ​
+Communication with remote services via Server-Sent Events.
+Field Type Required Description
+type string Yes Fixed value "sse"
+url string Yes SSE service endpoint URL
+headers Object No HTTP request header key-value pairs
+defer_loading boolean No Whether to defer tool loading (default false)
+tools Object No Tool-level configuration, can override server-level settings
+Example :
+json
+{
+"type" : "sse" ,
+"url" : "https://api.example.com/mcp/sse" ,
+"headers" : {
+"Authorization" : "Bearer your-api-token" ,
+"X-API-Version" : "v1"
+}
+}
+HTTP Type Configuration ​
+Communication with remote services via HTTP streaming.
+Field Type Required Description
+type string Yes Fixed value "http"
+url string Yes HTTP service endpoint URL
+headers Object No HTTP request header key-value pairs
+defer_loading boolean No Whether to defer tool loading (default false)
+tools Object No Tool-level configuration, can override server-level settings
+Example :
+json
+{
+"type" : "http" ,
+"url" : "https://mcp.example.com/api/v1" ,
+"headers" : {
+"Authorization" : "Bearer secret-token" ,
+"Content-Type" : "application/json"
+}
+}
+Deferred Loading (defer_loading) ​
+When an MCP server provides a large number of tools, you can use the defer_loading configuration to defer tool loading, reducing context consumption and improving model tool selection accuracy.
+How It Works ​
+Tools with defer_loading: true are not loaded into the model context during the initial request
+The model can search for these deferred tools through the ToolSearch tool
+Searched tools are activated and become available in subsequent requests
+The activation state persists throughout the current session
+Server-level Configuration ​
+Set all tools on a server to deferred loading:
+json
+{
+"mcpServers" : {
+"my-server" : {
+"type" : "stdio" ,
+"command" : "my-mcp-server" ,
+"defer_loading" : true
+}
+}
+}
+Tool-level Configuration ​
+You can override the server-level setting for individual tools:
+json
+{
+"mcpServers" : {
+"my-server" : {
+"type" : "stdio" ,
+"command" : "my-mcp-server" ,
+"defer_loading" : true ,
+"tools" : {
+"frequently_used_tool" : {
+"defer_loading" : false
+}
+}
+}
+}
+}
+Inheritance Rules ​
+Server defer_loading Tool defer_loading Final Result
+true Not set true (inherited)
+true false false (overridden)
+false/Not set Not set false
+false/Not set true true (overridden)
+Session-level / Agent-level Override ​
+In addition to the static defer_loading in MCP configuration, you can use the Defer(...) / NoDefer(...) modifiers in the --tools parameter or custom agent frontmatter to temporarily change the deferred loading status of a specific tool or group of tools:
+bash
+# Temporarily defer-load the entire GitHub MCP tool group
+codebuddy --tools "default,Defer(mcp__github__*)"
+# Even if an MCP tool is deferred by default, force it to be immediately available this time
+codebuddy --tools "default,NoDefer(mcp__time__current_time)"
+The modifier priority is higher than the static defer_loading MCP configuration; NoDefer always wins over Defer . See Tool Deferred Loading Override for details.
+Use Cases ​
+Large number of tools : When an MCP server provides more than 30 tools
+Cost reduction : Reduce token consumption per request
+Improved accuracy : Allow the model to make more accurate selections among fewer tools
+Command Line Usage ​
+Add MCP Server ​
+STDIO Server ​
+bash
+# Add a local executable
+codebuddy mcp add --scope user my-tool -- /path/to/tool arg1 arg2
+# Add a Python script
+codebuddy mcp add --scope project python-tool -- python /path/to/script.py
+SSE Server ​
+bash
+# Add an SSE server
+codebuddy mcp add --scope user --transport sse sse-server https://example.com/mcp/sse
+HTTP Server ​
+bash
+# Add an HTTP streaming server
+codebuddy mcp add --scope project --transport http http-server https://example.com/mcp/http
+Add Server Using JSON Configuration ​
+bash
+# Add STDIO type server
+codebuddy mcp add-json --scope user my-server '{"type":"stdio","command":"/usr/local/bin/tool","args":["--verbose"]}'
+# Add HTTP type server
+codebuddy mcp add-json --scope user http-server '{"type":"http","url":"https://example.com/mcp","headers":{"Authorization":"Bearer token"}}'
+# Add SSE type server
+codebuddy mcp add-json --scope project sse-server '{"type":"sse","url":"https://api.example.com/mcp/sse","headers":{"X-API-Key":"your-api-key"}}'
+# Add STDIO server with environment variables
+codebuddy mcp add-json --scope user python-tool '{"type":"stdio","command":"python","args":["-m","my_mcp_server"],"env":{"PYTHONPATH":"/path/to/tools"}}'
+Manage MCP Servers ​
+List All Servers ​
+bash
+# List servers for all scopes
+codebuddy mcp list
+View Server Details ​
+bash
+# View specific server information
+codebuddy mcp get my-server
+Remove Server ​
+bash
+# Remove a specific server
+codebuddy mcp remove my-server
+# Remove a server from a specific scope
+codebuddy mcp remove my-server --scope user
+Best Practices ​
+1. Scope Selection ​
+Use user scope to store personal tools and global services
+Use project scope to store project-specific tools
+Use local scope to store temporary or experimental tools
+2. Security Considerations ​
+Avoid storing sensitive information in configuration files
+Use environment variables to pass authentication information : Leverage MCP's environment variable expansion feature ( ${API_TOKEN} or ${API_TOKEN:-default} ) to manage sensitive data such as API keys and tokens
+Regularly review and update server configurations
+MCP servers in the project scope require user approval before connecting, ensuring security
+OAuth authorization URLs are validated for security before opening, only supporting http/https protocols
+Commit configuration files containing environment variable references to version control, but exclude actual environment variable files in .gitignore
+3. Performance Optimization ​
+Properly configure server timeout durations
+Avoid running too many STDIO servers simultaneously
+Use caching mechanisms to reduce redundant connections
+4. Error Handling ​
+Monitor server connection status
+Implement reconnection mechanisms
+Log and analyze error logs
+Troubleshooting ​
+Common Issues ​
+Server Connection Failure ​
+Check if the command path is correct
+Verify parameters and environment variables
+Confirm network connectivity (for remote servers)
+Review server log output
+Tool Unavailable ​
+Confirm that the server has successfully connected
+Check tool permission settings
+Verify tool compatibility
+Configuration Not Taking Effect ​
+Check configuration file syntax
+Confirm scope priority
+Restart the CodeBuddy application
+Example Configurations ​
+Python Tool Server ​
+json
+{
+"mcpServers" : {
+"python-tools" : {
+"type" : "stdio" ,
+"command" : "python" ,
+"args" : [ "-m" , "my_mcp_server" ],
+"env" : {
+"PYTHONPATH" : "/path/to/tools"
+},
+"description" : "Python toolset"
+}
+}
+}
+Remote API Server ​
+json
+{
+"mcpServers" : {
+"api-server" : {
+"type" : "sse" ,
+"url" : "https://api.example.com/mcp/sse" ,
+"headers" : {
+"Authorization" : "Bearer your-token" ,
+"X-API-Version" : "v1"
+},
+"description" : "Remote API service"
+}
+}
+}
+Node.js Local Server ​
+json
+{
+"mcpServers" : {
+"node-server" : {
+"type" : "stdio" ,
+"command" : "node" ,
+"args" : [ "./mcp-server.js" ],
+"env" : {
+"NODE_ENV" : "production"
+},
+"description" : "Node.js MCP server"
+}
+}
+}
+Extension Development ​
+Creating a Custom MCP Server ​
+Choose Implementation Language : Python, Node.js, Go, etc.
+Implement MCP Protocol : Use official SDK or implement yourself
+Define Tool Interfaces : Describe tool functionality and parameters
+Handle Requests : Receive and process requests from CodeBuddy
+Return Results : Return execution results in MCP format
+SDKs and Libraries ​
+Python : FastMCP
+TypeScript/JavaScript : @modelcontextprotocol/sdk
+Other Languages : Refer to official documentation for implementation
+Configuration Examples ​
+TAPD ​
+bash
+codebuddy mcp add --scope user --transport http --header "X-Tapd-Access-Token: TAPD_ACCESS_TOKEN" -- tapd_mcp_http https://mcp-oa.tapd.woa.com/mcp
+Chrome Devtools ​
+bash
+codebuddy mcp add --scope user chrome-devtools -- npx -y chrome-devtools-mcp@latest
+iWiki ​
+bash
+codebuddy mcp add --scope user iwiki -- npx -y mcp-remote@latest https://prod.mcp.it.woa.com/app_iwiki_mcp/mcp3
+Handling Oversized Responses ​
+When the content returned by an MCP tool exceeds MAX_MCP_OUTPUT_TOKENS (default 20,000 tokens, approximately 80KB of characters), CodeBuddy automatically handles it to avoid consuming excessive context:
+Default behavior (write to disk) : The full response is saved to the current session's ~/.codebuddy/projects/<project-hash>/<session-id>/tool-results/mcp-<server>-<tool>-<timestamp>-<rand>.txt , and the model receives a read instruction (including the file path, format description, and chunk-reading requirements). The model can read the full content in chunks via the Read tool using offset / limit parameters, or perform structured queries on JSON content using jq .
+Truncation fallback : In the following scenarios, the content is truncated directly to MAX_MCP_OUTPUT_TOKENS * 4 characters without writing to disk:
+The response contains image blocks (to avoid losing image rendering when base64 payloads are written into a .txt file)
+There is no current session context (to avoid creating orphan files)
+Writing to disk fails (directory not writable, disk full, etc.)
+The environment variable CODEBUDDY_DISABLE_MCP_LARGE_OUTPUT_FILES=1 is set
+When truncation occurs, [OUTPUT TRUNCATED - exceeded N token limit] is appended to the end of the content, and the model is informed which types of blocks were dropped (e.g. [Dropped 2 audio blocks due to size limit] ), making it easier for the model to retry with paging or filter parameters.
+Related Links ​
+MCP Official Documentation
+MCP GitHub Repository
+CodeBuddy Official Documentation
+Last updated: Pager
+Previous page Dev Container
+Next page MCP First-Run Status
+</untrusted-page-text>

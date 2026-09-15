@@ -1,0 +1,448 @@
+# https://www.codebuddy.ai/docs/cli/checkpointing
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Checkpointing (Beta) | Tencent Cloud Code Assistant CodeBuddy – AI Code Editor
+Skip to content
+CLI IDE CLI WorkBuddy
+IDE
+CLI
+WorkBuddy
+Search K
+🌐 EN ▼
+Menu
+Return to top
+Sidebar Navigation
+Getting Started
+Overview
+Quickstart
+Installation
+Common Workflows
+Interactive Mode
+Headless Mode
+Troubleshooting
+Best Practices
+Monorepos and Large Repositories
+Dynamic Workflows
+Workflow stdio Protocol
+Configuration
+Settings
+Models
+Memory
+Status Line
+Environment Variables
+Directory Structure
+Monitoring
+Terminal Configuration
+IDE Integrations
+ACP Protocol
+GitLab CI/CD
+Dev Container
+MCP
+MCP First-Run Status
+MCP Apps Integration Guide
+Tool Deferred Loading Override
+Slash Commands
+Custom Keybindings
+Features
+Sub-Agents
+Agent Teams
+Skills
+Hooks Guide
+Plugins
+Plugin Marketplaces
+Checkpointing
+Git Worktree
+Remote Control
+Web UI
+WeCom Bot Setup (WebSocket)
+Daemon Mode
+Automation
+Goal
+Scheduled Tasks
+Channels [Beta]
+Security
+Security Overview
+Identity and Access Management
+Permission Modes
+Permission Rules (Permissions)
+Bash Sandboxing
+Reference
+CLI Reference
+Hooks Reference
+Plugins Reference
+Cost Management
+Tools Reference
+Channels Reference [Beta]
+HTTP API (Beta)
+Prewarm Process
+SDK
+Quickstart
+Python SDK Reference
+TypeScript SDK Reference
+Hook System
+Permission Control
+Session Management
+SDK Custom Tools
+SDK MCP Integration
+SDK Demo Projects
+Release Notes
+Overview
+v2.140.0
+v2.139.0
+v2.138.0
+v2.137.1
+v2.137.0
+v2.136.0
+v2.135.0
+v2.134.0
+v2.132.0
+v2.131.0
+v2.130.0
+v2.129.0
+v2.128.1
+v2.128.0
+v2.127.3
+v2.127.2
+v2.127.0
+v2.126.0
+v2.125.5
+v2.125.4
+v2.125.3
+v2.125.2
+v2.125.1
+v2.125.0
+v2.124.1
+v2.124.0
+v2.123.1
+v2.123.0
+v2.122.0
+v2.121.3
+v2.121.2
+v2.121.1
+v2.121.0
+v2.120.0
+v2.119.4
+v2.119.3
+v2.119.2
+v2.119.1
+v2.119.0
+v2.118.2
+v2.118.1
+v2.118.0
+v2.117.2
+v2.117.1
+v2.117.0
+v2.116.0
+v2.115.0
+v2.114.3
+v2.114.2
+v2.114.1
+v2.114.0
+v2.113.0
+v2.112.1
+v2.112.0
+v2.111.0
+v2.110.0
+v2.109.3
+v2.109.2
+v2.109.1
+v2.109.0
+v2.108.2
+v2.108.1
+v2.108.0
+v2.107.0
+v2.106.7
+v2.106.6
+v2.106.5
+v2.106.4
+v2.106.3
+v2.106.2
+v2.106.1
+v2.106.0
+v2.105.2
+v2.105.1
+v2.105.0
+v2.103.4
+v2.103.3
+v2.103.2
+v2.103.1
+v2.103.0
+v2.102.0
+v2.101.0
+v2.100.2
+v2.100.1
+v2.100.0
+v2.99.1
+v2.99.0
+v2.98.1
+v2.98.0
+v2.97.5
+v2.97.4
+v2.97.3
+v2.97.2
+v2.97.1
+v2.97.0
+v2.96.1
+v2.96.0
+v2.95.1
+v2.95.0
+v2.94.4
+v2.94.3
+v2.94.2
+v2.94.1
+v2.94.0
+v2.93.7
+v2.93.6
+v2.93.5
+v2.93.4
+v2.93.3
+v2.93.2
+v2.93.1
+v2.93.0
+v2.92.0
+v2.91.0
+v2.90.0
+v2.89.0
+v2.88.0
+v2.87.0
+v2.86.0
+v2.85.0
+v2.84.0
+v2.83.1
+v2.83.0
+v2.82.0
+v2.81.2
+v2.81.1
+v2.81.0
+v2.80.0
+v2.79.1
+v2.79.0
+v2.78.1
+v2.78.0
+v2.77.1
+v2.77.0
+v2.76.0
+v2.75.0
+v2.74.0
+v2.73.0
+v2.72.0
+v2.71.1
+v2.71.0
+v2.70.1
+v2.70.0
+v2.69.0
+v2.68.0
+v2.67.0
+v2.66.2
+v2.66.1
+v2.66.0
+v2.65.1
+v2.65.0
+v2.64.2
+v2.64.1
+v2.64.0
+v2.63.5
+v2.63.4
+v2.63.3
+v2.63.2
+v2.63.1
+v2.63.0
+v2.62.1
+v2.62.0
+v2.61.3
+v2.61.2
+v2.61.1
+v2.61.0
+v2.60.0
+v2.59.0
+v2.58.0
+v2.57.1
+v2.57.0
+v2.56.1
+v2.56.0
+v2.55.1
+v2.55.0
+v2.54.0
+v2.53.0
+v2.52.6
+v2.52.5
+v2.52.4
+v2.52.3
+v2.52.2
+v2.52.1
+v2.52.0
+v2.51.2
+v2.51.1
+v2.51.0
+v2.50.7
+v2.50.6
+v2.50.5
+v2.50.4
+v2.50.3
+v2.50.2
+v2.50.1
+v2.50.0
+v2.49.7
+v2.49.6
+v2.49.5
+v2.49.3
+v2.49.2
+v2.49.1
+v2.49.0
+v2.48.1
+v2.48.0
+v2.47.0
+v2.46.0
+v2.45.1
+v2.45.0
+v2.44.1
+v2.44.0
+v2.43.1
+v2.43.0
+v2.42.3
+v2.42.1
+v2.42.0
+v2.41.8
+v2.41.7
+v2.41.6
+v2.41.5
+v2.41.4
+v2.41.3
+v2.41.2
+v2.41.1
+v2.41.0
+v2.40.1
+v2.40.0
+v2.39.0
+v2.38.2
+v2.38.1
+v2.38.0
+🚀 CodeBuddy Code v2.37.20 Release
+v2.37.19
+v2.37.18
+v2.37.17
+v2.37.16
+v2.37.15
+v2.37.14
+v2.37.13
+v2.37.12
+v2.37.11
+v2.37.10
+v2.37.9
+v2.37.8
+v2.37.7
+v2.37.6
+v2.37.5
+v2.37.4
+v2.37.3
+v2.37.2
+v2.37.1
+v2.37.0
+v2.36.3
+v2.36.2
+v2.36.1
+v2.36.0
+v2.35.0
+v2.34.1
+v2.34.0
+v2.33.1
+v2.33.0
+v2.32.0
+v2.31.2
+v2.31.1
+v2.31.0
+v2.30.1
+v2.30.0
+v2.29.0
+v2.28.1
+v2.28.0
+v2.27.3
+v2.27.2
+v2.27.1
+v2.27.0
+v2.26.0
+v2.25.1
+v2.25.0
+v2.24.0
+v2.23.5
+v2.23.0
+v2.23.4
+v2.23.3
+v2.23.2
+v2.22.0
+v2.21.0
+v2.20.1
+v2.20.0
+v2.19.2
+v2.19.1
+v2.19.0
+v2.18.0
+v2.17.0
+v2.16.0
+v2.15.1
+v2.15.0
+v2.14.1
+v2.14.0
+v2.13.0
+v2.12.0
+v2.11.0
+v2.10.1
+v2.10.0
+v2.9.0
+v2.8.6
+v2.8.5
+v2.8.4
+v2.8.3
+v2.8.2
+v2.8.1
+v2.8.0
+v2.7.0
+v2.6.1
+v2.6.0
+v2.5.0
+v2.4.0
+v2.3.1
+On this page
+Checkpointing (Beta) ​
+⚠️ Beta Feature : Checkpointing is currently in Beta and features may change.
+Overview ​
+Automatically track and rewind CodeBuddy edits to quickly restore unwanted changes.
+CodeBuddy Code automatically tracks CodeBuddy's edits to files as you work, allowing you to quickly undo changes and revert to a previous state if something goes wrong.
+How Checkpointing Works ​
+When you collaborate with CodeBuddy, the checkpointing feature automatically captures the state of your code before each edit. This safety net lets you confidently perform large-scale tasks knowing you can always restore to a previous code state.
+Automatic Tracking ​
+CodeBuddy Code tracks all changes made by its file editing tools:
+Each user prompt creates a new checkpoint
+Checkpoints persist across sessions, allowing you to access them in resumed conversations
+Checkpoints are automatically cleaned up after 30 days per session (configurable)
+Rewinding Changes ​
+Use the /rewind command to open the rewind menu. You can choose to restore:
+Conversation Only : Rewind to a specific user message while preserving code changes
+Code Only : Restore file changes while preserving the conversation
+Both Code and Conversation : Restore both to a previous point in the session
+Common Use Cases ​
+Checkpointing is particularly useful in these scenarios:
+Exploring Alternatives : Try different implementation approaches without losing your starting point
+Recovering from Errors : Quickly undo changes that introduced bugs or broke functionality
+Feature Iteration : Confidently experiment knowing you can always restore to a working state
+Limitations ​
+Changes via Bash Commands Are Not Tracked ​
+Checkpointing does not track files modified through bash commands. For example, if CodeBuddy Code runs:
+rm file.txt
+mv old.txt new.txt
+cp source.txt dest.txt
+These file modifications cannot be undone via the rewind feature. Only edits made directly through CodeBuddy's file editing tools are tracked.
+External Changes Are Not Tracked ​
+Checkpointing only tracks files edited in the current session. Manual changes you make to files outside of CodeBuddy Code, and edits from other concurrent sessions, are typically not captured unless they happen to modify the same files as your current session.
+Not a Replacement for Version Control ​
+Checkpointing is designed for quick session-level recovery. For permanent version history and collaboration:
+Continue using version control (like Git) to manage commits, branches, and long-term history
+Checkpointing complements version control rather than replacing it
+Think of checkpointing as "local undo" and Git as "permanent history"
+See Also ​
+Interactive Mode - Keyboard shortcuts and session control
+Slash Commands - Use /rewind to access checkpoints
+Last updated: Pager
+Previous page Plugin Marketplaces
+Next page Git Worktree
+</untrusted-page-text>

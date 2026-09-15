@@ -1,0 +1,110 @@
+# https://www.codebuddy.ai/docs/ide/Account/pricing
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Pricing | Tencent Cloud Code Assistant CodeBuddy – AI Code Editor
+Skip to content
+IDE IDE CLI WorkBuddy
+IDE
+CLI
+WorkBuddy
+Search K
+🌐 EN ▼
+Menu
+Return to top
+Sidebar Navigation
+Getting Started
+Introduction
+Installation
+Quickstart
+User Guide
+Overview
+Figma
+Code Completion
+Inline Chat
+Slash Commands
+Context
+Rules
+Checkpoint
+History
+Memory
+MCP
+Config Integration
+Preview
+Deploy
+Smart Commit
+Platform Integration Guide
+WeChat ClawBot Integration Guide (Recommended)
+Features
+Models
+Plan Mode
+Subagents
+Skills
+Hooks
+Account
+Subscription
+Pricing
+Credits
+Usage
+Billing
+Invoice
+Best Practice
+Support
+Troubleshooting
+Security & Privacy
+Contact
+Release Notes
+Overview
+On this page
+Pricing ​
+CodeBuddy offers the following plans to meet different AI development needs. Pricing is as follows:
+Individual Plans ​
+Plan Free Pro
+Monthly Subscription Free $10.00 / month
+Annual Subscription — $96.00 / year ($8.00 / month, billed annually)
+Base Credits / Month 100 1,000
+Bonus Credits / Month — 1,000
+Total Credits / Month 100 2,000
+Promotional Bonus (Limited-Time Offer) 30 credits / day 50 credits / day
+Real-Time Code Completion 5,000 completions / month (unlimited during the promotional period) Unlimited
+Automated Tasks 3 (99 during the promotional period) 15 (99 during the promotional period)
+Model Routing Auto routing (all models available during the promotional period) All models available
+Early Access to New Features — Rolling out gradually
+Cross-File Understanding ✅ ✅
+Code Generation from Comments ✅ ✅
+During the Free plan's promotional period, all models are available, code completion is unlimited, and up to 99 automated tasks are included. Standard quotas resume when the promotion ends.
+After subscribing to Pro or starting the 7-day Pro trial, the Free plan's 100 credits are no longer issued separately.
+The promotional bonus is a limited-time offer. Users who make a chat request that day are considered active. See the Limited-Time Daily Activity Reward Terms for details.
+Base and bonus credits are issued monthly and are valid for that month; they do not roll over. Bonus credits are valid for one month from the date they are credited.
+Team Plans ​
+Plan Team (Monthly) Team (Annual)
+Price $40.00 / seat / month $480.00 / seat / year
+Features • 1,000 credits per seat per month, shared through a team credit pool
+• Admin Console
+• Unified Billing Management
+• Supports use across IDEs and CLIs • 1,000 credits per seat per month, shared through a team credit pool
+• Admin Console
+• Unified Billing Management
+• Supports use across IDEs and CLIs
+Credit Top-up Packs ​
+Running low on credits? Purchase one-time credit top-up packs at any time. All active paid users (Pro and Team) are eligible to purchase them.
+Pro Top-up Pack ​
+Validity Period Credits Price
+1 month 500 Credits $15.00
+Team Top-up Pack ​
+Validity Period Credits Price
+6 months 2,000 credits $40.00
+6 months 5,000 credits $100.00
+6 months 10,000 credits $200.00
+6 months 50,000 credits $1,000.00
+6 months 200,000 credits $4,000.00
+Notes
+Top-up packs are one-time purchases and are non-refundable.
+Top-up packs can be purchased multiple times.
+The validity period of each top-up pack is shown in the table above.
+Subscribe ​
+To subscribe to Pro or Team, please visit: CodeBuddy.ai
+For more subscription information, please see the Subscription Guide .
+Last updated: Pager
+Previous page Subscription
+Next page Credits
+</untrusted-page-text>
