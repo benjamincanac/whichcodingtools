@@ -1,0 +1,595 @@
+# https://www.codebuddy.ai/docs/cli/bash-sandboxing
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Bash Sandbox | Tencent Cloud Code Assistant CodeBuddy – AI Code Editor
+Skip to content
+CLI IDE CLI WorkBuddy
+IDE
+CLI
+WorkBuddy
+Search K
+🌐 EN ▼
+Menu
+Return to top
+Sidebar Navigation
+Getting Started
+Overview
+Quickstart
+Installation
+Common Workflows
+Interactive Mode
+Headless Mode
+Troubleshooting
+Best Practices
+Monorepos and Large Repositories
+Dynamic Workflows
+Workflow stdio Protocol
+Configuration
+Settings
+Models
+Memory
+Status Line
+Environment Variables
+Directory Structure
+Monitoring
+Terminal Configuration
+IDE Integrations
+ACP Protocol
+GitLab CI/CD
+Dev Container
+MCP
+MCP First-Run Status
+MCP Apps Integration Guide
+Tool Deferred Loading Override
+Slash Commands
+Custom Keybindings
+Features
+Sub-Agents
+Agent Teams
+Skills
+Hooks Guide
+Plugins
+Plugin Marketplaces
+Checkpointing
+Git Worktree
+Remote Control
+Web UI
+WeCom Bot Setup (WebSocket)
+Daemon Mode
+Automation
+Goal
+Scheduled Tasks
+Channels [Beta]
+Security
+Security Overview
+Identity and Access Management
+Permission Modes
+Permission Rules (Permissions)
+Bash Sandboxing
+Reference
+CLI Reference
+Hooks Reference
+Plugins Reference
+Cost Management
+Tools Reference
+Channels Reference [Beta]
+HTTP API (Beta)
+Prewarm Process
+SDK
+Quickstart
+Python SDK Reference
+TypeScript SDK Reference
+Hook System
+Permission Control
+Session Management
+SDK Custom Tools
+SDK MCP Integration
+SDK Demo Projects
+Release Notes
+Overview
+v2.140.0
+v2.139.0
+v2.138.0
+v2.137.1
+v2.137.0
+v2.136.0
+v2.135.0
+v2.134.0
+v2.132.0
+v2.131.0
+v2.130.0
+v2.129.0
+v2.128.1
+v2.128.0
+v2.127.3
+v2.127.2
+v2.127.0
+v2.126.0
+v2.125.5
+v2.125.4
+v2.125.3
+v2.125.2
+v2.125.1
+v2.125.0
+v2.124.1
+v2.124.0
+v2.123.1
+v2.123.0
+v2.122.0
+v2.121.3
+v2.121.2
+v2.121.1
+v2.121.0
+v2.120.0
+v2.119.4
+v2.119.3
+v2.119.2
+v2.119.1
+v2.119.0
+v2.118.2
+v2.118.1
+v2.118.0
+v2.117.2
+v2.117.1
+v2.117.0
+v2.116.0
+v2.115.0
+v2.114.3
+v2.114.2
+v2.114.1
+v2.114.0
+v2.113.0
+v2.112.1
+v2.112.0
+v2.111.0
+v2.110.0
+v2.109.3
+v2.109.2
+v2.109.1
+v2.109.0
+v2.108.2
+v2.108.1
+v2.108.0
+v2.107.0
+v2.106.7
+v2.106.6
+v2.106.5
+v2.106.4
+v2.106.3
+v2.106.2
+v2.106.1
+v2.106.0
+v2.105.2
+v2.105.1
+v2.105.0
+v2.103.4
+v2.103.3
+v2.103.2
+v2.103.1
+v2.103.0
+v2.102.0
+v2.101.0
+v2.100.2
+v2.100.1
+v2.100.0
+v2.99.1
+v2.99.0
+v2.98.1
+v2.98.0
+v2.97.5
+v2.97.4
+v2.97.3
+v2.97.2
+v2.97.1
+v2.97.0
+v2.96.1
+v2.96.0
+v2.95.1
+v2.95.0
+v2.94.4
+v2.94.3
+v2.94.2
+v2.94.1
+v2.94.0
+v2.93.7
+v2.93.6
+v2.93.5
+v2.93.4
+v2.93.3
+v2.93.2
+v2.93.1
+v2.93.0
+v2.92.0
+v2.91.0
+v2.90.0
+v2.89.0
+v2.88.0
+v2.87.0
+v2.86.0
+v2.85.0
+v2.84.0
+v2.83.1
+v2.83.0
+v2.82.0
+v2.81.2
+v2.81.1
+v2.81.0
+v2.80.0
+v2.79.1
+v2.79.0
+v2.78.1
+v2.78.0
+v2.77.1
+v2.77.0
+v2.76.0
+v2.75.0
+v2.74.0
+v2.73.0
+v2.72.0
+v2.71.1
+v2.71.0
+v2.70.1
+v2.70.0
+v2.69.0
+v2.68.0
+v2.67.0
+v2.66.2
+v2.66.1
+v2.66.0
+v2.65.1
+v2.65.0
+v2.64.2
+v2.64.1
+v2.64.0
+v2.63.5
+v2.63.4
+v2.63.3
+v2.63.2
+v2.63.1
+v2.63.0
+v2.62.1
+v2.62.0
+v2.61.3
+v2.61.2
+v2.61.1
+v2.61.0
+v2.60.0
+v2.59.0
+v2.58.0
+v2.57.1
+v2.57.0
+v2.56.1
+v2.56.0
+v2.55.1
+v2.55.0
+v2.54.0
+v2.53.0
+v2.52.6
+v2.52.5
+v2.52.4
+v2.52.3
+v2.52.2
+v2.52.1
+v2.52.0
+v2.51.2
+v2.51.1
+v2.51.0
+v2.50.7
+v2.50.6
+v2.50.5
+v2.50.4
+v2.50.3
+v2.50.2
+v2.50.1
+v2.50.0
+v2.49.7
+v2.49.6
+v2.49.5
+v2.49.3
+v2.49.2
+v2.49.1
+v2.49.0
+v2.48.1
+v2.48.0
+v2.47.0
+v2.46.0
+v2.45.1
+v2.45.0
+v2.44.1
+v2.44.0
+v2.43.1
+v2.43.0
+v2.42.3
+v2.42.1
+v2.42.0
+v2.41.8
+v2.41.7
+v2.41.6
+v2.41.5
+v2.41.4
+v2.41.3
+v2.41.2
+v2.41.1
+v2.41.0
+v2.40.1
+v2.40.0
+v2.39.0
+v2.38.2
+v2.38.1
+v2.38.0
+🚀 CodeBuddy Code v2.37.20 Release
+v2.37.19
+v2.37.18
+v2.37.17
+v2.37.16
+v2.37.15
+v2.37.14
+v2.37.13
+v2.37.12
+v2.37.11
+v2.37.10
+v2.37.9
+v2.37.8
+v2.37.7
+v2.37.6
+v2.37.5
+v2.37.4
+v2.37.3
+v2.37.2
+v2.37.1
+v2.37.0
+v2.36.3
+v2.36.2
+v2.36.1
+v2.36.0
+v2.35.0
+v2.34.1
+v2.34.0
+v2.33.1
+v2.33.0
+v2.32.0
+v2.31.2
+v2.31.1
+v2.31.0
+v2.30.1
+v2.30.0
+v2.29.0
+v2.28.1
+v2.28.0
+v2.27.3
+v2.27.2
+v2.27.1
+v2.27.0
+v2.26.0
+v2.25.1
+v2.25.0
+v2.24.0
+v2.23.5
+v2.23.0
+v2.23.4
+v2.23.3
+v2.23.2
+v2.22.0
+v2.21.0
+v2.20.1
+v2.20.0
+v2.19.2
+v2.19.1
+v2.19.0
+v2.18.0
+v2.17.0
+v2.16.0
+v2.15.1
+v2.15.0
+v2.14.1
+v2.14.0
+v2.13.0
+v2.12.0
+v2.11.0
+v2.10.1
+v2.10.0
+v2.9.0
+v2.8.6
+v2.8.5
+v2.8.4
+v2.8.3
+v2.8.2
+v2.8.1
+v2.8.0
+v2.7.0
+v2.6.1
+v2.6.0
+v2.5.0
+v2.4.0
+v2.3.1
+On this page
+Bash Sandbox ​
+Learn how CodeBuddy Code's sandboxed Bash tool provides file system and network isolation for safer, more autonomous agent execution.
+Overview ​
+CodeBuddy Code features native sandbox capabilities that provide a more secure environment for agent execution while reducing constant permission prompts. Instead of requiring permission for every bash command, the sandbox creates predefined boundaries that allow CodeBuddy Code to work more freely with reduced risk.
+The sandboxed Bash tool uses operating system-level primitives to enforce file system and network isolation.
+Why Sandbox Matters ​
+Traditional permission-based security requires continuous user approval for bash command execution. While this provides control, it can lead to:
+Approval Fatigue : Repeatedly clicking "approve" may cause users to pay less attention to what they're approving
+Reduced Productivity : Constant interruptions slow down development workflows
+Limited Autonomy : CodeBuddy Code cannot work efficiently while waiting for approvals
+Sandbox addresses these challenges by:
+Defining Clear Boundaries : Explicitly specifying which directories and network hosts CodeBuddy Code can access
+Reducing Permission Prompts : Safe commands within the sandbox don't require approval
+Maintaining Security : Attempts to access resources outside the sandbox trigger immediate notifications
+Enabling Autonomy : CodeBuddy Code can run more independently within defined limits
+WARNING Effective sandboxing requires **both** file system and network isolation. Without network isolation, a compromised agent could exfiltrate sensitive files (like SSH keys). Without file system isolation, a compromised agent could backdoor system resources to gain network access. When configuring sandbox, it's important to ensure your configuration settings don't create bypasses in these systems.
+How It Works ​
+File System Isolation ​
+The sandboxed Bash tool restricts file system access to specific directories:
+Default Write Behavior : Read-write access to current working directory and its subdirectories
+Default Read Behavior : Read access to the entire computer, except certain denied directories
+Blocked Access : Cannot modify files outside the current working directory without explicit permission
+Configurable : Define custom allowed and denied paths through settings
+Network Isolation ​
+Network access is controlled through a proxy server running outside the sandbox:
+Domain Restrictions : Only approved domains can be accessed
+User Confirmation : New domain requests trigger permission prompts
+Custom Proxy Support : Advanced users can implement custom rules for outbound traffic
+Comprehensive Coverage : Restrictions apply to all scripts, programs, and subprocesses spawned by commands
+OS-Level Enforcement ​
+The sandboxed Bash tool leverages operating system security primitives:
+Linux : Uses bubblewrap for isolation
+macOS : Uses Seatbelt for sandbox enforcement
+These OS-level restrictions ensure all subprocesses spawned by CodeBuddy Code commands inherit the same security boundaries.
+Getting Started ​
+Enabling Sandbox ​
+You can enable the sandbox by running the /sandbox slash command:
+> /sandbox
+This activates the sandboxed Bash tool with default settings, allowing access to the current working directory while blocking access to sensitive system locations.
+Configuring Sandbox ​
+Customize sandbox behavior through the settings.json file. See Settings for complete configuration reference.
+TIP Not all commands work out of the box with sandboxing. Here are some notes that may help you get the most out of sandboxing:
+Many CLI tools need access to certain hosts. When you use these tools, they will request permission to access certain hosts. Granting permission will allow them to access these hosts now and in the future, enabling them to execute safely within the sandbox.
+watchman is incompatible with running in the sandbox. If you're running jest , consider using jest --no-watchman
+docker is incompatible with running in the sandbox. Consider specifying docker in excludedCommands to force it to run outside the sandbox.
+NOTE CodeBuddy Code includes an intentional escape hatch mechanism that allows running commands outside the sandbox when necessary. When a command fails due to sandbox restrictions (like network connectivity issues or incompatible tools), CodeBuddy is prompted to analyze the failure and may retry the command using the `dangerouslyDisableSandbox` parameter. Commands using this parameter go through the normal CodeBuddy Code permission flow, requiring user permission to execute. This allows CodeBuddy Code to handle edge cases where certain tools or network operations cannot run within sandbox constraints.
+You can disable this escape hatch by setting "allowUnsandboxedCommands": false in your sandbox settings . When disabled, the dangerouslyDisableSandbox parameter is completely ignored, and all commands must run in the sandbox or be explicitly listed in excludedCommands .
+Sandbox Auto-Approval ​
+In AcceptEdits permission mode, CodeBuddy Code provides sandbox auto-approval functionality to further reduce permission prompts:
+How It Works ​
+When sandbox auto-approval is enabled, Bash commands that meet all of the following conditions will be automatically approved for execution without user confirmation:
+Currently in AcceptEdits permission mode
+Sandbox is enabled ( sandbox.enabled = true )
+Auto-approval configuration is on ( sandbox.autoAllowBashIfSandboxed = true )
+Command will run in sandbox (not in excludedCommands list)
+Not using dangerouslyDisableSandbox parameter
+Configuration Example ​
+Enable sandbox auto-approval in .codebuddy/settings.json :
+json
+{
+"sandbox" : {
+"enabled" : true ,
+"autoAllowBashIfSandboxed" : true ,
+"excludedCommands" : [ "git" , "docker" ]
+}
+}
+Usage Scenarios ​
+Auto-approved (no user confirmation needed):
+bash
+# In AcceptEdits mode, these commands are auto-approved
+npm test
+npm run build
+ls -la
+grep "pattern" file.txt
+Requires approval (the following situations still require user confirmation):
+bash
+# 1. Excluded commands (in excludedCommands)
+git push
+# 2. Commands explicitly disabling sandbox
+# (using dangerouslyDisableSandbox parameter)
+# 3. All commands in non-AcceptEdits mode
+Sandbox Bypass Auto-Approval in Bypass Permission Mode ​
+When a command attempts to cross sandbox boundaries (for example, writing to .git/refs/*.lock , or the model invokes Bash with dangerouslyDisableSandbox=true ), the sandbox triggers a secondary "run this command outside the sandbox?" approval prompt.
+Starting from v2.90.x, in bypassPermissions permission mode, such sandbox bypass approvals are automatically granted for non-high-risk commands , avoiding repeated approval prompts for routine combined commands like cd X && yarn build :
+✅ Auto-approved : When the command's safety level is SAFE / LOW / MEDIUM, it directly continues execution as allow_once
+⛔ Still requires confirmation : When the command's safety level is HIGH / CRITICAL (such as rm -rf / , chmod 777 /etc , etc.), interactive approval is preserved even in bypass mode
+This policy is consistent with the protection semantics for dangerous Bash commands in bypass mode— bypassPermissions does not mean blind approval; high-risk operations always require explicit confirmation.
+Security Guarantees ​
+Sandbox auto-approval improves efficiency while maintaining security:
+✅ Only within sandbox environment : Only sandboxed commands can be auto-approved
+✅ File system isolation : Commands can only access allowed directories
+✅ Network isolation : Commands can only access approved domains
+✅ Configurable boundaries : Exclude high-risk commands via excludedCommands
+✅ Security first : Any configuration errors or anomalies fall back to requiring user approval
+Best Practices ​
+Use cautiously : Only enable auto-approval when you understand sandbox limitations
+Exclude high-risk commands : Add dangerous operations like git push , rm -rf to excludedCommands
+Review regularly : Check logs to see which commands are being auto-approved
+Use in combination : Use together with IAM permission rules for defense in depth
+Security Benefits ​
+Protection Against Prompt Injection ​
+Even if an attacker successfully manipulates CodeBuddy Code's behavior through prompt injection, the sandbox ensures your system remains secure:
+File System Protection:
+Cannot modify critical configuration files like ~/.bashrc
+Cannot modify system-level files in /bin/
+Cannot modify CodeBuddy configuration files ( settings.json , settings.local.json ), preventing sandbox escape through hook injection
+Cannot read files denied in CodeBuddy permission settings
+Network Protection:
+Cannot exfiltrate data to attacker-controlled servers
+Cannot download malicious scripts from unauthorized domains
+Cannot make unexpected API calls to unapproved services
+Cannot contact any domain not explicitly allowed
+Monitoring and Control:
+All attempts to access outside the sandbox are blocked at the OS level
+You receive immediate notification when boundaries are tested
+You can choose to deny, allow once, or permanently update configuration
+Configuration File Protection ​
+The sandbox blocks writes to CodeBuddy configuration files by default to prevent sandbox escape attacks. An attacker could use prompt injection to make the Agent write to settings.json , injecting malicious SessionStart hooks that execute malicious commands with host privileges the next time the user starts CodeBuddy.
+The following configuration files are write-protected in the sandbox:
+~/.codebuddy/settings.json - User global settings
+~/.codebuddy/settings.local.json - User local settings
+.codebuddy/settings.json - Project shared settings
+.codebuddy/settings.local.json - Project local settings
+This protection applies to both Bash commands and file editing tools (Write, Edit, MultiEdit), ensuring the sandbox's denyWrite rules are uniformly enforced across all tools.
+Reduced Attack Surface ​
+The sandbox limits potential damage from:
+Malicious Dependencies : NPM packages or other dependencies with harmful code
+Compromised Scripts : Build scripts or tools with security vulnerabilities
+Social Engineering : Attacks that trick users into running dangerous commands
+Prompt Injection : Attacks that trick CodeBuddy into running dangerous commands
+Transparent Operation ​
+When CodeBuddy Code attempts to access network resources outside the sandbox:
+The operation is blocked at the OS level
+You receive immediate notification
+You can choose to:
+Deny the request
+Allow once
+Update sandbox configuration to allow permanently
+Security Limitations ​
+Network Sandbox Limitations : The network filtering system works by restricting which domains a process is allowed to connect to. It does not inspect traffic going through the proxy, and users are responsible for ensuring they only allow trusted domains in their policy.
+WARNING Users should be aware of the risks of allowing broad domain names (like `github.com`) which could allow data exfiltration. Additionally, in some cases it may be possible to bypass network filtering through [domain fronting](https://en.wikipedia.org/wiki/Domain_fronting).
+Privilege Escalation via Unix Sockets : The allowUnixSockets configuration may inadvertently grant access to powerful system services which could lead to sandbox bypasses. For example, if using it to allow access to /var/run/docker.sock , this would effectively grant access to the host system by leveraging the docker socket. Users are encouraged to carefully consider any unix sockets they allow through the sandbox.
+File System Privilege Escalation : Overly broad file system write permissions could enable privilege escalation attacks. Allowing writes to directories containing executables in $PATH , system configuration directories, or user shell configuration files ( .bashrc , .zshrc ) could lead to code execution in a different security context when those files are accessed by other users or system processes.
+Linux Sandbox Strength : The Linux implementation provides strong file system and network isolation but includes an enableWeakerNestedSandbox mode to work in Docker environments without privileged namespaces. This option significantly weakens security and should only be used where additional isolation is enforced by other means.
+Advanced Usage ​
+Custom Proxy Configuration ​
+For organizations requiring advanced network security, you can implement custom proxies to:
+Decrypt and inspect HTTPS traffic
+Apply custom filtering rules
+Log all network requests
+Integrate with existing security infrastructure
+json
+{
+"sandbox" : {
+"network" : {
+"httpProxyPort" : 8080 ,
+"socksProxyPort" : 8081
+}
+}
+}
+Integration with Existing Security Tools ​
+The sandboxed Bash tool works alongside:
+IAM Policies : Use with permission settings for defense in depth
+Development Containers : Use with devcontainers for additional isolation
+Enterprise Policies : Enforce sandbox configuration through managed settings
+Best Practices ​
+Start Restrictive : Begin with minimal permissions, expand as needed
+Monitor Logs : Review sandbox violation attempts to understand CodeBuddy Code's needs
+Use Environment-Specific Configuration : Different sandbox rules for development and production environments
+Combine with Permissions : Use sandbox together with IAM policies for comprehensive security
+Test Configuration : Verify your sandbox settings don't block legitimate workflows
+Use Auto-Approval Cautiously : Only enable autoAllowBashIfSandboxed when you fully understand sandbox limitations
+Open Source ​
+The sandbox runtime is available as an open source npm package for your own agent projects. This enables the broader AI agent community to build safer, more reliable autonomous systems. This can also be used to sandbox other programs you may wish to run. For example, to sandbox an MCP server, you could run:
+bash
+npx @anthropic-ai/sandbox-runtime < command-to-sandbo x >
+For implementation details and source code, visit the GitHub repository .
+Limitations ​
+Performance Overhead : Minimal, but some file system operations may be slightly slower
+Compatibility : Some tools requiring specific system access patterns may need configuration adjustments, or may even need to run outside the sandbox
+Platform Support : Currently supports Linux and macOS; Windows support planned
+Related Documentation ​
+Security - Comprehensive security features and best practices
+IAM - Permission configuration and access control
+Settings - Complete configuration reference
+Let CodeBuddy Code work more autonomously in a secure sandbox 🛡️
+Last updated: Pager
+Previous page Permission Rules (Permissions)
+Next page CLI Reference
+</untrusted-page-text>

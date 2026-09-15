@@ -1,0 +1,673 @@
+# https://www.codebuddy.ai/docs/cli/hooks-guide
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Hooks Guide | Tencent Cloud Code Assistant CodeBuddy – AI Code Editor
+Skip to content
+CLI IDE CLI WorkBuddy
+IDE
+CLI
+WorkBuddy
+Search K
+🌐 EN ▼
+Menu
+Return to top
+Sidebar Navigation
+Getting Started
+Overview
+Quickstart
+Installation
+Common Workflows
+Interactive Mode
+Headless Mode
+Troubleshooting
+Best Practices
+Monorepos and Large Repositories
+Dynamic Workflows
+Workflow stdio Protocol
+Configuration
+Settings
+Models
+Memory
+Status Line
+Environment Variables
+Directory Structure
+Monitoring
+Terminal Configuration
+IDE Integrations
+ACP Protocol
+GitLab CI/CD
+Dev Container
+MCP
+MCP First-Run Status
+MCP Apps Integration Guide
+Tool Deferred Loading Override
+Slash Commands
+Custom Keybindings
+Features
+Sub-Agents
+Agent Teams
+Skills
+Hooks Guide
+Plugins
+Plugin Marketplaces
+Checkpointing
+Git Worktree
+Remote Control
+Web UI
+WeCom Bot Setup (WebSocket)
+Daemon Mode
+Automation
+Goal
+Scheduled Tasks
+Channels [Beta]
+Security
+Security Overview
+Identity and Access Management
+Permission Modes
+Permission Rules (Permissions)
+Bash Sandboxing
+Reference
+CLI Reference
+Hooks Reference
+Plugins Reference
+Cost Management
+Tools Reference
+Channels Reference [Beta]
+HTTP API (Beta)
+Prewarm Process
+SDK
+Quickstart
+Python SDK Reference
+TypeScript SDK Reference
+Hook System
+Permission Control
+Session Management
+SDK Custom Tools
+SDK MCP Integration
+SDK Demo Projects
+Release Notes
+Overview
+v2.140.0
+v2.139.0
+v2.138.0
+v2.137.1
+v2.137.0
+v2.136.0
+v2.135.0
+v2.134.0
+v2.132.0
+v2.131.0
+v2.130.0
+v2.129.0
+v2.128.1
+v2.128.0
+v2.127.3
+v2.127.2
+v2.127.0
+v2.126.0
+v2.125.5
+v2.125.4
+v2.125.3
+v2.125.2
+v2.125.1
+v2.125.0
+v2.124.1
+v2.124.0
+v2.123.1
+v2.123.0
+v2.122.0
+v2.121.3
+v2.121.2
+v2.121.1
+v2.121.0
+v2.120.0
+v2.119.4
+v2.119.3
+v2.119.2
+v2.119.1
+v2.119.0
+v2.118.2
+v2.118.1
+v2.118.0
+v2.117.2
+v2.117.1
+v2.117.0
+v2.116.0
+v2.115.0
+v2.114.3
+v2.114.2
+v2.114.1
+v2.114.0
+v2.113.0
+v2.112.1
+v2.112.0
+v2.111.0
+v2.110.0
+v2.109.3
+v2.109.2
+v2.109.1
+v2.109.0
+v2.108.2
+v2.108.1
+v2.108.0
+v2.107.0
+v2.106.7
+v2.106.6
+v2.106.5
+v2.106.4
+v2.106.3
+v2.106.2
+v2.106.1
+v2.106.0
+v2.105.2
+v2.105.1
+v2.105.0
+v2.103.4
+v2.103.3
+v2.103.2
+v2.103.1
+v2.103.0
+v2.102.0
+v2.101.0
+v2.100.2
+v2.100.1
+v2.100.0
+v2.99.1
+v2.99.0
+v2.98.1
+v2.98.0
+v2.97.5
+v2.97.4
+v2.97.3
+v2.97.2
+v2.97.1
+v2.97.0
+v2.96.1
+v2.96.0
+v2.95.1
+v2.95.0
+v2.94.4
+v2.94.3
+v2.94.2
+v2.94.1
+v2.94.0
+v2.93.7
+v2.93.6
+v2.93.5
+v2.93.4
+v2.93.3
+v2.93.2
+v2.93.1
+v2.93.0
+v2.92.0
+v2.91.0
+v2.90.0
+v2.89.0
+v2.88.0
+v2.87.0
+v2.86.0
+v2.85.0
+v2.84.0
+v2.83.1
+v2.83.0
+v2.82.0
+v2.81.2
+v2.81.1
+v2.81.0
+v2.80.0
+v2.79.1
+v2.79.0
+v2.78.1
+v2.78.0
+v2.77.1
+v2.77.0
+v2.76.0
+v2.75.0
+v2.74.0
+v2.73.0
+v2.72.0
+v2.71.1
+v2.71.0
+v2.70.1
+v2.70.0
+v2.69.0
+v2.68.0
+v2.67.0
+v2.66.2
+v2.66.1
+v2.66.0
+v2.65.1
+v2.65.0
+v2.64.2
+v2.64.1
+v2.64.0
+v2.63.5
+v2.63.4
+v2.63.3
+v2.63.2
+v2.63.1
+v2.63.0
+v2.62.1
+v2.62.0
+v2.61.3
+v2.61.2
+v2.61.1
+v2.61.0
+v2.60.0
+v2.59.0
+v2.58.0
+v2.57.1
+v2.57.0
+v2.56.1
+v2.56.0
+v2.55.1
+v2.55.0
+v2.54.0
+v2.53.0
+v2.52.6
+v2.52.5
+v2.52.4
+v2.52.3
+v2.52.2
+v2.52.1
+v2.52.0
+v2.51.2
+v2.51.1
+v2.51.0
+v2.50.7
+v2.50.6
+v2.50.5
+v2.50.4
+v2.50.3
+v2.50.2
+v2.50.1
+v2.50.0
+v2.49.7
+v2.49.6
+v2.49.5
+v2.49.3
+v2.49.2
+v2.49.1
+v2.49.0
+v2.48.1
+v2.48.0
+v2.47.0
+v2.46.0
+v2.45.1
+v2.45.0
+v2.44.1
+v2.44.0
+v2.43.1
+v2.43.0
+v2.42.3
+v2.42.1
+v2.42.0
+v2.41.8
+v2.41.7
+v2.41.6
+v2.41.5
+v2.41.4
+v2.41.3
+v2.41.2
+v2.41.1
+v2.41.0
+v2.40.1
+v2.40.0
+v2.39.0
+v2.38.2
+v2.38.1
+v2.38.0
+🚀 CodeBuddy Code v2.37.20 Release
+v2.37.19
+v2.37.18
+v2.37.17
+v2.37.16
+v2.37.15
+v2.37.14
+v2.37.13
+v2.37.12
+v2.37.11
+v2.37.10
+v2.37.9
+v2.37.8
+v2.37.7
+v2.37.6
+v2.37.5
+v2.37.4
+v2.37.3
+v2.37.2
+v2.37.1
+v2.37.0
+v2.36.3
+v2.36.2
+v2.36.1
+v2.36.0
+v2.35.0
+v2.34.1
+v2.34.0
+v2.33.1
+v2.33.0
+v2.32.0
+v2.31.2
+v2.31.1
+v2.31.0
+v2.30.1
+v2.30.0
+v2.29.0
+v2.28.1
+v2.28.0
+v2.27.3
+v2.27.2
+v2.27.1
+v2.27.0
+v2.26.0
+v2.25.1
+v2.25.0
+v2.24.0
+v2.23.5
+v2.23.0
+v2.23.4
+v2.23.3
+v2.23.2
+v2.22.0
+v2.21.0
+v2.20.1
+v2.20.0
+v2.19.2
+v2.19.1
+v2.19.0
+v2.18.0
+v2.17.0
+v2.16.0
+v2.15.1
+v2.15.0
+v2.14.1
+v2.14.0
+v2.13.0
+v2.12.0
+v2.11.0
+v2.10.1
+v2.10.0
+v2.9.0
+v2.8.6
+v2.8.5
+v2.8.4
+v2.8.3
+v2.8.2
+v2.8.1
+v2.8.0
+v2.7.0
+v2.6.1
+v2.6.0
+v2.5.0
+v2.4.0
+v2.3.1
+On this page
+Hooks Guide ​
+Learn how to customize and extend CodeBuddy Code's behavior by registering shell commands
+We recommend reading the Hook Reference Guide first to understand all events, input/output structures, and security requirements. This guide focuses on practical walkthroughs and common examples to help you quickly enable Hooks functionality in your CodeBuddy Code projects. Note : The Hooks feature is currently in Beta and is being actively refined. Please watch for updates in future releases.
+CodeBuddy Code hooks are user-defined shell commands that execute at different stages of the CodeBuddy Code lifecycle. Hooks provide deterministic control over CodeBuddy Code's behavior, ensuring specific actions always occur rather than relying on the LLM to choose to execute them.
+Execution Environment : Hook commands are executed using the user's default shell ( $SHELL ) on macOS/Linux, and Git Bash is enforced on Windows (cmd.exe and PowerShell are not supported). Therefore, ensure your hook commands are compatible with bash syntax. Windows users need to install Git for Windows . See the Hook Reference Guide for execution details.
+For reference documentation on hooks, see the Hook Reference Guide .
+Example use cases for hooks include:
+Notifications : Customize how CodeBuddy Code notifies you when waiting for your input or permission.
+Auto-formatting : Run prettier on .ts files, gofmt on .go files, etc., after every file edit.
+Logging : Track and record all executed commands for compliance or debugging purposes.
+Feedback : Provide automatic feedback when CodeBuddy Code-generated code doesn't conform to your codebase standards.
+Custom permissions : Block modifications to production files or sensitive directories.
+By encoding these rules as hooks rather than prompt instructions, you transform suggestions into application-level code that executes as expected every time.
+⚠️ Security Warning : You must consider security implications when adding hooks, as hooks run automatically during the agent loop using your current environment's credentials. For example, malicious hook code could leak your data. Always review hook implementations before registering them. For complete security best practices, see Security Considerations in the Hook Reference Guide .
+Hook Events Overview ​
+CodeBuddy Code provides multiple hook events that run at different stages of the workflow:
+Event Name Description
+PreToolUse Runs before tool calls (can block them)
+PostToolUse Runs after tool calls complete
+UserPromptSubmit Runs after user submits a prompt, before CodeBuddy processes it
+Notification Runs when CodeBuddy Code sends a notification
+Stop Runs when CodeBuddy Code finishes responding
+SubagentStop Runs when a sub-agent task completes
+PreCompact Runs before CodeBuddy Code is about to run a compaction operation
+SessionStart Runs when CodeBuddy Code starts a new session or resumes an existing one
+SessionEnd Runs when a CodeBuddy Code session ends
+Each event receives different data and can control CodeBuddy's behavior in different ways.
+Quick Start ​
+In this quick start, you'll add a hook to log shell commands run by CodeBuddy Code.
+Prerequisites ​
+Install jq for processing JSON on the command line.
+Step 1: Open hooks configuration ​
+Run the /hooks slash command and select the PreToolUse hook event. PreToolUse hooks run before tool calls and can block them while providing feedback to CodeBuddy on how to do things differently.
+Step 2: Add a matcher ​
+Select + Add new matcher… to run your hook only on Bash tool calls. Enter Bash for the matcher.
+You can use * to match all tools.
+Step 3: Add the hook ​
+Select + Add new hook… and enter this command:
+bash
+jq -r '"\(.tool_input.command) ~ \(.tool_input.description // "No description")"' >> ~/.codebuddy/bash-command.log
+Step 4: Save configuration ​
+For the storage location, select User settings since you're logging to the home directory. This way the hook will apply to all projects, not just the current one. Then press Esc until you return to the REPL. Your hook is now registered!
+Step 5: Verify the hook ​
+Run /hooks again or check ~/.codebuddy/settings.json to view your configuration:
+json
+{
+"hooks" : {
+"PreToolUse" : [
+{
+"matcher" : "Bash" ,
+"hooks" : [
+{
+"type" : "command" ,
+"command" : "jq -r ' \"\\ (.tool_input.command) ~ \\ (.tool_input.description // \" No description \" ) \" ' >> ~/.codebuddy/bash-command.log"
+}
+]
+}
+]
+}
+}
+Step 6: Test the hook ​
+Have CodeBuddy run a simple command like ls , then check your log file:
+bash
+cat ~/.codebuddy/bash-command.log
+You should see an entry similar to:
+ls ~ Lists files and directories
+More Examples ​
+Code Formatting Hook ​
+Automatically format TypeScript files after editing:
+json
+{
+"hooks" : {
+"PostToolUse" : [
+{
+"matcher" : "Edit|Write" ,
+"hooks" : [
+{
+"type" : "command" ,
+"command" : "jq -r '.tool_input.file_path' | { read file_path; if echo \" $file_path \" | grep -q ' \\ .ts$'; then npx prettier --write \" $file_path \" ; fi; }"
+}
+]
+}
+]
+}
+}
+Ensure the prettier dependency is available in your project.
+Markdown Formatting Hook ​
+Automatically fix missing language tags and formatting issues in markdown files:
+json
+{
+"hooks" : {
+"PostToolUse" : [
+{
+"matcher" : "Edit|Write" ,
+"hooks" : [
+{
+"type" : "command" ,
+"command" : "python3 \" $CODEBUDDY_PROJECT_DIR \" /.codebuddy/hooks/markdown_formatter.py"
+}
+]
+}
+]
+}
+}
+Create a .codebuddy/hooks/markdown_formatter.py file with the following content:
+python
+#!/usr/bin/env python3
+"""
+Markdown formatter for CodeBuddy Code output.
+Fixes missing language tags and spacing issues while preserving code content.
+"""
+import json
+import sys
+import re
+import os
+def detect_language (code):
+"""Best-effort language detection from code content."""
+s = code.strip()
+# JSON detection
+if re.search( r ' ^\s * [{ \[ ] ' , s):
+try :
+json.loads(s)
+return 'json'
+except :
+pass
+# Python detection
+if re.search( r ' ^\s * def \s + \w + \s * \( ' , s, re.M) or \
+re.search( r ' ^\s * ( import | from )\s + \w + ' , s, re.M):
+return 'python'
+# JavaScript detection
+if re.search( r ' \b( function \s + \w + \s * \( | const \s + \w + \s * = ) ' , s) or \
+re.search( r ' => | console \. ( log | error ) ' , s):
+return 'javascript'
+# Bash detection
+if re.search( r ' ^ #! . * \b( bash | sh )\b ' , s, re.M) or \
+re.search( r ' \b( if | then | fi | for | in | do | done )\b ' , s):
+return 'bash'
+# SQL detection
+if re.search( r ' \b( SELECT | INSERT | UPDATE | DELETE | CREATE )\s + ' , s, re.I):
+return 'sql'
+return 'text'
+def format_markdown (content):
+"""Format markdown content using language detection."""
+# Fix unmarked code blocks
+def add_lang_to_fence (match):
+indent, info, body, closing = match.groups()
+if not info.strip():
+lang = detect_language(body)
+return f " { indent } ``` { lang }\n{ body }{ closing }\n "
+return match.group( 0 )
+fence_pattern = r ' (?ms) ^([ \t ] {0,3} ) ``` ([ ^ \n ] * ) \n (. *? )( \n \1 ``` )\s * $ '
+content = re.sub(fence_pattern, add_lang_to_fence, content)
+# Fix excessive blank lines (only outside code blocks)
+content = re.sub( r ' \n {3,} ' , ' \n\n ' , content)
+return content.rstrip() + ' \n '
+# Main execution
+try :
+input_data = json.load(sys.stdin)
+file_path = input_data.get( 'tool_input' , {}).get( 'file_path' , '' )
+if not file_path.endswith(( '.md' , '.mdx' )):
+sys.exit( 0 ) # Not a markdown file
+if os.path.exists(file_path):
+with open (file_path, 'r' , encoding = 'utf-8' ) as f:
+content = f.read()
+formatted = format_markdown(content)
+if formatted != content:
+with open (file_path, 'w' , encoding = 'utf-8' ) as f:
+f.write(formatted)
+print ( f "✓ Fixed markdown formatting in { file_path } " )
+except Exception as e:
+print ( f "Error formatting markdown: { e } " , file = sys.stderr)
+sys.exit( 1 )
+Make the script executable:
+bash
+chmod +x .codebuddy/hooks/markdown_formatter.py
+Note : Although the script includes a shebang line ( #!/usr/bin/env python3 ) and has executable permissions set, directly executing .py files in the Windows Git Bash environment may not correctly recognize the shebang. Therefore, it is recommended to always explicitly use python3 to invoke Python scripts in the command field to ensure cross-platform compatibility.
+This hook will automatically:
+Detect programming languages in unmarked code blocks
+Add appropriate language tags for syntax highlighting
+Fix excessive blank lines while preserving code content
+Only process markdown files (.md, .mdx)
+Custom Notification Hook ​
+Get desktop notifications when CodeBuddy needs input:
+json
+{
+"hooks" : {
+"Notification" : [
+{
+"matcher" : "" ,
+"hooks" : [
+{
+"type" : "command" ,
+"command" : "notify-send 'CodeBuddy Code' 'Awaiting your input'"
+}
+]
+}
+]
+}
+}
+Windows/macOS need to replace with notification commands for powershell or osascript .
+File Protection Hook ​
+Block edits to sensitive files:
+json
+{
+"hooks" : {
+"PreToolUse" : [
+{
+"matcher" : "Edit|Write" ,
+"hooks" : [
+{
+"type" : "command" ,
+"command" : "python3 -c \" import json, sys; data=json.load(sys.stdin); path=data.get('tool_input',{}).get('file_path',''); sys.exit(2 if any(p in path for p in ['.env', 'package-lock.json', '.git/']) else 0) \" "
+}
+]
+}
+]
+}
+}
+Using Hooks in Skills (frontmatter) ​
+If you want to distribute a Hook together with a specific Skill — for example, having the code-reviewer Skill perform a whitelist check before executing any Bash command — you can declare hooks directly in the SKILL.md frontmatter. The scope is automatically opened and closed along with the lifecycle of the fork subagent, without affecting the main session or other Skills .
+Only Skills with context: fork support frontmatter hooks. Injection-style (default) Skills do not have clear lifecycle boundaries; their frontmatter hooks will be parsed but not registered.
+yaml
+---
+name : code-reviewer
+description : Code review Skill that checks the Bash command whitelist before execution
+context : fork
+agent : Explore
+hooks :
+PreToolUse :
+- matcher : "Bash"
+hooks :
+- type : command
+command : ${CODEBUDDY_SKILL_DIR}/scripts/check-bash.sh
+timeout : 5
+Stop : # Automatically rewritten as SubagentStop
+- hooks :
+- type : command
+command : echo "review done at $(date)" >> ${CODEBUDDY_PROJECT_DIR}/.cbc-review.log
+---
+Please review the code involved in $ARGUMENTS...
+Before enabling : Open the gate in ~/.codebuddy/settings.json (off by default; all frontmatter hooks from non-built-in sources are silently skipped):
+json
+{
+"allowUntrustedFrontmatterHooks" : true
+}
+For more detailed field semantics, security gates, and scope rules, see Skills Documentation - Configuring Hooks in Skills and Hook Reference Guide - Frontmatter Hooks .
+Best Practices and Recommendations ​
+Validate incrementally : Start with logging hooks before gradually adding high-risk operations.
+Control timeouts : Default is 60 seconds; if your script has long-running tasks, ensure timely output or split processing.
+Use matcher filtering : Properly setting matcher can reduce unnecessary hook executions.
+Centralize script directory : Recommend creating a .codebuddy/hooks/ directory in the project root to centrally manage scripts and include them in version control.
+Prioritize security :
+Avoid using unvalidated user input directly in hooks.
+Use absolute paths for external commands to prevent PATH hijacking.
+Combine with the /hooks panel's security confirmation mechanism to ensure all hooks are reviewed before running.
+Work with MCP tools : MCP tool names follow the pattern mcp__<server>__<tool> and can be batch-controlled in matcher using regex, e.g., mcp__github__.* .
+The panel is the authoritative entry point : Any external file modifications need to be confirmed in the panel before taking effect; be sure to complete this step.
+Python script invocation : Always use python3 your_script.py instead of directly executing .py files, because the Windows Git Bash environment may not correctly recognize the shebang line of Python scripts.
+Windows compatibility : Hook commands are executed via Git Bash on Windows. Ensure commands use bash syntax and avoid relying on cmd.exe or PowerShell-specific syntax.
+Learn More ​
+For reference documentation on hooks, see the Hook Reference Guide .
+For comprehensive security best practices and safety guidelines, see Security Considerations in the Hook Reference Guide.
+For troubleshooting steps and debugging techniques, see the Debugging section in the Hook Reference Guide.
+Now you've mastered the core workflow for enabling hooks in CodeBuddy Code. For more details on event fields, decision control, and security considerations, check out the Hook Reference Guide . Happy building powerful and secure automated workflows!
+Last updated: Pager
+Previous page Skills
+Next page Plugins
+</untrusted-page-text>

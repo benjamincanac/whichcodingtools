@@ -1,0 +1,127 @@
+# https://www.codebuddy.ai/docs/ide/Introduction
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+CodeBuddy - AI Intelligent Programming Assistant | Tencent Cloud Code Assistant CodeBuddy – AI Code Editor
+Skip to content
+IDE IDE CLI WorkBuddy
+IDE
+CLI
+WorkBuddy
+Search K
+🌐 EN ▼
+Menu
+Return to top
+Sidebar Navigation
+Getting Started
+Introduction
+Installation
+Quickstart
+User Guide
+Overview
+Figma
+Code Completion
+Inline Chat
+Slash Commands
+Context
+Rules
+Checkpoint
+History
+Memory
+MCP
+Config Integration
+Preview
+Deploy
+Smart Commit
+Platform Integration Guide
+WeChat ClawBot Integration Guide (Recommended)
+Features
+Models
+Plan Mode
+Subagents
+Skills
+Hooks
+Account
+Subscription
+Pricing
+Credits
+Usage
+Billing
+Invoice
+Best Practice
+Support
+Troubleshooting
+Security & Privacy
+Contact
+Release Notes
+Overview
+On this page
+CodeBuddy - AI Intelligent Programming Assistant ​
+Overview ​
+An AI-powered full-process intelligent programming tool dedicated to building a symbiotic environment for seamless collaboration across product, design, development, and deployment.
+CodeBuddy is an AI-assisted programming tool launched by Tencent Cloud. By deeply integrating AI into the entire process, it achieves a one-stop efficient delivery platform from product conception to product release. The product supports two forms: IDE and CLI, covering full-scenario needs from professional developers to zero-foundation users.
+Why Choose CodeBuddy? ​
+🚀 Full-Process AI-Driven Development ​
+CodeBuddy connects the complete chain from product planning to deployment, making AI your all-around development partner.
+Intelligent Requirements Analysis : Simply describe your product concept in natural language, and AI automatically generates structured requirement documents (PRD)
+Smart Design Generation : Supports natural language and hand-drawn sketches to high-fidelity design mockups
+One-Click Design to Code : Built-in Figma functionality to directly convert design mockups into maintainable front-end and back-end code
+Intelligent Programming Assistant : Real-time code completion, multi-file code generation, inline dialogue for problem-solving
+🔧 Multi-Form Product Matrix ​
+Providing the most suitable product form based on different user roles and usage scenarios:
+Product Form CodeBuddy IDE CodeBuddy Code
+Target Users Product Managers / Designers / Full-Stack Developers / Programming Beginners DevOps / Operations / SRE / Senior Developers
+Core Features Integrated product-design-development workbench, supports visual debugging, featuring "Conversation as Programming" Command-line tool, supports Shell/File/Network operations, strong task orchestration capability
+Quick Start ​
+CodeBuddy supports two programming forms: IDE and CLI, covering full-scenario needs from professional developers to zero-foundation users.
+CodeBuddy IDE features "Conversation as Programming", achieving a one-stop efficient delivery platform from product conception to product release by deeply integrating AI into the entire process from requirements planning, product design, code development, to product deployment;
+CodeBuddy Code is an AI CLI tool for professional engineers that seamlessly integrates into existing development workflows, supporting natural language-driven development in the command line for highly automated processes.
+⚡ Built-in Ecosystem Service Integration ​
+Deep integration with Tencent ecosystem and mainstream development services, ready to use out of the box.
+BaaS Service Integration : Built-in Supabase and Tencent CloudBase, automatically handles backend services like databases and user authentication
+One-Click Deployment : Supports deployment to CloudStudio, EdgeOne Pages, and other platforms
+Component Library Support : Quickly assemble interfaces based on TDesign, MUI, Shadcn, and other component libraries
+Multi-Model Support : Supports various conversational large models including Hunyuan, DeepSeek, and more
+🎯 Broad Language and Framework Support ​
+Theoretically no restrictions on code languages, supports mainstream development tech stacks.
+Frontend : HTML, JavaScript, CSS, Vue, React, Bootstrap, etc.
+Backend : Node.js, Python, Java, C#, Ruby, PHP, etc.
+Client : Java, Kotlin, Swift, Objective-C, C#, etc.
+Others : C++, Go, Rust, TypeScript, Shell, PowerShell, R, MATLAB, etc.
+Core Features ​
+Product Phase: From Ideas to Requirements ​
+Intelligent Requirements Analysis : Natural language descriptions converted to structured PRD documents
+Requirements Optimization Suggestions : AI-assisted improvement and optimization of product requirements
+Design Phase: From Requirements to Mockups ​
+Multiple Generation Methods :
+Natural language to interactive prototypes
+Hand-drawn sketches to high-fidelity mockups
+Quick assembly based on component libraries
+AI Visual Optimization : Real-time adjustment of design style through natural language instructions
+Development Phase: From Mockups to Code ​
+One-Click Design to Code :
+Built-in Figma to quickly convert design mockups into maintainable front-end and back-end code, bridging the "last mile" from design to development
+Intelligent completion and error fixing
+Automatic unit test generation
+Code Understanding and Review :
+Quick explanation of existing code
+Intelligent code review
+Engineering structure analysis (supports @workspace and #Codebase )
+Deployment Phase: From Code to Launch ​
+Quick Deployment : One-click deployment to sandbox environment
+Share and Collaborate : Generate publicly accessible links for team verification and feedback
+Quick Start ​
+IDE ​
+Requirements ​
+Supported operating systems: Windows, macOS
+Modern browser or compatible IDE environment
+Getting Started ​
+Visit CodeBuddy IDE to download and install.
+CLI ​
+Requirements ​
+Node.js 18.0+
+bash
+# Install CodeBuddy CLI
+npm install -g @tencent-ai/codebuddy-code
+Last updated: Pager
+Next page Installation
+</untrusted-page-text>
