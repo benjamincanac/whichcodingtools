@@ -37,7 +37,7 @@ pricing:
       audience: enterprise
       overage:
         kind: api-list
-        notes: The contract is quoted against these per-token list rates, for example kimi-k3 at $3.00 input and $15.00 output per 1M tokens, deepseek-v4.1-flash at $0.30 and $1.20. Nemotron 3 Ultra, the fastest model on the platform, is quoted separately as a blended $0.44 per 1M tokens. Rates improve further as committed spend grows, at least 5 percent off closed models and at least 10 percent off open models.
+        notes: The contract is quoted against these per-token list rates, for example kimi-k3 at $3.00 input and $15.00 output per 1M tokens, deepseek-v4.1-flash at $0.15 and $0.60. Nemotron 3 Ultra, the fastest model on the platform, is quoted separately as a blended $0.44 per 1M tokens. Rates improve further as committed spend grows, at least 5 percent off closed models and at least 10 percent off open models.
       limits:
         - Annual purchase order, committed spend metered per token as it is consumed, unused balance expires at the end of the billing period
         - Dedicated forward-deployed engineer, implementation included at no extra cost
@@ -48,7 +48,7 @@ pricing:
 status: active
 sources:
   - url: https://www.blackbox.ai/pricing
-    verified_at: 2026-09-13
+    verified_at: 2026-09-16
     covers: [pricing, models]
   - url: https://www.blackbox.ai/vs-code
     verified_at: 2026-08-23
