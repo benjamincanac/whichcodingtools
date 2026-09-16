@@ -6,7 +6,7 @@ vendor: xAI (SpaceXAI)
 homepage: https://x.ai/cli
 links:
   docs: https://docs.x.ai/build/overview
-  pricing: https://x.ai/pricing
+  pricing: https://grok.com/plans
   changelog: https://x.ai/build/changelog
   repo: https://github.com/xai-org/grok-build
 platforms: [macos, linux, windows]
@@ -35,9 +35,20 @@ pricing:
         kind: rate-limited
       limits:
         - One weekly usage pool shared across Grok chat, Build and API
+    - id: supergrok-lite
+      name: SuperGrok Lite
+      price: 10
+      price_annual: 8.33
+      audience: individual
+      overage:
+        kind: credits
+        notes: Extra Usage Credits can be bought on the web on any paid plan once the weekly pool is spent, they expire one year after purchase.
+      limits:
+        - Basic chat access, 2x longer conversations, increased limits at regular speed
     - id: supergrok
       name: SuperGrok
       price: 30
+      price_annual: 25
       audience: individual
       overage:
         kind: credits
@@ -47,11 +58,21 @@ pricing:
     - id: supergrok-plus
       name: SuperGrok Plus
       price: 100
+      price_annual: 83.33
       audience: individual
       overage:
         kind: credits
       limits:
-        - Substantially higher usage, priority at peak times, early access
+        - Significantly higher usage across Chat, Imagine, Voice and Build, priority at peak times, early access
+    - id: supergrok-heavy
+      name: SuperGrok Heavy
+      price: 300
+      price_annual: 250
+      audience: individual
+      overage:
+        kind: credits
+      limits:
+        - Highest usage at the fastest speed, larger team of agents collaborating on answers, X Premium+ included
     - id: enterprise
       name: Enterprise
       price: null
@@ -64,17 +85,20 @@ pricing:
       overage:
         kind: api-list
         notes: Bill a console.x.ai key at list price, Grok 4.6 is $2 input and $6 output per million tokens under 200k context.
-  notes: x.ai/pricing and grok.com/plans refused automated fetches on 2026-08-23. Plan figures were read through a read-only text proxy of x.ai/pricing the same day and need a human check. Annual prices, SuperGrok Lite and Heavy were not shown on that render.
+  notes: Annual plans are billed annually at the rates shown.
 status: active
 sources:
   - url: https://x.ai/pricing
     verified_at: 2026-08-23
+    covers: [general]
+  - url: https://grok.com/plans
+    verified_at: 2026-09-16
     covers: [pricing]
   - url: https://docs.x.ai/developers/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-16
     covers: [pricing]
   - url: https://docs.x.ai/grok/faq
-    verified_at: 2026-08-23
+    verified_at: 2026-09-16
     covers: [pricing]
   - url: https://docs.x.ai/build/overview
     verified_at: 2026-08-23

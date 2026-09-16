@@ -32,12 +32,23 @@ pricing:
     - id: supergrok-plus
       name: SuperGrok Plus
       price: 100
+      price_annual: 83.33
       audience: individual
       mirrors:
         tool: grok-build
         tier: supergrok-plus
       limits:
         - Included with a SuperGrok Plus subscription, linked to your Cursor sign-in
+    - id: supergrok-heavy
+      name: SuperGrok Heavy
+      price: 300
+      price_annual: 250
+      audience: individual
+      mirrors:
+        tool: grok-build
+        tier: supergrok-heavy
+      limits:
+        - Included with a SuperGrok Heavy subscription, linked to your Cursor sign-in
     - id: cursor-pro-plus
       name: Cursor Pro+
       price: 60
@@ -71,18 +82,18 @@ pricing:
       contact_sales: true
       audience: enterprise
       limits:
-        - Rolling out, join through your Cursor account team
-  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by SuperGrok Plus, SuperGrok Heavy, Cursor Pro+, Cursor Ultra, a Cursor Teams seat, or a one-time trial. x.ai/bot and x.ai/pricing refused automated fetches on 2026-08-24. The SuperGrok Plus figure is carried from content/tools/grok-build.yml in this repo, itself read from x.ai/pricing through a proxy on 2026-08-23. SuperGrok Heavy's price was not shown on any page reachable this run. Cursor figures are carried from content/tools/cursor.yml, sourced from cursor.com/pricing. All figures need a human check.
+        - Access is given to all team members or limited to specific groups with Manage Group Access
+  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by SuperGrok Plus, SuperGrok Heavy, Cursor Pro+, Cursor Ultra, a Cursor Teams seat, or a one-time trial.
 status: preview
 sources:
   - url: https://docs.x.ai/grok-bot/overview
     verified_at: 2026-08-24
     covers: [general, features, models]
   - url: https://docs.x.ai/grok-bot/get-started
-    verified_at: 2026-08-24
+    verified_at: 2026-09-16
     covers: [platforms, pricing]
   - url: https://docs.x.ai/grok-bot/teams-and-enterprises
-    verified_at: 2026-08-24
+    verified_at: 2026-09-16
     covers: [pricing]
   - url: https://docs.x.ai/grok-bot/computer-and-apps
     verified_at: 2026-08-24
