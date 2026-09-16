@@ -1,0 +1,362 @@
+# https://docs.x.ai/developers/pricing
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+API Pricing | SpaceXAI Docs
+API
+Grok Build Grok Bot Grok
+Search
+⌘ K
+API Console
+Products Grok
+Status Loading...
+Resources llms.txt Discord Email support Terms and Policies
+Get Started
+Overview
+Quickstart
+Grok 4.6
+Latest
+Models
+Pricing
+Release Notes
+Text
+Text Generation
+Streaming
+Reasoning
+Structured Outputs
+Image Understanding
+Multi Agent
+Imagine
+Overview
+Image Generation
+Image Editing
+Multi-Image Editing
+Video Generation
+Image-to-Video
+Reference-to-Video
+New
+Video Editing
+Video Extension
+Voice
+Overview
+Speech to Speech
+Text to Speech
+Speech to Text
+Custom Voices
+New
+Ephemeral Tokens
+Files & Collections
+Files Overview
+Managing Files
+Public URLs
+New
+Chat with Files
+Collections
+Collections via API
+Collection Metadata
+Generated Media
+Tools
+Overview
+Function Calling
+Web Search
+X Search
+Code Execution
+Image Generation
+Collections Search (RAG)
+Remote MCP Tools
+In Depth
+Advanced API Usage
+Rate Limits
+Prompt Caching
+Context Compaction
+Priority Processing
+Batch API
+Deferred Completions
+Async Requests
+WebSocket Mode
+mTLS Authentication
+Regional Endpoints
+New
+Cost Tracking
+Debugging Errors
+Platforms
+Community Integrations
+Google Cloud Vertex AI
+Microsoft Foundry
+Docs MCP
+Migration Guides
+Imagine Image Quality Retirement (Nov 2, 2026)
+New
+Model Retirement (May 15, 2026)
+Migrating to Responses API
+Chat Completions (Legacy)
+FAQ
+Data & Privacy
+General
+API
+Docs
+REST Reference
+Grok Build
+Grok Bot
+Grok
+Get Started
+Overview
+Quickstart
+Grok 4.6
+Latest
+Models
+Pricing
+Release Notes
+Text
+Text Generation
+Streaming
+Reasoning
+Structured Outputs
+Image Understanding
+Multi Agent
+Imagine
+Overview
+Image Generation
+Image Editing
+Multi-Image Editing
+Video Generation
+Image-to-Video
+Reference-to-Video
+New
+Video Editing
+Video Extension
+Voice
+Overview
+Speech to Speech
+Text to Speech
+Speech to Text
+Custom Voices
+New
+Ephemeral Tokens
+Files & Collections
+Files Overview
+Managing Files
+Public URLs
+New
+Chat with Files
+Collections
+Collections via API
+Collection Metadata
+Generated Media
+Tools
+Overview
+Function Calling
+Web Search
+X Search
+Code Execution
+Image Generation
+Collections Search (RAG)
+Remote MCP Tools
+In Depth
+Advanced API Usage
+Rate Limits
+Prompt Caching
+Context Compaction
+Priority Processing
+Batch API
+Deferred Completions
+Async Requests
+WebSocket Mode
+mTLS Authentication
+Regional Endpoints
+New
+Cost Tracking
+Debugging Errors
+Platforms
+Community Integrations
+Google Cloud Vertex AI
+Microsoft Foundry
+Docs MCP
+Migration Guides
+Imagine Image Quality Retirement (Nov 2, 2026)
+New
+Model Retirement (May 15, 2026)
+Migrating to Responses API
+Chat Completions (Legacy)
+FAQ
+Data & Privacy
+General
+Key Information
+Pricing
+Copy for LLM
+View as Markdown
+Create API key
+Meet grok-4.6
+All prices are in USD. For per-model details, see the models page .
+Text API Prices per 1M tokens
+Model Context Short context Long context
+Input Cached Output Input Cached Output
+grok-4.6
+Long context ≥ 200k tokens 500k $2.00 $0.50 $6.00 $4.00 $1.00 $12.00
+grok-build-0.1
+Long context ≥ 200k tokens 256k $1.00 $0.20 $2.00 $2.00 $0.40 $4.00
+grok-4.5
+Long context ≥ 200k tokens 500k $2.00 $0.30 $6.00 $4.00 $0.60 $12.00
+grok-4.3
+Long context ≥ 200k tokens 1M $1.25 $0.20 $2.50 $2.50 $0.40 $5.00
+grok-4.20-multi-agent-0309
+Long context ≥ 200k tokens 1M $1.25 $0.20 $2.50 $2.50 $0.40 $5.00
+grok-4.20-0309-reasoning
+Long context ≥ 200k tokens 1M $1.25 $0.20 $2.50 $2.50 $0.40 $5.00
+grok-4.20-0309-non-reasoning
+Long context ≥ 200k tokens 1M $1.25 $0.20 $2.50 $2.50 $0.40 $5.00
+Models with long context pricing bill the long context rates for all tokens in a request once its prompt reaches the model's long context threshold.
+Requests sent to the US regional endpoint run inference in the United States; their token usage is billed at 1.1x the global token rates, a 10% premium.
+Imagine API Image and video generation & editing
+Model Media Input Resolution Output
+grok-imagine-image-2.0
+Text, Image → Image $0.01 / img 1K · Low $0.04 / img
+2K · Low $0.06 / img
+1K · Medium $0.06 / img
+2K · Medium $0.08 / img
+grok-imagine-image
+Text, Image → Image $0.002 / img 1K $0.02 / img
+2K $0.02 / img
+grok-imagine-image-quality
+Text, Image → Image $0.01 / img 1K $0.05 / img
+2K $0.07 / img
+grok-imagine-video-1.5
+Text, Image, Audio → Video
+$0.01 / img 480p $0.08 / sec
+720p $0.14 / sec
+1080p $0.25 / sec
+grok-imagine-video
+Text, Image, Video → Video
+$0.01 / sec $0.002 / img 480p $0.05 / sec
+720p $0.07 / sec
+Voice API Realtime, TTS, and STT
+Model or mode Cost
+Speech to Speech ( grok-voice-think-fast-2.0 )
+$0.08 / min ( $4.80 / hr) audio $0.004 / text input
+Speech to Text $0.10 / hr (REST), $0.20 / hr (Streaming)
+Text to Speech $15.00 / 1M chars
+Tools Pricing
+Requests which make use of xAI provided server-side tools are priced based on two components: token usage and server-side tool invocations . Since the agent autonomously decides how many tools to call, costs scale with query complexity.
+Token Costs
+All standard token types are billed for the model used in the request:
+Input tokens : Your query and conversation history
+Reasoning tokens : Agent's internal thinking and planning
+Completion tokens : The final response
+Image tokens : Visual content analysis (when applicable)
+Cached prompt tokens : Prompt tokens that were served from cache rather than recomputed
+Tool Invocation Costs
+Starting September 21, 2026 at 12:00 PM PT, X Search is billed at $5 per 1k posts fetched and $10 per 1k user profiles fetched, replacing the current $5 per 1k calls. Every post returned by a search or thread fetch, including parent and quoted posts, counts; every profile returned by a user search counts.
+Tool Tool Name Description Cost / 1k Calls
+Web Search
+web_search Search the internet and browse web pages $5 / 1k calls
+X Search
+x_search Search X posts, user profiles, and threads‡ $5 / 1k calls
+Code Execution
+code_execution code_interpreter
+Run Python code in a sandboxed environment $5 / 1k calls
+Image Generation
+image_generation Generate and edit images Imagine API rates
+File Attachments
+attachment_search Search through files attached to messages $10 / 1k calls
+Collections Search
+collections_search file_search
+Query your uploaded document collections (RAG) $2.50 / 1k calls
+Image Understanding
+view_image Analyze images found during Web Search and X Search* Token-based
+X Video Understanding
+view_x_video Analyze videos found during X Search* Token-based
+Remote MCP Tools
+Tool name is set by each MCP server Connect and use custom MCP tool servers Token-based
+Web Search
+$5 / 1k calls
+Search the internet and browse web pages
+web_search
+X Search
+$5 / 1k calls
+Search X posts, user profiles, and threads‡
+x_search
+Code Execution
+$5 / 1k calls
+Run Python code in a sandboxed environment
+code_execution code_interpreter
+Image Generation
+Imagine API rates
+Generate and edit images
+image_generation
+File Attachments
+$10 / 1k calls
+Search through files attached to messages
+attachment_search
+Collections Search
+$2.50 / 1k calls
+Query your uploaded document collections (RAG)
+collections_search file_search
+Image Understanding
+Token-based
+Analyze images found during Web Search and X Search*
+view_image
+X Video Understanding
+Token-based
+Analyze videos found during X Search*
+view_x_video
+Remote MCP Tools
+Token-based
+Connect and use custom MCP tool servers
+Tool name is set by each MCP server
+All tool names work in the Responses API. In the gRPC API (Python xAI SDK), code_interpreter and file_search are not supported.
+* Only applies to images and videos found by search tools — not to images passed directly in messages.
+‡ Starting September 21, 2026 at 12:00 PM PT, X Search is billed at $5 per 1k posts fetched and $10 per 1k user profiles fetched instead of $5 per 1k calls.
+For the view image and view x video tools, you will not be charged for the tool invocation itself but will be charged for the image tokens used to process the image or video.
+Image Search is part of Web Search and is billed at the standard Web Search rate.
+For Remote MCP tools, you will not be charged for the tool invocation but will be charged for any tokens used.
+For more information on using Tools, please visit our guide on Tools .
+Batch API Pricing
+The Batch API lets you process large volumes of requests asynchronously at a discount to standard pricing. The size of the discount varies by model. Batch requests are queued and processed in the background, with most completing within 24 hours.
+Real-time API Batch API
+Token pricing Standard rates Discounted rates (varies by model)
+Response time Immediate (seconds) Typically within 24 hours
+Rate limits Per-minute limits apply Requests don't count towards rate limits
+The batch discount applies to all token types — input tokens, output tokens, cached tokens, and reasoning tokens. Batch discounts by model:
+Model Batch discount
+grok-4.3
+grok-4.20-0309-reasoning
+grok-4.20-0309-non-reasoning
+grok-4.20-multi-agent-0309
+20 %
+Models not listed above have no batch discount.
+To see a model's resulting batch prices, toggle "Show batch API pricing" on its detail page. Models that accept Batch with no discount show N/A.
+The batch discount applies to text and language models only. Image and video generation are supported in the Batch API but are billed at standard rates. See Batch API documentation for full details.
+Priority Processing Pricing
+Priority Processing gives text requests higher scheduling priority for lower latency. Priority requests are billed at a 2x premium over standard rates.
+Standard Priority
+Token pricing Standard rates 2x standard rates
+Response time Standard scheduling priority Higher scheduling priority
+The 2x multiplier applies to all token types — input, output, cached, and reasoning. Prompt caching discounts are applied before the multiplier.
+You are only billed at the priority rate when the response confirms "service_tier": "priority" . If the request is served at the default tier instead, standard rates apply.
+Priority Processing is available for Chat Completions and Responses endpoints only. It is not supported for image generation, video generation, or Batch API requests. See Priority Processing documentation for full details.
+US Regional Endpoint Pricing
+Requests sent to the US regional endpoint , https://us.api.x.ai/v1 , run inference in the United States; their token usage is billed at 1.1x the global token rates, a 10% premium.
+Global endpoint US regional endpoint
+Base URL https://api.x.ai/v1 https://us.api.x.ai/v1
+Token pricing Standard rates 1.1x standard rates
+Models All models available to your team Currently grok-4.6 only
+The 1.1x multiplier applies to input, output, and cached input tokens, including long-context rates. Prompt caching discounts are applied before the multiplier. See the Regional Endpoints documentation for the scope of the US processing and storage guarantee.
+Files and Collections Pricing
+Files and collections stored on the xAI platform are billed based on the amount of storage used.
+Resource Rate
+File storage $0.025 / GiB / day
+Collection storage $0.10 / GiB / day
+Download Costs
+Downloading data from files and collections is charged at a flat rate based on the amount of data transferred:
+Resource Rate
+File downloads $0.20 / GiB downloaded
+Collection downloads $0.20 / GiB downloaded
+You can view and manage your files and collections through the xAI console or the xAI API .
+Usage Guidelines Violation Fee
+When your request is deemed to be in violation of our usage guideline by our system, we will still charge for the generation of the request.
+For violations that are caught before generation in the Responses API, we will charge a $0.05 usage guideline violation fee per request.
+Billing and Availability
+Your model access might vary depending on various factors such as geographical location, account limitations, etc.
+For how the bills are charged , visit Manage Billing for more information.
+For the most up-to-date information on your team's model availability , visit Models Page on xAI Console.
+Last updated: September 14, 2026
+</untrusted-page-text>
