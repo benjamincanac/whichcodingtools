@@ -1,0 +1,131 @@
+slug: codebuddy
+name: CodeBuddy
+description: Tencent Cloud's AI coding assistant. It ships as the CodeBuddy Code CLI, a desktop IDE and an IDE plugin.
+layer: harness
+secondary_layers: [editor, extension]
+vendor: Tencent Cloud
+homepage: https://www.codebuddy.ai/docs/cli/overview
+links:
+  docs: https://www.codebuddy.ai/docs/cli/installation
+  pricing: https://www.codebuddy.ai/docs/ide/Account/pricing
+platforms: [macos, windows, linux]
+hosts: [vscode, jetbrains, zed]
+install:
+  - method: npm
+    command: npm install -g @tencent-ai/codebuddy-code
+  - method: brew
+    command: brew install Tencent-CodeBuddy/tap/codebuddy-code
+  - method: curl
+    command: curl -fsSL https://www.codebuddy.cn/cli/install.sh | bash
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party, deepseek]
+  byok: full
+  local: true
+  notes: Built-in models include Tencent's Hunyuan and DeepSeek. A models.json file can add any OpenAI-format endpoint, including a local one such as http://localhost:11434/v1/chat/completions.
+features: [mcp-client, subagents, parallel-agents, hooks, plugins, checkpoints, acp-agent, sandboxing, scheduled-tasks, mobile-companion]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 100
+        unit: credits
+        period: month
+        notes: 100 base credits per month, no monthly bonus credits.
+      overage:
+        kind: blocked
+        notes: Credit top-up packs are limited to active Pro and Team subscribers.
+      limits:
+        - 5,000 real-time code completions per month, unlimited during the promotional period
+        - 3 automated tasks per month, 99 during the promotional period
+        - Auto model routing, all models available during the promotional period
+        - 30 bonus credits per day while the limited-time active-user reward lasts
+    - id: pro
+      name: Pro
+      price: 10
+      price_annual: 8
+      audience: individual
+      trial_days: 7
+      included:
+        amount: 2000
+        unit: credits
+        period: month
+        notes: 1,000 base credits plus 1,000 bonus credits per month.
+      overage:
+        kind: credits
+        notes: Optional top-up pack of 500 credits for $15.00, valid for 1 month.
+      limits:
+        - Unlimited real-time code completion
+        - 15 automated tasks per month, 99 during the promotional period
+        - All models available, with gradual early access to new features
+        - 50 bonus credits per day while the limited-time active-user reward lasts
+    - id: team
+      name: Team
+      price: 40
+      price_annual: 40
+      audience: team
+      included:
+        amount: 1000
+        unit: credits
+        period: month
+        notes: 1,000 credits per seat per month, pooled across the team.
+      overage:
+        kind: credits
+        notes: Team top-up packs range from 2,000 credits for $40.00 to 200,000 credits for $4,000.00, valid 6 months.
+      limits:
+        - Admin console
+        - Unified billing management
+        - Supports use across IDEs and CLIs
+  notes: Base and bonus credits are issued monthly and do not roll over, bonus credits expire one month after being credited.
+status: active
+sources:
+  - url: https://www.codebuddy.ai/docs/ide/Account/pricing
+    verified_at: 2026-09-15
+    covers: [pricing]
+  - url: https://www.codebuddy.ai/docs/cli/installation
+    verified_at: 2026-09-15
+    covers: [platforms]
+  - url: https://www.codebuddy.ai/docs/ide/Introduction
+    verified_at: 2026-09-15
+    covers: [platforms, models, general]
+  - url: https://www.codebuddy.ai/docs/cli/models
+    verified_at: 2026-09-15
+    covers: [models]
+  - url: https://www.codebuddy.ai/docs/cli/overview
+    verified_at: 2026-09-15
+    covers: [general, features]
+  - url: https://www.codebuddy.ai/docs/cli/ide-integrations
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/mcp
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/sub-agents
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/agent-teams
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/hooks-guide
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/checkpointing
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/plugins
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/bash-sandboxing
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/scheduled-tasks
+    verified_at: 2026-09-15
+    covers: [features]
+  - url: https://www.codebuddy.ai/docs/cli/remote-control
+    verified_at: 2026-09-15
+    covers: [features]

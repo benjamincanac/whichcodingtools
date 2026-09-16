@@ -1,0 +1,777 @@
+# https://www.codebuddy.ai/docs/cli/plugins
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Creating Plugins | Tencent Cloud Code Assistant CodeBuddy – AI Code Editor
+Skip to content
+CLI IDE CLI WorkBuddy
+IDE
+CLI
+WorkBuddy
+Search K
+🌐 EN ▼
+Menu
+Return to top
+Sidebar Navigation
+Getting Started
+Overview
+Quickstart
+Installation
+Common Workflows
+Interactive Mode
+Headless Mode
+Troubleshooting
+Best Practices
+Monorepos and Large Repositories
+Dynamic Workflows
+Workflow stdio Protocol
+Configuration
+Settings
+Models
+Memory
+Status Line
+Environment Variables
+Directory Structure
+Monitoring
+Terminal Configuration
+IDE Integrations
+ACP Protocol
+GitLab CI/CD
+Dev Container
+MCP
+MCP First-Run Status
+MCP Apps Integration Guide
+Tool Deferred Loading Override
+Slash Commands
+Custom Keybindings
+Features
+Sub-Agents
+Agent Teams
+Skills
+Hooks Guide
+Plugins
+Plugin Marketplaces
+Checkpointing
+Git Worktree
+Remote Control
+Web UI
+WeCom Bot Setup (WebSocket)
+Daemon Mode
+Automation
+Goal
+Scheduled Tasks
+Channels [Beta]
+Security
+Security Overview
+Identity and Access Management
+Permission Modes
+Permission Rules (Permissions)
+Bash Sandboxing
+Reference
+CLI Reference
+Hooks Reference
+Plugins Reference
+Cost Management
+Tools Reference
+Channels Reference [Beta]
+HTTP API (Beta)
+Prewarm Process
+SDK
+Quickstart
+Python SDK Reference
+TypeScript SDK Reference
+Hook System
+Permission Control
+Session Management
+SDK Custom Tools
+SDK MCP Integration
+SDK Demo Projects
+Release Notes
+Overview
+v2.140.0
+v2.139.0
+v2.138.0
+v2.137.1
+v2.137.0
+v2.136.0
+v2.135.0
+v2.134.0
+v2.132.0
+v2.131.0
+v2.130.0
+v2.129.0
+v2.128.1
+v2.128.0
+v2.127.3
+v2.127.2
+v2.127.0
+v2.126.0
+v2.125.5
+v2.125.4
+v2.125.3
+v2.125.2
+v2.125.1
+v2.125.0
+v2.124.1
+v2.124.0
+v2.123.1
+v2.123.0
+v2.122.0
+v2.121.3
+v2.121.2
+v2.121.1
+v2.121.0
+v2.120.0
+v2.119.4
+v2.119.3
+v2.119.2
+v2.119.1
+v2.119.0
+v2.118.2
+v2.118.1
+v2.118.0
+v2.117.2
+v2.117.1
+v2.117.0
+v2.116.0
+v2.115.0
+v2.114.3
+v2.114.2
+v2.114.1
+v2.114.0
+v2.113.0
+v2.112.1
+v2.112.0
+v2.111.0
+v2.110.0
+v2.109.3
+v2.109.2
+v2.109.1
+v2.109.0
+v2.108.2
+v2.108.1
+v2.108.0
+v2.107.0
+v2.106.7
+v2.106.6
+v2.106.5
+v2.106.4
+v2.106.3
+v2.106.2
+v2.106.1
+v2.106.0
+v2.105.2
+v2.105.1
+v2.105.0
+v2.103.4
+v2.103.3
+v2.103.2
+v2.103.1
+v2.103.0
+v2.102.0
+v2.101.0
+v2.100.2
+v2.100.1
+v2.100.0
+v2.99.1
+v2.99.0
+v2.98.1
+v2.98.0
+v2.97.5
+v2.97.4
+v2.97.3
+v2.97.2
+v2.97.1
+v2.97.0
+v2.96.1
+v2.96.0
+v2.95.1
+v2.95.0
+v2.94.4
+v2.94.3
+v2.94.2
+v2.94.1
+v2.94.0
+v2.93.7
+v2.93.6
+v2.93.5
+v2.93.4
+v2.93.3
+v2.93.2
+v2.93.1
+v2.93.0
+v2.92.0
+v2.91.0
+v2.90.0
+v2.89.0
+v2.88.0
+v2.87.0
+v2.86.0
+v2.85.0
+v2.84.0
+v2.83.1
+v2.83.0
+v2.82.0
+v2.81.2
+v2.81.1
+v2.81.0
+v2.80.0
+v2.79.1
+v2.79.0
+v2.78.1
+v2.78.0
+v2.77.1
+v2.77.0
+v2.76.0
+v2.75.0
+v2.74.0
+v2.73.0
+v2.72.0
+v2.71.1
+v2.71.0
+v2.70.1
+v2.70.0
+v2.69.0
+v2.68.0
+v2.67.0
+v2.66.2
+v2.66.1
+v2.66.0
+v2.65.1
+v2.65.0
+v2.64.2
+v2.64.1
+v2.64.0
+v2.63.5
+v2.63.4
+v2.63.3
+v2.63.2
+v2.63.1
+v2.63.0
+v2.62.1
+v2.62.0
+v2.61.3
+v2.61.2
+v2.61.1
+v2.61.0
+v2.60.0
+v2.59.0
+v2.58.0
+v2.57.1
+v2.57.0
+v2.56.1
+v2.56.0
+v2.55.1
+v2.55.0
+v2.54.0
+v2.53.0
+v2.52.6
+v2.52.5
+v2.52.4
+v2.52.3
+v2.52.2
+v2.52.1
+v2.52.0
+v2.51.2
+v2.51.1
+v2.51.0
+v2.50.7
+v2.50.6
+v2.50.5
+v2.50.4
+v2.50.3
+v2.50.2
+v2.50.1
+v2.50.0
+v2.49.7
+v2.49.6
+v2.49.5
+v2.49.3
+v2.49.2
+v2.49.1
+v2.49.0
+v2.48.1
+v2.48.0
+v2.47.0
+v2.46.0
+v2.45.1
+v2.45.0
+v2.44.1
+v2.44.0
+v2.43.1
+v2.43.0
+v2.42.3
+v2.42.1
+v2.42.0
+v2.41.8
+v2.41.7
+v2.41.6
+v2.41.5
+v2.41.4
+v2.41.3
+v2.41.2
+v2.41.1
+v2.41.0
+v2.40.1
+v2.40.0
+v2.39.0
+v2.38.2
+v2.38.1
+v2.38.0
+🚀 CodeBuddy Code v2.37.20 Release
+v2.37.19
+v2.37.18
+v2.37.17
+v2.37.16
+v2.37.15
+v2.37.14
+v2.37.13
+v2.37.12
+v2.37.11
+v2.37.10
+v2.37.9
+v2.37.8
+v2.37.7
+v2.37.6
+v2.37.5
+v2.37.4
+v2.37.3
+v2.37.2
+v2.37.1
+v2.37.0
+v2.36.3
+v2.36.2
+v2.36.1
+v2.36.0
+v2.35.0
+v2.34.1
+v2.34.0
+v2.33.1
+v2.33.0
+v2.32.0
+v2.31.2
+v2.31.1
+v2.31.0
+v2.30.1
+v2.30.0
+v2.29.0
+v2.28.1
+v2.28.0
+v2.27.3
+v2.27.2
+v2.27.1
+v2.27.0
+v2.26.0
+v2.25.1
+v2.25.0
+v2.24.0
+v2.23.5
+v2.23.0
+v2.23.4
+v2.23.3
+v2.23.2
+v2.22.0
+v2.21.0
+v2.20.1
+v2.20.0
+v2.19.2
+v2.19.1
+v2.19.0
+v2.18.0
+v2.17.0
+v2.16.0
+v2.15.1
+v2.15.0
+v2.14.1
+v2.14.0
+v2.13.0
+v2.12.0
+v2.11.0
+v2.10.1
+v2.10.0
+v2.9.0
+v2.8.6
+v2.8.5
+v2.8.4
+v2.8.3
+v2.8.2
+v2.8.1
+v2.8.0
+v2.7.0
+v2.6.1
+v2.6.0
+v2.5.0
+v2.4.0
+v2.3.1
+On this page
+Creating Plugins ​
+Plugins let you extend CodeBuddy Code's functionality with custom skills, agents, hooks, and MCP servers. This guide covers how to create your own plugins.
+To install existing plugins, see Plugin Marketplaces . For complete technical specifications, refer to the Plugin Reference Documentation .
+When to Use Plugins vs Standalone Configuration ​
+CodeBuddy Code supports two ways to add custom skills, agents, and hooks:
+Method Skill Name Suitable Scenarios
+Standalone configuration ( .codebuddy/ directory) /hello Personal workflows, project-specific customizations, quick experiments
+Plugin (directory containing .codebuddy-plugin/plugin.json ) /plugin-name:hello Team sharing, community distribution, versioned releases, cross-project reuse
+Use standalone configuration when :
+Customizing CodeBuddy Code for a single project
+The configuration is personal and doesn't need to be shared
+Experimenting with skills or hooks before packaging them as a plugin
+You need short skill names like /hello or /deploy
+Use plugins when :
+Sharing functionality with a team or community
+The same skills/agents need to be used across multiple projects
+Version control and convenient update mechanisms are required
+Distributing through a marketplace
+You can accept namespaced skill names like /my-plugin:hello (namespacing prevents conflicts between plugins)
+Tip : Start with standalone configuration in .codebuddy/ for fast iteration, then convert to a plugin when you're ready to share.
+Quick Start ​
+This quick start walks you through creating a plugin that contains a custom skill. You'll create a manifest file (the configuration file that defines the plugin), add a skill, and test it locally with the --plugin-dir argument.
+Prerequisites ​
+CodeBuddy Code installed and authenticated
+If you don't see the /plugin command, update CodeBuddy Code to the latest version. See Troubleshooting for upgrade instructions.
+Create Your First Plugin ​
+Step 1: Create the plugin directory ​
+Each plugin has its own directory containing the manifest file and your skills, agents, or hooks. Create one now:
+bash
+mkdir my-first-plugin
+Step 2: Create the plugin manifest ​
+The manifest file is located at .codebuddy-plugin/plugin.json and defines the plugin's identity: name, description, and version. CodeBuddy Code uses this metadata to display your plugin in the plugin manager.
+Create the .codebuddy-plugin directory inside the plugin directory:
+bash
+mkdir my-first-plugin/.codebuddy-plugin
+Then create my-first-plugin/.codebuddy-plugin/plugin.json with the following content:
+json
+{
+"name" : "my-first-plugin" ,
+"description" : "A greeting plugin to learn the basics" ,
+"version" : "1.0.0" ,
+"author" : {
+"name" : "Your Name"
+}
+}
+Field Purpose
+name Unique identifier and skill namespace. Skills are prefixed with this (e.g., /my-first-plugin:hello )
+description Displayed when browsing or installing the plugin in the plugin manager
+version Track releases using semantic versioning
+author Optional. Used for attribution
+For more fields like homepage , repository , and license , see the complete manifest schema .
+Step 3: Add a skill ​
+Skills are placed in the skills/ directory. Each skill is a folder containing a SKILL.md file. The folder name becomes the skill name and is prefixed with the plugin namespace (in a plugin named my-first-plugin , hello/ creates /my-first-plugin:hello ).
+Create the skill directory in your plugin directory:
+bash
+mkdir -p my-first-plugin/skills/hello
+Then create my-first-plugin/skills/hello/SKILL.md with the following content:
+markdown
+---
+description : Greet the user with a friendly message
+disable-model-invocation : true
+---
+Greet the user warmly and ask how you can help them today.
+Step 4: Test your plugin ​
+Run CodeBuddy Code with the --plugin-dir argument to load your plugin:
+bash
+codebuddy --plugin-dir ./my-first-plugin
+After startup, try your new skill:
+/my-first-plugin:hello
+You'll see CodeBuddy reply with a greeting. Run /help to see your skill listed under the plugin namespace.
+Why namespacing? Plugin skills are always namespaced (e.g., /my-first-plugin:hello ) to prevent conflicts when multiple plugins have skills with the same name. To change the namespace prefix, update the name field in plugin.json .
+Step 5: Add skill arguments ​
+Make the skill more dynamic by accepting user input. The $ARGUMENTS placeholder captures any text the user provides after the skill name.
+Update your SKILL.md file:
+markdown
+---
+description : Greet the user with a personalized message
+---
+# Hello Skill
+Greet the user named "$ARGUMENTS" warmly and ask how you can help them today. Make the greeting personal and encouraging.
+Run /reload-plugins to pick up the changes, then try the skill with your name:
+/my-first-plugin:hello Alex
+CodeBuddy will greet you by name. For more information about passing arguments to skills, see the Skills documentation .
+You've successfully created and tested a plugin containing the following key components:
+Plugin manifest ( .codebuddy-plugin/plugin.json ): Metadata describing the plugin
+Skill directory ( skills/ ): Contains your custom skills
+Skill arguments ( $ARGUMENTS ): Capture user input for dynamic behavior
+The --plugin-dir argument is for development and testing. When you're ready to share your plugin with others, see Plugin Marketplaces .
+Plugin Structure Overview ​
+You've created a plugin containing a skill, but plugins can include much more: custom agents, hooks, MCP servers, and LSP servers.
+Common mistake : Don't put commands/ , agents/ , skills/ , or hooks/ inside the .codebuddy-plugin/ directory. Only plugin.json goes inside .codebuddy-plugin/ . All other directories must be at the plugin root level.
+Directory Location Purpose
+.codebuddy-plugin/ Plugin root Contains the plugin.json manifest
+commands/ Plugin root Slash commands in Markdown format
+agents/ Plugin root Custom agent definitions
+skills/ Plugin root Agent skills containing SKILL.md files
+hooks/ Plugin root hooks.json event handlers
+.mcp.json Plugin root MCP server configuration
+.lsp.json Plugin root LSP server configuration (code intelligence)
+bin/ Plugin root Executables added to the Bash tool's PATH when the plugin is enabled
+settings.json Plugin root Default settings applied when the plugin is enabled
+Example complete structure :
+my-plugin/
+├── .codebuddy-plugin/ # Metadata directory (required)
+│ └── plugin.json # Plugin manifest file
+├── commands/ # Commands directory (optional)
+│ └── example.md
+├── agents/ # Agents directory (optional)
+│ └── example.md
+├── skills/ # Skills directory (optional)
+│ └── code-review/
+│ └── SKILL.md
+├── hooks/ # Hooks directory (optional)
+│ └── hooks.json
+├── bin/ # Executables directory (optional)
+│ └── my-tool
+├── .mcp.json # MCP configuration file (optional)
+├── .lsp.json # LSP configuration file (optional)
+└── settings.json # Default settings file (optional)
+Developing More Complex Plugins ​
+Once you've mastered basic plugins, you can create more sophisticated extensions.
+Adding Skills ​
+Plugins can include agent skills to extend CodeBuddy's capabilities. Skills are model-invoked: CodeBuddy automatically uses them based on task context.
+Add a skills/ directory at the plugin root containing skill folders with SKILL.md files:
+my-plugin/
+├── .codebuddy-plugin/
+│ └── plugin.json
+└── skills/
+└── code-review/
+└── SKILL.md
+Each SKILL.md needs frontmatter containing name and description fields, followed by instructions:
+markdown
+---
+name : code-review
+description : Reviews code for best practices and potential issues. Use when reviewing code, checking PRs, or analyzing code quality.
+---
+When reviewing code, check for:
+1. Code organization and structure
+2. Error handling
+3. Security concerns
+4. Test coverage
+After installing the plugin, run /reload-plugins to load the skill. For a complete guide to writing skills, including progressive disclosure and tool restrictions, see Agent Skills .
+Adding Commands ​
+Plugins can provide custom slash commands that users can manually trigger. Commands are defined as Markdown files.
+Example : commands/example.md
+markdown
+---
+description : "Example command description"
+argument-hint : "[argument]"
+---
+This is an example command. It executes when the user enters /my-plugin:example.
+Argument: $ARGUMENTS
+Commands are registered in the format /plugin-name:command-name .
+For detailed information, refer to the Slash Commands documentation .
+Adding Hooks ​
+Hooks allow operations to be automatically executed when specific events occur. Commands receive hook input JSON data via standard input and can use jq to extract fields.
+Example : hooks/hooks.json
+json
+{
+"hooks" : {
+"PostToolUse" : [
+{
+"matcher" : "Write|Edit" ,
+"hooks" : [
+{
+"type" : "command" ,
+"command" : "jq -r '.tool_input.file_path' | xargs npm run lint:fix"
+}
+]
+}
+]
+}
+}
+Hooks in a plugin's hooks/hooks.json are automatically merged (not overwritten) with user- and project-level hooks when the plugin is enabled, and are not subject to the allowUntrustedFrontmatterHooks gate (which only applies to hooks declared in Agent / Skill frontmatter).
+In addition to command , hooks also support type: prompt (small-model semantic decisions), type: agent (subagent validation), and type: http (POST/PUT/PATCH to a specified URL). See the Hooks documentation for details. If your plugin also needs to ship frontmatter hooks bundled with a Skill, refer to the Skills documentation - Configuring Hooks in a Skill (note that this path is subject to the security gate).
+For detailed information, refer to the Hooks documentation .
+Adding LSP Servers ​
+For common languages such as TypeScript, Python, and Rust, it is recommended to install pre-built LSP plugins directly from the official plugin marketplace. Only create custom LSP plugins when you need to support languages not yet covered.
+LSP (Language Server Protocol) plugins provide real-time code intelligence to CodeBuddy. If you need support for a language without an official LSP plugin, you can add a .lsp.json file to the plugin:
+json
+{
+"go" : {
+"command" : "gopls" ,
+"args" : [ "serve" ],
+"extensionToLanguage" : {
+".go" : "go"
+}
+}
+}
+Users who install the plugin must have the language server binaries pre-installed on their machine.
+Multi-Language Configuration Example ​
+json
+{
+"python" : {
+"command" : "pylsp" ,
+"args" : [],
+"extensionToLanguage" : {
+".py" : "python"
+}
+},
+"rust" : {
+"command" : "rust-analyzer" ,
+"args" : [],
+"extensionToLanguage" : {
+".rs" : "rust"
+}
+}
+}
+Installation Requirements ​
+When users install plugins that include LSP configurations, they must have the corresponding language server binaries pre-installed on their system:
+Go : go install golang.org/x/tools/gopls@latest
+Python : pip install python-lsp-server
+Rust : rustup component add rust-analyzer
+Bundling Default Settings ​
+Plugins can include a settings.json file at the root that applies default configuration when the plugin is enabled. Currently, only the agent key is supported.
+Setting agent activates one of the plugin's custom agents as the main thread, applying its system prompt, tool restrictions, and model. This allows the plugin to change CodeBuddy Code's default behavior when enabled.
+json
+{
+"agent" : "security-reviewer"
+}
+This example activates the security-reviewer agent defined in the plugin's agents/ directory. Settings in settings.json take precedence over the settings declared in plugin.json . Unknown keys are silently ignored.
+Testing Plugins Locally ​
+Use the --plugin-dir argument to test plugins during development. This loads your plugin directly without installation.
+bash
+codebuddy --plugin-dir ./my-plugin
+When a --plugin-dir plugin has the same name as an installed marketplace plugin, the local copy takes precedence in that session. This lets you test changes to an installed plugin without uninstalling it. Marketplace plugins force-enabled via managed settings are the only exception and cannot be overridden.
+While modifying a plugin, run /reload-plugins to pick up updates without restarting. This reloads plugins, skills, agents, hooks, plugin MCP servers, and plugin LSP servers. Test your plugin components:
+Try skills with /plugin-name:skill-name
+Check that agents appear in /agents
+Verify hooks work as expected
+You can load multiple plugins simultaneously by specifying the argument multiple times:
+bash
+codebuddy --plugin-dir ./plugin-one --plugin-dir ./plugin-two
+Debugging Plugin Issues ​
+If a plugin is not working as expected:
+Check structure : Make sure directories are at the plugin root, not inside .codebuddy-plugin/
+Test components individually : Check each command, agent, and hook separately
+Use debug mode : Start CodeBuddy with the --debug argument to see detailed logs
+plugin.json Manifest Format ​
+The plugin manifest file defines the plugin's metadata and included components, located at .codebuddy-plugin/plugin.json :
+json
+{
+"name" : "my-plugin" ,
+"version" : "1.0.0" ,
+"description" : "Plugin description" ,
+"author" : {
+"name" : "Author Name" ,
+"email" : "author@example.com"
+},
+"homepage" : "https://github.com/username/my-plugin" ,
+"repository" : "https://github.com/username/my-plugin" ,
+"keywords" : [ "example" ],
+"category" : "Development Tools" ,
+"commands" : [],
+"agents" : [],
+"skills" : [],
+"hooks" : "./hooks/hooks.json"
+}
+For complete manifest schema documentation, see the Plugin Reference Documentation .
+Sharing Your Plugin ​
+When your plugin is ready to share:
+Add documentation : Include a README.md describing installation and usage
+Version management : Use semantic versioning in plugin.json
+Create or use a marketplace : Distribute via plugin marketplaces
+Test with others : Have team members test the plugin before broader distribution
+Once your plugin is published to a marketplace, others can install and use it by following the instructions in Plugin Marketplaces .
+Converting Existing Configuration to a Plugin ​
+If you already have skills or hooks in the .codebuddy/ directory, you can convert them to a plugin for easier sharing and distribution.
+Migration Steps ​
+Step 1: Create the plugin structure ​
+Create a new plugin directory:
+bash
+mkdir -p my-plugin/.codebuddy-plugin
+Create the manifest file my-plugin/.codebuddy-plugin/plugin.json :
+json
+{
+"name" : "my-plugin" ,
+"description" : "Migrated from standalone configuration" ,
+"version" : "1.0.0"
+}
+Step 2: Copy existing files ​
+Copy your existing configuration to the plugin directory:
+bash
+# Copy commands
+cp -r .codebuddy/commands my-plugin/
+# Copy agents (if any)
+cp -r .codebuddy/agents my-plugin/
+# Copy skills (if any)
+cp -r .codebuddy/skills my-plugin/
+Step 3: Migrate Hooks ​
+If you have hooks in your settings, create the hooks directory:
+bash
+mkdir my-plugin/hooks
+Create my-plugin/hooks/hooks.json and place the hooks configuration in it. Copy the hooks object from .codebuddy/settings.json or settings.local.json — the format is the same. Commands receive hook input JSON data via standard input and can use jq to extract fields:
+json
+{
+"hooks" : {
+"PostToolUse" : [
+{
+"matcher" : "Write|Edit" ,
+"hooks" : [
+{
+"type" : "command" ,
+"command" : "jq -r '.tool_input.file_path' | xargs npm run lint:fix"
+}
+]
+}
+]
+}
+}
+Step 4: Test the migrated plugin ​
+Load the plugin to verify everything works:
+bash
+codebuddy --plugin-dir ./my-plugin
+Test each component: run your commands, check agents in /agents , and verify hooks trigger correctly.
+Before vs After Migration ​
+Standalone Configuration ( .codebuddy/ ) Plugin
+Available in only one project Shareable via marketplaces
+Files in .codebuddy/commands/ Files in plugin-name/commands/
+Hooks in settings.json Hooks in hooks/hooks.json
+Manual copy required for sharing Install via /plugin install
+After migration, you can delete the original files in .codebuddy/ to avoid duplication. The plugin version takes precedence when loaded.
+Best Practices ​
+Plugin Development Recommendations ​
+Follow naming conventions : Use clear, descriptive plugin names (kebab-case, no spaces)
+Provide complete metadata : Provide detailed descriptions and author information in plugin.json
+Version management : Use semantic versioning (Semantic Versioning)
+Complete documentation : Provide clear descriptions for each command and skill
+Thorough testing : Test plugins locally with --plugin-dir before publishing
+Security Considerations ​
+Only install plugins from trusted sources : Plugins can execute commands and access the filesystem
+Review plugin code : Check plugin commands and hooks before installation
+Use permission controls : Limit plugin access through CodeBuddy's permission system
+Troubleshooting ​
+Plugin Not Loading ​
+Problem : Plugin is installed but not working
+Solution :
+Confirm the plugin is enabled: run /plugin and go to the "Installed" tab
+Check that plugin.json format is correct
+Run /reload-plugins to reload plugins
+Use --debug mode to view loading logs
+Command Not Available ​
+Problem : Plugin is installed but commands are unavailable
+Solution :
+Confirm command files are placed in the plugin root's commands/ , not inside .codebuddy-plugin/
+Check that command files exist and have the correct format
+Run /reload-plugins to refresh
+Validation and Testing ​
+Test your plugin before sharing:
+bash
+# Validate plugin format
+codebuddy plugin validate /path/to/plugin
+# Test locally with --plugin-dir
+codebuddy --plugin-dir ./my-plugin
+# Test the plugin's skills
+/my-plugin:skill-name
+Next Steps ​
+For Plugin Users ​
+Plugin Marketplaces - Browse marketplaces and install plugins
+Settings - Learn about plugin configuration options
+For Plugin Developers ​
+Plugin Marketplaces - Package and share your plugin
+Plugin Reference Documentation - Complete technical specification
+Dive deeper into specific plugin components:
+Skills - Skill development details
+Sub-agents - Agent configuration and capabilities
+Hooks - Event handling and automation
+MCP - External tool integration
+Last updated: Pager
+Previous page Hooks Guide
+Next page Plugin Marketplaces
+</untrusted-page-text>
