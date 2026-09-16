@@ -55,11 +55,11 @@ pricing:
       price: null
       contact_sales: true
       audience: enterprise
-  notes: trypear.ai/pricing refused automated fetches on 2026-08-23. Figures were read through a read-only text proxy of the same page and need a human check. The docs deployment was paused that day and the last editor release on GitHub is from May 2025.
+  notes: The docs deployment was paused on 2026-08-23 and the last editor release on GitHub is from May 2025.
 status: active
 sources:
   - url: https://trypear.ai/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-16
     covers: [pricing, models]
   - url: https://trypear.ai
     verified_at: 2026-08-23
