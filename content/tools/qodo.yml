@@ -62,7 +62,7 @@ aliases:
     note: Renamed to Qodo with the Series A announcement on September 30, 2024.
 sources:
   - url: https://www.qodo.ai/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-18
     covers: [pricing, platforms]
   - url: https://docs.qodo.ai/qodo-ide
     verified_at: 2026-08-23

@@ -1,0 +1,426 @@
+# https://www.warp.dev/pricing
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Pricing | Warp
+Introducing Warp Factories: open, flexible infrastructure for building your own cloud software factory. Learn More
+Products
+Warp Factories
+Run fleets of coding agents across your SDLC
+Warp Terminal
+A modern terminal for agentic coding
+Warp Agent CLI
+A powerful coding agent that works in any terminal Solutions
+Use Cases
+Code Review First-pass review on every PR
+Bug Investigation Reproduce bugs and route fixes
+Refactors & Migration Scope, migrate, and validate changes
+Incident Response Investigate alerts and summarize next steps
+Industry
+Financial Services Secure, compliant AI development
+Insurance Modernize policy & claims systems
+Telecommunications Scale with your network Resources
+Developers
+Docs API docs and guides
+GitHub
+Star Warp and explore the source
+Blog News and product updates
+Community Get help and connect
+Agent Kits Pre-built agent gallery
+Events Webinars and sessions
+Changelog What's new in Warp
+Roadmap
+See what we're building next
+Support Help and issue tracking
+Company
+About Our mission and team
+How We Work Our culture and values
+Careers Join the team at Warp
+Press Media coverage and press kit
+Research Reports and insights
+Newsroom Announcements and press releases Enterprise
+Overview
+Secure, compliant agentic development for your org
+Customers
+Teams shipping faster with Warp Pricing
+Sign In Book a demo
+Get Started
+Products
+Warp Factories
+Run fleets of coding agents across your SDLC
+Warp Terminal
+A modern terminal for agentic coding
+Warp Agent CLI
+A powerful coding agent that works in any terminal Solutions
+Use Cases
+Code Review First-pass review on every PR
+Bug Investigation Reproduce bugs and route fixes
+Refactors & Migration Scope, migrate, and validate changes
+Incident Response Investigate alerts and summarize next steps
+Industry
+Financial Services Secure, compliant AI development
+Insurance Modernize policy & claims systems
+Telecommunications Scale with your network Resources
+Developers
+Docs API docs and guides
+GitHub
+Star Warp and explore the source
+Blog News and product updates
+Community Get help and connect
+Agent Kits Pre-built agent gallery
+Events Webinars and sessions
+Changelog What's new in Warp
+Roadmap
+See what we're building next
+Support Help and issue tracking
+Company
+About Our mission and team
+How We Work Our culture and values
+Careers Join the team at Warp
+Press Media coverage and press kit
+Research Reports and insights
+Newsroom Announcements and press releases Enterprise
+Overview
+Secure, compliant agentic development for your org
+Customers
+Teams shipping faster with Warp Pricing
+Sign In Book a demo
+Get Started
+Warp Factories, now in Early Access — select teams get up to $10,000 in factory usage Learn more
+Pricing
+Start free and scale as your team grows. Simple, transparent pricing with no surprises.
+Monthly Annually 10% off
+Free
+$0 /month
+For developers who want Warp’s modern terminal with the flexibility to use Warp’s AI or bring their own.
+Download Now
+Includes core terminal features
+○
+State-of-the-art modern terminal
+○
+Warp Agent CLI access
+○
+Reload credits at pay-as-you-go rates
+○
+Bring your own AI inference*
+○
+Limited cloud agents access
+○
+Use any harness in the cloud (beta)
+○
+Individually configured data controls
+○
+Limited Warp Drive and collaboration feature access
+○
+Limited cloud conversation storage
+Purchase additional agent usage
+Build
+Recommended
+Pay as you go, starting at:
+$20 /month
+For developers who want flexible access to AI that scales with their usage
+Start Today
+Everything in Free, plus:
+○
+1,500 credits ($20 of included agent usage at API rates)
+○
+Full Warp Agent access (frontier and open-source models from OpenAI, Anthropic, z.ai, and more)
+○
+Reload credits with volume-based discounts, auto-reload, and team-wide spend cap
+○
+Extended cloud agents access
+○
+Highest codebase indexing limits
+○
+Unlimited Warp Drive objects and collaboration
+○
+Unlimited cloud conversation storage
+○
+Private email support
+Purchase additional agent usage
+Max
+Pay as you go, starting at:
+$200 /month
+For developers who need maximum AI capacity with all the flexibility of Build
+Start Today
+Everything in Build, plus:
+○
+18,000 credits (12× the included usage of Build)
+○
+Reload credits with volume-based discounts, auto-reload, and team-wide spend cap
+Purchase additional agent usage
+Business
+Pay as you go, starting at:
+$50 /user /month
+For teams scaling AI-powered development (up to 25 seats)
+Start Today
+Everything in Build, plus:
+○
+1,500 credits per seat ($20 of included agent usage at API rates)
+○
+Team usage metrics
+○
+Admin-configurable data controls
+○
+Bring your own API keys and custom inference endpoints
+○
+SAML-based SSO
+Purchase additional agent usage
+Enterprise
+Custom
+For organizations needing advanced control, security, and scale
+Contact Sales
+Everything in Business, plus:
+○
+Unlimited seats
+○
+Custom shared credit pools and usage terms
+○
+Advanced spend controls
+○
+Enterprise admin controls
+○
+Enterprise data governance
+○
+Enterprise Analytics API
+○
+Multi-admin support
+○
+Route inference through your own cloud (BYOLLM)
+○
+Self-hosted cloud agents on your infrastructure
+○
+Custom codebase indexing
+○
+Cross-harness agent memory (Research Preview)
+○
+White-glove onboarding and implementation engineer support
+○
+Dedicated account manager and a shared Slack channel with your team
+Free
+$0 /month
+For developers who want Warp’s modern terminal with the flexibility to use Warp’s AI or bring their own.
+Download Now
+Includes core terminal features
+○
+State-of-the-art modern terminal
+○
+Warp Agent CLI access
+○
+Reload credits at pay-as-you-go rates
+○
+Bring your own AI inference*
+○
+Limited cloud agents access
+○
+Use any harness in the cloud (beta)
+○
+Individually configured data controls
+○
+Limited Warp Drive and collaboration feature access
+○
+Limited cloud conversation storage
+Purchase additional agent usage
+Build
+Recommended
+Pay as you go, starting at:
+$18 /month
+For developers who want flexible access to AI that scales with their usage
+Start Today
+Everything in Free, plus:
+○
+1,500 credits ($20 of included agent usage at API rates)
+○
+Full Warp Agent access (frontier and open-source models from OpenAI, Anthropic, z.ai, and more)
+○
+Reload credits with volume-based discounts, auto-reload, and team-wide spend cap
+○
+Extended cloud agents access
+○
+Highest codebase indexing limits
+○
+Unlimited Warp Drive objects and collaboration
+○
+Unlimited cloud conversation storage
+○
+Private email support
+Purchase additional agent usage
+Max
+Pay as you go, starting at:
+$180 /month
+For developers who need maximum AI capacity with all the flexibility of Build
+Start Today
+Everything in Build, plus:
+○
+18,000 credits (12× the included usage of Build)
+○
+Reload credits with volume-based discounts, auto-reload, and team-wide spend cap
+Purchase additional agent usage
+Business
+Pay as you go, starting at:
+$45 /user /month
+For teams scaling AI-powered development (up to 25 seats)
+Start Today
+Everything in Build, plus:
+○
+1,500 credits per seat ($20 of included agent usage at API rates)
+○
+Team usage metrics
+○
+Admin-configurable data controls
+○
+Bring your own API keys and custom inference endpoints
+○
+SAML-based SSO
+Purchase additional agent usage
+Enterprise
+Custom
+For organizations needing advanced control, security, and scale
+Contact Sales
+Everything in Business, plus:
+○
+Unlimited seats
+○
+Custom shared credit pools and usage terms
+○
+Advanced spend controls
+○
+Enterprise admin controls
+○
+Enterprise data governance
+○
+Enterprise Analytics API
+○
+Multi-admin support
+○
+Route inference through your own cloud (BYOLLM)
+○
+Self-hosted cloud agents on your infrastructure
+○
+Custom codebase indexing
+○
+Cross-harness agent memory (Research Preview)
+○
+White-glove onboarding and implementation engineer support
+○
+Dedicated account manager and a shared Slack channel with your team
+Warp Factories, now in Early Access
+Flexible, open infrastructure to accelerate companies building internal cloud software factories — run fleets of coding agents across your SDLC, on any model or harness.
+Pay as you go
+For developers getting started with software factories
+Includes standard factory features
+○ Create and run factories with the Warp Agent
+○ Automate from GitHub, Slack, webhooks, and schedules
+○ Insights like cost per PR and automation rate
+○ Factory config as code in a Warp-managed repo
+○ Pay-as-you-go usage, 20% markup, no subscription
+Build
+For developers building and running factories
+Everything in Pay as you go, plus:
+○ Up to 10 seats
+○ Factory usage covered by your plan's included credits
+○ 20% savings over pay-as-you-go, at API rates
+○ Additional usage priced at API rates
+○ Private email support
+Max
+For developers scaling to high-volume workloads
+Everything in Build, plus:
+○ Up to 10 seats
+○ 12x Build's included factory usage
+○ More compute per cloud agent run
+○ Additional usage priced at API rates
+Business
+For teams scaling factories with more control
+Everything in Build, plus:
+○ Up to 25 seats, with per-seat included credits
+○ Advanced factory insights and team usage metrics
+○ SAML-based SSO
+○ Admin-configurable data controls with ZDR
+Enterprise
+For organizations needing infrastructure and governance
+Everything in Business, plus:
+○ Unlimited seats with custom shared usage pools
+○ Self-hosted workers on your own infrastructure
+○ Your own code forge for factory config
+○ BYOLLM inference at no credit cost
+○ Dedicated implementation engineer
+Select teams get up to $10,000 in factory usage during Early Access.
+See how factories work and request access.
+Explore Warp Factories
+Models
+The best for the job
+Access Fable 5, Claude Opus 5, GPT-5.6, Gemini 3.1 Pro, GLM 5.2, Kimi K3, and more. Pick the best model for the task. Run different tasks with different models in parallel, or switch between models for a given task, all without leaving your workflow.
+Integrations
+Agents where you work
+Connect Warp to Slack, Linear, and GitHub to get AI help right inside your tools. Mention @Warp to investigate bugs, suggest fixes, or open PRs, all without context-switching. With real-time session links and shared visibility, anyone can see, guide, or review what the agent is doing.
+Your privacy and security
+Transparency and control at every touchpoint.
+Your data, secure and private
+Warp is SOC 2 compliant and has Zero Data Retention policies with all contracted LLM providers: no customer data is retained, stored, or used for training. App telemetry can be individually configured and automatically enforced for teams.
+Complete control of your agents
+Control exactly how much autonomy agents have, from approving every step to allowing full autonomy. Configurable at the individual and enterprise level.
+Full transparency
+You can read the list of high-level telemetry events sent for app analytics and monitor telemetry in real time with our native Network Log.
+Explore Privacy at Warp
+Have more questions?
+Talk to our team about which plan is right for you.
+Contact Sales
+View Documentation
+Get Warp Terminal
+Get early access to unreleased and experimental features with Warp Preview
+Mac
+macOS Version 10.14+
+$ brew install --cask warp
+Linux
+.deb Debian, Ubuntu .rpm Red Hat, Fedora, SUSE
+.deb
+x64 ARM64
+.rpm
+x64 ARM64
+.tar.zst Arch Linux
+x64 ARM64
+AppImage
+x64 ARM64
+Windows
+.exe Windows 11/10 x64 .exe Windows 11/10 ARM64
+$ winget install Warp.Warp
+.exe
+x64 ARM64
+Product
+Download
+Pricing
+Enterprise
+Changelog
+Docs
+Open Source
+Status
+Resources
+Blog
+FAQ
+Community
+Support
+Do Things with Warp
+Terminus
+Company
+About
+How We Work
+Careers
+Press
+Contact
+Legal
+Privacy Policy
+Terms of Service
+Security
+Cookie Notice
+Data Processing Addendum
+Enterprise License
+Connect
+X
+GitHub
+YouTube
+Slack
+LinkedIn
+Product Hunt 4.8★ (78)
+All Rights Reserved © 2026
+SOC 2 Certified
+Checking Status…
+</untrusted-page-text>

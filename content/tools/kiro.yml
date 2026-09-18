@@ -96,7 +96,7 @@ pricing:
 status: active
 sources:
   - url: https://kiro.dev/pricing/
-    verified_at: 2026-08-23
+    verified_at: 2026-09-18
     covers: [pricing]
   - url: https://kiro.dev/docs/models/available-models/
     verified_at: 2026-08-23
