@@ -70,7 +70,6 @@ pricing:
     - id: pro
       name: Pro
       price: 50
-      price_annual: 40
       per: flat
       audience: individual
       overage:
@@ -79,10 +78,16 @@ pricing:
         - Cloud agents on Cloud VMs, up to 50 Cloud VMs, with 24 GB RAM and 6 vCPUs shared across all VMs
         - Unlimited workspaces
         - The cmux iOS app and email support
+    - id: max
+      name: Max
+      price: 200
+      per: flat
+      audience: individual
+      limits:
+        - Everything in Pro, plus up to 64 GB RAM per machine
     - id: team
       name: Team
       price: 60
-      price_annual: 48
       audience: team
       overage:
         kind: blocked
@@ -96,11 +101,11 @@ pricing:
       contact_sales: true
       audience: enterprise
       notes: Self-hosted Cloud execution and networking, SSO and SAML sign-in, centralized admin and shared team rules, audit logs, custom VM limits and volume pricing, SOC 2 and an SLA.
-  notes: The terminal itself is free and open source. Paid plans include up to 50 Cloud VMs, 50 per user on Team, with 24 GB RAM and 6 vCPUs shared across all VMs (per user on Team), and no metering or overages. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access. The iOS app is in beta on TestFlight.
+  notes: The terminal itself is free and open source. Paid plans include up to 50 Cloud VMs, 50 per user on Team, with 24 GB RAM and 6 vCPUs shared across all VMs (per user on Team), and no metering or overages. Max raises the per-machine RAM ceiling to 64 GB. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access. The iOS app is in beta on TestFlight.
 status: active
 sources:
   - url: https://cmux.com/pricing
-    verified_at: 2026-09-13
+    verified_at: 2026-09-18
     covers: [pricing]
   - url: https://cmux.com
     verified_at: 2026-08-23
