@@ -124,7 +124,7 @@ async function checkTool(tool) {
   } else {
     browserSkipped += browserOnly.length
   }
-  return { slug: tool.slug, lines, reservedOnly: reserved === tool.urls.length }
+  return { slug: tool.slug, checked: tool.checked, lines, fullRead: lines.some(l => l.startsWith('no-snapshot')), reservedOnly: reserved === tool.urls.length }
 }
 
 async function main() {
@@ -133,8 +133,10 @@ async function main() {
   for (const name of (await readdir(TOOLS)).filter(n => n.endsWith('.yml')).sort()) {
     const data = parse(await readFile(join(TOOLS, name), 'utf8'))
     if (data.status === 'sunset' || (only.size && !only.has(data.slug))) continue
-    const urls = (data.sources ?? []).filter(s => s.covers?.includes('pricing')).map(s => s.url)
-    if (urls.length) tools.push({ slug: data.slug, urls })
+    const pricing = (data.sources ?? []).filter(s => s.covers?.includes('pricing'))
+    // YAML dates parse as strings here, and ISO dates sort as strings.
+    const checked = pricing.map(s => String(s.verified_at)).sort()[0]
+    if (pricing.length) tools.push({ slug: data.slug, urls: pricing.map(s => s.url), checked })
   }
 
   const results = []
@@ -146,7 +148,12 @@ async function main() {
 
   const unchanged = results.filter(r => !r.lines.length)
   const reserved = results.filter(r => r.lines.length && r.reservedOnly)
+  // The order is what a session that runs out of budget gets through. Diffs first, they are
+  // cheap and they are where a repricing of a known page shows. Then the full reads, the page
+  // nobody has checked for the longest first: the backfill bumps the ones it takes, so the
+  // front of that queue moves every day and the end of the alphabet is not always last.
   const toRead = results.filter(r => r.lines.length && !r.reservedOnly)
+    .sort((a, b) => a.fullRead - b.fullRead || a.checked.localeCompare(b.checked) || a.slug.localeCompare(b.slug))
 
   console.log(`${tools.length} tools, ${tools.reduce((n, t) => n + t.urls.length, 0)} pricing sources`)
   console.log(`\nunchanged (${unchanged.length}), every capture on file came back line for line:`)
@@ -155,7 +162,7 @@ async function main() {
   for (const r of reserved) console.log(`${r.slug}\n${r.lines.map(l => `  ${l}`).join('\n')}`)
   if (browserSkipped) console.log(`\n${browserSkipped} browser-only captures not listed today, they are re-read on Mondays or with --browser`)
   console.log(`\nto read (${toRead.length}):`)
-  for (const r of toRead) console.log(`${r.slug}\n${r.lines.map(l => `  ${l}`).join('\n')}`)
+  for (const r of toRead) console.log(`${r.slug}  checked ${r.checked}\n${r.lines.map(l => `  ${l}`).join('\n')}`)
 }
 
 await main()
