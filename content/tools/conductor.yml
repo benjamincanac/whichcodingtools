@@ -72,7 +72,7 @@ pricing:
 status: active
 sources:
   - url: https://conductor.build/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-18
     covers: [pricing, wraps]
   - url: https://conductor.build
     verified_at: 2026-08-23

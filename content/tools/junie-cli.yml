@@ -38,7 +38,7 @@ sources:
     verified_at: 2026-08-24
     covers: [platforms, license, general]
   - url: https://junie.jetbrains.com
-    verified_at: 2026-08-24
+    verified_at: 2026-09-18
     covers: [pricing, features]
   - url: https://junie.jetbrains.com/docs/junie-cli.html
     verified_at: 2026-08-24
