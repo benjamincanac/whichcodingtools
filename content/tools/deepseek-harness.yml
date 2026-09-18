@@ -35,7 +35,7 @@ pricing:
 status: preview
 sources:
   - url: https://www.deepseek.com/harness/en/
-    verified_at: 2026-09-08
+    verified_at: 2026-09-18
     covers: [pricing, general, features]
   - url: https://github.com/deepseek-ai/deepseek-harness
     verified_at: 2026-09-08

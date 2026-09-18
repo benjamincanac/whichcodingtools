@@ -151,7 +151,7 @@ pricing:
 status: active
 sources:
   - url: https://zed.dev/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-18
     covers: [pricing]
   - url: https://zed.dev/docs/ai/external-agents
     verified_at: 2026-08-27

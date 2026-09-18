@@ -56,7 +56,7 @@ pricing:
 status: active
 sources:
   - url: https://www.tabnine.com/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-18
     covers: [pricing]
   - url: https://docs.tabnine.com/main/welcome/readme/supported-ides
     verified_at: 2026-08-23

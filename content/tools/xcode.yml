@@ -48,7 +48,7 @@ pricing:
 status: active
 sources:
   - url: https://apps.apple.com/us/app/xcode/id497799835
-    verified_at: 2026-08-23
+    verified_at: 2026-09-18
     covers: [pricing, platforms]
   - url: https://developer.apple.com/documentation/xcode/setting-up-coding-intelligence
     verified_at: 2026-08-23

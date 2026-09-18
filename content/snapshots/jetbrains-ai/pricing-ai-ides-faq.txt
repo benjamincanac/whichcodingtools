@@ -1,0 +1,102 @@
+# https://lp.jetbrains.com/ai-ides-faq/
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+JetBrains AI FAQ
+AI in IDEs
+FAQ
+Getting started and usage
+Which JetBrains IDEs offer AI features?
+AI features are available in all JetBrains IDEs , as well as in Android Studio. However, features may vary depending on the IDE. Refer to the documentation for details.
+What AI features are available in JetBrains IDEs?
+AI in JetBrains IDEs includes a range of capabilities that can be accessed through the AI Assistant plugin.
+Key capabilities include:
+In-editor code completion and next edit suggestions (NES)
+AI-powered assistance for writing and modifying code as you type.
+AI chat with a choice of coding agents
+Work with multiple agents, including Junie by JetBrains and third-party agents such as Claude Agent, OpenAI Codex, and Gemini CLI. Or connect and use any ACP-compatible agent with your own subscription.
+Context-aware AI actions
+Explain code, suggest refactoring, detect issues, and generate documentation directly in the editor.
+AI-enhanced workflows
+Get assistance in areas such as version control, runtime error analysis, and database-related tasks.
+How can I access AI features in my IDE?
+Find the AI Chat icon in the right sidebar of your IDE and click Install Plugin. Once installed, you can enable JetBrains AI , connect any ACP-compatible agent using your own subscription, or use AI models with your own API keys.
+Which large language models (LLMs) are supported in JetBrains IDEs?
+JetBrains IDEs can use a mix of third-party cloud models, JetBrains-trained models, and user-provided or local models.
+Third-party models via JetBrains AI
+JetBrains AI provides access to a curated set of cloud models from leading providers, including OpenAI, Google, Anthropic, and xAI. These models are automatically selected for specific features or can be chosen in AI chat.
+JetBrains proprietary models or fine-tuned models
+AI completion uses JetBrains-trained models like Mellum , optimized specifically for coding tasks.
+User-provided and local models
+You can also connect and use models outside of JetBrains AI via API key or OAuth where supported, or connect local models via tools like Ollama or LM Studio
+For the current list of supported options, see the Supported LLMs documentation.
+Can I use local models in JetBrains IDEs?
+You can connect your own local LLMs (via Ollama, LM Studio, and other OpenAI-compatible servers). You can configure them in AI Assistant settings in
+Can I connect my own AI providers to JetBrains IDEs?
+Yes. JetBrains IDEs support Bring Your Own Key (BYOK) , allowing you to connect your own API keys from Anthropic, OpenAI, and other OpenAI-compatible providers. You can also connect any ACP-compatible agent , such as Cursor or GitHub Copilot, using your own subscription.
+Are there any country restrictions for AI features?
+Access to AI features may be restricted in certain regions due to local regulations, export controls, or the availability of AI providers. You can check the full list of supported locations here .
+How can I report a problem or provide feedback?
+We encourage you to try JetBrains AI features and share your feedback to help us improve. To leave feedback about AI Assistant, you can:
+Use the Share feedback link in your IDE’s AI Сhat tool window.
+Report issues or request features in AI Assistant’s YouTrack project
+Contact support for further assistance.
+We also encourage you to leave a review on JetBrains Marketplace .
+Pricing and plans
+What plans are available with a JetBrains AI subscription?
+JetBrains AI offers AI Free*, AI Pro, AI Ultimate, and AI Enterprise. The main difference between the plans is the amount of AI Credits included for features powered by third-party AI providers.
+See the pricing page for plan details and usage quotas.
+* AI Free is not available in Android Studio, Intellij IDEA without Ultimate subscription and PyCharm without Pro subscription.
+Is there a free trial for JetBrains AI?
+Yes. A 30-day AI Pro trial is available when you first activate JetBrains AI. After the trial ends, you can either continue on the AI Free plan (if available in your IDE*) or upgrade to AI Pro or AI Ultimate for more usage.
+* AI Free is not available in Android Studio, Intellij IDEA without Ultimate subscription and PyCharm without Pro subscription.
+Who can access JetBrains AI Free and what is included?
+AI Free is available to all users with active JetBrains IDE licenses, including educational licenses, classroom licenses, open source licenses, IDE trial licenses, licenses for users in the Startup Program, and other complimentary licenses.
+As part of the AI Free plan, you get:
+Unlimited code completion (powered by JetBrains’ Mellum model).
+Unlimited use of your own local models, connected via Ollama, LM Studio, or another OpenAI-compatible server.
+A limited cloud quota for third-party models.
+However, the AI Free plan is not available in IntelliJ IDEA without an Ultimate subscription, PyCharm without a Pro subscription, and Android Studio. To use AI in those products, you must have an AI Pro subscription.
+Who gets AI Pro for free?
+AI Pro is included at no additional cost for:
+All Products Pack and dotUltimate users.*
+Developer Recognition Program license holders (for example, MVPs or Java Champions).
+JetBrains Content Creators Program members.
+DataSpell users.**
+*Al Pro is not included in complimentary All Products Pack subscriptions for students, teachers, and classrooms, or for Open Source program participants.
+** If you get AI Pro with DataSpell, it is tied to that product only and cannot be used with other JetBrains products.
+What is the AI quota in JetBrains AI plans?
+JetBrains AI subscription tiers include a fixed monthly quota of AI Credits, which regulate access to AI agents and features powered by third-party AI models.
+Code completion and next edit suggestions are powered by JetBrains’ tailored models, and therefore do not consume AI quota.
+What are the quota limits for different license tiers?
+The AI quota matches its price, meaning 1 AI Credit is equivalent to USD 1.00 (charged in your local currency). You get AI Credits equal to the value of your plan , plus a small bonus with AI Ultimate. For example, an individual AI Ultimate subscription costs USD 30.00 per month and now comes with USD 35.00 in AI Credits (USD 5 bonus credits).
+Can I see how much of my AI quota I’ve used?
+Yes. You can track your remaining AI quota and any top-up AI Credits in the JetBrains AI widget in the IDE.
+What happens if I run out of AI quota?
+When your monthly AI quota is exhausted, cloud-powered JetBrains AI features pause until your quota renews. ou can buy additional AI Credits to continue using AI features. Your included quota resets every 30 days from the date you first activated your JetBrains AI license, which may not match your billing cycle.
+What are top-up AI Credits?
+Top-up AI Credits are additional credits you can purchase to extend your cloud AI usage beyond the quota included with your JetBrains AI subscription. They require an active JetBrains AI license and:
+- remain valid for 12 months
+- for organizations they are shared across the team’s JetBrains AI licenses.
+Does my unused quota roll over to the next month?
+No. Any unused included quota does not roll over. The AI quota resets every 30 days from the date you first activated your JetBrains AI license. However, if you purchased Top-up AI Credits, they remain valid for 12 months.
+Is AI quota shared across IDEs and tools?
+Yes. Once you purchase a JetBrains AI subscription, it is linked to your JetBrains Account and can be used across all supported IDEs.
+Privacy and security
+Does JetBrains collect my data?
+Data sharing is opt-in for all paid licenses, including individual and company licenses (this also includes EAP and free trials). For company licenses, this setting is centrally maintained by your admins and cannot be changed individually.
+For licenses that are for non-commercial use, this setting is enabled by default, but you can opt out at any time in the settings: Appearance & Behavior -> System Settings -> Data Sharing -> Allow detailed data collection by JetBrains AI.
+For detailed information about our approach to data collection, please refer to our Data Collection and Use Policy .
+What data can JetBrains collect?
+JetBrains can collect two categories of data: anonymous telemetry about feature usage, and – if detailed data collection is enabled—more detailed code-related data such as prompts, responses, code snippets, edit history, terminal usage, and interactions with AI features. Detailed code-related data is used for product improvement and training JetBrains models, and it is not shared with third parties.
+For detailed information about our approach to data collection, please refer to our Data Collection and Use Policy .
+Does JetBrains use my code to train AI models?
+Only if you explicitly allow it. If you choose to share data with us, this data is used exclusively to improve JetBrains tools and train our own models, like Mellum, and it is never shared with third parties.
+Does JetBrains store user-submitted data?
+JetBrains does not persist any customer data unless a user opts-in to Detailed Data Collection. If you do, the shared data is retained for up to one year. Any data you share will be handled responsibly, in full compliance with all EU data protection laws.
+What data does JetBrains send from my IDE to LLM providers?
+When you use AI-powered features, the IDE sends your prompts to the LLM provider. In addition to your prompts, the IDE may add information about the context, such as pieces of code, file types, and frameworks used. This allows the LLM to provide the most relevant suggestions. JetBrains does not work with the large language model providers that use customer data for training models.
+Contact support
+Bug and issue tracker
+Blog
+Documentation
+</untrusted-page-text>

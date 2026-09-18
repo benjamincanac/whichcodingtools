@@ -55,5 +55,5 @@ pricing:
 status: preview
 sources:
   - url: https://github.com/pingdotgg/t3code
-    verified_at: 2026-08-28
+    verified_at: 2026-09-18
     covers: [pricing, platforms, wraps, features, license, general]

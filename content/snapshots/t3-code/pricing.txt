@@ -1,0 +1,320 @@
+# https://github.com/pingdotgg/t3code
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+GitHub - pingdotgg/t3code · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot Write better code with AI
+GitHub Copilot app Direct agents from issue to merge
+MCP Registry Integrate external tools
+DEVELOPER WORKFLOWS
+Actions Automate any workflow
+Codespaces Instant dev environments
+Issues Plan and track work
+Code Review Manage code changes
+Code Quality Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security Find and fix vulnerabilities
+Code security Secure your code as you build
+Secret protection Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security Enterprise-grade security features
+Copilot for Business Enterprise-grade AI features
+Premium Support Enterprise-grade 24/7 support
+Pricing
+Search /
+Sign in Sign up
+Appearance settings
+You signed in with another tab or window. Reload to refresh your session.
+You signed out in another tab or window. Reload to refresh your session.
+You switched accounts on another tab or window. Reload to refresh your session.
+Dismiss alert
+{{ message }}
+pingdotgg
+/
+t3code
+Public
+Notifications
+You must be signed in to change notification settings
+Fork
+5.8k
+Star
+23k
+Code
+Issues
+735
+Pull requests
+1.3k
+Discussions
+Actions
+Security and quality
+0
+Insights
+Additional navigation options
+Code
+Issues
+Pull requests
+Discussions
+Actions
+Security and quality
+Insights
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+4,150 Commits
+4,150 Commits
+Folders and files
+Name Name
+Last commit message
+Last commit date
+.agents/ skills
+.agents/ skills
+.claude
+.claude
+.codex
+.codex
+.cursor
+.cursor
+.devcontainer
+.devcontainer
+.github
+.github
+.macroscope
+.macroscope
+.repos
+.repos
+.vite-hooks
+.vite-hooks
+.vscode
+.vscode
+apps
+apps
+assets
+assets
+docs
+docs
+infra/ relay
+infra/ relay
+native
+native
+oxlint-plugin-t3code
+oxlint-plugin-t3code
+packages
+packages
+packaging/ aur
+packaging/ aur
+patches
+patches
+scripts
+scripts
+.coderabbit.yaml
+.coderabbit.yaml
+.env.example
+.env.example
+.gitattributes
+.gitattributes
+.gitignore
+.gitignore
+.mcp.json
+.mcp.json
+AGENTS.md
+AGENTS.md
+CLAUDE.md
+CLAUDE.md
+CONTRIBUTING.md
+CONTRIBUTING.md
+LICENSE
+LICENSE
+README.md
+README.md
+knip.jsonc
+knip.jsonc
+package.json
+package.json
+pnpm-lock.yaml
+pnpm-lock.yaml
+pnpm-workspace.yaml
+pnpm-workspace.yaml
+t3.json
+t3.json
+third-party-licenses.config.json
+third-party-licenses.config.json
+tsconfig.base.json
+tsconfig.base.json
+vite.config.ts
+vite.config.ts
+View all files
+Repository files navigation
+README
+Contributing
+MIT license
+Security
+More items
+T3 Code
+T3 Code is an "agent harness control surface". It enables control of the agents on your machine with a best-in-class mobile app ( iOS , Android ), web app and Electron-based desktop app .
+Works with your subscriptions on Claude Code, Codex, Cursor, Grok Build, OpenCode, and Google Antigravity. If they're set up on your computer, T3 Code can control them.
+"Wait, what are you selling me?"
+Nothing. We built T3 Code because we wanted the best possible development experience with agents. We were inspired by existing solutions like the Codex desktop app, Conductor, Claude Desktop and Cursor Glass, but none met our bar.
+We wanted something performant, remote-ready, and truly open. If we ever go the wrong direction, we want you to have everything you need to fork and build the editor that you want.
+Installation
+Warning
+T3 Code currently supports Codex, Claude, Cursor, Grok Build, OpenCode, and Antigravity. Install and authenticate at least one provider before use:
+Codex: install Codex CLI and run codex login
+Claude: install Claude Code and run claude auth login
+Cursor: install Cursor CLI and run agent login
+Grok Build: install Grok Build CLI and run grok login
+OpenCode: install OpenCode and run opencode auth login
+Antigravity: enable it in Settings, then use Install Antigravity and Sign in with Google . No CLI is required.
+Command line
+curl -fsSL https://t3.codes/install.sh | sh
+On Windows, in PowerShell:
+irm https: // t3.codes / install.ps1 | iex
+Then run t3 to start the server and open the local web app. t3 service install keeps it running in the background, t3 update moves to a newer release, and t3 --help has the full reference.
+To try it once without installing, run npx t3@latest instead.
+Desktop app
+Install the latest version of the desktop app from GitHub Releases , or from your favorite package registry:
+Windows ( winget )
+winget install T3Tools.T3Code
+macOS (Homebrew)
+brew install --cask t3-code
+Arch Linux (AUR)
+Stable:
+yay -S t3code-bin
+Nightly:
+yay -S t3code-nightly-bin
+The AUR packaging is maintained in this repository under packaging/aur .
+Some notes
+We are very very early in this project. Expect bugs.
+We are (mostly) not accepting contributions yet. Small fixes may be considered. Big features will not be.
+Documentation
+Full docs live in docs/ . There's no docs site yet.
+Install and first run
+Permission modes
+Keyboard shortcuts
+Project settings
+Remote access from a phone or another machine
+Keeping app and server in sync
+Source control integrations
+Multiple accounts: Codex · Claude
+Run T3 Code as a background service
+Building from source? Start at docs/internals/overview.md .
+If you REALLY want to contribute still.... read this first
+Install vp
+T3 Code uses Vite+ so you'll need to install the global vp command-line tool.
+macOS / Linux
+curl -fsSL https://vite.plus | bash
+Windows
+irm https://vite.plus/ps1 | iex
+Checkout their getting started guide for more information: https://viteplus.dev/guide/
+Install dependencies
+vp i
+Read CONTRIBUTING.md before reporting a bug or opening a PR.
+Have a feature request? Start an Ideas discussion .
+Need support? Join the Discord .
+About
+t3.codes
+Resources
+Readme
+MIT license
+Contributing
+Contributing
+Security policy
+Security policy
+Activity
+Custom properties
+Stars
+23.0k stars
+Watchers
+61 watching
+Forks
+5.8k forks
+Report repository
+Releases
+Packages
+Used by
+Contributors
+Languages
+Footer
+&copy; 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.
+</untrusted-page-text>
