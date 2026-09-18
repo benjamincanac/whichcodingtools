@@ -37,6 +37,10 @@ wraps:
     via: acp
     uses_subscription: true
     min_tier: ai-free
+  - tool: codebuddy
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
   - tool: codex-cli
     via: acp
     uses_subscription: true
@@ -201,5 +205,5 @@ sources:
     verified_at: 2026-08-27
     covers: [wraps]
   - url: https://agentclientprotocol.com/registry
-    verified_at: 2026-08-27
+    verified_at: 2026-09-16
     covers: [wraps]
