@@ -1,0 +1,213 @@
+# https://github.com/farouqaldori/vibe-notch
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+GitHub - farouqaldori/vibe-notch: Claude Code notifications without the context switch. A minimal, always-present session manager for macOS. · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot Write better code with AI
+GitHub Copilot app Direct agents from issue to merge
+MCP Registry Integrate external tools
+DEVELOPER WORKFLOWS
+Actions Automate any workflow
+Codespaces Instant dev environments
+Issues Plan and track work
+Code Review Manage code changes
+Code Quality Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security Find and fix vulnerabilities
+Code security Secure your code as you build
+Secret protection Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security Enterprise-grade security features
+Copilot for Business Enterprise-grade AI features
+Premium Support Enterprise-grade 24/7 support
+Pricing
+Search /
+Sign in Sign up
+Appearance settings
+You signed in with another tab or window. Reload to refresh your session.
+You signed out in another tab or window. Reload to refresh your session.
+You switched accounts on another tab or window. Reload to refresh your session.
+Dismiss alert
+{{ message }}
+farouqaldori
+/
+vibe-notch
+Public
+Notifications
+You must be signed in to change notification settings
+Fork
+356
+Star
+2.5k
+Code
+Issues
+26
+Pull requests
+28
+Actions
+Projects
+Security and quality
+0
+Insights
+Additional navigation options
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security and quality
+Insights
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+67 Commits
+67 Commits
+Folders and files
+Name Name
+Last commit message
+Last commit date
+ClaudeIsland.xcodeproj
+ClaudeIsland.xcodeproj
+ClaudeIsland
+ClaudeIsland
+scripts
+scripts
+.gitignore
+.gitignore
+LICENSE.md
+LICENSE.md
+README.md
+README.md
+View all files
+Repository files navigation
+README
+Apache-2.0 license
+More items
+Vibe Notch (previously Claude Island)
+A macOS menu bar app that brings Dynamic Island-style notifications to Claude Code CLI sessions.
+🟢 Actively maintained
+Launched v1.2 in December 2025, then took a 4-month break. v1.3 (April 2026) works through the backlog of contributor PRs and bug reports and kicks off a regular cadence again. Open PRs and issues are being reviewed — thanks for your patience.
+Features
+Notch UI — Animated overlay that expands from the MacBook notch
+Live Session Monitoring — Track multiple Claude Code sessions in real-time
+Permission Approvals — Approve or deny tool executions directly from the notch
+Chat History — View full conversation history with markdown rendering
+Auto-Setup — Hooks install automatically on first launch
+Requirements
+macOS 15.6+
+Claude Code CLI
+Install
+Download the latest release or build from source:
+xcodebuild -scheme ClaudeIsland -configuration Release build
+How It Works
+Vibe Notch installs hooks into ~/.claude/hooks/ that communicate session state via a Unix socket. The app listens for events and displays them in the notch overlay.
+When Claude needs permission to run a tool, the notch expands with approve/deny buttons—no need to switch to the terminal.
+Analytics
+Vibe Notch uses Mixpanel to collect anonymous usage data:
+App Launched — App version, build number, macOS version
+Session Started — When a new Claude Code session is detected
+No personal data or conversation content is collected.
+License
+Apache 2.0
+About
+Claude Code notifications without the context switch. A minimal, always-present session manager for macOS.
+Resources
+Readme
+Apache-2.0 license
+Activity
+Stars
+2.5k stars
+Watchers
+8 watching
+Forks
+356 forks
+Report repository
+Releases
+Packages
+Contributors
+Languages
+Footer
+&copy; 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.
+</untrusted-page-text>

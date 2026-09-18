@@ -44,7 +44,7 @@ aliases:
     note: Renamed to Vibe Notch with the v1.3.2 release.
 sources:
   - url: https://github.com/farouqaldori/vibe-notch
-    verified_at: 2026-08-23
+    verified_at: 2026-09-18
     covers: [pricing, platforms, features, wraps, license, general]
   - url: https://github.com/farouqaldori/vibe-notch/releases
     verified_at: 2026-08-23

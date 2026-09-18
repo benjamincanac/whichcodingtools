@@ -58,7 +58,7 @@ pricing:
 status: active
 sources:
   - url: https://github.com/aaif-goose/goose
-    verified_at: 2026-08-23
+    verified_at: 2026-09-18
     covers: [pricing, license, platforms, general]
   - url: https://goose-docs.ai/docs/getting-started/providers
     verified_at: 2026-08-23
