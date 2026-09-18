@@ -7,7 +7,9 @@ Download for Mac
 Docs Blog Changelog Community Jobs
 Download for Mac
 Pricing
-Monthly Annual Save 20%
+Individual Team & Enterprise
+For individuals
+Start free, then add cloud capacity as your work grows.
 Free
 $0 /mo
 Download for Mac
@@ -19,15 +21,23 @@ Browser panels, a scriptable socket API, and custom skills
 Local session history
 Community support on Discord and GitHub
 Pro
-$40 /mo, billed yearly
+$50 /mo
 Get Pro
 Everything in Free, plus:
 Cloud agents on Cloud VMs in isolated remote sandboxes
 Up to 50 Cloud VMs, with 24 GB RAM and 6 vCPUs shared across all VMs
 Unlimited workspaces
 The cmux iOS app and email support
+Max
+$200 /mo
+Get Max
+Everything in Pro, plus:
+Up to 64 GB RAM per machine
+Everything in Pro: 50 Cloud VMs, unlimited workspaces, the iOS app
+For teams and businesses
+Shared billing, administration, and controls for your organization.
 Team
-$48 /user/mo, billed yearly
+$60 /user/mo
 Get Teams
 Everything in Pro, plus:
 Centralized billing for your whole team
@@ -45,9 +55,11 @@ SOC 2 and an SLA, with dedicated support
 Already paid? Connect Founder's Edition
 Free $0
 Download for Mac
-Pro $40/mo
+Pro $50 /mo
 Get Pro
-Team $48/user/mo
+Max $200 /mo
+Get Max
+Team $60/user/mo
 Get Teams
 Enterprise Custom
 Contact sales
@@ -55,28 +67,100 @@ Native macOS terminal, open source
 Local CLI agents with your own keys
 Vertical tabs, splits, notifications, socket API
 Cloud agents on Cloud VMs -
-Concurrent Cloud VMs - 50 50 per user Custom
-Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
-Workspaces Unlimited Unlimited Unlimited Unlimited
+Concurrent Cloud VMs - 50 50 50 per user Custom
+Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 64 GB RAM and 16 vCPUs per VM 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
+Largest Cloud VM 24 GB RAM 24 GB RAM 64 GB RAM 24 GB RAM Custom
+Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
 iOS app -
-SSO and SAML sign-in - - -
-Self-hosted and air-gapped execution - - -
-Audit logs: sessions, network, browser - - -
-Volume pricing - - -
-SOC 2 and an SLA - - -
-Support Community Email Priority Dedicated
+SSO and SAML sign-in - - - -
+Self-hosted and air-gapped execution - - - -
+Audit logs: sessions, network, browser - - - -
+Volume pricing - - - -
+SOC 2 and an SLA - - - -
+Support Community Email Email Priority Dedicated
 FAQ
 Is the terminal really free?
 Yes. The macOS app is open source and free forever. Local agents run with your own API keys at no cost to you. Cloud VMs are part of the paid plans.
 What are Cloud VMs?
-Persistent Linux machines in the cloud: pets, not cattle. Following the Zen of cmux, a machine is a primitive, not a managed solution: it keeps its files, installed tools, and state, and what you build on it is yours. Agents clone repositories, run commands, and open pull requests there without touching your Mac. Pro includes up to 50 Cloud VMs, with 24 GB RAM and 6 vCPUs shared across all VMs. Team includes the same limits per user. There is no metering or overage billing.
+Persistent Linux machines in the cloud: pets, not cattle. Following the Zen of cmux, a machine is a primitive, not a managed solution: it keeps its files, installed tools, and state, and what you build on it is yours. Agents clone repositories, run commands, and open pull requests there without touching your Mac. Pro includes up to 50 Cloud VMs with 24 GB RAM and 6 vCPUs shared across all VMs. Team includes the same pool per user.
+What does Max add?
+Max is $200/mo, billed monthly, with up to 64 GB RAM and 16 vCPUs per VM. It includes everything in Pro and unlocks Cloud VMs with 32 GB or 64 GB RAM. Pro, Team, and Free machines top out at 24 GB RAM.
 Do I still need Tailscale for the iOS app?
 No. The iOS app pairs with your Mac over the built-in cmux iroh network. You can also bring your own networking, like Tailscale. Enterprise can self-host.
 How does billing work?
-Pro is $50/mo, or $40/mo when billed annually (a 20% savings). Team is $60/user/mo, or $48/user/mo when billed annually. Paid plans include up to 50 Cloud VMs per user, with 24 GB RAM and 6 vCPUs per user shared across all their VMs. There is no metering or overage billing. The terminal and local agents stay free.
+Paid plans are billed monthly. Pro is $50/mo, Max is $200/mo, and Team is $60/user/mo. The terminal and local agents stay free.
 Can I self-host the cloud?
 Yes, on Enterprise. Run agent execution on your own infrastructure or fully air-gapped, so source code never leaves your network.
 Do you have a team plan?
-Yes. Team is $60/user/mo, or $48/user/mo when billed annually, with centralized billing for your whole team and priority support.
+Yes. Team is $60/user/mo with centralized billing for your whole team and priority support.
 Questions? Join our Discord , open a GitHub issue , or email us .
+For individuals
+Start free, then add cloud capacity as your work grows.
+Free
+$0 /mo
+Download for Mac
+Includes:
+Native macOS terminal built on Ghostty, fully open source
+Run Claude Code, Codex, Gemini, and any CLI agent with your own keys
+Vertical tabs, workspaces, split panes, and completion notifications
+Browser panels, a scriptable socket API, and custom skills
+Local session history
+Community support on Discord and GitHub
+Pro
+$50 /mo
+Get Pro
+Everything in Free, plus:
+Cloud agents on Cloud VMs in isolated remote sandboxes
+Up to 50 Cloud VMs, with 24 GB RAM and 6 vCPUs shared across all VMs
+Unlimited workspaces
+The cmux iOS app and email support
+Max
+$200 /mo
+Get Max
+Everything in Pro, plus:
+Up to 64 GB RAM per machine
+Everything in Pro: 50 Cloud VMs, unlimited workspaces, the iOS app
+For teams and businesses
+Shared billing, administration, and controls for your organization.
+Team
+$60 /user/mo
+Get Teams
+Everything in Pro, plus:
+Centralized billing for your whole team
+Priority support
+Enterprise
+Custom
+Contact sales
+Everything in Team, plus:
+Self-hosted Cloud execution and networking, so nothing leaves your network
+SSO and SAML sign-in
+Centralized admin and shared team rules
+Audit logs for terminal sessions, network requests, and browser activity
+Custom VM limits and volume pricing
+SOC 2 and an SLA, with dedicated support
+Free $0
+Download for Mac
+Pro $50 /mo
+Get Pro
+Max $200 /mo
+Get Max
+Team $60/user/mo
+Get Teams
+Enterprise Custom
+Contact sales
+Native macOS terminal, open source
+Local CLI agents with your own keys
+Vertical tabs, splits, notifications, socket API
+Cloud agents on Cloud VMs -
+Concurrent Cloud VMs - 50 50 50 per user Custom
+Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 64 GB RAM and 16 vCPUs per VM 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
+Largest Cloud VM 24 GB RAM 24 GB RAM 64 GB RAM 24 GB RAM Custom
+Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
+iOS app -
+SSO and SAML sign-in - - - -
+Self-hosted and air-gapped execution - - - -
+Audit logs: sessions, network, browser - - - -
+Volume pricing - - - -
+SOC 2 and an SLA - - - -
+Support Community Email Email Priority Dedicated
 </untrusted-page-text>
