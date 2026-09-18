@@ -19,7 +19,7 @@ models:
   plans: [cursor, grok]
   byok: none
   local: false
-  notes: The docs do not name which Grok model version powers Bots. Bots sign in with a Cursor account, and a linked SuperGrok Plus or SuperGrok Heavy subscription also unlocks access without a paid Cursor plan.
+  notes: The docs do not name which Grok model version powers Bots. Bots sign in with a Cursor account, and a linked individual SuperGrok, SuperGrok Plus or SuperGrok Heavy subscription also unlocks access without a paid Cursor plan. A linked X Premium+ subscription grants access too, at the entry level of usage.
 features: [browser-automation, sandboxing, scheduled-tasks, parallel-agents, mcp-client]
 pricing:
   tiers:
@@ -29,6 +29,16 @@ pricing:
       audience: individual
       limits:
         - A one-time trial without a SuperGrok or Cursor subscription, length and allowance not published
+    - id: supergrok
+      name: SuperGrok
+      price: 30
+      price_annual: 25
+      audience: individual
+      mirrors:
+        tool: grok-build
+        tier: supergrok
+      limits:
+        - Included with an individual SuperGrok subscription, linked to your Cursor account, usage below SuperGrok Plus
     - id: supergrok-plus
       name: SuperGrok Plus
       price: 100
@@ -49,6 +59,15 @@ pricing:
         tier: supergrok-heavy
       limits:
         - Included with a SuperGrok Heavy subscription, linked to your Cursor sign-in
+    - id: cursor-pro
+      name: Cursor Pro
+      price: 20
+      audience: individual
+      mirrors:
+        tool: cursor
+        tier: pro
+      limits:
+        - Included with a Cursor Pro subscription, weekly usage below Pro+
     - id: cursor-pro-plus
       name: Cursor Pro+
       price: 60
@@ -83,17 +102,20 @@ pricing:
       audience: enterprise
       limits:
         - Access is given to all team members or limited to specific groups with Manage Group Access
-  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by SuperGrok Plus, SuperGrok Heavy, Cursor Pro+, Cursor Ultra, a Cursor Teams seat, or a one-time trial.
+  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by a paid individual Cursor plan (Pro, Pro+ or Ultra), a Cursor Teams seat, an individual SuperGrok, SuperGrok Plus or SuperGrok Heavy subscription linked to that Cursor account, or a one-time trial. An X Premium+ subscription also links, at entry level usage.
 status: preview
 sources:
   - url: https://docs.x.ai/grok-bot/overview
     verified_at: 2026-08-24
     covers: [general, features, models]
   - url: https://docs.x.ai/grok-bot/get-started
-    verified_at: 2026-09-16
+    verified_at: 2026-09-18
     covers: [platforms, pricing]
   - url: https://docs.x.ai/grok-bot/teams-and-enterprises
-    verified_at: 2026-09-16
+    verified_at: 2026-09-18
+    covers: [pricing]
+  - url: https://cursor.com/help/grok-bot/plans
+    verified_at: 2026-09-18
     covers: [pricing]
   - url: https://docs.x.ai/grok-bot/computer-and-apps
     verified_at: 2026-08-24
