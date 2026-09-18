@@ -75,6 +75,7 @@ agent/
   lib/thread.ts                     the thread a turn stands in, and the branches it opened itself
   sandbox/sandbox.ts                template warming and per-session setup
   sandbox/workspace/bin/page-text.mjs  fetches a vendor page as plain text, or fences a rendered one from stdin
+  sandbox/workspace/bin/pricing-worklist.mjs  fetches every pricing source and settles the ones whose capture did not move
 ```
 
 ## Review before a pull request
@@ -88,7 +89,9 @@ For every tool that is not sunset: fetch the pricing source, compare with the ca
 - on no change or a cosmetic change, do nothing (no `verified_at` bumps without a visible diff),
 - on a page that cannot be read (fetch and browser both), open one issue for that tool, once, and close it with evidence on the first run that reads the page again.
 
-The sweep touches pricing fields only. Descriptions, features, wraps and licenses stay human-edited. Most tools have no snapshot yet, so they take the YAML comparison; the weekly stale sweep backfills the snapshots as it re-verifies.
+The fetching and the first comparison are `pricing-worklist.mjs`, not the model. A capture that comes back line for line is the page a reviewed pull request already read, so that tool is settled without anyone reading it again. A capture that moved comes with a fenced diff, and the model reads those few lines before it decides whether the page is worth opening. Measured on 2026-09-18 over the seventeen tools with a snapshot: three settled outright, and the diffs of the rest came to 43 KB against 217 KB of captures. Captures only a browser reproduces, toggle states mostly, are re-read on Mondays: the first run that re-read them all spent most of its 14.7M input tokens clicking toggles, while the fetched state of the same page is compared daily anyway. A tool with no snapshot is still read in full every day, so what this saves grows with the backfill.
+
+The sweep touches pricing fields only. Descriptions, features, wraps and licenses stay human-edited. Most tools have no snapshot yet, so they take the YAML comparison. The sweep backfills ten a day, the ones whose page agrees with the YAML, as one pull request on the re-verification branch, and the weekly stale sweep does the same as it re-verifies.
 
 A snapshot is only ever written by `page-text.mjs`, either from a fetch or with `--stdin` from the text a browser rendered. That matters because `pnpm validate` reads those captures back: every `price`, `price_annual` and `included.amount` of a tool that has a snapshot must appear in one, so a figure nobody read cannot reach a pull request. A page that hides tiers behind a toggle needs one capture per state, `pricing.txt` plus `pricing-<state>.txt`. The same run also checks `mirrors`, the tiers that exist only because another tool's plan unlocks them, so a price change in one file fails the other until it follows.
 

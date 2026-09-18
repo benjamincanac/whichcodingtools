@@ -5,8 +5,9 @@ name: agent-automerge
 # The daily sweeps open a pull request per changed tool and every one of those stays human: a
 # price is a claim, and a claim needs a reader. The stale sweep is different. It re-reads pages
 # that are past 60 days and batches the ones that said nothing into a single branch whose entire
-# diff is dates. There is nothing in it to review, and a queue that fills with nothing to review
-# is how the pull requests that do matter stop getting opened.
+# diff is dates. The daily pricing sweep uses the same branch for the snapshots it backfills,
+# captures of pages that agree with the YAML. There is nothing in either to review, and a queue
+# that fills with nothing to review is how the pull requests that do matter stop getting opened.
 #
 # This is a review policy, not a wider sandbox. Every existing guardrail is untouched: the agent
 # still cannot push anywhere but `agent/*`, still cannot reach outside `content/` and

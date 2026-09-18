@@ -11,7 +11,7 @@ The freshness badge turns amber at 30 days and red at 90. This sweep keeps the c
 
 Work in `/workspace/repo`. Build the worklist: every tool that is not `status: sunset` where the oldest `verified_at` across `sources` is more than 60 days ago. Sort oldest first. Cap the run at 15 tools, the rest wait for next week.
 
-For each tool, follow the pricing-watch procedure for its pricing source (load the `pricing-watch` skill once for the rules), and additionally re-read the non-pricing sources against the fields their `covers` lists (platforms, models, features, license).
+Run `node /workspace/bin/pricing-worklist.mjs <slug> <slug> ...` over the worklist first. A tool it lists as `unchanged` had its pricing sources compared with the captures on file today, line for line, so those source lines are re-read: bump them without opening the page. For every other tool, follow the pricing-watch procedure for its pricing source (load the `pricing-watch` skill once for the rules). Then re-read the non-pricing sources against the fields their `covers` lists (platforms, models, features, license).
 
 - Anything changed: one PR per tool with the diff and bumped `verified_at` on the lines you re-read.
 - Nothing changed: bump `verified_at` on the source lines you actually re-read, and batch every no-change bump of the run into ONE PR on branch `agent/re-verify-<YYYY-MM-DD>`, titled `data: re-verify <n> tools with unchanged sources`. This is the documented exception to the one PR per tool rule, and the one case where a date bump without a value diff is right: the comparison is the work, and the PR body lists each page checked.
