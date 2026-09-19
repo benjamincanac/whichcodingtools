@@ -1,6 +1,6 @@
 slug: augment-code
 name: Augment Code
-description: Augment's agent and Context Engine in VS Code, JetBrains and Vim, the Auggie CLI and Cosmos cloud Experts. One flat Business plan covers up to 50 seats.
+description: Augment's agent and Context Engine in VS Code, JetBrains and Vim, the Auggie CLI and Cosmos cloud Experts. Flat Standard and Business plans each cover up to 50 seats.
 layer: extension
 secondary_layers: [harness, cloud]
 vendor: Augment Code
@@ -26,6 +26,24 @@ models:
 features: [mcp-client, subagents, hooks, plugins, acp-agent, scheduled-tasks, tab-completion, remote-execution, parallel-agents]
 pricing:
   tiers:
+    - id: standard
+      name: Standard
+      price: 20
+      per: flat
+      audience: team
+      included:
+        amount: 20
+        unit: usd
+        usd_value: 20
+        notes: $20 a month of LLM tokens, Cosmos compute and service fees, shared by up to 50 seats
+      overage:
+        kind: api-list
+        markup_pct: 40
+        notes: Pay as you go at the same rates once the included usage is spent. LLM tokens at the provider's public list price plus a 40 percent service fee, Cosmos compute billed by time.
+      limits:
+        - Up to 50 seats
+        - 50 concurrent sessions
+        - Community support, portal tickets handled under SLA
     - id: business
       name: Business
       price: 100
@@ -41,8 +59,9 @@ pricing:
         markup_pct: 40
         notes: Pay as you go at the same rates once the included usage is spent. LLM tokens at the provider's public list price plus a 40 percent service fee, Cosmos compute at $0.19 an hour in 5-minute increments. Top-ups expire after 12 months.
       limits:
-        - Up to 50 seats, no per-seat charge
+        - Up to 50 seats
         - 50 concurrent sessions
+        - Community support, portal tickets handled under SLA
     - id: enterprise
       name: Enterprise
       price: null
@@ -54,10 +73,10 @@ pricing:
 status: active
 sources:
   - url: https://www.augmentcode.com/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-19
     covers: [pricing]
   - url: https://docs.augmentcode.com/models/token-based-pricing.md
-    verified_at: 2026-08-23
+    verified_at: 2026-09-19
     covers: [pricing]
   - url: https://docs.augmentcode.com/models/available-models.md
     verified_at: 2026-08-23
