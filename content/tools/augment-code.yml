@@ -35,15 +35,13 @@ pricing:
         amount: 20
         unit: usd
         usd_value: 20
-        notes: $20 a month of LLM tokens, Cosmos compute and service fees, shared by up to 50 seats
+        notes: $20 a month of usage across LLM, Context Engine and Cosmos compute, including the service fee, pooled across up to 50 seats
       overage:
         kind: api-list
         markup_pct: 40
-        notes: Pay as you go at the same rates once the included usage is spent. LLM tokens at the provider's public list price plus a 40 percent service fee, Cosmos compute billed by time.
+        notes: Pay as you go at the same rates once the included usage is spent. LLM tokens at the provider's public list price plus a 40 percent service fee, Cosmos compute at $0.19 an hour in 5-minute increments. Top-ups expire after 12 months.
       limits:
         - Up to 50 seats
-        - 50 concurrent sessions
-        - Community support, portal tickets handled under SLA
     - id: business
       name: Business
       price: 100
@@ -60,23 +58,21 @@ pricing:
         notes: Pay as you go at the same rates once the included usage is spent. LLM tokens at the provider's public list price plus a 40 percent service fee, Cosmos compute at $0.19 an hour in 5-minute increments. Top-ups expire after 12 months.
       limits:
         - Up to 50 seats
-        - 50 concurrent sessions
-        - Community support, portal tickets handled under SLA
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
       limits:
-        - Unlimited users and concurrent sessions, custom compute, CMEK, SIEM integration
-  notes: The token pricing page lists Cosmos and Auggie CLI as the products included in Business. The IDE extensions are documented but not named on that page.
+        - Unlimited users and concurrent sessions, custom compute, CMEK
+  notes: The token pricing page lists Cosmos and Auggie CLI as the products included in Business.
 status: active
 sources:
   - url: https://www.augmentcode.com/pricing
-    verified_at: 2026-09-19
+    verified_at: 2026-09-20
     covers: [pricing]
   - url: https://docs.augmentcode.com/models/token-based-pricing.md
-    verified_at: 2026-09-19
+    verified_at: 2026-09-20
     covers: [pricing]
   - url: https://docs.augmentcode.com/models/available-models.md
     verified_at: 2026-08-23
