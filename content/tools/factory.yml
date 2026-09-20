@@ -57,6 +57,14 @@ pricing:
       limits:
         - About 10x the Pro usage
         - Early access to new features
+    - id: teams
+      name: Teams
+      price: 40
+      audience: team
+      limits:
+        - $60 a month team base fee, on top of the per-seat price
+        - Up to 10 seats, centralized billing, each seat gets Pro rate limits
+      notes: Self-serve, billed month to month.
     - id: business
       name: Business
       price: null
@@ -75,10 +83,13 @@ pricing:
 status: active
 sources:
   - url: https://factory.ai/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-19
     covers: [pricing]
   - url: https://docs.factory.ai/pricing/individuals
-    verified_at: 2026-08-23
+    verified_at: 2026-09-19
+    covers: [pricing]
+  - url: https://docs.factory.ai/pricing/organizations
+    verified_at: 2026-09-19
     covers: [pricing]
   - url: https://docs.factory.ai/models
     verified_at: 2026-08-23
