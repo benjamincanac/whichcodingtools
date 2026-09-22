@@ -1,0 +1,267 @@
+# https://zcode.z.ai/en/docs/hooks
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Hooks | ZCode Docs
+Docs Changelog
+Search docs... ⌘ K
+中文
+Download
+Get Started
+ZCode for GLM-5.3
+Install
+Connect Models
+Feedback & Support
+Core Features
+ZCode Agent
+Goal Mode
+Browser Automation
+Task & File Management
+Wiki
+Memory
+Automations
+Idle-time Task
+Edit History
+Remote Development
+Remote Control
+Bot Channel
+Subagents
+Plugin
+Skill
+MCP
+Command
+Hooks
+Usage Stats
+Integration
+Safety Confirmation
+ADE Tools
+Support
+Keyboard Shortcuts
+FAQ (Q&A)
+Core Features
+Copy page
+Hooks
+Hooks run actions automatically at specific events — inject team constraints when a session starts, run safety checks before a tool call, or validate output when the model is about to finish. They are built for plugin developers and project maintainers who want automated checks, extra context, or policy enforcement around sessions, model requests, tool calls, and the stop phase.
+A hook is essentially a local subprocess protocol: ZCode writes one line of JSON to the process's stdin, and the process replies through its exit code and stdout JSON. Hooks never receive internal objects that can call the ZCode model directly.
+Security note : hooks execute local code. Review the source, hooks/hooks.json , and scripts of any third-party plugin before enabling it.
+How to read this page : if you only want to configure a few hooks from the settings page, Execution Order And Events , Configuration Sources , and Create And Maintain Hooks In Settings are all you need. Everything from Quickstart onward is the developer half — input/output contracts, exit codes, and plugin packaging — and can be skipped if you aren't writing hook scripts yourself.
+Execution Order And Events
+New session → SessionStart
+User submits → UserPromptSubmit → main model
+Main model requests a tool → PreToolUse → PermissionRequest (when confirmation is needed) → tool runs
+Tool succeeds → PostToolUse; tool fails → PostToolUseFailure
+Main model about to finish → Stop → end, or inject feedback and continue
+Event matcher Purpose and effect
+SessionStart Matches source ; common values are startup / clear / compact Initialize the environment or inject project constraints before the first model request
+UserPromptSubmit Not filtered; runs even if a matcher is set Add context before the model call, or block the request; cannot rewrite the original prompt
+PreToolUse Matches tool names Allow, ask, or deny the tool; may fully replace the tool input, which is then re-validated against the schema
+PermissionRequest Matches tool names Fires only when the permission outcome would prompt the user; can allow, deny, update the input, or update permission rules
+PostToolUse Matches tool names Append model-visible context after the tool succeeds; cannot replace the tool output
+PostToolUseFailure Matches tool names Append recovery suggestions, diagnostics, or retry constraints after a tool failure
+Stop Not filtered; runs even if a matcher is set Inspect the result as the model prepares to finish; returning block lets the main-model loop continue, at most 3 times in a row
+Configuration Sources
+Source Use case How it takes effect
+~/.zcode/cli/config.json All workspaces of the current user The file must set hooks.enabled: true
+Plugin hooks/hooks.json Installed and distributed with a plugin Auto-discovered at the standard location, follows the plugin's enable state; no need to declare the same file again in the manifest
+.agents/settings.json / .claude/settings.json Migrating legacy configs Read-only display, not executed; import explicitly into .zcode from the settings page
+Project-level hooks are not executed in the current version. For security reasons, any hooks configuration in <workspace>/.zcode/config.json or <workspace>/zcode.json is ignored as a whole — regardless of hooks.enabled — and logged as config_project_hooks_ignored . The workspace scope has also been hidden from the settings page. To share hooks across a team, distribute them via a plugin (installed with the plugin, version-controllable in your repo), or have each member configure user-level hooks.
+Execution order is user hooks → enabled plugin hooks. Within one source, hooks run in array order.
+Each session captures a snapshot of the hook configuration at startup. After editing files, saving in the settings page, or toggling plugins, verify in a new session — running sessions are not guaranteed to hot-reload.
+Example user config:
+{
+"hooks": {
+"enabled": true,
+"timeoutMs": 60000,
+"maxOutputBytes": 32768,
+"events": {
+"PreToolUse": [
+{
+"matcher": "Write|Edit",
+"hooks": [
+{
+"type": "process",
+"command": "node",
+"args": ["scripts/check-write.mjs"],
+"enabled": true,
+"timeoutMs": 10000
+}
+]
+}
+]
+}
+}
+}
+Quickstart: Your First Plugin Hook
+The plugin below adds one team constraint for the model whenever a new session starts. It relies on node being available on the system PATH.
+context-guard/
+├── .zcode-plugin/
+│ └── plugin.json
+└── hooks/
+├── hooks.json
+└── context.mjs
+plugin.json ( hooks/hooks.json is the standard location and loads automatically, so the manifest doesn't declare a hooks field):
+{
+"name": "context-guard",
+"version": "0.1.0",
+"description": "Inject team development constraints at session start"
+}
+hooks/hooks.json :
+{
+"description": "Context Guard hooks",
+"hooks": {
+"SessionStart": [
+{
+"matcher": "startup|clear|compact",
+"hooks": [
+{
+"type": "process",
+"command": "node",
+"args": ["${ZCODE_PLUGIN_ROOT}/hooks/context.mjs"],
+"timeoutMs": 5000
+}
+]
+}
+]
+}
+}
+hooks/context.mjs :
+let raw = "";
+process.stdin.setEncoding("utf8");
+for await (const chunk of process.stdin) raw += chunk;
+const input = JSON.parse(raw);
+process.stderr.write("[context-guard] " + input.hook_event_name + "\n");
+process.stdout.write(JSON.stringify({
+hookSpecificOutput: {
+hookEventName: input.hook_event_name,
+additionalContext: "Run type checks and affected tests before committing in this project."
+}
+}));
+To verify:
+Add the local source under Settings -> Plugins with Create -> Add marketplace , then install and enable the plugin.
+Open Settings -> Hooks and confirm the plugin hook appears as a read-only entry with the right event, matcher, command, and source path.
+Start a new session and send a request; the first model turn should see the injected constraint.
+While debugging, write logs to stderr and keep stdout strictly for the protocol result so diagnostics don't corrupt the JSON.
+Executors, Timeouts, And Matchers
+Type Semantics Recommendation
+process command + args[] , executed directly via argv without a shell; synchronous only Clear argument boundaries and more stable across platforms; prefer for Node, Python, or binary scripts
+command Hands the full string to the system shell; supports shell , async , timeout Good for compatibility with existing Claude Marketplace plugins; mind shell and quoting differences across Windows, macOS, and Linux
+timeoutMs is in milliseconds; the compatibility field timeout is in seconds. When both are present, timeoutMs wins.
+The root-level default timeout is 60000 ms and the default stdout cap is 32768 bytes.
+A single hook may set enabled: false ; the runtime genuinely skips it, not just grays it out in the UI.
+async: true on command is fire-and-forget: the event continues immediately, and background stdout cannot block, change inputs, or inject context; timeouts, cancellation, completion, and failures are still recorded in the lifecycle.
+statusMessage is currently stored and shown in the settings page, but is not yet a live runtime status indicator.
+Matcher rules :
+Missing, empty string, or * : matches everything.
+Only letters, digits, underscores, and | : exact name-list matching, e.g. Write|Edit .
+Any other characters: treated as a JavaScript regex; an invalid regex skips that matcher and emits a diagnostic.
+Tool events match the actual tool name, with Agent / Task aliases supported.
+SessionStart matches source ; UserPromptSubmit and Stop do not use matcher filtering.
+stdin Input Contract
+ZCode writes "one line of JSON + newline" to each hook. The same input carries both ZCode camelCase fields and Claude Code snake_case aliases, so legacy plugins can keep reading snake_case.
+{
+"session_id": "session-123",
+"transcript_path": "/tmp/zcode-hook/transcript.jsonl",
+"cwd": "/workspace/demo",
+"permission_mode": "default",
+"hook_event_name": "PreToolUse",
+"tool_name": "Write",
+"tool_input": {
+"file_path": "src/index.ts",
+"content": "..."
+},
+"tool_use_id": "tool-123"
+}
+Event Key fields
+SessionStart source , optionally agent_type , model
+UserPromptSubmit prompt
+PreToolUse tool_name , tool_input , tool_use_id
+PermissionRequest tool_name , tool_input ; includes permission_suggestions when real data exists
+PostToolUse Fully structured tool_response , plus the tool name, input, and call ID
+PostToolUseFailure String error , is_interrupt , plus the tool fields
+Stop stop_hook_active , last_assistant_message
+transcript_path points to a temporary JSONL file readable by this hook run. ZCode cleans the temporary directory after the hook finishes, so do not treat it as long-term storage; persist plugin data under ZCODE_PLUGIN_DATA instead.
+stdout, Exit Codes, And Common Return Values
+Empty stdout means success with no extra effect; non-JSON stdout is diagnostics only and never enters the model context. Only valid JSON that starts with { after stripping leading whitespace is parsed by the protocol. Unknown fields are ignored; a known field with the wrong type or a mismatched event name fails the current hook recoverably without affecting later hooks.
+Injecting context (prefer hookSpecificOutput for the clearest event attribution; top-level additionalContext / additional_context are also accepted):
+{
+"hookSpecificOutput": {
+"hookEventName": "SessionStart",
+"additionalContext": "Only modify files related to the current task."
+}
+}
+PreToolUse: Modify Or Deny A Tool Call
+{
+"hookSpecificOutput": {
+"hookEventName": "PreToolUse",
+"permissionDecision": "allow",
+"permissionDecisionReason": "Redirected to an allowed directory",
+"updatedInput": {
+"file_path": "generated/index.ts",
+"content": "..."
+},
+"additionalContext": "The file was redirected to the generated directory."
+}
+}
+updatedInput is a full replacement object, not a partial patch; ZCode re-validates it against the tool schema. To deny, return permissionDecision: "deny" with a permissionDecisionReason . When multiple hooks aggregate, deny wins over ask, and ask wins over allow.
+PermissionRequest: Auto-Allow Or Deny A Permission Prompt
+{
+"hookSpecificOutput": {
+"hookEventName": "PermissionRequest",
+"decision": {
+"behavior": "deny",
+"message": "Production directories may only change through the release process"
+}
+}
+}
+To allow, set behavior to allow ; the decision may also return updatedInput and updatedPermissions (the legacy permissionUpdates field is accepted too). Explicit deny rules, Plan-mode write bans, and hard tool limits cannot be bypassed by a hook allow.
+UserPromptSubmit: Block This Model Request
+{
+"continue": false,
+"reason": "Please provide a ticket number first",
+"hookSpecificOutput": {
+"hookEventName": "UserPromptSubmit",
+"additionalContext": "This request was blocked by team policy."
+}
+}
+Stop: Let The Main Model Continue One Round
+{
+"decision": "block",
+"reason": "Test commands and results are missing; complete them before finishing."
+}
+decision: "block" only continues the run when accompanied by a reason or additionalContext. For legacy ZCode configs, continue: true with additionalContext is also accepted. After 3 consecutive continuations the run is force-ended to prevent infinite loops.
+Exit Codes
+Exit code Meaning
+0 Success; stdout is parsed
+2 Blocking shortcut; produces block / deny in blockable events, and continue-one-round feedback in Stop
+Other non-zero The current hook fails recoverably; diagnostics are recorded and the turn does not crash
+Plugin Discovery, Variables, And Security Boundaries
+Manifest lookup priority: .zcode-plugin/plugin.json → .claude-plugin/plugin.json .
+The standard hooks/hooks.json loads automatically; the manifest's hooks field also accepts a relative JSON path, an inline object, or an array of both. Do not point the manifest at the same standard file again — duplicates are skipped with a diagnostic.
+Plugin processes can read ZCODE_PLUGIN_ROOT , ZCODE_PLUGIN_DATA , ZCODE_PLUGIN_ID , and ZCODE_PLUGIN_NAME ; the compatibility variables CLAUDE_PLUGIN_ROOT and CLAUDE_PLUGIN_DATA are injected too.
+Plugin path variables in commands and arguments are substituted before execution. Write long-term data to ZCODE_PLUGIN_DATA , never back into the install directory.
+Plugin hooks are read-only in the settings page; their enable state follows the plugin itself.
+Create And Maintain Hooks In Settings
+Open Settings -> Hooks .
+Pick the user or workspace scope, then add the event, executor type, matcher, command / arguments, timeout, async, and status text.
+Existing .zcode hooks support viewing, editing, deleting, and per-entry toggling. Editing cannot change the scope directly; delete and recreate in the target scope instead.
+If a hook doesn't fire, first check whether it lives in a project-level config (not executed in the current version — see Configuration Sources ), confirm hooks.enabled is true in its config source and the plugin is enabled, then start a new session — hook configuration is snapshotted at session startup, so config changes and plugin toggles never affect sessions that are already running.
+If the problem persists, check the log file ~/.zcode/cli/log/zcode-<date>.jsonl : hook execution failures ( hook.run.failed , with source and duration) and ignored project-level configs ( config_project_hooks_ignored ) are both recorded there.
+Next Steps
+Plugin
+Browse, install, and manage ZCode plugins — or develop your own.
+MCP
+Connect external tool capabilities to the Agent. On this page
+Execution Order And Events
+Configuration Sources
+Quickstart: Your First Plugin Hook
+Executors, Timeouts, And Matchers
+stdin Input Contract
+stdout, Exit Codes, And Common Return Values
+PreToolUse: Modify Or Deny A Tool Call
+PermissionRequest: Auto-Allow Or Deny A Permission Prompt
+UserPromptSubmit: Block This Model Request
+Stop: Let The Main Model Continue One Round
+Exit Codes
+Plugin Discovery, Variables, And Security Boundaries
+Create And Maintain Hooks In Settings
+Next Steps
+</untrusted-page-text>
