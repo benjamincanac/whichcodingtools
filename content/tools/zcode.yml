@@ -1,0 +1,170 @@
+slug: zcode
+name: ZCode
+description: Z.ai's desktop Agentic Development Environment for GLM-5.3, with file management, terminal, Git commit and a live browser preview built around its ZCode Agent.
+layer: editor
+vendor: Z.ai
+homepage: https://zcode.z.ai/en
+links:
+  docs: https://zcode.z.ai/en/docs/welcome
+  pricing: https://z.ai/subscribe
+  changelog: https://zcode.z.ai/en/changelog
+  repo: https://github.com/zai-org/ZCode
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://zcode.z.ai/en
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/zai-org/ZCode
+models:
+  providers: [zhipu, anthropic, openai, moonshot, minimax, openrouter]
+  byok: full
+  local: false
+  notes: Runs on a GLM Coding Plan, or connects a BigModel resource package or account balance, an enterprise team-managed channel, a self-hosted service approved by a team, or a pasted API key. Third-party services connect over the Anthropic or OpenAI protocols, including Anthropic, OpenAI, OpenRouter, Moonshot and MiniMax, and any compatible custom endpoint such as DeepSeek.
+features: [subagents, mcp-client, hooks, plugins, remote-execution, mobile-companion, scheduled-tasks, browser-automation]
+pricing:
+  tiers:
+    - id: app
+      name: ZCode App
+      price: 0
+      audience: individual
+      limits:
+        - Requires a GLM Coding Plan account, a BigModel resource package or account balance, or your own API key to run tasks
+    - id: lite
+      name: GLM Coding Plan Lite
+      price: 18
+      price_annual: 12.6
+      audience: individual
+      included:
+        amount: 10000
+        unit: credits
+        period: week
+        notes: A separate 5-hour rolling allowance of 2,000 credits also applies.
+      overage:
+        kind: rate-limited
+        notes: The 5-hour credits refresh 5 hours after consumption; the weekly credits reset every 7 days from subscription.
+      limits:
+        - Built for lightweight iteration on a small repo
+        - Rolling access to the latest flagship models and features
+        - Supports 20+ agent tools, including ZCode and Claude Code
+        - Default data privacy
+    - id: pro
+      name: GLM Coding Plan Pro
+      price: 80
+      price_annual: 56
+      audience: individual
+      included:
+        amount: 60000
+        unit: credits
+        period: week
+        notes: A separate 5-hour rolling allowance of 12,000 credits also applies.
+      overage:
+        kind: rate-limited
+        notes: The 5-hour credits refresh 5 hours after consumption; the weekly credits reset every 7 days from subscription.
+      limits:
+        - Built for day-to-day development on a mid-sized repo
+        - Priority access to the latest flagship models and features
+        - Includes a curated selection of MCP tools
+        - Faster generation speeds
+    - id: max
+      name: GLM Coding Plan Max
+      price: 168
+      price_annual: 117.6
+      audience: individual
+      included:
+        amount: 140000
+        unit: credits
+        period: week
+        notes: A separate 5-hour rolling allowance of 28,000 credits also applies.
+      overage:
+        kind: rate-limited
+        notes: The 5-hour credits refresh 5 hours after consumption; the weekly credits reset every 7 days from subscription.
+      limits:
+        - Built for advanced users working on a mid-to-large repo
+        - First access to the latest flagship models and features
+        - Dedicated resources during peak times
+    - id: standard-seat
+      name: GLM Coding Plan Standard Seat
+      price: 88
+      price_annual: 79.2
+      audience: team
+      included:
+        amount: 66000
+        unit: credits
+        period: week
+      overage:
+        kind: rate-limited
+        notes: Past the weekly quota a seat is limited until the next reset, unless the admin turns on billed on-demand overage in advance.
+      limits:
+        - Unified seat and permission management
+        - Team analytics dashboard
+        - Flexible usage billing
+        - Centralized billing and invoicing
+        - Default data privacy
+    - id: premium-seat
+      name: GLM Coding Plan Premium Seat
+      price: 188
+      price_annual: 169.2
+      audience: team
+      included:
+        amount: 155000
+        unit: credits
+        period: week
+      overage:
+        kind: rate-limited
+        notes: Past the weekly quota a seat is limited until the next reset, unless the admin turns on billed on-demand overage in advance.
+      limits:
+        - Early access to new models and features
+        - Priority resource allocation during peak hours
+  notes: The ZCode desktop app itself is free. Paid usage runs through Z.ai's GLM Coding Plan; individual plans bill monthly, quarterly at 20 percent off or yearly at 30 percent off, and team seats bill monthly or save 10 percent billed annually. A plan can also be covered by a BigModel resource package, account balance or another provider's API key.
+status: active
+sources:
+  - url: https://zcode.z.ai/en
+    verified_at: 2026-09-22
+    covers: [platforms, general]
+  - url: https://z.ai/subscribe
+    verified_at: 2026-09-22
+    covers: [pricing]
+  - url: https://docs.z.ai/devpack/overview
+    verified_at: 2026-09-22
+    covers: [pricing]
+  - url: https://zcode.z.ai/en/docs/qa
+    verified_at: 2026-09-22
+    covers: [general, models]
+  - url: https://zcode.z.ai/en/docs/welcome
+    verified_at: 2026-09-22
+    covers: [general]
+  - url: https://zcode.z.ai/en/docs/configuration
+    verified_at: 2026-09-22
+    covers: [models]
+  - url: https://zcode.z.ai/en/docs/browser-use
+    verified_at: 2026-09-22
+    covers: [features]
+  - url: https://zcode.z.ai/en/docs/automations
+    verified_at: 2026-09-22
+    covers: [features]
+  - url: https://zcode.z.ai/en/docs/remote-development
+    verified_at: 2026-09-22
+    covers: [features]
+  - url: https://zcode.z.ai/en/docs/bot-channel
+    verified_at: 2026-09-22
+    covers: [features]
+  - url: https://zcode.z.ai/en/docs/remote-control
+    verified_at: 2026-09-22
+    covers: [features]
+  - url: https://zcode.z.ai/en/docs/plugin
+    verified_at: 2026-09-22
+    covers: [features]
+  - url: https://zcode.z.ai/en/docs/hooks
+    verified_at: 2026-09-22
+    covers: [features]
+  - url: https://zcode.z.ai/en/docs/subagents
+    verified_at: 2026-09-22
+    covers: [features]
+  - url: https://raw.githubusercontent.com/zai-org/ZCode/main/LICENSE
+    verified_at: 2026-09-22
+    covers: [license]
+  - url: https://raw.githubusercontent.com/zai-org/ZCode/main/package.json
+    verified_at: 2026-09-22
+    covers: [license]
