@@ -31,8 +31,11 @@ pricing:
       name: Free
       price: 0
       audience: individual
+      overage:
+        kind: blocked
       limits:
         - Bring your own API key, no sign up required, community support
+        - Basic Agent mode limited to 20 messages a day
     - id: pro
       name: Pro
       price: 20
@@ -43,6 +46,7 @@ pricing:
         period: month
       limits:
         - Pro modes for large codebases, Dyad Academy access
+      notes: Charged 1.5 credits per million tokens, input and output combined, as a token orchestration fee on ChatGPT subscription access and on custom models.
     - id: max
       name: Max
       price: 79
@@ -60,7 +64,7 @@ pricing:
 status: active
 sources:
   - url: https://www.dyad.sh/pro
-    verified_at: 2026-09-18
+    verified_at: 2026-09-23
     covers: [pricing]
   - url: https://www.dyad.sh
     verified_at: 2026-08-24
