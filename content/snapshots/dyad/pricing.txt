@@ -6,11 +6,40 @@ Dyad
 Docs
 Members
 Blog
-Subscribe
+Subscribe to Dyad Pro
 Build better apps with Dyad Pro
-Use top AI models , unlock advanced Agent mode , and let Dyad automatically debug errors so you can keep building.
+Unlock the full Pro Agent mode so Dyad can automatically test and fix bugs so you can build your app with less time
 Subscribe to Dyad Pro
 View Plans
+Why upgrade to Dyad Pro?
+Feature
+Dyad Free Download
+Dyad Pro Subscribe
+Who is this for? Hobbyists, students, anyone on a tight budget Serious builders who want to maximize their productivity
+Price Free forever Starting at $20/month!
+Agent mode Basic Agent 20 messages/day Pro Agent Usage based on Pro credits
+Agent capabilities
+Check for build errors
+20 messages/day
+Included
+Run tests automatically
+20 messages/day
+Included
+Debug using logs
+20 messages/day
+Included
+Pro Agent tools
+Web search — Not included
+Included
+Website cloning — Not included
+Included
+Image generation — Not included
+Included
+AI access
+ChatGPT subscription Included Included†
+Your own API key Included Coming soon
+Any AI model Included Add custom models Included† Add custom models
+† Dyad charges 1.5 credits per million tokens (input and output combined) for token orchestration fee.
 Smart Agent
 Build smarter with Agent mode
 Dyad Agent debugs errors for you like a real engineer by analyzing logs and errors
@@ -18,16 +47,13 @@ Fix errors automatically
 Dyad Agent analyzes logs and errors to find and fix issues automatically.
 Save time from manually debugging
 Stop spending hours debugging. Dyad Agent handles the heavy lifting.
-Scale to large codebases
-Avoid context limits by intelligently loading the relevant parts of your codebase.
+Run tests automatically
+Let AI check its own work automatically by running tests
 Pro Features
 Premium AI Access
 Access all leading models with a single plan, including the fastest models on the market.
 200 AI Credits (+ add more any time)
 Stop juggling API keys. One plan gives you access to the world's most powerful models.
-GPT 5.5
-Claude Opus 4.8
-And many more
 Super Value
 Build at 20% of the cost by routing requests to extremely cost-efficient, high-quality models.
 Learning Content
@@ -73,11 +99,9 @@ Reload credits at any time (same price)
 Available as upgrade
 FAQ
 Frequently asked questions
-Can I use Pro modes like Smart Context with my own API keys?
 What are AI credits?
 Why should I pay for AI credits instead of using my own API keys with the free version?
 Do AI credits rollover?
-What's happening to the free Dyad app?
 Dyad Tech, Inc.
 Built with care by the Dyad team
 Blog Hub Terms of Service Privacy Policy
