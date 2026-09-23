@@ -32,8 +32,8 @@ Max
 $200 /mo
 Get Max
 Everything in Pro, plus:
-Up to 64 GB RAM per machine
-Everything in Pro: 50 Cloud VMs, unlimited workspaces, the iOS app
+Up to 50 Cloud VMs sharing 64 GB RAM and 16 vCPUs
+Unlimited workspaces and the iOS app
 For teams and businesses
 Shared billing, administration, and controls for your organization.
 Team
@@ -68,7 +68,7 @@ Local CLI agents with your own keys
 Vertical tabs, splits, notifications, socket API
 Cloud agents on Cloud VMs -
 Concurrent Cloud VMs - 50 50 50 per user Custom
-Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 64 GB RAM and 16 vCPUs per VM 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
+Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 64 GB RAM and 16 vCPUs shared across all VMs 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
 Largest Cloud VM 24 GB RAM 24 GB RAM 64 GB RAM 24 GB RAM Custom
 Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
 iOS app -
@@ -84,7 +84,7 @@ Yes. The macOS app is open source and free forever. Local agents run with your o
 What are Cloud VMs?
 Persistent Linux machines in the cloud: pets, not cattle. Following the Zen of cmux, a machine is a primitive, not a managed solution: it keeps its files, installed tools, and state, and what you build on it is yours. Agents clone repositories, run commands, and open pull requests there without touching your Mac. Pro includes up to 50 Cloud VMs with 24 GB RAM and 6 vCPUs shared across all VMs. Team includes the same pool per user.
 What does Max add?
-Max is $200/mo, billed monthly, with up to 64 GB RAM and 16 vCPUs per VM. It includes everything in Pro and unlocks Cloud VMs with 32 GB or 64 GB RAM. Pro, Team, and Free machines top out at 24 GB RAM.
+Max is $200/mo, billed monthly. Up to 50 Cloud VMs share a total of 64 GB RAM and 16 vCPUs. It includes everything in Pro and supports 32 GB and 64 GB machines within that shared total. Pro, Team, and Free machines top out at 24 GB RAM.
 Do I still need Tailscale for the iOS app?
 No. The iOS app pairs with your Mac over the built-in cmux iroh network. You can also bring your own networking, like Tailscale. Enterprise can self-host.
 How does billing work?
@@ -118,8 +118,8 @@ Max
 $200 /mo
 Get Max
 Everything in Pro, plus:
-Up to 64 GB RAM per machine
-Everything in Pro: 50 Cloud VMs, unlimited workspaces, the iOS app
+Up to 50 Cloud VMs sharing 64 GB RAM and 16 vCPUs
+Unlimited workspaces and the iOS app
 For teams and businesses
 Shared billing, administration, and controls for your organization.
 Team
@@ -153,7 +153,7 @@ Local CLI agents with your own keys
 Vertical tabs, splits, notifications, socket API
 Cloud agents on Cloud VMs -
 Concurrent Cloud VMs - 50 50 50 per user Custom
-Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 64 GB RAM and 16 vCPUs per VM 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
+Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 64 GB RAM and 16 vCPUs shared across all VMs 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
 Largest Cloud VM 24 GB RAM 24 GB RAM 64 GB RAM 24 GB RAM Custom
 Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
 iOS app -
