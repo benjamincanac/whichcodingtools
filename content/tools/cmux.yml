@@ -84,7 +84,8 @@ pricing:
       per: flat
       audience: individual
       limits:
-        - Everything in Pro, plus up to 64 GB RAM per machine
+        - Everything in Pro, plus up to 50 Cloud VMs sharing 64 GB RAM and 16 vCPUs
+        - 32 GB and 64 GB machines within that shared total
     - id: team
       name: Team
       price: 60
@@ -101,11 +102,11 @@ pricing:
       contact_sales: true
       audience: enterprise
       notes: Self-hosted Cloud execution and networking, SSO and SAML sign-in, centralized admin and shared team rules, audit logs, custom VM limits and volume pricing, SOC 2 and an SLA.
-  notes: The terminal itself is free and open source. Paid plans include up to 50 Cloud VMs, 50 per user on Team, with 24 GB RAM and 6 vCPUs shared across all VMs (per user on Team), and no metering or overages. Max raises the per-machine RAM ceiling to 64 GB. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access. The iOS app is in beta on TestFlight.
+  notes: The terminal itself is free and open source. Pro and Team include up to 50 Cloud VMs, 50 per user on Team, with 24 GB RAM and 6 vCPUs shared across all VMs (per user on Team), and no metering or overages. Max shares a total of 64 GB RAM and 16 vCPUs across its Cloud VMs instead, and supports 32 GB and 64 GB machines within that pool. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access. The iOS app is in beta on TestFlight.
 status: active
 sources:
   - url: https://cmux.com/pricing
-    verified_at: 2026-09-18
+    verified_at: 2026-09-23
     covers: [pricing]
   - url: https://cmux.com
     verified_at: 2026-08-23
