@@ -1,0 +1,481 @@
+# https://portal.nousresearch.com
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Nous Portal
+Skip to main content
+Nous Portal
+// Overview
+Everything to Power Hermes Agent
+Hermes remembers you, works while you sleep, and lives in the apps you already use.
+Nous Portal is the one account that fuels all of it: the models, the tools, the cloud.
+Sign in once and never think about it again.
+Create Account Download hermes
+Why Nous Portal?
+#1
+One Account, Everywhere
+A single sign-in connects Hermes to the model catalog, the Tool Gateway, and cloud hosting. Setup takes one command in terminal or one click in Hermes Desktop.
+#2
+Access Hundreds of Models
+The catalog spans hundreds of models from every frontier lab, with free options and Portal-only discounts. You can switch models with one command.
+#3
+All Tools Included
+Hosted tools come bundled with your subscription and work the moment you sign in. Each bills to the same credits as your models.
+#4
+Agent Cloud Hosting
+Deploy in one click and Portal hosts your agent in the cloud, running around the clock. Server costs bill straight to your credit balance.
+Getting Started
+API
+Nous Account
+Power your hermes
+TUI
+Terminal Velocity
+Install via terminal
+GUI
+Hermes Desktop
+Download app
+What's Included?
+#1
+Models
+The catalog lists hundreds of models from every frontier lab so you can find the perfect fit for your work. Match the model to the task, from free options to frontier flagships.
+300+ models
+AionLabs: Aion-2.0 in $0.80 / out $1.60 per 1M
+AionLabs: Aion-3.0 in $3.00 / out $6.00 per 1M
+AionLabs: Aion-3.0-Mini in $0.70 / out $1.40 per 1M
+Amazon: Nova 2 Lite in $0.30 / out $2.50 per 1M
+Amazon: Nova Lite 1.0 in $0.06 / out $0.24 per 1M
+Amazon: Nova Micro 1.0 in $0.04 / out $0.14 per 1M
+Amazon: Nova Premier 1.0 in $2.50 / out $12.50 per 1M
+Amazon: Nova Pro 1.0 in $0.80 / out $3.20 per 1M
+Anthropic: Claude 3 Haiku in $0.25 / out $1.25 per 1M
+Anthropic: Claude Fable 5 in $10.00 / out $50.00 per 1M
+Anthropic: Claude Fable 5 (batch) in $5.00 / out $25.00 per 1M
+Anthropic: Claude Fable 5.1 in $10.00 / out $50.00 per 1M
+Anthropic: Claude Fable 5.1 (batch) in $5.00 / out $25.00 per 1M
+Anthropic: Claude Fable Latest in $10.00 / out $50.00 per 1M
+Anthropic: Claude Haiku 4.5 in $1.00 / out $5.00 per 1M
+Anthropic: Claude Haiku 4.5 (batch) in $0.50 / out $2.50 per 1M
+Anthropic: Claude Haiku Latest in $1.00 / out $5.00 per 1M
+Anthropic: Claude Opus 4.1 in $15.00 / out $75.00 per 1M
+Anthropic: Claude Opus 4.1 (batch) in $7.50 / out $37.50 per 1M
+Anthropic: Claude Opus 4.5 in $5.00 / out $25.00 per 1M
+Anthropic: Claude Opus 4.5 (batch) in $2.50 / out $12.50 per 1M
+Anthropic: Claude Opus 4.6 in $5.00 / out $25.00 per 1M
+Anthropic: Claude Opus 4.6 (batch) in $2.50 / out $12.50 per 1M
+Anthropic: Claude Opus 4.7 in $5.00 / out $25.00 per 1M
+Anthropic: Claude Opus 4.7 (batch) in $2.50 / out $12.50 per 1M
+Anthropic: Claude Opus 4.8 in $5.00 / out $25.00 per 1M
+Anthropic: Claude Opus 4.8 (batch) in $2.50 / out $12.50 per 1M
+Anthropic: Claude Opus 5 in $5.00 / out $25.00 per 1M
+Anthropic: Claude Opus 5 (batch) in $2.50 / out $12.50 per 1M
+Anthropic: Claude Opus 5.5 in $4.00 / out $20.00 per 1M
+Anthropic: Claude Opus 5.5 (batch) in $2.00 / out $10.00 per 1M
+Anthropic: Claude Opus Latest in $4.00 / out $20.00 per 1M
+Anthropic: Claude Sonnet 4 in $3.00 / out $15.00 per 1M
+Anthropic: Claude Sonnet 4.5 in $3.00 / out $15.00 per 1M
+Anthropic: Claude Sonnet 4.5 (batch) in $1.50 / out $7.50 per 1M
+Anthropic: Claude Sonnet 4.6 in $3.00 / out $15.00 per 1M
+Anthropic: Claude Sonnet 4.6 (batch) in $1.50 / out $7.50 per 1M
+Anthropic: Claude Sonnet 5 in $2.00 / out $10.00 per 1M
+Anthropic: Claude Sonnet 5 (batch) in $1.00 / out $5.00 per 1M
+Anthropic: Claude Sonnet Latest in $2.00 / out $10.00 per 1M
+Arcee AI: Trinity Large Thinking in $0.25 / out $0.80 per 1M
+ByteDance Seed: Seed 1.6 in $0.25 / out $2.00 per 1M
+ByteDance Seed: Seed 1.6 Flash in $0.08 / out $0.30 per 1M
+ByteDance Seed: Seed 2.1 Turbo in $0.50 / out $2.50 per 1M
+ByteDance Seed: Seed-2.0-Code in $0.50 / out $3.00 per 1M
+ByteDance Seed: Seed-2.0-Lite in $0.25 / out $2.00 per 1M
+ByteDance Seed: Seed-2.0-Mini in $0.10 / out $0.40 per 1M
+Cohere: Command A+ in $0.30 / out $1.50 per 1M
+Cohere: Command R (08-2024) in $0.15 / out $0.60 per 1M
+Cohere: Command R+ (08-2024) in $2.50 / out $10.00 per 1M
+DeepSeek: DeepSeek Flash Latest in $0.06 / out $0.60 per 1M
+DeepSeek: DeepSeek Pro Latest in $0.40 / out $4.30 per 1M
+DeepSeek: DeepSeek V3 in $0.26 / out $1.03 per 1M
+DeepSeek: DeepSeek V3 0324 in $0.24 / out $0.90 per 1M
+DeepSeek: DeepSeek V3.1 in $0.25 / out $0.95 per 1M
+DeepSeek: DeepSeek V3.1 Terminus in $0.27 / out $1.00 per 1M
+DeepSeek: DeepSeek V3.2 in $0.21 / out $0.31 per 1M
+DeepSeek: DeepSeek V3.2 Exp in $0.27 / out $0.41 per 1M
+DeepSeek: DeepSeek V4 Flash in $0.07 / out $0.14 per 1M
+DeepSeek: DeepSeek V4 Flash in $0.36 / out $1.09 per 1M
+DeepSeek: DeepSeek V4 Flash 0423 in $0.05 / out $0.14 per 1M
+DeepSeek: DeepSeek V4 Flash Latest in $0.03 / out $0.80 per 1M
+DeepSeek: DeepSeek V4 Flash Vision Exp in $0.22 / out $0.65 per 1M
+DeepSeek: DeepSeek V4 Pro 0423 in $0.94 / out $1.89 per 1M
+DeepSeek: DeepSeek V4 Pro 0813 in $0.58 / out $1.74 per 1M
+DeepSeek: DeepSeek V4.1 Flash in $0.06 / out $0.60 per 1M
+DeepSeek: DeepSeek V4.1 Flash (batch) in $0.11 / out $0.34 per 1M
+DeepSeek: R1 in $0.70 / out $2.50 per 1M
+DeepSeek: R1 0528 in $0.50 / out $2.15 per 1M
+Google: Gemini 2.5 Flash in $0.30 / out $2.50 per 1M
+Google: Gemini 2.5 Flash (batch) in $0.15 / out $1.25 per 1M
+Google: Gemini 2.5 Flash Lite in $0.10 / out $0.40 per 1M
+Google: Gemini 2.5 Flash Lite (batch) in $0.05 / out $0.20 per 1M
+Google: Gemini 2.5 Pro in $1.25 / out $10.00 per 1M
+Google: Gemini 2.5 Pro (batch) in $0.63 / out $5.00 per 1M
+Google: Gemini 2.5 Pro Preview 06-05 in $1.25 / out $10.00 per 1M
+Google: Gemini 3 Flash Preview in $0.50 / out $3.00 per 1M
+Google: Gemini 3 Flash Preview (batch) in $0.25 / out $1.50 per 1M
+Google: Gemini 3.1 Flash Lite in $0.25 / out $1.50 per 1M
+Google: Gemini 3.1 Flash Lite (batch) in $0.13 / out $0.75 per 1M
+Google: Gemini 3.1 Flash Lite Preview in $0.25 / out $1.50 per 1M
+Google: Gemini 3.1 Pro Preview in $2.00 / out $12.00 per 1M
+Google: Gemini 3.1 Pro Preview (batch) in $1.00 / out $6.00 per 1M
+Google: Gemini 3.1 Pro Preview Custom Tools in $2.00 / out $12.00 per 1M
+Google: Gemini 3.5 Flash in $1.50 / out $9.00 per 1M
+Google: Gemini 3.5 Flash (batch) in $0.75 / out $4.50 per 1M
+Google: Gemini 3.5 Flash Lite in $0.30 / out $2.50 per 1M
+Google: Gemini 3.5 Flash Lite (batch) in $0.15 / out $1.25 per 1M
+Google: Gemini 3.6 Flash in $0.75 / out $3.75 per 1M
+Google: Gemini 3.6 Flash (batch) in $0.38 / out $1.88 per 1M
+Google: Gemini 3.7 Flash in $0.75 / out $3.75 per 1M
+Google: Gemini 3.7 Flash (batch) in $0.38 / out $1.88 per 1M
+Google: Gemini 3.8 Flash in $0.75 / out $3.75 per 1M
+Google: Gemini 3.8 Flash (batch) in $0.38 / out $1.88 per 1M
+Google: Gemini Flash Latest in $0.75 / out $3.75 per 1M
+Google: Gemini Pro Latest in $2.00 / out $12.00 per 1M
+Google: Gemma 3 12B in $0.05 / out $0.15 per 1M
+Google: Gemma 3 27B in $0.08 / out $0.16 per 1M
+Google: Gemma 4 26B A4B in $0.04 / out $0.22 per 1M
+Google: Gemma 4 31B in $0.09 / out $0.34 per 1M
+Google: Nano Banana Pro (Gemini 3 Pro Image) in $2.00 / out $12.00 per 1M
+IBM: Granite 4.2 8B in $0.06 / out $0.25 per 1M
+Inception: Mercury 2 in $0.25 / out $0.75 per 1M
+Inception: Mercury 2.5 in $0.04 / out $0.15 per 1M
+inclusionAI: Ling 3.0 Flash in $0.02 / out $0.06 per 1M
+inclusionAI: Ling 3.0 Flash Fin in $0.06 / out $0.18 per 1M
+inclusionAI: Ling 3.0 Flash Fin $0.00/1M
+inclusionAI: Ling 3.0 Flash Sante (free) $0.00/1M
+inclusionAI: Ling 3.0 Flash VL in $0.06 / out $0.18 per 1M
+Kwaipilot: KAT-Coder-Pro V2.5 in $0.74 / out $2.96 per 1M
+Meituan: LongCat 2.0 in $0.30 / out $1.20 per 1M
+Meituan: LongCat 2.0 $0.00/1M
+Meta: Llama 3.1 8B Instruct in $0.02 / out $0.04 per 1M
+Meta: Llama 3.1 70B Instruct $0.40/1M
+Meta: Llama 3.3 70B Instruct in $0.10 / out $0.32 per 1M
+Meta: Llama 4 Maverick in $0.19 / out $0.65 per 1M
+Meta: Llama 4 Scout in $0.10 / out $0.30 per 1M
+Meta: Muse Glimmer 30B in $0.30 / out $1.10 per 1M
+Meta: Muse Spark 1.2 in $1.25 / out $4.25 per 1M
+Meta: Muse Spark 1.3 in $1.25 / out $4.25 per 1M
+MiniMax: MiniMax M1 in $0.40 / out $2.20 per 1M
+MiniMax: MiniMax M2 in $0.26 / out $1.02 per 1M
+MiniMax: MiniMax M2.1 in $0.30 / out $1.20 per 1M
+MiniMax: MiniMax M2.5 in $0.27 / out $0.95 per 1M
+MiniMax: MiniMax M2.7 in $0.21 / out $0.84 per 1M
+MiniMax: MiniMax M3 in $0.23 / out $0.96 per 1M
+Mistral Large in $2.00 / out $6.00 per 1M
+Mistral Large 2407 in $2.00 / out $6.00 per 1M
+Mistral: Codestral 2508 in $0.30 / out $0.90 per 1M
+Mistral: Codestral 2508 (batch) in $0.15 / out $0.45 per 1M
+Mistral: Devstral 2 2512 in $0.40 / out $2.00 per 1M
+Mistral: Ministral 3 3B 2512 $0.10/1M
+Mistral: Ministral 3 8B 2512 $0.15/1M
+Mistral: Ministral 3 8B 2512 (batch) $0.08/1M
+Mistral: Ministral 3 14B 2512 $0.20/1M
+Mistral: Mistral Large 3 2512 (batch) in $0.25 / out $0.75 per 1M
+Mistral: Mistral Medium 3 in $0.40 / out $2.00 per 1M
+Mistral: Mistral Medium 3.1 in $0.40 / out $2.00 per 1M
+Mistral: Mistral Medium 3.1 (batch) in $0.20 / out $1.00 per 1M
+Mistral: Mistral Medium 3.5 in $1.50 / out $7.50 per 1M
+Mistral: Mistral Medium 3.5 (batch) in $0.75 / out $3.75 per 1M
+Mistral: Mistral Nemo in $0.02 / out $0.03 per 1M
+Mistral: Mistral Small 3.1 24B in $0.35 / out $0.56 per 1M
+Mistral: Mistral Small 3.2 24B in $0.08 / out $0.20 per 1M
+Mistral: Mistral Small 4 in $0.15 / out $0.60 per 1M
+Mistral: Mistral Small 4 (batch) in $0.08 / out $0.30 per 1M
+Mistral: Mixtral 8x22B Instruct in $2.00 / out $6.00 per 1M
+Mistral: Saba in $0.20 / out $0.60 per 1M
+Mistral: Voxtral Small 24B 2507 in $0.10 / out $0.30 per 1M
+MoonshotAI: Kimi K2 0711 in $0.57 / out $2.30 per 1M
+MoonshotAI: Kimi K2 0905 in $0.60 / out $2.50 per 1M
+MoonshotAI: Kimi K2 Thinking in $0.60 / out $2.50 per 1M
+MoonshotAI: Kimi K2.5 in $0.45 / out $2.25 per 1M
+MoonshotAI: Kimi K2.6 in $0.50 / out $2.97 per 1M
+MoonshotAI: Kimi K2.7 Code in $0.68 / out $3.40 per 1M
+MoonshotAI: Kimi K3 in $1.50 / out $10.76 per 1M
+MoonshotAI: Kimi K3 in $3.63 / out $18.15 per 1M
+MoonshotAI: Kimi K3 (batch) in $2.28 / out $11.40 per 1M
+MoonshotAI: Kimi Latest in $1.50 / out $10.76 per 1M
+Nex AGI: Nex-N2.5-Pro in $0.08 / out $0.25 per 1M
+NVIDIA: Nemotron 3 Nano 30B A3B in $0.05 / out $0.20 per 1M
+NVIDIA: Nemotron 3 Super in $0.08 / out $0.45 per 1M
+NVIDIA: Nemotron 3 Ultra in $0.50 / out $2.20 per 1M
+NVIDIA: Nemotron 3.5 Lightning in $0.07 / out $0.18 per 1M
+OpenAI: GPT Astra Latest in $10.00 / out $50.00 per 1M
+OpenAI: GPT Audio in $2.50 / out $10.00 per 1M
+OpenAI: GPT Audio Mini in $0.60 / out $2.40 per 1M
+OpenAI: GPT Chat Latest in $5.00 / out $30.00 per 1M
+OpenAI: GPT Luna Latest in $0.10 / out $0.50 per 1M
+OpenAI: GPT Mini Latest in $0.75 / out $4.50 per 1M
+OpenAI: GPT Sol Latest in $2.00 / out $10.00 per 1M
+OpenAI: GPT Terra Latest in $2.00 / out $12.00 per 1M
+OpenAI: GPT-3.5 Turbo in $0.50 / out $1.50 per 1M
+OpenAI: GPT-3.5 Turbo (batch) in $0.25 / out $0.75 per 1M
+OpenAI: GPT-3.5 Turbo (older v0613) in $1.00 / out $2.00 per 1M
+OpenAI: GPT-3.5 Turbo 16k in $3.00 / out $4.00 per 1M
+OpenAI: GPT-4 in $30.00 / out $60.00 per 1M
+OpenAI: GPT-4 Turbo in $10.00 / out $30.00 per 1M
+OpenAI: GPT-4 Turbo (batch) in $5.00 / out $15.00 per 1M
+OpenAI: GPT-4.1 in $2.00 / out $8.00 per 1M
+OpenAI: GPT-4.1 (batch) in $1.00 / out $4.00 per 1M
+OpenAI: GPT-4.1 Mini in $0.40 / out $1.60 per 1M
+OpenAI: GPT-4.1 Mini (batch) in $0.20 / out $0.80 per 1M
+OpenAI: GPT-4.1 Nano in $0.10 / out $0.40 per 1M
+OpenAI: GPT-4.1 Nano (batch) in $0.05 / out $0.20 per 1M
+OpenAI: GPT-4o in $2.50 / out $10.00 per 1M
+OpenAI: GPT-4o (2024-05-13) in $5.00 / out $15.00 per 1M
+OpenAI: GPT-4o (2024-08-06) in $2.50 / out $10.00 per 1M
+OpenAI: GPT-4o (2024-11-20) in $2.50 / out $10.00 per 1M
+OpenAI: GPT-4o (batch) in $1.25 / out $5.00 per 1M
+OpenAI: GPT-4o-mini in $0.15 / out $0.60 per 1M
+OpenAI: GPT-4o-mini (2024-07-18) in $0.15 / out $0.60 per 1M
+OpenAI: GPT-4o-mini (batch) in $0.08 / out $0.30 per 1M
+OpenAI: GPT-5 in $1.25 / out $10.00 per 1M
+OpenAI: GPT-5 (batch) in $0.63 / out $5.00 per 1M
+OpenAI: GPT-5 Mini in $0.25 / out $2.00 per 1M
+OpenAI: GPT-5 Mini (batch) in $0.13 / out $1.00 per 1M
+OpenAI: GPT-5 Nano in $0.05 / out $0.40 per 1M
+OpenAI: GPT-5 Nano (batch) in $0.03 / out $0.20 per 1M
+OpenAI: GPT-5 Pro in $15.00 / out $120.00 per 1M
+OpenAI: GPT-5 Pro (batch) in $7.50 / out $60.00 per 1M
+OpenAI: GPT-5.1 in $1.25 / out $10.00 per 1M
+OpenAI: GPT-5.1 (batch) in $0.63 / out $5.00 per 1M
+OpenAI: GPT-5.1-Codex in $1.25 / out $10.00 per 1M
+OpenAI: GPT-5.1-Codex-Max in $1.25 / out $10.00 per 1M
+OpenAI: GPT-5.1-Codex-Mini in $0.25 / out $2.00 per 1M
+OpenAI: GPT-5.2 in $1.75 / out $14.00 per 1M
+OpenAI: GPT-5.2 (batch) in $0.88 / out $7.00 per 1M
+OpenAI: GPT-5.2 Chat in $1.75 / out $14.00 per 1M
+OpenAI: GPT-5.2 Pro in $21.00 / out $168.00 per 1M
+OpenAI: GPT-5.2 Pro (batch) in $10.50 / out $84.00 per 1M
+OpenAI: GPT-5.2-Codex in $1.75 / out $14.00 per 1M
+OpenAI: GPT-5.3-Codex in $1.75 / out $14.00 per 1M
+OpenAI: GPT-5.4 in $2.50 / out $15.00 per 1M
+OpenAI: GPT-5.4 (batch) in $1.25 / out $7.50 per 1M
+OpenAI: GPT-5.4 Mini in $0.75 / out $4.50 per 1M
+OpenAI: GPT-5.4 Mini (batch) in $0.38 / out $2.25 per 1M
+OpenAI: GPT-5.4 Nano in $0.20 / out $1.25 per 1M
+OpenAI: GPT-5.4 Nano (batch) in $0.10 / out $0.63 per 1M
+OpenAI: GPT-5.4 Pro in $30.00 / out $180.00 per 1M
+OpenAI: GPT-5.4 Pro (batch) in $15.00 / out $90.00 per 1M
+OpenAI: GPT-5.5 in $5.00 / out $30.00 per 1M
+OpenAI: GPT-5.5 (batch) in $2.50 / out $15.00 per 1M
+OpenAI: GPT-5.5 Pro in $30.00 / out $180.00 per 1M
+OpenAI: GPT-5.5 Pro (batch) in $15.00 / out $90.00 per 1M
+OpenAI: GPT-5.6 Luna in $0.20 / out $1.20 per 1M
+OpenAI: GPT-5.6 Luna (batch) in $0.10 / out $0.60 per 1M
+OpenAI: GPT-5.6 Luna Pro in $0.20 / out $1.20 per 1M
+OpenAI: GPT-5.6 Luna Pro (batch) in $0.10 / out $0.60 per 1M
+OpenAI: GPT-5.6 Sol in $2.00 / out $10.00 per 1M
+OpenAI: GPT-5.6 Sol (batch) in $1.00 / out $5.00 per 1M
+OpenAI: GPT-5.6 Sol Pro in $2.00 / out $10.00 per 1M
+OpenAI: GPT-5.6 Sol Pro (batch) in $1.00 / out $5.00 per 1M
+OpenAI: GPT-5.6 Terra in $2.00 / out $12.00 per 1M
+OpenAI: GPT-5.6 Terra (batch) in $1.00 / out $6.00 per 1M
+OpenAI: GPT-5.6 Terra Pro in $2.00 / out $12.00 per 1M
+OpenAI: GPT-5.6 Terra Pro (batch) in $1.00 / out $6.00 per 1M
+OpenAI: GPT-6 Astra in $10.00 / out $50.00 per 1M
+OpenAI: GPT-6 Astra (batch) in $5.00 / out $25.00 per 1M
+OpenAI: GPT-6 Astra Fast in $20.00 / out $100.00 per 1M
+OpenAI: GPT-6 Astra Flex in $5.00 / out $25.00 per 1M
+OpenAI: GPT-6 Astra Pro in $10.00 / out $50.00 per 1M
+OpenAI: GPT-6 Astra Pro (batch) in $5.00 / out $25.00 per 1M
+OpenAI: GPT-6 Astra Pro Fast in $20.00 / out $100.00 per 1M
+OpenAI: GPT-6 Astra Pro Flex in $5.00 / out $25.00 per 1M
+OpenAI: GPT-6 Luna in $0.10 / out $0.50 per 1M
+OpenAI: GPT-6 Luna (batch) in $0.05 / out $0.25 per 1M
+OpenAI: GPT-6 Luna Pro in $0.10 / out $0.50 per 1M
+OpenAI: GPT-6 Luna Pro (batch) in $0.05 / out $0.25 per 1M
+OpenAI: GPT-6 Sol in $2.00 / out $10.00 per 1M
+OpenAI: GPT-6 Sol (batch) in $1.00 / out $5.00 per 1M
+OpenAI: GPT-6 Sol Pro in $2.00 / out $10.00 per 1M
+OpenAI: GPT-6 Sol Pro (batch) in $1.00 / out $5.00 per 1M
+OpenAI: gpt-oss-20b in $0.02 / out $0.09 per 1M
+OpenAI: gpt-oss-20b (batch) in $0.02 / out $0.11 per 1M
+OpenAI: gpt-oss-120b in $0.03 / out $0.17 per 1M
+OpenAI: gpt-oss-safeguard-20b in $0.08 / out $0.30 per 1M
+OpenAI: o1 in $15.00 / out $60.00 per 1M
+OpenAI: o3 in $2.00 / out $8.00 per 1M
+OpenAI: o3 (batch) in $1.00 / out $4.00 per 1M
+OpenAI: o3 Mini in $1.10 / out $4.40 per 1M
+OpenAI: o3 Mini (batch) in $0.55 / out $2.20 per 1M
+OpenAI: o3 Mini High in $1.10 / out $4.40 per 1M
+OpenAI: o3 Pro in $20.00 / out $80.00 per 1M
+OpenAI: o4 Mini in $1.10 / out $4.40 per 1M
+OpenAI: o4 Mini (batch) in $0.55 / out $2.20 per 1M
+OpenAI: o4 Mini High in $1.10 / out $4.40 per 1M
+Pareto in $2.50 / out $7.50 per 1M
+Poolside: Laguna S 2.1 in $0.09 / out $0.18 per 1M
+Poolside: Laguna S 2.1 $0.00/1M
+Poolside: Laguna XS 2.1 in $0.06 / out $0.12 per 1M
+Poolside: Laguna XS 2.1 $0.00/1M
+PrismML: Ternary Bonsai 2 27B in $0.08 / out $0.50 per 1M
+Qwen: Qwen Plus 0728 in $0.26 / out $0.78 per 1M
+Qwen: Qwen-Plus in $0.26 / out $0.78 per 1M
+Qwen: Qwen2.5 7B Instruct in $0.10 / out $0.20 per 1M
+Qwen: Qwen3 8B in $0.12 / out $0.46 per 1M
+Qwen: Qwen3 14B in $0.10 / out $0.22 per 1M
+Qwen: Qwen3 30B A3B in $0.12 / out $0.50 per 1M
+Qwen: Qwen3 30B A3B Instruct 2507 in $0.05 / out $0.19 per 1M
+Qwen: Qwen3 30B A3B Thinking 2507 in $0.20 / out $2.40 per 1M
+Qwen: Qwen3 32B in $0.08 / out $0.28 per 1M
+Qwen: Qwen3 235B A22B in $0.46 / out $1.82 per 1M
+Qwen: Qwen3 235B A22B Instruct 2507 in $0.09 / out $0.35 per 1M
+Qwen: Qwen3 235B A22B Thinking 2507 in $0.23 / out $2.30 per 1M
+Qwen: Qwen3 Coder 30B A3B Instruct in $0.07 / out $0.27 per 1M
+Qwen: Qwen3 Coder 480B A35B in $0.22 / out $1.80 per 1M
+Qwen: Qwen3 Coder Flash in $0.20 / out $0.98 per 1M
+Qwen: Qwen3 Coder Next in $0.12 / out $0.80 per 1M
+Qwen: Qwen3 Coder Plus in $0.65 / out $3.25 per 1M
+Qwen: Qwen3 Max in $0.78 / out $3.90 per 1M
+Qwen: Qwen3 Max Thinking in $0.78 / out $3.90 per 1M
+Qwen: Qwen3 Next 80B A3B Instruct in $0.09 / out $1.10 per 1M
+Qwen: Qwen3 Next 80B A3B Thinking in $0.15 / out $1.20 per 1M
+Qwen: Qwen3 VL 8B Instruct in $0.12 / out $0.46 per 1M
+Qwen: Qwen3 VL 8B Thinking in $0.18 / out $2.10 per 1M
+Qwen: Qwen3 VL 30B A3B Instruct in $0.13 / out $0.52 per 1M
+Qwen: Qwen3 VL 30B A3B Thinking in $0.20 / out $2.40 per 1M
+Qwen: Qwen3 VL 32B Instruct in $0.10 / out $0.42 per 1M
+Qwen: Qwen3 VL 235B A22B Instruct in $0.20 / out $0.88 per 1M
+Qwen: Qwen3 VL 235B A22B Thinking in $0.40 / out $4.00 per 1M
+Qwen: Qwen3.5 397B A17B in $0.39 / out $2.34 per 1M
+Qwen: Qwen3.5 Plus 2026-02-15 in $0.26 / out $1.56 per 1M
+Qwen: Qwen3.5 Plus 2026-04-20 in $0.30 / out $1.80 per 1M
+Qwen: Qwen3.5-9B in $0.08 / out $0.13 per 1M
+Qwen: Qwen3.5-27B in $0.20 / out $1.56 per 1M
+Qwen: Qwen3.5-35B-A3B in $0.08 / out $0.75 per 1M
+Qwen: Qwen3.5-122B-A10B in $0.26 / out $2.08 per 1M
+Qwen: Qwen3.5-Flash in $0.07 / out $0.26 per 1M
+Qwen: Qwen3.6 27B in $0.30 / out $2.00 per 1M
+Qwen: Qwen3.6 35B A3B in $0.05 / out $0.70 per 1M
+Qwen: Qwen3.6 Flash in $0.19 / out $1.13 per 1M
+Qwen: Qwen3.6 Max Preview in $1.03 / out $6.16 per 1M
+Qwen: Qwen3.6 Plus in $0.33 / out $1.95 per 1M
+Qwen: Qwen3.7 Flash in $0.03 / out $0.13 per 1M
+Qwen: Qwen3.7 Max in $1.48 / out $4.43 per 1M
+Qwen: Qwen3.7 Plus in $0.32 / out $1.28 per 1M
+Qwen: Qwen3.8 2.4T A95B in $2.00 / out $6.00 per 1M
+Qwen: Qwen3.8 27B in $0.10 / out $1.80 per 1M
+Qwen: Qwen3.8 Flash in $0.15 / out $0.47 per 1M
+Qwen: Qwen3.8 Max (0902) in $2.00 / out $6.00 per 1M
+Qwen: Qwen3.8 Omni Flash in $0.15 / out $0.47 per 1M
+Qwen2.5 72B Instruct in $0.36 / out $0.40 per 1M
+Reka Edge $0.10/1M
+Relace: Relace Search in $1.00 / out $3.00 per 1M
+Sakana: Fugu Max in $2.00 / out $6.00 per 1M
+Sakana: Fugu Ultra in $5.00 / out $30.00 per 1M
+Sakana: Fugu Ultra v2 in $5.00 / out $30.00 per 1M
+Sao10K: Llama 3.1 Euryale 70B v2.2 $0.85/1M
+SpaceXAI: Grok 4.3 in $1.25 / out $2.50 per 1M
+SpaceXAI: Grok 4.3 (batch) in $1.00 / out $2.00 per 1M
+SpaceXAI: Grok 4.20 in $1.25 / out $2.50 per 1M
+SpaceXAI: Grok Build 0.1 in $1.00 / out $2.00 per 1M
+StepFun: Step 3.5 Flash in $0.10 / out $0.30 per 1M
+StepFun: Step 3.7 Flash in $0.16 / out $0.92 per 1M
+StepFun: Step 3.7 Flash $0.00/1M
+Tencent: Hy3 in $0.13 / out $0.53 per 1M
+Tencent: Hy3 preview in $0.18 / out $0.60 per 1M
+Tencent: Hy4 preview in $0.42 / out $1.25 per 1M
+Thinking Machines: Inkling in $0.95 / out $4.05 per 1M
+Thinking Machines: Inkling Small in $0.45 / out $1.20 per 1M
+Upstage: Solar Pro 3 in $0.15 / out $0.60 per 1M
+Upstage: Solar Pro 4 in $0.09 / out $0.36 per 1M
+Upstage: Solar Pro 4 $0.00/1M
+xAI: Grok 4.5 in $2.00 / out $6.00 per 1M
+xAI: Grok 4.6 in $2.00 / out $6.00 per 1M
+xAI: Grok 4.7 in $1.00 / out $3.00 per 1M
+xAI: Grok Latest in $1.60 / out $4.80 per 1M
+Xiaomi: MiMo-V2.5 in $0.12 / out $0.24 per 1M
+Xiaomi: MiMo-V2.5-Pro in $0.30 / out $0.61 per 1M
+Xiaomi: MiMo-V2.6-Flash in $0.14 / out $0.28 per 1M
+Xiaomi: MiMo-V2.6-Pro in $0.44 / out $0.87 per 1M
+Xiaomi: MiMo-V2.6-Pro-UltraSpeed in $4.35 / out $8.70 per 1M
+Z.ai: GLM 4.5 in $0.60 / out $2.20 per 1M
+Z.ai: GLM 4.5 Air in $0.13 / out $0.85 per 1M
+Z.ai: GLM 4.5V in $0.60 / out $1.80 per 1M
+Z.ai: GLM 4.6 in $0.43 / out $1.75 per 1M
+Z.ai: GLM 4.6V in $0.30 / out $0.90 per 1M
+Z.ai: GLM 4.7 in $0.40 / out $1.75 per 1M
+Z.ai: GLM 4.7 Flash in $0.06 / out $0.40 per 1M
+Z.ai: GLM 5 in $0.60 / out $1.92 per 1M
+Z.ai: GLM 5 Turbo in $1.20 / out $4.00 per 1M
+Z.ai: GLM 5.1 in $0.97 / out $3.04 per 1M
+Z.ai: GLM 5.2 in $0.90 / out $2.83 per 1M
+Z.ai: GLM 5.3 in $0.91 / out $2.86 per 1M
+Z.ai: GLM 5.3 in $2.31 / out $7.26 per 1M
+Z.ai: GLM 5.3 (batch) in $0.72 / out $2.40 per 1M
+Z.ai: GLM 5.3 Flash in $0.12 / out $0.40 per 1M
+Z.ai: GLM 5.3 Flash in $0.25 / out $0.83 per 1M
+Z.ai: GLM 5.3 Flash (batch) in $0.06 / out $0.20 per 1M
+Z.ai: GLM 5.3 FlashX in $0.37 / out $1.25 per 1M
+Z.ai: GLM 5V Turbo in $1.20 / out $4.00 per 1M
+Z.ai: GLM Flash Latest in $0.08 / out $0.25 per 1M
+Z.ai: GLM Latest in $0.56 / out $2.50 per 1M
+Browser Use browser
+FAL image_gen
+Firecrawl web_scrape
+OpenAI Studio voice
+Krea image_gen
+#2
+Tools
+The Tool Gateway covers web search, scraping, image generation, browser use, and speech, each priced per use. Each tool is ready the moment you sign in and bills to the same credit balance as your models.
+Subscription
+Every paid tier includes monthly credits, hundreds of models, hosted tool usage, and high rate limits.
+Free
+$0
+Free models only
+Standard rate limits
+$0 monthly credits Try Hermes
+Plus 10% bonus
+$20 per month
+$22 monthly credits
+$10 rollover cap
+200+ Models
+Hosted tool usage
+High rate limits
+Get Hermes
+Super 10% bonus
+$100 per month
+$110 monthly credits
+$50 rollover cap
+200+ Models
+Hosted tool usage
+High rate limits
+liberate Hermes
+Ultra 10% bonus
+$200 per month
+$220 monthly credits
+$100 rollover cap
+200+ Models
+Hosted tool usage
+High rate limits
+unleash Hermes
+Top up
++ $10 + $20 + $50 + $100 + $200
+$ Top-up amount in US dollars Pay with Stripe
+The Internet's Own AI
+© 2026, Nous Research, Inc.
+Terms | Privacy
+MIT License · 2026
+Create Nous Account
+Explore
+Overview Models Plans
+Resources
+Hermes Cloud Hermes Agent API Docs Help
+Terms
+Privacy
+Member Sign in
+Explore
+Overview Models Plans
+Resources
+Hermes Cloud Hermes Agent API Docs Help
+Terms
+Privacy
+Login
+Login
+// Hermes Desktop App
+// Download
+Install Hermes
+An autonomous agent that lives on your server, remembers what it learns, and gets more capable the longer it runs. Download hermes
+</untrusted-page-text>

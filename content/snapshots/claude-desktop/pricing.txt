@@ -1,0 +1,559 @@
+# https://claude.com/download
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Download Claude | Claude by Anthropic
+Product
+Products
+Claude
+Claude Code
+@Claude
+Specialized
+Claude Security
+Claude Science
+Capabilities
+Artifacts
+Design
+Connectors
+Plugins
+Skills
+Claude apps built for
+Claude in Chrome
+Claude for Microsoft 365
+Models
+Mythos
+Fable
+Opus
+Sonnet
+Haiku
+Import to Claude
+Download apps
+Download apps Download apps
+Login
+Login Login
+Developers
+Build with
+Claude Code
+Claude Platform
+For developers
+Claude Academy
+Community
+Developer docs
+Developer docs Developer docs
+Console
+Console Console
+Enterprise
+Enterprise
+Overview
+Claude Code for Enterprise
+Claude Platform
+Use cases
+AI agents
+Coding
+Commerce
+Departments
+Customer support
+Cybersecurity
+Legal
+Sales
+Industries
+Financial services
+Government
+Healthcare
+Higher education
+K-12 teachers
+Life sciences
+Nonprofits
+Customer stories
+Customer stories Customer stories
+Contact sales
+Contact sales Contact sales
+Resources
+Insights
+Blog
+Customer stories
+Anthropic news
+Learn
+Claude Academy
+Courses
+Tutorials
+Use cases
+Connect
+Events
+Community
+Pricing
+Overview
+API
+Login
+Contact sales
+Contact sales Contact sales
+Try Claude
+Try Claude Try Claude
+Contact sales
+Contact sales Contact sales
+Try Claude
+Try Claude Try Claude
+Contact sales
+Contact sales Contact sales
+Try Claude
+Try Claude Try Claude
+Contact sales
+Contact sales Contact sales
+Try Claude
+Try Claude Try Claude
+Product
+Products
+Claude
+Claude Code
+@Claude
+Specialized
+Claude Security
+Claude Science
+Capabilities
+Artifacts
+Design
+Connectors
+Plugins
+Skills
+Claude apps built for
+Claude in Chrome
+Claude for Microsoft 365
+Models
+Mythos
+Fable
+Opus
+Sonnet
+Haiku
+Import to Claude
+Download apps
+Download apps Download apps
+Login
+Login Login
+Developers
+Build with
+Claude Code
+Claude Platform
+For developers
+Claude Academy
+Community
+Developer docs
+Developer docs Developer docs
+Console
+Console Console
+Enterprise
+Enterprise
+Overview
+Claude Code for Enterprise
+Claude Platform
+Use cases
+AI agents
+Coding
+Commerce
+Departments
+Customer support
+Cybersecurity
+Legal
+Sales
+Industries
+Financial services
+Government
+Healthcare
+Higher education
+K-12 teachers
+Life sciences
+Nonprofits
+Customer stories
+Customer stories Customer stories
+Contact sales
+Contact sales Contact sales
+Resources
+Insights
+Blog
+Customer stories
+Anthropic news
+Learn
+Claude Academy
+Courses
+Tutorials
+Use cases
+Connect
+Events
+Community
+Pricing
+Overview
+API
+Login
+Contact sales
+Contact sales Contact sales
+Try Claude
+Try Claude Try Claude
+Contact sales
+Contact sales Contact sales
+Try Claude
+Try Claude Try Claude
+Download
+Download
+Explore here
+Ask questions about this page
+Copy as markdown
+Latest news
+Next Next
+Claude Cowork is now just Claude
+Rolling out to Pro and Max, with more plans to follow.
+Read what changed
+Read what changed Read what changed
+Download Claude
+Think, hand off tasks, and code, all in one place.
+Download for macOS
+Download for macOS Download for macOS
+Download for Windows
+Download for Windows Download for Windows
+Windows (arm64)
+Windows (arm64) Windows (arm64)
+Download for ChromeOS
+Download for ChromeOS Download for ChromeOS
+Download for Linux
+Download for Linux Download for Linux
+Get started
+Access all of Claude on desktop and mobile.
+‍
+Desktop
+All of Claude, in one app. Works with your files and apps to get things done.
+macOS
+Download
+Download Download
+Windows
+Download
+Download Download
+Windows (arm 64)
+Download
+Download Download
+Linux
+See docs
+See docs See docs
+Enterprise deployment
+macOS
+Windows
+Mobile
+Take Claude anywhere. Pair with the desktop app.
+iOS
+Download
+Download Download
+Android
+Download
+Download Download
+Claude Science beta
+Your AI workbench for scientific research
+Download
+Mac (Apple Silicon)
+Mac (Apple Silicon) Mac (Apple Silicon)
+Mac (Intel)
+Mac (Intel) Mac (Intel)
+Windows
+Windows Windows
+Linux
+Linux Linux
+Learn more
+Learn more Learn more
+Go further
+Bring Claude to your workflow.
+Claude extensions
+Put Claude to work across your apps.
+Chrome
+Install
+Install Install
+Slack
+Install
+Install Install
+Excel
+Install
+Install Install
+PowerPoint
+Install
+Install Install
+Word
+Install
+Install Install
+Outlook beta
+Install
+Install Install
+Claude Code environments
+Build, debug, and ship where you work best.
+Desktop
+Download
+Download Download
+Desktop
+Download
+Download Download
+Desktop
+Download
+Download Download
+Terminal
+Install
+Install Install
+VS Code
+Install
+Install Install
+JetBrains
+Install
+Install Install
+Slack
+Install
+Install Install
+Take Claude on the go
+Start a thought here, finish anywhere. Claude remembers across your phone, desktop, and the web.
+Download iOS app
+Download iOS app Download iOS app
+Download Android app
+Download Android app Download Android app
+Hand a task to your desktop
+Pair the desktop and mobile apps. Share a task from your phone and Claude can get started in Cowork.
+Kick off a coding task from your phone
+Use Remote Control on mobile to send tasks from your phone to the Claude Code CLI. Access your local dev environment or files.
+Take Claude on the go
+Start a thought here, finish anywhere. Claude remembers across your phone, desktop, and the web.
+Apple
+Apple Apple
+Google Play
+Google Play Google Play
+Hand a task to your desktop
+Pair the desktop and mobile apps. Share a task on your phone and Claude can get started in Cowork.
+Kick off a coding task from your phone
+Use Remote Control on mobile to send tasks from your phone to the Claude Code CLI. Access your local dev environment or files.
+FAQ
+Do I need a paid plan to use the desktop or mobile apps?
+No. Claude apps are available to all plan types—Free, Pro, Max, Team, and Enterprise. Some features are only available to paid plans.
+What’s the difference between the desktop app and using Claude in my browser?
+The desktop app is always accessible from your dock and includes quick entry for instant access from anywhere in your system. You also get desktop extensions to connect Claude with your local tools and files.
+Can I use the same account across desktop, web, and mobile?
+Your conversations, projects, memory, and preferences sync across all devices when you’re signed in. In Claude Cowork, local sessions stay on-device.
+How do I connect Claude to my tools?
+Connectors allow Claude to work with tools like your apps and databases. Web-based connectors like Google Drive and Slack work wherever you’re using Claude—web, desktop, or mobile. On mobile, Claude can also connect to device-specific apps like Maps and iMessage. The desktop app also supports desktop extensions, which are locally installed and provide access to your local file systems, browsers, and native applications.
+How does Claude Desktop work with the Chrome extension?
+Claude in Chrome is included as a connector and is ready to use when you enable it. Turn it on in any conversation and Claude can navigate, click, and fill forms in your browser from the Desktop app. Start a task without switching windows. Learn more about Claude in Chrome .
+Can I use Claude Code in the desktop app?
+Yes. Claude Code runs directly in the desktop app. You can preview running servers, review local code changes, and monitor pull request status without leaving the app. Your work moves with you. Bring a CLI conversation into the desktop app with /desktop , or continue from the web or your phone. Learn more about Claude Code .
+How do I bring the desktop app to my organization?
+Claude desktop app supports standard enterprise deployment with MSIX installers (Windows) and PKG installers (Mac). You can control version updates to test and approve on your timeline, get automatic SSO authentication for managed devices, and pre-approve which desktop extensions your team can access.
+Where can I get help or learn more?
+Visit our Help Center for setup guides, troubleshooting, and system requirements.
+Which Linux distributions does Claude Desktop support?
+Claude Desktop for Linux is in beta and supports Ubuntu and Debian (x64 and arm64). Support for additional distributions is coming in the future.
+Which plans include Claude Desktop for Linux?
+Chat is available on all plans, including Free. Claude Code and Claude Cowork are available on Pro, Max, Team, and Enterprise.
+Are all features available on Linux?
+Most are. Claude Code, Claude Cowork, and Chat are all available at launch. Computer Use is not yet available on Linux, and is coming soon. Dictation is also not available in this release. The Quick Entry global hotkey works on X11; on native Wayland it requires the desktop's GlobalShortcuts portal.
+Prev Prev
+Next Next
+Homepage Homepage
+Next Next
+Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form.
+Anthropic Anthropic
+© [year] Anthropic PBC
+Products
+Claude
+Claude Claude
+Claude Code
+Claude Code Claude Code
+Claude Cowork
+Claude Cowork Claude Cowork
+@Claude
+@Claude @Claude
+Claude Science
+Claude Science Claude Science
+Claude Security
+Claude Security Claude Security
+Download app
+Download app Download app
+Pricing
+Pricing Pricing
+Log in
+Log in Log in
+Capabilities
+Artifacts
+Artifacts Artifacts
+Design
+Design Design
+Connectors
+Connectors Connectors
+Plugins
+Plugins Plugins
+Skills
+Skills Skills
+Extensions
+Claude in Chrome
+Claude in Chrome Claude in Chrome
+Claude for Microsoft 365
+Claude for Microsoft 365 Claude for Microsoft 365
+Models
+Mythos
+Mythos Mythos
+Fable
+Fable Fable
+Opus
+Opus Opus
+Sonnet
+Sonnet Sonnet
+Haiku
+Haiku Haiku
+Enterprise
+Overview
+Overview Overview
+Claude Code for Enterprise
+Claude Code for Enterprise Claude Code for Enterprise
+Use cases
+AI agents
+AI agents AI agents
+Code modernization
+Code modernization Code modernization
+Coding
+Coding Coding
+Commerce
+Commerce Commerce
+Departments
+Customer support
+Customer support Customer support
+Cybersecurity
+Cybersecurity Cybersecurity
+Legal
+Legal Legal
+Sales
+Sales Sales
+Industries
+Financial services
+Financial services Financial services
+Government
+Government Government
+Healthcare
+Healthcare Healthcare
+Higher education
+Higher education Higher education
+K-12 teachers
+K-12 teachers K-12 teachers
+Life sciences
+Life sciences Life sciences
+Nonprofits
+Nonprofits Nonprofits
+Small business
+Small business Small business
+Programs
+Startups
+Startups Startups
+Scientists
+Scientists Scientists
+Developers
+Developer docs
+Developer docs Developer docs
+Developer blog
+Developer blog Developer blog
+Community
+Community Community
+Console
+Console Console
+Engineering at Anthropic
+Engineering at Anthropic Engineering at Anthropic
+Platform
+Overview
+Overview Overview
+Ecosystem
+Ecosystem Ecosystem
+Marketplace
+Marketplace Marketplace
+Claude on AWS
+Claude on AWS Claude on AWS
+Google Cloud
+Google Cloud Google Cloud
+Microsoft Foundry
+Microsoft Foundry Microsoft Foundry
+Resources
+Blog
+Blog Blog
+Claude partner network
+Claude partner network Claude partner network
+Claude Academy
+Claude Academy Claude Academy
+Customer stories
+Customer stories Customer stories
+Events
+Events Events
+Powered by Claude
+Powered by Claude Powered by Claude
+Service partners
+Service partners Service partners
+Help and security
+Availability
+Availability Availability
+Check files
+Check files Check files
+Regional compliance
+Regional compliance Regional compliance
+Report abuse
+Report abuse Report abuse
+Security and compliance
+Security and compliance Security and compliance
+Status
+Status Status
+Support center
+Support center Support center
+Company
+Anthropic
+Anthropic Anthropic
+Careers
+Careers Careers
+Policy
+Policy Policy
+Research
+Research Research
+Anthropic news
+Anthropic news Anthropic news
+Policy on the AI Exponential
+Policy on the AI Exponential Policy on the AI Exponential
+Responsible Scaling Policy
+Responsible Scaling Policy Responsible Scaling Policy
+Transparency
+Transparency Transparency
+Terms and policies
+Privacy choices
+Cookie settings
+We use cookies to deliver and improve our services, analyze site usage, and if you agree, to customize or personalize your experience and market our services to you. You can read our Cookie Policy here .
+Customize cookie settings
+Reject all cookies
+Accept all cookies
+Necessary
+Enables security and basic functionality.
+Required
+Analytics
+Enables tracking of site performance.
+Off
+Marketing
+Enables ads personalization and tracking.
+Off
+Save preferences
+Privacy policy
+Privacy policy Privacy policy
+Responsible disclosure policy
+Responsible disclosure policy Responsible disclosure policy
+Terms of service: Commercial
+Terms of service: Commercial Terms of service: Commercial
+Terms of service: Consumer
+Terms of service: Consumer Terms of service: Consumer
+Terms of Service: US K-12
+Terms of Service: US K-12 Terms of Service: US K-12
+Data Processing Agreement: US K-12
+Data Processing Agreement: US K-12 Data Processing Agreement: US K-12
+Usage policy
+Usage policy Usage policy
+x.com x.com
+x.com x.com
+LinkedIn LinkedIn
+YouTube YouTube
+Instagram Instagram
+English
+English
+日本語
+Deutsch
+Français
+한국어
+Italiano
+Español (España)
+</untrusted-page-text>

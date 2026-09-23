@@ -57,7 +57,7 @@ pricing:
 status: preview
 sources:
   - url: https://herdr.dev
-    verified_at: 2026-08-23
+    verified_at: 2026-09-23
     covers: [pricing, platforms, wraps, general]
   - url: https://herdr.dev/docs/
     verified_at: 2026-08-23
