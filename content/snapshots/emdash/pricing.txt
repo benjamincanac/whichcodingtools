@@ -1,0 +1,302 @@
+# https://emdash.com
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Emdash — Open-Source Agentic Development Environment
+Beyond your machine: Emdash v1.2.0 makes remote development feel local - Download ->
+Docs Blog Changelog Cloud Enterprise
+Join Discord
+5,807 Download
+Docs Blog Changelog Cloud Enterprise
+Join Discord
+5,807 Download
+[ Backed by Combinator ]
+Open-source agentic development environment
+Run agents in parallel, schedule repeat work, preview apps in the built-in browser, and manage prompts, skills, and MCP tools from one place.
+Use any coding agent — no lock-in. On macOS, Windows, and Linux.
+Download
+[
+Over 1M downloads]
+Codex
+Claude Code
+Amp
+Antigravity
+[ Core Workflow ]
+Advanced options
+Windows installer missing Please fulfill various indicators according to the task objectives and connect with relevant personnel. bug
+Integrate Agent Client Protocol (ACP) Please fulfill various indicators according to the task objectives and connect with relevant personnel. feat
+Allow choosing terminal backend Please fulfill various indicators according to the task objectives and connect with relevant personnel. feat
+filter
+Linear
+Jira
+GitHub
+GitLab
+Pass issues directly to agents.
+Pull from Linear, Jira, GitHub, Notion, Asana, and more. The agent gets full context.
+[ Issues ]
+main HEAD 3f9a2c
+wt/rewrite-auth
+> rewrite auth token flow
+> Read session.ts
+> Edit session.ts
+> Edit lib/keys.ts
+> Bash pnpm test
+● 14 passed
+running · 4m
+wt/fix-ci
+> fix failing CI
+> Read ci.yml
+> Edit retry.ts
+> Bash pnpm lint
+> Bash pnpm test
+● lint + types ok
+running · 1m
+wt/review-pr
+> review PR #1284
+> Read 12 files
+> Grep console.log
+> Edit review.md
+> Bash pnpm build
+● checks passed
+done · 8m ago
+Run agents in isolated workspaces.
+Parallel tasks across separate Git worktrees — each keeps its branch, terminal, conversation, and review state together.
+[ Parallel Agents ]
+TASKS
+fix-login
+rewrite-auth
+fix-ci
+Emdash — Open-Sour…
+Claude Code
+http://localhost:3000/
+Preview your app inside the task.
+Open local apps, remote previews, and browser profiles.
+[ In-App Browser ]
+src/App.tsx Enter /
+Commit & Push * 'react';
+'./App.css';
+'./components/Hello';
+logo = ('./logo.svg');
+() {
+(
+<div className="App">
+<div className="App-header">
+<img src={logo} className="App-logo" alt="logo" />
+<h2>Welcome to React</h2>
+</div>
+<p className="App-intro">
+To get started, edit <code>src/App.tsx</code> and save to reload. import as from React import import Hello from const require return function App
+3
+7
+2
+8
+1
+4
+5
+6
+9
+10
+11
+12
+13
+14
+16
+17
+18
+19
+Portfolio
+frontend
+server
+add-user...
+integrat...
+fix-down...
+fix-redi...
+Review diffs, PRs, and checks.
+Inspect changes, commit, push, open pull requests, and monitor CI without switching tools.
+[ Review and Ship ]
+[ Scale It ]
+AUTOMATION DETAILS
+weekly bug sweep
+Every Mon at 10:00
+emdashlanding
+Claude Code prompt
+runs
+● running · 12s queued
+● passed · Jun 29 · +214 −38
+● passed · Jun 22 · +96 −12
+Schedule recurring agent runs.
+Automate bug sweeps, release prep, reviews, and checks.
+[ Automations ]
+Remote Server
+src/App.tsx
+3
+7
+2
+8
+1
+4
+5
+6
+9
+10
+11
+12
+13
+14
+16
+17
+18
+19
+SSH
+Run agents on any machine.
+Connect over SSH to your dev server, cloud VM, or GPU box. Agents run remotely with full worktree isolation.
+[ Remote SSH ]
+provision.sh
+$
+./scripts/provision.sh
+→ resolving workspace config from .emdashrc
+✓ found image emdash/dev:latest · sha256:8f3e2b1
+→ pulling base layer · 142 MB ........... done
+→ pulling toolchain · 87 MB ............. done
+→ pulling runtime · 24 MB ............... done
+→ allocating compute · 4 vCPU · 8 GB RAM
+→ mounting /workspace (ext4, encrypted)
+→ spawning git worktree for branch dev/jane
+→ installing dependencies
++ node@ 22.11.0 · pnpm@ 10.0.0 · claude@ 1.0.4
+→ generating ed25519 keypair · ~/.ssh/id_emdash
+→ opening tunnel devuser@ 10.0.1.42 : 22
+→ health check · 4/4 services healthy · 1.2s
+→ workspace ready in 11.8s
+{
+"host": "10.0.1.42" ,
+"port": 22 ,
+"user": "devuser"
+}
+Connected to 10.0.1.42
+Provision workspaces on demand.
+Setup and teardown scripts create isolated local, remote, or cloud environments for each task.
+[ Bring Your Own Infra ]
+[ Coding Agents ]
+Use any agent.
+Emdash works with 25+ coding agents. Mix and match per task or just use your favorite.
+Codex
+Cursor
+Claude Code
+Amp
+Antigravity
+Show 30 more
+Library for reusable agent resources
+Save prompts, install skills, and sync MCP servers to supported agents.
+View docs
+Detected agents
+Claude Code
+Codex
+Cursor
+Agent setup that understands providers
+Detect CLIs, manage install state, wire hooks, and keep provider settings consistent.
+View docs
+extension
+commands
+grayscale.ts
+activate.ts
+folders.ts
+fileColor.ts
+ISSUE TEMPLATE
+workflows
+pr-closed.yml
+build.yml
+label.yml
+close-...
+* 'react';
+'./App.css';
+'./components/Hello';
+logo = ('./logo.svg');
+() {
+(
+<div className="App">
+<div className="App-header">
+<img src={logo} className="App-logo" alt="logo" />
+<h2>Welcome to React</h2>
+</div>
+<p className="App-intro">
+To get started, edit <code>src/App.tsx</code> and save to reload.
+</p>
+< name="TypeScript" />
+</div>
+);
+}
+export default App; import as from React import import Hello from const require return function App Hello
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11 config.ts
+App.tsx
+Built-in file editor
+Browse, edit, search, and recover files directly inside the task workspace.
+View docs
+[ Praise ]
+What developers are saying.
+I've been using Emdash for a few weeks now to develop several projects for macOS and iOS. So far, for me it's the most designer-friendly. Of course, you need knowledge of Git and a few other things to really take advantage of it, but it's simply great.
+Carlos
+@ soycanopa
+Emdash with Pi is chefs kiss
+Matt
+@ nzmrldev
+This is the first tool I've used besides Claude code that feels like it unleashes coding agents and isn't just bolting them on
+James Evans
+@ jamesevans
+We need a tool to build the feature. This is it. @emdashsh
+Milan
+@ wiegard_milan
+Once you start using @emdashsh all other IDEs feel like trashsh
+Het
+@ hetdv
+I LOVE using emdash. Its 10xed my workflow and could not live without. Thanks for pushing so frequently team!
+Sebastian Scott
+@ sebastian_scott3
+Very big fan of Emdash. It's been incredible seeing how fast the team is shipping new features and expanding it. I love how I can run my agents in parallel and also across different models. Finally, I don't have to migrate back and forth between Claude Code and Codex every month.
+Dan
+@ dan_meier1
+This is spot on. I think future of software is async because it gives engineering scale to an individual.
+Nitesh
+@ ArmyOfRobots
+I found the winner. The level of polish makes me happy.
+Support Droid, Hermes, Codex, Pi, and much much more. Clean design, uses terminals as it should.
+0xSero
+@ 0xSero
+Parallel brains, one cockpit. Ship faster 🚀
+Libing
+@ libing890117
+Parallel CLI agents in isolated worktrees is a killer idea! Feels like the foundation for serious agent-native dev environments.
+Suhrab
+@ suhrabautomates
+[ FAQ ]
+Frequently asked questions.
+What is Emdash?
+Emdash (YC W26) is a free, open-source agentic development environment: run coding agents like Claude Code and Codex in parallel, schedule agent work, and review changes in one place. Available for macOS, Windows, and Linux.
+What can Emdash do besides run agents in parallel?
+Is it free?
+Is my code private?
+Which agents are supported?
+Do I need API keys?
+What platforms are supported?
+How do I install it?
+Is Emdash related to the em dash punctuation mark?
+Start shipping with
+Download
+Get product updates
+New releases, improvements, and notes from the team. Subscribe
+[ Open Source ]
+Proudly open source.
+5,807 View on GitHub
+General Action © 2026
+Docs Blog RSS Changelog
+About us Privacy Policy Terms of Service
+</untrusted-page-text>

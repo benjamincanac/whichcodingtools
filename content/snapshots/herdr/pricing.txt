@@ -1,0 +1,188 @@
+# https://herdr.dev
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Herdr: the runtime coding agents run on
+herdr
+Docs
+Plugins
+Blog
+Compare
+40,190
+ink
+paper
+Install
+Docs
+Plugins
+Blog
+Compare
+@herdrdev
+Discord
+Ground
+ink
+paper
+We raised $6M. We’re hiring ↗
+the agent runtime
+Run them anywhere. Leave them running.
+Herdr is where your coding agents live. However many you run, across however many projects, each in its own terminal. Walk away and they keep working. Come back from any machine and they're where you left them.
+$ curl -fsSL https://herdr.dev/install.sh | sh
+copy
+macOS · Linux · Windows · Apache 2.0 — windows, homebrew, nix and manual install →
+New Connecting the machines →
+40,190
+github stars
+1,021,145
+installs to date
+1,297
+community plugins
+22
+agent CLIs detected
+the herd, from a client that isn't there
+click an agent
+spaces
+herdr master
+web-dashboard feat/usage-charts
+data-pipeline backfill/events-v2
+agents grouped
+●
+herdr working · claude
+○
+explore idle · opencode
+◉
+web-dashboard blocked · claude
+●
+data-pipeline done · codex
+opencode herdr +
+▐▛███▜▌
+▝▜█████▛▘
+▘▘ ▝▝
+Claude Code v2.1.198
+Fable 5 with high effort · Claude Max
+~/Projects/herdr/website
+❯ make the herdr.dev hero mock look exactly like real claude code
+● Ha. I read the real pane over the socket — the mock was on v2.1.168, Claude Code is v2.1.198 now. Missing the logo block and the whole rate-limit row.
+● Plan:
+· index.html — swap ✻ for the real ▐▛███▜▌ mark, bump the version
+· css/style.css — coral bypass line, add the 5h / Week bars
+❯ perfect. and make the dialogue about this, obviously
+⠋ Baking… ( 13m 36s · esc to interrupt)
+❯
+~/Projects/herdr/website > master * ↑1 > ctx ──────── 3% 31k/1M
+⏵⏵ bypass permissions on (shift+tab to cycle)
+~/Projects/herdr master
+❯ bun run dev
+$ node scripts/prepare-docs.mjs && astro dev
+02:10:44 [types] Generated 0ms
+02:10:44 [content] Synced content
+astro v5.18.1 ready in 668 ms
+┃ Local http://localhost:4321/
+Network use --host to expose
+02:10:44 watching for file changes...
++ Thought: 468ms
+→ Read src/main.rs
++ Thought: 292ms
+This is src/main.rs — the entry point for herdr . Here's what it does:
+1. Arg parsing — session::configure_from_args , then remote args for the SSH bridge.
+2. Subcommand dispatch — server , client , update — each returns early.
+3. Session mode — auto_detect_launch() connects to a running server or spawns one.
+Build · MiMo V2.5 Free · 16.6s
+Build · MiMo V2.5 Free OpenCode Zen
+25.2K (13%) ctrl+p commands
+claude dev server +
+▐▛███▜▌
+▝▜█████▛▘
+▘▘ ▝▝
+Claude Code v2.1.198
+Fable 5 with high effort · Claude Max
+~/Projects/web-dashboard
+❯ finish the usage chart and ship it to staging
+● Wrote src/components/UsageChart.tsx — stacked area, empty state, and the tooltip you asked for.
+● Typecheck and build are clean, 41.2 kB gzipped. Ready to push to staging.
+Bash command
+bunx wrangler deploy --env staging
+Deploy the dashboard to the staging environment
+Do you want to proceed?
+❯ 1. Yes
+2. No, and tell Claude what to do differently (esc)
+~/Projects/web-dashboard feat/usage-charts
+❯ bun run dev
+VITE v6.3.1 ready in 412 ms
+Local http://localhost:5173/
+02:30:58 hmr update /src/components/UsageChart.tsx
+02:31:04 hmr update /src/styles/chart.css
+02:31:09 page reload src/routes/usage.tsx
+02:31:15 WARN chunk "charts" is 512 kB after minification
+02:31:18 hmr update /src/components/UsageChart.tsx
+02:31:24 hmr update /src/components/Tooltip.tsx
+02:31:33 ✓ built in 1.94s
+codex backfill +
+• Explored
+└ Read jobs/backfill_events.py
+• Ran
+└ uv run pytest tests/test_backfill.py
+└ 14 passed · 0 failed · 41.3s
+• Checkpointing works, so the job resumes from the last committed offset instead of restarting. The backfill in the next tab has been running for six hours and is unaffected by your laptop.
+• Next I can add the p95 lag alert to the nightly run. Want that?
+›
+gpt-5.5 medium · ~/data-pipeline · backfill/events-v2 · Context 6% used
+~/data-pipeline backfill/events-v2
+❯ uv run jobs/backfill_events.py --from 2024-01-01
+connected · batch size 5,000 · checkpoint every 60s
+02:28:41 batch 4,102 ok 20,510,000 rows
+02:29:03 batch 4,103 ok checkpoint written
+02:29:25 batch 4,104 ok
+02:30:07 batch 4,105 ok
+02:30:18 WARN upstream throttled, retrying in 2s
+02:30:42 batch 4,106 ok checkpoint written
+02:31:09 elapsed 6h 12m · 68% complete · eta 2h 54m
+The whole herd in one terminal. Click the sidebar, it's a real layout.
+Three workspaces, four agents, two of them mid-task. Nobody is attached to any of it right now.
+01
+Always running. →
+Herdr isn't an app you keep open. It's a server running in the background, and the terminals live inside it. Close the lid or drop the network and the agents keep working; restart the machine and Herdr brings the layout back and resumes their sessions.
+herdr-server up
+3 workspaces &middot; 4 agents &middot; nobody attached
+02
+You never hunt for the stuck one. →
+Herdr reads every pane and marks each agent working, blocked or idle. When one stops and needs an answer it says so, so you don't go pane by pane looking for whoever is waiting on you.
+web-dashboard blocked
+herdr working
+data-pipeline idle
+03
+Agent-native. →
+The CLI and the socket API are the same surface agents drive. They split panes, start each other, prompt each other, and wait until another agent is genuinely blocked instead of firing keystrokes and hoping.
+$
+04
+Runs what you already run. →
+Claude Code, Codex, Cursor, opencode, Grok and the rest. Herdr doesn't wrap them or replace them, it just owns their terminals — one binary for macOS, Linux, and Windows.
+Claude Code
+Codex
+Pi
+opencode
+Cursor
+Grok
+Copilot
+Hermes
+22 agents detected out of the box
+05
+All your machines. One Herdr. →
+Your laptop, the desktop upstairs, a server you rent. Add them over SSH and their workspaces and agents sit alongside your local ones. Switch machines without opening another client. Disconnect and they keep working.
+$ herdr machine add workbox
+local connected
+workbox connected
+Herdr Cloud coming soon
+Same machines. No SSH setup.
+Connect your own machines to Herdr without configuring SSH. We're building it next.
+Join the waitlist →
+Give them somewhere to live.
+One command, and nothing else about your setup changes — the agent CLIs you already run keep working exactly as they did, except now they don't stop when you do.
+$ curl -fsSL https://herdr.dev/install.sh | sh
+copy
+Windows: irm https://herdr.dev/install.ps1 | iex — endpoint-protected install · all install methods →
+docs
+plugins
+blog
+compare
+built in the terminal · © 2026 Herdr, Inc.
+v0.9.1 · Apache 2.0
+[email protected]
+</untrusted-page-text>
