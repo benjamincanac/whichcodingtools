@@ -71,10 +71,10 @@ pricing:
 status: active
 sources:
   - url: https://opencode.ai/docs/go
-    verified_at: 2026-08-23
+    verified_at: 2026-09-24
     covers: [pricing]
   - url: https://opencode.ai/docs/zen
-    verified_at: 2026-08-23
+    verified_at: 2026-09-24
     covers: [pricing, models]
   - url: https://opencode.ai/docs/providers
     verified_at: 2026-08-23

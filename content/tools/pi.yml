@@ -36,7 +36,7 @@ pricing:
 status: active
 sources:
   - url: https://github.com/earendil-works/pi/blob/main/packages/coding-agent/README.md
-    verified_at: 2026-08-23
+    verified_at: 2026-09-24
     covers: [pricing, models, features, platforms, license]
   - url: https://pi.dev
     verified_at: 2026-08-23

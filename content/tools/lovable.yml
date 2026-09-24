@@ -73,10 +73,10 @@ pricing:
 status: active
 sources:
   - url: https://lovable.dev/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-24
     covers: [pricing]
   - url: https://docs.lovable.dev/introduction/subscription-plans
-    verified_at: 2026-08-23
+    verified_at: 2026-09-24
     covers: [pricing]
   - url: https://docs.lovable.dev/integrations/desktop-app
     verified_at: 2026-08-23
