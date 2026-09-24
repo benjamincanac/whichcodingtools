@@ -75,10 +75,10 @@ pricing:
 status: active
 sources:
   - url: https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus
-    verified_at: 2026-08-23
+    verified_at: 2026-09-24
     covers: [pricing, models]
   - url: https://help.manus.im/en/articles/11711097-what-are-the-rules-for-credits-consumption-and-how-can-i-obtain-them
-    verified_at: 2026-08-23
+    verified_at: 2026-09-24
     covers: [pricing]
   - url: https://help.manus.im/en/articles/14089011-how-to-download-the-manus-desktop-app
     verified_at: 2026-08-23

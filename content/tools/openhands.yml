@@ -70,7 +70,7 @@ pricing:
 status: active
 sources:
   - url: https://all-hands.dev/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-24
     covers: [pricing, models]
   - url: https://github.com/OpenHands/OpenHands
     verified_at: 2026-08-23
