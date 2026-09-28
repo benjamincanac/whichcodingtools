@@ -90,10 +90,10 @@ pricing:
 status: active
 sources:
   - url: https://docs.qoder.com/account/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-09-28
     covers: [pricing]
   - url: https://docs.qoder.com/events/pricing-adjustment-notice
-    verified_at: 2026-08-23
+    verified_at: 2026-09-28
     covers: [pricing]
   - url: https://docs.qoder.com/user-guide/chat/custom-models
     verified_at: 2026-08-23
