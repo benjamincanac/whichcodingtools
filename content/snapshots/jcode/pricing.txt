@@ -22,13 +22,21 @@ $50
 $100
 $200
 $1,000
-The subscription stays $10/month. This selection limits additional monthly usage and can be changed later in your account.
+Most you can be billed in a month $110
+$10 subscription + up to $100 of usage beyond your $20 credit. That covers up to $120 of usage at API prices.
+The subscription stays $10/month on every option. The cap only limits usage billed after your credit, and you can change it later in your account.
 Subscription Recurring $10 charge each month while subscribed.
-Monthly credit Every successful $10 payment grants $20 of inference credit, making the first $20 of usage effectively 50% off provider API pricing. Fresh credit arrives each month and does not accumulate.
-Usage price The credit is applied first. After it is used, inference is billed by usage at 10% off provider API prices (90% of the API price), in addition to the monthly subscription.
-Hard cap Defaults to $100 per UTC month. Lower it to $0 or raise it without a product-defined maximum. New usage stops at the cap.
-Email warnings Start at $20 of monthly usage, then double to $40, $80, and onward for thresholds at or below your cap.
-Subscribe for $10/month
+Monthly credit Every successful $10 payment grants $20 of inference credit, so your first $20 of usage each month costs you $10. Fresh credit arrives each month and does not accumulate.
+Usage price The credit is applied first. After it is used, inference is billed by usage at provider API prices, in addition to the monthly subscription.
+Hard cap $100 of usage per UTC month after your credit. New usage stops at the cap. Lower it to $0 or raise it later without a product-defined maximum.
+Email warnings Sent at $20, $40, and $80 of monthly usage.
+Subscribe for $10/month · $100 cap
+Email for your Jcode account
+Continue
+We email you a 6-digit code. No password, and you stay on this page.
+Code sent to
+Go to checkout
+Next is secure Stripe checkout. If you use Link, your saved card fills in automatically. Use a different email
 Enterprise
 Custom for your organization
 For teams that need Jcode to fit their infrastructure, controls, and purchasing process.
@@ -36,29 +44,29 @@ Centralized billing and usage management
 Deployment and integration guidance
 Security and procurement review
 Priority support
-Contact enterprise sales
+Contact about enterprise
 Live model access
-This availability list comes directly from the Jcode router. Your monthly credit is applied first; usage beyond it is billed at 10% off provider API prices (90% of the API price) and metered against your hard cap.
+This availability list comes directly from the Jcode router. Your monthly credit is applied first; usage beyond it is billed at provider API prices and metered against your hard cap.
 Loading the live router catalog…
 retry
 Model
 Provider
 Availability
 Loading current model access…
-Every recurring $10 monthly payment grants $20 of inference credit, making that first $20 of usage effectively 50% off provider API pricing.
-Metered inference beyond the credit is billed at 10% off provider API prices (90% of the API price), with warning
+Every recurring $10 monthly payment grants $20 of inference credit.
+Metered inference beyond the credit is billed at provider API prices, with warning
 emails as usage grows and a hard stop at your monthly cap.
 Questions
 Is Jcode free?
 Yes. Jcode is free and open source under the MIT license, with no feature gates. Bring your own API keys, use supported OAuth subscriptions, or run local models.
 What am I agreeing to when I subscribe?
-Stripe charges $10 every month while you are subscribed. Every successful monthly payment grants $20 of inference credit, making the first $20 of usage effectively 50% off provider API pricing. The credit is applied first, then inference moves to usage-based billing at 10% off provider API prices (90% of the API price) in addition to the subscription.
+Stripe charges $10 every month while you are subscribed. Every successful monthly payment grants $20 of inference credit, so your first $20 of usage each month costs you $10. The credit is applied first, then inference moves to usage-based billing at provider API prices in addition to the subscription.
 How does the monthly hard cap work?
-It defaults to $100 per UTC month. You can lower it to $0 or raise it without a product-defined maximum. New hosted-model usage stops at the cap, and changing it does not erase usage already incurred. Warning emails start at $20 of usage and double to $40, $80, and later thresholds at or below the cap.
+The cap limits usage billed after your $20 credit, so the most you can be charged in a month is $10 plus your cap. Pick $10, $20, $50, $100, $200, or $1,000 when you subscribe (the default is $100), then set any amount in your account, from $0 with no product-defined maximum. New hosted-model usage stops at the cap, and changing it does not erase usage already incurred. Warning emails start at $20 of usage and double to $40, $80, and so on as usage grows.
 Can I keep using Jcode without hosted models?
 Yes. You can keep using your own provider credentials, supported OAuth access, or local models without activating hosted inference.
 Do you offer plans for organizations?
-Yes. Enterprise plans can include centralized billing and usage management, deployment and integration guidance, security and procurement review, and priority support. Contact enterprise sales to discuss your requirements.
+Yes. Enterprise plans can include centralized billing and usage management, deployment and integration guidance, security and procurement review, and priority support. Contact us about enterprise to discuss your requirements.
 &larr; back to jcode
 Solo Systems
 support
