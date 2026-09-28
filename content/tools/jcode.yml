@@ -50,9 +50,10 @@ pricing:
         notes: Every successful monthly payment grants $20 of inference credit, which does not accumulate.
       overage:
         kind: api-list
-        notes: Past the credit, inference is billed at 90 percent of the provider API price, on top of the subscription.
+        notes: Past the credit, inference is billed at the provider API price, on top of the subscription.
       limits:
-        - Monthly hard cap defaults to $100 per UTC month, lower it to $0 or raise it with no product maximum
+        - Monthly hard cap on usage after the credit, defaults to $100 per UTC month; other presets run $20, $50, $200 and $1,000, or a preset equal to the subscription price, or set any amount from $0 with no product maximum
+        - Most you can be billed in a month is $110 total, the subscription plus up to $100 of usage past the credit
         - Warning emails start at $20 of monthly usage and double from there
     - id: enterprise
       name: Enterprise
@@ -66,7 +67,7 @@ pricing:
 status: active
 sources:
   - url: https://jcode.sh/pricing
-    verified_at: 2026-09-04
+    verified_at: 2026-09-28
     covers: [pricing, license, general]
   - url: https://github.com/1jehuang/jcode
     verified_at: 2026-09-04
