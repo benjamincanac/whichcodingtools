@@ -62,11 +62,11 @@ pricing:
       audience: enterprise
       limits:
         - Self-hosting in your own infrastructure, SSO and SAML, GitHub Enterprise support
-  notes: A standard review costs 1 credit, a TREX test generation review costs 3. No annual price is published.
+  notes: A Base review costs 1 credit, a Plus review costs 3 and an Apex review costs 10. No annual price is published.
 status: active
 sources:
   - url: https://www.greptile.com/pricing
-    verified_at: 2026-09-18
+    verified_at: 2026-09-28
     covers: [pricing]
   - url: https://www.greptile.com
     verified_at: 2026-08-24

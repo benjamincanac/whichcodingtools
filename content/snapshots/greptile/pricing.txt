@@ -18,7 +18,7 @@ Docs
 Comprehensive documentation and guides
 Greptile Examples
 See Greptile catching bugs in large OS repos.
-Contact Sales
+Contact sales
 Schedule a demo with our team
 Customers
 Success stories and case studies
@@ -26,7 +26,7 @@ Benchmarks
 Performance metrics and comparisons
 Security
 Security practices and compliance
-GREPTILE PRICING
+Greptile Pricing
 Start 14 day free trial
 Starter
 Best for individual developers
@@ -55,7 +55,9 @@ Talk to sales
 Everything in Pro, plus
 Self-host in your own infrastructure
 SSO and SAML
-GitHub Enterprise support
+GitHub Enterprise Server and Enterprise Cloud with data residency
+GitLab Self-Managed, Bitbucket Data Center, and Gitea
+Perforce with P4 Code Review for on-premises deployments
 Security and compliance reviews
 Dedicated Slack support channel
 Custom invoicing and payment terms
@@ -87,31 +89,27 @@ Unlimited integrations
 Everything in Pro, plus
 Self-host in your own infrastructure
 SSO and SAML
-GitHub Enterprise support
+GitHub Enterprise Server and Enterprise Cloud with data residency
+GitLab Self-Managed, Bitbucket Data Center, and Gitea
+Perforce with P4 Code Review for on-premises deployments
 Security and compliance reviews
 Dedicated Slack support channel
 Custom invoicing and payment terms
 Custom DPA and terms of service
-How credits work
-Review Credits What it does
-Standard review
-1
-Reviews your PR for bugs, style, and codebase context.
-TREX review
-3
-Writes and runs targeted tests in a sandbox to catch missed edge cases.
-Credits reset monthly and don't roll over.
 [ OPEN SOURCE ]
 Free for OSS projects
 Greptile is free for qualified non-commercial projects with MIT or Apache licenses.
 Apply for OSS
 [ STARTUP DISCOUNT ]
 50% off for early-stage startups
-Pre-Series A startups with under $2M revenue in the past 12 months get 50% off Greptile.
+Pre-Series A startups with under $2M revenue in the past 12 months qualify for a 50% discount.
 Apply for startup discount
 FAQ
-How does pricing work for the code review bot?
-Starter is free for one active developer and includes unlimited repositories and 50 credits per month. Pro is $30 per seat per month and includes 50 credits per seat. One standard review uses 1 credit, one TREX review uses 3 credits, and additional credits are $1 each.
+How does pricing work?
+Starter is free for one active developer and includes unlimited repositories and 50 credits per month. Pro is $30 per seat per month and includes 50 credits per seat. Additional credits are $1 each.
+Base review: 1 credit
+Plus review: 3 credits
+Apex review: 10 credits
 Can I prepay for a discount?
 We offer custom pricing for annual and multi-year contracts. Let's chat
 .
