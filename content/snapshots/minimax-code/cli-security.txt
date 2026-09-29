@@ -1,0 +1,96 @@
+# https://agent.minimax.io/docs/cli/security
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Security and permissions - MiniMax Agent Docs
+Documentation Index
+Fetch the complete documentation index at: /docs/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+MiniMax Agent Docs home page
+Search... ⌘ K
+Get Started
+Search...
+Navigation
+Security and permissions
+MiniMax Code
+CLI
+Changelog
+Tech Blog
+Quick Start
+Features and configuration
+Workflows
+Configuration and models
+Headless and CI
+ACP integration
+Command reference
+Security and permissions
+Troubleshooting
+On this page
+Permission modes
+TUI
+Headless
+Plan Mode is separate
+Recommended safety baseline
+Interactive development
+CI and batch jobs
+Protect credentials
+Workspace and data directory
+Protocol boundaries
+Security and permissions
+Understand MiniMax Code CLI permission modes, credential protection, and automation boundaries.
+An Agent can read files, modify a workspace, and run terminal commands. Choose a permission policy before running, and give automated tasks explicit workspace, model, timeout, and step boundaries.
+​
+Permission modes
+​
+TUI
+Mode Behavior Use
+Ask Request interactive confirmation for tool actions /permission ask
+Auto Classify routine actions and ask when risk is high /permission auto
+Full access Skip normal permission checks /permission full
+Off Disable permission mode permissionMode: off Use Alt+M to switch Ask, Auto, and Full access in the TUI. Run /permission status to inspect the current mode.
+​
+Headless Headless uses CLI policy names:
+mcode exec --permission smart "Run the tests"
+mcode exec --permission full "Complete the migration in an isolated workspace"
+mcode exec --permission off "Run a controlled batch job"
+smart corresponds to TUI Auto. Headless does not support ask because it has no human approval surface; use the TUI or ACP when a person must approve an action.
+​
+Plan Mode is separate Plan Mode controls whether the agent plans before execution. Permission mode controls how tool actions are approved:
+/plan on
+/permission ask
+An active plan does not change the permission policy for the execution phase. Auto or Full access can still be combined with Plan Mode when you want to review scope first.
+​
+Recommended safety baseline
+​
+Interactive development
+Use Ask or Auto by default.
+Check paths and commands before deletion, bulk writes, or external requests.
+Run mcode init . in an unfamiliar repository and review its AGENTS.md .
+Use /status , /doctor , and /context to inspect account, configuration, and context state.
+Inspect the diff and run relevant tests before accepting the result.
+​
+CI and batch jobs
+Set an explicit --cwd ; do not depend on the caller’s current directory.
+Set --timeout and --max-steps to bound execution.
+Use --permission full or off only in an isolated workspace.
+Use --output-format json or stream-json ; do not infer status from human-readable text.
+Check both the process exit code and the JSON status .
+Preserve stdout and stderr separately so diagnostics cannot corrupt machine output.
+​
+Protect credentials Provider API keys are read from environment variables:
+export MCODE_PROVIDER_API_KEY = "..."
+mcode provider set-minimax-key
+Do not put keys in a repository, AGENTS.md , prompts, screenshots, or CI logs. Login callback URLs can contain temporary credentials and must not be shared or committed. mcode provider list shows only managed-login or masked-key status.
+​
+Workspace and data directory The default data root is ~/.minimax ; use MINIMAX_DATA_DIR to select another directory:
+export MINIMAX_DATA_DIR = / path / to / mcode-data
+Use separate data directories on remote hosts, shared machines, and CI runners so accounts do not share sessions, logs, or provider configuration.
+​
+Protocol boundaries
+ACP stdout is reserved for protocol messages; logs go to stderr.
+mcode exec fails on pending questionnaires or permission requests instead of bypassing interaction.
+Browser and Computer Use are desktop-host capabilities and are not automatically available in the CLI.
+Command reference
+Troubleshooting
+discord x linkedin github
+</untrusted-page-text>

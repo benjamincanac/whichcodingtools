@@ -1,0 +1,145 @@
+# https://agent.minimax.io/docs/code/agents/plugins
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Plugin Marketplace - MiniMax Agent Docs
+Documentation Index
+Fetch the complete documentation index at: /docs/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+MiniMax Agent Docs home page
+Search... ⌘ K
+Get Started
+Search...
+Navigation
+Agent Capabilities
+Plugin Marketplace
+MiniMax Code
+CLI
+Changelog
+Tech Blog
+Get Started
+Welcome
+Download and Install
+Create Your First Task
+Core Workflows
+Coding and Work Modes
+Workspace and Project Context
+Tasks and History
+Conversation Collaboration
+Code Review
+Permissions and Safety
+Desktop Features
+Infinite Canvas
+Goal
+Built-in Browser
+Developer Panels
+Shortcuts and Mini Window
+Updates and Feedback
+Agent Capabilities
+Agent Team
+Custom Agents
+Custom Mini Apps
+H3 Max Video Generation
+Plugin Marketplace
+MCP Servers
+Memory
+Automation & Remote
+Scheduled Tasks
+Remote Control
+Messaging Integrations
+Models & Account
+Token Plan and Credits
+MiniMax API Key
+Custom Models / BYOK
+Agent Setup Guide
+Help
+FAQ
+Feedback
+On this page
+Initial Plugins
+Red Skill Search
+What a Plugin Can Include
+How to Use Plugins
+Submit a Plugin
+Agent Capabilities
+Plugin Marketplace
+Install and use domain plugins in MiniMax Code.
+The plugin marketplace brings domain-specific capabilities into MiniMax Code. Install plugins when a task needs specialized tools for financial data, company lookup, legal search, knowledge workflows, or Office file processing.
+​
+Initial Plugins Initial plugins include paid Hundsun financial data, Qichacha, EverMe, PKUlaw, and Office apps. Different plugins support different tasks:
+Financial data lookup and analysis
+Company information search
+Legal material search
+Knowledge organization and long-term capture
+Office document, spreadsheet, and presentation workflows
+Recent additions also include WPS and WeCom plugins, making office collaboration and enterprise communication easier to plug into MiniMax Code.
+​
+Red Skill Search MiniMax Code also supports Red Skill search, so you can search popular Xiaohongshu skills and reuse common social-content workflows or templates.
+​
+What a Plugin Can Include A plugin can include one capability, or combine multiple capabilities. Common capability types include:
+Capability Use case How to add it
+Skill Give the Agent domain knowledge, workflows, and usage guidance Add skills/<skill-name>/SKILL.md to the plugin package
+MCP Provide local or remote MCP tools that do not require MiniMax-managed user authorization Add and reference *.mcp.json in the plugin package
+App Require account connection, OAuth authorization, credential refresh, or disconnect flows Contact MiniMax first to complete Connector integration, then use the provider confirmed by MiniMax
+Do not include OAuth tokens, access tokens, refresh tokens, client secrets, API keys, or user credentials in a plugin package. Capabilities that require a user account or user authorization should use App / Connector integration.
+​
+How to Use Plugins
+1
+Open the marketplace
+Open the plugin marketplace in MiniMax Code, then browse recommended plugins or search by keyword.
+2
+Review plugin details
+Open a plugin detail page to confirm capabilities, use cases, and whether authorization or a subscription is required.
+3
+Install and connect
+Follow the page guidance to install. For plugins that need an account, key, or third-party authorization, confirm the source and permissions before connecting.
+4
+Use it in a task
+Describe the capability you need in the conversation. The Agent can choose the relevant plugin when it needs to query, process, or generate results.
+Plugin capabilities, costs, and data sources follow the plugin detail page and the corresponding service provider’s rules.
+​
+Submit a Plugin Developers can submit plugins through a ZIP package or a public GitHub repository. A GitHub source can specify a branch, tag, commit, or plugin subdirectory. The ZIP root or selected GitHub directory must directly contain .minimax-plugin/plugin.json .
+Plugin Submission Form
+Submit a new plugin or update an existing plugin.
+Plugin Submission Status
+Check progress with the original Feishu account, submission_id, and submission email. When submitting a plugin, you can choose where it is enabled:
+Desktop: MiniMax Code
+Cloud: MiniMax Agent
+Both desktop and cloud
+Enabled surfaces and target regions (CN / US) are separate dimensions. They are managed by the Marketplace catalog and are not written into the package plugin.json . Standard directory example:
+acme-research/
+.minimax-plugin/
+plugin.json
+icon.png
+research.mcp.json
+skills/
+literature-review/
+SKILL.md
+plugin.json is the plugin entry point. Keep unused capability arrays as empty arrays:
+{
+"schemaVersion" : 1 ,
+"name" : "acme-research" ,
+"displayName" : "Acme Research Assistant" ,
+"version" : "1.0.0" ,
+"description" : "Search research materials and generate structured reviews." ,
+"author" : "Acme" ,
+"icon" : "icon.png" ,
+"category" : "Science & Healthcare" ,
+"exampleQueries" : [
+"Search recent studies and summarize the main findings" ,
+"Create a literature review from these materials"
+],
+"apps" : [],
+"mcpServers" : [ "research.mcp.json" ],
+"skills" : [ "skills/literature-review/SKILL.md" ]
+}
+Before submitting, confirm that:
+The package includes at least one capability, and every App, MCP, and Skill file is referenced by plugin.json .
+name uses a lowercase machine name, and version is increased whenever package content changes.
+The icon, name, description, category, and example queries are production-ready.
+Skill frontmatter is complete, and MCP endpoints or commands have been verified.
+The package does not include secrets, personal data, install scripts, symlinks, platform-specific native binaries, or files that depend on executable bits.
+H3 Max Video Generation
+MCP Servers
+discord x linkedin github
+</untrusted-page-text>

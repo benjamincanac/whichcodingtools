@@ -1,0 +1,124 @@
+slug: minimax-code
+name: MiniMax Code
+description: MiniMax's open source terminal coding agent, with ACP and headless modes. A closed-source desktop companion app adds Agent Team, memory and scheduled tasks.
+layer: harness
+secondary_layers: [app]
+vendor: MiniMax
+homepage: https://agent.minimax.io/download
+links:
+  docs: https://agent.minimax.io/docs/code/welcome
+  pricing: https://platform.minimax.io/subscribe/token-plan
+  changelog: https://agent.minimax.io/docs/changelog
+  repo: https://github.com/MiniMax-AI/minimax-code
+icon: i-simple-icons-minimax
+platforms: [macos, linux, windows]
+install:
+  - method: curl
+    command: curl -fsSL https://filecdn.minimax.chat/public/install.sh | bash
+  - method: npm
+    command: npm install -g @minimax-ai/code
+  - method: download
+    url: https://agent.minimax.io/download
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/MiniMax-AI/minimax-code
+  notes: 'The repo README: "First-party code defaults to MIT" and "The published source covers the terminal TUI, headless CLI, and ACP; it does not include the desktop application''s source." The desktop app is a separate binary distributed from agent.minimax.io/download.'
+models:
+  providers: [minimax]
+  byok: full
+  local: false
+  notes: Runs directly on a MiniMax Token Plan subscription by default, no API key required. BYOK does not require a MiniMax login either, a custom provider can be added over an openai-completions, openai-responses or anthropic-messages compatible endpoint.
+features: [subagents, mcp-client, acp-agent, plugins, scheduled-tasks, mobile-companion, browser-automation, diff-review, checkpoints]
+pricing:
+  tiers:
+    - id: plus
+      name: Plus
+      price: 20
+      audience: individual
+      limits:
+        - Runs 3-4 concurrent agents
+        - "Page lists \"Daily coding calls\": ~34,000, assuming ~50K tokens per M3 call"
+        - "~1.7B tokens a month of M3 usage, shared across text, image and speech (vendor estimate)"
+        - No video generation on this tier
+      notes: Billed annually, the page lists $220/year for Plus alongside $264/year.
+    - id: max
+      name: Max
+      price: 50
+      audience: individual
+      limits:
+        - Runs 4-5 concurrent agents
+        - "Page lists \"Daily coding calls\": ~102,000, assuming ~50K tokens per M3 call"
+        - "~5.1B tokens a month of M3 usage, shared across text, image and speech (vendor estimate)"
+        - Hailuo 2.3 video generation, 3 clips a day
+      notes: Billed annually, the page lists $550/year for Max alongside $648/year.
+    - id: ultra
+      name: Ultra
+      price: 120
+      audience: individual
+      limits:
+        - Runs 6-7 concurrent agents
+        - "Page lists \"Daily coding calls\": ~250,000, assuming ~50K tokens per M3 call"
+        - "~12.5B tokens a month of M3 usage, shared across text, image and speech (vendor estimate)"
+        - Hailuo 2.3 video generation, 5 clips a day
+      notes: Billed annually, the page lists $1,320/year for Ultra alongside $1,560/year.
+  notes: MiniMax Code, desktop and CLI, runs on the Token Plan with no separate API key required. The page also states Token Plan is closing to new purchases once M Plan launches; existing auto-renew subscriptions continue. One-time credit packs are also sold, Starter $5 for 5,000 credits, Growth $25 for 25,000 credits, High Volume $100 for 100,000 credits.
+status: active
+sources:
+  - url: https://agent.minimax.io/docs/code/welcome
+    verified_at: 2026-09-29
+    covers: [general, features]
+  - url: https://agent.minimax.io/docs/cli/quick-start
+    verified_at: 2026-09-29
+    covers: [general, platforms, models]
+  - url: https://agent.minimax.io/docs/cli/features
+    verified_at: 2026-09-29
+    covers: [features, models]
+  - url: https://agent.minimax.io/docs/cli/security
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://agent.minimax.io/download
+    verified_at: 2026-09-29
+    covers: [general, platforms]
+  - url: https://agent.minimax.io/docs/code/get-started/download
+    verified_at: 2026-09-29
+    covers: [platforms]
+  - url: https://agent.minimax.io/docs/code/agents/team
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://agent.minimax.io/docs/code/agents/custom-agents
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://agent.minimax.io/docs/code/agents/mcp
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://agent.minimax.io/docs/code/agents/plugins
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://agent.minimax.io/docs/code/agents/memory
+    verified_at: 2026-09-29
+    covers: [general]
+  - url: https://agent.minimax.io/docs/code/automation/schedules
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://agent.minimax.io/docs/code/automation/remote-control
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://agent.minimax.io/docs/code/desktop/browser
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://agent.minimax.io/docs/code/workflows/code-review
+    verified_at: 2026-09-29
+    covers: [features]
+  - url: https://platform.minimax.io/subscribe/token-plan
+    verified_at: 2026-09-29
+    covers: [pricing]
+  - url: https://raw.githubusercontent.com/MiniMax-AI/minimax-code/main/README.md
+    verified_at: 2026-09-29
+    covers: [license, models, features]
+  - url: https://raw.githubusercontent.com/MiniMax-AI/minimax-code/main/LICENSE
+    verified_at: 2026-09-29
+    covers: [license]
+  - url: https://registry.npmjs.org/@minimax-ai/code
+    verified_at: 2026-09-29
+    covers: [license]

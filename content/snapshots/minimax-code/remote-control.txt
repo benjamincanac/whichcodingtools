@@ -1,0 +1,76 @@
+# https://agent.minimax.io/docs/code/automation/remote-control
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Remote Control - MiniMax Agent Docs
+Documentation Index
+Fetch the complete documentation index at: /docs/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+MiniMax Agent Docs home page
+Search... ⌘ K
+Get Started
+Search...
+Navigation
+Automation & Remote
+Remote Control
+MiniMax Code
+CLI
+Changelog
+Tech Blog
+Get Started
+Welcome
+Download and Install
+Create Your First Task
+Core Workflows
+Coding and Work Modes
+Workspace and Project Context
+Tasks and History
+Conversation Collaboration
+Code Review
+Permissions and Safety
+Desktop Features
+Infinite Canvas
+Goal
+Built-in Browser
+Developer Panels
+Shortcuts and Mini Window
+Updates and Feedback
+Agent Capabilities
+Agent Team
+Custom Agents
+Custom Mini Apps
+H3 Max Video Generation
+Plugin Marketplace
+MCP Servers
+Memory
+Automation & Remote
+Scheduled Tasks
+Remote Control
+Messaging Integrations
+Models & Account
+Token Plan and Credits
+MiniMax API Key
+Custom Models / BYOK
+Agent Setup Guide
+Help
+FAQ
+Feedback
+On this page
+What You Can Do
+How to Use
+Automation & Remote
+Remote Control
+Connect to your desktop Agent from your phone to check progress, add instructions, and approve permissions.
+Remote Control lets you connect to a running MiniMax Code desktop app from your phone. It is designed for following long tasks after you leave your computer.
+​
+What You Can Do
+Check task progress
+Send follow-up instructions
+Approve permission requests
+View task outputs and selected file content
+​
+How to Use Open Remote Control in the desktop app and follow the pairing instructions. Once connected, your phone can stay linked to the desktop conversation.
+Scheduled Tasks
+Messaging Integrations
+discord x linkedin github
+</untrusted-page-text>

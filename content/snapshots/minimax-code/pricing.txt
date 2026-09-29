@@ -1,0 +1,167 @@
+# https://platform.minimax.io/subscribe/token-plan
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Documentation
+Pricing
+Console
+Sign Up
+API Pricing
+Token Plan
+M Plan Is Coming Soon
+M Plan builds on Token Plan and takes it further. Your price and text usage limits stay the same, and select tiers include access to the full MiniMax model lineup, including H3. Token Plan will no longer be available for new purchases. If you're already subscribed with auto-renew on, your current plan won't change, and you can upgrade to M Plan anytime to unlock more.
+Token
+Plan
+Built for individual developers, Coding users, and daily productivity — a shared multimodal quota at
+the lowest unit price, perfect for long-running, high-frequency text and code workloads.
+OFFICIAL
+MiniMax Code
+MiniMax Code (the official AI agent) runs directly on your Token Plan. Works right out of the box, no API keys needed.
+MiniMax Code Desktop
+›
+MiniMax Code Web
+›
+DIY
+Use it with your own tools
+Grab your sk-cp key and drop it into OpenClaw / Claude Code / Cline — or any OpenAI-compatible tool — to integrate into your workflow.
+Get API Key
+Yearly
+2 months free
+Monthly
+Plus
+-$44
+$264
+$
+220
+Per year, billed annually
+Purchase
+~1.7B tokens / month of M3 usage
+?
+Access to the MiniMax model family (M3 / M2.7 / image / speech)
+Run 3–4 concurrent agents
+Integrates with popular coding tools, with more on the way
+1M context window — built for long documents and large codebases
+Native multimodal understanding: image and video input
+Text, image and speech share one quota
+Max
+POPULAR 🔥
+$648
+$
+550
+Per year, billed annually
+Purchase
+~5.1B tokens / month of M3 usage
+?
+Access to the MiniMax model family (M3 / M2.7 / image / speech)
+Run 4–5 concurrent agents
+Integrates with popular coding tools, with more on the way
+1M context window — built for long documents and large codebases
+Native multimodal understanding: image and video input
+Text, image and speech share one quota
+Hailuo 2.3 video generation: 3 clips / day
+Ultra
+-$240
+$1,560
+$
+1,320
+Per year, billed annually
+Purchase
+~12.5 B tokens / month of M3 usage
+?
+Access to the MiniMax model family (M3 / M2.7 / image / speech)
+Run 6–7 concurrent agents
+Integrates with popular coding tools, with more on the way
+1M context window — built for long documents and large codebases
+Native multimodal understanding: image and video input
+Text, image and speech share one quota
+Hailuo 2.3 video generation: 5 clips / day
+All models in the Music series will be discontinued. Starting August 20, 2026, music models will no longer be available through Token Plan. Thank you for your support and understanding. If you still need to use them, visit the Audio, or access the open-source models on Hugging Face – MiniMaxAI/MiniMax-Music3.
+Which plan fits you?
+Compare monthly tokens, agent concurrency, and media generation quotas to pick the right plan
+Subscription Plan
+Plus
+$20 / mo
+Max
+$50 / mo
+Ultra
+$120 / mo
+Best for
+Bring M3 into your daily workflow. Built for daily professional work — best value. For heavy daily use and team workloads — with room to scale.
+Daily coding calls
+Estimated assuming ~50K tokens per M3 call (monthly)
+~34,000 calls ~102,000 calls ~250,000 calls
+OpenClaw Agent concurrency
+3-4 4-5 6-7
+Large codebase continuous editing
+Medium-large projects Large projects Extra-large / multi-project
+Multimodal understanding (image / video input)
+✓ ✓ ✓
+Image generation
+✓ ✓ ✓
+Voice generation
+✓ ✓ ✓
+Video generation
+× 3 / day 5 / day
+MiniMax Code Desktop
+✓ ✓ ✓
+MiniMax Code Web
+✓ ✓ ✓
+M2.7 calls (reference)
+Shares quota with M3 · estimated calls per 5-hour window if using M2.7 only
+4,500 / 5 hours 15,000 / 5 hours 29,077 / 5 hours
+M2.7-highspeed calls (reference)
+Shares quota with M3 · estimated calls per 5-hour window if using M2.7-highspeed only
+2,250 / 5 hours 7,500 / 5 hours 14,538 / 5 hours
+CREDITS
+Buy credits
+Credits are valid for one year from purchase.
+Starter
+$5
+5,000 credits
+Purchase Now
+Growth
+$25
+25,000 credits
+Purchase Now
+High Volume
+$100
+100,000 credits
+Purchase Now
+Important: For information about invoices, taxes, and other key terms governing your use of our services, please review our MiniMax Platform Paid Service Terms | Contact Us
+Use with Coding Tools
+10+ tools integrated, all-in-one development
+quick start →
+MCP Tools
+Exclusive MCP tools for AI coding scenarios
+01/Web_search
+Perform web searches based on search queries
+Read More
+02/Understand_image
+Perform image understanding and analysis
+Read More
+FAQs
+Common questions about Token Plan benefits, features, and usage
+Model
+MiniMax M3
+MiniMax M2.7
+MiniMax M2.5
+MiniMax H3
+MiniMax Speech 2.8
+MiniMax Music 3.0
+Product
+MiniMax Code
+MiniMax Design
+Audio
+Talkie
+API
+Developer Docs
+Token Plan
+Pricing
+Console Login
+Status
+Company
+About Us
+News
+Investor Relations
+Careers
+© 2026 MiniMax
+</untrusted-page-text>
