@@ -8,7 +8,7 @@ links:
   docs: https://agent-manager.dev/docs/
   changelog: https://github.com/YoanWai/agent-manager/releases
   repo: https://github.com/YoanWai/agent-manager
-platforms: [macos, linux]
+platforms: [macos, linux, windows]
 install:
   - method: brew
     command: brew install agent-manager
@@ -27,7 +27,7 @@ license:
 models:
   byok: full
   local: false
-  notes: Inherits whatever the wrapped agent is signed in with. Each session launches the installed CLI as-is, with its own login, subscription, config files and MCP servers.
+  notes: Inherits whatever the wrapped agent is signed in with. Each session launches the installed CLI as-is, with its own login, subscription, config files and MCP servers. Windows runs inside WSL2.
 features: [parallel-agents, worktrees, diff-review, subagents]
 wraps:
   - tool: claude-code
@@ -71,7 +71,7 @@ pricing:
       audience: individual
       limits:
         - You pay the agent or model provider you sign in with
-  notes: Windows runs inside WSL2. Muse Code gets status detection too.
+  notes: Muse Code gets status detection too.
 status: preview
 sources:
   - url: https://github.com/YoanWai/agent-manager
