@@ -4,10 +4,10 @@ description: Factory's Droid agent runs from the terminal, a desktop app, the we
 layer: cloud
 secondary_layers: [harness, app]
 vendor: Factory
-homepage: https://factory.ai
+homepage: https://factory.com
 links:
   docs: https://docs.factory.ai
-  pricing: https://factory.ai/pricing
+  pricing: https://factory.com/pricing
 platforms: [macos, linux, windows, web]
 install:
   - method: curl
@@ -71,7 +71,7 @@ pricing:
       contact_sales: true
       audience: team
       limits:
-        - Up to 150 seats, custom usage limits, SSO, SAML/SCIM, zero data retention
+        - Custom usage limits, SSO, SAML/SCIM, zero data retention
     - id: enterprise
       name: Enterprise
       price: null
@@ -82,8 +82,8 @@ pricing:
   notes: Usage is counted in Factory Standard Credits with a per-model multiplier. Organization plans use contract limits instead of the rolling rate limits.
 status: active
 sources:
-  - url: https://factory.ai/pricing
-    verified_at: 2026-09-19
+  - url: https://factory.com/pricing
+    verified_at: 2026-10-02
     covers: [pricing]
   - url: https://docs.factory.ai/pricing/individuals
     verified_at: 2026-09-19
