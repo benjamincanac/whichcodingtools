@@ -353,16 +353,18 @@ const MAX_COMMENT_PAGES = 10
  *
  * Two endpoints, because a reply to an inline review comment lands in the pull request's
  * review threads and never on the issue timeline; the second answers 404 for an issue.
+ * To the App token it answers 403 instead and the request throws, so a caller that knows it
+ * holds an issue says so and the second is never asked.
  * Paginated, because both return oldest first: a thread past 100 comments would hide every
  * agent reply behind page 1 and read as one it never spoke in. It stops at the cap instead of
  * counting to the end, since neither caller can use a larger number than that.
  */
-async function agentComments(ctx: GitHubInboundContext, issueNumber: number) {
+async function agentComments(ctx: GitHubInboundContext, issueNumber: number, { issueOnly = false } = {}) {
   const count = { total: 0, answered: 0 }
   const timelines = [
     { path: `/repos/${REPO}/issues/${issueNumber}/comments`, pullOnly: false },
     { path: `/repos/${REPO}/pulls/${issueNumber}/comments`, pullOnly: true }
-  ]
+  ].filter(timeline => !issueOnly || !timeline.pullOnly)
   try {
     for (const { path, pullOnly } of timelines) {
       for (let page = 1; page <= MAX_COMMENT_PAGES; page++) {
@@ -395,7 +397,7 @@ async function agentComments(ctx: GitHubInboundContext, issueNumber: number) {
  * not something to do on a guess, and Benjamin can always relabel.
  */
 async function alreadyAnswered(ctx: GitHubInboundContext, issueNumber: number) {
-  const spoken = await agentComments(ctx, issueNumber)
+  const spoken = await agentComments(ctx, issueNumber, { issueOnly: true })
   return spoken === null || spoken.answered > 0
 }
 
