@@ -332,7 +332,7 @@ async function mayAsk(ctx: GitHubInboundContext, comment: GitHubComment) {
   if (COLLABORATOR.has(association)) return true
   const number = ctx.conversation.issueNumber ?? ctx.conversation.pullRequestNumber
   if (number === null) return false
-  const spoken = await agentComments(ctx, number)
+  const spoken = await agentComments(ctx, number, { issueOnly: ctx.conversation.kind === 'issue' })
   // Fails closed, which is the opposite value from `alreadyAnswered` reading the same count.
   // There a failure has to mean "already answered" so nothing starts; here it has to mean
   // "never spoke" for the same reason. One helper, and each caller picks its own default.
