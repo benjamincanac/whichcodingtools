@@ -3,7 +3,7 @@ name: Kilo Code
 description: Open source agent for VS Code, JetBrains and the terminal, with cloud agents and a phone app. The Kilo Gateway serves 500+ models at provider rates, or bring your own keys.
 layer: extension
 secondary_layers: [harness, cloud]
-vendor: Kilo
+vendor: Anaconda
 homepage: https://kilo.ai
 links:
   docs: https://kilo.ai/docs
@@ -117,3 +117,6 @@ sources:
   - url: https://kilo.ai/docs/code-with-ai/agents/custom-models
     verified_at: 2026-08-23
     covers: [models]
+  - url: https://www.anaconda.com/press/anaconda-acquires-kilo-code
+    verified_at: 2026-10-02
+    covers: [general]
