@@ -4,10 +4,10 @@ description: MIT licensed coding agent and control center. Runs in Docker, on yo
 layer: cloud
 secondary_layers: [orchestrator]
 vendor: OpenHands
-homepage: https://all-hands.dev
+homepage: https://www.openhands.dev
 links:
   docs: https://docs.openhands.dev
-  pricing: https://all-hands.dev/pricing
+  pricing: https://www.openhands.dev/pricing
   repo: https://github.com/OpenHands/OpenHands
 platforms: [web, macos, linux, windows]
 install:
@@ -69,8 +69,8 @@ pricing:
   notes: Paid Cloud usage is the model cost only. The pricing page lists no per-seat price below Enterprise.
 status: active
 sources:
-  - url: https://all-hands.dev/pricing
-    verified_at: 2026-09-24
+  - url: https://www.openhands.dev/pricing
+    verified_at: 2026-10-02
     covers: [pricing, models]
   - url: https://github.com/OpenHands/OpenHands
     verified_at: 2026-08-23
