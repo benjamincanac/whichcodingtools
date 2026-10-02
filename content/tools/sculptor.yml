@@ -16,10 +16,10 @@ license:
   kind: open-source
   repo: https://github.com/imbue-ai/sculptor
 models:
-  providers: [anthropic]
+  providers: [anthropic, openai]
   byok: full
   local: false
-  notes: Your Claude subscription through Claude Code, or an Anthropic API key.
+  notes: Your Claude subscription through Claude Code, or an Anthropic API key. Codex is also supported with your own OpenAI API key.
 features: [parallel-agents, worktrees, sandboxing, diff-review]
 wraps:
   - tool: claude-code
@@ -39,13 +39,13 @@ pricing:
       price: 0
       audience: individual
       limits:
-        - You pay for Claude through your own subscription or key
+        - You pay for Claude or OpenAI through your own subscription or key
   notes: No paid plan published. Apple Silicon and Linux builds only, Intel Mac and Windows are listed as coming soon. Docker is needed for the container backend.
 status: preview
 sources:
   - url: https://imbue.com/sculptor
-    verified_at: 2026-08-23
-    covers: [platforms, wraps, features, general]
+    verified_at: 2026-10-02
+    covers: [platforms, wraps, features, models, general]
   - url: https://github.com/imbue-ai/sculptor
-    verified_at: 2026-09-28
-    covers: [pricing, license, platforms, models, features]
+    verified_at: 2026-10-02
+    covers: [pricing, license, platforms, models, wraps, features]
