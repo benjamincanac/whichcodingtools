@@ -510,8 +510,15 @@ export async function readThread(number: number) {
 }
 
 /** A comment on any thread in the repository. The only way to say something without closing it. */
+/**
+ * On every comment a sweep leaves on a thread it is not answering in. An HTML comment GitHub
+ * does not render: the channel reads it back to tell a re-check note from a responder's reply,
+ * so an issue the triage pass commented on can still be handed to a responder with a label.
+ */
+export const NOTE_MARK = '<!-- whichcodingtools: note -->'
+
 export async function commentOnThread(number: number, body: string) {
-  const comment = await githubApi<{ html_url: string }>('POST', `/repos/${REPO}/issues/${number}/comments`, { body })
+  const comment = await githubApi<{ html_url: string }>('POST', `/repos/${REPO}/issues/${number}/comments`, { body: `${body}\n${NOTE_MARK}` })
   return { number, url: comment.html_url }
 }
 

@@ -1,6 +1,6 @@
 import type { GitHubChannelState, GitHubComment, GitHubEventContext, GitHubInboundContext } from 'eve/channels/github'
 import { defaultGitHubAuth, githubChannel } from 'eve/channels/github'
-import { connect, isAgentLogin, REPO } from '../lib/github'
+import { connect, isAgentLogin, NOTE_MARK, REPO } from '../lib/github'
 import { currentThread } from '../lib/thread'
 import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, REVIEW_PRINCIPAL, VISITOR_PRINCIPAL, isAutonomous, isReviewer, isTrustedWriter } from '../lib/trust'
 
@@ -349,7 +349,9 @@ const MAX_COMMENT_PAGES = 10
  * How many comments in the thread are the agent's, or null when the count could not be read.
  * `total` is every one of them and `answered` leaves out the unfinished-turn line: a thread
  * holding nothing but that line is still unanswered, so relabelling it restarts the responder,
- * while the turn that posted it still spent the sandbox the visitor cap meters.
+ * while the turn that posted it still spent the sandbox the visitor cap meters. `replied`
+ * also leaves out the notes a sweep posts with `github__comment`: the triage pass re-checking
+ * an issue is not a responder having answered it, and a label on it should still start one.
  *
  * Two endpoints, because a reply to an inline review comment lands in the pull request's
  * review threads and never on the issue timeline; the second answers 404 for an issue.
@@ -360,7 +362,7 @@ const MAX_COMMENT_PAGES = 10
  * counting to the end, since neither caller can use a larger number than that.
  */
 async function agentComments(ctx: GitHubInboundContext, issueNumber: number, { issueOnly = false } = {}) {
-  const count = { total: 0, answered: 0 }
+  const count = { total: 0, answered: 0, replied: 0 }
   const timelines = [
     { path: `/repos/${REPO}/issues/${issueNumber}/comments`, pullOnly: false },
     { path: `/repos/${REPO}/pulls/${issueNumber}/comments`, pullOnly: true }
@@ -377,7 +379,10 @@ async function agentComments(ctx: GitHubInboundContext, issueNumber: number, { i
         for (const comment of res.body) {
           if (!isAgentLogin(comment.user?.login ?? '')) continue
           count.total += 1
-          if (!(comment.body ?? '').includes(UNFINISHED_MARK)) count.answered += 1
+          const body = comment.body ?? ''
+          if (body.includes(UNFINISHED_MARK)) continue
+          count.answered += 1
+          if (!body.includes(NOTE_MARK)) count.replied += 1
         }
         // A short page is the last one, and every thread this repository has is one page.
         if (count.total >= VISITOR_REPLY_CAP || res.body.length < COMMENT_PAGE) break
@@ -398,7 +403,7 @@ async function agentComments(ctx: GitHubInboundContext, issueNumber: number, { i
  */
 async function alreadyAnswered(ctx: GitHubInboundContext, issueNumber: number) {
   const spoken = await agentComments(ctx, issueNumber, { issueOnly: true })
-  return spoken === null || spoken.answered > 0
+  return spoken === null || spoken.replied > 0
 }
 
 /**
