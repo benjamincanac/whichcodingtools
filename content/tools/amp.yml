@@ -1,15 +1,14 @@
 slug: amp
 name: Amp
-description: Sourcegraph's terminal agent. Low, medium, high and ultra modes pick the model per task, subagents run in parallel, orbs run threads on remote machines.
+description: Amp Frontier Corporation's terminal agent. Low, medium, high and ultra modes pick the model per task, subagents run in parallel, orbs run threads on remote machines.
 layer: harness
 secondary_layers: [extension]
-vendor: Sourcegraph
+vendor: Amp Frontier Corporation
 homepage: https://ampcode.com
 links:
   docs: https://ampcode.com/manual
   pricing: https://ampcode.com/pricing
   changelog: https://ampcode.com/news
-icon: i-simple-icons-sourcegraph
 platforms: [macos, linux, windows]
 hosts: [vscode, neovim, zed, jetbrains]
 install:
@@ -105,3 +104,6 @@ sources:
   - url: https://ampcode.com/news/amp-free-is-ad-free
     verified_at: 2026-09-13
     covers: [pricing]
+  - url: https://ampcode.com/terms
+    verified_at: 2026-10-02
+    covers: [general]
