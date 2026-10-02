@@ -1,0 +1,88 @@
+slug: agent-manager
+name: agent-manager
+description: Go terminal UI on tmux that runs Claude Code, Codex, OpenCode, Gemini and other agent CLIs side by side, with live status in one list and diff comments sent back to the agent.
+layer: orchestrator
+vendor: Yoan Wai
+homepage: https://agent-manager.dev
+links:
+  docs: https://agent-manager.dev/docs/
+  changelog: https://github.com/YoanWai/agent-manager/releases
+  repo: https://github.com/YoanWai/agent-manager
+platforms: [macos, linux, windows]
+install:
+  - method: brew
+    command: brew install agent-manager
+  - method: brew
+    command: brew install --cask yoanwai/tap/agent-manager
+  - method: curl
+    command: curl -fsSL https://raw.githubusercontent.com/YoanWai/agent-manager/main/install.sh | sh
+  - method: aur
+    command: yay -S agent-manager-bin
+  - method: download
+    url: https://github.com/YoanWai/agent-manager/releases
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/YoanWai/agent-manager
+models:
+  byok: full
+  local: false
+  notes: Inherits whatever the wrapped agent is signed in with. Each session launches the installed CLI as-is, with its own login, subscription, config files and MCP servers. Windows runs inside WSL2.
+features: [parallel-agents, worktrees, diff-review, subagents]
+wraps:
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs your installed Claude Code with its existing login.
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: opencode
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: grok-build
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: gemini-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: pi
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: command-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+  - tool: hermes
+    via: cli
+    uses_subscription: true
+    min_tier: free
+pricing:
+  tiers:
+    - id: free
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You pay the agent or model provider you sign in with
+  notes: Muse Code gets status detection too.
+status: preview
+sources:
+  - url: https://github.com/YoanWai/agent-manager
+    verified_at: 2026-09-29
+    covers: [license, wraps, features, general]
+  - url: https://agent-manager.dev
+    verified_at: 2026-09-29
+    covers: [pricing, platforms, general]
+  - url: https://github.com/YoanWai/agent-manager/blob/main/docs/install.md
+    verified_at: 2026-09-29
+    covers: [platforms]
+  - url: https://agent-manager.dev/about/
+    verified_at: 2026-09-29
+    covers: [general]
