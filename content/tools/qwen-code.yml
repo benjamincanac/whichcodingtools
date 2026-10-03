@@ -1,0 +1,113 @@
+slug: qwen-code
+name: Qwen Code
+description: Open source terminal coding agent from the Qwen Team. Works with Qwen, DeepSeek, GLM, Kimi and MiniMax models, plus VS Code (beta), Zed and JetBrains integrations.
+layer: harness
+secondary_layers: [extension, app]
+vendor: Qwen Team
+homepage: https://qwenlm.github.io/qwen-code-docs/en/users/overview
+links:
+  pricing: https://www.alibabacloud.com/help/en/model-studio/coding-plan
+  repo: https://github.com/QwenLM/qwen-code
+platforms: [macos, linux, windows]
+hosts: [vscode, jetbrains, zed]
+install:
+  - method: npm
+    command: npm install -g @qwen-code/qwen-code@latest
+  - method: brew
+    command: brew install qwen-code
+  - method: curl
+    command: curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen-standalone.sh | bash
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/QwenLM/qwen-code
+models:
+  providers: [alibaba, openai, anthropic, google, xai, deepseek, zhipu, minimax, moonshot, openrouter]
+  byok: full
+  local: true
+  notes: Third-party Providers connect with an API key (DeepSeek, Grok, MiniMax, Z.AI, Kimi, Idealab, ModelScope, OpenRouter, Requesty). Custom Provider supports OpenAI, Anthropic, Gemini and other compatible endpoints; vertex-ai is a separate built-in auth type. The Qwen OAuth free tier was discontinued on 2026-04-15.
+features: [worktrees, subagents, parallel-agents, mcp-client, hooks, plugins, checkpoints, sandboxing, scheduled-tasks, browser-automation, diff-review, acp-agent]
+pricing:
+  tiers:
+    - id: free
+      name: Bring your own key
+      price: 0
+      audience: individual
+      limits:
+        - Connect DeepSeek, MiniMax, Z.AI, Kimi, OpenRouter, OpenAI, Anthropic or Gemini with your own API key
+        - Or point at a local server such as Ollama or vLLM
+    - id: coding-plan
+      name: Alibaba Cloud Coding Plan
+      price: 50
+      audience: individual
+      included:
+        amount: 90000
+        unit: requests
+        period: month
+        notes: Also capped at 45,000 requests per week and 6,000 requests per 5 hours, whichever limit is reached first pauses calls
+      overage:
+        kind: blocked
+      limits:
+        - Limited to the exact Qwen, GLM, Kimi and MiniMax model versions listed on the plan page
+        - Slots are limited and restocked daily, first come first served
+        - Non-refundable subscription
+  notes: Qwen Code itself is free and open source. The Coding Plan is an optional model subscription from Alibaba Cloud Model Studio, not part of Qwen Code itself.
+status: active
+sources:
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/overview
+    verified_at: 2026-10-02
+    covers: [general, platforms]
+  - url: https://github.com/QwenLM/qwen-code
+    verified_at: 2026-10-02
+    covers: [license, general]
+  - url: https://qwenlm.github.io/about/
+    verified_at: 2026-10-02
+    covers: [general]
+  - url: https://www.alibabacloud.com/help/en/model-studio/coding-plan
+    verified_at: 2026-10-02
+    covers: [pricing]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/
+    verified_at: 2026-10-02
+    covers: [models]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/configuration/model-providers/
+    verified_at: 2026-10-02
+    covers: [models]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/integration-zed/
+    verified_at: 2026-10-02
+    covers: [features, platforms]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/integration-jetbrains/
+    verified_at: 2026-10-02
+    covers: [features, platforms]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/integration-vscode/
+    verified_at: 2026-10-02
+    covers: [features, platforms]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/checkpointing/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/multi-agent-coordination/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/code-review/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/browser-use/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/mcp/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/hooks/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/sandbox/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/scheduled-tasks/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/features/worktree/
+    verified_at: 2026-10-02
+    covers: [features]
+  - url: https://qwenlm.github.io/qwen-code-docs/en/users/extension/agent-plugins/
+    verified_at: 2026-10-02
+    covers: [features]

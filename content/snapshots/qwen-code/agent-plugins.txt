@@ -1,0 +1,350 @@
+# https://qwenlm.github.io/qwen-code-docs/en/users/extension/agent-plugins/
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Agent Plugins v1 | Qwen Code Docs
+Skip to Content
+Qwen Code
+User Guide Developer Guide Showcase Blog
+English
+Qwen Code
+Documentation
+Blog
+Showcase
+GitHub
+Language
+🇺🇸 English ✓
+🇨🇳 中文
+🇩🇪 Deutsch
+🇫🇷 Français
+🇷🇺 Русский
+🇯🇵 日本語
+🇧🇷 Português (BR)
+🇰🇷 한국어
+User Guide
+Getting started
+Overview
+QuickStart
+Command Workflows
+Outside of the terminal
+Visual Studio Code
+Zed IDE
+JetBrains IDEs
+Github Actions
+Daemon Mode
+Local Deployment
+Code with Qwen Code
+Features
+Agent Board
+Commands
+Cross-Session Protocol
+Code Review
+Followup Suggestions
+Tool-Use Summaries
+SubAgents
+Agent Arena
+Skills
+Rules
+Memory
+Headless Mode
+Dual Output
+Approval Mode
+MCP
+LSP (Language Server Protocol)
+Token Caching
+Resident Context Cost
+Sandboxing
+i18n
+Channels
+Overview
+Telegram
+WeChat
+DingTalk
+WeCom
+Feishu (Lark)
+QQ Bot
+DingTalk Workspace
+GitHub
+GitLab
+Plugins
+Hooks
+Status Line
+Scheduled Tasks
+Auto Mode
+Computer Use
+Browser Use
+Goals
+Markdown Rendering
+Multi-Agent Coordination
+Output Styles
+Structured Output
+Terminal Images
+Worktrees
+Contextual Tips
+Configuration
+Settings
+Authentication
+Ignoring Files
+Trusted Folders
+Model Providers
+Themes
+Extension
+Introduction
+Agent Plugins
+Reference
+Keyboard Shortcuts
+Support
+Troubleshooting
+Terms of Service
+Uninstall
+Conversation Recovery
+Developer Guide
+Contribute to Qwen Code
+Architecture
+Roadmap
+Contributing Guide
+Agent SDK
+TypeScript SDK
+Python SDK (alpha)
+Java SDK (alpha)
+Dive Into Qwen Code
+Channel Plugin Guide
+Tools
+Introduction
+File System
+Multi-File Read
+Shell
+Todo Write
+Task
+Exit Plan Mode
+Web Fetch
+Web Search
+MCP Servers
+Memory
+Monitor
+Sandboxing
+REST API integration guide
+Daemon REST API Reference
+qwen serve HTTP protocol
+Daemon Mode (Developer Deep Dive)
+Index / Overview
+01 · System Architecture
+02 · Serve Runtime
+03 · ACP Bridge
+04 · Permission Mediation
+05 · MCP Transport Pool
+06 · MCP Budget Guardrails
+07 · Workspace File System
+08 · Session Lifecycle & Identity
+09 · Typed Event Schema v1
+10 · SSE Event Bus & Backpressure
+11 · Capabilities & Protocol Versioning
+12 · Auth & Security Model
+13 · TypeScript SDK Daemon Client
+14 · Shared UI Transcript Layer
+15 · Channel Adapters
+16 · VS Code IDE Daemon Adapter
+17 · Configuration Reference
+18 · Error Taxonomy & Remediation
+19 · Observability & Debugging
+20 · Quickstart & Operations
+Daemon Client Adapters
+Channel And Web Backend Daemon Adapter Draft
+IDE Daemon Adapter Draft
+TUI Daemon Adapter Draft
+Web Shell Daemon Adapter
+Daemon UI
+Migrating to @qwen-code/sdk/daemon v2
+Daemon UI SDK — Developer Guide
+WebShell Sidebar — Customization Guide
+Extensions
+Qwen Code Extensions
+Extension Releasing
+Getting Started with Qwen Code Extensions
+Development
+NPM
+Telemetry
+Integration Tests
+Issue and PR Automation
+Examples
+API-only DaemonClient quickstart (TypeScript)
+Example Proxy Script
+Showcase
+Blog
+Blog
+Getting Started
+Getting Started Guide
+An Assistant That Thinks Like a Programmer
+Using Qwen Code in WeChat
+Qwen Code in Your Pocket
+Use Cases
+Organize Your Desktop in One Sentence
+Insight Data Analysis
+Learning Scenarios: AI as Your Study Partner
+Thinking and Writing with Qwen Code in Obsidian
+Build Assignments, Portfolios, and Open Source Projects in Ten Minutes
+Coding Development: From Requirements to Testing
+GPT-Style Cover Generation Skill
+Advanced
+Bailian CLI + Qwen Code for E-commerce Marketing
+Generate Covers in One Sentence: 4 AI Cover Styles for WeChat
+Cinematic Showcase for Your Open Source Project in One Sentence
+Feature Updates
+09-24 Product Update
+09-17 Product Update
+09-10 Product Update
+Past Updates
+09-03 Product Update
+08-27 Product Update
+08-20 Product Update
+08-13 Product Update
+08-06 Product Update
+07-30 Product Update
+07-23 Product Update
+07-16 Product Update
+07-09 Product Update
+07-02 Product Update
+06-25 Product Update
+06-18 Product Update
+06-11 Product Update
+06-04 Product Update
+05-28 Product Update
+05-21 Product Update
+05-14 Product Update
+05-07 Product Update
+04-23 Product Update
+04-16 Product Update
+04-09 Product Update
+03-27 Product Update
+03-20 Product Update
+03-13 Product Update
+03-06 Product Update
+03-03 Product Update
+02-09 Product Update
+02-03 Product Update
+Light
+English
+Getting started
+Overview
+QuickStart
+Command Workflows
+Outside of the terminal
+Visual Studio Code
+Zed IDE
+JetBrains IDEs
+Github Actions
+Daemon Mode
+Local Deployment
+Code with Qwen Code
+Features
+Agent Board
+Commands
+Cross-Session Protocol
+Code Review
+Followup Suggestions
+Tool-Use Summaries
+SubAgents
+Agent Arena
+Skills
+Rules
+Memory
+Headless Mode
+Dual Output
+Approval Mode
+MCP
+LSP (Language Server Protocol)
+Token Caching
+Resident Context Cost
+Sandboxing
+i18n
+Channels
+Overview
+Telegram
+WeChat
+DingTalk
+WeCom
+Feishu (Lark)
+QQ Bot
+DingTalk Workspace
+GitHub
+GitLab
+Plugins
+Hooks
+Status Line
+Scheduled Tasks
+Auto Mode
+Computer Use
+Browser Use
+Goals
+Markdown Rendering
+Multi-Agent Coordination
+Output Styles
+Structured Output
+Terminal Images
+Worktrees
+Contextual Tips
+Configuration
+Settings
+Authentication
+Ignoring Files
+Trusted Folders
+Model Providers
+Themes
+Extension
+Introduction
+Agent Plugins
+Reference
+Keyboard Shortcuts
+Support
+Troubleshooting
+Terms of Service
+Uninstall
+Conversation Recovery
+English
+On This Page
+Supported capabilities
+Question? Give us feedback
+Edit this page
+Scroll to top
+User Guide
+Extension
+Agent Plugins
+Agent Plugins v1
+Qwen Code natively loads portable Agent Plugins v1
+packages. The package keeps its standard plugin.json , mcp.json , and
+SKILL.md files: installation does not generate qwen-extension.json or
+rewrite portable files.
+Use the existing extension commands with a local directory, link, archive,
+Git repository, archive URL, or scoped npm package:
+qwen extensions install ./my-agent-plugin
+qwen extensions link ./my-agent-plugin
+qwen extensions install owner/my-agent-plugin
+The root manifest must target the canonical v1 schema:
+{
+"$schema" : "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json" ,
+"name" : "my-agent-plugin" ,
+"version" : "1.0.0"
+}
+Supported capabilities
+Capability Support
+Direct-child skills/*/SKILL.md Yes
+stdio MCP servers Yes
+Streamable HTTP MCP servers Yes
+Legacy HTTP+SSE MCP servers No; the entry is skipped
+Commands, agents, and hooks No; these directories are ignored
+Workflows No; the directory is ignored
+Qwen context, settings, channels, and apps No
+extensions.* client namespaces No; unimplemented namespaces are ignored
+Skills follow the Agent Skills specification
+.
+An invalid skill is skipped without disabling valid sibling skills. The
+experimental allowed-tools field is recognized as a string but does not grant
+pre-approved Qwen tools.
+For stdio MCP servers, Qwen Code expands ${PLUGIN_ROOT} and ${PLUGIN_DATA}
+once in args , environment values, and cwd . PLUGIN_DATA is a writable
+per-installation directory whose contents persist across updates and reinstall.
+Remote MCP endpoints must use HTTPS, except for loopback HTTP endpoints.
+Agent Plugins v1 is a package format, not a marketplace integration. Install
+packages through Qwen Code’s existing extension sources.
+Last updated on September 16, 2026
+Introduction Keyboard Shortcuts
+</untrusted-page-text>
