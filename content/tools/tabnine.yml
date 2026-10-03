@@ -3,11 +3,10 @@ name: Tabnine
 description: Enterprise code assistant with completions, chat and an agent in VS Code, JetBrains, Visual Studio and Eclipse, plus a CLI. Deploys as SaaS, in a VPC, on premises or air-gapped.
 layer: extension
 secondary_layers: [harness]
-vendor: Tabnine
+vendor: Tabnine (Tricentis)
 homepage: https://www.tabnine.com
 links:
   docs: https://docs.tabnine.com/main
-  pricing: https://www.tabnine.com/pricing
 platforms: [macos, windows, linux]
 hosts: [vscode, jetbrains, visual-studio]
 install:
@@ -52,21 +51,24 @@ pricing:
       audience: enterprise
       limits:
         - Private installation in a VPC, on premises or air-gapped
-  notes: No free plan or trial is listed on the pricing page. Enterprise SaaS accounts are set up with the Tabnine team.
+  notes: No free plan or trial. Enterprise SaaS accounts are set up with the Tabnine team.
 status: active
 sources:
+  - url: https://www.tricentis.com/news/tricentis-acquires-tabnine
+    verified_at: 2026-10-02
+    covers: [general]
   - url: https://www.tabnine.com/pricing
     verified_at: 2026-09-18
     covers: [pricing]
   - url: https://docs.tabnine.com/main/welcome/readme/supported-ides
-    verified_at: 2026-08-23
+    verified_at: 2026-10-02
     covers: [platforms]
   - url: https://docs.tabnine.com/main/welcome/readme/ai-models
-    verified_at: 2026-08-23
+    verified_at: 2026-10-02
     covers: [models]
   - url: https://docs.tabnine.com/main/llms.txt
-    verified_at: 2026-08-23
+    verified_at: 2026-10-02
     covers: [features, general]
   - url: https://docs.tabnine.com/main/getting-started/tabnine-cli/getting-started/installation.md
-    verified_at: 2026-08-23
+    verified_at: 2026-10-02
     covers: [platforms, general]
