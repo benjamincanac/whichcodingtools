@@ -58,21 +58,23 @@ pricing:
         - Highest rate limits to the agent model
       notes: Ultra 5x starts at $99.99 and Ultra 20x is $199.99 per month on the Google AI plans page.
     - id: enterprise
-      name: Organization
+      name: Business
       price: null
       contact_sales: true
       audience: enterprise
       overage:
         kind: api-list
-        notes: Consumption-based API pricing through a Google Cloud project and the Gemini Enterprise Agent Platform.
+        notes: Via Google Cloud. API access is consumption-based pay-as-you-go.
+      limits:
+        - Eligible Gemini Enterprise customers get Standard or Plus subscription plans starting at $30 per seat per month, or a pay-as-you-go plan with a $0 seat fee
   notes: Antigravity has no price of its own. Rate limits scale with the Google AI plan attached to the Google account you sign in with.
 status: active
 sources:
   - url: https://antigravity.google/pricing
-    verified_at: 2026-09-23
+    verified_at: 2026-10-06
     covers: [pricing, models]
   - url: https://gemini.google/us/subscriptions/
-    verified_at: 2026-09-23
+    verified_at: 2026-10-06
     covers: [pricing]
   - url: https://antigravity.google/download
     verified_at: 2026-08-23

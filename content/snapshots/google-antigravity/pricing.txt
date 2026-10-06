@@ -3,26 +3,38 @@
 <untrusted-page-text>
 Google Antigravity - Pricing
 Copy Logo as SVG Copied!
-newspaper Press Guidelines
+Press Guidelines
 Products
 Use Cases
 Pricing
 Enterprise
 Resources
 🚀 Launch Remote Control Download
-🚀 Launch Remote Control menu
+🚀 Launch Remote Control
 Explore our next generation products
 See overview
-Products antigravity Antigravity 2.0 terminal Antigravity CLI extension Antigravity Extensions code Antigravity IDE sdk Antigravity SDK
+Products
+Antigravity 2.0
+Antigravity CLI
+Antigravity Extensions
+Antigravity IDE
+Antigravity SDK
 Built for developers in the agent-first era
 See overview
 Frontend Fullstack Science Marketer
 Everything you need to stay up-to-date and get help
-Documentation open_in_new Blog Changelog Support Press Releases
+Documentation
+Blog Changelog
+Support Press Releases
 Products
 Explore our next generation products
 See overview
-Products antigravity Antigravity 2.0 terminal Antigravity CLI extension Antigravity Extensions code Antigravity IDE sdk Antigravity SDK
+Products
+Antigravity 2.0
+Antigravity CLI
+Antigravity Extensions
+Antigravity IDE
+Antigravity SDK
 Use Cases
 Built for developers in the agent-first era
 See overview
@@ -31,43 +43,51 @@ Pricing
 Enterprise
 Resources
 Everything you need to stay up-to-date and get help
-Documentation open_in_new Blog Changelog Support Press Releases
-Choose the perfect plan for your journey Choose the perfect plan for your journey Google Antigravity is now available! arrow_forward_ios
+Documentation
+Blog Changelog
+Support Press Releases
+Download
+Choose the perfect plan for your journey Choose the perfect plan for your journey
 Generally Available
 For Individuals
 $0/month
 Experience Antigravity without a subscription plan
-Download
+Get started
 Plan includes:
-check Agent model: access to Gemini 3.8 Flash, Gemini 3.7 Flash, Gemini 3.6 Flash, Gemini 3.1 Pro, Claude Sonnet & Opus 4.6, gpt-oss-120b
-check Unlimited Tab completions
-check Unlimited Command requests
-check Basic weekly rate limits *
+Access to a variety of agent models
+Unlimited Tab completions
+Unlimited Command requests
+Basic weekly rate limits *
 Get a Taste
 Google AI Pro
-See how it is like to build, work, and automate with agents
-Download Get plan
+Experience what it is like to build, work, and automate with agents
+Get Pro
 Everything in Individual and:
-check More generous rate limits *
-check Flexible AI credit pool *
+More rate limits *
+Flexible AI credit pool *
 For Developers
 Google AI Ultra
 Leverage Antigravity as your daily driver with higher access to our latest Gemini models
-Download Get plan
+Get Ultra
 Everything in Pro and:
-check More generous rate limits *
-check Flexible AI credit pool *
-New!
-Organization plan
+Even more rate limits *
+Flexible AI credit pool *
+For Organizations
+Business plan
 via Google Cloud
-Google Cloud customers can now access Antigravity 2.0 and CLI.
-Get started
-Now Available:
-check Access under Google Cloud Terms of Service
-check Google Cloud Project Integration
-check Consumption-Based API Pricing with Gemini Enterprise Agent Platform
-check Included in select Gemini Enterprise app subscriptions*
-*Rolling out to select customers
+Google Cloud customers can now access Antigravity 2.0, CLI, and through IDEs via Antigravity IDE extensions .
+Contact Sales For subscription options
+Start now via API
+Available now:
+Access via API with consumption-based pricing
+Available to eligible Gemini Enterprise customers:
+Standard/Plus plans starting at $30 USD per seat per month
+Pay-as-you-go plan with $0 seat fee and consumption based pricing
+Key Benefits:
+Access under Google Cloud Terms of Service
+Spend caps across API and subscription plans
+Centralized administrative controls with eligible subscription plans
+Existing Gemini Enterprise customers with an invoiced Cloud billing account can visit the setup guide to enable AI Developer tools for Antigravity.
 Experience liftoff
 Product Download Product Docs Changelog Press Releases
 Resources Blog Pricing Use Cases
