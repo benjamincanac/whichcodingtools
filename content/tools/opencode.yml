@@ -44,17 +44,25 @@ pricing:
       price: 10
       per: flat
       audience: individual
-      included:
-        amount: 60
-        unit: usd
-        usd_value: 60
-        notes: $12 of usage per five hours, $30 per week and $60 per month on open weight models such as Kimi K3, GLM-5.2, DeepSeek V4 and Qwen 3.8 Max
       overage:
         kind: blocked
         notes: Requests stop at the limit unless you fall back to the free models or enable drawing from a Zen balance.
       limits:
-        - $5 for the first month
-        - One Go subscriber per workspace
+        - Monthly usage limit varies by model, $15 to $60, with one preview model currently unlimited
+        - 5-hour limit is 20 percent of the monthly figure, weekly limit is 50 percent
+        - One Go or Go Plus subscriber per workspace
+        - Works with OpenCode or any other agent
+    - id: go-plus
+      name: OpenCode Go Plus
+      price: 40
+      per: flat
+      audience: individual
+      overage:
+        kind: blocked
+      limits:
+        - Monthly usage limit varies by model, $60 to $240, same token prices as Go
+        - 5-hour limit is 20 percent of the monthly figure, weekly limit is 50 percent
+        - One Go or Go Plus subscriber per workspace
         - Works with OpenCode or any other agent
     - id: zen
       name: OpenCode Zen
@@ -71,10 +79,10 @@ pricing:
 status: active
 sources:
   - url: https://opencode.ai/docs/go
-    verified_at: 2026-09-24
+    verified_at: 2026-10-06
     covers: [pricing]
   - url: https://opencode.ai/docs/zen
-    verified_at: 2026-09-24
+    verified_at: 2026-10-06
     covers: [pricing, models]
   - url: https://opencode.ai/docs/providers
     verified_at: 2026-08-23
