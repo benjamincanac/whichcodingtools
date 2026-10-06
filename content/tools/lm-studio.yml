@@ -37,19 +37,32 @@ pricing:
       price: 0
       audience: individual
       limits:
-        - Run local LLMs with llama.cpp and MLX entirely offline
+        - Bionic Agent, run local LLMs with llama.cpp and MLX entirely offline
         - State-of-the-art offline voice transcription
-        - Web search tool with Zero Data Retention when signed in
+        - Limited web search
         - LM Link for up to 5 devices
-    - id: cloud-credits
-      name: Pay as you go
-      price: null
+    - id: bionic-plus
+      name: Bionic+
+      price: 20
       audience: individual
       overage:
-        kind: api-list
-        notes: Cloud inference for hosted open frontier models such as DeepSeek, GLM and Kimi is billed per token from purchased credits, priced per model on the pricing page. US-based infrastructure with Zero Data Retention by default.
+        kind: credits
+        notes: Cloud credits cover usage beyond the plan's included allowance.
       limits:
-        - Buy cloud credits to run frontier open models without local hardware
+        - US-hosted open source models, Kimi K3, GLM 5.3, DeepSeek V4 Flash and more, with Zero Data Retention
+        - Discounted bulk tokens
+        - Web search and page extraction
+    - id: pro
+      name: Pro
+      price: 100
+      audience: individual
+      overage:
+        kind: credits
+        notes: Cloud credits cover usage beyond the plan's included allowance.
+      limits:
+        - 5x usage limits
+        - Discounted bulk tokens
+        - Early access to new features
     - id: enterprise
       name: Enterprise and Teams
       price: null
@@ -57,15 +70,16 @@ pricing:
       audience: enterprise
       limits:
         - Deploy Bionic in LM Studio's Zero Data Retention cloud, on your own infrastructure, or on edge devices
-  notes: LM Studio's desktop app has no license fee. Bionic Pass, a separate subscription plan shown on the pricing page, is listed as coming soon with no published price yet.
+        - Centralized billing for teams using inference credits, subscription plans for teams coming soon
+  notes: LM Studio's desktop app has no license fee. Cloud credits cover usage beyond the allowance included with a paid plan.
 status: active
 sources:
   - url: https://lmstudio.ai/pricing
-    verified_at: 2026-08-26
+    verified_at: 2026-10-06
     covers: [pricing]
   - url: https://lmstudio.ai/enterprise
-    verified_at: 2026-08-26
-    covers: [pricing]
+    verified_at: 2026-10-06
+    covers: [general]
   - url: https://lmstudio.ai/docs/app
     verified_at: 2026-08-26
     covers: [platforms, general]
