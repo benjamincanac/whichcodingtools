@@ -2,9 +2,9 @@
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
 Pricing — The terminal built for multitasking
-cmux Docs Blog Changelog Community Jobs GitHub
+cmux Docs Blog Changelog Community GitHub
 Download for Mac
-Docs Blog Changelog Community Jobs
+Docs Blog Changelog Community
 Download for Mac
 Pricing
 Individual Team & Enterprise
@@ -25,14 +25,14 @@ $50 /mo
 Get Pro
 Everything in Free, plus:
 Cloud agents on Cloud VMs in isolated remote sandboxes
-Up to 50 Cloud VMs, with 24 GB RAM and 6 vCPUs shared across all VMs
+Up to 5 Cloud VMs sharing 20 vCPUs and 40 GB RAM
 Unlimited workspaces
 The cmux iOS app and email support
 Max
 $200 /mo
 Get Max
 Everything in Pro, plus:
-Up to 50 Cloud VMs sharing 64 GB RAM and 16 vCPUs
+Up to 5 Cloud VMs sharing 80 vCPUs and 160 GB RAM
 Unlimited workspaces and the iOS app
 For teams and businesses
 Shared billing, administration, and controls for your organization.
@@ -40,6 +40,7 @@ Team
 $60 /user/mo
 Get Teams
 Everything in Pro, plus:
+Up to 5 Cloud VMs per paid seat, sharing 20 vCPUs and 40 GB RAM per paid seat across the team
 Centralized billing for your whole team
 Priority support
 Enterprise
@@ -67,9 +68,9 @@ Native macOS terminal, open source
 Local CLI agents with your own keys
 Vertical tabs, splits, notifications, socket API
 Cloud agents on Cloud VMs -
-Concurrent Cloud VMs - 50 50 50 per user Custom
-Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 64 GB RAM and 16 vCPUs shared across all VMs 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
-Largest Cloud VM 24 GB RAM 24 GB RAM 64 GB RAM 24 GB RAM Custom
+Concurrent Cloud VMs - 5 5 5 per paid seat Custom
+Cloud VM resources - 20 vCPUs and 40 GB RAM, shared 80 vCPUs and 160 GB RAM, shared 20 vCPUs and 40 GB RAM per paid seat, shared across the team Custom
+Largest Cloud VM - 32 GB RAM 64 GB RAM 32 GB RAM Custom
 Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
 iOS app -
 SSO and SAML sign-in - - - -
@@ -82,9 +83,9 @@ FAQ
 Is the terminal really free?
 Yes. The macOS app is open source and free forever. Local agents run with your own API keys at no cost to you. Cloud VMs are part of the paid plans.
 What are Cloud VMs?
-Persistent Linux machines in the cloud: pets, not cattle. Following the Zen of cmux, a machine is a primitive, not a managed solution: it keeps its files, installed tools, and state, and what you build on it is yours. Agents clone repositories, run commands, and open pull requests there without touching your Mac. Pro includes up to 50 Cloud VMs with 24 GB RAM and 6 vCPUs shared across all VMs. Team includes the same pool per user.
+Persistent Linux machines in the cloud: pets, not cattle. Following the Zen of cmux, a machine is a primitive, not a managed solution: it keeps its files, installed tools, and state, and what you build on it is yours. Agents clone repositories, run commands, and open pull requests there without touching your Mac. Pro includes up to 5 Cloud VMs sharing 20 vCPUs and 40 GB RAM. Team includes the same allowance for each paid seat, in one pool shared across the team.
 What does Max add?
-Max is $200/mo, billed monthly. Up to 50 Cloud VMs share a total of 64 GB RAM and 16 vCPUs. It includes everything in Pro and supports 32 GB and 64 GB machines within that shared total. Pro, Team, and Free machines top out at 24 GB RAM.
+Max is $200/mo, billed monthly. It includes everything in Pro and up to 5 Cloud VMs sharing 80 vCPUs and 160 GB RAM. Pro and Team include up to 5 Cloud VMs sharing 20 vCPUs and 40 GB RAM. Your VMs draw from one pool. Run one large VM or five small ones. Paused VMs do not use the pool. Free accounts do not include Cloud VMs.
 Do I still need Tailscale for the iOS app?
 No. The iOS app pairs with your Mac over the built-in cmux iroh network. You can also bring your own networking, like Tailscale. Enterprise can self-host.
 How does billing work?
@@ -94,6 +95,29 @@ Yes, on Enterprise. Run agent execution on your own infrastructure or fully air-
 Do you have a team plan?
 Yes. Team is $60/user/mo with centralized billing for your whole team and priority support.
 Questions? Join our Discord , open a GitHub issue , or email us .
+Product
+Blog
+Community
+Nightly
+Assets
+Jobs
+Resources
+Docs
+Guides
+Compare
+Changelog
+Support
+Legal
+Privacy
+Terms
+EULA
+Social
+GitHub
+X / Twitter
+Discord
+Contact
+© 2026 Manaflow · Open source
+English 日本語 简体中文 繁體中文 한국어 Deutsch Español Français Italiano Dansk Polski Русский Bosanski العربية Norsk Português (Brasil) ไทย Türkçe ភាសាខ្មែរ Українська
 For individuals
 Start free, then add cloud capacity as your work grows.
 Free
@@ -111,14 +135,14 @@ $50 /mo
 Get Pro
 Everything in Free, plus:
 Cloud agents on Cloud VMs in isolated remote sandboxes
-Up to 50 Cloud VMs, with 24 GB RAM and 6 vCPUs shared across all VMs
+Up to 5 Cloud VMs sharing 20 vCPUs and 40 GB RAM
 Unlimited workspaces
 The cmux iOS app and email support
 Max
 $200 /mo
 Get Max
 Everything in Pro, plus:
-Up to 50 Cloud VMs sharing 64 GB RAM and 16 vCPUs
+Up to 5 Cloud VMs sharing 80 vCPUs and 160 GB RAM
 Unlimited workspaces and the iOS app
 For teams and businesses
 Shared billing, administration, and controls for your organization.
@@ -126,6 +150,7 @@ Team
 $60 /user/mo
 Get Teams
 Everything in Pro, plus:
+Up to 5 Cloud VMs per paid seat, sharing 20 vCPUs and 40 GB RAM per paid seat across the team
 Centralized billing for your whole team
 Priority support
 Enterprise
@@ -152,9 +177,9 @@ Native macOS terminal, open source
 Local CLI agents with your own keys
 Vertical tabs, splits, notifications, socket API
 Cloud agents on Cloud VMs -
-Concurrent Cloud VMs - 50 50 50 per user Custom
-Resources shared across all Cloud VMs - 24 GB RAM and 6 vCPUs shared across all VMs 64 GB RAM and 16 vCPUs shared across all VMs 24 GB RAM and 6 vCPUs per user, shared across all their VMs Custom
-Largest Cloud VM 24 GB RAM 24 GB RAM 64 GB RAM 24 GB RAM Custom
+Concurrent Cloud VMs - 5 5 5 per paid seat Custom
+Cloud VM resources - 20 vCPUs and 40 GB RAM, shared 80 vCPUs and 160 GB RAM, shared 20 vCPUs and 40 GB RAM per paid seat, shared across the team Custom
+Largest Cloud VM - 32 GB RAM 64 GB RAM 32 GB RAM Custom
 Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
 iOS app -
 SSO and SAML sign-in - - - -
