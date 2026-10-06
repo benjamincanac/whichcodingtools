@@ -9,9 +9,7 @@ Pricing
 Enterprise
 Join us
 GitHub
-14.7k
-Download for macOS Download
-Download for macOS Download
+14.9k
 Pricing
 Simple pricing for every team
 Start free. Upgrade when your team outgrows it. Enterprise plans for organizations with advanced security and compliance needs.
@@ -25,7 +23,6 @@ No credit card required.
 1 user
 Local workspaces
 Desktop app
-GitHub integration
 CLI
 Pro Popular
 For teams that need more power
@@ -61,7 +58,6 @@ Projects Unlimited Unlimited Unlimited
 Features
 Desktop app
 Local workspaces
-GitHub integration
 Remote access
 Automations
 Mobile app
@@ -89,7 +85,6 @@ Unlimited
 Features
 Desktop app
 Local workspaces
-GitHub integration
 Remote access
 Automations
 Mobile app
@@ -109,7 +104,7 @@ SOC 2 Type II report
 FAQ
 Common questions
 Is there a free plan?
-Yes. Free covers individuals with 1 user, local workspaces, the desktop app, the CLI, and GitHub integration. No credit card required. How does Pro pricing work?
+Yes. Free covers individuals with 1 user, local workspaces, the desktop app, and the CLI. No credit card required. How does Pro pricing work?
 Pro is $20 per user/month billed monthly, or $15 per user/month billed yearly (a 25% discount). You're billed per active seat on your team. Can I switch plans or cancel anytime?
 Yes. You can upgrade, downgrade, or cancel at any time from the billing settings inside the app. Changes take effect at the end of your current billing period. What's included in Enterprise?
 Everything in Pro plus SSO & SAML, SCIM provisioning, IP restrictions, audit logs, a custom SLA, dedicated support, and custom contracts. Pricing is tailored to your organization. Get in touch and we'll scope something that fits. Is Superset SOC 2 compliant?
@@ -128,6 +123,7 @@ English
 Product
 Download
 Mobile
+Leaderboard
 How it works
 Features
 Security
@@ -154,4 +150,6 @@ Legal
 Security
 Terms
 Privacy
+Download for macOS Download
+Download for macOS Download
 </untrusted-page-text>
