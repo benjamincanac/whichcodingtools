@@ -17,6 +17,7 @@ Personal Intelligence
 Daily Brief
 Canvas
 Gemini in Chrome
+Productivity
 Explore
 Subscriptions
 What's New
@@ -79,7 +80,7 @@ Google Flow 3
 Get 1,000 Google Flow Credits to use across our AI creative studio to create cinematic scenes and stories with access to Gemini Omni Flash and custom tool creation.
 Google Search 4
 Higher access to Gemini 3 Pro, Deep Search, agentic capabilities, and more.
-Jules 9
+Jules 5
 Higher limits to our asynchronous coding agent for software developers
 Google Antigravity
 Entry rate limits to agent model in Google Antigravity, our agentic development platform
@@ -87,11 +88,11 @@ Gemini Notebook
 Research and writing assistant with 5x more Audio Overviews, notebooks, and more
 Gemini in Gmail, Docs, Vids, and more
 Access Gemini directly in Google apps
-Google Home Premium (Standard plan) 5
+Google Home Premium (Standard plan) 6
 30 days of event history and Gemini features
 Gemini in Chrome
 Access Chrome auto browse to help complete tasks for you
-YouTube Premium Lite plan 6
+YouTube Premium Lite plan 7
 Most videos ad-free, offline, and in the background
 Storage
 5 TB of cloud storage across Gmail, Drive, and Photos
@@ -110,7 +111,7 @@ Google Flow 3
 Get 10,000 or 25,000 Google Flow Credits to use across our AI creative studio to create cinematic scenes and stories with access to Gemini Omni Flash and custom tool creation.
 Google Search 4
 Highest access to Gemini 3 Pro, Deep Search, agentic capabilities, and more.
-Jules 9
+Jules 5
 Highest limits to our asynchronous coding agent for software developers
 Google Antigravity
 Ultra 5x: Higher rate limits to agent model in Google Antigravity, our agentic development platform
@@ -119,13 +120,13 @@ Gemini Notebook
 Highest limits and best model capabilities
 Gemini in Gmail, Docs, Vids, and more
 Highest limits to Gemini directly in Google apps
-Google Home Premium (Advanced plan) 5
+Google Home Premium (Advanced plan) 6
 24/7 video history, event descriptions, and more
 Gemini in Chrome
 Highest access to Chrome auto browse to help complete tasks for you
-Project Genie 7
+Project Genie 8
 Create and explore interactive worlds in realtime with our breakthrough Genie 3 world model
-YouTube Premium individual plan 8
+YouTube Premium individual plan 9
 YouTube ad-free, offline, and in the background
 Storage
 Cloud storage starting at 20 TB across Gmail, Drive, and Photos
@@ -249,15 +250,15 @@ Google Flow features may vary by Google AI subscription tier, platform (web vs. 
 4.
 Gemini 3 Pro model, Nano Banana Pro, and Deep Search in AI Mode are available in select countries — see full list of countries with Gemini 3 Pro in AI Mode and full list of countries with Nano Banana Pro in AI Mode .
 5.
-Requires Google Home app, Wi-Fi, and internet connection. Features subject to change; available in select countries and languages. Gemini features work independently of Gemini apps. Check responses for accuracy; results may vary.
-6.
-The YouTube Premium Lite plan included in this bundle won’t activate if you already have an equivalent or YouTube Premium subscription. Learn more . Already have a YouTube membership? Learn more about managing memberships .
-7.
-Project Genie is available in more than 140 countries — see full list of countries . Only available with a Google AI Ultra plan.
-8.
-YouTube Premium individual plan is available in over 40 countries — see full list of countries .
-9.
 Jules is an asynchronous coding agent that is currently in beta. To use Jules, you must be 18 years old or older. Only English is officially supported at this time. Capacity is subject to availability and not guaranteed.
+6.
+Requires Google Home app, Wi-Fi, and internet connection. Features subject to change; available in select countries and languages. Gemini features work independently of Gemini apps. Check responses for accuracy; results may vary.
+7.
+The YouTube Premium Lite plan included in this bundle won’t activate if you already have an equivalent or YouTube Premium subscription. Learn more . Already have a YouTube membership? Learn more about managing memberships .
+8.
+Project Genie is available in more than 140 countries — see full list of countries . Only available with a Google AI Ultra plan.
+9.
+YouTube Premium individual plan is available in over 40 countries — see full list of countries .
 What Gemini Can Do
 Gemini Live
 Image Generation
@@ -271,7 +272,7 @@ Canvas
 Gemini in Chrome
 Storybook
 Apps
-Gems
+Productivity
 Long Context
 Students
 Import your memory
