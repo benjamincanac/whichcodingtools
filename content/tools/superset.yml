@@ -56,26 +56,25 @@ pricing:
       price: 0
       audience: individual
       limits:
-        - 1 user, local workspaces, desktop app, GitHub integration, CLI
+        - 1 user, local workspaces, desktop app, CLI
     - id: pro
       name: Pro
       price: 20
       price_annual: 15
-      per: flat
       audience: team
       limits:
-        - Unlimited users, remote workspaces, Linear and Slack integrations
+        - Unlimited users, remote access, automations, mobile app, Linear and Slack integrations
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
       notes: Annual billing only. SAML SSO, SCIM, audit logs, uptime SLA, custom integrations.
-  notes: Paid plans add remote workspaces and team features, not model usage. Copilot and any other CLI agent also run. Windows is not available yet and an iOS app is listed as coming soon.
+  notes: Paid plans add remote workspaces and team features, not model usage. Pro is billed per active seat. Copilot and any other CLI agent also run. Windows is not available yet and an iOS app is listed as coming soon.
 status: active
 sources:
   - url: https://superset.sh/pricing
-    verified_at: 2026-09-28
+    verified_at: 2026-10-06
     covers: [pricing, wraps]
   - url: https://superset.sh
     verified_at: 2026-08-23
