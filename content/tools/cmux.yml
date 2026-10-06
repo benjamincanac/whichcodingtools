@@ -75,7 +75,7 @@ pricing:
       overage:
         kind: blocked
       limits:
-        - Cloud agents on Cloud VMs, up to 50 Cloud VMs, with 24 GB RAM and 6 vCPUs shared across all VMs
+        - Cloud agents on Cloud VMs, up to 5 Cloud VMs sharing 20 vCPUs and 40 GB RAM
         - Unlimited workspaces
         - The cmux iOS app and email support
     - id: max
@@ -83,9 +83,11 @@ pricing:
       price: 200
       per: flat
       audience: individual
+      overage:
+        kind: blocked
       limits:
-        - Everything in Pro, plus up to 50 Cloud VMs sharing 64 GB RAM and 16 vCPUs
-        - 32 GB and 64 GB machines within that shared total
+        - Everything in Pro, plus up to 5 Cloud VMs sharing 80 vCPUs and 160 GB RAM
+        - Largest Cloud VM 64 GB RAM, versus 32 GB RAM on Pro and Team
     - id: team
       name: Team
       price: 60
@@ -94,7 +96,7 @@ pricing:
         kind: blocked
       limits:
         - Centralized billing for your whole team
-        - 50 Cloud VMs per user, with 24 GB RAM and 6 vCPUs per user, shared across all their VMs
+        - Up to 5 Cloud VMs per paid seat, sharing 20 vCPUs and 40 GB RAM per paid seat across the team
         - Priority support
     - id: enterprise
       name: Enterprise
@@ -102,11 +104,11 @@ pricing:
       contact_sales: true
       audience: enterprise
       notes: Self-hosted Cloud execution and networking, SSO and SAML sign-in, centralized admin and shared team rules, audit logs, custom VM limits and volume pricing, SOC 2 and an SLA.
-  notes: The terminal itself is free and open source. Pro and Team include up to 50 Cloud VMs, 50 per user on Team, with 24 GB RAM and 6 vCPUs shared across all VMs (per user on Team), and no metering or overages. Max shares a total of 64 GB RAM and 16 vCPUs across its Cloud VMs instead, and supports 32 GB and 64 GB machines within that pool. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access. The iOS app is in beta on TestFlight.
+  notes: The terminal itself is free and open source. Pro and Team include up to 5 Cloud VMs, per paid seat on Team, sharing 20 vCPUs and 40 GB RAM (per paid seat on Team). Max shares a total of 80 vCPUs and 160 GB RAM across its Cloud VMs instead, with a largest Cloud VM of 64 GB RAM against 32 GB on Pro and Team. goose, Kiro and Amp also run. A one time Founders Edition is also sold for early access. The iOS app is in beta on TestFlight.
 status: active
 sources:
   - url: https://cmux.com/pricing
-    verified_at: 2026-09-23
+    verified_at: 2026-10-06
     covers: [pricing]
   - url: https://cmux.com
     verified_at: 2026-08-23
