@@ -40,6 +40,7 @@ pricing:
     - id: hosted
       name: Hosted inference
       price: 10
+      price_from: true
       per: flat
       audience: individual
       included:
@@ -47,14 +48,14 @@ pricing:
         unit: usd
         period: month
         usd_value: 20
-        notes: Every successful monthly payment grants $20 of inference credit, which does not accumulate.
+        notes: Every successful payment grants inference credit worth double the plan price, which does not accumulate.
       overage:
         kind: api-list
         notes: Past the credit, inference is billed at the provider API price, on top of the subscription.
       limits:
-        - Monthly hard cap on usage after the credit, defaults to $100 per UTC month; other presets run $20, $50, $200 and $1,000, or a preset equal to the subscription price, or set any amount from $0 with no product maximum
-        - Most you can be billed in a month is $110 total, the subscription plus up to $100 of usage past the credit
-        - Warning emails start at $20 of monthly usage and double from there
+        - Usage past the credit is capped automatically at 10x the plan price, $100 per UTC month on the entry plan, pauses at the cap and is adjustable in the account
+        - Jcode Cloud included, 50 hosted machine hours each month for every ten dollars of plan, the machine sleeps after 30 minutes with no connected client
+      notes: Monthly plan chosen from $10 to $1,000; the credit, usage cap and Jcode Cloud hours all scale with the plan.
     - id: enterprise
       name: Enterprise
       price: null
@@ -67,7 +68,7 @@ pricing:
 status: active
 sources:
   - url: https://jcode.sh/pricing
-    verified_at: 2026-09-28
+    verified_at: 2026-10-06
     covers: [pricing, license, general]
   - url: https://github.com/1jehuang/jcode
     verified_at: 2026-09-04
