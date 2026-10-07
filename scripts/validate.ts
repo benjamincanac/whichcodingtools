@@ -59,15 +59,16 @@ function checkSpdx(file: string, spdx: string) {
  * point: without them the check waves through a price nobody read. Behind, a word character, a
  * dot, a comma or a hyphen makes it the tail of something else: 20 in "120", 99 in "$19.99",
  * 5 in "gpt-5". Ahead, a digit or a separator with a digit after it makes it the head of a
- * longer number, 20 in "20,000" and in "$20.50", and a magnitude or a multiplier makes it
- * another quantity, 1 in "1M tokens" and 20 in "20x usage". Any other letter may follow, pages
- * do write "$25USD/month" and "$88per seat". The hyphen costs the 40 of "$20-40", a range that
+ * longer number, 20 in "20,000" and in "$20.50", and a percent sign, a magnitude, a multiplier
+ * or a storage unit makes it another quantity, 20 in "20%", 1 in "1M tokens", 20 in "20x usage"
+ * and in "20GB". Any other letter may follow, pages do write "$25USD/month", "20GBP" and
+ * "$88per seat". The hyphen costs the 40 of "$20-40", a range that
  * repeats the sign, "$20-$40", gives both ends.
  */
 function figureRe(n: number) {
   const [int, frac] = String(n).split('.')
   const grouped = int!.replace(/\B(?=(\d{3})+(?!\d))/g, ',?')
-  return new RegExp(`(?<![\\w.,-])${grouped}${frac ? `\\.${frac}` : '(?:\\.00?)?'}(?![.,]?\\d|%|[kmbx](?![a-z])|×)`, 'i')
+  return new RegExp(`(?<![\\w.,-])${grouped}${frac ? `\\.${frac}` : '(?:\\.00?)?'}(?![.,]?\\d|%| ?(?:gb(?!p)|[mt]b)(?![a-z])|[kmbx](?![a-z])|×)`, 'i')
 }
 
 /** Host and path the way two spellings of one page agree on them, with the query kept apart. */
