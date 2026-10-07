@@ -31,11 +31,18 @@ interface Issue {
 }
 
 const issues: Issue[] = []
+// Printed like an issue and never fails the run: something for a person to settle, on a file
+// that no check below takes a figure from.
+const warnings: Issue[] = []
 const tools = new Map<string, Tool>()
 const fileOf = new Map<string, string>()
 
 function issue(file: string, path: string, message: string) {
   issues.push({ file, path, message })
+}
+
+function warn(file: string, path: string, message: string) {
+  warnings.push({ file, path, message })
 }
 
 function checkSpdx(file: string, spdx: string) {
@@ -49,12 +56,37 @@ function checkSpdx(file: string, spdx: string) {
 
 /**
  * A figure the way a pricing page writes it: "$40", "40.00", "1,200". The lookarounds are the
- * point: without them 20 matches inside 120 and the check waves through a price nobody read.
+ * point: without them the check waves through a price nobody read. Behind, a word character, a
+ * dot, a comma or a hyphen makes it the tail of something else: 20 in "120", 99 in "$19.99",
+ * 5 in "gpt-5". Ahead, a digit or a separator with a digit after it makes it the head of a
+ * longer number, 20 in "20,000" and in "$20.50", and a magnitude or a multiplier makes it
+ * another quantity, 1 in "1M tokens" and 20 in "20x usage". Any other letter may follow, pages
+ * do write "$25USD/month" and "$88per seat". The hyphen costs the 40 of "$20-40", a range that
+ * repeats the sign, "$20-$40", gives both ends.
  */
 function figureRe(n: number) {
   const [int, frac] = String(n).split('.')
   const grouped = int!.replace(/\B(?=(\d{3})+(?!\d))/g, ',?')
-  return new RegExp(`(?<![\\d.,])${grouped}${frac ? `\\.${frac}` : '(?:\\.00?)?'}(?![\\d])`)
+  return new RegExp(`(?<![\\w.,-])${grouped}${frac ? `\\.${frac}` : '(?:\\.00?)?'}(?![.,]?\\d|%|[kmbx](?![a-z])|×)`, 'i')
+}
+
+/** Host and path the way two spellings of one page agree on them, with the query kept apart. */
+function pageOf(url: string) {
+  if (!URL.canParse(url)) return
+  const { host, pathname, searchParams } = new URL(url)
+  return { page: `${host.replace(/^www\./, '')}${pathname.replace(/\/+$/, '')}`, params: searchParams }
+}
+
+/**
+ * Whether a capture's header is the page a source cites. page-text.mjs writes the URL the fetch
+ * ended on, so the header of a cited page can gain a "www.", a trailing slash or a "?hl=en" on
+ * the way. A parameter the source spells out has to be in the header too: on a marketplace
+ * listing "?itemName=" is the page. A redirect to another path is another page.
+ */
+function samePage(header: string, cited: string) {
+  const a = pageOf(header)
+  const b = pageOf(cited)
+  return !!a && !!b && a.page === b.page && [...b.params].every(([key, value]) => a.params.getAll(key).includes(value))
 }
 
 function fmt(value: number | null | undefined) {
@@ -310,14 +342,16 @@ for (const slug of slugs) {
     continue
   }
 
-  const bodies: string[] = []
+  const file = fileOf.get(slug)!
+  const pricing: string[] = []
   for (const name of captures) {
     const rel = `snapshots/${slug}/${name}`
     const raw = await readFile(join(SNAPSHOTS, slug, name), 'utf8')
     const lines = raw.replace(/\n$/, '').split('\n')
     const body = lines.slice(3, -1)
+    const header = /^# (https?:\/\/\S+)$/.exec(lines[0] ?? '')?.[1]
 
-    if (!/^# https?:\/\//.test(lines[0] ?? '')) issue(rel, '', 'first line must be "# <url>", regenerate it with page-text.mjs')
+    if (!header) issue(rel, '', 'first line must be "# <url>", regenerate it with page-text.mjs')
     if (lines[1] !== PROVENANCE) issue(rel, '', 'second line must be the provenance line, regenerate it with page-text.mjs')
     if (lines[2] !== OPEN_FENCE) issue(rel, '', `third line must be ${OPEN_FENCE}, regenerate it with page-text.mjs`)
     if (lines.at(-1) !== CLOSE_FENCE) issue(rel, '', `last line must be ${CLOSE_FENCE}, nothing goes after the fence`)
@@ -328,13 +362,20 @@ for (const slug of slugs) {
     if (body.length >= 4 && body.length % 2 === 0 && body.slice(0, body.length / 2).join('\n') === body.slice(body.length / 2).join('\n')) {
       issue(rel, '', 'the page text is in the file twice, keep one copy')
     }
-    bodies.push(body.join('\n'))
+    if (!header) continue
+
+    // A capture backs a figure only as the page a pricing source cites. A docs page that
+    // mentions "20 requests" is no evidence for a $20 tier, and neither is a page nobody cited.
+    const cited = tool.sources.filter(s => samePage(header, s.url))
+    if (cited.some(s => s.covers.includes('pricing'))) pricing.push(body.join('\n'))
+    // A warning, not an issue: captures on file sit under the URL their source line redirects
+    // to. None of them reaches the figure check, so the worst one can do is sit there unread.
+    if (!cited.length) warn(rel, '', `${header} is not one of the sources in ${file}, cite the page the capture came from or drop the capture`)
   }
 
   // Every figure the site shows has to be in the text the vendor showed. A page that hides tiers
   // behind a toggle needs one capture per state, not a figure typed in from memory.
-  const captured = bodies.join('\n')
-  const file = fileOf.get(slug)!
+  const captured = pricing.join('\n')
   for (const tier of tool.pricing.tiers ?? []) {
     if (tier.mirrors) continue
     const figures: [string, number | null | undefined][] = [
@@ -345,7 +386,7 @@ for (const slug of slugs) {
     for (const [field, value] of figures) {
       if (!value) continue
       if (!figureRe(value).test(captured)) {
-        issue(file, `pricing.tiers.${tier.id}.${field}`, `${value} is not in content/snapshots/${slug}/, capture the page state that shows it`)
+        issue(file, `pricing.tiers.${tier.id}.${field}`, `${value} is not in a capture of a pricing source in content/snapshots/${slug}/, capture the page state that shows it`)
       }
     }
 
@@ -356,7 +397,7 @@ for (const slug of slugs) {
     for (const [field, text] of prose) {
       for (const amount of moneyIn(text)) {
         if (!figureRe(amount).test(captured)) {
-          issue(file, `pricing.tiers.${tier.id}.${field}`, `$${amount} is not in content/snapshots/${slug}/, the page has to say it too`)
+          issue(file, `pricing.tiers.${tier.id}.${field}`, `$${amount} is not in a capture of a pricing source in content/snapshots/${slug}/, the page has to say it too`)
         }
       }
     }
@@ -364,7 +405,7 @@ for (const slug of slugs) {
 
   for (const amount of moneyIn(tool.pricing.notes ?? '')) {
     if (!figureRe(amount).test(captured)) {
-      issue(file, 'pricing.notes', `$${amount} is not in content/snapshots/${slug}/, the page has to say it too`)
+      issue(file, 'pricing.notes', `$${amount} is not in a capture of a pricing source in content/snapshots/${slug}/, the page has to say it too`)
     }
   }
 }
@@ -434,14 +475,18 @@ if (process.argv.includes('--fresh')) {
   }
 }
 
-if (issues.length) {
-  console.error(`\n${issues.length} issue${issues.length > 1 ? 's' : ''} in ${new Set(issues.map(i => i.file)).size} file(s)\n`)
-  const width = Math.max(...issues.map(i => i.file.length))
-  for (const i of issues) {
+function report(kind: string, list: Issue[]) {
+  if (!list.length) return
+  console.error(`\n${list.length} ${kind}${list.length > 1 ? 's' : ''} in ${new Set(list.map(i => i.file)).size} file(s)\n`)
+  const width = Math.max(...list.map(i => i.file.length))
+  for (const i of list) {
     console.error(`  ${i.file.padEnd(width)}  ${i.path ? `${i.path}: ` : ''}${i.message}`)
   }
   console.error('')
-  process.exit(1)
 }
+
+report('warning', warnings)
+report('issue', issues)
+if (issues.length) process.exit(1)
 
 console.log(`✓ ${files.length} tool${files.length === 1 ? '' : 's'} valid`)
