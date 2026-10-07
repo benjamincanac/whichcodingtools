@@ -70,6 +70,7 @@ pricing:
     - id: pro
       name: Pro
       price: 50
+      price_annual: 40
       per: flat
       audience: individual
       overage:
@@ -108,7 +109,7 @@ pricing:
 status: active
 sources:
   - url: https://cmux.com/pricing
-    verified_at: 2026-10-06
+    verified_at: 2026-10-07
     covers: [pricing]
   - url: https://cmux.com
     verified_at: 2026-08-23
