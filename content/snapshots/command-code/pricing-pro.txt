@@ -8,64 +8,120 @@ Pricing
 Contact
 GOAT
 Sign Up
-## A plan for every kind of code. Pick yours.
+A plan for every kind of code. Pick yours.
 Transparent pricing. No markup. Cancel anytime.
 // For individuals
-### Hello, command code.
+Hello, command code.
 From a buck a month to all-out, all-models. Swap, upgrade, or cancel — whenever.
 ✦placeholder
-### Go
+Go
 $1/month+ processing fee
-$10 in credits includedUp to $20 usage with deals
+$10 in credits includedUp to ~$15 usage with deals
 A buck. Lots of code.
 Subscribe
 What's included
-- ~15K requests
-- taste-1 model access
-- $20 on MiniMax M3
-- Up to 99% off MiMo V2.5
-- Free on Laguna S 2.1
-- Free on LongCat 2.0
-- Limited usage analytics
-- Discord community support
+~9K requests
+taste-1 model access
+Per-model allowances
+$10 on GLM-5.2
+$10 on Tencent Hy3
+$10 on Qwen 3.8 27B
+$10 on Qwen 3.7 Max
+$10 on Qwen 3.7 Plus
+$10 on DeepSeek V4.1 Flash
++ 20 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
+Free on Laguna S 2.1
+Free on Ling 3.0 Flash Sante
+Free on Ling 3.1 Flash
+Limited usage analytics
+Discord community support
 ✦New
-### GOAT
+GOAT
 $10/month+ processing fee
 $70 in credits includedUp to ~$100 usage with deals
 Best value subscription in market.
 Subscribe
 What's included
-- ~75K requests
-- taste-1 model access
-- Per-model allowances
-- $70 on GPT-5.6 Sol
-- $70 on GLM-5.2
-- $70 on Tencent Hy3
-- $70 on Qwen 3.8 27B
-- $60 on DeepSeek V4 Flash
-- + 28 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
-- Free on Laguna S 2.1
-- Free on LongCat 2.0
-- Usage analytics
-- Discord community support
+~75K requests
+taste-1 model access
+API access
+Per-model allowances
+$70 on GPT-5.6 Sol
+$70 on GLM-5.2
+$70 on Tencent Hy3
+$70 on Qwen 3.8 27B
+$60 on DeepSeek V4.1 Flash
++ 31 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
+Free on Laguna S 2.1
+Free on Ling 3.0 Flash Sante
+Free on Ling 3.1 Flash
+Usage analytics
+Discord community support
 Pro $20Max 10×Max 20×
-### Pro
+Pro
 $20/month+ processing fee
 $80 in credits includedUp to ~$120 usage with deals
 Every model. One pool.
 Get started
 What's included
-- ~100K requests
-- taste-1 model access
-- Per-model allowances
-- $80 on GPT-5.6 Sol
-- $80 on GLM-5.2
-- $80 on Tencent Hy3
-- $80 on Qwen 3.8 27B
-- $20 on premium: Claude Sonnet, GPT & Gemini
-- + 29 more models: Kimi, DeepSeek, Qwen, MiniMax, MiMo
-- Free on Laguna S 2.1
-- Free on LongCat 2.0
-- Usage analytics
-- Discord community support
+~100K requests
+taste-1 model access
+API access
+Per-model allowances
+$80 on GPT-5.6 Sol
+$80 on GLM-5.2
+$80 on Tencent Hy3
+$80 on Qwen 3.8 27B
+$70 on DeepSeek V4.1 Flash
+$20 on premium: Claude Sonnet, GPT & Gemini
++ 31 more models: Kimi, DeepSeek, Qwen, MiniMax, MiMo
+Free on Laguna S 2.1
+Free on Ling 3.0 Flash Sante
+Free on Ling 3.1 Flash
+Usage analytics
+Discord community support
+// For API builders
+New
+Provider. The API plan.
+Any OpenAI or Anthropic client. Zero markup. Every deal, applied.
+$15/month+ processing fee
+Pay as you goNo markup✦All deals apply
+Spend only on the requests you make. Top-ups roll over and never expire.
+Subscribe
+What's included
+API: OpenAI and Anthropic compatible endpoints
+Open-source + premium models
+Per-request usage analytics
+Discord community support
+Read the API docs
+// For teams
+Better, together.
+Pooled usage. Shared billing. One bucket of credits for every member of the team.
+✦placeholder
+Teams
+$40/month+ processing fee
+One team. One bucket.
+Subscribe
+What's included
+~35K requests
+taste-1 model access
+API access
+Open-source + premium models
+Team collaboration & management
+Shared billing & central admin
+Priority support
+✦placeholder
+Enterprise
+Custom
+Tailored to your org
+Tailored. To your org.
+Contact sales
+Everything in Max, plus
+Custom credits & seats
+Unlimited team seats
+API access
+Dedicated support engineer
+SLA guarantees & uptime
+Priority infrastructure
+Custom training & onboarding
 </untrusted-page-text>

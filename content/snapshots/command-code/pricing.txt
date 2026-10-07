@@ -16,18 +16,23 @@ Hello, command code.
 From a buck a month to all-out, all-models. Swap, upgrade, or cancel — whenever.
 ✦ placeholder
 Go
-$ 1 /month + processing fee $10 in credits included Up to $ 20 usage with deals
+$ 1 /month + processing fee $10 in credits included Up to ~$ 15 usage with deals
 A buck. Lots of code. Subscribe
 What's included
-~15K requests
+~9K requests
 taste-1 model access
-$20 on Qwen 3.7 Max
-$20 on MiniMax M3
-MiMo
-Up to 99% off MiMo V2.5
+Per-model allowances
+$ 10 on GLM-5.2
+$ 10 on Tencent Hy3
+$ 10 on Qwen 3.8 27B
+$ 10 on Qwen 3.7 Max
+$ 10 on Qwen 3.7 Plus
+$ 10 on DeepSeek V4.1 Flash
++ 20 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
-Free on LongCat 2.0
+Free on Ling 3.0 Flash Sante
+Free on Ling 3.1 Flash
 Limited usage analytics
 Discord community support
 ✦ New
@@ -37,16 +42,19 @@ Best value subscription in market. Subscribe
 What's included
 ~75K requests
 taste-1 model access
+API access
 Per-model allowances
 $ 70 on GPT-5.6 Sol
 $ 70 on GLM-5.2
 $ 70 on Tencent Hy3
 $ 70 on Qwen 3.8 27B
-$ 60 on DeepSeek V4 Flash
-+ 28 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
+$ 60 on DeepSeek V4.1 Flash
++ 31 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
-Free on LongCat 2.0
+Free on Ling 3.0 Flash Sante
+Free on Ling 3.1 Flash
+Free on TypeSafe Jev
 Usage analytics
 Discord community support
 Pro $20 Max 10× Max 20×
@@ -56,6 +64,7 @@ Ship every day. Like magic. Get started
 What's included
 ~219K requests
 taste-1 model access
+API access
 Open-source + premium models
 $300 on Qwen 3.7 Max
 $300 on MiniMax M3
@@ -63,7 +72,9 @@ MiMo
 Up to 99% off MiMo V2.5
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
-Free on LongCat 2.0
+Free on Ling 3.0 Flash Sante
+Free on Ling 3.1 Flash
+Free on TypeSafe Jev
 Usage analytics
 Higher rate limits
 Priority support
@@ -90,6 +101,7 @@ One team. One bucket. Subscribe
 What's included
 ~35K requests
 taste-1 model access
+API access
 Open-source + premium models
 Team collaboration & management
 Shared billing & central admin
@@ -101,6 +113,7 @@ Tailored. To your org. Contact sales
 Everything in Max, plus
 Custom credits & seats
 Unlimited team seats
+API access
 Dedicated support engineer
 SLA guarantees & uptime
 Priority infrastructure
@@ -122,13 +135,13 @@ $80
 $150
 $300
 MiniMax M3 effective usage Credits go up to 2× further
-~$20
+$8
 $47
 $57
 ~$300
 ~$600
 MiMo V2.5 effective usage Credits go up to 5× further
-~$50
+~$60
 ~$100
 ~$150
 ~$750
@@ -139,14 +152,20 @@ Free
 Free
 Free
 Free
-LongCat 2.0 effective usage Requests cost no credits while it lasts
+Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
+Free
+Free
+Free
+Free
+Free
+Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
 Free
 Free
 Free
 Free
 Typical request volume Approx, depends on chosen models
-~15K
+~9K
 ~75K
 ~100K
 ~219K
@@ -158,6 +177,7 @@ Select premium models GPT-5.6 Luna, Grok 4.5, Qwen Max & Plus - closed-source, i
 All other premium models (Claude, GPT, Gemini)
 Claude Opus 4.8
 taste-1 Learns and applies your coding taste
+API access OpenAI and Anthropic compatible endpoints, every plan except Go
 Limits & performance
 Rate limits
 Standard
@@ -172,6 +192,11 @@ Up to 1M
 Up to 1M
 Up to 1M
 Auto top-up at API cost
+Cloud access All plans except Go
+$0.10/hr
+$0.10/hr
+$0.10/hr
+$0.10/hr
 Analytics & support
 Usage analytics
 Limited
@@ -187,15 +212,17 @@ Usage
 Monthly credits
 $10
 MiniMax M3 effective usage Credits go up to 2× further
-~$20
+$8
 MiMo V2.5 effective usage Credits go up to 5× further
-~$50
+~$60
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-LongCat 2.0 effective usage Requests cost no credits while it lasts
+Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
+Free
+Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
 Typical request volume Approx, depends on chosen models
-~15K
+~9K
 Roll-over top-ups
 Models
 Open models
@@ -203,12 +230,14 @@ Select premium models GPT-5.6 Luna, Grok 4.5, Qwen Max & Plus - closed-source, i
 All other premium models (Claude, GPT, Gemini)
 Claude Opus 4.8
 taste-1 Learns and applies your coding taste
+API access OpenAI and Anthropic compatible endpoints, every plan except Go
 Limits & performance
 Rate limits
 Standard
 Context window
 Up to 1M
 Auto top-up at API cost
+Cloud access All plans except Go
 Analytics & support
 Usage analytics
 Limited
@@ -229,7 +258,9 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$100
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-LongCat 2.0 effective usage Requests cost no credits while it lasts
+Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
+Free
+Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~75K
@@ -240,12 +271,15 @@ Select premium models GPT-5.6 Luna, Grok 4.5, Qwen Max & Plus - closed-source, i
 All other premium models (Claude, GPT, Gemini)
 Claude Opus 4.8
 taste-1 Learns and applies your coding taste
+API access OpenAI and Anthropic compatible endpoints, every plan except Go
 Limits & performance
 Rate limits
 Standard
 Context window
 Up to 1M
 Auto top-up at API cost
+Cloud access All plans except Go
+$0.10/hr
 Analytics & support
 Usage analytics
 Per-request cost & tokens
@@ -265,7 +299,9 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$150
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-LongCat 2.0 effective usage Requests cost no credits while it lasts
+Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
+Free
+Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~100K
@@ -276,12 +312,15 @@ Select premium models GPT-5.6 Luna, Grok 4.5, Qwen Max & Plus - closed-source, i
 All other premium models (Claude, GPT, Gemini)
 Claude Opus 4.8
 taste-1 Learns and applies your coding taste
+API access OpenAI and Anthropic compatible endpoints, every plan except Go
 Limits & performance
 Rate limits
 Standard
 Context window
 Up to 1M
 Auto top-up at API cost
+Cloud access All plans except Go
+$0.10/hr
 Analytics & support
 Usage analytics
 Per-request cost & tokens
@@ -301,7 +340,9 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$750
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-LongCat 2.0 effective usage Requests cost no credits while it lasts
+Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
+Free
+Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~219K
@@ -312,12 +353,15 @@ Select premium models GPT-5.6 Luna, Grok 4.5, Qwen Max & Plus - closed-source, i
 All other premium models (Claude, GPT, Gemini)
 Claude Opus 4.8
 taste-1 Learns and applies your coding taste
+API access OpenAI and Anthropic compatible endpoints, every plan except Go
 Limits & performance
 Rate limits
 Higher
 Context window
 Up to 1M
 Auto top-up at API cost
+Cloud access All plans except Go
+$0.10/hr
 Analytics & support
 Usage analytics
 Per-request cost & tokens
@@ -337,7 +381,9 @@ MiMo V2.5 effective usage Credits go up to 5× further
 ~$1,500
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-LongCat 2.0 effective usage Requests cost no credits while it lasts
+Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
+Free
+Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~437K
@@ -348,12 +394,15 @@ Select premium models GPT-5.6 Luna, Grok 4.5, Qwen Max & Plus - closed-source, i
 All other premium models (Claude, GPT, Gemini)
 Claude Opus 4.8
 taste-1 Learns and applies your coding taste
+API access OpenAI and Anthropic compatible endpoints, every plan except Go
 Limits & performance
 Rate limits
 Highest
 Context window
 Up to 1M
 Auto top-up at API cost
+Cloud access All plans except Go
+$0.10/hr
 Analytics & support
 Usage analytics
 Per-request cost & tokens
@@ -368,7 +417,7 @@ Need a side-by-side per-model breakdown? See full pricing & limits docs or open 
 Questions, answered.
 Still curious? Read the pricing & limits docs . Or email support@commandcode.ai .
 Which plan is right for you?
-Go ($1) starts you off — open-source models, big budgets in tiny dollars. GOAT ($10) is for developers who live on open models — $70 of usage on 29+ models. Pro ($20) adds premium models to the shared pool — up to $80 of usage on per-model allowances. Max 10× ($100) keeps up with daily shipping. Max 20× ($200) goes all-out — every model, no caps. Teams and Enterprise pool credits for the whole crew.
+Go ($1) starts you off — open-source models, big budgets in tiny dollars. GOAT ($10) is for developers who live on open models — $70 of usage on 29+ models. Pro ($20) adds premium models to the shared pool — up to $80 of usage on per-model allowances. Max 10× ($100) keeps up with daily shipping. Max 20× ($200) goes all-out — every model, no caps. Teams and Enterprise pool credits for the whole crew. Every plan except Go includes API access.
 How does pricing work?
 Flat monthly subscriptions for developers with 2-10x better than API prices. A bucket of model credits. Buy on demand extra credits anytime, you spend at the underlying API rate — zero markup. Run out? Top up, or flip on auto-reload. Top-up credits roll over and never expire.
 Out of credits?
@@ -406,16 +455,16 @@ David Thyresson
 GP · PWV · RedwoodSDK contributor
 // ship
 Changelog
-v 1.47.0
-335 releases shipped
-FIX Mark Grok 4.6 as vision-capable
-FEAT read_file now reads Word, PowerPoint, Excel, OpenDocument, RTF, EPUB and PDF files as Markdown, windowed like text, in single and multi-file reads; a scanned PDF names its image-only pages and the pdftoppm command to render them. The converter installs into the user cache on the first document read instead of shipping with the CLI.
-FEAT Auto compact improvements
-FEAT Add browser sign in through local callback server
+v 1.77.0
+397 releases shipped
+FEAT Command Code Cloud (beta): run `cmd --cloud`
+FEAT Peek, an opt-in recap diagram after tasks that change code (`/peek`)
+FIX Mod commands echo with their slash (`/peek`, not `peek`)
+FIX Hooks that skip stdin no longer crash the CLI
 Read full changelog
 +104k
-Ready to code with your taste? Join 29K+ developers who stopped fixing AI code and started shipping with their coding preferences.
-// Take Command of your code. Ship 10× faster with the same team, less time, and your coding taste. Install, sign in, and start coding.
+Ready to code with your taste? Join 100K+ developers who stopped fixing AI code and started shipping with the best coding agent for open models.
+// Take Command of your code. The best coding agent for open models, with your coding taste. Install, sign in, and start coding.
 npm i -g command-code
 Read the docs.
 $1/mo Go plan · Cancel any time

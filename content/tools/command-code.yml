@@ -41,12 +41,12 @@ pricing:
         amount: 10
         unit: usd
         period: month
-        notes: Deals on some models can raise effective usage to up to $20.
+        notes: Deals on some models can raise effective usage to up to ~$15.
       overage:
         kind: api-list
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
       limits:
-        - Around 15K requests a month
+        - Around 9K requests a month
         - Standard rate limits and limited usage analytics
         - Discord community support
     - id: goat
@@ -155,7 +155,7 @@ pricing:
         - Unlimited team seats, dedicated support engineer
         - SLA guarantees and priority infrastructure
         - Custom training and onboarding
-  notes: Each paid tier bills a flat monthly fee plus a processing fee. Select premium models (GPT-5.6 Luna, Grok 4.5, Qwen Max and Plus) are included on every plan, and top-up credits roll over and never expire.
+  notes: Each paid tier bills a flat monthly fee plus a processing fee. Select premium models (GPT-5.6 Luna, Grok 4.5, Qwen Max and Plus) are included on every plan, and top-up credits roll over and never expire. Every plan except Go bundles OpenAI and Anthropic compatible API access and hourly-billed cloud access.
 status: active
 sources:
   - url: https://commandcode.ai
@@ -165,7 +165,7 @@ sources:
     verified_at: 2026-09-04
     covers: [general]
   - url: https://commandcode.ai/pricing
-    verified_at: 2026-09-04
+    verified_at: 2026-10-07
     covers: [pricing]
   - url: https://commandcode.ai/desktop
     verified_at: 2026-09-04
