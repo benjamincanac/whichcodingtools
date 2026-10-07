@@ -1,6 +1,6 @@
 import type { GitHubChannelState, GitHubComment, GitHubEventContext, GitHubInboundContext } from 'eve/channels/github'
 import { defaultGitHubAuth, githubChannel } from 'eve/channels/github'
-import { connect, isAgentLogin, NOTE_MARK, REPO } from '../lib/github'
+import { connect, hasCommitRights, isAgentLogin, NOTE_MARK, REPO } from '../lib/github'
 import { currentThread, isLimitedSession, strangerUpstream } from '../lib/thread'
 import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, REVIEW_PRINCIPAL, VISITOR_PRINCIPAL, isLimited, isTrustedWriter } from '../lib/trust'
 
@@ -328,6 +328,7 @@ async function touchesData(ctx: GitHubInboundContext, number: number) {
         method: 'GET',
         path: `/repos/${REPO}/pulls/${number}/files?per_page=100&page=${page}`
       })
+      if (!res.ok) throw new Error(`files returned ${res.status}`)
       if (res.body.some(file => DATA_PATH.test(file.filename))) return true
       if (res.body.length < 100) break
     }
@@ -421,12 +422,6 @@ async function agentComments(ctx: GitHubInboundContext, issueNumber: number, { i
   }
 }
 
-/** Benjamin, the agent, or another App he installed. Everyone else is a stranger to a merge. */
-function hasCommitRights(user: { id?: number, login?: string, type?: string } | null | undefined) {
-  if (!user) return false
-  return String(user.id) === MAINTAINER_GITHUB_ID || isAgentLogin(user.login ?? '') || user.type === 'Bot'
-}
-
 /**
  * Whether anyone without commit rights wrote in the thread this turn stands in: the issue or
  * pull request itself, a comment, an inline review note. eve puts a pull request's title, body
@@ -442,6 +437,7 @@ async function strangerWroteHere(channel: GitHubEventContext) {
       method: 'GET',
       path: `/repos/${REPO}/issues/${number}`
     })
+    if (!issue.ok) throw new Error(`the thread returned ${issue.status}`)
     if (!hasCommitRights(issue.body.user)) return true
     const timelines = [`/repos/${REPO}/issues/${number}/comments`]
     if (issue.body.pull_request) timelines.push(`/repos/${REPO}/pulls/${number}/comments`, `/repos/${REPO}/pulls/${number}/reviews`)
@@ -451,6 +447,7 @@ async function strangerWroteHere(channel: GitHubEventContext) {
           method: 'GET',
           path: `${path}?per_page=${COMMENT_PAGE}&page=${page}`
         })
+        if (!res.ok) throw new Error(`${path} returned ${res.status}`)
         if (res.body.some(comment => !hasCommitRights(comment.user))) return true
         if (res.body.length < COMMENT_PAGE) break
         // A thread longer than the guard reads is not one anybody vouched for.

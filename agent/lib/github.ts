@@ -135,11 +135,12 @@ interface Author {
 /**
  * A title is text its author chose, and both listings run in sessions whose pushes merge with
  * no person involved: every sweep searches before it writes. So a title comes back only when
- * Benjamin or an App wrote it. Anyone else's thread is a number, an author and a state, and
+ * Benjamin or the agent wrote it. Anyone else's thread is a number, an author and a state, and
  * `github__read_thread` is how its text is read, which marks the session.
  */
 function titleOf(node: { title: string, author?: Author | null }) {
-  const vouched = node.author?.__typename === 'Bot' || String(node.author?.databaseId) === MAINTAINER_GITHUB_ID
+  const mine = node.author?.__typename === 'Bot' && node.author.login.toLowerCase() === APP_SLUG
+  const vouched = mine || String(node.author?.databaseId) === MAINTAINER_GITHUB_ID
   return vouched ? node.title : '[withheld: written by someone without commit rights, read the thread for it]'
 }
 
@@ -482,12 +483,22 @@ interface ThreadUser {
 }
 
 /**
- * Whether a thread part was written by someone whose text may sit upstream of an unattended
- * merge: Benjamin, the agent, or another App. Apps are installed by him and comment on every
- * pull request, so counting them as strangers would mark every thread.
+ * The Apps whose comments do not make a thread a stranger's. Named one by one, since being an
+ * App says nothing about whose text it carries: Renovate's pull request bodies are release notes
+ * written by whoever published the package. These two comment on every pull request, and what
+ * they write there is drawn from the diff and the thread, whose authors are checked on their own.
  */
-function hasCommitRights(user: ThreadUser | null) {
-  return user !== null && (String(user.id) === MAINTAINER_GITHUB_ID || isAgentLogin(user.login) || user.type === 'Bot')
+const TRUSTED_APPS = new Set(['coderabbitai[bot]', 'vercel[bot]'])
+
+/**
+ * Whether a thread part was written by someone whose text may sit upstream of an unattended
+ * merge: Benjamin, the agent, or one of the Apps named above. The channel asks the same question
+ * when a turn starts, so the two cannot disagree about who a stranger is.
+ */
+export function hasCommitRights(user: { id?: number, login?: string, type?: string } | null | undefined) {
+  if (!user) return false
+  if (String(user.id) === MAINTAINER_GITHUB_ID || isAgentLogin(user.login ?? '')) return true
+  return user.type === 'Bot' && TRUSTED_APPS.has((user.login ?? '').toLowerCase())
 }
 
 interface ThreadComment {

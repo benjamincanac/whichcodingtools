@@ -35,7 +35,7 @@ export const CRAWLER_PAGE = {
       title: 'What happens to the text',
       paragraphs: [
         'An excerpt of the page is kept in the public repository under content/snapshots/<slug>/ so a price on this site can be checked against the page it came from. That excerpt stays under the vendor\'s own terms and is not part of the data license.',
-        'A change to a price goes out as a pull request that shows the before and after next to the page it came from. A change to one tool is merged once the checks pass, and a wider one waits for a person. For a tool that has an excerpt on file, they include finding every price in it.'
+        'A change to a price goes out as a pull request that shows the before and after next to the page it came from. A change to one tool that has an excerpt on file is merged once the checks pass, which include finding every price in that excerpt. Anything wider waits for a person, except a batch that only adds excerpts and refreshes dates.'
       ]
     }
   ],
