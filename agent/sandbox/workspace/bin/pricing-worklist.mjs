@@ -32,6 +32,8 @@ const CONCURRENCY = 4
 const EXIT_RESERVED = 3
 /** page-text.mjs could not fetch the origin's robots.txt. A failure, and the page stays closed to the browser too. */
 const EXIT_ROBOTS_UNAVAILABLE = 4
+/** page-text.mjs cannot check where its connections land in this sandbox. Every page would say the same. */
+const EXIT_UNSAFE = 5
 // A toggle state costs a browser session and a dozen model steps to read again, and the first
 // run that re-read all of them daily spent most of its 14.7M input tokens there. The fetched
 // state of the same page is still compared every day, and a repricing rarely leaves it alone.
@@ -91,6 +93,12 @@ async function checkTool(tool) {
   let fresh = 0
   for (const url of tool.urls) {
     const res = await capture(url)
+    if (res.code === EXIT_UNSAFE) {
+      // One line for the whole sweep, and no list: a `failed` line per tool would read as a
+      // hundred unreadable vendors, and each of those is an issue somebody would open.
+      console.error(`The sweep stopped before reading anything: ${res.stderr.trim()}`)
+      process.exit(EXIT_UNSAFE)
+    }
     if (res.code === EXIT_RESERVED) {
       reserved++
       lines.push(`reserved     ${url}  ${res.stderr.split('\n')[0]}`)

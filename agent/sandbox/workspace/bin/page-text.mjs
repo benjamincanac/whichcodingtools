@@ -12,6 +12,8 @@
 // usage, 3 the origin's robots.txt reserves the page and it was not fetched, 4 the origin's
 // robots.txt could not be fetched, so the page was not fetched either. 3 is not a failure, it is
 // an answer. 4 is a failure: nobody knows what the vendor reserved, and the page is unreadable.
+// 5 is this sandbox, not a page: the address a connection lands on cannot be checked here, so
+// nothing is fetched at all and no page is to be reported as unreadable for it.
 import { lookup } from 'node:dns/promises'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { isIP } from 'node:net'
@@ -35,6 +37,7 @@ const ROBOTS_CACHE_DIR = join(tmpdir(), 'whichcodingtools-robots')
 const ROBOTS_TTL_MS = 60 * 60 * 1000
 const EXIT_RESERVED = 3
 const EXIT_ROBOTS_UNAVAILABLE = 4
+const EXIT_UNSAFE = 5
 /** How much of a body is searched for a `<meta>` charset when the response header names none. */
 const CHARSET_SNIFF_BYTES = 2048
 /** RFC 9309 asks for at least five. Each hop gets its own robots.txt verdict, see fetchChecked. */
@@ -433,20 +436,22 @@ let dispatcher
  * A dispatcher whose connections go through `pinnedLookup`, with every other setting the
  * default one has, so a vendor is asked the same way. Node ships undici without exporting its
  * `Agent`, and this script takes no dependency, so the class is read off the dispatcher `fetch`
- * installs on first use. Where that is not there to read, the requests go out on the default
- * dispatcher and `notPublic` is the whole check.
+ * installs on first use. Where that is not there to read this throws, and `main` has already
+ * asked once and left with `EXIT_UNSAFE`: no request goes out on a dispatcher that resolves
+ * the name unchecked.
  */
 async function pinned() {
-  if (dispatcher !== undefined) return dispatcher ?? undefined
-  try {
-    await fetch('data:,')
-    const Agent = globalThis[Symbol.for('undici.globalDispatcher.1')]?.constructor
-    dispatcher = Agent ? new Agent({ connect: { lookup: pinnedLookup } }) : null
-  } catch {
-    dispatcher = null
+  if (dispatcher === undefined) {
+    try {
+      await fetch('data:,')
+      const Agent = globalThis[Symbol.for('undici.globalDispatcher.1')]?.constructor
+      dispatcher = Agent ? new Agent({ connect: { lookup: pinnedLookup } }) : null
+    } catch {
+      dispatcher = null
+    }
   }
-  if (dispatcher === null) console.error('The connection lookup could not be pinned on this Node, so addresses are checked before the request only.')
-  return dispatcher ?? undefined
+  if (dispatcher === null) throw new Error('the connection lookup cannot be pinned on this Node')
+  return dispatcher
 }
 
 /**
@@ -560,6 +565,16 @@ async function main() {
     console.error('usage: page-text.mjs <url>\n       page-text.mjs --stdin <url> < rendered.txt')
     process.exitCode = 2
     return
+  }
+  if (!stdin) {
+    try {
+      await pinned()
+    } catch (error) {
+      console.error(`Nothing was fetched: ${error.message}, so the address a request lands on cannot be checked in this sandbox.`)
+      console.error('This is not about the page or its vendor. Do not report the page as unreadable and do not open it in the browser. Stop and report this line.')
+      process.exitCode = EXIT_UNSAFE
+      return
+    }
   }
   await (stdin ? fromStdin(url) : fromFetch(url))
 }

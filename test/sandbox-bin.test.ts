@@ -214,6 +214,21 @@ describe('page-text.mjs', () => {
     expect((await pageText('http://latin1-header.example/pricing')).stdout).toContain('Pro £20')
   })
 
+  it('exits 5 and requests nothing when the connection lookup cannot be pinned', async () => {
+    // Hides the dispatcher `fetch` installs, which is where the script reads undici's Agent from.
+    const hidden = join(dir, 'no-agent.mjs')
+    await writeFile(hidden, `const real = Symbol.for\nSymbol.for = key => key === 'undici.globalDispatcher.1' ? Symbol('hidden') : real(key)\n`)
+    const unpinned = { ...env, NODE_OPTIONS: `${env.NODE_OPTIONS} --import=${hidden}` }
+    const before = hits.length
+    const res = await run(PAGE_TEXT, ['http://ok.example/pricing'], { env: unpinned })
+    expect(res.code).toBe(5)
+    expect(res.stdout).toBe('')
+    expect(res.stderr).toContain('Do not report the page as unreadable')
+    expect(hits.length).toBe(before)
+    // A capture a browser made needs no connection, so it still goes through.
+    expect((await run(PAGE_TEXT, ['--stdin', 'http://ok.example/pricing'], { env: unpinned, input: 'Pro $20' })).code).toBe(0)
+  })
+
   it('reports a page that refuses as unreadable and suggests no other way in', async () => {
     const res = await pageText('http://refuses.example/pricing')
     expect(res.code).toBe(1)
