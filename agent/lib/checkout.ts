@@ -27,10 +27,18 @@ export async function hasCheckout(sandbox: Runner) {
   return result.exitCode === 0
 }
 
-/** Whether `branch` still exists on the remote. A fetch that fails is the answer, not an error. */
+/**
+ * Whether `branch` still exists on the remote. `--exit-code` answers 2 for a ref that is not
+ * there, and anything else is a remote that could not be asked. That one throws: reading it as
+ * "gone" would start the turn on main and drop the branch for good, and the next push would
+ * replace the first turn's version of the file with main's copy plus an edit.
+ */
 async function remoteHas(sandbox: Runner, branch: string) {
-  const result = await sandbox.run({ command: `git fetch origin '${branch}'`, workingDirectory: '/workspace/repo' })
-  return result.exitCode === 0
+  const command = `git ls-remote --exit-code --heads origin 'refs/heads/${branch}'`
+  const result = await sandbox.run({ command, workingDirectory: '/workspace/repo' })
+  if (result.exitCode === 0) return true
+  if (result.exitCode === 2) return false
+  throw new Error(`Sandbox command failed (exit ${result.exitCode}): ${command}${result.stderr.trim() ? `\n${result.stderr.trim()}` : ''}`)
 }
 
 /**

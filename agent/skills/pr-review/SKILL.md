@@ -11,22 +11,24 @@ A person changed the data and asked for it to be merged. The pull request is a c
 
 Work in `/workspace/repo`. Load `contributing` for the data rules. Read the thread first with `github__read_thread`: a finding CodeRabbit or a person already made is answered there, not repeated here.
 
-1. Bring the branch in and read its diff against main:
+1. Bring the data of the branch in on top of main, and read its diff:
 
        git fetch origin main 'refs/pull/<n>/head:refs/remotes/origin/pr/<n>'
-       git checkout -f -B review origin/pr/<n> && git merge --no-edit main
-       git diff main...origin/pr/<n> -- content public/logos
+       git checkout -f -B review origin/main && git clean -fd
+       git diff --binary origin/main...origin/pr/<n> -- content public/logos | git apply --index
+       git diff origin/main...origin/pr/<n> -- content public/logos
 
-   A merge that conflicts is a finding on its own: run `git merge --abort`, say so, and review the branch as it is.
-2. Run `pnpm validate` on the merged tree. Every line it prints is a finding, quoted as printed. Not `--fresh`: the contributor's dates are the days they read the pages, and step 3 is what checks those.
-3. For every tool the diff adds or changes, read each page in its `sources[]` whose `covers` names a changed field: `node /workspace/bin/page-text.mjs <url>`, the browser after it when the fetch returns no readable text, never on exit 3, which is a page the vendor's robots.txt reserves and one to say could not be checked. Compare every figure the diff adds or changes with the page: price, tier, included amount, overage, platform, install method, license, feature, and any clause of the description. A figure the page does not state is a finding. A page that moved on since the contributor read it is a finding that names both values and the date you read it.
+   Never check the pull request's own tree out and never merge it: `pnpm validate` runs `scripts/validate.ts`, and on their tree that is their script, run in your sandbox. The patch carries the two data directories and nothing else, so the validator, the schema and `page-text.mjs` stay main's. A patch that does not apply is a finding on its own: say so, and read the diff without it. A diff that also touches files outside `content/` and `public/logos/` gets one line saying a maintainer reviews that part.
+2. Run `pnpm validate` on that tree. Every line it prints is a finding, quoted as printed. Not `--fresh`: the contributor's dates are the days they read the pages, and step 3 is what checks those.
+3. For every tool the diff adds or changes, read each page in its `sources[]` whose `covers` names a changed field: `node /workspace/bin/page-text.mjs <url>`, the browser after it when the fetch returns no readable text, never on exit 4 or a refusal like a 403, which are pages that could not be read today, and never on exit 3, which is a page the vendor's robots.txt reserves and one to say could not be checked. Compare every figure the diff adds or changes with the page: price, tier, included amount, overage, platform, install method, license, feature, and any clause of the description. A figure the page does not state is a finding. A page that moved on since the contributor read it is a finding that names both values and the date you read it.
 4. Captures. A new or changed file under `content/snapshots/<slug>/` has to be `page-text.mjs` output, header, provenance line and fence included, which `pnpm validate` checks. Capture the same page yourself into `/tmp/<slug>/` and diff the two. Text that differs beyond dates, cookie banners and navigation is a finding that quotes both. A capture that reads as typed or edited by hand is a finding that says so plainly.
 5. Hand the diff, your own captures and the vendor URLs to `reviewer` the way `contributing` describes, and fold what it returns into your list.
 6. A new `public/logos/<slug>.png` passes `pnpm validate` for size and format; say where it should have come from when it is not the vendor's favicon or organisation avatar.
 
 ## Never
 
-- Edit the branch or push anything. `github__push_files` refuses a branch this turn did not open, and the review is the comment.
+- Edit the branch or push anything. `github__push_files` refuses this turn outright, and the review is the comment.
+- Check out or merge the pull request's tree, or run anything from it.
 - Ask for a description to be reworded when the page still supports it.
 - Review code. A pull request that touches nothing under `content/` or `public/logos/` gets one sentence saying a maintainer will look at it.
 

@@ -1,11 +1,11 @@
 import { defineTool } from 'eve/tools'
 import { z } from 'zod'
 import { updateOwnPullRequest } from '../lib/github'
-import { ownBranches } from '../lib/thread'
-import { isLimited, isTrustedAuthor } from '../lib/trust'
+import { isLimitedSession, ownBranches } from '../lib/thread'
+import { isTrustedAuthor } from '../lib/trust'
 
 export default defineTool({
-  description: 'Retitle or rewrite the body of a pull request the agent opened. Call it whenever you push another commit to an open pull request: the body is the account of the branch, and one that still describes the first commit is worse than none. Refuses a pull request opened by a person, a closed one, and anything outside `agent/*`. Title and body only, the state and the merge are Benjamin\'s.',
+  description: 'Retitle or rewrite the body of a pull request the agent opened. Call it whenever you push another commit to an open pull request: the body is the account of the branch, and one that still describes the first commit is worse than none. Refuses a pull request opened by a person, a closed one, and anything outside `agent/*`. Title and body only: the merge is CI\'s, or Benjamin\'s on `agent/community-*` and on a diff across several tools.',
   inputSchema: z.object({
     number: z.number().int().positive(),
     title: z.string().min(8).max(120).optional().describe('Leave unset to keep the current title.'),
@@ -15,7 +15,7 @@ export default defineTool({
     if (!isTrustedAuthor(ctx.session.auth)) {
       throw new Error('This turn may not edit a pull request. Say what you found instead.')
     }
-    const limited = isLimited(ctx.session.auth)
+    const limited = isLimitedSession(ctx.session.auth)
     return updateOwnPullRequest({ ...input, ...(limited ? { ownBranches: ownBranches.get() } : {}) })
   }
 })

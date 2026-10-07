@@ -1,6 +1,6 @@
 import { connectGitHubCredentials } from '@vercel/connect/eve'
 import type { SessionAuth } from 'eve/context'
-import { isAutonomous, isVisitor } from './trust'
+import { MAINTAINER_GITHUB_ID, isAutonomous, isVisitor } from './trust'
 
 const HOME_REPO = 'benjamincanac/whichcodingtools'
 const REPO_SHAPE = /^[\w.-]+\/[\w.-]+$/
@@ -22,6 +22,8 @@ function resolveRepo() {
 
 export const REPO = resolveRepo()
 export const DEFAULT_BRANCH = 'main'
+/** The GitHub App's slug. Its REST login is this plus `[bot]`. */
+const APP_SLUG = 'whichcodingtools'
 /** The Vercel Connect connector created by `eve add channel/github`. */
 export const CONNECTOR = 'github/whichcodingtools'
 
@@ -118,11 +120,40 @@ const RELATED_QUERY = `query($q: String!, $first: Int!) {
     issueCount
     nodes {
       __typename
-      ... on Issue { number title url state }
-      ... on PullRequest { number title url state headRefName }
+      ... on Issue { number title url state author { __typename login ... on User { databaseId } } }
+      ... on PullRequest { number title url state headRefName isCrossRepository author { __typename login ... on User { databaseId } } }
     }
   }
 }`
+
+interface Author {
+  __typename?: string
+  login: string
+  databaseId?: number
+}
+
+/**
+ * A title is text its author chose, and both listings run in sessions whose pushes merge with
+ * no person involved: every sweep searches before it writes. So a title comes back only when
+ * Benjamin or the agent wrote it. Anyone else's thread is a number, an author and a state, and
+ * `github__read_thread` is how its text is read, which marks the session.
+ */
+function titleOf(node: { title: string, author?: Author | null }) {
+  const mine = node.author?.__typename === 'Bot' && node.author.login.toLowerCase() === APP_SLUG
+  const vouched = mine || String(node.author?.databaseId) === MAINTAINER_GITHUB_ID
+  return vouched ? node.title : '[withheld: written by someone without commit rights, read the thread for it]'
+}
+
+/**
+ * Whether an open pull request is one the agent may add a commit to: its own, on a branch in
+ * this repository. GraphQL names an App's bot by its slug with no `[bot]` suffix, so the type
+ * is what tells it from a person who registered the same login. A fork can name its branch
+ * `agent/anything`, and handing that name to a caller is how a sweep would create it here.
+ */
+function ownBranch(node: { headRefName?: string, isCrossRepository?: boolean, author?: Author | null }) {
+  const mine = node.author?.__typename === 'Bot' && node.author.login.toLowerCase() === APP_SLUG
+  return mine && node.isCrossRepository === false ? node.headRefName : undefined
+}
 
 interface RelatedNode {
   __typename: string
@@ -131,6 +162,8 @@ interface RelatedNode {
   url: string
   state: string
   headRefName?: string
+  isCrossRepository?: boolean
+  author?: Author | null
 }
 
 /**
@@ -144,8 +177,8 @@ const OPEN_QUERY = `query($q: String!, $first: Int!) {
     issueCount
     nodes {
       __typename
-      ... on Issue { number title url createdAt author { login } labels(first: 10) { nodes { name } } }
-      ... on PullRequest { number title url createdAt author { login } headRefName isDraft }
+      ... on Issue { number title url createdAt author { __typename login ... on User { databaseId } } labels(first: 10) { nodes { name } } }
+      ... on PullRequest { number title url createdAt author { __typename login ... on User { databaseId } } headRefName isDraft isCrossRepository }
     }
   }
 }`
@@ -156,10 +189,11 @@ interface OpenNode {
   title: string
   url: string
   createdAt: string
-  author: { login: string } | null
+  author: Author | null
   labels?: { nodes: { name: string }[] }
   headRefName?: string
   isDraft?: boolean
+  isCrossRepository?: boolean
 }
 
 export async function listOpen(kind: 'all' | 'issue' | 'pull_request') {
@@ -172,13 +206,14 @@ export async function listOpen(kind: 'all' | 'issue' | 'pull_request') {
       const pull = n.__typename === 'PullRequest'
       return {
         number: n.number,
-        title: n.title,
+        title: titleOf(n),
         url: n.url,
         kind: pull ? 'pull_request' as const : 'issue' as const,
         created_at: n.createdAt.slice(0, 10),
         author: n.author?.login ?? 'ghost',
         labels: pull ? undefined : (n.labels?.nodes ?? []).map(l => l.name),
-        branch: pull ? n.headRefName : undefined,
+        // Only the agent's own pull requests carry one. A person's branch is not somewhere to push.
+        branch: pull ? ownBranch(n) : undefined,
         draft: pull ? n.isDraft : undefined
       }
     })
@@ -188,7 +223,8 @@ export async function listOpen(kind: 'all' | 'issue' | 'pull_request') {
 /**
  * Issues and PRs mentioning `terms`, closed ones included: "one issue per tool, ever" has to
  * see an issue a person already closed, otherwise a permanently unreadable page gets the same
- * issue filed again every morning. Open PRs carry their branch so the caller can push to it.
+ * issue filed again every morning. The agent's own open PRs carry their branch so the caller can
+ * push to it. A person's PR comes back with its author and no branch.
  */
 export async function findRelated(terms: string) {
   const q = `repo:${REPO} ${plainTerms(terms)} sort:updated-desc`
@@ -199,13 +235,14 @@ export async function findRelated(terms: string) {
       const kind = n.__typename === 'PullRequest' ? 'pull_request' as const : 'issue' as const
       return {
         number: n.number,
-        title: n.title,
+        title: titleOf(n),
         url: n.url,
         kind,
         // Lowercased to read like the REST states the skills were written against. A merged
         // pull request says `merged`, which is more than `closed` said and still not `open`.
         state: n.state.toLowerCase(),
-        branch: kind === 'pull_request' && n.state === 'OPEN' ? n.headRefName : undefined
+        author: n.author?.login ?? 'ghost',
+        branch: kind === 'pull_request' && n.state === 'OPEN' ? ownBranch(n) : undefined
       }
     })
   return { results, truncated: data.search.issueCount > results.length }
@@ -215,11 +252,18 @@ export async function findRelated(terms: string) {
 export const AGENT_BRANCH = /^agent\/[a-z0-9-]+$/
 
 /**
- * The branch the stale sweep batches its no-change re-verifications onto, and the only shape CI
- * merges without a person. It decides the label, and it is a namespace a limited turn may not
- * enter at all: see `pushToAgentBranch`.
+ * The branch the stale sweep batches its no-change re-verifications onto. It decides the label
+ * here, and in the workflow it is the one shape allowed to span several tools, as long as the
+ * diff is dates and new snapshots.
  */
 export const REVERIFY_BRANCH = /^agent\/re-verify-\d{4}-\d{2}-\d{2}$/
+
+/**
+ * The one namespace a limited session may push to, and one `.github/workflows/agent-automerge.yml`
+ * always leaves for a person to merge. The workflow matches the same prefix, so the two change
+ * together.
+ */
+export const COMMUNITY_BRANCH = /^agent\/community-[a-z0-9-]+$/
 
 const WRITABLE_PATH = /^(content\/[\w.-]+(\/[\w.-]+)*|public\/logos\/[a-z0-9-]+\.png)$/
 
@@ -275,19 +319,17 @@ async function refSha(branch: string) {
  * to main, nothing outside content/ and public/logos/". The instructions restate it, they
  * do not implement it.
  */
-export async function pushToAgentBranch(input: { branch: string, message: string, files: PushedFile[], ownBranches?: string[] }) {
+export async function pushToAgentBranch(input: { branch: string, message: string, files: PushedFile[], ownBranches?: string[], base?: string }) {
   assertAgentBranch(input.branch, 'write to')
   assertWritablePaths(input.files.map(f => f.path))
 
-  // The re-verification lane is reserved from a limited turn whether or not it exists yet, and
-  // the "yet" is the whole point. Refusing only a branch that is already there leaves the name
-  // free to claim: the sweep names its branch after a date that has not happened, so a limited
-  // turn could open `agent/re-verify-<future date>` first, push a diff of nothing but forward
-  // `verified_at` bumps, and `.github/workflows/agent-automerge.yml` would merge it with no
-  // person involved. A date with no re-read behind it is the one thing this agent must never
-  // produce, and that lane is the one place it reaches `main` unattended.
-  if (input.ownBranches && REVERIFY_BRANCH.test(input.branch)) {
-    throw new Error(`${JSON.stringify(input.branch)} is the re-verification lane, which CI merges without a person. This turn pushes to its own agent/<topic>-<date> branch.`)
+  // Any other agent branch can merge with no person involved once CI passes, so a limited session
+  // is held to the one namespace that does not, whether or not the branch exists yet. Refusing
+  // only a branch that is already there would leave every free name a way onto `main` for a
+  // diff a stranger's text is upstream of. An allow-list rather than a list of lanes to stay
+  // out of, so a branch shape nobody planned for is refused instead of merged.
+  if (input.ownBranches && !COMMUNITY_BRANCH.test(input.branch)) {
+    throw new Error(`${JSON.stringify(input.branch)} is a branch CI can merge without a person, and this session holds text from someone without commit rights. Push to agent/community-<topic>-<date> instead, which waits for Benjamin.`)
   }
 
   const head = await refSha(input.branch)
@@ -295,9 +337,14 @@ export async function pushToAgentBranch(input: { branch: string, message: string
   // itself. Checked here rather than in the tool because this is where the ref is read
   // anyway, and it is the last place before the branch moves.
   if (input.ownBranches && head !== null && !input.ownBranches.includes(input.branch)) {
-    throw new Error(`Branch ${JSON.stringify(input.branch)} already exists and this turn did not open it. Push to a new agent/<topic>-<date> branch instead: adding a commit to someone else's branch is not something this turn does.`)
+    throw new Error(`Branch ${JSON.stringify(input.branch)} already exists and this turn did not open it. Push to a new agent/community-<topic>-<date> branch instead: adding a commit to someone else's branch is not something this turn does.`)
   }
-  const base = head ?? (await githubApi<{ object: { sha: string } }>('GET', `/repos/${REPO}/git/ref/heads/${DEFAULT_BRANCH}`)).object.sha
+  // A new branch is cut from the commit of main the caller compared its files against, when it
+  // names one, so nothing can land between that comparison and this read of the ref.
+  // No fallback to the tip of main. A branch the caller saw a moment ago can be gone by now, CI
+  // deletes it on merge, and a branch cut here without that comparison is the revert it prevents.
+  const base = head ?? input.base
+  if (!base) throw new Error(`Branch ${JSON.stringify(input.branch)} was there a moment ago and is gone, which is what a merge does. Nothing was pushed. Call the tool again to start a new branch from main.`)
   const baseCommit = await githubApi<{ tree: { sha: string } }>('GET', `/repos/${REPO}/git/commits/${base}`)
 
   const tree = await Promise.all(input.files.map(async (file) => {
@@ -325,9 +372,9 @@ export async function pushToAgentBranch(input: { branch: string, message: string
  * own work is filed: a model that can pick a label eventually picks the wrong one, and this is
  * the same reason `createIssue` takes one hard-coded value.
  *
- * These are for filtering a queue, not for authorising anything. CI's auto-merge lane keys on
- * the branch name, which `github__push_files` enforces, and never on a label, which anyone with
- * write access can add.
+ * These are for filtering a queue, not for authorising anything. CI's auto-merge keys on the
+ * branch name, which `github__push_files` enforces, and never on a label, which anyone with
+ * write access can add or remove.
  */
 function labelsFor(branch: string, auth?: SessionAuth) {
   const labels = ['agent']
@@ -336,9 +383,9 @@ function labelsFor(branch: string, auth?: SessionAuth) {
   // Who caused it, which the branch name no longer says. `ADD_BRANCH` used to force the first
   // responder onto `agent/add-*`, so a glance at the queue told you a stranger's issue was
   // upstream of the diff. The `ownBranches` rule is the better confinement but it carries no
-  // such signal, and a sweep's pull request, an issue form's and one someone talked the agent
-  // into through a mention now arrive looking identical. That matters more since the
-  // re-verification lane started merging on its own: the queue is a thing to skim now.
+  // such signal on its own. `COMMUNITY_BRANCH` puts some of it back in the name, and the label
+  // says which it was when a stranger started the turn, an issue form or a mention. A turn of
+  // Benjamin's on a thread a stranger wrote in carries the branch prefix and neither label.
   if (auth) {
     if (isVisitor(auth)) labels.push('visitor')
     else if (isAutonomous(auth)) labels.push('responder')
@@ -349,11 +396,11 @@ function labelsFor(branch: string, auth?: SessionAuth) {
 export async function createPullRequest(input: { branch: string, title: string, body: string, ownBranches?: string[], auth?: SessionAuth }) {
   assertAgentBranch(input.branch, 'open a pull request from')
   // Same rule as the push. Opening a pull request from a branch the turn did not write is how
-  // it would put its name on someone else's commits, and the auto-merge lane sharpens it: a
-  // pull request on `agent/re-verify-<date>` merges with no person involved once CI passes.
-  // `pushToAgentBranch` refuses that namespace outright, so a limited turn cannot have such a
-  // branch in `ownBranches` to begin with and this check never sees one. Both stay: the reserve
-  // is what stops the lane being claimed, this is what stops any other branch being borrowed.
+  // it would put its name on someone else's commits, and auto-merge sharpens it: a pull request
+  // outside `agent/community-*` can merge with no person involved once CI passes.
+  // `pushToAgentBranch` refuses every other namespace outright, so a limited turn cannot have
+  // such a branch in `ownBranches` to begin with and this check never sees one. Both stay: the
+  // prefix is what keeps it off the merging branches, this is what stops a branch being borrowed.
   if (input.ownBranches && !input.ownBranches.includes(input.branch)) {
     throw new Error(`Branch ${JSON.stringify(input.branch)} was not opened by this turn. It opens pull requests from the branches it pushed itself.`)
   }
@@ -429,8 +476,33 @@ const OPENING_KEEP = 8_000
 const THREAD_PAGE = 100
 const MAX_THREAD_PAGES = 5
 
+interface ThreadUser {
+  login: string
+  id?: number
+  type?: string
+}
+
+/**
+ * The Apps whose comments do not make a thread a stranger's. Named one by one, since being an
+ * App says nothing about whose text it carries: Renovate's pull request bodies are release notes
+ * written by whoever published the package. These two comment on every pull request, and what
+ * they write there is drawn from the diff and the thread, whose authors are checked on their own.
+ */
+const TRUSTED_APPS = new Set(['coderabbitai[bot]', 'vercel[bot]'])
+
+/**
+ * Whether a thread part was written by someone whose text may sit upstream of an unattended
+ * merge: Benjamin, the agent, or one of the Apps named above. The channel asks the same question
+ * when a turn starts, so the two cannot disagree about who a stranger is.
+ */
+export function hasCommitRights(user: { id?: number, login?: string, type?: string } | null | undefined) {
+  if (!user) return false
+  if (String(user.id) === MAINTAINER_GITHUB_ID || isAgentLogin(user.login ?? '')) return true
+  return user.type === 'Bot' && TRUSTED_APPS.has((user.login ?? '').toLowerCase())
+}
+
 interface ThreadComment {
-  user: { login: string } | null
+  user: ThreadUser | null
   created_at?: string
   /** Reviews carry this instead of `created_at`. */
   submitted_at?: string
@@ -485,7 +557,7 @@ function transcript(opening: ThreadPart, later: ThreadPart[]) {
  * three notes on the diff usually arrives. People wrote it, so it comes back fenced as data.
  */
 export async function readThread(number: number) {
-  const issue = await githubApi<{ title: string, state: string, user: { login: string } | null, body: string | null, created_at: string, pull_request?: unknown }>('GET', `/repos/${REPO}/issues/${number}`)
+  const issue = await githubApi<{ title: string, state: string, user: ThreadUser | null, body: string | null, created_at: string, pull_request?: unknown }>('GET', `/repos/${REPO}/issues/${number}`)
   const comments = await allPages<ThreadComment>(`/repos/${REPO}/issues/${number}/comments`)
   const pull = Boolean(issue.pull_request)
   const reviews = pull ? await allPages<ThreadComment>(`/repos/${REPO}/pulls/${number}/reviews`) : []
@@ -505,6 +577,8 @@ export async function readThread(number: number) {
     state: issue.state,
     title: issue.title,
     author: issue.user?.login ?? 'ghost',
+    // For the tool, which marks the session. A pull request's diff counts with its opening text.
+    strangers: [issue, ...comments, ...reviews, ...inline].some(part => !hasCommitRights(part.user)),
     discussion: transcript(opening, later)
   }
 }
@@ -538,12 +612,16 @@ export async function closeOwnPullRequest(number: number, comment: string) {
   return { number, closed: true }
 }
 
-/** Logins the agent's own writes show up under (Connect App in production, PAT fallback is not self). */
-const SELF_LOGINS = new Set(['whichcodingtools', 'whichcodingtools[bot]'])
+/**
+ * The login the agent's own writes show up under in REST and webhook payloads. The suffix is
+ * part of it: a bare `whichcodingtools` is a user name anyone can register, and the PAT fallback
+ * is not self either.
+ */
+const SELF_LOGIN = `${APP_SLUG}[bot]`
 
 /** Whether a comment or an issue is the agent's own work. */
 export function isAgentLogin(login: string) {
-  return SELF_LOGINS.has(login.toLowerCase())
+  return login.toLowerCase() === SELF_LOGIN
 }
 
 /**
