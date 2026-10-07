@@ -349,7 +349,9 @@ for (const slug of slugs) {
     const raw = await readFile(join(SNAPSHOTS, slug, name), 'utf8')
     const lines = raw.replace(/\n$/, '').split('\n')
     const body = lines.slice(3, -1)
-    const header = /^# (https?:\/\/\S+)$/.exec(lines[0] ?? '')?.[1]
+    const url = /^# (https?:\/\/\S+)$/.exec(lines[0] ?? '')?.[1]
+    // The shape is not enough: `https://%` has it and is no URL.
+    const header = url && URL.canParse(url) ? url : undefined
 
     if (!header) issue(rel, '', 'first line must be "# <url>", regenerate it with page-text.mjs')
     if (lines[1] !== PROVENANCE) issue(rel, '', 'second line must be the provenance line, regenerate it with page-text.mjs')

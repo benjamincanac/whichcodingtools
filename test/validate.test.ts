@@ -227,4 +227,10 @@ describe('the captures a figure may come from', () => {
     expect(run.issues('typed').join('\n')).toContain('first line must be "# <url>"')
     expect(run.status).toBe(1)
   })
+
+  it('fails a first line shaped like a URL that does not parse as one', () => {
+    const run = validate([{ slug: 'broken', price: 20, sources, captures: { pricing: ['https://example.com/pricing', '$20/mo'], other: ['https://%', '$20/mo'] } }])
+    expect(run.issues('broken').join('\n')).toContain('first line must be "# <url>"')
+    expect(run.status).toBe(1)
+  })
 })
