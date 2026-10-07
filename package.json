@@ -29,7 +29,7 @@
     "@vercel/connect": "^2.0.2",
     "@vercel/functions": "^3.9.5",
     "@vercel/speed-insights": "^2.0.0",
-    "@vueuse/core": "^14.4.0",
+    "@vueuse/core": "^15.0.0",
     "ai": "^7.0.77",
     "comark-content": "^0.4.0",
     "eve": "^0.44.3",
