@@ -38,7 +38,7 @@ pricing:
       audience: individual
       limits:
         - The agent, desktop app and extension are free with your own keys
-        - Seven Zen models are free for a limited time
+        - 13 Zen models are free for a limited time
     - id: go
       name: OpenCode Go
       price: 10
@@ -79,10 +79,10 @@ pricing:
 status: active
 sources:
   - url: https://opencode.ai/docs/go
-    verified_at: 2026-10-06
+    verified_at: 2026-10-07
     covers: [pricing]
   - url: https://opencode.ai/docs/zen
-    verified_at: 2026-10-06
+    verified_at: 2026-10-07
     covers: [pricing, models]
   - url: https://opencode.ai/docs/providers
     verified_at: 2026-08-23
