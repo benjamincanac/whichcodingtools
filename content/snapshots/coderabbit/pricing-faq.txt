@@ -6,6 +6,11 @@
 > Use this file to discover all available pages before exploring further.
 # CodeRabbit FAQs: reviews, pricing, security, and setup
 > Answers to common CodeRabbit questions about triggering reviews, supported platforms, pricing, data privacy, self-hosting, and pull request automation.
+export const EnterprisePlanBadge = ({tip = "This feature is available exclusively as part of the Enterprise plan. Please refer to our pricing page for more information about our plans and features.", title = "Enterprise Plan", cta = "Read more", href = "https://coderabbit.ai/pricing", disabled = false}) => {
+return
+{title}
+;
+};
 export const Hint = ({type, children, headline, tip, href, cta}) => {
 const TIPS = {
 learnings: {
@@ -77,6 +82,20 @@ tip: "A setting that merges configuration values across multiple levels — repo
 cta: "Learn about Configuration Inheritance",
 href: "/configuration/configuration-inheritance",
 content: "Configuration Inheritance"
+},
+"coding-agent": {
+headline: "Coding Agent",
+tip: "Turns a user request, a review finding, a coding plan or a failing CI check into a task that CodeRabbit's agent implements in the cloud, then delivers as a commit or a stacked pull request for you to approve.",
+cta: "Learn about Coding Agent",
+href: "/code",
+content: "Coding Agent"
+},
+triage: {
+headline: "Triage",
+tip: "A single cross-repository queue of open pull requests, ranked by what each one needs next and what acting on it is worth.",
+cta: "Learn about Triage",
+href: "/triage",
+content: "Triage"
 }
 };
 const defaults = TIPS[type] || ({});
@@ -205,8 +224,9 @@ When team members are active in PRs, use `@coderabbitai` to engage the bot.
 ### Usage Limits
 The default 14-day Advanced trial includes 10 PR, IDE, and CLI reviews per developer per hour, plus 50 chat messages per hour. Trials for another selected plan use that plan's review limit. See [Plans and pricing](/management/plans#rate-limits) for the full table. Open-source and paid plans use their own rate limits. All limits use rolling windows, so capacity becomes available as earlier usage ages out.
 For paid PR reviews, your plan includes a set number of PR reviews per developer, per hour. Essentials includes 5 PR reviews per hour, Team includes 8, Advanced includes 10, and Enterprise includes 12. Existing customers who are grandfathered from Pro+ into Team retain 10 reviews per hour. Additional reviews become available as earlier reviews age out of the rolling window rather than resetting all at once.
-CodeRabbit uses recent PR review activity to decide when more reviews become available. For adaptive limits, the applicable rolling window can be the past 24 hours or the past 7 days. Developers with typical PR review activity continue to see reviews become available normally for their plan. When one developer identity reaches the 95th percentile or higher of recent CodeRabbit PR review usage, CodeRabbit gradually spaces out additional reviews for that developer. Reducing or pausing review activity lets recent usage come down over time, which can restore faster review availability. To learn more, see our [Fair Usage Limits Policy](/management/rate-limits#fair-usage-limits-policy). See [Rate limits](/management/plans#rate-limits) for the per-developer limits on each plan.
-To reduce unnecessary PR reviews, tune [automatic review controls](/configuration/auto-review): pause automatic incremental reviews after 1 or 2 reviewed commits, turn off automatic reviews and add a configured ready-for-review label to opt PRs in, use title exclusions for WIP or generated changes, or request reviews manually. If your organization needs uninterrupted eligible over-limit reviews, you can purchase credits through the [Usage-based Add-on](/management/usage-based-addon). CLI and agentic API-key reviews also use assigned-seat allowance first, then usage credits only for eligible over-limit reviews.
+CodeRabbit uses recent PR review activity to decide when more reviews become available. For Essentials, Team, and Advanced adaptive limits, the applicable rolling window can be the past 24 hours or the past 7 days. Sustained activity can gradually space out additional reviews for that developer. Reducing or pausing review activity lets recent usage come down over time, which can restore faster review availability. To learn more, see our [Fair Usage Limits Policy](/management/rate-limits#fair-usage-limits-policy). See [Rate limits](/management/plans#rate-limits) for the per-developer limits on each plan.
+Only new Enterprise contracts explicitly enrolled in adaptive limits use a refill rate based on delivered included native Git reviews over the past 7 days, counted per developer within the organization. That activity counter resets at the confirmed billing period start; paid continuations do not increase it. Existing Enterprise agreements, including fixed 12 reviews per hour or custom terms, remain unchanged unless otherwise agreed. Any upgrade, including a self-serve upgrade, requires new approved Enterprise contract terms and explicit enrollment. A trial start, renewal, organization creation, or upgrade alone does not enroll you. Trial, CLI, IDE, and self-hosted limits, custom limits, and exemptions are unchanged.
+To reduce unnecessary PR reviews, tune [automatic review controls](/configuration/auto-review): pause automatic incremental reviews after 1 or 2 reviewed commits, turn off automatic reviews and add a configured ready-for-review label to opt PRs in, use title exclusions for WIP or generated changes, or request reviews manually. If your organization needs uninterrupted eligible over-limit reviews, you can purchase credits as [usage-based reviews](/management/usage-based-addon). CLI and agentic API-key reviews also use assigned-seat allowance first, then usage credits only for eligible over-limit reviews.
 ### What exactly uses one of my PR reviews?
 Opening a pull request or marking a draft ready for review (when auto-review is enabled), pushing to a working branch (when incremental auto-review is enabled), force-pushing, rebasing, and editing a file in the GitHub web UI each produce a review as well - any change to a working branch. You can control automated review behavior using [Auto-review controls](/configuration/auto-review).
 See [What counts as a review event](/management/rate-limits#what-counts-as-a-review-event) for the full list.
@@ -219,7 +239,7 @@ You can comment `@coderabbitai rate limit` or ask an obvious question such as `@
 ## Plans and Pricing
 ### What's the difference between Essentials, Team, and Advanced?
 The **Essentials plan** includes the core AI code review experience — PR reviews, docstrings, autofix, built-in pre-merge checks, integrations, Knowledge base , and analytics. Essentials was previously called Pro.
-The **Team plan** includes everything in Essentials, plus [Triage](/triage). It also includes tasks and actions that happen upstream and downstream of the review process — [CodeRabbit Plan](/plan), issue planning, [unit test generation](/finishing-touches/unit-test-generation), [simplify code](/finishing-touches/simplify), [merge conflict resolution](/finishing-touches/resolve-merge-conflict), and other pre/post-merge actions. Team was previously called Pro+ and offers higher [rate limits](/management/plans#rate-limits) and increased limits for [MCP connections](/integrations/mcp-servers) and [linked repository analysis](/knowledge-base/multi-repo-analysis).
+The **Team plan** includes everything in Essentials, plus . It also includes tasks and actions that happen upstream and downstream of the review process — [CodeRabbit Plan](/plan), issue planning, [unit test generation](/finishing-touches/unit-test-generation), [simplify code](/finishing-touches/simplify), [merge conflict resolution](/finishing-touches/resolve-merge-conflict), and other pre/post-merge actions. Team was previously called Pro+ and offers higher [rate limits](/management/plans#rate-limits) and increased limits for [MCP connections](/connections/mcp-servers) and [linked repository analysis](/knowledge-base/multi-repo-analysis).
 The **Advanced plan** includes everything in Team and adds continuous pull request security review through CodeRabbit Security. AI Deep Scan remains usage-based and is billed separately.
 See [Plans and pricing](/management/plans) for the full comparison.
 ### What billing details are required, and how are the emails used?
@@ -275,10 +295,12 @@ Irreversible Account Deletion
 Deleting your CodeRabbit account is permanent and cannot be undone. This action will permanently erase:
 * Organization and Repository data
 * AI Bot learnings and insights
+* CodeRabbit Security scans and scan history, findings, etc.
 * Subscriptions and billing information
 * All settings and configurations
 * Reports and recurring reports
 * Third-party service integrations
+Organization-scoped CodeRabbit Security data is permanently removed. Reactivating an organization does not restore prior Security scans, findings, settings, or related records.
 Deleting the organization immediately cancels any active subscription rather than leaving it active through the end of the current billing term.
 1. Sign into your CodeRabbit account
 2. Navigate to the [**Subscription and Billing**](https://app.coderabbit.ai/settings/subscription) page
@@ -312,5 +334,6 @@ Complete these steps:
 3. Remove CodeRabbit user or delete associated App Passwords
 The platform-specific cleanup steps are necessary to completely remove CodeRabbit access. Without completing these steps:
 * CodeRabbit may retain some platform permissions
-* Signing back in will recreate minimal account data
+* Signing back in will recreate minimal account data only
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.
 </untrusted-page-text>

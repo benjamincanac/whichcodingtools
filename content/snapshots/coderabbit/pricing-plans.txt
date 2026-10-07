@@ -6,6 +6,11 @@
 > Use this file to discover all available pages before exploring further.
 # Plans and pricing
 > Compare CodeRabbit plans and understand per-developer review rate limits and feature limits.
+export const EnterprisePlanBadge = ({tip = "This feature is available exclusively as part of the Enterprise plan. Please refer to our pricing page for more information about our plans and features.", title = "Enterprise Plan", cta = "Read more", href = "https://coderabbit.ai/pricing", disabled = false}) => {
+return
+{title}
+;
+};
 export const Hint = ({type, children, headline, tip, href, cta}) => {
 const TIPS = {
 learnings: {
@@ -77,6 +82,20 @@ tip: "A setting that merges configuration values across multiple levels — repo
 cta: "Learn about Configuration Inheritance",
 href: "/configuration/configuration-inheritance",
 content: "Configuration Inheritance"
+},
+"coding-agent": {
+headline: "Coding Agent",
+tip: "Turns a user request, a review finding, a coding plan or a failing CI check into a task that CodeRabbit's agent implements in the cloud, then delivers as a commit or a stacked pull request for you to approve.",
+cta: "Learn about Coding Agent",
+href: "/code",
+content: "Coding Agent"
+},
+triage: {
+headline: "Triage",
+tip: "A single cross-repository queue of open pull requests, ranked by what each one needs next and what acting on it is worth.",
+cta: "Learn about Triage",
+href: "/triage",
+content: "Triage"
 }
 };
 const defaults = TIPS[type] || ({});
@@ -84,8 +103,10 @@ return
 {children ?? defaults.content}
 ;
 };
-CodeRabbit offers Free and OSS access plus four paid plans: Essentials, Team, Advanced, and Enterprise. Essentials, Team, and Advanced subscribers can also enable the [usage-based add-on](/management/usage-based-addon) to pay for eligible usage beyond their included limits.
+CodeRabbit offers Free and OSS access plus four paid plans: Essentials, Team, Advanced, and Enterprise. Essentials, Team, and Advanced subscribers can also enable [usage-based reviews](/management/usage-based-addon) to pay for eligible usage beyond their included limits.
 This page covers what each plan includes, the review rate limits enforced **per developer**, and feature limits that vary by plan.
+## On demand products
+On demand products are billed separately from your base plan. They include [CodeRabbit Security Scan](/security#access-and-billing) and [CodeRabbit Agent](/code/access-and-billing#agent-minutes). Each product has its own usage pricing and eligibility requirements.
 ## Plans
 ### Free plan
 Unlimited public and private repositories, no credit card required.
@@ -95,12 +116,12 @@ Unlimited public repositories, no credit card required.
 Open-source projects receive Team features with no paid subscription required. OSS reviews use a separate rate-limit tier that varies with the project's community and popularity; see [Rate limits](#rate-limits).
 ### Essentials plan ⓘ
 **\$24 per developer per month** billed annually, or **\$30** month-to-month.
-Includes everything in Free, plus PR reviews, higher rate limits, integration, Knowledge base, linter and SAST tool support, analytics, docstrings, autofix, and [usage-based add-on](/management/usage-based-addon) access.
+Includes everything in Free, plus PR reviews, higher rate limits, integration, Knowledge base, linter and SAST tool support, analytics, docstrings, autofix, and [usage-based reviews](/management/usage-based-addon) access.
 ### Team plan ⓘ
 **\$48 per developer per month** billed annually, or **\$60** month-to-month.
-Everything in Essentials, plus tasks and actions upstream and downstream of the review process: [Triage](/triage), [CodeRabbit Plan](/plan/index), issue planning, unit test generation, merge conflict resolution, and other pre/post-merge actions. Team also offers higher [rate limits](#rate-limits).
+Everything in Essentials, plus tasks and actions upstream and downstream of the review process: , [CodeRabbit Plan](/plan/index), issue planning, unit test generation, merge conflict resolution, and other pre/post-merge actions. Team also offers higher [rate limits](#rate-limits).
 ### Advanced plan
-**\$90 per developer per month**, billed monthly in USD.
+**\$72 per developer per month** billed annually, or **\$90** month-to-month.
 Everything in Team, plus continuous pull request security review through CodeRabbit Security. AI Deep Scan is usage-based and billed separately.
 ### Enterprise plan
 **Contact sales** — [coderabbit.ai/contact-us/sales](https://www.coderabbit.ai/contact-us/sales)
@@ -108,7 +129,7 @@ Includes everything in Advanced, plus self-hosting options, multi-organization s
 ## Feature availability
 Essentials was previously called Pro, and Team was previously called Pro+. Advanced is a new tier. Each plan includes the capabilities in the plans before it.
 | Capability | Essentials | Team | Advanced | Enterprise |
-| ----------------------------------------------------------------------------- | ------------ | ------------ | ----------- | ----------- |
+| - | - | - | - | - |
 | AI code review, Autofix, Docstrings, MCP, and built-in Pre-Merge Checks | Included | Included | Included | Included |
 | Triage | Not included | Included | Included | Included |
 | Change Stack core experience | Included | Included | Included | Included |
@@ -163,46 +184,49 @@ Enterprise
 300
 100
 \* Unless otherwise noted, PR, IDE, and CLI review limits are shown per developer, per hour, as rolling allowances rather than one-time quotas. Existing customers who are grandfathered from `Pro+` into `Team` retain their 10-review-per-hour allowance. For sustained high-volume PR review activity, review availability may adjust under the Fair Usage Limits Policy .
+Enterprise's 12 reviews per hour is the baseline. Only new Enterprise contracts explicitly enrolled in [adaptive limits](/management/rate-limits#fair-usage-limits-policy) have a native Git review refill rate that adjusts with delivered included reviews. Existing Enterprise agreements remain unchanged unless otherwise agreed. Any upgrade requires new approved Enterprise contract terms and explicit enrollment; an upgrade alone does not enroll you. Trials, CLI/IDE reviews, self-hosted deployments, custom limits, and exemptions are unchanged.
 For public repositories with less than 10 stars, CodeRabbit requires reviews to be triggered manually. Select **Trigger review** in the CodeRabbit status comment, or comment `@coderabbitai review` for the latest changes or `@coderabbitai full review` for a full review.
-Essentials, Team, and Advanced organizations can enable the [usage-based add-on](/management/usage-based-addon#enable-the-add-on) to continue processing eligible over-limit reviews without interruption. A valid payment method is required before activation.
+Essentials, Team, and Advanced organizations can enable [usage-based reviews](/management/usage-based-addon#enable-the-add-on) to continue processing eligible over-limit reviews without interruption. A valid payment method is required before paid activation; eligible trial PR overages are free.
 The file limits in the table apply to pull request and merge request reviews after path filters are applied. When an eligible GitHub or GitHub Enterprise review exceeds its included file limit but contains no more than 300 files, CodeRabbit can offer a **Review on demand using usage pricing** action. Reviews with more than 300 files are not supported through usage pricing.
 A PR review run admitted within your included plan limit uses one PR review from this allowance, including automatic incremental reviews after new pushes and manual review commands. For the full list of actions that produce a review event, what happens when the allowance runs out, and how to spend fewer reviews, see [Review rate limits](/management/rate-limits).
 ### Default Advanced trial limits
+Eligible PR reviews continue beyond the included trial allowance through [free usage-based reviews](/management/usage-based-addon#pr-reviews-during-your-trial), unless you opt out. CodeRabbit enables usage-based reviews on the first eligible over-limit review and completes that review for \$0. CLI/IDE and usage-priced large PR reviews retain their existing pricing.
 Trial review limits match the selected plan: Essentials trials allow 5 PR, IDE, and CLI reviews per developer per hour; Team trials allow 8; Advanced trials allow 10; and Enterprise trials allow 12. The default 14-day trial includes Advanced features and 50 chat messages per hour. The additional limits below also apply to the default trial.
 | Category | Default Advanced trial |
-| ----------------------------------------------------------------------------- | ---------------------- |
+| - | - |
 | Files per pull request or merge request | 300 |
 | [Custom Finishing Touch recipes](/finishing-touches/custom-finishing-touches) | 20 |
 | [Custom Pre-Merge Checks](/pr-reviews/custom-checks) | 20 |
 | [Linked repositories](/knowledge-base/multi-repo-analysis) | 10 |
-| [MCP server connections](/integrations/mcp-servers) | 15 |
+| [MCP server connections](/connections/mcp-servers) | 15 |
 The default Advanced trial also includes access to , [Pre-Merge Checks](/pr-reviews/pre-merge-checks), [CodeRabbit Plan](/issues/planner), and continuous pull request security review.
 ## Feature limits
 Some features have per-plan limits that are separate from the rate limits above.
 ### Linked repositories
 [Multi-Repo Analysis](/knowledge-base/multi-repo-analysis) lets CodeRabbit detect cross-repository breaking changes during reviews. The number of linked repositories you can activate depends on your plan:
 | Free | Essentials | Team | Advanced | Enterprise |
-| ---- | ---------- | ---- | -------- | ---------- |
+| - | - | - | - | - |
 | 0 | 1 | 5 | 10 | 20 |
 For details on how limits are enforced when your configuration exceeds your plan's allowance, see [Multi-Repo Analysis — Plan limits](/knowledge-base/multi-repo-analysis#plan-limits).
 ### MCP servers
-[MCP server](/integrations/mcp-servers) connections let CodeRabbit pull in richer context from your external tools during reviews. The number of MCP server connections you can configure depends on your plan:
+[MCP server](/connections/mcp-servers) connections let CodeRabbit pull in richer context from your external tools during reviews. The number of MCP server connections you can configure depends on your plan:
 | Essentials | Team | Advanced | Enterprise |
-| ---------- | ---- | -------- | ---------- |
+| - | - | - | - |
 | 5 | 10 | 15 | 20 |
 ### Custom Finishing Touch recipes
 [Custom Finishing Touch recipes](/finishing-touches/custom-finishing-touches) let you define your own post-review automation. The number of custom recipes you can define per repository depends on your plan:
 | Essentials | Team | Advanced | Enterprise |
-| ---------- | ---- | -------- | ---------- |
+| - | - | - | - |
 | 0 | 10 | 20 | 20 |
 ### Custom Pre-Merge Checks
 [Custom Pre-Merge Checks](/pr-reviews/custom-checks) let you define organization-specific gating checks. The number of custom checks you can define per organization depends on your plan:
 | Essentials | Team | Advanced | Enterprise |
-| ---------- | ---- | -------- | ---------- |
+| - | - | - | - |
 | 0 | 10 | 20 | 20 |
 Public, non-trial repositories on Essentials receive an open-source exception of up to 10 custom Finishing Touch recipes and 10 custom Pre-Merge Checks. Private repositories and Essentials trials use the standard limits in the tables above.
 ## What's next
 View invoices, change your subscription plan, and adjust seat counts
 Control how CodeRabbit assigns seats to team members automatically or manually
 See the full plan comparison and contact sales for Enterprise pricing
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.
 </untrusted-page-text>

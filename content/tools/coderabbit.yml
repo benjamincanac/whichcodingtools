@@ -86,6 +86,7 @@ pricing:
       limits:
         - 10 PR, 10 IDE and 10 CLI reviews per developer per hour, 300 files per review, 100 chat messages per hour
         - 15 MCP connections, 10 multi-repo analysis repositories, continuous security monitoring of your repositories, security review of each PR
+        - Blast radius, architectural impact
     - id: enterprise
       name: Enterprise
       price: null
@@ -96,17 +97,19 @@ pricing:
       limits:
         - 12 PR, 12 IDE and 12 CLI reviews per developer per hour, 300 files per review, 100 chat messages per hour
         - 20 MCP connections, 20 multi-repo analysis repositories, self-hosting, SSO, RBAC, audit logs, API access
+        - Continuous security monitoring, security review of each PR
+        - Blast radius, architectural impact
   notes: Per seat, seats can be reassigned between developers. Annual billing saves 20 percent. CodeRabbit Security Scan uses variable pricing based on the scan, not a flat fee. CodeRabbit Agent covers cloud coding tasks, Slack and automations, and bills 40 cents per agent minute, after trial and free minutes are used.
 status: active
 sources:
   - url: https://www.coderabbit.ai/pricing
-    verified_at: 2026-09-09
+    verified_at: 2026-10-07
     covers: [pricing]
   - url: https://docs.coderabbit.ai/management/plans.md
-    verified_at: 2026-09-09
+    verified_at: 2026-10-07
     covers: [pricing]
   - url: https://docs.coderabbit.ai/faq.md
-    verified_at: 2026-09-09
+    verified_at: 2026-10-07
     covers: [models, pricing]
   - url: https://docs.coderabbit.ai
     verified_at: 2026-08-23
@@ -115,7 +118,7 @@ sources:
     verified_at: 2026-08-23
     covers: [platforms, features]
   - url: https://docs.coderabbit.ai/cli/index.md
-    verified_at: 2026-09-09
+    verified_at: 2026-10-07
     covers: [platforms, pricing]
   - url: https://docs.coderabbit.ai/knowledge-base/mcp-context.md
     verified_at: 2026-08-23
