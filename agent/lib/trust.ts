@@ -59,12 +59,13 @@ export function isVisitor(auth: SessionAuth) {
 }
 
 /**
- * Either principal is one of the unattended tiers, read the same pessimistic way and for the
- * same reason: once a visitor has spoken in a thread, the narrower branch rule stays on it
- * even when the session resumes under someone else.
+ * Either principal stands for someone without commit rights: the two unattended tiers, or the
+ * review of a person's pull request. This only sees who started the session and who is speaking
+ * now. A stranger who spoke in between, on a session Benjamin opened, leaves no trace on either
+ * principal, so the tools ask `isLimitedSession` in `thread.ts`, which adds the sticky flag.
  */
 export function isLimited(auth: SessionAuth) {
-  return [auth.current, auth.initiator].some(p => p !== null && LIMITED_PRINCIPALS.has(p.principalId))
+  return [auth.current, auth.initiator].some(p => p !== null && (LIMITED_PRINCIPALS.has(p.principalId) || p.principalId === REVIEW_PRINCIPAL))
 }
 
 /**
@@ -84,9 +85,14 @@ export function isTrustedWriter(auth: SessionAuth) {
  * `isAutonomous`, and that is a pessimistic "either principal" test. A principal nobody
  * planned for read as not-autonomous and fell straight through it into the whole `agent/*`
  * namespace. What confines a limited turn is the branch rule in `pushToAgentBranch`, not this.
+ *
+ * The review principal is accepted as the initiator and never as the speaker. A review shares
+ * its session with every later comment on that pull request, so refusing it on both would lock
+ * Benjamin and the contributor out of a thread the moment it was reviewed. The review turn
+ * itself still writes nothing, and whoever speaks after it is limited by `isLimited`.
  */
 export function isTrustedAuthor(auth: SessionAuth) {
-  const principals = [auth.current, auth.initiator].filter(p => p !== null)
-  if (principals.length === 0) return false
-  return principals.every(p => isMaintainer(p) || isSchedule(p) || LIMITED_PRINCIPALS.has(p.principalId))
+  const author = (p: SessionAuthContext) => isMaintainer(p) || isSchedule(p) || LIMITED_PRINCIPALS.has(p.principalId)
+  if (auth.current === null || !author(auth.current)) return false
+  return auth.initiator === null || author(auth.initiator) || auth.initiator.principalId === REVIEW_PRINCIPAL
 }

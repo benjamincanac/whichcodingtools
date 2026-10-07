@@ -43,7 +43,7 @@ For agents, every page has a markdown twin at `/raw/<path>.md`, and asking a pag
 
 ## Self-maintenance
 
-An eve agent in [`agent/`](agent/) re-reads every vendor pricing page daily and opens a PR when a price changed. It never merges. It identifies itself and honours robots.txt, see [whichcoding.tools/crawler](https://whichcoding.tools/crawler) and [agent/README.md](agent/README.md).
+An eve agent in [`agent/`](agent/) re-reads every vendor pricing page daily and opens a PR when a price changed. CI merges it once the checks pass, and a PR that started from someone's issue or mention waits for a maintainer. It identifies itself and honours robots.txt, see [whichcoding.tools/crawler](https://whichcoding.tools/crawler) and [agent/README.md](agent/README.md).
 
 ## Contribute
 

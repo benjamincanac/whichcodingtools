@@ -13,19 +13,23 @@ Work in `/workspace/repo`, already on the latest main. Call `github__list_open`:
 
 Read each thread with `github__read_thread` before deciding anything about it. The diff says what changed, the thread says whether a person already objected, already answered, or is waiting on something. Bring the pull request refs in once, they are not part of a normal clone:
 
-    git fetch origin 'refs/pull/*/head:refs/remotes/origin/pr/*'
+    git fetch origin main 'refs/pull/*/head:refs/remotes/origin/pr/*'
+
+The order matters. Reading a thread someone other than Benjamin wrote in marks the session: from then on every push has to go to a new `agent/community-*` branch, and a push to one of your own open pull requests is refused. So go through the pull requests `github__list_open` returns with a `branch` first, which are the ones you opened, then your own issues, and people's pull requests and issues last.
 
 ## For each pull request
 
-Read the diff against main with `git diff main origin/pr/<number>`, then check it the way a merge would:
+Read the diff with `git diff origin/main...origin/pr/<number> -- content public/logos`, then check its data the way a merge would:
 
-    git checkout -f -B triage origin/pr/<number> && git merge --no-edit main && pnpm validate
+    git checkout -f -B triage origin/main && git clean -fd
+    git diff --binary origin/main...origin/pr/<number> -- content public/logos | git apply --index && pnpm validate
 
-A pull request that was green on its own commit can still be wrong against main today, because its checks ran before whatever landed since. `pnpm validate` on the merged tree is the thing that says so. Go back to main with `git checkout -f main && git clean -fd` when you are done with one.
+Never check a pull request's own tree out and never merge it. `pnpm validate` runs `scripts/validate.ts`, and on a person's tree that is their script, run in a sandbox that pushes afterwards. The patch carries the two data directories and nothing else. A pull request that was green on its own commit can still be wrong against main today, because its checks ran before whatever landed since, and `pnpm validate` on main plus its patch is the thing that says so. A patch that does not apply is a conflict: say so and move on. Go back with `git checkout -f -B main origin/main && git clean -fd` when you are done with one.
 
-- Merges clean and validates: say so and leave it, it is waiting on Benjamin. Do not comment to say it is fine, the report covers that.
-- Fails validation: name the rule it fails. When the fix is a pricing re-check, load the `pricing-watch` skill and redo that one tool properly on the merged branch, then push to the pull request's own branch with `github__push_files` so the fix lands in the thread that is already open. Never open a second pull request for a tool that already has one. `github__push_files` reads the files off disk, so the checkout has to be the merged branch when you call it, and `github__update_pull_request` rewrites the body afterwards so it describes what is on the branch now rather than what was on it in the morning.
-- Its change already landed another way, or the finding no longer holds: close it with `github__close_pull_request` and a comment saying what replaced it. A pull request that merely conflicts is not settled, leave that one and say so.
+- Applies and validates: say so and leave it. A person's is theirs and Benjamin's. One of yours on `agent/community-*`, or one that touches more than one tool, is waiting on Benjamin, and so is a draft. Any other of yours CI should have merged already, so say in the report that it did not. Do not comment to say it is fine, the report covers that.
+- One of yours fails validation: name the rule it fails. When the fix is a pricing re-check, load the `pricing-watch` skill and redo that one tool properly on this tree, then push to the pull request's own branch with `github__push_files` so the fix lands in the thread that is already open, and rewrite the body with `github__update_pull_request` before the push when you can, since CI merges the branch minutes after it turns green and a merged pull request no longer takes an edit. Never open a second pull request for a tool that already has one. `github__push_files` reads the files off disk, so the checkout has to be this tree when you call it.
+- A person's fails validation: name the rule in the report. Their branch is not somewhere you can push, `github__list_open` gives it no `branch`, and the review that ran when it opened already told them.
+- One of yours whose change already landed another way, or whose finding no longer holds: close it with `github__close_pull_request` and a comment saying what replaced it. A pull request that merely conflicts is not settled, leave that one and say so in the report: nothing retries its merge, so it stays open until someone looks.
 
 ## For each issue
 

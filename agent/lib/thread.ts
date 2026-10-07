@@ -1,4 +1,6 @@
+import type { SessionAuth } from 'eve/context'
 import { defineState } from 'eve/context'
+import { isLimited } from './trust'
 
 /**
  * The issue or pull request this turn is already answering in, or null when it has no
@@ -27,3 +29,20 @@ export const ownBranches = defineState<string[]>('agent.own-branches', () => [])
  * first turn's diff. Null until the session has pushed, and again once that branch is gone.
  */
 export const workingBranch = defineState<string | null>('agent.working-branch', () => null)
+
+/**
+ * Whether text from someone without commit rights is upstream of this session. Set by the
+ * channel when a turn starts on a thread such a person wrote in, and by `github__read_thread`
+ * when a sweep reads one. Never cleared: the text stays in the transcript for as long as the
+ * session lives, and a later turn under Benjamin's principal still has it in front of the model.
+ */
+export const strangerUpstream = defineState<boolean>('agent.stranger-upstream', () => false)
+
+/**
+ * What the write tools ask before they pick a branch rule. An agent branch outside
+ * `agent/community-*` can merge with no person involved, so a session that holds a stranger's text
+ * is held to that namespace whoever is speaking now.
+ */
+export function isLimitedSession(auth: SessionAuth) {
+  return isLimited(auth) || strangerUpstream.get()
+}

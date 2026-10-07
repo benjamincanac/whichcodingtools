@@ -35,25 +35,25 @@ and pull out the agents it says it detects, runs or supports. That list is maint
 
 **The ACP Agent Registry.** One file, and the only list in this space a second party curates and dates:
 
-    curl -s https://cdn.agentclientprotocol.com/registry/v1/latest/registry.json
+    curl -s -A 'whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)' https://cdn.agentclientprotocol.com/registry/v1/latest/registry.json
 
 Every entry is an agent JetBrains IDEs and Zed can install in one click, with a `website`, a `repository` and an `authors` line. An entry whose domain matches no `homepage` is a candidate somebody already shipped, packaged and got accepted, which is a stronger signal than a launch post. Read `authors` before filing: an adapter a personal account wrote around a vendor's CLI is not a product, and the tool it wraps usually already has a file. The Wednesday `acp-watch` pass reads the same file for the corpus side, so anything it names in its report with no slug is here for you.
 
 **The Vercel AI Gateway coding agents guide.** Vercel writes one docs page per agent its `vercel ai-gateway coding-agents setup` command knows how to configure, and the sitemap lists them:
 
-    curl -s https://vercel.com/docs/sitemap.md | grep -oE '/docs/ai-gateway/coding-agents/[a-z0-9-]+' | sort -u
+    curl -s -A 'whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)' https://vercel.com/docs/sitemap.md | grep -oE '/docs/ai-gateway/coding-agents/[a-z0-9-]+' | sort -u
 
 Sixteen slugs at the time of writing. A page here means a harness with enough users that Vercel wrote a setup path for it, which is a second party vouching the same way a `wraps` list does. A slug with no file in the corpus is a candidate. When the slug alone does not settle the match, read `https://vercel.com/docs<path>` with `Accept: text/markdown` for the vendor URL.
 
 **The Vercel AI Gateway apps leaderboard.** Opted-in apps ranked by token volume and by spend, from real gateway traffic, anonymized and cached for a day:
 
-    curl -s "https://vercel.com/api/ai/leaderboard-export?dataset=apps"
+    curl -s -A 'whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)' "https://vercel.com/api/ai/leaderboard-export?dataset=apps"
 
 Each row carries a `name`, a `url` and a one-line `description`. Match on the domain of `url`. Most rows are not coding tools, a tutoring app or a matchmaking service, and the `description` says which. A coding agent ranked here has real usage, and this is the source that would have caught Command Code at rank 1 the week nobody had filed it. The data is CC-BY-4.0, so name the leaderboard in the evidence.
 
 **Show HN.** Launches land there the day they ship:
 
-    curl -sG https://hn.algolia.com/api/v1/search_by_date \
+    curl -sG -A 'whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)' https://hn.algolia.com/api/v1/search_by_date \
       --data-urlencode tags=story \
       --data-urlencode "numericFilters=created_at_i>$(date -u -d '8 days ago' +%s)" \
       --data-urlencode 'query=coding agent' \
@@ -63,7 +63,7 @@ Eight days, so a run that slips overlaps the previous one instead of leaving a h
 
 **GitHub topic search.** Repositories tagged `coding-agent`, created in the last month, by stars:
 
-    curl -s -H "Accept: application/vnd.github+json" \
+    curl -s -A 'whichcodingtools-agent/1.0 (+https://whichcoding.tools/crawler)' -H "Accept: application/vnd.github+json" \
       "https://api.github.com/search/repositories?q=topic:coding-agent+created:>$(date -u -d '30 days ago' +%F)&sort=stars&per_page=30"
 
 Unauthenticated, ten calls a minute, and this one call is the whole source. Match the `homepage` field on the domain first and the repository name second. Stars in a first month are a launch signal and nothing more: half of what carries the tag is a framework, a skill pack or a research artifact, so read the README before believing the topic and let the scope list below send those back.
@@ -87,7 +87,7 @@ A fork is a tool when it ships as its own product with its own pricing, and is n
 
 ## Verify before filing
 
-Read the candidate's own homepage with `page-text.mjs`, the browser second when the fetch comes back with no readable text, and never when it exits 3, which is a page the vendor's robots.txt reserves and a candidate to report as such. Three things have to hold: the product exists and ships today, the page states a price or says it is free, and it is the kind of thing the source claimed. A candidate whose page cannot be read is not filed. Say so in the report and let it come back next week.
+Read the candidate's own homepage with `page-text.mjs`, the browser second when the fetch comes back with no readable text, and never when it exits 3, which is a page the vendor's robots.txt reserves and a candidate to report as such, or 4 or on a refusal like a 403, which is a page that could not be read today. Three things have to hold: the product exists and ships today, the page states a price or says it is free, and it is the kind of thing the source claimed. A candidate whose page cannot be read is not filed. Say so in the report and let it come back next week.
 
 ## Dedupe
 

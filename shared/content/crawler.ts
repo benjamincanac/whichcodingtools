@@ -21,13 +21,13 @@ export const CRAWLER_PAGE = {
     {
       title: 'How often',
       paragraphs: [
-        'The pricing sweep runs once a day at 06:15 UTC and fetches one page per tool. The rename watch (Monday), discovery (Tuesday), ACP watch (Wednesday) and stale sweep (Thursday) each run once a week. Any one site sees a handful of requests a week, one at a time, with a 20 second timeout and no retries on a page that refuses.'
+        'The pricing sweep runs once a day at 06:15 UTC and fetches the pricing pages each tool cites, usually one. The rename watch (Monday), discovery (Tuesday), ACP watch (Wednesday) and stale sweep (Thursday) each run once a week. Any one page sees about one request a day, with a 20 second timeout and no retries on a page that refuses.'
       ]
     },
     {
       title: 'How it identifies itself',
       paragraphs: [
-        `Every request carries the user agent \`${CRAWLER_USER_AGENT}\`. Before fetching a page it reads the origin's robots.txt and skips any page a Disallow for \`whichcodingtools-agent\` or \`*\` covers. A reserved page is reported in the run summary and nothing else happens to it. To keep it out, add that Disallow and the next run honours it.`,
+        `Every request carries the user agent \`${CRAWLER_USER_AGENT}\`. Before fetching a page it reads the origin's robots.txt and skips any page a Disallow for \`whichcodingtools-agent\` or \`*\` covers. The weekly rename watch is the exception: it sends one HEAD request to each homepage to see where it redirects, and reads no robots.txt for it. A reserved page is reported in the run summary and nothing else happens to it. To keep it out, add that Disallow and the next run honours it.`,
         'A page that only renders in a browser is read in one the sandbox runs, which sends a stock Chromium user agent. The robots.txt check happens before that fallback too.'
       ]
     },
@@ -35,7 +35,7 @@ export const CRAWLER_PAGE = {
       title: 'What happens to the text',
       paragraphs: [
         'An excerpt of the page is kept in the public repository under content/snapshots/<slug>/ so a price on this site can be checked against the page it came from. That excerpt stays under the vendor\'s own terms and is not part of the data license.',
-        'A change to a price goes out as a pull request a person reviews. The one thing merged without a review is a batch of re-verified dates with no value changed.'
+        'A change to a price goes out as a pull request that shows the before and after next to the page it came from. A change to one tool is merged once the checks pass, and a wider one waits for a person. For a tool that has an excerpt on file, they include finding every price in it.'
       ]
     }
   ],

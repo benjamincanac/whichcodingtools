@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="Triggers start a turn in the app runtime. The agent reads the repo and vendor pages in a Vercel Sandbox whose git push is refused at the firewall. Writes go through the github tools and the trust gate to agent branches, pull requests and issues on GitHub, which Benjamin merges. A Tool issue filed by discovery loops back into the webhook.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" width="1120" height="520" role="img" aria-label="Triggers start a turn in the app runtime. The agent reads the repo and vendor pages in a Vercel Sandbox whose git push is refused at the firewall. Writes go through the github tools and the trust gate to agent branches, pull requests and issues on GitHub, which CI merges once the checks pass. A Tool issue filed by discovery loops back into the webhook.">
   <style>
     svg { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; color: #e6edf3; }
     .node { fill: #0d1117; stroke: #e6edf3; stroke-width: 1.2; }
@@ -117,8 +117,8 @@
 
   <path class="edge" d="M950,405 H990" marker-end="url(#arrow)"/>
   <rect class="node" x="990" y="372" width="110" height="65" rx="10"/>
-  <text class="t b" x="1045" y="400" text-anchor="middle">Benjamin</text>
-  <text class="t" x="1045" y="418" text-anchor="middle">reviews, merges</text>
+  <text class="t b" x="1045" y="400" text-anchor="middle">CI</text>
+  <text class="t" x="1045" y="418" text-anchor="middle">checks, merges</text>
 
   <path class="edge soft" d="M825,460 V498 H125 V350" marker-end="url(#arrow-soft)"/>
   <text class="t lbl" x="475" y="492" text-anchor="middle">a [Tool] issue filed by discovery, or a label Benjamin adds, starts an unattended responder turn</text>

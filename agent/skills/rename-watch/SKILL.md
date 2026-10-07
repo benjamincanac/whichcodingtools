@@ -18,7 +18,7 @@ For each URL run `curl -sIL -A 'whichcodingtools-agent/1.0 (+https://whichcoding
 - **404 or 410 on the homepage**: possible shutdown. Check the vendor's blog or repo README with the browser before concluding anything.
 - **Redirect within the same domain** (path moves, http to https, trailing slash): not a finding. Fix nothing.
 
-Then read the homepage itself: `node /workspace/bin/page-text.mjs <final url> > /tmp/<slug>.txt`. Use the browser when the fetch returns no readable text and did not exit 3: exit 3 is a page the vendor's robots.txt reserves, reported as such and never opened. That text answers the name question above, and it is also the input to the next section.
+Then read the homepage itself: `node /workspace/bin/page-text.mjs <final url> > /tmp/<slug>.txt`. Use the browser when the fetch exits 0 with no readable text: exit 3 is a page the vendor's robots.txt reserves, reported as such and never opened, and exit 4 or a refusal like a 403 is a page that could not be read today, never opened either. That text answers the name question above, and it is also the input to the next section.
 
 ## Description drift
 
