@@ -11,7 +11,7 @@ export default defineSandbox({
   backend: vercel({ resources: { vcpus: 2 }, networkPolicy: NO_CREDENTIALS }),
   // The template only warms tooling. The private repo is cloned per session, after the
   // brokered credentials are in place, so no token is ever written into the template image.
-  revalidationKey: () => `whichcodingtools-workspace-v4:${agentBrowserRevalidationKey()}`,
+  revalidationKey: () => `whichcodingtools-workspace-v5:${agentBrowserRevalidationKey()}`,
   async bootstrap({ use }) {
     const sandbox = await use()
     // One round trip: none of these read another's output, and each `run` is a full RPC.
@@ -20,7 +20,7 @@ export default defineSandbox({
     // The credential helper exits rather than prompting, so an unauthenticated push fails
     // in a second instead of blocking on a username nobody is there to type.
     await run(sandbox, [
-      'corepack enable && corepack prepare pnpm@11.23.0 --activate',
+      'corepack enable && corepack prepare pnpm@12.3.4 --activate',
       'git config --global user.name "whichcodingtools[bot]"',
       'git config --global user.email "whichcodingtools[bot]@users.noreply.github.com"',
       'git config --global --add safe.directory /workspace/repo',
