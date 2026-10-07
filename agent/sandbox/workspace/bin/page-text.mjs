@@ -304,6 +304,7 @@ async function fetchRobots(origin) {
     const res = await fetch(current, {
       redirect: 'manual',
       signal,
+      dispatcher: await pinned(),
       headers: { 'user-agent': USER_AGENT, 'accept': 'text/plain' }
     })
     const location = res.headers.get('location')
@@ -351,6 +352,7 @@ async function fetchChecked(url) {
     const res = await fetch(current, {
       redirect: 'manual',
       signal,
+      dispatcher: await pinned(),
       headers: {
         'user-agent': USER_AGENT,
         'accept': 'text/html,application/xhtml+xml'
@@ -409,6 +411,42 @@ async function notPublic(url) {
   }
   const inside = addresses.find(a => !isPublicAddress(a.address))
   return inside ? `it resolves to ${inside.address}` : null
+}
+
+/**
+ * The lookup a connection resolves its host with: the same check as `notPublic`, on the very
+ * answer the socket then connects to. `notPublic` alone leaves a gap, since `fetch` resolves the
+ * name a second time and a hostile DNS server can answer the two differently.
+ */
+function pinnedLookup(host, options, callback) {
+  lookup(host, { ...options, all: true }).then((addresses) => {
+    const inside = addresses.find(a => !isPublicAddress(a.address))
+    if (inside) return callback(new Error(`${host} resolves to ${inside.address}`))
+    if (options.all) callback(null, addresses)
+    else callback(null, addresses[0].address, addresses[0].family)
+  }, callback)
+}
+
+let dispatcher
+
+/**
+ * A dispatcher whose connections go through `pinnedLookup`, with every other setting the
+ * default one has, so a vendor is asked the same way. Node ships undici without exporting its
+ * `Agent`, and this script takes no dependency, so the class is read off the dispatcher `fetch`
+ * installs on first use. Where that is not there to read, the requests go out on the default
+ * dispatcher and `notPublic` is the whole check.
+ */
+async function pinned() {
+  if (dispatcher !== undefined) return dispatcher ?? undefined
+  try {
+    await fetch('data:,')
+    const Agent = globalThis[Symbol.for('undici.globalDispatcher.1')]?.constructor
+    dispatcher = Agent ? new Agent({ connect: { lookup: pinnedLookup } }) : null
+  } catch {
+    dispatcher = null
+  }
+  if (dispatcher === null) console.error('The connection lookup could not be pinned on this Node, so addresses are checked before the request only.')
+  return dispatcher ?? undefined
 }
 
 /**
