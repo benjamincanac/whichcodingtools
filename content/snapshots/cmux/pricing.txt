@@ -20,8 +20,8 @@ Vertical tabs, workspaces, split panes, and completion notifications
 Browser panels, a scriptable socket API, and custom skills
 Local session history
 Community support on Discord and GitHub
-Pro
-$50 /mo
+Pro Billing period Yearly · Monthly
+$40 /mo
 Get Pro
 Everything in Free, plus:
 Cloud agents on Cloud VMs in isolated remote sandboxes
@@ -89,7 +89,7 @@ Max is $200/mo, billed monthly. It includes everything in Pro and up to 5 Cloud 
 Do I still need Tailscale for the iOS app?
 No. The iOS app pairs with your Mac over the built-in cmux iroh network. You can also bring your own networking, like Tailscale. Enterprise can self-host.
 How does billing work?
-Paid plans are billed monthly. Pro is $50/mo, Max is $200/mo, and Team is $60/user/mo. The terminal and local agents stay free.
+Pro is $50/mo, or $480/yr ($40/mo) when billed yearly. Max is $200/mo and Team is $60/user/mo, both billed monthly. The terminal and local agents stay free.
 Can I self-host the cloud?
 Yes, on Enterprise. Run agent execution on your own infrastructure or fully air-gapped, so source code never leaves your network.
 Do you have a team plan?
@@ -130,8 +130,8 @@ Vertical tabs, workspaces, split panes, and completion notifications
 Browser panels, a scriptable socket API, and custom skills
 Local session history
 Community support on Discord and GitHub
-Pro
-$50 /mo
+Pro Billing period Yearly · Monthly
+$40 /mo
 Get Pro
 Everything in Free, plus:
 Cloud agents on Cloud VMs in isolated remote sandboxes
