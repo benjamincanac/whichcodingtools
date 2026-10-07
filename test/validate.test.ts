@@ -95,6 +95,7 @@ describe('a figure looked up in a capture', () => {
     [20, 'US$20'],
     [20, 'Teams is $20.'],
     [20, '20 USD'],
+    [20, '20GBP'],
     [20, '$20.00'],
     [20, '$20, billed monthly'],
     [20, '($20)'],
@@ -114,6 +115,10 @@ describe('a figure looked up in a capture', () => {
   ]
   const missing: [number, string][] = [
     [20, '$120'],
+    [20, '20GB storage'],
+    [20, '20 GB'],
+    [20, '20MB'],
+    [20, 'Save 20% yearly'],
     [20, '$200'],
     [20, 'Up to 20,000 credits'],
     [20, '$20.50 per seat'],
