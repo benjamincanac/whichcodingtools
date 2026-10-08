@@ -155,7 +155,7 @@ pricing:
         - Unlimited team seats, dedicated support engineer
         - SLA guarantees and priority infrastructure
         - Custom training and onboarding
-  notes: Each paid tier bills a flat monthly fee plus a processing fee. Select premium models (GPT-5.6 Luna, Grok 4.5, Qwen Max and Plus) are included on every plan, and top-up credits roll over and never expire. Every plan except Go bundles OpenAI and Anthropic compatible API access and hourly-billed cloud access.
+  notes: Each paid tier bills a flat monthly fee plus a processing fee. Select premium models (GPT-5.6 Luna, Grok 4.5, Qwen Max and Plus) are included on every plan, and top-up credits roll over and never expire. Every plan except Go bundles OpenAI and Anthropic compatible API access and cloud access, billed per second.
 status: active
 sources:
   - url: https://commandcode.ai
@@ -165,7 +165,7 @@ sources:
     verified_at: 2026-09-04
     covers: [general]
   - url: https://commandcode.ai/pricing
-    verified_at: 2026-10-07
+    verified_at: 2026-10-08
     covers: [pricing]
   - url: https://commandcode.ai/desktop
     verified_at: 2026-09-04

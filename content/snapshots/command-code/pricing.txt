@@ -33,6 +33,7 @@ Free on Laguna S 2.1
 Free on Ling 3.0 Flash
 Free on Ling 3.0 Flash Sante
 Free on Ling 3.1 Flash
+Free on Glyph Cluster
 Limited usage analytics
 Discord community support
 ✦ New
@@ -54,6 +55,7 @@ Free on Laguna S 2.1
 Free on Ling 3.0 Flash
 Free on Ling 3.0 Flash Sante
 Free on Ling 3.1 Flash
+Free on Glyph Cluster
 Free on TypeSafe Jev
 Usage analytics
 Discord community support
@@ -74,6 +76,7 @@ Free on Laguna S 2.1
 Free on Ling 3.0 Flash
 Free on Ling 3.0 Flash Sante
 Free on Ling 3.1 Flash
+Free on Glyph Cluster
 Free on TypeSafe Jev
 Usage analytics
 Higher rate limits
@@ -164,6 +167,12 @@ Free
 Free
 Free
 Free
+Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
+Free
+Free
+Free
+Free
 Typical request volume Approx, depends on chosen models
 ~9K
 ~75K
@@ -192,7 +201,7 @@ Up to 1M
 Up to 1M
 Up to 1M
 Auto top-up at API cost
-Cloud access All plans except Go
+Cloud access Billed per second, all plans except Go
 $0.10/hr
 $0.10/hr
 $0.10/hr
@@ -221,6 +230,8 @@ Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
 Free
 Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
+Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
 Typical request volume Approx, depends on chosen models
 ~9K
 Roll-over top-ups
@@ -237,7 +248,7 @@ Standard
 Context window
 Up to 1M
 Auto top-up at API cost
-Cloud access All plans except Go
+Cloud access Billed per second, all plans except Go
 Analytics & support
 Usage analytics
 Limited
@@ -262,6 +273,8 @@ Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
 Free
 Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
+Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
 Typical request volume Approx, depends on chosen models
 ~75K
 Roll-over top-ups
@@ -278,7 +291,7 @@ Standard
 Context window
 Up to 1M
 Auto top-up at API cost
-Cloud access All plans except Go
+Cloud access Billed per second, all plans except Go
 $0.10/hr
 Analytics & support
 Usage analytics
@@ -303,6 +316,8 @@ Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
 Free
 Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
+Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
 Typical request volume Approx, depends on chosen models
 ~100K
 Roll-over top-ups
@@ -319,7 +334,7 @@ Standard
 Context window
 Up to 1M
 Auto top-up at API cost
-Cloud access All plans except Go
+Cloud access Billed per second, all plans except Go
 $0.10/hr
 Analytics & support
 Usage analytics
@@ -344,6 +359,8 @@ Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
 Free
 Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
+Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
 Typical request volume Approx, depends on chosen models
 ~219K
 Roll-over top-ups
@@ -360,7 +377,7 @@ Higher
 Context window
 Up to 1M
 Auto top-up at API cost
-Cloud access All plans except Go
+Cloud access Billed per second, all plans except Go
 $0.10/hr
 Analytics & support
 Usage analytics
@@ -385,6 +402,8 @@ Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
 Free
 Ling 3.1 Flash effective usage Requests cost no credits while it lasts
 Free
+Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
 Typical request volume Approx, depends on chosen models
 ~437K
 Roll-over top-ups
@@ -401,7 +420,7 @@ Highest
 Context window
 Up to 1M
 Auto top-up at API cost
-Cloud access All plans except Go
+Cloud access Billed per second, all plans except Go
 $0.10/hr
 Analytics & support
 Usage analytics
@@ -455,12 +474,12 @@ David Thyresson
 GP · PWV · RedwoodSDK contributor
 // ship
 Changelog
-v 1.77.0
-397 releases shipped
-FEAT Command Code Cloud (beta): run `cmd --cloud`
-FEAT Peek, an opt-in recap diagram after tasks that change code (`/peek`)
-FIX Mod commands echo with their slash (`/peek`, not `peek`)
-FIX Hooks that skip stdin no longer crash the CLI
+v 1.79.0
+399 releases shipped
+FEAT Add Glyph Cluster as a free model, 100 requests a day
+FEAT Add Claude Haiku 5.5 (Pro and above)
+FEAT Localize the CLI in Chinese
+FIX Taste learning no longer fails on Windows when it files learnings into a category folder
 Read full changelog
 +104k
 Ready to code with your taste? Join 100K+ developers who stopped fixing AI code and started shipping with the best coding agent for open models.
