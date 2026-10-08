@@ -53,7 +53,10 @@ pricing:
       overage:
         kind: credits
       limits:
-        - Conductor Cloud, multiplayer with up to 5 Pro users, Conductor API
+        - Conductor Cloud, multiplayer
+        - Live collaboration with up to 5 Pro users
+        - Conductor API
+        - Conductor mobile app
       notes: Includes a bundle of Conductor Cloud workspace hours, amount not published on the pricing page
     - id: teams
       name: Teams
@@ -72,7 +75,7 @@ pricing:
 status: active
 sources:
   - url: https://conductor.build/pricing
-    verified_at: 2026-09-18
+    verified_at: 2026-10-08
     covers: [pricing, wraps]
   - url: https://conductor.build
     verified_at: 2026-08-23

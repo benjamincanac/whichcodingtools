@@ -18,9 +18,9 @@ Get Pro
 Everything in Free, plus:
 └ Conductor Cloud and a bunch of cloud workspace hours
 └ Multiplayer
-└ Collab with up to 5 Pro users
+└ Live collaboration with up to 5 Pro users
 └ Conductor API
-└ Conductor mobile app COMING VERY SOON
+└ Conductor mobile app
 Teams
 $60 /mo/user
 Contact us
