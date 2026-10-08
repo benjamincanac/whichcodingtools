@@ -81,14 +81,13 @@ pricing:
       price_annual: 18
       audience: individual
       included:
-        amount: 1500
-        unit: credits
+        amount: 20
+        unit: usd
         period: month
-        usd_value: 20
-        notes: 1,500 credits, $20 of agent usage at API rates
+        notes: $20 of agent usage included each month at API rates
       overage:
-        kind: credits
-        notes: Extra credits at API rates with volume discounts.
+        kind: api-list
+        notes: Add-on agent usage, auto-reload, and team-wide spend cap.
       limits:
         - Full agent access, extended cloud agents, unlimited storage
     - id: max
@@ -97,27 +96,26 @@ pricing:
       price_annual: 180
       audience: individual
       included:
-        amount: 18000
-        unit: credits
+        amount: 200
+        unit: usd
         period: month
-        usd_value: 240
-        notes: 18,000 credits, 12 times the Build allotment
+        notes: $200 of agent usage included each month (10× Build)
       overage:
-        kind: credits
-        notes: Additional usage priced at API rates.
+        kind: api-list
+        notes: Add-on agent usage, auto-reload, and team-wide spend cap.
     - id: business
       name: Business
       price: 50
       price_annual: 45
       audience: team
       included:
-        amount: 1500
-        unit: credits
+        amount: 20
+        unit: usd
         period: month
-        usd_value: 20
-        notes: 1,500 credits per seat
+        notes: $20 of agent usage included per seat each month at API rates
       overage:
-        kind: credits
+        kind: api-list
+        notes: Add-on agent usage, auto-reload, and team-wide spend cap.
       limits:
         - Up to 25 seats, SAML SSO, admin controls, team metrics
     - id: enterprise
@@ -131,7 +129,7 @@ pricing:
 status: active
 sources:
   - url: https://www.warp.dev/pricing
-    verified_at: 2026-09-18
+    verified_at: 2026-10-08
     covers: [pricing]
   - url: https://docs.warp.dev/agents/cli-agents/overview/
     verified_at: 2026-08-23

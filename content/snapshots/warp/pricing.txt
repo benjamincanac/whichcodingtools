@@ -2,7 +2,7 @@
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
 Pricing | Warp
-Introducing Warp Factories: open, flexible infrastructure for building your own cloud software factory. Learn More
+Live Oct 8: Moving from coding agents to software factories with Uber and Faire — Register →
 Products
 Warp Factories
 Run fleets of coding agents across your SDLC
@@ -42,7 +42,8 @@ Overview
 Secure, compliant agentic development for your org
 Customers
 Teams shipping faster with Warp Pricing
-Sign In Book a demo
+Sign In
+Book a demo
 Get Started
 Products
 Warp Factories
@@ -83,12 +84,11 @@ Overview
 Secure, compliant agentic development for your org
 Customers
 Teams shipping faster with Warp Pricing
-Sign In Book a demo
+Sign In
+Book a demo
 Get Started
-Warp Factories, now in Early Access — select teams get up to $10,000 in factory usage Learn more
-Pricing
-Start free and scale as your team grows. Simple, transparent pricing with no surprises.
-Monthly Annually 10% off
+Warp Terminal and agents Warp Factories Automated software delivery
+Pricing for Warp
 Free
 $0 /month
 For developers who want Warp’s modern terminal with the flexibility to use Warp’s AI or bring their own.
@@ -99,7 +99,7 @@ State-of-the-art modern terminal
 ○
 Warp Agent CLI access
 ○
-Reload credits at pay-as-you-go rates
+Additional agent usage at pay-as-you-go rates
 ○
 Bring your own AI inference*
 ○
@@ -115,17 +115,18 @@ Limited cloud conversation storage
 Purchase additional agent usage
 Build
 Recommended
-Pay as you go, starting at:
+Monthly Annual
+Monthly plan
 $20 /month
 For developers who want flexible access to AI that scales with their usage
 Start Today
 Everything in Free, plus:
 ○
-1,500 credits ($20 of included agent usage at API rates)
+$20 of agent usage included each month at API rates
 ○
 Full Warp Agent access (frontier and open-source models from OpenAI, Anthropic, z.ai, and more)
 ○
-Reload credits with volume-based discounts, auto-reload, and team-wide spend cap
+Add-on agent usage, auto-reload, and team-wide spend cap
 ○
 Extended cloud agents access
 ○
@@ -138,24 +139,26 @@ Unlimited cloud conversation storage
 Private email support
 Purchase additional agent usage
 Max
-Pay as you go, starting at:
+Monthly Annual
+Monthly plan
 $200 /month
 For developers who need maximum AI capacity with all the flexibility of Build
 Start Today
 Everything in Build, plus:
 ○
-18,000 credits (12× the included usage of Build)
+$200 of agent usage included each month (10× Build)
 ○
-Reload credits with volume-based discounts, auto-reload, and team-wide spend cap
+Add-on agent usage, auto-reload, and team-wide spend cap
 Purchase additional agent usage
 Business
-Pay as you go, starting at:
+Monthly Annual
+Monthly plan
 $50 /user /month
 For teams scaling AI-powered development (up to 25 seats)
 Start Today
 Everything in Build, plus:
 ○
-1,500 credits per seat ($20 of included agent usage at API rates)
+$20 of agent usage included per seat each month at API rates
 ○
 Team usage metrics
 ○
@@ -173,7 +176,7 @@ Everything in Business, plus:
 ○
 Unlimited seats
 ○
-Custom shared credit pools and usage terms
+Custom shared usage pools and terms
 ○
 Advanced spend controls
 ○
@@ -206,7 +209,7 @@ State-of-the-art modern terminal
 ○
 Warp Agent CLI access
 ○
-Reload credits at pay-as-you-go rates
+Additional agent usage at pay-as-you-go rates
 ○
 Bring your own AI inference*
 ○
@@ -222,17 +225,18 @@ Limited cloud conversation storage
 Purchase additional agent usage
 Build
 Recommended
-Pay as you go, starting at:
+Monthly Annual
+Annual plan
 $18 /month
 For developers who want flexible access to AI that scales with their usage
 Start Today
 Everything in Free, plus:
 ○
-1,500 credits ($20 of included agent usage at API rates)
+$20 of agent usage included each month at API rates
 ○
 Full Warp Agent access (frontier and open-source models from OpenAI, Anthropic, z.ai, and more)
 ○
-Reload credits with volume-based discounts, auto-reload, and team-wide spend cap
+Add-on agent usage, auto-reload, and team-wide spend cap
 ○
 Extended cloud agents access
 ○
@@ -245,24 +249,26 @@ Unlimited cloud conversation storage
 Private email support
 Purchase additional agent usage
 Max
-Pay as you go, starting at:
+Monthly Annual
+Annual plan
 $180 /month
 For developers who need maximum AI capacity with all the flexibility of Build
 Start Today
 Everything in Build, plus:
 ○
-18,000 credits (12× the included usage of Build)
+$200 of agent usage included each month (10× Build)
 ○
-Reload credits with volume-based discounts, auto-reload, and team-wide spend cap
+Add-on agent usage, auto-reload, and team-wide spend cap
 Purchase additional agent usage
 Business
-Pay as you go, starting at:
+Monthly Annual
+Annual plan
 $45 /user /month
 For teams scaling AI-powered development (up to 25 seats)
 Start Today
 Everything in Build, plus:
 ○
-1,500 credits per seat ($20 of included agent usage at API rates)
+$20 of agent usage included per seat each month at API rates
 ○
 Team usage metrics
 ○
@@ -280,7 +286,7 @@ Everything in Business, plus:
 ○
 Unlimited seats
 ○
-Custom shared credit pools and usage terms
+Custom shared usage pools and terms
 ○
 Advanced spend controls
 ○
@@ -303,49 +309,6 @@ Cross-harness agent memory (Research Preview)
 White-glove onboarding and implementation engineer support
 ○
 Dedicated account manager and a shared Slack channel with your team
-Warp Factories, now in Early Access
-Flexible, open infrastructure to accelerate companies building internal cloud software factories — run fleets of coding agents across your SDLC, on any model or harness.
-Pay as you go
-For developers getting started with software factories
-Includes standard factory features
-○ Create and run factories with the Warp Agent
-○ Automate from GitHub, Slack, webhooks, and schedules
-○ Insights like cost per PR and automation rate
-○ Factory config as code in a Warp-managed repo
-○ Pay-as-you-go usage, 20% markup, no subscription
-Build
-For developers building and running factories
-Everything in Pay as you go, plus:
-○ Up to 10 seats
-○ Factory usage covered by your plan's included credits
-○ 20% savings over pay-as-you-go, at API rates
-○ Additional usage priced at API rates
-○ Private email support
-Max
-For developers scaling to high-volume workloads
-Everything in Build, plus:
-○ Up to 10 seats
-○ 12x Build's included factory usage
-○ More compute per cloud agent run
-○ Additional usage priced at API rates
-Business
-For teams scaling factories with more control
-Everything in Build, plus:
-○ Up to 25 seats, with per-seat included credits
-○ Advanced factory insights and team usage metrics
-○ SAML-based SSO
-○ Admin-configurable data controls with ZDR
-Enterprise
-For organizations needing infrastructure and governance
-Everything in Business, plus:
-○ Unlimited seats with custom shared usage pools
-○ Self-hosted workers on your own infrastructure
-○ Your own code forge for factory config
-○ BYOLLM inference at no credit cost
-○ Dedicated implementation engineer
-Select teams get up to $10,000 in factory usage during Early Access.
-See how factories work and request access.
-Explore Warp Factories
 Models
 The best for the job
 Access Fable 5, Claude Opus 5, GPT-5.6, Gemini 3.1 Pro, GLM 5.2, Kimi K3, and more. Pick the best model for the task. Run different tasks with different models in parallel, or switch between models for a given task, all without leaving your workflow.
@@ -365,6 +328,65 @@ Have more questions?
 Talk to our team about which plan is right for you.
 Contact Sales
 View Documentation
+Pricing for Warp Factories
+Build, run, and scale software factories. Execution is usage-based; each plan adds capabilities for teams, governance, and infrastructure.
+Pay as you go
+$0 /month
+For teams getting started with software factories.
+Get Started
+○
+Usage at 20% above API rates
+○
+Built-in and custom agents with cloud run management
+○
+Automations, insights, and self-improvement
+○
+Warp-hosted factory-as-code and cross-platform cloud runners
+Build
+$20 /month
+For developers building repeatable factory workflows.
+Start today
+Everything in Pay as you go, plus:
+○
+Usage at API rates
+○
+Claude Code and Codex harnesses
+○
+Factory-as-code in your GitHub code forge
+○
+Attribution controls and multiple admins
+Business
+Recommended
+$50 /user /month
+For teams scaling factories across production workflows.
+Start today
+Everything in Build, plus:
+○
+SAML-based SSO
+○
+Team telemetry and content controls
+○
+Expanded factory insights
+○
+Bring your own API keys and custom inference endpoints
+Enterprise
+Custom
+For organizations with complex governance and infrastructure needs.
+Contact sales
+Everything in Business, plus:
+○
+Custom shared usage pools and terms
+○
+Bring your own AI provider
+○
+Self-hosted workers, compute, transcripts, and conversation data
+○
+Workspaces to organize factories across teams and business units
+Factory usage is billed separately based on inference, compute, and agent usage.
+Build your first software factory
+Start with a self-serve plan or talk with our team about infrastructure and governance.
+Get started
+Explore Warp Factories
 Get Warp Terminal
 Get early access to unreleased and experimental features with Warp Preview
 Mac
@@ -419,7 +441,7 @@ GitHub
 YouTube
 Slack
 LinkedIn
-Product Hunt 4.8★ (78)
+Product Hunt 4.8★ (79)
 All Rights Reserved © 2026
 SOC 2 Certified
 Checking Status…
