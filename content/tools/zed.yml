@@ -98,6 +98,10 @@ wraps:
     uses_subscription: true
     min_tier: personal
     notes: Listed as Kimi CLI.
+  - tool: minimax-code
+    via: acp
+    uses_subscription: true
+    min_tier: personal
   - tool: mistral-vibe
     via: acp
     uses_subscription: true
@@ -111,6 +115,10 @@ wraps:
     uses_subscription: true
     min_tier: personal
     notes: Listed as Qoder CLI.
+  - tool: qwen-code
+    via: acp
+    uses_subscription: true
+    min_tier: personal
 pricing:
   tiers:
     - id: personal
@@ -160,5 +168,5 @@ sources:
     verified_at: 2026-08-23
     covers: [platforms, features, license]
   - url: https://agentclientprotocol.com/registry
-    verified_at: 2026-09-16
+    verified_at: 2026-10-07
     covers: [wraps]
