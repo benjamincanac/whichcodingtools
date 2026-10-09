@@ -3,10 +3,11 @@ import { generateText, Output } from 'ai'
 import { z } from 'zod'
 import { FEATURES, HOSTS, LAYERS, PLANS, PLATFORMS, PROVIDERS } from '#shared/enums'
 
-// Overridable without a deploy: NUXT_FINDER_MODEL. Luna matched Sonnet 5 on 18 finder queries
-// across 12 runs, for a twentieth of the cost and half the latency, and never filled a filter
-// nobody asked for. It reads long pages badly, so it earns this job and not the agent's.
-const MODEL = process.env.NUXT_FINDER_MODEL || 'openai/gpt-5.6-luna'
+// Overridable without a deploy: NUXT_FINDER_MODEL. On 20 finder sentences run 3 times, Haiku 5.5
+// at high effort parsed 48 to 51 of 60 exactly over two passes, against 48 for GPT-6 Luna and 37
+// for GPT-5.6 Luna, at the same 2s median as GPT-6 Luna. None of them missed a filter that was
+// asked for. At its default medium effort Haiku 5.5 parsed 42, so the effort below matters.
+const MODEL = process.env.NUXT_FINDER_MODEL || 'anthropic/claude-haiku-5.5'
 
 const BodySchema = z.object({
   query: z.string().trim().min(3).max(300)
@@ -72,16 +73,22 @@ export default defineEventHandler(async (event) => {
       system: SYSTEM,
       prompt: body.data.query,
       output: Output.object({ schema: ParsedRequirementsSchema }),
-      maxOutputTokens: 400,
+      // Haiku 5.5 thinks by default and thinking counts toward this cap. At 400 one sentence in
+      // twenty intermittently came back with no output at all. The largest reply measured at
+      // high effort was 629 tokens.
+      maxOutputTokens: 2000,
       temperature: 0,
       // The system prompt plus the output schema is a stable prefix of about 1500 tokens, over
       // every provider's minimum. OpenAI caches it on its own, measured 1513 of 1531 input tokens
       // read from cache with no option set. Anthropic only caches behind an explicit marker, so
-      // this is what keeps the prefix cached when NUXT_FINDER_MODEL points at a Claude model,
-      // measured 0 to 3071 cache reads and a quarter of the cost per call. No-op elsewhere.
+      // this is what keeps the prefix cached on a Claude model, measured 3088 of 3092 input
+      // tokens read from cache on Haiku 5.5. No-op elsewhere.
       providerOptions: {
         gateway: {
           caching: 'auto'
+        },
+        anthropic: {
+          effort: 'high'
         }
       }
     })
