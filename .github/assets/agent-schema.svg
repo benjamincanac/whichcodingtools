@@ -57,7 +57,7 @@
 
   <rect class="node" x="310" y="70" width="290" height="80" rx="6"/>
   <text class="t b" x="324" y="95">agent.ts</text>
-  <text class="t" x="324" y="113">claude-sonnet-5 via AI Gateway</text>
+  <text class="t" x="324" y="113">claude-sonnet-5.5 via AI Gateway</text>
   <text class="t m muted" x="324" y="132">loads skills/&lt;task&gt;/SKILL.md</text>
 
   <path class="edge" d="M455,150 V230" marker-end="url(#arrow)"/>

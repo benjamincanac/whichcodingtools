@@ -9,7 +9,7 @@ import { defineAgent } from 'eve'
  */
 export default defineAgent({
   description: 'Reviews a content/ diff the way the site will render it and returns what to fix before the pull request opens. Give it the whole diff, the capture text every figure rests on and the vendor URLs, it sees nothing else and it changes nothing.',
-  model: 'anthropic/claude-opus-5',
+  model: 'anthropic/claude-opus-5.5',
   reasoning: 'high',
   limits: {
     // One diff, its captures and a reply. A runaway guard, not a budget.

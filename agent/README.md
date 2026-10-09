@@ -32,7 +32,7 @@ Files under `agent/` are wiring, logic lives in `agent/lib/`, procedures are ski
 
 ```
 agent/
-  agent.ts                          model (anthropic/claude-sonnet-5 via AI Gateway), reasoning, compaction, token caps
+  agent.ts                          model (anthropic/claude-sonnet-5.5 via AI Gateway), reasoning, compaction, token caps
   instructions.md                   identity and the rules above
   channels/eve.ts                   HTTP surface, Vercel OIDC or localhost auth
   channels/github.ts                GitHub App via Vercel Connect: @whichcodingtools mentions, the two issue-form responders, and the agent's own `tool` candidates
@@ -162,7 +162,7 @@ Writes go through the `whichcodingtools` GitHub App managed by Vercel Connect (c
 
 ## What a session may spend
 
-`limits` in `agent.ts` sum what the provider reports over every model call of a durable session, and every call carries the transcript again, so the input figure is roughly steps times context rather than what the turn read. Sonnet 5 answers on a 1M window and eve compacts at 90% of it by default, which meant no turn here ever compacted: the first responder on #67 crossed the old 6M cap fourteen minutes into writing one file, with the reviewer's calls charged to the same session. Compaction now starts at a quarter of the window and the caps sit at 30M input and 400K output, under eve's own 40M default. A schedule that crosses them fails its run with `SESSION_TOKEN_LIMIT_REACHED`; a channel turn parks on the prompt handled above.
+`limits` in `agent.ts` sum what the provider reports over every model call of a durable session, and every call carries the transcript again, so the input figure is roughly steps times context rather than what the turn read. Sonnet 5.5 answers on a 1M window and eve compacts at 90% of it by default, which meant no turn here ever compacted: the first responder on #67 crossed the old 6M cap fourteen minutes into writing one file, with the reviewer's calls charged to the same session. Compaction now starts at a quarter of the window and the caps sit at 30M input and 400K output, under eve's own 40M default. A schedule that crosses them fails its run with `SESSION_TOKEN_LIMIT_REACHED`; a channel turn parks on the prompt handled above.
 
 ## Browser
 

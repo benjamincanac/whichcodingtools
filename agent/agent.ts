@@ -4,9 +4,9 @@ export default defineAgent({
   // Sonnet 5 matched every costlier model at reading a pricing capture from content/snapshots,
   // and the cheaper models that tied it there are unproven at driving the browser and git side
   // of a sweep. Effort is the dial that pays here, not the tier.
-  model: 'anthropic/claude-sonnet-5',
+  model: 'anthropic/claude-sonnet-5.5',
   reasoning: 'high',
-  // Sonnet 5 answers on a 1M window and eve compacts at 90% of it by default, so no turn of
+  // Sonnet 5.5 answers on a 1M window and eve compacts at 90% of it by default, so no turn of
   // this agent ever compacted: every model call re-sent the whole transcript, captures
   // included. A quarter of the window keeps one call under about 250K tokens. Each compaction
   // is one more model call and resets read-before-write on the files the turn touched, and
