@@ -94,7 +94,7 @@ pricing:
         tool: cursor
         tier: teams
       limits:
-        - Standard and Premium seats each get a weekly Grok Bot usage allowance, invoices combine Cursor and Grok Bot charges
+        - Every member has Grok Bot with no Premium seat or admin request, usage draws from the Teams plan allowance for that seat
     - id: enterprise
       name: Enterprise
       price: null
@@ -102,7 +102,7 @@ pricing:
       audience: enterprise
       limits:
         - Access is given to all team members or limited to specific groups with Manage Group Access
-  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by a paid individual Cursor plan (Pro, Pro+ or Ultra), a Cursor Teams seat, an individual SuperGrok, SuperGrok Plus or SuperGrok Heavy subscription linked to that Cursor account, or a one-time trial. An X Premium+ subscription also links, at entry level usage.
+  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by a paid individual Cursor plan (Pro, Pro+ or Ultra), a Cursor Teams seat, an individual SuperGrok, SuperGrok Plus or SuperGrok Heavy subscription linked to that Cursor account, an assigned seat on a self-serve Grok Business plan, or a one-time trial. An X Premium+ subscription also links, at entry level usage.
 status: preview
 sources:
   - url: https://docs.x.ai/grok-bot/overview
@@ -112,10 +112,10 @@ sources:
     verified_at: 2026-09-18
     covers: [platforms, pricing]
   - url: https://docs.x.ai/grok-bot/teams-and-enterprises
-    verified_at: 2026-09-18
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://cursor.com/help/grok-bot/plans
-    verified_at: 2026-09-18
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://docs.x.ai/grok-bot/computer-and-apps
     verified_at: 2026-08-24
