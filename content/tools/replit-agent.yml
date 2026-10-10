@@ -39,7 +39,7 @@ pricing:
         amount: 20
         unit: usd
         usd_value: 20
-        notes: $20 of monthly credits toward the most powerful models
+        notes: $20 of monthly credits toward more powerful models
       overage:
         kind: credits
         notes: Effort-based pay as you go once monthly credits run out.
@@ -77,7 +77,7 @@ pricing:
 status: active
 sources:
   - url: https://replit.com/pricing
-    verified_at: 2026-09-13
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://docs.replit.com/chat/agent-modes
     verified_at: 2026-09-07
