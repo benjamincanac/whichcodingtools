@@ -17,7 +17,9 @@ Use cases
 Grok Bot for Mobile
 Work with Grok Bot
 Create and manage Bots
+Team Bots
 Message and collaborate
+Tag @bot on X
 Files and results
 Use the computer and apps
 Skills and routines
@@ -41,7 +43,9 @@ Use cases
 Grok Bot for Mobile
 Work with Grok Bot
 Create and manage Bots
+Team Bots
 Message and collaborate
+Tag @bot on X
 Files and results
 Use the computer and apps
 Skills and routines
@@ -57,12 +61,14 @@ Get started
 Copy for LLM
 View as Markdown
 Create API key
-Meet grok-4.6
+Meet grok-4.7
 Set up Grok Bot, create your first Bot, and hand it a useful task.
 Before you begin
 You need:
-An eligible plan: SuperGrok Plus, SuperGrok Heavy, Cursor Pro+, Cursor Ultra,
-or Cursor Teams Standard or Premium (sign in with your Cursor account)
+An eligible plan: every paid individual Cursor plan or the Cursor Teams plan,
+or an individual SuperGrok, SuperGrok Plus, or SuperGrok Heavy subscription
+linked to your Cursor account (see
+Plans and billing )
 The Grok Bot desktop app for macOS, Windows, or Linux
 An app or website where your first Bot can do useful work
 You can also set up and use Grok Bot on mobile .
@@ -97,12 +103,17 @@ Open Grok Bot from your application launcher.
 To check the architecture, run uname -m in a terminal: x86_64 means x64
 and aarch64 means Arm64.
 Grok Bot checks for updates automatically. You can also use Check for
-Updates from Settings → Beta .
+Updates from Settings → Updates .
 2. Sign in
-Choose Get started on the welcome screen. If you are already in the app,
+Choose Sign in on the welcome screen. If you are already in the app,
 use Sign In with Cursor from Settings.
 Finish authentication in the browser window that opens.
 Return to Grok Bot after the browser confirms the sign-in.
+If your access comes from a SuperGrok subscription, link it when the app
+asks. On iPhone and Android, the access screen offers Link Grok Account
+and then Finished Linking? Refresh My Status ; on desktop,
+Settings → Usage & Billing offers Link SuperGrok Heavy (the label
+names the SuperGrok tier that applies to your account).
 Grok Bot uses your Cursor account. If your organization requires single sign-on
 (SSO), complete the normal organization sign-in flow.
 On first use, Grok Bot introduces Bots, the shared computer, and routines, then
@@ -123,9 +134,12 @@ observability tools. Preserve links and screenshots, separate evidence from
 hypotheses, and return a short summary with the highest-impact issue first.
 Never change production settings.
 Focused Bots build more useful context than one catch-all Bot. You can add more
-Bots later with New → Create new agent when work naturally splits into
+Bots later with New → Create new Bot when work naturally splits into
 distinct roles.
 4. Give it a first task
+Type in the composer, or dictate with Start voice input ( Cmd/Ctrl+D on
+desktop; Start dictation on iPhone and Android). You can also choose
+Start voice chat for a live conversation.
 A strong request includes:
 Outcome: What should be finished?
 Sources: Which apps, websites, files, or conversations matter?
@@ -154,8 +168,8 @@ yourself.
 Return control to the Bot.
 The browser session persists on your shared Grok Bot computer, so other Bots
 can use the same signed-in session when appropriate.
-For supported services, you can also install a connector from Settings →
-Plugins and authenticate it in your browser.
+For supported services, you can also install a plugin from Marketplace in
+the sidebar and authenticate it in your browser.
 6. Review the result
 Ask the Bot to revise anything that is incomplete or formatted incorrectly.
 Name the lasting preference explicitly:
@@ -168,5 +182,5 @@ Create and manage more Bots
 Use apps and the cloud computer
 Attach files and review results
 Set approval and privacy controls
-Last updated: September 2, 2026
+Last updated: September 21, 2026
 </untrusted-page-text>
