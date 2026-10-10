@@ -36,6 +36,7 @@ Claude Platform
 For developers
 Claude Academy
 Community
+Developer blog
 Developer docs
 Console
 Enterprise
@@ -53,6 +54,7 @@ Cybersecurity
 Legal
 Sales
 Industries
+Financial advisors
 Financial services
 Government
 Healthcare
@@ -60,12 +62,16 @@ Higher education
 K-12 teachers
 Life sciences
 Nonprofits
+Browse marketplace
 Customers
 Contact sales
 Resources
 Insights
-Blog
+Resources
+Articles
+Webinars
 Customer stories
+Marketplace
 Anthropic news
 Learn
 Claude Academy
@@ -87,8 +93,7 @@ Latest news
 Claude Cowork is now just Claude.
 Rolling out to Pro and Max, with more plans to follow. Read what changed (opens in new tab)
 Pricing
-Individual Developer Team & Enterprise API
-Individual
+Individual Team & Enterprise API
 Free
 Try Claude
 $0
@@ -99,6 +104,7 @@ Search the web, create files, and run code
 Memory across conversations
 Connect your apps and tools
 Create Artifacts
+Claude Design, Slides, Docs
 Pro
 For everyday work
 $17
@@ -107,7 +113,7 @@ Try Claude
 Everything in Free, plus:
 More usage*
 Hand off and schedule tasks
-Claude Design, Slides, Docs
+Claude Dashboards (beta)
 Claude Code
 Claude Science
 Projects
@@ -123,6 +129,7 @@ Choose 5x or 20x more usage than Pro*
 Higher output limits for all tasks
 Early access to advanced Claude features
 Priority access at high traffic times
+$100 to $200/month in API credits to build on the Claude Platform †
 Usage limits apply. Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic's discretion.
 Usage limits apply. Price and plans are subject to change at Anthropic's discretion.
 Compare features across plans
@@ -172,11 +179,31 @@ Yes
 Yes
 Yes
 Yes
-Claude Design, Slides, Docs
+Claude Design
+Yes
+Yes
+Yes
+Yes
+Claude Slides
+Yes
+Yes
+Yes
+Yes
+Claude Docs
+Yes
+Yes
+Yes
+Yes
+Claude Dashboards (beta)
 No
 Yes
 Yes
 Yes
+Claude Motion (beta)
+No
+No
+No
+No
 Ability to search the web
 Yes
 Yes
@@ -365,6 +392,9 @@ No
 Yes
 Yes
 Yes
+New Monthly API credits †
+No
+No $100/month $200/month
 Priority access at high traffic times
 No
 No
@@ -390,6 +420,7 @@ $100
 Per seat / month if billed annually. $125 if billed monthly.
 Claude Code and Claude Cowork
 Claude Design, Slides, and Docs
+Claude Motion and Dashboards (beta)
 Claude Science
 Microsoft 365, @Claude, and more
 Enterprise search across your organization
@@ -399,6 +430,7 @@ Admin controls for remote and local connectors
 Enterprise deployment for the Claude desktop app
 No model training on your content by default
 Mix and match seat types
+Up to $500 per month in pooled API credits †
 Enterprise
 For large businesses operating at scale
 Get Enterprise plan Chat with buying specialist
@@ -469,7 +501,27 @@ Chat on web, iOS, Android and Desktop
 Yes
 Yes
 Yes
-Claude Design, Slides, Docs
+Claude Design
+More information
+Yes
+Yes
+Yes
+Claude Slides
+More information
+Yes
+Yes
+Yes
+Claude Docs
+More information
+Yes
+Yes
+Yes
+Claude Dashboards (beta)
+More information
+Yes
+Yes
+Yes
+Claude Motion (beta)
 More information
 Yes
 Yes
@@ -681,6 +733,9 @@ More information Up to 1M varies by model Up to 1M varies by model Up to 1M vari
 Extra usage
 More information
 Yes n/a n/a
+New Monthly API credits † Up to $500/month
+No
+No
 Priority access at high traffic times
 Yes
 Yes
@@ -696,50 +751,62 @@ Contact sales Start building (opens in new tab)
 Save 50% with batch processing. Learn more Batch processing
 Fable 5.1
 Next generation intelligence for long-running agents
-Input
-$10 / MTok
-Output
-$50 / MTok
 Prompt caching
 Read
 $0.25 / MTok
 Write
 $12.50 / MTok
-Opus 5
-Ideal for complex agentic coding and enterprise work
 Input
-$5 / MTok
-Output
-$25 / MTok
-Prompt caching
-Read
-$0.50 / MTok
-Write
-$6.25 / MTok
-Sonnet 5
-High-performance model for coding and agents
-Input
-$2 / MTok
-Output
 $10 / MTok
+Output
+$50 / MTok
+Opus 5.5
+Daily driver for agentic coding and enterprise work
 Prompt caching
 Read
 $0.20 / MTok
 Write
-$2.50 / MTok
-Haiku 4.5
-Fastest, most cost-efficient model
-Input
-$1 / MTok
-Output
 $5 / MTok
+Input
+$4 / MTok
+Output
+$20 / MTok
+Sonnet 5.5
+High-performance model for coding and agents
 Prompt caching
 Read
 $0.10 / MTok
 Write
-$1.25 / MTok
+$2.50 / MTok
+Input
+$2 / MTok
+Output
+$10 / MTok
+Haiku 5.5
+Fastest, most cost-efficient model
+Prompt caching
+Prompts ≤ 100K tokens
+Read
+$0.01 / MTok
+Write
+$0.125 / MTok
+Prompts > 100K tokens
+Read
+$0.05 / MTok
+Write
+$0.625 / MTok
+Input
+Prompts ≤ 100K tokens
+$0.10 / MTok
+Prompts > 100K tokens
+$0.50 / MTok
+Output
+Prompts ≤ 100K tokens
+$0.50 / MTok
+Prompts > 100K tokens
+$2.50 / MTok
 For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens. Learn more .
-Get up to 2.5x faster speeds with fast mode for Opus 5 at 2x standard pricing. Learn more .
+Get up to 2.5x faster speeds with fast mode for Opus 5.5 at 2x standard pricing. Learn more .
 Prompt caching pricing reflects 5-minute TTL. Learn about extended prompt caching .
 Explore detailed pricing (opens in new tab)
 Pricing for Claude Platform features
@@ -766,83 +833,113 @@ Batch
 For asynchronous workloads that can be processed together for better efficiency
 Legacy models
 Learn more (opens in new tab) Explore detailed pricing (opens in new tab)
-Fable 5
+Haiku 4.5
+Prompt caching
+Read
+$0.10 / MTok
+Write
+$1.25 / MTok
 Input
-$10 / MTok
+$1 / MTok
 Output
-$50 / MTok
+$5 / MTok
+Sonnet 5
+Prompt caching
+Read
+$0.20 / MTok
+Write
+$2.50 / MTok
+Input
+$2 / MTok
+Output
+$10 / MTok
+Save 50% with batch processing. Learn more Batch processing
+Opus 5
+Prompt caching
+Read
+$0.50 / MTok
+Write
+$6.25 / MTok
+Input
+$5 / MTok
+Output
+$25 / MTok
+Fable 5
 Prompt caching
 Read
 $1 / MTok
 Write
 $12.50 / MTok
+Input
+$10 / MTok
+Output
+$50 / MTok
 Opus 4.8
-Input
-$5 / MTok
-Output
-$25 / MTok
 Prompt caching
 Read
 $0.50 / MTok
 Write
 $6.25 / MTok
-Save 50% with batch processing. Learn more Batch processing
+Input
+$5 / MTok
+Output
+$25 / MTok
 Sonnet 4.6
-Input
-$3 / MTok
-Output
-$15 / MTok
 Prompt caching
 Read
 $0.30 / MTok
 Write
 $3.75 / MTok
+Input
+$3 / MTok
+Output
+$15 / MTok
 Opus 4.7
-Input
-$5 / MTok
-Output
-$25 / MTok
 Prompt caching
 Read
 $0.50 / MTok
 Write
 $6.25 / MTok
+Input
+$5 / MTok
+Output
+$25 / MTok
 Opus 4.6
-Input
-$5 / MTok
-Output
-$25 / MTok
 Prompt caching
 Read
 $0.50 / MTok
 Write
 $6.25 / MTok
-Sonnet 4.5
 Input
-$3 / MTok
+$5 / MTok
 Output
-$15 / MTok
+$25 / MTok
+Sonnet 4.5
 Prompt caching
 Read
 $0.30 / MTok
 Write
 $3.75 / MTok
-Opus 4.5
 Input
-$5 / MTok
+$3 / MTok
 Output
-$25 / MTok
+$15 / MTok
+Opus 4.5
 Prompt caching
 Read
 $0.50 / MTok
 Write
 $6.25 / MTok
+Input
+$5 / MTok
+Output
+$25 / MTok
 Prompt caching pricing reflects 5-minute TTL. Learn about extended prompt caching .
 FAQ
 Plans and usage Billing and payments Managing your plan
 Plans and usage
 What do I get with Claude Pro?
-The Pro plan gives you everything in a Free plan with more usage and more of Claude's capabilities. That includes Claude Code, Claude Design, Slides, and Docs, along with projects to organize your chats and documents, access to more Claude models, and Claude for Microsoft 365. You can choose a monthly or annual subscription.
+The Pro plan gives you everything in a Free plan with more usage and more of Claude's capabilities. That includes Claude Code, along with projects to organize your chats and documents, access to more Claude models, and Claude for Microsoft 365. You can choose a monthly or annual subscription.
 How is Claude Max different from Pro?
 The Max plan is built for people who work with Claude throughout the day and want longer, uninterrupted sessions. You get everything in Pro, plus more usage: choose from 5x or 20x the usage of Pro per 5-hour session. Max also gives you higher output limits. Both options are billed monthly. See the cards above for current pricing.
 What are the usage limits on each plan, and what happens when I hit them?
@@ -913,6 +1010,7 @@ Cybersecurity
 Legal
 Sales
 Industries
+Financial advisors
 Financial services
 Government
 Healthcare
@@ -922,22 +1020,26 @@ Life sciences
 Nonprofits
 Small business
 Programs
-Startups
+Campus
+Frontier Academy
 Scientists
+Startups
 Developers
 Developer docs
+Developer blog
 Community
 Console
 Engineering at Anthropic
 Platform
 Overview
-Ecosystem
 Marketplace
 Claude on AWS
 Google Cloud
 Microsoft Foundry
 Resources
-Blog
+Overview
+Articles
+Webinars
 Claude partner network
 Claude Academy
 Customer stories
@@ -1004,6 +1106,7 @@ Cybersecurity
 Legal
 Sales
 Industries
+Financial advisors
 Financial services
 Government
 Healthcare
@@ -1013,22 +1116,26 @@ Life sciences
 Nonprofits
 Small business
 Programs
-Startups
+Campus
+Frontier Academy
 Scientists
+Startups
 Developers
 Developer docs
+Developer blog
 Community
 Console
 Engineering at Anthropic
 Platform
 Overview
-Ecosystem
 Marketplace
 Claude on AWS
 Google Cloud
 Microsoft Foundry
 Resources
-Blog
+Overview
+Articles
+Webinars
 Claude partner network
 Claude Academy
 Customer stories
@@ -1069,5 +1176,5 @@ Deutsch
 Français
 한국어
 Italiano
-Español Plans & Pricing | Claude by Anthropic
+Español Plans & pricing | Claude by Anthropic
 </untrusted-page-text>

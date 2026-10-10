@@ -52,6 +52,8 @@ pricing:
         kind: api-list
       limits:
         - 5x the Pro allowance
+        - Monthly API credits to build on the Claude Platform
+      notes: $100/month in API credits.
     - id: max-20x
       name: Claude Max 20x
       price: 200
@@ -60,7 +62,8 @@ pricing:
         kind: api-list
       limits:
         - 20x the Pro allowance
-      notes: The pricing page reads "starting at" for both Max tiers. $200 is the published monthly price for 20x.
+        - Monthly API credits to build on the Claude Platform
+      notes: The pricing page reads "starting at" for both Max tiers. $200 is the published monthly price for 20x. $200/month in API credits.
     - id: team
       name: Claude Team
       price: 25
@@ -68,7 +71,7 @@ pricing:
       audience: team
       overage:
         kind: api-list
-      notes: Standard seat. Premium seats are $125 monthly or $100 annual with 5x the usage.
+      notes: Standard seat. Premium seats are $125 monthly or $100 annual with 5x the usage. Up to $500 per month in pooled API credits.
     - id: api
       name: API pay-as-you-go
       price: null
@@ -80,7 +83,7 @@ pricing:
 status: active
 sources:
   - url: https://claude.com/pricing
-    verified_at: 2026-09-18
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://code.claude.com/docs/en/overview
     verified_at: 2026-08-23
