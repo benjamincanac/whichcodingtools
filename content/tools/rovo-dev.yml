@@ -48,7 +48,7 @@ pricing:
 status: active
 sources:
   - url: https://www.atlassian.com/software/rovo-dev/pricing
-    verified_at: 2026-08-24
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://www.atlassian.com/software/rovo-dev
     verified_at: 2026-08-24

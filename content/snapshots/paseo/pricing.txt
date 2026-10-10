@@ -1,0 +1,343 @@
+# https://paseo.sh
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Paseo – Run Claude Code, Codex, Copilot, OpenCode from anywhere
+Paseo
+Plugins Blog Docs Changelog Download Sponsor
+20.3k
+The agentic development
+environment
+Run many coding agents at once,
+on any machine.
+From your desk and from your phone.
+Download for Mac
+Supports
++ 33 more
+Build Review Ship Extend
+New workspace
+History
+Schedules
+Release Radar
+Pinned
+S skills / dotfiles 1h
+Workspaces
+Ready to review
+Paseo homepage now
+3981 ·
+passed
+Add automatic page titles 12m
+761 ·
+passed
+Working
+Fix commit safe area in emulators 4m
+Improve editor typing latency 18m
+Done
+Release v0.7.0-beta.2 2h
+Preserve focus between pages 3h
+750 ·
+passed
+Design semantic permission sy… 7h
+my-server ·
+3981 ·
+passed
+Plan modules and abstractions 1d
+3884 ·
+passed
+Resume in-progress work 3d
+Undefined task 3d
+Diagnose cloud/Codex issue re… 4d
+Diagnose create_workspace 37… 4d
+Diagnose tap interactions 4d
+Clarify task requirements 5d
+Task for abcdefghi 5d
+Add project
+Paseo homepage paseo
+Commit
+Codex
+Claude Code
+npm run dev
+https://localhost:3000
+The homepage is built. It leads with Paseo’s actual value, then uses the product itself to prove the story instead of falling back to generic dashboard art.
+· Reworked the hero around “The control plane for coding agents.”
+· Built desktop and mobile scenes from real Paseo workflows and assets.
+· Added believable agent, review, plugin, shipping, and host states.
+· Matched the app’s tabs, explorer, diff tree, controls, and layout rails.
+Worked for 31m 46s
+Create a PR
+PR opened: Rebuild the homepage around live Paseo workflows. https://github.com/getpaseo/paseo/pull/3981
+· Ships the new product-led hero and interactive desktop mockup.
+· Includes responsive mobile proof and the supporting homepage story.
+· Formatting, typecheck, and lint are clean.
+Ready for review.
+Worked for 1m 18s
+6/6 tasks 3 subagents + 1.9k - 684
+Message the agent, tag @files, or use /commands and /skills
+GPT-5.6-Sol
+Medium
+Full access
+Files
+Changes
+3981
+main
+Uncommitted
++1.9k -684
+packages/website/src + 1.9k - 684
+components + 1.5k - 512
+mockup + 1.3k - 389
+mobile + 480 - 231
+atoms.tsx + 56 - 18
+chat.tsx + 155 - 74
+frame.tsx + 91 - 0
+legacy-tabs.tsx + 0 - 139
+desktop + 612 - 143
+window.tsx + 167 - 42
+titlebar.tsx + 117 - 61
+toolbar.tsx + 204 - 0
+old-tabs.tsx + 0 - 40
+shared + 194 - 15
+icons.tsx + 62 - 15
+TS geometry.ts + 17 - 0
+TS states.ts + 115 - 0
+hero-mockup.tsx + 89 - 52
+routes + 211 - 96
+index.tsx + 44 - 70
+download.tsx + 167 - 0
+styles + 68 - 76
+CSS mockup.css + 68 - 47
+CSS legacy.css + 0 - 29
+Commits
+When you want to step away from your desk, you can.
+The native mobile app has full feature parity with desktop.
+18:54
+New workspace
+History
+Schedules
+Pinned
+S skills / dotfiles 1h
+Workspaces
+Ready to review
+Paseo homepage
+3981 ·
+passed now
+Add automatic page titles
+761 ·
+passed 12m
+Working
+Fix commit safe area in emulators 4m
+Improve editor typing latency 18m
+Done
+Release v0.7.0-beta.2 2h
+Preserve focus between pages
+750 ·
+passed 3h
+Design semantic permission sy…
+my-server ·
+3981 ·
+passed 7h
+Plan modules and abstractions
+3884 ·
+passed 1d
+Resume in-progress work 3d
+Undefined task 3d
+Diagnose cloud/Codex issue re… 4d
+Diagnose create_workspace 37… 4d
+Diagnose tap interactions 4d
+Clarify task requirements 5d
+Task for abcdefghi 5d
+Add project
+18:53
+Paseo paseo ·
+Mohameds-MacBook-Pro.l…
+/release-beta
+Shell sed -n '321,680p' docs/release.md
+Shell "for p in highlight relay protocol client plu…
+Shell npx eas workflow:view 01a0493d-01cd-77…
+Shell gh release view v0.7.0-beta.2 --json name…
+Shell gh run list --commit 4e60c2880b4c9ebd…
+Shell docker buildx imagetools inspect ghcr.io/g…
+Still in progress:
+• npm tags and release notes are correct
+• Docker beta image is published; latest remains unchanged
+• iOS build succeeded; TestFlight distribution/Beta App Review is running
+• Desktop and Android assets are still building
+The heartbeat remains active.
++2,173 -54
+Message, @files, /commands
+GPT-5.6-Sol Medium
+18:55
+Files
+Changes
+3981
+main
+Uncommitted
++2,173 -54
+atoms.tsx packages/website/src/componen… +56 -18
+@@ -7,20 +7,28 @@
+7 type DotTone = "success" | "danger" | "idle" ;
+7 export type DotTone =
+8 | "success"
+9 | "danger"
+10 | "warning"
+11 | "running"
+12 | "idle" ;
+13
+14 interface DiffStatProps {
+15 add : string ;
+16 remove : string ;
+17 }
+18
+19 /** Compact diff summary. */
+20 export function DiffStat ( {
+21 add ,
+22 remove ,
+23 } : DiffStatProps ) {
+24 return (
+25 < span className = "flex gap-1" >
+25 < span className = "flex gap-[4px]" >
+26 < span className = "text-mock-success" >
+27 + { add }
+28 < / span >
+29 < span className = "text-mock-danger" >
+30 - { remove }
+31 < / span >
+32 < / span >
+33 )
+33 ) ;
+34 }
+Commits
+Loved by developers
+See what developers are saying about Paseo
+@ceeebeeebeee
+without a doubt the most slept on orchestrator right now. Open source, every OS, and a mobile experience that truly blew me away.
+@erikksherman
+control agents from anywhere - mac, phone, web. one simple change transformed my health while INCREASING productivity
+@amankumarjagdev
+I have tried 100s of agent orchestrator, cli and gui. the best one i have found. Please give it a try! it's really good
+@tietougongshiba
+Being able to check and manage agent progress from my phone while I'm out is so convenient.
+@jasontorres
+Can interchange between Codex, Claude Code, Opencode, Pi. Stable mobile and desktop apps connected through a secure relay from your VMs.
+@ceeebeeebeee
+without a doubt the most slept on orchestrator right now. Open source, every OS, and a mobile experience that truly blew me away.
+@erikksherman
+control agents from anywhere - mac, phone, web. one simple change transformed my health while INCREASING productivity
+@amankumarjagdev
+I have tried 100s of agent orchestrator, cli and gui. the best one i have found. Please give it a try! it's really good
+@tietougongshiba
+Being able to check and manage agent progress from my phone while I'm out is so convenient.
+@jasontorres
+Can interchange between Codex, Claude Code, Opencode, Pi. Stable mobile and desktop apps connected through a secure relay from your VMs.
+@aadtyn
+cross platform agent orchestration with inbuilt relay and tailscale / self host daemon options + the best UI ive seen in this segment
+@bevstratov
+It’s an incredible piece of software. The last building block I needed to fully work from my phone. everything super smooth.
+@arnoldgamboa
+Paseo is a really good interface for Pi. It’s not the only thing it does, but that’s my current use case for now.
+@dongnaebi
+Paseo is the best software I've used this year. Absolutely amazing!
+@aadtyn
+cross platform agent orchestration with inbuilt relay and tailscale / self host daemon options + the best UI ive seen in this segment
+@bevstratov
+It’s an incredible piece of software. The last building block I needed to fully work from my phone. everything super smooth.
+@arnoldgamboa
+Paseo is a really good interface for Pi. It’s not the only thing it does, but that’s my current use case for now.
+@dongnaebi
+Paseo is the best software I've used this year. Absolutely amazing!
+Works with your tools
+Bring your subscriptions, skills and configuration
+Claude Code
+Codex
+OpenCode
+Pi
+OMP
+Cursor
+Muse Code
+Antigravity + 33 more
+Run it anywhere
+Use Paseo locally, from another machine, or with a team
+Desktop app
+The one click experience, download the app and it just works, no server required
+Mobile
+Full client and native, not a WebView
+Download
+Remote machines
+Run Paseo on a home lab, or a cloud machine
+Docs
+Teams and triggers
+Share access or start work from GitHub, Slack, and Discord
+Paseo Hub
+Built for automation
+Use MCP, the CLI, or the TypeScript SDK to automate Paseo
+MCP docs
+CLI docs
+SDK docs
+MCP
+From another agent
+CLI
+From the terminal
+SDK
+From code
+Take the open GitHub issues labeled ready and fan them out to separate worktree agents.
+I found two ready issues. I will run each in its own worktree.
+create_agent #412 claude/opus-4.6 worktree
+create_agent #417 codex/gpt-5.6-sol worktree
+Done, two agents are running. I will let you know when they finish.
+Extend it with plugins
+Add new panels and functionality that work in desktop, web and mobile
+Plugins
+Browse plugins
+Plugin docs
+UI
+Screens, workspace panels, sidebar items, slash commands, and themes
+Agent lifecycle
+Change configuration, environment, and MCP servers. Answer permissions. Follow up when a turn ends
+Providers
+Add a coding agent as a provider, used the same way as the built-in ones
+Paseo is Apache 2.0.
+Fork the repo
+FAQ
++ − Is this free?
+Yes. Paseo is free and open source. You need agent providers installed with your own credentials. Voice is local-first by default and can optionally use cloud speech providers if you configure them. + − Does my code leave my machine?
+Paseo doesn't send your code anywhere. Agents run locally and talk to their own APIs as they normally would. For remote access, you can use the optional end-to-end encrypted relay , connect directly over your local network, or use your own tunnel. + − What agents does it support?
+Paseo supports many providers. It has custom implementations for Claude, Codex, OpenCode, Pi, OMP, Antigravity, and Muse Code, and supports many more via ACP. See the full list here: all supported providers . See Muse Code setup and limitations . + − How does Paseo run providers?
+Paseo runs the providers installed on your machine as you'd normally run them. Paseo doesn't modify or change their behavior. + − Do I need the desktop app?
+No. You can run the daemon headless and use any client to connect. The desktop app just bundles the daemon with a UI. + − How does voice work?
+Voice runs locally on your device by default. You talk, the app transcribes and sends it to your agent as text. Optionally, you can configure OpenAI speech providers for higher-quality transcription and text-to-speech. See the voice docs . + − Can I connect from outside my network?
+Yes. You can use the hosted relay (end-to-end encrypted, Paseo can't read your traffic), set up your own tunnel (Tailscale, Cloudflare Tunnel, etc.), or expose the daemon port directly. See configuration . + − Do I need git or GitHub?
+No. Paseo works in any directory. Worktrees are optional and only relevant if you use git. You can run agents anywhere you'd normally work. + − Can I get banned for using Paseo?
+Paseo is designed to use each provider's officially supported integration and does not attempt to bypass its terms of service. It doesn't extract tokens or call inference APIs directly. + − How do worktrees work?
+When you launch an agent with the worktree option (from the app, desktop, or CLI), Paseo creates a git worktree and runs the agent inside it. The agent works on an isolated branch without touching your main working directory. See the worktrees docs .
+Philosophy
+What Paseo stands for, and what every feature is built on
+Private
+No telemetry, tracking, or forced login. Code stays on your machine.
+Independent
+Paseo doesn't answer to investors. Its users guide what gets built.
+Polished
+Install the app and start working. No need to know what a daemon is.
+Unified
+Every coding agent, used the same way. Switch providers any time.
+Composable
+Run agents on your laptop or a server, and connect from any device.
+Extensible
+If Paseo doesn't fit how you work, change it with a plugin or fork.
+Sponsor Paseo
+Paseo is an independent project used by tens of thousands of developers daily.
+It is maintained by one person, full time, and shaped by the community. There are no investors and no company behind it. I have turned down funding to keep it that way. A tool that sits between you and your code, your keys and your machines has to stay neutral, and funding creates pressure to monetize.
+Paseo is self-funded through sponsorship and Paseo Hub . Your support is what lets me keep working on it.
+Mo , maintainer
+GitHub Sponsors
+Open Collective
+Buy Me a Coffee
+Sponsor as a company
+Product
+Blog Docs Plugins Changelog Hub CLI Privacy Terms Sponsor
+Agents
+Claude Code Codex OpenCode Antigravity Muse Code All providers
+Alternatives
+Conductor Superset OpenChamber Happy Coder Codex App Claude Desktop OpenCode Desktop Orca
+Community
+Discord Reddit GitHub
+Download
+App Store Google Play Desktop Web App
+</untrusted-page-text>
