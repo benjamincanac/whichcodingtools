@@ -30,11 +30,11 @@ pricing:
         amount: 300
         unit: credits
         period: month
-        notes: 300 credits refreshed daily, usable on Manus 1.6 Lite, capped at 1,500 a month
+        notes: 300 credits refreshed daily, usable on Manus 2.0 Lite, capped at 1,500 a month
       overage:
         kind: blocked
       limits:
-        - 1 concurrent task, 2 scheduled tasks
+        - 1 concurrent task, 2 Scheduled Automations
     - id: pro
       name: Pro
       price: 20
@@ -48,7 +48,7 @@ pricing:
         kind: credits
         notes: Add-on credits roll over while a paid subscription is active. 17 percent off with annual billing.
       limits:
-        - 20 concurrent tasks, 20 scheduled tasks
+        - 20 concurrent tasks, 20 Scheduled Automations
     - id: pro-8000
       name: Pro 8,000
       price: 40
@@ -61,7 +61,7 @@ pricing:
       overage:
         kind: credits
       limits:
-        - 20 concurrent tasks, 20 scheduled tasks
+        - 20 concurrent tasks, 20 Scheduled Automations
     - id: team
       name: Team
       price: 20
@@ -71,14 +71,14 @@ pricing:
         kind: credits
       limits:
         - Everything in Pro, SSO, data training opt-out, usage analytics
-  notes: The pricing page refused automated fetches on 2026-08-23, manus.im redirects to a maintenance notice about a scheduled data deletion while Manus resumes operations as an independent company. Figures come from the Manus help center article dated March 16, 2026 and need a human check.
+  notes: The pricing page refused automated fetches on 2026-08-23, manus.im redirects to a maintenance notice about a scheduled data deletion while Manus resumes operations as an independent company. Figures come from the Manus help center article, which no longer shows a date, and need a human check.
 status: active
 sources:
   - url: https://help.manus.im/en/articles/11711111-what-is-the-current-membership-pricing-for-manus
     verified_at: 2026-09-24
     covers: [pricing, models]
   - url: https://help.manus.im/en/articles/11711097-what-are-the-rules-for-credits-consumption-and-how-can-i-obtain-them
-    verified_at: 2026-09-24
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://help.manus.im/en/articles/14089011-how-to-download-the-manus-desktop-app
     verified_at: 2026-08-23

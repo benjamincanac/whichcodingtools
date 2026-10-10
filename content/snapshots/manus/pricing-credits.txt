@@ -15,7 +15,7 @@ Credits & Usage
 What are the rules for credits consumption? And how can I obtain them?
 What are the rules for credits consumption? And how can I obtain them?
 Learn how Manus credits work, consumption rules, and how to obtain more credits.
-June 18, 2026
+Updated over a week ago
 Table of contents
 How do credits work?
 Credits are primarily consumed based on:
@@ -30,7 +30,7 @@ Members who need additional credits can switch to a higher plan.
 To learn more about membership benefits or to upgrade to a paid plan, click here.
 Will credits expire?
 Credits are consumed in the following order: event credits > daily credits > monthly credits > add-on credits > free credits.
-The monthly consumption limit for daily refresh credits for free users is set to 1,500 credits; paid users have no limit. Daily credits can only be used for Manus 1.6 lite.
+The monthly consumption limit for daily refresh credits for free users is set to 1,500 credits; paid users have no limit. Daily credits can only be used for Manus 2.0 lite.
 Monthly credits are obtained through subscription and automatically refresh on the same date each month based on your subscription date.
 Add-On credits: These credits can only be used with an active paid subscription, and can be rolled/carried over to your next subscription cycle(s) as long as you have an active paid subscription. If your account switches to a Free membership or the subscription lapses, these credits become inactive.
 Free credits never expire.
