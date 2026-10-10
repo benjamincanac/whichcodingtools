@@ -84,7 +84,7 @@ pricing:
       audience: individual
       overage:
         kind: api-list
-        notes: Bill a console.x.ai key at list price, Grok 4.6 is $2 input and $6 output per million tokens under 200k context.
+        notes: Bill a console.x.ai key at list price, Grok 4.7 and Grok 4.6 are each $2 input and $6 output per million tokens under 200k context.
   notes: Annual plans are billed annually at the rates shown.
 status: active
 sources:
@@ -95,7 +95,7 @@ sources:
     verified_at: 2026-09-16
     covers: [pricing]
   - url: https://docs.x.ai/developers/pricing
-    verified_at: 2026-09-16
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://docs.x.ai/grok/faq
     verified_at: 2026-09-16
