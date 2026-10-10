@@ -54,6 +54,7 @@ Ask Devin
 Data Analyst Agent
 DeepWiki
 Security Swarm
+Code Scans
 Hand off to cloud Devins
 MCP (Model Context Protocol) Marketplace
 DeepWiki MCP
@@ -62,8 +63,8 @@ Devin CLI
 Advanced Capabilities
 Dynamic Workflows
 Product Guides
-Knowledge
 Skills
+Memory
 Plugins
 Set up your plugin ecosystem
 Session Insights
@@ -76,7 +77,7 @@ Automations
 Auto-triage
 Scheduled Sessions
 Deployments
-Autofix Settings - Bot Comments
+Responding to bots
 Invite your Team
 Integrations
 Integrations Overview
@@ -87,6 +88,10 @@ GitLab
 Bitbucket
 Linear
 Jira
+Databricks
+MongoDB
+PagerDuty
+Pylon
 GitHub Pull Request Templates
 Self-Hosted SCM & Artifacts
 Admin
@@ -95,6 +100,7 @@ Billing
 Self-serve plans
 Enterprise
 Usage
+ChatGPT plan
 Common Issues
 Release Notes
 Recent Updates
@@ -123,7 +129,7 @@ Any user can see the ACU cost of a specific session from Session Insights .
 Setting Organization ACU limits
 Enterprise admins can set per-Organization ACU limits from Settings > Organizations in Enterprise Settings.
 Organization limits apply to cloud Devin sessions, Devin Review, Devin Desktop, Windsurf JetBrains, and Devin CLI usage billed to the organization. See Organization-level ACU limits for API examples and billing attribution.
-Hover over the Organization name and click 'Manage'
+To open an organization’s settings, click its row in the table, or click the pencil icon ( Update name and limits ) at the end of the row.
 Set Organization ACU limits and/or rename the Organization
 When an organization reaches its limit, new work billed to it is blocked. An enterprise admin can raise or remove the limit, or users can wait until usage resets in the next monthly billing window. Per-user limits remain in effect independently.
 ACU limit reached warning message

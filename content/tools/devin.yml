@@ -70,14 +70,14 @@ pricing:
       limits:
         - Billed in Agent Compute Units at the rate set in the order form
         - Enterprise ACUs are distinct from self-serve quota and on-demand credits
-  notes: Cognition replaced the ACU-priced Core/Team plans with self-serve Free/Pro/Max/Teams plans, each with a usage quota and pay-as-you-go on-demand credits; Enterprise still bills in ACUs per contract. devin.ai/pricing still returns HTTP 429 to automated fetches, this reads the docs.devin.ai self-serve and enterprise billing pages instead.
+  notes: Cognition replaced the ACU-priced Core/Team plans with self-serve Free/Pro/Max/Teams plans, each with a usage quota and pay-as-you-go on-demand credits; Enterprise still bills in ACUs per contract. devin.ai/pricing still returns HTTP 429 to automated fetches, this reads the docs.devin.ai self-serve and enterprise billing pages instead. On self-serve plans, an eligible ChatGPT Go, Plus or Pro subscription can pay for GPT model usage so it does not count against the Devin allowance.
 status: active
 sources:
   - url: https://docs.devin.ai/admin/billing/self-serve
-    verified_at: 2026-09-13
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://docs.devin.ai/admin/billing/enterprise
-    verified_at: 2026-09-13
+    verified_at: 2026-10-10
     covers: [pricing]
   - url: https://docs.devin.ai/get-started/devin-intro
     verified_at: 2026-08-23

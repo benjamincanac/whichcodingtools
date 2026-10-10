@@ -54,6 +54,7 @@ Ask Devin
 Data Analyst Agent
 DeepWiki
 Security Swarm
+Code Scans
 Hand off to cloud Devins
 MCP (Model Context Protocol) Marketplace
 DeepWiki MCP
@@ -62,8 +63,8 @@ Devin CLI
 Advanced Capabilities
 Dynamic Workflows
 Product Guides
-Knowledge
 Skills
+Memory
 Plugins
 Set up your plugin ecosystem
 Session Insights
@@ -76,7 +77,7 @@ Automations
 Auto-triage
 Scheduled Sessions
 Deployments
-Autofix Settings - Bot Comments
+Responding to bots
 Invite your Team
 Integrations
 Integrations Overview
@@ -87,6 +88,10 @@ GitLab
 Bitbucket
 Linear
 Jira
+Databricks
+MongoDB
+PagerDuty
+Pylon
 GitHub Pull Request Templates
 Self-Hosted SCM & Artifacts
 Admin
@@ -95,6 +100,7 @@ Billing
 Self-serve plans
 Enterprise
 Usage
+ChatGPT plan
 Common Issues
 Release Notes
 Recent Updates
@@ -183,12 +189,13 @@ Each paid plan and full seat includes a usage allowance that refreshes automatic
 Pro and Teams full seats have a daily and weekly allowance. The daily allowance is more than 1/7 of the weekly, so you can keep working through weekends without giving up overall capacity for the week.
 Max has a weekly allowance only, with no daily cap.
 When you’ve used up your allowance, on-demand credits keep you working without interruption.
+If you have an eligible ChatGPT Go, Plus, or Pro subscription, you can also use your ChatGPT plan to pay for GPT model usage so it doesn’t count against your Devin allowance.
 ​
 On-demand credits
 On-demand credits are prepaid usage credit that fund any work past your plan’s included quota:
 Roll over month-to-month. Purchased credits never expire.
 Can be topped up at any time from Settings > Plans , and optionally refilled automatically via auto-reload.
-Admins can set auto-reload thresholds and default session spending limits from Settings > Usage .
+Admins can set auto-reload thresholds and default session spending limits from Settings > Usage & limits .
 On the Teams plan, credits are shared across all members , with no per-member balance. Any teammate can draw from the shared pool.
 On the Teams plan, credits fund all usage on flex seats and any full seat usage past its included quota, and cover any portion of the $80/month minimum not already covered by full seats.
 ​
