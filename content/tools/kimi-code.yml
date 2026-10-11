@@ -36,10 +36,9 @@ pricing:
       overage:
         kind: blocked
       limits:
-        - One concurrent agent task, no priority queue
-      notes: The Kimi Code page says Moderato and higher unlock the K3 model in Kimi Code. The free tier's Kimi Code quota is not published.
-    - id: moderato
-      name: Moderato
+        - One concurrent agent task, 2 scheduled tasks
+    - id: plus
+      name: Plus
       price: 19
       price_annual: 15
       audience: individual
@@ -47,49 +46,46 @@ pricing:
         kind: rate-limited
         notes: Kimi Code has its own five hour and weekly limit separate from the shared membership credits.
       limits:
-        - 2 concurrent tasks, K3 in Kimi Code
-    - id: allegretto
-      name: Allegretto
+        - 2 concurrent tasks, 10 scheduled tasks, Kimi Code available
+    - id: pro
+      name: Pro
       price: 39
       price_annual: 31
       audience: individual
       overage:
         kind: rate-limited
       limits:
-        - 2 concurrent tasks, 15 scheduled tasks
-    - id: allegro
-      name: Allegro
+        - 2 concurrent tasks, 15 scheduled tasks, goal mode, Kimi Claw deployment
+    - id: max
+      name: Max
       price: 99
       price_annual: 79
       audience: individual
       overage:
         kind: rate-limited
       limits:
-        - 4 concurrent tasks, 1M token chat context, 8 subagents
-    - id: vivace
-      name: Vivace
+        - 4 concurrent tasks, 20 scheduled tasks, 1M token chat context, goal mode, Kimi Claw deployment
+    - id: ultra
+      name: Ultra
       price: 199
       price_annual: 159
       audience: individual
       overage:
         kind: rate-limited
       limits:
-        - 4 concurrent tasks, 1M token chat context, Kimi Claw
+        - 4 concurrent tasks, 25 scheduled tasks, 1M token chat context, goal mode, Kimi Claw deployment
     - id: api
       name: Platform API pay-as-you-go
       price: null
       audience: individual
       overage:
         kind: api-list
-        notes: kimi-k2.7-code is $0.95 input and $4 output per million tokens, K3 is $3 input and $15 output.
-  notes: USD figures are the global kimi.ai prices. The China site bills in CNY with an extra Andante tier. The membership pricing page returned only its title to automated fetches on 2026-08-23, figures come from kimi.ai/resources pages and need a human check.
+        notes: Pay as you go per million tokens through the Kimi platform API, with a separate rate for each model.
+  notes: USD figures are the global kimi.ai prices. Annual billing is $180, $372, $948 and $1,908 a year for Plus, Pro, Max and Ultra. The China site bills in CNY with an extra Andante tier.
 status: active
 sources:
-  - url: https://www.kimi.ai/resources/kimi-k2-7-code-pricing
-    verified_at: 2026-08-23
-    covers: [pricing]
-  - url: https://www.kimi.ai/resources/kimi-k3-pricing
-    verified_at: 2026-08-23
+  - url: https://www.kimi.ai/membership/pricing
+    verified_at: 2026-10-11
     covers: [pricing]
   - url: https://www.kimi.com/en/help/membership/membership-overview
     verified_at: 2026-08-23
