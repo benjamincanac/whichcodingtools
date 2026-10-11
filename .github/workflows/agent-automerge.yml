@@ -180,7 +180,7 @@ jobs:
       - uses: actions/setup-node@v7
         if: steps.pr.outputs.eligible == 'yes' && steps.check.outputs.ok == 'yes'
         with:
-          node-version: 24
+          node-version: 24.21.0
           cache: pnpm
       - run: pnpm install --frozen-lockfile
         if: steps.pr.outputs.eligible == 'yes' && steps.check.outputs.ok == 'yes'
