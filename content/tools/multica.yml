@@ -70,10 +70,10 @@ pricing:
 status: active
 sources:
   - url: https://multica.ai
-    verified_at: 2026-09-02
+    verified_at: 2026-10-11
     covers: [general, features, pricing]
   - url: https://multica.ai/download
-    verified_at: 2026-09-02
+    verified_at: 2026-10-11
     covers: [platforms, pricing]
   - url: https://multica.ai/docs/daemon-runtimes
     verified_at: 2026-09-02

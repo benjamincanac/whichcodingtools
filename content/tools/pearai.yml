@@ -59,7 +59,7 @@ pricing:
 status: active
 sources:
   - url: https://trypear.ai/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-10-11
     covers: [pricing, models]
   - url: https://trypear.ai
     verified_at: 2026-08-23

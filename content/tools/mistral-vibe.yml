@@ -88,5 +88,5 @@ sources:
     verified_at: 2026-08-23
     covers: [models, platforms]
   - url: https://mistral.ai/news/mistral-vibe-2-0/
-    verified_at: 2026-08-23
+    verified_at: 2026-10-11
     covers: [pricing, features]

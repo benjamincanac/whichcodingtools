@@ -1,0 +1,62 @@
+# https://multica.ai/download
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Download Multica | Multica
+multica Use cases Docs Changelog
+GitHub Get started
+Choose your platform
+All installers are listed below.
+All platforms
+macOS · Apple Silicon
+.dmg .zip
+macOS · Intel
+.dmg .zip
+Windows · x64
+.exe
+Windows · ARM64
+.exe
+Linux · x64
+.AppImage .deb .rpm
+Linux · ARM64
+.AppImage .deb .rpm
+Prefer the CLI?
+For servers, remote dev boxes, and headless setups. Same daemon as Desktop, installed via terminal.
+Install
+macOS / Linux Windows
+curl -fsSL https://raw.githubusercontent.com/multica-ai/multica/main/scripts/install.sh | bash
+Copy
+Start daemon
+multica setup
+Copy
+Already on a server? Same commands work over SSH.
+Cloud runtime (waitlist)
+We’ll host the runtime for you. Not live yet — leave your email to be notified.
+Cloud runtimes aren't live yet. Leave your email and we'll reach out when they are. Heads-up: agents can't start runs without a runtime — if you hit Skip now, nothing will run until you come back and install one.
+Email
+Why cloud? Optional
+Join waitlist
+Current version: v0.6.1 · What’s new in v0.6.1 · View all releases
+multica
+Project management for human + agent teams. Source-available, self-hostable, built for the future of work.
+Get started
+Product
+Features
+How it Works
+Use cases
+Changelog
+Download
+Resources
+Documentation
+API
+X (Twitter)
+Discord
+Company
+About
+Licensing
+Privacy
+Contact Sales
+GitHub
+© 2026 Multica. All rights reserved.
+EN 中文 한국어 日本語
+multica
+</untrusted-page-text>
