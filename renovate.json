@@ -8,9 +8,9 @@
       "groupName": "eve"
     },
     {
-      "description": "Workflows follow the Node major, like the ci matrix. Renovate would pin setup-node to a patch.",
+      "description": "The action tracks a major of Node and pnpm, not a patch.",
       "matchManagers": ["github-actions"],
-      "matchDepNames": ["node"],
+      "matchDepTypes": ["uses-with"],
       "enabled": false
     }
   ]
