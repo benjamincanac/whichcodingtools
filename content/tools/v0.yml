@@ -27,8 +27,9 @@ pricing:
       included:
         amount: 5
         unit: usd
+        period: once
         usd_value: 5
-        notes: $5 of included monthly credits
+        notes: $5 in one-time credits for new users
       overage:
         kind: blocked
       limits:
@@ -68,11 +69,11 @@ pricing:
       audience: enterprise
       limits:
         - SAML SSO, role-based access, priority access, support SLAs
-  notes: Credits are spent at per-token model rates, from $0.20 per million input tokens on v0 Mini to $50 per million output tokens on v0 Max Fast.
+  notes: Credits are spent at per-token model rates, from 20 cents per million input tokens on v0 Mini to $50 per million output tokens on v0 Max Fast.
 status: active
 sources:
   - url: https://v0.app/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-10-12
     covers: [pricing, models]
   - url: https://v0.app/docs
     verified_at: 2026-08-23
