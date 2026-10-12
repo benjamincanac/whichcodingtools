@@ -30,6 +30,7 @@ Every plan gets double its price in monthly inference credit and access to Jcode
 Subscription Recurring $10 charge each month while subscribed.
 Monthly credit Every successful $10 payment grants $20 of inference credit, double what you pay. Fresh credit arrives each month and does not accumulate.
 Jcode Cloud Subscribing includes Jcode Cloud with 50 machine hours each month, in proportion to your plan (50 hours per $10).
+Remote Rust builds 500 remote Rust builds with justrust each month (500 per $10), then $0.10 per build. Unused builds do not roll over.
 After credit Once the credit is used, inference continues at provider API prices, billed by usage in addition to the subscription.
 Usage limit Set automatically to $100 of usage per UTC month after your credit, 10x your plan. Adjust it any time in your account.
 Subscribe to the $10/month plan
@@ -58,6 +59,11 @@ Loading current model access…
 Every monthly plan payment grants double its price in inference credit, plus 50 Jcode Cloud
 machine hours per $10 of plan. Inference beyond the credit is billed at provider API prices,
 up to an automatic monthly usage limit of 10x your plan.
+Remote Rust builds
+justrust runs your agent's cargo check and test on a bigger machine when that is faster.
+Free 25 builds once per account. No card.
+Included 500 builds each UTC month for every $10 of plan, so a $100 plan gets 5,000.
+After that $0.10 per build, counted toward your monthly usage limit.
 Questions
 Is Jcode free?
 Yes. Jcode is free and open source under the MIT license, with no feature gates. Bring your own API keys, use supported OAuth subscriptions, or run local models.
@@ -67,6 +73,12 @@ What happens after my credit runs out?
 You keep working at provider API prices. A monthly usage limit is set automatically to 10x your plan price, so a $10 plan can use up to $100 beyond its credit and a $100 plan up to $1,000. New hosted-model usage pauses at the limit, and you can adjust it in your account.
 What is Jcode Cloud?
 Every plan includes Jcode Cloud, a private hosted machine that runs your Jcode sessions. You get 50 machine hours each month for every $10 of plan, so a $100 plan gets 500 hours, and plans from $150 up can keep the machine running all month. The machine sleeps after 30 minutes without a connected client, so idle time does not count.
+What counts as a remote Rust build?
+One remote justrust check, clippy, test, build, or run. Retries of the same run are free, and builds justrust keeps local never count.
+What happens after my included builds are used?
+Each further remote build costs $0.10 and counts toward your monthly usage limit. Plans include 500 builds per $10 each UTC month, and unused builds do not roll over.
+How do I start with remote Rust builds?
+Run curl -fsSL https://jcode.sh/rust.sh | sh , sign in in the browser, then use justrust check or justrust test . Every account gets 25 free builds with no card. More on justrust .
 Can I change plans?
 Yes. Sign in, pick a larger or smaller plan on this page, and choose Switch. The new plan is billed, with its double credit, from your next monthly payment, and your usage limit moves to 10x the new plan right away.
 Can I keep using Jcode without hosted models?
