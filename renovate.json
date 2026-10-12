@@ -3,9 +3,9 @@
   "extends": ["github>nuxt/renovate-config-nuxt"],
   "packageRules": [
     {
-      "description": "Held together. @agent-browser/eve 0.39 needs eve 0.57 or later, and its extension targets a tool contract eve 0.76 dropped (vercel/eve#4034).",
+      "description": "Bumped together, apart from the rest. @agent-browser/eve 0.39 needs eve 0.57 or later, and its extension targets a tool contract eve 0.76 dropped (vercel/eve#4034).",
       "matchPackageNames": ["eve", "@agent-browser/eve"],
-      "enabled": false
+      "groupName": "eve"
     }
   ]
 }
