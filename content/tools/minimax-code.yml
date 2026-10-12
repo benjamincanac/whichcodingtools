@@ -7,7 +7,7 @@ vendor: MiniMax
 homepage: https://agent.minimax.io/download
 links:
   docs: https://agent.minimax.io/docs/code/welcome
-  pricing: https://platform.minimax.io/subscribe/token-plan
+  pricing: https://www.minimax.io/m-plan
   changelog: https://agent.minimax.io/docs/changelog
   repo: https://github.com/MiniMax-AI/minimax-code
 icon: i-simple-icons-minimax
@@ -32,37 +32,33 @@ models:
 features: [subagents, mcp-client, acp-agent, plugins, scheduled-tasks, mobile-companion, browser-automation, diff-review, checkpoints]
 pricing:
   tiers:
-    - id: plus
-      name: Plus
-      price: 20
+    - id: go
+      name: Go
+      price: 22
       audience: individual
       limits:
-        - Runs 3-4 concurrent agents
-        - "Page lists \"Daily coding calls\": ~34,000, assuming ~50K tokens per M3 call"
-        - "~1.7B tokens a month of M3 usage, shared across text, image and speech (vendor estimate)"
-        - No video generation on this tier
-      notes: Billed annually, the page lists $220/year for Plus alongside $264/year.
-    - id: max
-      name: Max
-      price: 50
+        - For light use
+        - Text, image and speech models, web search and multimodal understanding, no video model
+        - MiniMax Code on web, desktop, TUI, iOS and Android, plus an API key for AI agents and coding tools
+      notes: Billed yearly the page lists $220/year, shown next to $264/year.
+    - id: explore
+      name: Explore
+      price: 55
       audience: individual
       limits:
-        - Runs 4-5 concurrent agents
-        - "Page lists \"Daily coding calls\": ~102,000, assuming ~50K tokens per M3 call"
-        - "~5.1B tokens a month of M3 usage, shared across text, image and speech (vendor estimate)"
-        - Hailuo 2.3 video generation, 3 clips a day
-      notes: Billed annually, the page lists $550/year for Max alongside $648/year.
-    - id: ultra
-      name: Ultra
-      price: 120
+        - 3× Go usage
+        - H3 video model, not in Go
+      notes: Billed yearly the page lists $550/year, shown next to $648/year.
+    - id: build
+      name: Build
+      price: 132
       audience: individual
       limits:
-        - Runs 6-7 concurrent agents
-        - "Page lists \"Daily coding calls\": ~250,000, assuming ~50K tokens per M3 call"
-        - "~12.5B tokens a month of M3 usage, shared across text, image and speech (vendor estimate)"
-        - Hailuo 2.3 video generation, 5 clips a day
-      notes: Billed annually, the page lists $1,320/year for Ultra alongside $1,560/year.
-  notes: MiniMax Code, desktop and CLI, runs on the Token Plan with no separate API key required. The page also states Token Plan is closing to new purchases once M Plan launches; existing auto-renew subscriptions continue. One-time credit packs are also sold, Starter $5 for 5,000 credits, Growth $25 for 25,000 credits, High Volume $100 for 100,000 credits.
+        - 7.5× Go usage
+        - H3 video model
+        - Priority access during peak hours and early access to new features
+      notes: Billed yearly the page lists $1,320/year, shown next to $1,560/year.
+  notes: MiniMax Code, the AI agent app, is included with M Plan, with no extra subscription or API key to set up. One-time credit packs are also sold, Starter $5 for 5,000 credits, Growth $25 for 25,000 credits, High Volume $100 for 100,000 credits, valid for one year.
 status: active
 sources:
   - url: https://agent.minimax.io/docs/code/welcome
@@ -110,8 +106,8 @@ sources:
   - url: https://agent.minimax.io/docs/code/workflows/code-review
     verified_at: 2026-09-29
     covers: [features]
-  - url: https://platform.minimax.io/subscribe/token-plan
-    verified_at: 2026-09-29
+  - url: https://www.minimax.io/m-plan
+    verified_at: 2026-10-12
     covers: [pricing]
   - url: https://raw.githubusercontent.com/MiniMax-AI/minimax-code/main/README.md
     verified_at: 2026-09-29
