@@ -6,6 +6,12 @@
       "description": "Bumped together, apart from the rest. @agent-browser/eve 0.39 needs eve 0.57 or later, and its extension targets a tool contract eve 0.76 dropped (vercel/eve#4034).",
       "matchPackageNames": ["eve", "@agent-browser/eve"],
       "groupName": "eve"
+    },
+    {
+      "description": "Workflows follow the Node major, like the ci matrix. Renovate would pin setup-node to a patch.",
+      "matchManagers": ["github-actions"],
+      "matchDepNames": ["node"],
+      "enabled": false
     }
   ]
 }
