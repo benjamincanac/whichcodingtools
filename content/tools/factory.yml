@@ -83,13 +83,13 @@ pricing:
 status: active
 sources:
   - url: https://factory.com/pricing
-    verified_at: 2026-10-02
+    verified_at: 2026-10-13
     covers: [pricing]
-  - url: https://docs.factory.ai/pricing/individuals
-    verified_at: 2026-09-19
+  - url: https://docs.factory.com/pricing/individuals
+    verified_at: 2026-10-13
     covers: [pricing]
-  - url: https://docs.factory.ai/pricing/organizations
-    verified_at: 2026-09-19
+  - url: https://docs.factory.com/pricing/organizations
+    verified_at: 2026-10-13
     covers: [pricing]
   - url: https://docs.factory.ai/models
     verified_at: 2026-08-23
