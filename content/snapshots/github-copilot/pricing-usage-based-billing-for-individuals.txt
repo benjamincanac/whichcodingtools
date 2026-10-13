@@ -8,14 +8,12 @@ GitHub Docs
 Search or ask Copilot / Menu
 Collapse sidebar
 Expand sidebar
-Scroll breadcrumbs left
 Home
 GitHub Copilot
 Concepts
 Billing and usage
 Individuals
 Billing
-Scroll breadcrumbs right
 GitHub Copilot
 Get started
 About Copilot
@@ -29,21 +27,19 @@ Plans
 Best practices
 Enterprise AI governance
 Concepts
-Completions
-Code suggestions
-Code referencing
-Chat
+Copilot surfaces
+GitHub Copilot app
+Copilot CLI
+Copilot on GitHub.com
+Copilot in IDEs
 Agents
 Cloud agent
-About cloud agent
 Agent management
 Custom agents
 About automations
 Rationale, confidence, and approvals
 MCP and cloud agent
-Risks and mitigations
 Copilot CLI
-About Copilot CLI
 Comparing CLI features
 Copilot CLI in Actions
 Cancel and roll back
@@ -53,17 +49,16 @@ Custom agents
 Autonomous task completion
 Parallel task execution
 Researching with Copilot
-Session data
 About rubber duck
 LSP servers
 CLI extensions
 Tool search
 Understanding local sandboxing
-GitHub Copilot app
-Copilot in JetBrains
 Code review
+Computer use
 Agentic Workflows
 Copilot Memory
+Dynamic workflows
 Hooks
 Plugins
 Third-party coding agents
@@ -71,7 +66,6 @@ Agent apps
 OpenAI Codex
 Anthropic Claude
 Agent skills
-Cloud and local sandboxes
 Prompting
 Prompt engineering
 Response customization
@@ -79,7 +73,6 @@ Context
 MCP
 Spaces
 Repository indexing
-Content exclusion
 Tools
 AI tools
 About Copilot integrations
@@ -100,10 +93,15 @@ Usage limits
 Copilot usage metrics
 All articles
 Copilot usage metrics
+Security, governance, and network settings
+Content exclusion
+Session data
+Cloud and local sandboxes
+Risks and mitigations
 Network settings
 Enterprise
 Policies
-Default model availability
+Default availability
 FedRAMP models
 New features and models
 Agent management
@@ -158,16 +156,38 @@ Research, plan, iterate
 Manage agent sessions
 Copilot code review
 Review Copilot output
-Set up
-Set up for self
+Copilot in your IDE
+Set up Copilot
 Install Copilot extension
-Get code suggestions
-Get IDE code suggestions
-Find matching code
+Configure in IDE
+Configure network settings
+Authenticate to GHE.com
+Customize Copilot
+Configure custom instructions
+Add repository instructions in your IDE
+Extend Copilot with tools and context
+Extend Copilot Chat with MCP
+Set up the GitHub MCP Server
+Enterprise configuration
+Configure toolsets
+Change MCP registry
+Use Copilot Spaces
 Chat with Copilot
 Get started with Chat in your IDE
 Chat in IDE
+Change the chat model
 Chat in Windows Terminal
+Copilot for common tasks
+Get IDE code suggestions
+Find matching code
+Change the completion model
+Use the GitHub MCP Server
+Use Copilot agents
+Use agent mode
+Use plan mode
+Use subagents
+Use custom agents
+Use cloud agent in your IDE
 Copilot CLI
 All articles
 Copilot CLI best practices
@@ -181,6 +201,7 @@ Use Copilot CLI
 Overview
 Allowing tools
 Voice input
+Computer use
 Connect to VS Code
 Delegate tasks to Copilot
 Browse issues, PRs, gists
@@ -208,7 +229,7 @@ Use hooks
 Add agent skills
 Add MCP servers
 Create custom agents
-Use your own model provider
+Add LLM models
 Plugins: Find and install
 Plugins: Create a plugin
 Plugins: Create a marketplace
@@ -222,10 +243,11 @@ GitHub Copilot app
 All articles
 Customize the GitHub Copilot app
 Agent sessions
+Computer use
 Canvas extensions
 Managing issues and pull requests
 Automations
-Use your own model provider
+Add LLM models
 Open with deep links
 Copilot SDK
 Authentication
@@ -235,6 +257,7 @@ Server-to-server tokens
 Features
 Agent Loop
 Citations
+Client info
 Cloud Sessions
 Context management
 Custom Agents
@@ -268,6 +291,7 @@ Backend Services
 Bundled CLI
 Choosing A Setup Path
 GitHub OAuth
+In-process runtime
 Local CLI
 Multi Tenancy
 Scaling
@@ -279,57 +303,34 @@ GitHub Agentic Workflows
 Quickstart
 Creating agentic workflows
 Use Copilot agents
-Cloud agent
+Copilot cloud agent
 Start Copilot sessions
 Create cloud automations
 Manage rationale, confidence, and approvals
 Changing the AI model
 Configuring agent settings
-Create custom agents in your IDE
 Use cloud agent on GitHub
 Use cloud agent on GitHub Mobile
 Use agent apps
-Use cloud agent in your IDE
 Use cloud agent via the API
 Use cloud agent from the GitHub CLI
 Use cloud agent via GitHub MCP Server
 Use cloud agent from Raycast
 Troubleshoot cloud agent
-Request a code review
-Use code review
 Copilot Memory
 Manage for yourself
 Manage as administrator
+Copilot code review
+Dynamic workflows
 Copilot integrations
 Integrate cloud agent with Slack
 Integrate cloud agent with Teams
 Integrate cloud agent with Jira
 Integrate cloud agent with Linear
 Integrate cloud agent with Azure Boards
-Use AI models
-Change the chat model
-Change the completion model
-Provide context
-Use Copilot Spaces
-Use Copilot Spaces
-Use MCP in your IDE
-Extend Copilot Chat with MCP
-Set up the GitHub MCP Server
-Enterprise configuration
-Configure toolsets
-Use the GitHub MCP Server
-Change MCP registry
-Configure custom instructions
-Add repository instructions in your IDE
 Configure content exclusion
 Exclude content from Copilot
 Review changes
-Use Copilot for common tasks
-Use Copilot in the CLI
-Configure personal settings
-Configure network settings
-Configure in IDE
-Authenticate to GHE.com
 Manage and track spending
 Monitor AI credits usage
 Manage company spending
@@ -458,7 +459,6 @@ Create templates
 Summarize repository activity
 Synthesize research
 Create diagrams
-Generate tables
 Debug errors
 Debug invalid JSON
 Handle API rate limits
@@ -470,28 +470,17 @@ Generate code
 Implement a feature
 Refactor code
 Improve code readability
-Fix lint errors
 Refactor for optimization
-Refactor for sustainability
 Refactor design patterns
 Refactor data access layers
-Decouple business logic
 Handle cross-cutting
 Simplify inheritance hierarchies
 Fix database deadlocks
 Translate code
-Document code
-File issues without breaking flow
-Document legacy code
-Explain legacy code
-Explain complex logic
-Sync documentation
-Write discussions or blog posts
 Testing code
 Generate unit tests
 Create mock objects
 Create end-to-end tests
-Update unit tests
 Analyze security
 Secure your repository
 Manage dependency updates
@@ -532,7 +521,6 @@ Optimize budget configuration
 Customize code review
 Pull request lifecycle
 Enhance agent mode with MCP
-Compare AI models
 Speed up development work
 Roll out at scale
 Assign licenses
@@ -550,6 +538,7 @@ Enable developers
 Drive adoption
 Roll out the Copilot app
 Integrate AI agents
+Drive agentic adoption
 Drive downstream impact
 Achieve company goals
 Increase test coverage
@@ -561,20 +550,13 @@ Explore a codebase
 Explore issues and discussions
 Explore pull requests
 Write tests
-Refactor code
 Optimize AI usage
 Optimize Chat usage
 Optimize code reviews
 Reduce technical debt
 Stack AI pull requests
 Review AI code
-Learn a new language
-Modernize legacy code
-Modernize Java applications
-Migrate a project
-Plan a project
 Vibe coding
-Upgrade projects
 Use hooks with Copilot CLI
 Use an AI SME
 Create CLI extensions

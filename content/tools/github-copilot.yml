@@ -72,7 +72,7 @@ pricing:
         kind: credits
         rate: 0.01
       limits:
-        - Access to premium models, including Opus
+        - Access to premium models
     - id: max
       name: Copilot Max
       price: 100
@@ -87,7 +87,7 @@ pricing:
         kind: credits
         rate: 0.01
       limits:
-        - Priority access to new models and features
+        - Priority access to premium models
     - id: business
       name: Copilot Business
       price: 19
@@ -116,13 +116,13 @@ pricing:
 status: active
 sources:
   - url: https://github.com/features/copilot/plans
-    verified_at: 2026-09-18
+    verified_at: 2026-10-13
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/get-started/plans
-    verified_at: 2026-09-18
+    verified_at: 2026-10-13
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals
-    verified_at: 2026-09-18
+    verified_at: 2026-10-13
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli
     verified_at: 2026-08-23
