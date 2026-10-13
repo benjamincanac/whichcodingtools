@@ -37,7 +37,7 @@
     "nuxt-agent-discovery": "^0.7.1",
     "nuxt-llms": "^0.2.0",
     "satori": "^0.47.1",
-    "shaders": "^3.2.475",
+    "shaders": "^4.0.4",
     "spdx-expression-parse": "^5.0.0",
     "tailwindcss": "^4.3.3",
     "unstorage": "^1.17.5",
