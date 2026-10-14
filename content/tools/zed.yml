@@ -125,11 +125,6 @@ pricing:
       name: Personal
       price: 0
       audience: individual
-      included:
-        amount: 2000
-        unit: edits
-        period: month
-        notes: 2,000 accepted edit predictions
       overage:
         kind: blocked
       limits:
@@ -159,7 +154,7 @@ pricing:
 status: active
 sources:
   - url: https://zed.dev/pricing
-    verified_at: 2026-09-18
+    verified_at: 2026-10-14
     covers: [pricing]
   - url: https://zed.dev/docs/ai/external-agents
     verified_at: 2026-08-27
