@@ -38,19 +38,19 @@ Limited usage analytics
 Discord community support
 ✦ New
 GOAT
-$ 10 /month + processing fee $70 in credits included Up to ~$ 100 usage with deals
+$ 10 /month + processing fee $80 in credits included Up to ~$ 100 usage with deals
 Best value subscription in market. Subscribe
 What's included
 ~75K requests
 taste-1 model access
 API access
 Per-model allowances
+$ 60 on DeepSeek V4.1 Flash
 $ 70 on GPT-5.6 Sol
 $ 70 on GLM-5.2
 $ 70 on Tencent Hy3
 $ 70 on Qwen 3.8 27B
-$ 60 on DeepSeek V4.1 Flash
-+ 31 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
++ 32 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
 Free on Laguna S 2.1
 Free on Ling 3.0 Flash
 Free on Ling 3.0 Flash Sante
@@ -436,7 +436,7 @@ Need a side-by-side per-model breakdown? See full pricing & limits docs or open 
 Questions, answered.
 Still curious? Read the pricing & limits docs . Or email support@commandcode.ai .
 Which plan is right for you?
-Go ($1) starts you off — open-source models, big budgets in tiny dollars. GOAT ($10) is for developers who live on open models — $70 of usage on 29+ models. Pro ($20) adds premium models to the shared pool — up to $80 of usage on per-model allowances. Max 10× ($100) keeps up with daily shipping. Max 20× ($200) goes all-out — every model, no caps. Teams and Enterprise pool credits for the whole crew. Every plan except Go includes API access.
+Go ($1) starts you off — open-source models, big budgets in tiny dollars. GOAT ($10) is for developers who live on open models — $80 of usage on 29+ models. Pro ($20) adds premium models to the shared pool — up to $80 of usage on per-model allowances. Max 10× ($100) keeps up with daily shipping. Max 20× ($200) goes all-out — every model, no caps. Teams and Enterprise pool credits for the whole crew. Every plan except Go includes API access.
 How does pricing work?
 Flat monthly subscriptions for developers with 2-10x better than API prices. A bucket of model credits. Buy on demand extra credits anytime, you spend at the underlying API rate — zero markup. Run out? Top up, or flip on auto-reload. Top-up credits roll over and never expire.
 Out of credits?
@@ -472,14 +472,26 @@ Open models, premium output
 “ Command Code is the first agent where I trust open models in production. The harness is so solid I had to double check I was still on DeepSeek Flash. Shipped multiple CLIs and a full Redwood app for $2. ”
 David Thyresson
 GP · PWV · RedwoodSDK contributor
+Very impressive growth Ahmad Awais @ MrAhmadAwais
+Command Code is #1 on Vercel Gateway.
+We launched in May. First coding agent purpose built for open models. Check what happens in July/Aug in the chart below.
+In Aug we launched v1 and $10 GOAT plan.
+53K active paying customers now.
+We're just getting started. Read full post
+Guillermo Rauch @rauchg
+try this puppy out! Command Code @ CommandCodeAI
+Muse Spark 1.3 Max is live in Command Code.
+New reasoning effort param for harder problems and frontier performance. Read full post
+Alexandr Wang @alexandr_wang
+See all the love
 // ship
 Changelog
-v 1.79.0
-399 releases shipped
-FEAT Add Glyph Cluster as a free model, 100 requests a day
-FEAT Add Claude Haiku 5.5 (Pro and above)
-FEAT Localize the CLI in Chinese
-FIX Taste learning no longer fails on Windows when it files learnings into a category folder
+v 1.82.0
+404 releases shipped
+FEAT Gemini Argon
+FIX No longer re-send the same prompt automatically on model refusal
+FIX Commands run with `!` bash mode and their output reach the agent
+FEAT Add the `codemode` tool that lets the model write scripts to orchestrate tool calls, MCP only by default, change via /config
 Read full changelog
 +104k
 Ready to code with your taste? Join 100K+ developers who stopped fixing AI code and started shipping with the best coding agent for open models.
@@ -488,21 +500,25 @@ npm i -g command-code
 Read the docs.
 $1/mo Go plan · Cancel any time
 About
-Docs
+Mods
 Developers
 Changelog
 Pricing
-Taste
+Docs
 Brand
 Security
 Desktop
-Careers
+Taste
 Blog
 Terms
-Learn
-Skills
+IDE Extensions
+Careers
 Models
 Privacy
+Learn
+Skills
+Features
+Contact
 X
 GitHub
 LinkedIn
