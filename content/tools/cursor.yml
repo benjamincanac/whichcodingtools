@@ -27,97 +27,81 @@ models:
 features: [parallel-agents, subagents, worktrees, mcp-client, hooks, plugins, browser-automation, diff-review, checkpoints, tab-completion, remote-execution, acp-agent]
 pricing:
   tiers:
-    - id: hobby
-      name: Hobby
+    - id: free
+      name: Free
       price: 0
       audience: individual
-      overage:
-        kind: blocked
       limits:
-        - No credit card required
-        - Limited Agent requests
-        - Access to Composer
-    - id: pro
-      name: Pro
-      price: 20
+        - Limited agent requests
+        - Limited Chat requests
+    - id: plus
+      name: Plus
+      price: 8
       audience: individual
-      included:
-        amount: 20
-        unit: usd
-        usd_value: 20
-        notes: Agent usage priced at model API rates, with Auto modes billed differently per Router mode
       overage:
-        kind: api-list
-        notes: Usage-based billing at API list price once the included amount is used, opt-in.
+        kind: credits
+        notes: The page says to keep going with top-offs once the included usage is spent, or wait for the weekly allowance to refresh.
       limits:
-        - Extended limits on Agent
-        - Access to frontier models
-        - Grok Bot access
-        - MCPs, skills, and hooks
-        - Cloud agents
-        - Bugbot on usage-based billing
-    - id: pro-plus
-      name: Pro+
-      price: 60
+        - Introductory plan with a shared AI usage pool
+        - Only Grok models are available on this plan
+        - Grok Chat, Voice, Imagine and Build, and Grok API access
+    - id: premium
+      name: Premium
+      price: 30
       audience: individual
-      included:
-        amount: 60
-        unit: usd
-        usd_value: 60
       overage:
-        kind: api-list
+        kind: credits
+        notes: The page says to keep going with top-offs once the included usage is spent, or wait for the weekly allowance to refresh.
       limits:
-        - 3x the Pro agent limits
-        - Access to frontier models
-        - Higher Grok Bot usage limits
-        - MCPs, skills, and hooks
-        - Cloud agents
-        - Bugbot on usage-based billing
+        - 4x more usage than Plus
+        - Cloud agents and automations
+        - Code hosting and AI code reviews with Bugbot
+        - Third-party models at API list price
+        - Grok Bot
+    - id: super
+      name: Super
+      price: 100
+      audience: individual
+      overage:
+        kind: credits
+        notes: The page says to keep going with top-offs once the included usage is spent, or wait for the weekly allowance to refresh.
+      limits:
+        - 15x more usage than Plus
+        - Priority model access at peak times
+        - Cloud agents and automations
+        - Code hosting and AI code reviews with Bugbot
+        - Grok Bot
     - id: ultra
       name: Ultra
       price: 200
       audience: individual
       overage:
-        kind: api-list
+        kind: credits
+        notes: The page says to keep going with top-offs once the included usage is spent, or wait for the weekly allowance to refresh.
       limits:
-        - 20x the Pro agent limits
-        - Access to frontier models
-        - Highest Grok Bot usage limits
-        - MCPs, skills, and hooks
-        - Cloud agents
-        - Bugbot on usage-based billing
-        - Priority access to new features
+        - 50x more usage than Plus
+        - Earliest access to all products and models
+        - Priority model access at peak times
+        - Cloud agents and automations
+        - Code hosting and AI code reviews with Bugbot
+        - Grok Bot
     - id: teams
-      name: Teams Standard
-      price: 40
+      name: Teams
+      price: 30
+      price_from: true
       audience: team
       overage:
-        kind: api-list
+        kind: credits
+        notes: The page says to keep going with top-offs once the included usage is spent, or wait for the weekly allowance to refresh.
       limits:
-        - Centralized team billing and administration
+        - Usage of 4x to 50x Plus depending on the seat tier, with mix and match seat types (Premium, Super and Ultra seats)
+        - Centralized billing and administration
         - Team marketplace for internal rules, skills, and plugins
-        - Cloud agents and automations with shared team context
         - SAML/OIDC SSO
-        - Agentic code reviews with Bugbot
-        - Usage analytics to understand team behavior
-        - Team-wide privacy mode
-        - Grok Bot access
-    - id: teams-premium
-      name: Teams Premium
-      price: 120
-      audience: team
-      overage:
-        kind: api-list
-      limits:
-        - 5x the Teams Standard agent limits
-        - Centralized team billing and administration
-        - Team marketplace for internal rules, skills, and plugins
-        - Cloud agents and automations with shared team context
-        - Higher Grok Bot usage limits
-        - Agentic code reviews with Bugbot
-        - Usage analytics to understand team behavior
-        - Team-wide privacy mode
-        - SAML/OIDC SSO
+        - Usage analytics
+        - Team-wide privacy settings
+        - Custom Chat data retention
+        - Grok Bot
     - id: enterprise
       name: Enterprise
       price: null
@@ -130,13 +114,12 @@ pricing:
         - Repository, model, and MCP access controls
         - Auto-run, browser, and network controls
         - Audit logs and service accounts
-        - AI code tracking API
         - Access, network, and audit controls for Grok Bot
-        - Priority support and account management
+  notes: Third-party model usage in Cursor is not included in the monthly prices and is purchased separately. Every tier includes a pool of AI usage shared across Cursor and Grok.
 status: active
 sources:
   - url: https://cursor.com/pricing
-    verified_at: 2026-09-20
+    verified_at: 2026-10-14
     covers: [pricing]
   - url: https://cursor.com/docs
     verified_at: 2026-08-23
