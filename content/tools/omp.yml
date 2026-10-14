@@ -1,0 +1,47 @@
+slug: omp
+name: omp
+description: Terminal coding agent forked from Pi, built by Stencil Labs. Native Rust core, subagents, plan mode, and an ACP mode for editors such as Zed.
+layer: harness
+vendor: Stencil Labs, Inc.
+homepage: https://omp.sh
+links:
+  docs: https://omp.sh/docs
+  repo: https://github.com/can1357/oh-my-pi
+  discord: https://discord.gg/4NMW9cdXZa
+platforms: [macos, linux, windows]
+install:
+  - method: curl
+    command: curl -fsSL https://omp.sh/install | sh
+  - method: brew
+    command: brew install can1357/tap/omp
+license:
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/can1357/oh-my-pi
+  notes: The README says the vendored brush-core and pi-builtins portions stay under their upstream licenses.
+models:
+  providers: [anthropic, openai, google, xai, mistral, deepseek, meta, moonshot, alibaba, zhipu, minimax, openrouter, vercel-ai-gateway]
+  plans: [claude, chatgpt, copilot, grok]
+  byok: full
+  local: true
+  notes: Subscription sign-in through /login for Claude Pro or Max, ChatGPT Plus or Pro, GitHub Copilot and SuperGrok or X Premium+. Alibaba and Zhipu come in as coding plans. API key, gateway and cloud routes include Azure, Bedrock and Vertex. Ollama, llama.cpp, LM Studio and vLLM work as local engines.
+features: [subagents, mcp-client, acp-agent, plugins, hooks]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Bring your own keys, subscriptions or local models
+status: active
+sources:
+  - url: https://omp.sh/docs/providers
+    verified_at: 2026-10-13
+    covers: [pricing, models]
+  - url: https://github.com/can1357/oh-my-pi
+    verified_at: 2026-10-13
+    covers: [license, platforms, features]
+  - url: https://omp.sh
+    verified_at: 2026-10-13
+    covers: [general]
