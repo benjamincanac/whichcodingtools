@@ -55,10 +55,10 @@ pricing:
       per: flat
       audience: individual
       included:
-        amount: 70
+        amount: 80
         unit: usd
         period: month
-        notes: Per-model credit allowances across 29+ models, up to $70 of usage on each. Deals on some models can raise effective usage to up to ~$100.
+        notes: Per-model credit allowances across 29+ models. Deals on some models can raise effective usage to up to ~$100.
       overage:
         kind: api-list
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
@@ -165,7 +165,7 @@ sources:
     verified_at: 2026-09-04
     covers: [general]
   - url: https://commandcode.ai/pricing
-    verified_at: 2026-10-08
+    verified_at: 2026-10-14
     covers: [pricing]
   - url: https://commandcode.ai/desktop
     verified_at: 2026-09-04
