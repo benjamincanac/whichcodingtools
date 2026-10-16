@@ -37,41 +37,161 @@ pricing:
       name: Free
       price: 0
       audience: individual
-      included:
-        amount: 100
-        unit: credits
-        period: month
-        usd_value: 5
-        notes: Everyone gets 100 Hypercredits per month for the optional Hyper plan; 1 Hypercredit is 5 cents.
       limits:
-        - Crush itself is free and open source, use it with your own provider API keys at no extra cost
-    - id: subscription
-      name: Hyper Subscription
+        - Use Crush with your own provider API keys, no Hyper plan required
+    - id: shred-diet
+      name: Hyper Shred Diet
+      price: 10
+      per: flat
+      audience: individual
+      included:
+        amount: 180
+        unit: credits
+        period: week
+        usd_value: 9
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 100 Hypercredits per 5 hours
+        - 2 concurrent requests
+    - id: shred-classic
+      name: Hyper Shred Classic
       price: 20
       per: flat
       audience: individual
       included:
         amount: 250
         unit: credits
-        period: month
+        period: week
         usd_value: 12.5
-        notes: 250 Hypercredits refreshing daily.
+        notes: 1 Hypercredit is 5 cents.
       limits:
-        - Optional first-party inference plan for Crush, not required to use the agent
-    - id: prepaid
-      name: Hyper Prepaid Bundles
+        - 150 Hypercredits per 5 hours
+        - 3 concurrent requests
+    - id: shred-energy
+      name: Hyper Shred Energy
+      price: 50
+      per: flat
+      audience: individual
+      included:
+        amount: 400
+        unit: credits
+        period: week
+        usd_value: 20
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 250 Hypercredits per 5 hours
+        - 4 concurrent requests
+    - id: shred-nitro
+      name: Hyper Shred Nitro
+      price: 100
+      per: flat
+      audience: individual
+      included:
+        amount: 690
+        unit: credits
+        period: week
+        usd_value: 34.5
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 400 Hypercredits per 5 hours
+        - 8 concurrent requests
+    - id: shred-animal
+      name: Hyper Shred Animal
+      price: 200
+      per: flat
+      audience: individual
+      included:
+        amount: 1200
+        unit: credits
+        period: week
+        usd_value: 60
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 700 Hypercredits per 5 hours
+        - 12 concurrent requests
+    - id: business-casual
+      name: Hyper Business Casual
+      price: 30
+      audience: team
+      included:
+        amount: 180
+        unit: credits
+        period: week
+        usd_value: 9
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 100 Hypercredits per 5 hours
+        - 2 concurrent requests
+        - Zero Data Retention (ZDR)
+    - id: business-class
+      name: Hyper Business Class
+      price: 40
+      audience: team
+      included:
+        amount: 250
+        unit: credits
+        period: week
+        usd_value: 12.5
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 150 Hypercredits per 5 hours
+        - 3 concurrent requests
+        - Zero Data Retention (ZDR)
+    - id: business-platinum
+      name: Hyper Business Platinum
+      price: 70
+      audience: team
+      included:
+        amount: 400
+        unit: credits
+        period: week
+        usd_value: 20
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 250 Hypercredits per 5 hours
+        - 4 concurrent requests
+        - Zero Data Retention (ZDR)
+    - id: business-diamond
+      name: Hyper Business Diamond
+      price: 120
+      audience: team
+      included:
+        amount: 690
+        unit: credits
+        period: week
+        usd_value: 34.5
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 400 Hypercredits per 5 hours
+        - Zero Data Retention (ZDR)
+    - id: business-champagne
+      name: Hyper Business Champagne
+      price: 220
+      audience: team
+      included:
+        amount: 1200
+        unit: credits
+        period: week
+        usd_value: 60
+        notes: 1 Hypercredit is 5 cents.
+      limits:
+        - 700 Hypercredits per 5 hours
+        - 12 concurrent requests
+        - Zero Data Retention (ZDR)
+    - id: payg
+      name: Hyper Pay As You Go
       price: null
       per: flat
       audience: individual
       overage:
         kind: credits
-        notes: "$5 for 100, $10 for 200 and $20 for 400 Hypercredits. Prepaid Hypercredits never expire."
-  notes: Crush has no license fee. Hyper is Charm's optional hosted inference plan for Crush, billed in Hypercredits currently worth 5 cents each.
+        notes: Prepaid credits, starting with five dollars. Always ZDR, no limits.
+  notes: Hyper is billed in Hypercredits, 1 Hypercredit is 5 cents. Hypercredits refresh every week at Sunday 00:00 UTC, and each plan also caps use per five-hour rolling window.
 status: active
 sources:
   - url: https://github.com/charmbracelet/crush
     verified_at: 2026-08-25
     covers: [platforms, license, models, features, general]
   - url: https://hyper.charm.land
-    verified_at: 2026-09-13
+    verified_at: 2026-10-16
     covers: [pricing]
