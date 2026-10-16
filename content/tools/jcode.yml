@@ -51,26 +51,27 @@ pricing:
         notes: Every successful payment grants inference credit worth double the plan price, which does not accumulate.
       overage:
         kind: api-list
-        notes: Past the credit, inference is billed at the provider API price, on top of the subscription. Remote Rust builds past the included allowance (2,500 per $10 of plan, from the $20 plan) cost $0.10 each and count toward the usage limit.
+        notes: Past the credit, inference is billed at provider API prices on top of the subscription, up to an extra usage limit that defaults to $0 per UTC month and is raised in the account. Remote Rust builds past the included allowance cost $0.10 each, with a separate monthly limit that defaults to $0.
       limits:
-        - Usage past the credit is capped automatically at 10x the plan price, $100 per UTC month on the entry plan, pauses at the cap and is adjustable in the account
-        - Jcode Cloud included, 50 hosted machine hours each month for every ten dollars of plan, the machine sleeps after 30 minutes with no connected client
-        - Remote Rust builds with justrust, only on plans from $20, 2,500 each UTC month for every ten dollars of plan, unused builds do not roll over
-      notes: Monthly plan chosen from $10 to $1,000; the credit, usage cap and Jcode Cloud hours all scale with the plan.
+        - Extra usage past the credit is off until you raise the limit in your account, it defaults to $0 per UTC month
+        - Jcode Cloud included, 50 machine hours each month for every ten dollars of plan
+        - Remote Rust builds with justrust, only on plans from $20, 2,500 each UTC month for every ten dollars of plan
+        - Free trial of the first month of the $20 plan, with 5,000 builds, inference credit starts with the first paid month, card required
+      notes: Monthly plan chosen from $10 to $1,000; the credit and the Jcode Cloud hours scale with the plan.
     - id: enterprise
       name: Enterprise
       price: null
       audience: enterprise
       contact_sales: true
-      limits:
-        - Centralized billing and usage management
-        - Deployment and integration guidance, security and procurement review, priority support
   notes: The agent itself is free. Hosted inference is an optional router run by the vendor and is not required to use jcode.
 status: active
 sources:
   - url: https://jcode.sh/pricing
-    verified_at: 2026-10-13
-    covers: [pricing, license, general]
+    verified_at: 2026-10-16
+    covers: [pricing, general]
+  - url: https://jcode.sh/enterprise
+    verified_at: 2026-10-16
+    covers: [pricing]
   - url: https://github.com/1jehuang/jcode
     verified_at: 2026-09-04
     covers: [platforms, models, features, license, general]
