@@ -1,9 +1,9 @@
 slug: deepseek-harness
 name: DeepSeek Harness
-description: Open source agent harness from DeepSeek with a browser UI, in developer preview, bring your own key for DeepSeek and catalog providers such as Anthropic or OpenAI.
+description: Open source agent harness from DeepSeek with a browser UI, in public preview, bring your own key for DeepSeek and catalog providers such as Anthropic or OpenAI.
 layer: harness
 vendor: DeepSeek
-homepage: https://www.deepseek.com/harness/en/
+homepage: https://www.deepseek.com/en/harness/
 links:
   docs: https://deepseek-harness.github.io/deepseek-harness/en/guide/providers
   repo: https://github.com/deepseek-ai/deepseek-harness
@@ -34,8 +34,8 @@ pricing:
   notes: DeepSeek Harness is free and open source under MIT; model access uses your own provider key or credentials.
 status: preview
 sources:
-  - url: https://www.deepseek.com/harness/en/
-    verified_at: 2026-09-18
+  - url: https://www.deepseek.com/en/harness/
+    verified_at: 2026-10-16
     covers: [pricing, general, features]
   - url: https://github.com/deepseek-ai/deepseek-harness
     verified_at: 2026-09-08
