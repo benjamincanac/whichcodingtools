@@ -109,11 +109,11 @@ Database rollback up to 28 days
 Upgrade to Pro
 Enterprise Custom
 Enterprise-grade security and control
-Custom seat limits
-SSO/SAML
+SSO, SCIM & audit logs
 Advanced privacy controls
-Single-tenant environments
-Static outbound IPs and much more
+Centralized security management
+Single-tenant & private networking options
+Dedicated premium support and much more
 Contact sales Get started
 *Prices are subject to tax depending on your location. Replit Agent is powered by large language models. While it can produce powerful results, its behavior is probabilistic - meaning it may occasionally make mistakes.
 Frequently asked questions

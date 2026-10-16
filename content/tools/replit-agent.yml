@@ -72,12 +72,13 @@ pricing:
       contact_sales: true
       audience: enterprise
       limits:
-        - Custom seat limits, SSO/SAML, single-tenant environments
+        - SSO, SCIM and audit logs, advanced privacy controls, centralized security management
+        - Single-tenant and private networking options, dedicated premium support
   notes: Annual prices are the per-month figure when billed yearly. Agent usage is metered per request by effort, not per seat.
 status: active
 sources:
   - url: https://replit.com/pricing
-    verified_at: 2026-10-10
+    verified_at: 2026-10-16
     covers: [pricing]
   - url: https://docs.replit.com/chat/agent-modes
     verified_at: 2026-09-07
