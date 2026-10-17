@@ -81,14 +81,14 @@ pricing:
       overage:
         kind: api-list
         notes: Pay as you go per million tokens through the Kimi platform API, with a separate rate for each model.
-  notes: USD figures are the global kimi.ai prices. Annual billing is $180, $372, $948 and $1,908 a year for Plus, Pro, Max and Ultra. The China site bills in CNY with an extra Andante tier.
+  notes: USD figures are the global kimi.ai prices. Annual billing is $180, $372, $948 and $1,908 a year for Plus, Pro, Max and Ultra. The China site bills in CNY, with Go, Plus, Pro and Max as the current plans and Andante, Moderato, Allegretto and Allegro kept as legacy plans.
 status: active
 sources:
   - url: https://www.kimi.ai/membership/pricing
     verified_at: 2026-10-11
     covers: [pricing]
   - url: https://www.kimi.com/en/help/membership/membership-overview
-    verified_at: 2026-08-23
+    verified_at: 2026-10-17
     covers: [pricing]
   - url: https://www.kimi.com/code/docs/
     verified_at: 2026-08-23
