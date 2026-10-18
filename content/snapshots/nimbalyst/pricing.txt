@@ -1,41 +1,47 @@
 # https://nimbalyst.com/pricing/
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
-Nimbalyst Pricing — Free for Individuals
+Nimbalyst Pricing: Free for Individuals, Wiki Teams for Your Team
 We use analytics tools to understand how this site is used. Analytics are optional. See our
 Cookie Policy .
 Decline
 Allow analytics
-Teams
-Teams Overview Collaborative Documents Collaborative Trackers How Collaboration Works
-Features
-Core Features Extensions Mobile Why Nimbalyst Context Graph
-Solutions
-All Solutions Developers Product Managers Feature Teams Startups Consulting & SIs Customer-Facing Engineering Marketing Teams Research & Science Quant Research Enterprise
-Enterprise
+Wiki
+Wiki Teams
+App
+App Overview Core Features Extensions Mobile Why Nimbalyst Context Graph Download
 Pricing
 Docs
 Resources
-Blog Use Cases Compare Agent Harness Agent Skills Open Source About
-Download Free
-Teams
-Teams Overview Collaborative Documents Collaborative Trackers How Collaboration Works
-Features
-Core Features Extensions Mobile Why Nimbalyst Context Graph
-Solutions
-All Solutions Developers Product Managers Feature Teams Startups Consulting & SIs Customer-Facing Engineering Marketing Teams Research & Science Quant Research Enterprise Enterprise Pricing Docs
+Blog Use Cases For Developers For Product Managers Compare Agent Harness Agent Skills Open Source About
+Wiki
+App
+Wiki Wiki Teams
+App
+App Overview Core Features Extensions Mobile Why Nimbalyst Context Graph Download Pricing Docs
 Resources
-Blog Use Cases Compare Agent Harness Agent Skills Open Source About
-Download Free
-GitHub
-Build more. Pay less.
-The core Nimbalyst experience is free for individual users.
-Upgrade to Teams to collaborate.
-Individual
+Blog Use Cases For Developers For Product Managers Compare Agent Harness Agent Skills Open Source About
+Wiki GitHub
+App GitHub
+Free for you, and one shared wiki for your whole team
+The Nimbalyst app and your personal wiki are free, and the wiki also works in your coding agent without the app.
+Upgrade to Wiki Teams to share it with your team.
+Wiki in your coding agent
+$0
+A plugin for the coding agent you already use. No app or account needed.
+Your agent writes the wiki as markdown files in your repo
+Notes, open questions and decisions, with who decided and when
+Typed pages and tables for what you track
+Read and edit it in your browser
+Works in Claude Code, the Codex CLI and app, Cowork, Cursor, VS Code and any MCP agent
+Open source Add it to your agent
+No app, no account and no credit card
+Nimbalyst App
 $0
 The open-source visual workspace for building with Codex, Claude Code, and more. No credit card required.
 Nimbalyst visual editor and workspace
-Claude Code, Codex, OpenCode, CoPilot agents
+Local wiki your agents write for you, with mockups, diagrams, 2x2s and typed tables in its pages
+Claude Code, Codex, OpenCode, Copilot agents
 WYSIWYG markdown editor. Approve AI changes
 Mockups, diagrams, Excalidraw, mind maps, data models, slides, spreadsheets, and CSV editors
 Session manager with searchable history
@@ -43,54 +49,50 @@ Integrated, agent-powered tracker and task management
 Code editor, terminal, AI git manage, commit, worktrees
 Extension system to build your own visual workspace
 Mobile app for remote session and file management
-MCP server support and extensions
-File link sharing Download and Use for Free
+MCP server support and extensions Download and Use for Free
 No account and no credit card required
-Teams Beta
+Wiki Teams Beta
 $20 / user / month
 or $200 / user / year. Free during Beta.
-Real-time collaboration for teams building with coding agents.
-Everything in Individual, plus:
-Multiplayer collaboration on markdown docs, mockups, Excalidraw, and diagrams. Your team and your agents working together.
-Promote any local file to a shared doc, with full change history
-Collaborative trackers and kanban, worked by your agents and your team
-Multi-player collaborative extensions you have the agents build Download and Start Your Teams Beta
-Create your org in the app and invite your team
-Enterprise
-Custom
-Multiplayer editors built for your own artifacts, running on a collaboration server in your own cloud.
-Everything in Teams, plus:
-Collaboration server in your own Cloudflare account, or managed by us
-Collaboration code source available for your company only use
-Data residency pinned to your jurisdiction
-Your agents pointed at the gateway, models, and spend controls you govern
-An engineer embedded with your platform team through onboarding
-We build your first multiplayer extension, a visual editor for an artifact your teams work with today Talk to us about Enterprise See the enterprise deployment model &rarr;
+One multiplayer wiki for your team and all of your agents.
+Everything in Wiki in your coding agent, plus:
+One shared wiki for your whole team, edited together in real time
+Every teammate's agents write into the same pages
+Decisions and open questions the whole team can see, with who decided and when
+Shared typed databases for what your team tracks, such as customers, competitors and features
+Mockups, diagrams and 2x2s inside shared pages, editable by anyone on the team
+Full change history on every page Start Wiki Teams
+Ask your agent to move your wiki to a team, then invite your teammates by email
 FAQ
 Frequently Asked Questions
-What's included in the free Individual plan?
-Everything you need for personal use: the full Nimbalyst editor, session manager, Claude Code and Codex AI integration, MCP server support, extensions, file link sharing, mockups, diagrams, data models, and git worktrees. No feature limits, no trial period. Do I need my own API key or subscription for AI features?
+What's included in the free Nimbalyst App?
+Everything you need for personal use: the full Nimbalyst editor, your personal wiki, session manager, Claude Code and Codex integration, MCP server support, extensions, mockups, diagrams, data models, and git worktrees. No feature limits, no trial period. What is the Nimbalyst Wiki?
+A wiki your agents write for you. As they work, your coding agents distill their activity into pages with your notes, open questions and decisions, so you can keep up with them and decide what comes next. You can edit any page, and pages hold markdown, mockups, diagrams and 2x2s. Your personal wiki is free. See how the Wiki works &rarr;
+Can I use the wiki without the Nimbalyst app?
+Yes, and it is free. Add the wiki to Claude Code, Codex, Cowork, Cursor, VS Code or any MCP agent and your agent writes it as markdown files in your repo. You read and edit it in your browser, with no app and no account. Open the same files in the Nimbalyst app whenever you want visual editing, or share them with your team on Wiki Teams. Use the wiki in your coding agent &rarr;
+Do I need my own API key or subscription for AI features?
 Yes. You bring your own AI access and Nimbalyst provides the workspace and tools around it. Your access can be a subscription like Claude Code or Codex, an API key from Anthropic, OpenAI, or other providers, or local models through LM Studio. Nimbalyst connects to whichever you already have. See how Claude Code and Codex access works &rarr;
-What does the Teams plan add?
-The Teams plan adds real-time collaboration: edit shared docs, mockups, and diagrams together, manage tasks and trackers as a team with your agents working the same board, and control workspace access with admin tools. How much does Teams cost?
-Teams is $20 per user per month, or $200 per user per year. Teams is in Beta right now and free to use while it is, so you can bring your whole team in and try collaboration on real work before you pay anything. When does a team need the Enterprise plan?
-When the collaboration server has to run inside your own cloud rather than ours, when your security review needs to read the source of what runs in your account, when data residency has to be pinned to a jurisdiction, or when you want editors built for your own artifacts with one of our engineers embedded alongside your platform team. Pricing is custom and starts with a conversation. Talk to us about Enterprise &rarr;
-How do we get into the Teams Beta?
-Download Nimbalyst, sign in, and create a team from the app. Invite your teammates by email and shared docs, trackers, and boards work across everyone immediately. No approval step and no card required.
-Start building with Nimbalyst today.
+What does Wiki Teams add?
+Wiki Teams makes the wiki multiplayer. Your whole team works in one shared wiki in real time, every teammate's agents write into the same pages, and everyone sees the same decisions, open questions and typed databases. See Wiki Teams &rarr;
+How much does Wiki Teams cost?
+Wiki Teams is $20 per user per month, or $200 per user per year. It is in Beta right now and free to use while it is, so you can bring your whole team in and try it on real work before you pay anything. How do we get into the Wiki Teams Beta?
+If you already have a local wiki, ask your agent to move it to Wiki Teams, or run /nimbalyst-wiki:team in Claude Code. Your agent signs you in, creates the team and moves every page. Then invite your teammates by email and everyone works in the same wiki right away. No approval step and no card required.
+Start with the wiki in your agent, or download the app
+Add the wiki to your agent
 Download Nimbalyst
 Free for individuals.
 Works with your existing Claude Code or Codex subscription or API key.
 Other downloads: Apple Silicon Mac Intel Mac Windows Linux
-The open-source visual workspace for building with Codex, Claude Code, and more.
+A wiki your coding agents write for you, and a visual workspace for working with Claude Code, Codex and other agents.
 Explore
 Product Overview
 Use Cases
 Solutions
-Teams
-Enterprise
-Collaborative Documents
-Collaborative Trackers
+Wiki
+Wiki updates by email
+Wiki Teams
+App
+App Collaboration
 Features
 Pricing
 Agent Harness
@@ -112,7 +114,6 @@ Research and science
 Quant research
 Customer-facing engineering
 Consulting and SIs
-Enterprise
 Compare
 All comparisons
 Claude Code GUI
@@ -132,7 +133,8 @@ Data Processing Agreement
 SOC-2 Type 2 certified
 Community
 Open Source
-GitHub
+App GitHub
+Wiki GitHub
 Discord
 LinkedIn
 Youtube

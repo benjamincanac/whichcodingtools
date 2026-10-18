@@ -46,11 +46,12 @@ pricing:
       limits:
         - Every feature, no credit card
     - id: teams
-      name: Teams
+      name: Wiki Teams
       price: 20
       audience: team
       limits:
-        - Real time collaboration on docs, mockups, diagrams and trackers
+        - One shared wiki edited together in real time, every teammate's agents write into the same pages
+        - Shared typed databases and full change history on every page
       notes: $20 per user per month or $200 per user per year. Free during the beta.
     - id: enterprise
       name: Enterprise
@@ -62,7 +63,7 @@ pricing:
 status: active
 sources:
   - url: https://nimbalyst.com/pricing
-    verified_at: 2026-09-18
+    verified_at: 2026-10-18
     covers: [pricing]
   - url: https://nimbalyst.com
     verified_at: 2026-08-23
