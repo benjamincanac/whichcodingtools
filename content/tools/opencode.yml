@@ -1,6 +1,6 @@
 slug: opencode
 name: OpenCode
-description: Open source terminal coding agent from Anomaly, with a desktop app in beta and a VS Code extension. Works with any provider through your own keys, plus the hosted Zen and Go plans.
+description: Open source terminal coding agent from Anomaly, with a desktop app in beta and a VS Code extension. Works with any provider through your own keys, plus Go plans and Console credit.
 layer: harness
 secondary_layers: [app, extension]
 vendor: Anomaly
@@ -38,7 +38,7 @@ pricing:
       audience: individual
       limits:
         - The agent, desktop app and extension are free with your own keys
-        - 13 Zen models are free for a limited time
+        - 14 Console models are free for a limited time
     - id: go
       name: OpenCode Go
       price: 10
@@ -46,9 +46,9 @@ pricing:
       audience: individual
       overage:
         kind: blocked
-        notes: Requests stop at the limit unless you fall back to the free models or enable drawing from a Zen balance.
+        notes: Requests stop at the limit unless you fall back to the free models or enable the Use balance option to draw from a Console balance.
       limits:
-        - Monthly usage limit varies by model, $15 to $60, with one preview model currently unlimited
+        - Monthly usage limit varies by model, $15 to $80, with two preview models currently unlimited
         - 5-hour limit is 20 percent of the monthly figure, weekly limit is 50 percent
         - One Go or Go Plus subscriber per workspace
         - Works with OpenCode or any other agent
@@ -65,7 +65,7 @@ pricing:
         - One Go or Go Plus subscriber per workspace
         - Works with OpenCode or any other agent
     - id: zen
-      name: OpenCode Zen
+      name: OpenCode Console pay-as-you-go
       price: null
       per: flat
       audience: individual
@@ -75,14 +75,14 @@ pricing:
       limits:
         - Frontier models such as Claude, GPT and Gemini plus the open weight lineup
         - Workspace and per member monthly limits for teams
-  notes: OpenCode itself costs nothing. Go and Zen are optional hosted model plans that also work from other clients.
+  notes: OpenCode itself costs nothing. Go plans and pay-as-you-go Console credit are optional and also work from other clients.
 status: active
 sources:
-  - url: https://opencode.ai/docs/go
-    verified_at: 2026-10-07
+  - url: https://opencode.ai/v2/docs/console/go/
+    verified_at: 2026-10-18
     covers: [pricing]
-  - url: https://opencode.ai/docs/zen
-    verified_at: 2026-10-07
+  - url: https://opencode.ai/v2/docs/console/models/
+    verified_at: 2026-10-18
     covers: [pricing, models]
   - url: https://opencode.ai/docs/providers
     verified_at: 2026-08-23
