@@ -224,8 +224,8 @@ importers:
         specifier: ^0.62.0
         version: 0.62.0
       shaders:
-        specifier: ^3.2.475
-        version: 3.2.475(vue@3.5.44(typescript@6.0.3))
+        specifier: ^4.0.4
+        version: 4.0.4(vue@3.5.44(typescript@6.0.3))
       spdx-expression-parse:
         specifier: ^5.0.0
         version: 5.0.0
@@ -5470,8 +5470,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shaders@3.2.475:
-    resolution: {integrity: sha512-oq/HaYrt7HwOWq/k6nYOy+jsY4Cu/1K0QJeBB3h9872mVhient/qMtPxg4LgWPnc4QlIEDj3XBAB5SEV2OxT6g==}
+  shaders@4.0.4:
+    resolution: {integrity: sha512-NB+/RiK0oydteeeKdPqsLpR3iSoDTvt8bsdgw2wPb697QVCY/yadZV8gitCyCQx5t/kb4nJicIR+cbG9Q6JFfQ==}
     hasBin: true
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
@@ -12382,7 +12382,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shaders@3.2.475(vue@3.5.44(typescript@6.0.3)):
+  shaders@4.0.4(vue@3.5.44(typescript@6.0.3)):
     dependencies:
       typegpu: 0.12.3
     optionalDependencies:
