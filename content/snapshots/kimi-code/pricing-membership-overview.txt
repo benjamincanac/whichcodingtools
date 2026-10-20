@@ -54,25 +54,26 @@ Help Center
 Membership
 Membership Subscription Benefits
 Membership Subscription Benefits
-The current China plans are Go, Plus, Pro, and Max . The tables below describe new plans; see the legacy-plan section for existing subscriptions. Check the membership pricing page for current prices, full benefits, and purchase eligibility.
+The current China plans are Go, Plus, Pro, Max, and Ultra . The tables below describe new plans; see the legacy-plan section for existing subscriptions. Check the membership pricing page for current prices, full benefits, and purchase eligibility.
 New plan pricing
-China membership pricing with monthly billing, captured on October 12, 2026.
+China membership pricing with monthly billing (Chinese interface), captured on October 19, 2026.
 Plan Monthly billing Annual total Monthly equivalent with annual billing
 Go ¥49/month ¥468/year ¥39/month
 Plus ¥99/month ¥948/year ¥79/month
 Pro ¥199/month ¥1,908/year ¥159/month
 Max ¥699/month ¥6,708/year ¥559/month
+Ultra ¥1,399/month ¥13,428/year ¥1,119/month
 Key benefits
-Benefit Go Plus Pro Max
-Agent credits More Agent credits 2x Agent credits 4x Agent credits 14x Agent credits
-Office file processing, Deep Research, website deployment Included Included Included Included
-Parallel Agent tasks 1 2 2 4
-Kimi Code Not included Included Included Included
-Agent Swarm Not included Included Included Included
-Goal Mode, dedicated Kimi Claw Not included Not included Included Included
-Scheduled tasks / widget tasks 6 each 10 each 15 each 20 each
-Projects 20 20 20 100
-Project storage 20GB 20GB 20GB 50GB
+Benefit Go Plus Pro Max Ultra
+Agent credits More Agent credits 2x Agent credits 4x Agent credits 14x Agent credits 28x Agent credits
+Office file processing, Deep Research, website deployment Included Included Included Included Included
+Parallel Agent tasks 1 2 2 4 4
+Kimi Code Not included Included Included Included Included
+Agent Swarm Not included Included Included Included Included
+Goal Mode, dedicated Kimi Claw Not included Not included Included Included Included
+Scheduled tasks / widget tasks 6 each 10 each 15 each 20 each 25 each
+Projects 20 20 20 100 100
+Project storage 20GB 20GB 20GB 50GB 50GB
 Membership features share one credit pool, metered by actual usage. The task counts above do not represent a fixed number of monthly uses.
 What happens to legacy plans?
 Andante, Moderato, Allegretto, and Allegro are legacy plans. Existing subscribers keep their plan names, benefit rules, and auto-renewal arrangements. They can continue using and renewing their plan, or upgrade through the options shown on the subscription page. Switching to a new plan is optional.
@@ -86,7 +87,7 @@ What is a token?
 A token is the smallest unit of text processed by an LLM. In Chinese, 1 Chinese character is usually about 1–2 tokens; in English, 1 word is usually about 1–1.5 tokens. Both what you enter and what Kimi outputs consume tokens.
 Complex tasks and longer context generally consume more tokens. Actual usage depends on the model, tools, and plan; check your usage details. You can check your remaining credits anytime on the Settings → Subscription page.
 Annual Subscription Discount
-Choose a continuous annual subscription to save up to ¥1,680 . Recommended for long-term users.
+Compared with 12 months at the monthly price, annual billing for Ultra saves ¥3,360/year (¥1,399 × 12 − ¥13,428), the largest annual saving among the current plans.
 FAQs
 How do I request an invoice?
 Visit kimi.com , click your avatar in the lower-left corner → Settings → Subscription → Billing → Request Invoice.
