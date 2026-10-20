@@ -42,35 +42,47 @@ wraps:
 pricing:
   tiers:
     - id: oss
-      name: Open Source
+      name: Agent Canvas
       price: 0
       audience: individual
       limits:
-        - Local web GUI, terminal UI and CLI
-        - Bring your own model and key
-    - id: individual
-      name: Cloud Individual
-      price: 0
-      audience: individual
-      overage:
-        kind: api-list
-        markup_pct: 0
-        notes: Bring your own key, or pay as you go for the OpenHands LLM provider at cost.
+        - Local deployment
+        - Open source community support
+    - id: teams
+      name: Teams
+      price: 499
+      per: flat
+      audience: team
+      trial_days: 30
       limits:
-        - 1 user, 10 daily conversations
-        - Cloud API, Jira and Slack integrations
+        - Up to 10 seats, self-hosted
+        - Automations, multi-user identity and RBAC, built-in integrations
+        - Bring your own LLM key
+        - Capped at 5,000 sessions per month
+    - id: teams-plus
+      name: Teams Plus
+      price: 999
+      per: flat
+      audience: team
+      trial_days: 30
+      limits:
+        - Everything in Teams, up to 20 seats
+        - SAML and SSO
+        - Capped at 5,000 sessions per month
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
       limits:
-        - SaaS or self-hosted in your VPC, SAML SSO, unlimited concurrent conversations per user
-  notes: Paid Cloud usage is the model cost only. The pricing page lists no per-seat price below Enterprise.
+        - Unlimited seats and users, unlimited organizations
+        - Enterprise agreement, standard or premium support, customer success manager
+        - Usage is uncapped
+  notes: Teams and Teams Plus each cover one organization.
 status: active
 sources:
   - url: https://www.openhands.dev/pricing
-    verified_at: 2026-10-02
+    verified_at: 2026-10-20
     covers: [pricing, models]
   - url: https://github.com/OpenHands/OpenHands
     verified_at: 2026-08-23
