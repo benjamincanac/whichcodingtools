@@ -48,7 +48,7 @@ pricing:
         kind: blocked
         notes: Requests stop at the limit unless you fall back to the free models or enable the Use balance option to draw from a Console balance.
       limits:
-        - Monthly usage limit varies by model, $15 to $80, with two preview models currently unlimited
+        - Monthly usage limit varies by model, $15 to $80, with three limited-time free models currently unlimited
         - 5-hour limit is 20 percent of the monthly figure, weekly limit is 50 percent
         - One Go or Go Plus subscriber per workspace
         - Works with OpenCode or any other agent
@@ -71,7 +71,7 @@ pricing:
       audience: individual
       overage:
         kind: api-list
-        notes: Prepaid credits billed per request at the listed per token price, card fees passed through at 4.4 percent plus $0.30 per transaction. Auto reload of $20 when the balance drops under $5.
+        notes: Prepaid credits billed per request at the listed per token price, card fees passed through at 4.6 percent plus $0.31 per transaction. Auto-recharge buys credits when the balance runs low.
       limits:
         - Frontier models such as Claude, GPT and Gemini plus the open weight lineup
         - Workspace and per member monthly limits for teams
@@ -79,10 +79,10 @@ pricing:
 status: active
 sources:
   - url: https://opencode.ai/v2/docs/console/go/
-    verified_at: 2026-10-18
+    verified_at: 2026-10-21
     covers: [pricing]
   - url: https://opencode.ai/v2/docs/console/models/
-    verified_at: 2026-10-18
+    verified_at: 2026-10-21
     covers: [pricing, models]
   - url: https://opencode.ai/docs/providers
     verified_at: 2026-08-23
