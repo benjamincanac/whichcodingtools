@@ -93,11 +93,11 @@ pricing:
       audience: enterprise
       limits:
         - SSO, OIDC, SCIM, SLA, audit logs, model and provider access controls
-  notes: Kilo Pass is a prepaid credit subscription with up to 50 percent bonus credits. Cloud compute is billed per second, Cloud Agent at $0.60 to $1.20 an hour, Gas Town at $1.20 an hour, Code Review at $0.33 an hour.
+  notes: Kilo Pass is a monthly credit subscription with up to 50 percent bonus credits. Cloud compute is billed per second, Cloud Agent at $0.60 to $1.20 an hour, Code Review at $0.33 an hour.
 status: active
 sources:
   - url: https://kilo.ai/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-10-21
     covers: [pricing, platforms]
   - url: https://github.com/Kilo-Org/kilocode
     verified_at: 2026-08-23
