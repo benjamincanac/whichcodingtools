@@ -1,0 +1,53 @@
+# https://docs.qoder.com/release-notes/lite-launch-announcement.md
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.qoder.com/llms.txt
+> Use this file to discover all available pages before exploring further.
+# Introducing Qoder Lite: Start creating with Qoder for $10 a month
+Qoder Lite is here. Starting today, users worldwide can get 1,000 Credits and a curated selection of cost-effective models for \$10 a month.
+We believe everyone should be able to bring their ideas to life with Qoder. Getting started should be easy.
+Lite offers a more affordable way to get started than Pro, with Qoder’s full agent capabilities ready for your real-world projects. You get more room to build: more agent requests, more models to choose from, and access to every Qoder feature, including Repo Wiki and Cloud Agents.
+As your projects grow, you can upgrade at any time for more Credits and access to the full model lineup.
+## A smaller plan with all the features
+Lite differs from Pro, Pro+, and Ultra primarily in its model selection and monthly Credits. It includes the full set of features across the Qoder product family:
+- **1,000 Credits per month**: Use them for conversations, agent tasks, and Repo Wiki. Get 1,000 bonus Credits on your first purchase and 500 bonus Credits with each renewal. This is a limited-time offer; see the [pricing page](https://qoder.com/pricing) for the latest details.
+- **Cost-effective models for a wide range of tasks**: From everyday coding to complex engineering, long-context work, and multimodal tasks. See the full list below.
+- **Full Qoder agent capabilities**: Use Cloud Agents, local and cloud automation, Repo Wiki, and every other Qoder feature. Each available model retains its full context window.
+- **One subscription across the Qoder product family**: Qoder, Qoder IDE, the JetBrains plugin, Qoder CLI, QoderWake, Qoder Mobile, and the web app share the same Credits.
+- **Customize your workflow**: Extend Qoder with Skills, Hooks, MCP, and BYOK.
+## Curated models to make every Credit go further
+You don’t need a flagship model for every task.
+Lite pairs the fast, credit-efficient Flash series with flagship models for complex engineering and multi-step tasks. Choose the right model for the job and make your 1,000 Credits go further.
+Make Qoder part of your everyday development workflow, and turn to a more powerful model when a harder problem comes along. Keep building throughout the month.
+### Models available with Lite
+- **Smart model tiers**: Auto and Efficient (free for paid users for a limited time).
+- **Flash series**: Qwen3.8-Flash (currently free for a limited time), DeepSeek-V4.1-Flash-1017 (currently free for a limited time), and GLM-5.3-Flash.
+- **Flagship models**: Qwen3.8-Max, DeepSeek-V4-Pro, GLM-5.3, Kimi-K3, Kimi-K2.8-Preview, and MiniMax-M3.
+The model list may change with product updates. Check the product for the latest details on limited-time free model access.
+Credit consumption varies by model. Refer to the model selector for details.
+## Choosing a plan
+- **Free**: Try Qoder for free, including a 2-week Pro trial with 300 Credits in total.
+- **Lite**: \$10 per month, 1,000 Credits, and a curated selection of cost-effective models for everyday use.
+- **Pro**: \$20 per month, 2,000 Credits, and access to all models, including advanced tiers such as Ultimate.
+When you need more usage or access to all models, you can upgrade to Pro, Pro+, or Ultra at any time.
+## Limited-time launch offers
+- **Double Credits on your first purchase**: Subscribe to Lite for the first time and receive 1,000 bonus Credits, for a total of 2,000 Credits in your first month.
+- **Renewal bonus**: Receive 500 bonus Credits every time you renew Lite.
+- **Upgrade bonus**: Upgrade from Lite to Pro and receive 500 bonus Credits.
+These offers are available for a limited time. See the [pricing page](https://qoder.com/pricing) for offer details and expiration dates.
+## How to subscribe
+- **Already have a Qoder Global account?** Go to the [pricing page](https://qoder.com/pricing) to subscribe to Lite directly.
+- **New to Qoder?** Sign up at [qoder.com](https://qoder.com) and choose Lite.
+## Frequently asked questions
+**What are the benefits of Qoder Lite?**
+Lite gives you more room to build than Free, with 1,000 Credits per month and a curated selection of cost-effective models. You get full access to Qoder’s agent capabilities, Repo Wiki, Cloud Agents, and every other feature.
+**Is Qoder Lite secure?**
+Yes. Lite follows the same security and privacy standards as all Qoder products, including support for Privacy Mode.
+**What happens when I run out of Credits?**
+Models and tasks that require Credits will be paused. You can upgrade to Pro, purchase a Credit Pack, or wait for your Credits to refresh at the start of your next billing cycle.
+**Do unused Credits roll over to the next month?**
+No. Plan Credits expire at the end of the current billing cycle.
+**What happens when I upgrade from Lite to Pro?**
+Your Pro subscription starts as soon as your payment is complete, and your Lite subscription ends. You receive a refund based on the value of your unused Credits.
+</untrusted-page-text>
