@@ -37,7 +37,7 @@ pricing:
 status: active
 sources:
   - url: https://omp.sh/docs/providers
-    verified_at: 2026-10-13
+    verified_at: 2026-10-21
     covers: [pricing, models]
   - url: https://github.com/can1357/oh-my-pi
     verified_at: 2026-10-13
