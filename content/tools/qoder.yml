@@ -35,6 +35,20 @@ pricing:
       limits:
         - Basic models with limited messages, limited completions and next edit suggestions
         - One time 14 day Pro trial with 300 credits
+    - id: lite
+      name: Lite
+      price: 10
+      audience: individual
+      included:
+        amount: 1000
+        unit: credits
+        period: month
+        notes: Unused credits expire at the end of the billing cycle.
+      overage:
+        kind: credits
+      limits:
+        - A curated selection of cost-effective models, Flash series plus a set of flagship models, not the full lineup
+        - Every Qoder feature, including Repo Wiki and Cloud Agents
     - id: pro
       name: Pro
       price: 20
@@ -94,6 +108,9 @@ sources:
     covers: [pricing]
   - url: https://docs.qoder.com/events/pricing-adjustment-notice
     verified_at: 2026-09-28
+    covers: [pricing]
+  - url: https://docs.qoder.com/release-notes/lite-launch-announcement.md
+    verified_at: 2026-10-21
     covers: [pricing]
   - url: https://docs.qoder.com/user-guide/chat/custom-models
     verified_at: 2026-08-23
