@@ -45,7 +45,7 @@ Lite gives you more room to build than Free, with 1,000 Credits per month and a 
 **Is Qoder Lite secure?**
 Yes. Lite follows the same security and privacy standards as all Qoder products, including support for Privacy Mode.
 **What happens when I run out of Credits?**
-Models and tasks that require Credits will be paused. You can upgrade to Pro, purchase a Credit Pack, or wait for your Credits to refresh at the start of your next billing cycle.
+You can upgrade to Pro, Pro+, or Ultra at any time to get more Credits. If you are already on a paid plan, you can also purchase additional Credit Packs to top up your usage. If you choose to continue using the Free plan, don’t worry—we will continue to serve you with basic models, subject to daily and monthly limits.
 **Do unused Credits roll over to the next month?**
 No. Plan Credits expire at the end of the current billing cycle.
 **What happens when I upgrade from Lite to Pro?**
