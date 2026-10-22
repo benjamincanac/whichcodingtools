@@ -28,55 +28,63 @@ Press
 Careers
 About
 Contact
-91.3K
+91.5K
 Access Cloud Access Cloud
 Get OpenHands Get OpenHands
-91.3K
+91.5K
 Access Cloud Access Cloud
 Get OpenHands Get OpenHands Menu Close
 Pricing that fits your rollout
+Agent Canvas
+Free
+Open source and free to self-host.
+Open source (MIT)
+Runs on your laptop or shared VM
+Single user / shared identity
+Bring your own LLM key
+Use any agent (Codex, Claude, etc.)
+Automations
+Download Download
 Teams
 $499/month
-Start with a 30-day trial. Cancel anytime.
-Up to 10 seats
+Up to 10 users (+$50/mo per seat)
+Up to 10 users
 Self-hosted
-Automations
 Multi-user identity & RBAC
+Bring your own LLM key
+Use any agent (Codex, Claude, etc.)
 Built-in Integrations
-Bring your own LLM key Start 30 Day Trial
-Teams Plus
-$999/month
-Start with a 30-day trial. Cancel anytime.
-Everything in Teams
-Up to 20 seats
-SAML / SSO Start 30 Day Trial
+Automations
+Budgeting controls
+SSO / SAML
+Start 30 Day Trial Start 30 Day Trial
 Enterprise
 Custom pricing
 Built for secure, governed AI at enterprise scale.
-Everything in Teams Plus
+Everything in Teams
 Unlimited seats
 Unlimited users
 Enterprise agreement
 Standard or Premium Support
 Customer success manager
 Contact Us Contact Us
-Agent Canvas Teams Teams Plus Enterprise
-Price Free $499/mo (30-day trial) $999/mo (30-day trial) Custom
-Seats Shared identity Up to 10 Up to 20 Custom
-Organizations — 1 1 Unlimited
-Deployment Local Self-hosted Self-hosted Self-hosted Self-hosted
+Agent Canvas Teams Enterprise
+Price Free $499/mo, up to 10 users (30-day trial) Custom
+Seats Shared identity Up to 10 users (+$50/mo per seat) Custom
+Organizations — 1 Unlimited
+Deployment Local Self-hosted Self-hosted Self-hosted
 Automations
 Bring your own LLM
 Use 3rd-party agents (Claude, Codex, etc.)
 MCP & secrets
 User identity & RBAC —
-SAML / SSO — —
+SAML / SSO —
 Budgeting & usage —
 Built-in OAuth integrations Select MCP only
-Enterprise agreement — — —
-Support Open source community Best effort email Best-effort email SLA-based response times
-Customer success — — —
-Teams and Teams Plus plans are capped at 5,000 sessions per month. Enterprise usage remains uncapped.
+Enterprise agreement — —
+Support Open source community Best effort email SLA-based response times
+Customer success — —
+The Teams plan is capped at 5,000 sessions per month. Enterprise usage remains uncapped.
 Building the open standard for autonomous software development.
 OpenHands is the foundation for secure, transparent, model-agnostic coding agents - empowering every software team to build faster with full control.
 Join The Community Join The Community
