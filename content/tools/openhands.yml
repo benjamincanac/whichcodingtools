@@ -55,19 +55,9 @@ pricing:
       audience: team
       trial_days: 30
       limits:
-        - Up to 10 seats, self-hosted
-        - Automations, multi-user identity and RBAC, built-in integrations
+        - Up to 10 users (+$50/mo per seat), self-hosted
+        - Multi-user identity and RBAC, built-in integrations, automations, budgeting controls, SSO and SAML
         - Bring your own LLM key
-        - Capped at 5,000 sessions per month
-    - id: teams-plus
-      name: Teams Plus
-      price: 999
-      per: flat
-      audience: team
-      trial_days: 30
-      limits:
-        - Everything in Teams, up to 20 seats
-        - SAML and SSO
         - Capped at 5,000 sessions per month
     - id: enterprise
       name: Enterprise
@@ -78,11 +68,11 @@ pricing:
         - Unlimited seats and users, unlimited organizations
         - Enterprise agreement, standard or premium support, customer success manager
         - Usage is uncapped
-  notes: Teams and Teams Plus each cover one organization.
+  notes: Teams covers one organization.
 status: active
 sources:
   - url: https://www.openhands.dev/pricing
-    verified_at: 2026-10-20
+    verified_at: 2026-10-22
     covers: [pricing, models]
   - url: https://github.com/OpenHands/OpenHands
     verified_at: 2026-08-23
