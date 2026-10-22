@@ -22,90 +22,81 @@ What is Qoder
 Customer Cases
 Quick Start
 Quick Start
-Release Notes
-Qoder Model Usage Reference Factor Adjustment Notice
-Qoder IDE Quest window retirement notice
-Removal of the Lite model tier
+Changelog
 Qoder Release Notes
 IDE Release Notes
 JetBrains Plugin Release Notes
 Qoder CLI Release Notes
-Agent SDK Release Notes
+Qoder Agent SDK Release Notes
 Cloud Agents Release Notes
-QoderWork Release Notes
 QoderWake Release Notes
+QoderWork Release Notes
+Product Announcements
+Introducing Qoder Lite: Start creating with Qoder for $10 a month
+Qoder Tier Upgrade: Performance Becomes Fast
+Qoder Model Usage Reference Factor Adjustment Notice
+Qoder IDE Quest window retirement notice
+Removal of the Lite model tier
 Account
 Credits
 Pricing
 Billing
 Events
+Qoder 1024 · Community Boost
+Limited-Time Offer: Double Credits on Your First Subscription, Plus Bonus Credits on Renewal and Upgrade
 Claim 100 Credits Every Day
 Qwen3.8-Flash: Free for a Limited Time
 SOTA Models — Limited-Time Free Experience
 Efficient Model Tier: Free for Paid Users for a Limited Time
 Premium Model Discount Rates
-September Offer: Double First-Month Credits and 1,000 Bonus Credits on Renewal
+[Ended] Double First-Month Credits and 1,000 Bonus Credits on Renewal
 The New Qoder Is Here: Limited-Time Launch Benefits
-Qoder 1st Anniversary × Qwen3.8-Max Official Launch: Claim 800–2,000 Model Calls
 Account
 Pricing
 Copy page
 Copy page
-For individual users, Qoder offers Free, Pro, Pro+ and Ultra plans. For organization purchases, compare the Teams and Enterprise plans . Choose the plan that best matches your needs.
+For individual users, Qoder offers Free, Lite, Pro, Pro+ and Ultra plans. For organization purchases, compare the Teams and Enterprise plans . Choose the plan that best matches your needs.
 ​
 Individual Plans
 The contents of each plan are as follows, and the paid plan is used as a natural monthly subscription. Credits
 are used as the resource usage unit of Qoder.
-Plan Free Pro Pro+ Ultra
-Price Free 20 USD/mo 60 USD/mo 200 USD/mo
+Plan Free Lite Pro Pro+ Ultra
+Price Free 10 USD/mo 20 USD/mo 60 USD/mo 200 USD/mo
 Functionalities - 2-week Pro trial
 - Limited completions and next edits (NES)
-- Bring Your Own Key (BYOK) - More completions and next edits (NES)
-- Limited Credits for chat and agent requests
-- Quest
-- Repo Wiki
-- Knowledge Card - More completions and next edits (NES)
-- Limited Credits for chat and agent requests
-- Quest
-- Repo Wiki
-- Knowledge Card - More completions and next edits (NES)
-- Limited Credits for chat and agent requests
-- Quest
-- Repo Wiki
-- Knowledge Card
-Quota - Basic models for limited user messages. - 2,000 Credits / month for premium models
-- Once run out of credits, Qoder will switch to basic models, which have limited user messages. - 6,000 Credits / month for premium models
-- Once run out of credits, Qoder will switch to basic models, which have limited user messages. - 20,000 Credits / month for premium models
-- Once run out of credits, Qoder will switch to basic models, which have limited user messages.
-NOTE : Your Pro, Pro+ and Ultra plan quota covers premium model resources equivalent in value to your subscription fee ($20 for Pro, $60 for Pro+ and $200 for Ultra) , plus any extra resource bonuses we provide. Credits in your plan are valid for the duration of your current subscription period. These credits will automatically reset to zero when your subscription period ends.
+- Bring Your Own Key (BYOK) Full Qoder agent capabilities Full Qoder agent capabilities Full Qoder agent capabilities Full Qoder agent capabilities
+Quota Basic models for limited user messages. 1,000 Credits / month for curated models 2,000 Credits / month; full model lineup 6,000 Credits / month; full model lineup 20,000 Credits / month; full model lineup
+NOTE : Lite, Pro, Pro+, and Ultra include the monthly Credits shown above. Plan Credits expire at the end of the current billing period and do not roll over. Limited-time bonus Credits are separate; see New BOGO .
 The 2-week Pro Trial includes
 300 credits
 Unlimited Completions & Next Edits
 Chat Ask & Agent
 Experts Mode
-Quest
 Repo Wiki
 Knowledge Card
 ​
 Which plan should I choose?
+The Lite plan is a lower-cost option for everyday development with curated models and full Qoder agent capabilities.
 The Pro Plan is ideal for your day-to-day development if you primarily use code completion and light Agent assistance.
 If you are a heavy user of the Agent for autonomous coding, the Pro+ Plan is designed to better meet your more demanding needs.
-The Ultra plan is recommended for users who frequently run long-running tasks, such as Quest.
+The Ultra plan is recommended for users who frequently run long-running tasks.
 ​
 Checking Your Credits Usage
 You can view your credits usage for the current subscription period at any time through the Usage page in your personal settings. Different features consume credits at varying rates. See the Credits
 section for details.
+​
 What Happens When You Run Out of Credits?
-When you're running low on credits, you'll see clear notifications on your personal usage page and in Qoder. If you completely run out of credits quota, you'll automatically switch to the basic models service, which will continue to serve you. Basic models have a daily limit; if you reach this limit, you'll need to wait until the next day to continue using the service.
+You can upgrade to Pro, Pro+, or Ultra at any time to get more Credits. If you are already on a paid plan, you can also purchase additional Credit Packs to top up your usage. If you choose to continue using the Free plan, don’t worry—we will continue to serve you with basic models, subject to daily and monthly limits.
 Here's how to get more Credits:
-Pro / Pro+
+Lite / Pro / Pro+
 Ultra
 Upgrade to a higher plan
 for a larger Credits allowance
 Purchase a Credit Pack for on-demand top-ups
 Purchase a Credit Pack for on-demand top-ups
+​
 Credit Packs
-Pro, Pro+, and Ultra subscribers can purchase Credit Packs at any time to top up their Credits. When your plan allowance isn't enough, a Credit Pack is the quickest way to keep going.
+Lite, Pro, Pro+, and Ultra subscribers can purchase Credit Packs at any time to top up their Credits. When your plan allowance isn't enough, a Credit Pack is the quickest way to keep going.
 ​
 Pricing & Specs
 Item Details
@@ -135,7 +126,7 @@ We're happy to offer new users a free 14-day Pro trial upon their first sign-in 
 Upgrading Your Subscription Plan
 You can upgrade to a higher subscription plan at any time.
 Paid subscription upgrades: Once payment succeeds, your previous subscription becomes inactive immediately, and you receive a refund based on the remaining value of its Credits. If those Credits have been used up, no refund is issued. Your new subscription takes effect immediately. This action is irreversible. Remaining Credits are not carried over as an add-on pack.
-Upgrading from Pro Trial: If you upgrade during the trial period, any unused gifted credits will automatically transfer to your account as an add-on pack, maintaining their original expiration date.
+Upgrading from Pro Trial: If you upgrade to Lite, Pro, Pro+, or Ultra during the trial period, any unused gifted credits will automatically transfer to your account as an add-on pack, maintaining their original expiration date.
 ​
 Downgrading Your Subscription Plan
 Subscription cancellation is available at any time. Your current plan remains fully active through the end of your billing period, after which your account automatically reverts to the Free. Please note that any unused credits will expire upon downgrade and cannot be transferred.
@@ -143,8 +134,6 @@ We don't support immediate plan downgrades within a subscription period.
 ​
 Advanced Features
 In contrast to the Free, paid plans offer the following advanced features:
-Quest: An AI-assisted programming feature designed for task delegation, long-running development tasks. For more information, see Quest
-.
 Repo Wiki: Automatically generates structured documentation for your project while continuously tracking code and documentation changes. For more information, see Repo Wiki
 .
 Experts Mode: Uses multiple agents to break down and complete complex development tasks in parallel, covering planning, implementation, testing, and quality review. For more information, see Experts Mode .
@@ -174,7 +163,7 @@ Resource
 Marketplace Activities Docs Blog FAQ Changelog
 Connect
 Feedback Contact Sales Forum About Us
-© 2026 BRIGHT ZENITH PRIVATE LIMITED.
+© 2026 BRIGHT ZENITH PRIVATE LIMITED. · Powered by Real Knowledge Buddy
 Qoder home page
 en
 Qoder Series
@@ -186,29 +175,33 @@ What is Qoder
 Customer Cases
 Quick Start
 Quick Start
-Release Notes
-Qoder Model Usage Reference Factor Adjustment Notice
-Qoder IDE Quest window retirement notice
-Removal of the Lite model tier
+Changelog
 Qoder Release Notes
 IDE Release Notes
 JetBrains Plugin Release Notes
 Qoder CLI Release Notes
-Agent SDK Release Notes
+Qoder Agent SDK Release Notes
 Cloud Agents Release Notes
-QoderWork Release Notes
 QoderWake Release Notes
+QoderWork Release Notes
+Product Announcements
+Introducing Qoder Lite: Start creating with Qoder for $10 a month
+Qoder Tier Upgrade: Performance Becomes Fast
+Qoder Model Usage Reference Factor Adjustment Notice
+Qoder IDE Quest window retirement notice
+Removal of the Lite model tier
 Account
 Credits
 Pricing
 Billing
 Events
+Qoder 1024 · Community Boost
+Limited-Time Offer: Double Credits on Your First Subscription, Plus Bonus Credits on Renewal and Upgrade
 Claim 100 Credits Every Day
 Qwen3.8-Flash: Free for a Limited Time
 SOTA Models — Limited-Time Free Experience
 Efficient Model Tier: Free for Paid Users for a Limited Time
 Premium Model Discount Rates
-September Offer: Double First-Month Credits and 1,000 Bonus Credits on Renewal
+[Ended] Double First-Month Credits and 1,000 Bonus Credits on Renewal
 The New Qoder Is Here: Limited-Time Launch Benefits
-Qoder 1st Anniversary × Qwen3.8-Max Official Launch: Claim 800–2,000 Model Calls
 </untrusted-page-text>
