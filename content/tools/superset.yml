@@ -60,21 +60,42 @@ pricing:
     - id: pro
       name: Pro
       price: 20
-      price_annual: 15
+      price_annual: 16
       audience: team
       limits:
-        - Unlimited users, remote access, automations, mobile app, Linear and Slack integrations
+        - Unlimited users, remote access, automations, mobile, Linear and Slack integrations
+    - id: team
+      name: Team
+      price: 60
+      price_annual: 54
+      audience: team
+      overage:
+        kind: fixed
+        rate: 0.06
+        notes: Per GB-hour past the shared cloud pool. Extra GB-hours can be bought as needed and never expire.
+      limits:
+        - 1,200 cloud GB-hours per seat each month, one shared pool for the team (beta)
+    - id: ultra
+      name: Ultra
+      price: 200
+      audience: team
+      overage:
+        kind: fixed
+        rate: 0.06
+        notes: Per GB-hour past the shared cloud pool. Extra GB-hours can be bought as needed and never expire.
+      limits:
+        - 4,000 cloud GB-hours per seat each month, 3.3x Team, one shared pool for the team (beta)
     - id: enterprise
       name: Enterprise
       price: null
       contact_sales: true
       audience: enterprise
-      notes: Annual billing only. SAML SSO, SCIM, audit logs, uptime SLA, custom integrations.
+      notes: Annual billing only. Everything in Ultra, SAML SSO, SCIM, audit logs, SOC 2 Type II report, uptime SLA, custom integrations.
   notes: Paid plans add remote workspaces and team features, not model usage. Pro is billed per active seat. Copilot and any other CLI agent also run. Windows is not available yet and an iOS app is listed as coming soon.
 status: active
 sources:
   - url: https://superset.sh/pricing
-    verified_at: 2026-10-06
+    verified_at: 2026-10-23
     covers: [pricing, wraps]
   - url: https://superset.sh
     verified_at: 2026-08-23

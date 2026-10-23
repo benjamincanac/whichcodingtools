@@ -7,13 +7,12 @@ Product
 Resources
 Pricing
 Enterprise
-Join us
-GitHub
-14.9k
+Join us GitHub
+15.5k
 Pricing
 Simple pricing for every team
 Start free. Upgrade when your team outgrows it. Enterprise plans for organizations with advanced security and compliance needs.
-Monthly Yearly Save 25%
+Monthly Yearly Save up to 20%
 Free
 For individuals getting started
 $0
@@ -26,9 +25,9 @@ Desktop app
 CLI
 Pro Popular
 For teams that need more power
-$20 $15 per user/month
-$180 per user, billed yearly
-Download app
+$20 $16 per user/month
+$192 per user, billed yearly
+Get Pro
 Everything in Free
 Unlimited users
 Remote access
@@ -36,12 +35,33 @@ Automations
 Linear integration
 Slack integration
 Mobile
+Team
+For teams that run agents every day
+$60 $54 per user/month
+$648 per user, billed yearly
+Get Team
+Everything in Pro
+1,200 cloud GB-hours per seat each month Beta
+Then $0.06 per GB-hour past the pool
+One shared GB-hour pool for the team
+Extra GB-hours: $0.06 per GB-hour, never expire Beta
+Ultra
+For people who keep agents running all day
+$200 per user/month
+Billed monthly
+Get Ultra
+Everything in Team
+4,000 cloud GB-hours per seat each month Beta
+Then $0.06 per GB-hour past the pool
+3.3x the cloud GB-hours of Team
+One shared GB-hour pool for the team
+Extra GB-hours: $0.06 per GB-hour, never expire Beta
 Enterprise
 For organizations with advanced needs
 Custom pricing
 Annual billing only
 Contact sales Review our security
-Everything in Pro
+Everything in Ultra
 SAML SSO & SCIM provisioning
 Audit logs
 SOC 2 Type II report
@@ -50,11 +70,20 @@ Custom integrations
 Trusted by builders from
 Compare plans
 All features, side by side
-Features Free $0 Pro from $15/user/mo Enterprise Custom
+Features Free $0 Pro from $16/user/mo Team from $54/user/mo Ultra $200/user/mo Enterprise Custom
 Usage
-Team members 1 Unlimited Unlimited
-Workspaces Unlimited Unlimited Unlimited
-Projects Unlimited Unlimited Unlimited
+Team members 1 Unlimited Unlimited Unlimited Unlimited
+Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
+Projects Unlimited Unlimited Unlimited Unlimited Unlimited
+Cloud workspaces Beta
+Cloud GB-hours per seat each month
+1,200 4,000 Custom
+Cloud environments
+5 10 Custom
+GB-hours past the pool
+$0.06 per GB-hour $0.06 per GB-hour Custom
+Extra GB-hours, bought as needed
+$0.06 per GB-hour $0.06 per GB-hour Custom
 Features
 Desktop app
 Local workspaces
@@ -74,7 +103,7 @@ IP restrictions
 SCIM provisioning
 Audit log
 SOC 2 Type II report
-Free Pro Enterprise
+Free Pro Team Ultra Enterprise
 Usage
 Team members
 Unlimited
@@ -82,6 +111,11 @@ Workspaces
 Unlimited
 Projects
 Unlimited
+Cloud workspaces Beta
+Cloud GB-hours per seat each month
+Cloud environments
+GB-hours past the pool
+Extra GB-hours, bought as needed
 Features
 Desktop app
 Local workspaces
@@ -104,10 +138,12 @@ SOC 2 Type II report
 FAQ
 Common questions
 Is there a free plan?
-Yes. Free covers individuals with 1 user, local workspaces, the desktop app, and the CLI. No credit card required. How does Pro pricing work?
-Pro is $20 per user/month billed monthly, or $15 per user/month billed yearly (a 25% discount). You're billed per active seat on your team. Can I switch plans or cancel anytime?
-Yes. You can upgrade, downgrade, or cancel at any time from the billing settings inside the app. Changes take effect at the end of your current billing period. What's included in Enterprise?
-Everything in Pro plus SSO & SAML, SCIM provisioning, IP restrictions, audit logs, a custom SLA, dedicated support, and custom contracts. Pricing is tailored to your organization. Get in touch and we'll scope something that fits. Is Superset SOC 2 compliant?
+Yes. Free covers individuals with 1 user, local workspaces, the desktop app, and the CLI. No credit card required. How do the paid plans work?
+Paid plans are priced per user per month and billed for each active seat on your team. Pro: $20 per user/month, or $16 billed yearly, Team: $60 per user/month, or $54 billed yearly, and Ultra: $200 per user/month. What are cloud GB-hours?
+Cloud workspaces are metered in GB-hours: the memory of the box times the hours it runs. An 8 GB box uses 8 GB-hours per hour. Each seat adds its plan's GB-hours to one pool your team shares: 1,200 on Team and 4,000 on Ultra. The pool resets every month, and usage past it is billed per GB-hour at the rate shown on each plan. Can I buy more cloud GB-hours?
+Yes. On plans with cloud workspaces, owners can buy any amount of extra GB-hours at $0.06 per GB-hour in Settings, Billing. Bought GB-hours are used after the monthly pool and never expire, and auto top-up can buy more when they run low. Can I switch plans or cancel anytime?
+Yes. You can upgrade, downgrade, or cancel at any time from the billing settings inside the app. Upgrades start right away, and you pay only the difference for the rest of the period. Downgrades and cancellations take effect at the end of your current billing period. What's included in Enterprise?
+Everything in Ultra plus custom cloud GB-hours, SSO & SAML, SCIM provisioning, IP restrictions, audit logs, a custom SLA, dedicated support, and custom contracts. Pricing is tailored to your organization. Get in touch and we'll scope something that fits. Is Superset SOC 2 compliant?
 Yes. Superset has completed a SOC 2 Type II audit with an independent auditor, covering our security controls in operation over time. Request the report and review our security documentation at trust.superset.sh. Where does my code run?
 On your machine. Repos, worktrees, terminal output, and agent sessions stay local by default; cloud sync covers account and organization metadata only. Superset doesn't proxy any API calls. Do I need my own coding agent subscriptions?
 Yes. Superset is the workspace your agents run in, not a model provider. Bring Claude Code, Codex, OpenCode, or any CLI agent, and use your existing accounts or API keys on every plan.
@@ -123,6 +159,9 @@ English
 Product
 Download
 Mobile
+Pages
+Automations
+Browser
 Leaderboard
 How it works
 Features
