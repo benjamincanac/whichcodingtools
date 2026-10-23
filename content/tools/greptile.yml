@@ -40,21 +40,19 @@ pricing:
         - 1 active developer, unlimited repositories
     - id: pro
       name: Pro
-      price: 30
+      price: null
+      per: flat
       audience: team
       trial_days: 14
-      included:
-        amount: 50
-        unit: credits
-        period: month
-        usd_value: 50
-        notes: Per seat.
       overage:
         kind: credits
         rate: 1
-        notes: $1 per additional credit.
+        notes: Credits are bought as needed at $1 each, shared across the whole organization.
       limits:
-        - Custom rules, unlimited external apps
+        - Unlimited developers and agents, no seat fees
+        - Learning and custom context, Knowledge Base MCP, cross-repo context
+        - Team analytics dashboard
+        - Jira, Linear, Notion and coding agent integrations
     - id: enterprise
       name: Enterprise
       price: null
@@ -66,7 +64,7 @@ pricing:
 status: active
 sources:
   - url: https://www.greptile.com/pricing
-    verified_at: 2026-09-28
+    verified_at: 2026-10-23
     covers: [pricing]
   - url: https://www.greptile.com
     verified_at: 2026-08-24
