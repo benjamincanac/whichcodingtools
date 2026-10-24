@@ -38,6 +38,7 @@ pricing:
     - id: pro
       name: Pro
       price: 25
+      price_annual: 18
       price_from: true
       audience: individual
       included:
@@ -52,6 +53,7 @@ pricing:
     - id: teams
       name: Teams
       price: 30
+      price_annual: 27
       audience: team
       overage:
         kind: blocked
@@ -68,7 +70,7 @@ pricing:
 status: active
 sources:
   - url: https://bolt.new/pricing
-    verified_at: 2026-08-23
+    verified_at: 2026-10-24
     covers: [pricing]
   - url: https://support.bolt.new/building/using-bolt/agents
     verified_at: 2026-08-23
