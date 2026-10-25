@@ -38,7 +38,7 @@ pricing:
       audience: individual
       limits:
         - The agent, desktop app and extension are free with your own keys
-        - 14 Console models are free for a limited time
+        - 10 Console models are free for a limited time
     - id: go
       name: OpenCode Go
       price: 10
@@ -48,7 +48,7 @@ pricing:
         kind: blocked
         notes: Requests stop at the limit unless you fall back to the free models or enable the Use balance option to draw from a Console balance.
       limits:
-        - Monthly usage limit varies by model, $15 to $80, with three limited-time free models currently unlimited
+        - Monthly usage limit varies by model, $15 to $80, with one limited-time free model currently unlimited
         - 5-hour limit is 20 percent of the monthly figure, weekly limit is 50 percent
         - One Go or Go Plus subscriber per workspace
         - Works with OpenCode or any other agent
@@ -79,10 +79,10 @@ pricing:
 status: active
 sources:
   - url: https://opencode.ai/v2/docs/console/go/
-    verified_at: 2026-10-21
+    verified_at: 2026-10-25
     covers: [pricing]
   - url: https://opencode.ai/v2/docs/console/models/
-    verified_at: 2026-10-21
+    verified_at: 2026-10-25
     covers: [pricing, models]
   - url: https://opencode.ai/docs/providers
     verified_at: 2026-08-23
