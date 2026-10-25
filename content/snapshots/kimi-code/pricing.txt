@@ -37,6 +37,7 @@ Deep Research
 Website deployment
 Agent multi-tasking
 Kimi Code available
+Access to K3.1 Pro Highspeed
 Research preview
 Dashboard with task widgets
 Scheduled tasks that run automatically and push results
@@ -58,6 +59,7 @@ Deep Research
 Website deployment
 Agent multi-tasking
 Kimi Code available
+Access to K3.1 Pro Highspeed
 Research preview
 Up to 1M tokens of context for ultra-long conversations
 Dashboard with task widgets
@@ -80,6 +82,7 @@ Deep Research
 Website deployment
 Agent multi-tasking
 Kimi Code available
+Access to K3.1 Pro Highspeed
 Research preview
 Up to 1M tokens of context for ultra-long conversations
 Dashboard with task widgets

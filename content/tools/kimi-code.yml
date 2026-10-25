@@ -55,7 +55,7 @@ pricing:
       overage:
         kind: rate-limited
       limits:
-        - 2 concurrent tasks, 15 scheduled tasks, goal mode, Kimi Claw deployment
+        - 2 concurrent tasks, 15 scheduled tasks, K3.1 Pro Highspeed access, goal mode, Kimi Claw deployment
     - id: max
       name: Max
       price: 99
@@ -64,7 +64,7 @@ pricing:
       overage:
         kind: rate-limited
       limits:
-        - 4 concurrent tasks, 20 scheduled tasks, 1M token chat context, goal mode, Kimi Claw deployment
+        - 4 concurrent tasks, 20 scheduled tasks, 1M token chat context, K3.1 Pro Highspeed access, goal mode, Kimi Claw deployment
     - id: ultra
       name: Ultra
       price: 199
@@ -73,7 +73,7 @@ pricing:
       overage:
         kind: rate-limited
       limits:
-        - 4 concurrent tasks, 25 scheduled tasks, 1M token chat context, goal mode, Kimi Claw deployment
+        - 4 concurrent tasks, 25 scheduled tasks, 1M token chat context, K3.1 Pro Highspeed access, goal mode, Kimi Claw deployment
     - id: api
       name: Platform API pay-as-you-go
       price: null
@@ -85,7 +85,7 @@ pricing:
 status: active
 sources:
   - url: https://www.kimi.ai/membership/pricing
-    verified_at: 2026-10-20
+    verified_at: 2026-10-25
     covers: [pricing]
   - url: https://www.kimi.com/en/help/membership/membership-overview
     verified_at: 2026-10-20
