@@ -3,36 +3,33 @@
 <untrusted-page-text>
 Pricing
 Looking for enterprise solutions? Contact us via BytePlus.
-One-MonthmonthlyyearlySave25%
-## Lite
-$3
-per month, auto-renews
-To get started
-- $5 Basic usage
-- Unlimited Autocomplete
-- TraeCode SOLO mode included
+monthlyyearlySave17%
+## Free
+$0
+Start for free
+- Limited AI usage
+- Limited Autocomplete
 - Up to 2 concurrent cloud tasks in TraeWork (Web/Desktop)
-Upgrade plan
+Get started
 ## Pro
 Recommended
-$0
-$10
+$20
 per month, auto-renews
-Everything in Lite, plus:
+To get started
 - $20 Basic usage
 - Unlimited Autocomplete
 - TraeCode SOLO mode included
 - Up to 10 concurrent cloud tasks in TraeWork (Web/Desktop)
 Upgrade plan
 ## Pro+
-$30
+$60
 per month, auto-renews
 Everything in Pro, plus:
 - 3.5x more usage than Pro
 - Up to 15 concurrent cloud tasks in TraeWork (Web/Desktop)
 Upgrade plan
 ## Ultra
-$100
+$200
 per month, auto-renews
 Everything in Pro+, plus:
 - 20x more usage than Pro
@@ -42,17 +39,17 @@ Upgrade plan
 Most payment methods supported for upgrade
 ## Compare Plans
 Monthly Basic Usage
-$5 Basic usage
+Limited usage
 $20 Basic usage
-$90 Basic usage
-$400 Basic usage
+$60 Basic usage
+$200 Basic usage
 Queue Priority
-Fast queue
+Standard queue
 Fast queue
 Fast queue
 Fast queue
 Autocompletion
-Unlimited
+5000 / month
 Unlimited
 Unlimited
 Unlimited
@@ -67,7 +64,13 @@ Limited
 Limited
 Included
 Frequently Asked Questions
+### How is usage calculated?
+All AI requests are billed based on the number of tokens processed.
+TRAE converts the token cost into Dollar Usage, which is deducted from your monthly balance.
+### What is Basic Usage and Bonus Usage?
+### Do different models consume usage differently?
 ### What happens when I run out of usage?
-When your included usage is exhausted, you'll need to upgrade to a higher plan to get more usage. Paid users can also enable On-Demand Usage to continue using paid models.
-On-Demand Usage allows you to keep using paid models after your monthly balance is exhausted. Additional usage is billed based on actual token consumption.
+### How do I get and use a Pro trial?
+### What happens if an AI request fails?
+### Can I request a refund?
 </untrusted-page-text>
