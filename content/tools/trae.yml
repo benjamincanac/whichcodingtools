@@ -23,24 +23,18 @@ models:
 features: [mcp-client, tab-completion, sandboxing, remote-execution, diff-review, hooks]
 pricing:
   tiers:
-    - id: lite
-      name: Lite
-      price: 3
+    - id: free
+      name: Free
+      price: 0
       audience: individual
-      trial_days: 7
-      included:
-        amount: 5
-        unit: usd
-        usd_value: 5
-        notes: $5 of basic usage, unlimited autocomplete
-      overage:
-        kind: api-list
-        notes: On-demand usage continues at token prices once the monthly balance is used.
       limits:
-        - Up to 2 concurrent cloud tasks, TraeCode SOLO mode included
+        - Limited AI usage
+        - Limited Autocomplete, 5000 per month
+        - Up to 2 concurrent cloud tasks
     - id: pro
       name: Pro
-      price: 10
+      price: 20
+      price_annual: 16.67
       audience: individual
       trial_days: 7
       included:
@@ -50,36 +44,43 @@ pricing:
       overage:
         kind: api-list
       limits:
-        - Up to 10 concurrent cloud tasks, TraeCode SOLO mode included
+        - Unlimited Autocomplete
+        - TraeCode SOLO mode included
+        - Up to 10 concurrent cloud tasks
     - id: pro-plus
       name: Pro+
-      price: 30
+      price: 60
+      price_annual: 50
       audience: individual
       included:
-        amount: 90
+        amount: 60
         unit: usd
-        usd_value: 90
+        usd_value: 60
       overage:
         kind: api-list
       limits:
-        - 3.5x more usage than Pro, up to 15 concurrent cloud tasks
+        - 3.5x more usage than Pro
+        - Up to 15 concurrent cloud tasks
     - id: ultra
       name: Ultra
-      price: 100
+      price: 200
+      price_annual: 166.67
       audience: individual
       included:
-        amount: 400
+        amount: 200
         unit: usd
-        usd_value: 400
+        usd_value: 200
       overage:
         kind: api-list
       limits:
-        - 20x more usage than Pro, model early access, up to 20 concurrent cloud tasks
-  notes: Model calls convert token cost into dollar usage deducted from the monthly balance. Yearly billing is advertised at 25 percent less. The 7-day Pro trial applies to accounts created on or after February 1, 2026. Enterprise goes through BytePlus.
+        - 20x more usage than Pro
+        - Model early access
+        - Up to 20 concurrent cloud tasks
+  notes: Model calls convert token cost into dollar usage deducted from the monthly balance. Yearly billing is advertised at 17 percent less. The 7-day Pro trial applies to accounts created on or after February 1, 2026. Enterprise goes through BytePlus.
 status: active
 sources:
   - url: https://www.trae.ai/pricing
-    verified_at: 2026-10-18
+    verified_at: 2026-10-26
     covers: [pricing]
   - url: https://docs.trae.ai/ide/models
     verified_at: 2026-08-23
