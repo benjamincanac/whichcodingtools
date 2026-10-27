@@ -59,24 +59,24 @@ pricing:
         tier: supergrok-heavy
       limits:
         - Included with a SuperGrok Heavy subscription, linked to your Cursor sign-in
-    - id: cursor-pro
-      name: Cursor Pro
-      price: 20
+    - id: cursor-premium
+      name: Cursor Premium
+      price: 30
       audience: individual
       mirrors:
         tool: cursor
-        tier: pro
+        tier: premium
       limits:
-        - Included with a Cursor Pro subscription, weekly usage below Pro+
-    - id: cursor-pro-plus
-      name: Cursor Pro+
-      price: 60
+        - Grok Bot is listed on the Cursor Premium plan
+    - id: cursor-super
+      name: Cursor Super
+      price: 100
       audience: individual
       mirrors:
         tool: cursor
-        tier: pro-plus
+        tier: super
       limits:
-        - Included with a Cursor Pro+ subscription
+        - Grok Bot is listed on the Cursor Super plan
     - id: cursor-ultra
       name: Cursor Ultra
       price: 200
@@ -88,7 +88,8 @@ pricing:
         - Included with a Cursor Ultra subscription
     - id: cursor-teams
       name: Cursor Teams
-      price: 40
+      price: 30
+      price_from: true
       audience: team
       mirrors:
         tool: cursor
@@ -102,7 +103,7 @@ pricing:
       audience: enterprise
       limits:
         - Access is given to all team members or limited to specific groups with Manage Group Access
-  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by a paid individual Cursor plan (Pro, Pro+ or Ultra), a Cursor Teams seat, an individual SuperGrok, SuperGrok Plus or SuperGrok Heavy subscription linked to that Cursor account, an assigned seat on a self-serve Grok Business plan, or a one-time trial. An X Premium+ subscription also links, at entry level usage.
+  notes: Grok Bot has no standalone price. It signs in with a Cursor account and is unlocked by a paid individual Cursor plan, a Cursor Teams seat, an individual SuperGrok, SuperGrok Plus or SuperGrok Heavy subscription linked to that Cursor account, an assigned seat on a self-serve Grok Business plan, or a one-time trial. An X Premium+ subscription also links, at entry level usage.
 status: preview
 sources:
   - url: https://docs.x.ai/grok-bot/overview
@@ -124,5 +125,5 @@ sources:
     verified_at: 2026-08-24
     covers: [features, general]
   - url: https://cursor.com/pricing
-    verified_at: 2026-08-24
+    verified_at: 2026-10-14
     covers: [pricing]
