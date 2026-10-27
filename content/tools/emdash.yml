@@ -7,7 +7,6 @@ homepage: https://emdash.com
 links:
   docs: https://emdash.com/docs
   changelog: https://emdash.com/changelog
-  pricing: https://emdash.com/enterprise
   repo: https://github.com/generalaction/emdash
   discord: https://discord.com/invite/f2fv7YxuR2
   x: https://x.com/emdashsh
@@ -53,21 +52,12 @@ pricing:
       audience: individual
       limits:
         - Every feature, bring your own agent subscriptions and keys
-    - id: enterprise
-      name: Enterprise
-      price: null
-      contact_sales: true
-      audience: enterprise
-      notes: Contact form only, no price published.
-  notes: The site links Cloud and Enterprise pages without prices. Amp, Copilot, Devin, Droid and Qwen Code also run.
+  notes: The Enterprise page now redirects to an Emdash 2.0 early access waitlist for teams, with no tier or price. Amp, Copilot, Devin, Droid and Qwen Code also run.
 status: preview
 sources:
   - url: https://emdash.com
-    verified_at: 2026-09-23
+    verified_at: 2026-10-27
     covers: [pricing, platforms, features, general]
-  - url: https://emdash.com/enterprise
-    verified_at: 2026-09-23
-    covers: [pricing]
   - url: https://github.com/generalaction/emdash
     verified_at: 2026-08-23
     covers: [license, platforms, wraps, features]
