@@ -86,7 +86,8 @@ The sweep writes YAML and never looks at what the site makes of it, which is whe
 
 For every tool that is not sunset: fetch the pricing source, compare with the captures in `content/snapshots/<slug>/` when there are any and with the YAML otherwise, and
 - on a material change (price, tier, included amount, overage rule) open a PR that updates the YAML and the snapshot, with the before and after in the body,
-- on no change or a cosmetic change, do nothing (no `verified_at` bumps without a visible diff),
+- on no change, do nothing (no `verified_at` bumps without a visible diff),
+- on a cosmetic change, a footer year or a star count, open a one-tool PR that refreshes the snapshot, so the same diff is not read again the next morning,
 - on a page that cannot be read (fetch and browser both), open one issue for that tool, once, and close it with evidence on the first run that reads the page again.
 
 The fetching and the first comparison are `pricing-worklist.mjs`, not the model. A capture that comes back byte for byte is the page `pnpm validate` already holds the YAML to, so that tool is settled without anyone reading it again. A capture that moved comes with a fenced diff, and the model reads those few lines before it decides whether the page is worth opening. Measured on 2026-09-18 over the seventeen tools with a snapshot: three settled outright, and the diffs of the rest came to 43 KB against 217 KB of captures. Captures only a browser reproduces, toggle states mostly, are re-read on Mondays: the first run that re-read them all spent most of its 14.7M input tokens clicking toggles, while the fetched state of the same page is compared daily anyway. A tool with no snapshot is still read in full every day, so what this saves grows with the backfill.

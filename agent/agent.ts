@@ -3,9 +3,10 @@ import { defineAgent } from 'eve'
 export default defineAgent({
   // Sonnet 5 matched every costlier model at reading a pricing capture from content/snapshots,
   // and the cheaper models that tied it there are unproven at driving the browser and git side
-  // of a sweep. Effort is the dial that pays here, not the tier.
+  // of a sweep. Most of a sweep is reading diffs and running commands, and the Opus reviewer
+  // reads every pricing change before its pull request opens, so medium effort is enough here.
   model: 'anthropic/claude-sonnet-5.5',
-  reasoning: 'high',
+  reasoning: 'medium',
   // Sonnet 5.5 answers on a 1M window and eve compacts at 90% of it by default, so no turn of
   // this agent ever compacted: every model call re-sent the whole transcript, captures
   // included. A quarter of the window keeps one call under about 250K tokens. Each compaction
