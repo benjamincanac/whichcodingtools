@@ -28,7 +28,8 @@ pricing:
       price: 0
       audience: individual
       limits:
-        - Limited AI usage
+        - Auto mode only
+        - Limited usage
         - Limited Autocomplete, 5000 per month
         - Up to 2 concurrent cloud tasks
     - id: pro
@@ -44,8 +45,8 @@ pricing:
       overage:
         kind: api-list
       limits:
+        - Auto and all models
         - Unlimited Autocomplete
-        - TraeCode SOLO mode included
         - Up to 10 concurrent cloud tasks
     - id: pro-plus
       name: Pro+
@@ -59,7 +60,7 @@ pricing:
       overage:
         kind: api-list
       limits:
-        - 3.5x more usage than Pro
+        - 3x the Pro usage
         - Up to 15 concurrent cloud tasks
     - id: ultra
       name: Ultra
@@ -73,14 +74,14 @@ pricing:
       overage:
         kind: api-list
       limits:
-        - 20x more usage than Pro
+        - 10x the Pro usage
         - Model early access
         - Up to 20 concurrent cloud tasks
   notes: Model calls convert token cost into dollar usage deducted from the monthly balance. Yearly billing is advertised at 17 percent less. The 7-day Pro trial applies to accounts created on or after February 1, 2026. Enterprise goes through BytePlus.
 status: active
 sources:
   - url: https://www.trae.ai/pricing
-    verified_at: 2026-10-26
+    verified_at: 2026-10-28
     covers: [pricing]
   - url: https://docs.trae.ai/ide/models
     verified_at: 2026-08-23
