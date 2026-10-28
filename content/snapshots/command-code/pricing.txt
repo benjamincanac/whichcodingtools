@@ -28,35 +28,30 @@ $ 10 on Qwen 3.8 27B
 $ 10 on Qwen 3.7 Max
 $ 10 on Qwen 3.7 Plus
 $ 10 on DeepSeek V4.1 Flash
-+ 20 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
++ 19 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, GLM…
 Free on Laguna S 2.1
-Free on Ling 3.0 Flash
-Free on Ling 3.0 Flash Sante
-Free on Ling 3.1 Flash
 Free on Glyph Cluster
+Free on Beam 1.0
 Limited usage analytics
 Discord community support
 ✦ New
 GOAT
-$ 10 /month + processing fee $80 in credits included Up to ~$ 100 usage with deals
+$ 10 /month + processing fee Up to $100 in credits included Up to ~$ 100 usage with deals
 Best value subscription in market. Subscribe
 What's included
 ~75K requests
 taste-1 model access
 API access
 Per-model allowances
-$ 60 on DeepSeek V4.1 Flash
-$ 70 on GPT-5.6 Sol
-$ 70 on GLM-5.2
+$ 100 on Ling 3.1 Flash
+$ 80 on DeepSeek V4.1 Flash
+$ 80 on GLM-5.3 Flash
 $ 70 on Tencent Hy3
 $ 70 on Qwen 3.8 27B
-+ 32 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, Step, Inkling, Nemotron, GLM…
++ 33 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, GLM…
 Free on Laguna S 2.1
-Free on Ling 3.0 Flash
-Free on Ling 3.0 Flash Sante
-Free on Ling 3.1 Flash
 Free on Glyph Cluster
-Free on TypeSafe Jev
+Free on Beam 1.0
 Usage analytics
 Discord community support
 Pro $20 Max 10× Max 20×
@@ -68,16 +63,10 @@ What's included
 taste-1 model access
 API access
 Open-source + premium models
-$300 on Qwen 3.7 Max
 $300 on MiniMax M3
-MiMo
-Up to 99% off MiMo V2.5
 Free on Laguna S 2.1
-Free on Ling 3.0 Flash
-Free on Ling 3.0 Flash Sante
-Free on Ling 3.1 Flash
 Free on Glyph Cluster
-Free on TypeSafe Jev
+Free on Beam 1.0
 Usage analytics
 Higher rate limits
 Priority support
@@ -125,49 +114,37 @@ Custom training & onboarding
 Every plan. Side by side.
 Every feature. Every limit. Every model. Exactly what you get on each plan.
 Features
-Go $1/mo Get Go
-GOAT $10/mo Get GOAT
-Pro $20/mo Get Pro
-Max 10× $100/mo Get Max 10×
-Max 20× $200/mo Get Max 20×
+Go $1 /mo Get Go
+GOAT $10 /mo Get GOAT
+Pro $20 /mo Get Pro
+Max 10× $100 /mo Get Max 10×
+Max 20× $200 /mo Get Max 20×
 Usage
 Monthly credits
 $10
-$70
-$80
+Up to $100
+Up to $110
 $150
 $300
 MiniMax M3 effective usage Credits go up to 2× further
 $8
 $47
 $57
-~$300
-~$600
-MiMo V2.5 effective usage Credits go up to 5× further
-~$60
-~$100
-~$150
-~$750
-~$1,500
+~ $300
+~ $600
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
 Free
 Free
 Free
 Free
-Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
-Free
-Free
-Free
-Free
-Free
-Ling 3.1 Flash effective usage Requests cost no credits while it lasts
-Free
-Free
-Free
-Free
-Free
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
+Free
+Free
+Free
+Free
+Beam 1.0 effective usage Requests cost no credits while capacity lasts
 Free
 Free
 Free
@@ -202,10 +179,10 @@ Up to 1M
 Up to 1M
 Auto top-up at API cost
 Cloud access Billed per second, all plans except Go
-$0.10/hr
-$0.10/hr
-$0.10/hr
-$0.10/hr
+$0.10 /hr
+$0.10 /hr
+$0.10 /hr
+$0.10 /hr
 Analytics & support
 Usage analytics
 Limited
@@ -213,7 +190,6 @@ Per-request cost & tokens
 Discord community support
 Priority support
 Privacy & security
-No training on your code
 Local-only taste storage
 Cancel anytime
 Go $1/mo
@@ -222,15 +198,11 @@ Monthly credits
 $10
 MiniMax M3 effective usage Credits go up to 2× further
 $8
-MiMo V2.5 effective usage Credits go up to 5× further
-~$60
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
-Free
-Ling 3.1 Flash effective usage Requests cost no credits while it lasts
-Free
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
+Beam 1.0 effective usage Requests cost no credits while capacity lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~9K
@@ -256,24 +228,19 @@ Per-request cost & tokens
 Discord community support
 Priority support
 Privacy & security
-No training on your code
 Local-only taste storage
 Cancel anytime
 GOAT $10/mo
 Usage
 Monthly credits
-$70
+Up to $100
 MiniMax M3 effective usage Credits go up to 2× further
 $47
-MiMo V2.5 effective usage Credits go up to 5× further
-~$100
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
-Free
-Ling 3.1 Flash effective usage Requests cost no credits while it lasts
-Free
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
+Beam 1.0 effective usage Requests cost no credits while capacity lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~75K
@@ -292,31 +259,26 @@ Context window
 Up to 1M
 Auto top-up at API cost
 Cloud access Billed per second, all plans except Go
-$0.10/hr
+$0.10 /hr
 Analytics & support
 Usage analytics
 Per-request cost & tokens
 Discord community support
 Priority support
 Privacy & security
-No training on your code
 Local-only taste storage
 Cancel anytime
 Pro $20/mo
 Usage
 Monthly credits
-$80
+Up to $110
 MiniMax M3 effective usage Credits go up to 2× further
 $57
-MiMo V2.5 effective usage Credits go up to 5× further
-~$150
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
-Free
-Ling 3.1 Flash effective usage Requests cost no credits while it lasts
-Free
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
+Beam 1.0 effective usage Requests cost no credits while capacity lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~100K
@@ -335,14 +297,13 @@ Context window
 Up to 1M
 Auto top-up at API cost
 Cloud access Billed per second, all plans except Go
-$0.10/hr
+$0.10 /hr
 Analytics & support
 Usage analytics
 Per-request cost & tokens
 Discord community support
 Priority support
 Privacy & security
-No training on your code
 Local-only taste storage
 Cancel anytime
 Max 10× $100/mo
@@ -350,16 +311,12 @@ Usage
 Monthly credits
 $150
 MiniMax M3 effective usage Credits go up to 2× further
-~$300
-MiMo V2.5 effective usage Credits go up to 5× further
-~$750
+~ $300
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
-Free
-Ling 3.1 Flash effective usage Requests cost no credits while it lasts
-Free
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
+Beam 1.0 effective usage Requests cost no credits while capacity lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~219K
@@ -378,14 +335,13 @@ Context window
 Up to 1M
 Auto top-up at API cost
 Cloud access Billed per second, all plans except Go
-$0.10/hr
+$0.10 /hr
 Analytics & support
 Usage analytics
 Per-request cost & tokens
 Discord community support
 Priority support
 Privacy & security
-No training on your code
 Local-only taste storage
 Cancel anytime
 Max 20× $200/mo
@@ -393,16 +349,12 @@ Usage
 Monthly credits
 $300
 MiniMax M3 effective usage Credits go up to 2× further
-~$600
-MiMo V2.5 effective usage Credits go up to 5× further
-~$1,500
+~ $600
 Laguna S 2.1 effective usage Requests cost no credits while capacity lasts
 Free
-Ling 3.0 Flash Sante effective usage Requests cost no credits while it lasts
-Free
-Ling 3.1 Flash effective usage Requests cost no credits while it lasts
-Free
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
+Free
+Beam 1.0 effective usage Requests cost no credits while capacity lasts
 Free
 Typical request volume Approx, depends on chosen models
 ~437K
@@ -421,14 +373,13 @@ Context window
 Up to 1M
 Auto top-up at API cost
 Cloud access Billed per second, all plans except Go
-$0.10/hr
+$0.10 /hr
 Analytics & support
 Usage analytics
 Per-request cost & tokens
 Discord community support
 Priority support
 Privacy & security
-No training on your code
 Local-only taste storage
 Cancel anytime
 Need a side-by-side per-model breakdown? See full pricing & limits docs or open the usage calculator .
@@ -436,7 +387,7 @@ Need a side-by-side per-model breakdown? See full pricing & limits docs or open 
 Questions, answered.
 Still curious? Read the pricing & limits docs . Or email support@commandcode.ai .
 Which plan is right for you?
-Go ($1) starts you off — open-source models, big budgets in tiny dollars. GOAT ($10) is for developers who live on open models — $80 of usage on 29+ models. Pro ($20) adds premium models to the shared pool — up to $80 of usage on per-model allowances. Max 10× ($100) keeps up with daily shipping. Max 20× ($200) goes all-out — every model, no caps. Teams and Enterprise pool credits for the whole crew. Every plan except Go includes API access.
+Go ($1) starts you off — open-source models, big budgets in tiny dollars. GOAT ($10) is for developers who live on open models — up to $100 of usage on 29+ models. Pro ($20) adds premium models to the shared pool — up to $110 of usage on per-model allowances. Max 10× ($100) keeps up with daily shipping. Max 20× ($200) goes all-out — every model, no caps. Teams and Enterprise pool credits for the whole crew. Every plan except Go includes API access.
 How does pricing work?
 Flat monthly subscriptions for developers with 2-10x better than API prices. A bucket of model credits. Buy on demand extra credits anytime, you spend at the underlying API rate — zero markup. Run out? Top up, or flip on auto-reload. Top-up credits roll over and never expire.
 Out of credits?
@@ -445,8 +396,8 @@ Can I change my mind?
 Always. Upgrade, downgrade, or cancel from Studio > Billing . No hoops, no penalties, no hard feelings. You keep access until the end of your billing cycle, and any unused credits roll over forever.
 Where's my usage?
 Right here: Usage . Per-request cost, token counts, the models, the whole timeline.
-Do you train on my code?
-No. Never. Taste runs on your codebase and stores its learning data on your machine — and only your machine. See the Privacy Policy .
+How is my code handled?
+Taste runs on your codebase and stores its learning data on your machine — and only your machine. See the Privacy Policy .
 How does team billing work?
 Flat plan. Pooled credits. Every member of the team draws from one shared bucket. Org admins manage seats, billing, and usage from org settings.
 Which payment methods?
@@ -486,19 +437,19 @@ Alexandr Wang @alexandr_wang
 See all the love
 // ship
 Changelog
-v 1.82.0
-404 releases shipped
-FEAT Gemini Argon
-FIX No longer re-send the same prompt automatically on model refusal
-FIX Commands run with `!` bash mode and their output reach the agent
-FEAT Add the `codemode` tool that lets the model write scripts to orchestrate tool calls, MCP only by default, change via /config
+v 1.88.0
+422 releases shipped
+FEAT Background tasks run on the active free model to save costs, with a `/config` toggle to turn it off
+IMP A more reliable updater, with a hint for updating manually
+FIX The `/config` list scrolls when it would outgrow the terminal
+FIX The session stays alive when an update replaces the install directory mid-session
 Read full changelog
 +104k
 Ready to code with your taste? Join 100K+ developers who stopped fixing AI code and started shipping with the best coding agent for open models.
 // Take Command of your code. The best coding agent for open models, with your coding taste. Install, sign in, and start coding.
 npm i -g command-code
 Read the docs.
-$1/mo Go plan · Cancel any time
+$1 /mo Go plan · Cancel any time
 About
 Mods
 Developers
