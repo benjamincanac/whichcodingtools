@@ -55,10 +55,10 @@ pricing:
       per: flat
       audience: individual
       included:
-        amount: 80
+        amount: 100
         unit: usd
         period: month
-        notes: Per-model credit allowances across 29+ models. Deals on some models can raise effective usage to up to ~$100.
+        notes: Up to $100 in credits, per-model allowances across 29+ models. Deals on some models can raise effective usage to up to ~$100.
       overage:
         kind: api-list
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
@@ -72,10 +72,10 @@ pricing:
       per: flat
       audience: individual
       included:
-        amount: 80
+        amount: 110
         unit: usd
         period: month
-        notes: Deals bring usage up to about $120. $20 of the pool covers premium models (Claude Sonnet, GPT & Gemini).
+        notes: Up to $110 in credits. Deals bring usage up to about $120. $20 of the pool covers premium models (Claude Sonnet, GPT & Gemini).
       overage:
         kind: api-list
         notes: Extra credits can be bought on demand at the underlying model API rate, with optional auto-reload.
@@ -165,7 +165,7 @@ sources:
     verified_at: 2026-09-04
     covers: [general]
   - url: https://commandcode.ai/pricing
-    verified_at: 2026-10-14
+    verified_at: 2026-10-28
     covers: [pricing]
   - url: https://commandcode.ai/desktop
     verified_at: 2026-09-04
