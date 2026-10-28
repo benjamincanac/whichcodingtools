@@ -50,7 +50,7 @@ pricing:
         - Open source community support
     - id: teams
       name: Teams
-      price: 499
+      price: 500
       per: flat
       audience: team
       trial_days: 30
@@ -72,7 +72,7 @@ pricing:
 status: active
 sources:
   - url: https://www.openhands.dev/pricing
-    verified_at: 2026-10-22
+    verified_at: 2026-10-28
     covers: [pricing, models]
   - url: https://github.com/OpenHands/OpenHands
     verified_at: 2026-08-23

@@ -28,10 +28,10 @@ Press
 Careers
 About
 Contact
-91.5K
+92.1K
 Access Cloud Access Cloud
 Get OpenHands Get OpenHands
-91.5K
+92.1K
 Access Cloud Access Cloud
 Get OpenHands Get OpenHands Menu Close
 Pricing that fits your rollout
@@ -46,7 +46,7 @@ Use any agent (Codex, Claude, etc.)
 Automations
 Download Download
 Teams
-$499/month
+$500/month
 Up to 10 users (+$50/mo per seat)
 Up to 10 users
 Self-hosted
@@ -69,7 +69,7 @@ Standard or Premium Support
 Customer success manager
 Contact Us Contact Us
 Agent Canvas Teams Enterprise
-Price Free $499/mo, up to 10 users (30-day trial) Custom
+Price Free $500/mo, up to 10 users (30-day trial) Custom
 Seats Shared identity Up to 10 users (+$50/mo per seat) Custom
 Organizations — 1 Unlimited
 Deployment Local Self-hosted Self-hosted Self-hosted
