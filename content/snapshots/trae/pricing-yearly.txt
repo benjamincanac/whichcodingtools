@@ -3,76 +3,44 @@
 <untrusted-page-text>
 Pricing
 Looking for enterprise solutions? Contact us via BytePlus.
-monthlyyearlySave17%
-## Free
+Monthly
+Yearly
+Save
+17%
+Free
 $0
 Start for free
-- Limited AI usage
-- Limited Autocomplete
-- Up to 2 concurrent cloud tasks in TraeWork (Web/Desktop)
+Auto mode only
+Limited usage
+Limited Autocomplete
 Get started
-## Pro
+Pro
 Recommended
 $16.67
 $20
 per month, billed yearly
 To get started
-- $20 Basic usage
-- Unlimited Autocomplete
-- TraeCode SOLO mode included
-- Up to 10 concurrent cloud tasks in TraeWork (Web/Desktop)
+Auto + all models
+$20 usage / month
+Unlimited Autocomplete
+Up to 10 concurrent cloud tasks in Trae
 Upgrade plan
-## Pro+
+Pro+
 $50
 $60
 per month, billed yearly
 Everything in Pro, plus:
-- 3.5x more usage than Pro
-- Up to 15 concurrent cloud tasks in TraeWork (Web/Desktop)
+$60 usage / month (3× Pro)
+Up to 15 concurrent cloud tasks in Trae
 Upgrade plan
-## Ultra
+Ultra
 $166.67
 $200
 per month, billed yearly
 Everything in Pro+, plus:
-- 20x more usage than Pro
-- Model early access
-- Up to 20 concurrent cloud tasks in TraeWork (Web/Desktop)
+$200 usage / month (10× Pro)
+Model early access
+Up to 20 concurrent cloud tasks in Trae
 Upgrade plan
 Most payment methods supported for upgrade
-## Compare Plans
-Monthly Basic Usage
-Limited usage
-$20 Basic usage
-$60 Basic usage
-$200 Basic usage
-Queue Priority
-Standard queue
-Fast queue
-Fast queue
-Fast queue
-Autocompletion
-5000 / month
-Unlimited
-Unlimited
-Unlimited
-Concurrent Cloud Tasks
-2
-10
-15
-20
-Model Early Access
-Limited
-Limited
-Limited
-Included
-Frequently Asked Questions
-### How do I get and use a Pro trial?
-New subscribers who register for TRAE on or after February 1, 2026 are eligible for a one-time, 7-day free Pro trial.
-A new subscriber refers to a user who is purchasing any paid plan for the first time. Eligibility for the trial, introductory pricing, or promotional offers may be determined based on factors such as device usage history, payment behavior, or refund history.
-Each user is eligible for the Pro trial only once. If multiple accounts are used to obtain additional trials, TRAE reserves the right to revoke account access.
-After the trial period ends, your subscription will automatically renew as a Pro plan unless canceled before the trial expires.
-### What happens when I run out of usage?
-When your included usage is exhausted, you'll need to upgrade to a higher plan to get more usage. Paid users can also enable On-Demand Usage to continue using paid models.
-On-Demand Usage allows you to keep using paid models after your monthly balance is exhausted. Additional usage is billed based on actual token consumption.
 </untrusted-page-text>

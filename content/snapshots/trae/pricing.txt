@@ -1,43 +1,56 @@
 # https://www.trae.ai/pricing
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
-Pricing
+Product
+TraeWorkEnterprisePricingBlogDocsChangelog
+Community
+前往中国站Log in
+Download Center
+# Pricing
 Looking for enterprise solutions? Contact us via BytePlus.
 monthlyyearlySave17%
 ## Free
 $0
 Start for free
-- Limited AI usage
+- Auto mode only
+- Limited usage
 - Limited Autocomplete
-- Up to 2 concurrent cloud tasks in TraeWork (Web/Desktop)
 Get started
 ## Pro
 Recommended
 $20
 per month, auto-renews
 To get started
-- $20 Basic usage
+- Auto + all models
+- $20 usage / month
 - Unlimited Autocomplete
-- TraeCode SOLO mode included
-- Up to 10 concurrent cloud tasks in TraeWork (Web/Desktop)
+- Up to 10 concurrent cloud tasks in Trae
 Upgrade plan
 ## Pro+
 $60
 per month, auto-renews
 Everything in Pro, plus:
-- 3.5x more usage than Pro
-- Up to 15 concurrent cloud tasks in TraeWork (Web/Desktop)
+- $60 usage / month (3× Pro)
+- Up to 15 concurrent cloud tasks in Trae
 Upgrade plan
 ## Ultra
 $200
 per month, auto-renews
 Everything in Pro+, plus:
-- 20x more usage than Pro
+- $200 usage / month (10× Pro)
 - Model early access
-- Up to 20 concurrent cloud tasks in TraeWork (Web/Desktop)
+- Up to 20 concurrent cloud tasks in Trae
 Upgrade plan
 Most payment methods supported for upgrade
 ## Compare Plans
+Free
+Get started
+Pro
+Upgrade plan
+Pro+
+Upgrade plan
+Ultra
+Upgrade plan
 Monthly Basic Usage
 Limited usage
 $20 Basic usage
@@ -64,13 +77,11 @@ Limited
 Limited
 Included
 Frequently Asked Questions
+### What is Usage?
+Usage is the dollar-denominated balance included in your plan, consumed as you make AI requests. For paid plans, it refreshes at the start of each subscription period. For free users, it's a one-time allowance and doesn't reset monthly.
 ### How is usage calculated?
-All AI requests are billed based on the number of tokens processed.
-TRAE converts the token cost into Dollar Usage, which is deducted from your monthly balance.
-### What is Basic Usage and Bonus Usage?
 ### Do different models consume usage differently?
-### What happens when I run out of usage?
-### How do I get and use a Pro trial?
 ### What happens if an AI request fails?
 ### Can I request a refund?
+Want know more about Pricing? Contact us by ussupport@mail.traeai.us, read our doc, or view terms of service.
 </untrusted-page-text>
