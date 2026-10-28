@@ -20,16 +20,16 @@ Vertical tabs, workspaces, split panes, and completion notifications
 Browser panels, a scriptable socket API, and custom skills
 Local session history
 Community support on Discord and GitHub
-Pro Billing period Yearly · Monthly
-$40 /mo
+Pro Billing period Monthly · Yearly
+$50 /mo
 Get Pro
 Everything in Free, plus:
 Cloud agents on Cloud VMs in isolated remote sandboxes
 Up to 5 Cloud VMs sharing 20 vCPUs and 40 GB RAM; one VM can use up to 16 GB RAM / 8 vCPU. The 24 GB / 12 vCPU and 32 GB / 16 vCPU sizes require Max.
 Unlimited workspaces
 The cmux iOS app and email support
-Max Billing period Yearly · Monthly
-$160 /mo
+Max Billing period Monthly · Yearly
+$200 /mo
 Get Max
 Everything in Pro, plus:
 Up to 5 Cloud VMs sharing 80 vCPUs and 160 GB RAM; Max unlocks 24 GB / 12 vCPU, 32 GB / 16 vCPU, and up to 64 GB / 32 vCPU
@@ -101,6 +101,7 @@ Blog
 Community
 Nightly
 Assets
+Art
 Jobs
 Resources
 Docs
@@ -131,16 +132,16 @@ Vertical tabs, workspaces, split panes, and completion notifications
 Browser panels, a scriptable socket API, and custom skills
 Local session history
 Community support on Discord and GitHub
-Pro Billing period Yearly · Monthly
-$40 /mo
+Pro Billing period Monthly · Yearly
+$50 /mo
 Get Pro
 Everything in Free, plus:
 Cloud agents on Cloud VMs in isolated remote sandboxes
 Up to 5 Cloud VMs sharing 20 vCPUs and 40 GB RAM; one VM can use up to 16 GB RAM / 8 vCPU. The 24 GB / 12 vCPU and 32 GB / 16 vCPU sizes require Max.
 Unlimited workspaces
 The cmux iOS app and email support
-Max Billing period Yearly · Monthly
-$160 /mo
+Max Billing period Monthly · Yearly
+$200 /mo
 Get Max
 Everything in Pro, plus:
 Up to 5 Cloud VMs sharing 80 vCPUs and 160 GB RAM; Max unlocks 24 GB / 12 vCPU, 32 GB / 16 vCPU, and up to 64 GB / 32 vCPU

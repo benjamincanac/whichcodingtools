@@ -110,7 +110,7 @@ pricing:
 status: active
 sources:
   - url: https://cmux.com/pricing
-    verified_at: 2026-10-10
+    verified_at: 2026-10-28
     covers: [pricing]
   - url: https://cmux.com
     verified_at: 2026-08-23
