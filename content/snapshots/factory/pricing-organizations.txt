@@ -14,7 +14,7 @@ Organizations
 Available Models
 Contact Support
 Product Surfaces
-Software Factory
+Automations
 Platform Capabilities
 Factory Enterprise
 factory.com
@@ -45,7 +45,7 @@ On-premise deployment, sub-organizations, and full admin controls
 Data residency
 Dedicated Account Manager, Customer Engineer, and priority SLAs Contact Sales
 Enterprise · Custom pricing
-What organization plans add #
+What organization plans add
 Teams vs Business vs Enterprise
 Capability Teams Business Enterprise
 Seats Up to 10 Custom Unlimited
@@ -55,16 +55,16 @@ Governance — Admin controls for models, autonomy, access, deny lists, and netw
 Data controls — ZDR, audit logging and activity trails ZDR, audit logging, data residency
 Deployment — Factory-hosted and managed compute options Dedicated compute, partitioned inference, and on-premise options
 Support — Dedicated onboarding and support Dedicated Account Manager, Customer Engineer, and priority SLAs
-Usage and billing #
+Usage and billing
 On Teams plans, each seat includes Pro Rate Limits. Billing is centralized and paid month-to-month.
 On Business and Enterprise plans, usage is shared across the workspace and governed by contract terms. It is not governed by the Individual plan Rate Limit model.
-Enterprise Controls #
+Enterprise Controls
 Business and Enterprise add controls for platform teams:
 Identity and Access for roles, SSO, and provisioning.
 Hierarchical Settings and Org Control for inherited settings and org-managed policy.
 Network and Deployment for deployment choices and network boundaries.
 Telemetry & Analytics for usage, adoption, and cost reporting.
-FAQ #
+FAQ
 Are organization plan limits per-user or shared? +
 When should we choose enterprise instead of business? +
 Related resources

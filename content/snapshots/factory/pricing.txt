@@ -9,7 +9,6 @@ Enterprise
 Pricing
 News
 Company
-Careers
 Docs
 Log in / Sign up
 Contact Sales
@@ -18,7 +17,6 @@ Enterprise
 Pricing
 News
 Company
-Careers
 Docs
 Log in / Sign up
 Contact Sales
@@ -190,6 +188,7 @@ Find the right plan for your team
 Contact sales Arrow Right Icon
 Resources
 News
+Events
 Case Studies
 Docs
 Contact Sales
@@ -207,7 +206,6 @@ Privacy Policy
 Terms of Service
 SLA
 DPA
-BAA
 X (Twitter) ,
 LinkedIn ,
 GitHub
