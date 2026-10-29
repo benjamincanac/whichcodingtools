@@ -103,6 +103,7 @@ Changelog
 Open Source
 About
 Docs
+NimWiki
 Solutions
 All solutions
 Developers
