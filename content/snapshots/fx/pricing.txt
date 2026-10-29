@@ -7,17 +7,17 @@ install
 Tiny, open, native coding agent.
 $ curl -fsSL https://fx.sh/setup.sh | bash
 copied
-v0.0.10 (notes) · 6.17mib · status: experimental (i) use at your own risk, we will be making frequent changes
+v0.0.15 (notes) · 6.15mib · status: experimental (i) use at your own risk, we will be making frequent changes
 This demo runs the full fx CLI as WebAssembly compiled with the Zig toolchain.
 Networking is delegated to browser fetch , and every SDK aspect is configurable in the docs .
 fx
-𝒇 x v0.0.10 · Run /help for commands
+𝒇 x v0.0.15 · Run /help for commands
 ┃
-auto · kimi-k3
+auto · gpt-6-luna · ⚡︎
 (i)
 This demo is available in browsers with WebAssembly JSPI support, like Safari 27+ and Chrome. This demo runs fx in WebAssembly with a browser workspace powered by just-bash . Install fx for the full tool suite on your own files.
 fx is a coding agent harness and CLI written in Zig, optimized for research and embeddability as part of larger systems.
-It focuses on minimalism and performance across the board, from system prompt design to its tools, feature set, and 6.17 MiB binary.
+It focuses on minimalism and performance across the board, from system prompt design to its tools, feature set, and 6.15 MiB binary.
 Its output is closer to a Unix shell than an IDE in the terminal.
 It is open source (Apache-2.0), model-agnostic, and suitable for both local and cloud inference. ***
 Tiny native binary
