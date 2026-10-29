@@ -34,11 +34,11 @@ pricing:
 status: active
 sources:
   - url: https://github.com/Aider-AI/aider
-    verified_at: 2026-09-18
+    verified_at: 2026-10-29
     covers: [pricing, license, platforms, general]
   - url: https://aider.chat/docs/llms.html
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [models]
   - url: https://aider.chat/docs/git.html
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [features]
