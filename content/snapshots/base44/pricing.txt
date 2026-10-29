@@ -71,6 +71,7 @@ Plan highlights:
 Unlimited number of apps
 In-app code edits
 Connect a domain
+Free domain for 1 year
 Free
 All of Base44's core features, for free. See what you can build.
 $ 0
@@ -112,8 +113,8 @@ What forms of payment do you accept?
 All major credit and debit cards (Visa, Mastercard, American Express, Discover). Enterprise customers can pay by invoice or ACH transfer.
 Are there any additional fees beyond the plan price?
 No hidden fees. Your plan covers monthly credits, included integrations, and the support level for your tier. Third-party services you connect to your apps (Stripe, SendGrid, OpenAI, etc.) bill you directly on their own pricing.
-Do you offer discounts for students, non-profits, or special organizations?
-Yes. We offer education and non-profit pricing on a case-by-case basis. Sign up with your student email to verify your status or reach out to support with details about your org and what you're building, and we'll see what fits.
+Do you offer discounts for students, startups, non-profits, or special organizations?
+Yes. We offer education and non-profit pricing on a case-by-case basis. Sign up with your student email to verify your status or reach out to support with details about your org and what you're building, and we'll see what fits. Founders can also apply to Base44 for Startups for a free annual license and credits.
 Where can I learn more about building with Base44?
 The fastest way is to start building — the Free plan gives you full access as an AI app maker and you can ship your first app or website in an afternoon. For deeper AI app development reading, see Base44 docs or browse the community app templates gallery .
 Go ahead.
@@ -121,6 +122,10 @@ Build it yourself.
 Start building
 Base44 logo
 Base44 is an AI platform for building fully functioning apps in minutes. Describe what you need — a productivity tool, a back-office system, a customer portal, or a complete enterprise product — and Base44 builds it. No code, no integrations, ready to ship on day one and built to grow with you.
+X (opens in a new tab)
+Discord (opens in a new tab)
+LinkedIn (opens in a new tab)
+Reddit (opens in a new tab)
 Company
 About Us
 Affiliate Program
@@ -130,26 +135,27 @@ Features
 Integrations
 Enterprise
 Pricing
-Roadmap
-Changelog
-Feature Request
+Roadmap (opens in a new tab)
+Changelog (opens in a new tab)
+Feature Request (opens in a new tab)
 Use Cases
-Status
+Status (opens in a new tab)
 Base44 for Developers
 Superagents
 Workflows
 AI App Builder
-AI Website Builder
+Website Builder
 Resources
-Docs & FAQs
+Docs & FAQs (opens in a new tab)
 Higher Ed
-Community
+Community (opens in a new tab)
 Blog
 Hire a Partner
 Legal
 Privacy Policy
 Terms of Service
 Security
+Trust Center (opens in a new tab)
 Report Misuse
 Responsible Use
 Accessibility Statement
