@@ -19,7 +19,7 @@ license:
   spdx: proprietary
   kind: proprietary
 models:
-  providers: [anthropic, openai, google, xai, zhipu, moonshot]
+  providers: [anthropic, openai, google, xai, zhipu, moonshot, deepseek]
   byok: none
   local: false
   notes: Claude, GPT, Gemini, Grok, GLM and Kimi models hosted by Augment, plus Prism routing. No mention of your own keys in the docs.
@@ -69,17 +69,17 @@ pricing:
 status: active
 sources:
   - url: https://www.augmentcode.com/pricing
-    verified_at: 2026-09-20
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://docs.augmentcode.com/models/token-based-pricing.md
-    verified_at: 2026-09-20
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://docs.augmentcode.com/models/available-models.md
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [models]
   - url: https://docs.augmentcode.com/llms.txt
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [features, platforms, general]
   - url: https://docs.augmentcode.com/cli/setup-auggie/install-auggie-cli.md
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, general]
