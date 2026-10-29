@@ -24,7 +24,9 @@ Docs
 What Are Orbs?
 Models
 Resources
+About
 Chronicle
+Notes
 Pricing
 Podcast
 Press Kit
@@ -33,6 +35,5 @@ How to Build an Agent
 Context Management
 Community
 𝕏 @ampcode
-Amp Insiders
 YouTube
 </untrusted-page-text>

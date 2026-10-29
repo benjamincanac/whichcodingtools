@@ -3,16 +3,17 @@
 <untrusted-page-text>
 Pricing — Amp
 Return to Amp
-Chronicle Docs Models Pricing Sign In Start
+Chronicle Docs Models Pricing About Sign In Start
 Pricing
 Start free. Scale your orbs and team.
 Hobby
 Free svg]:size-5 new-badge relative isolate shrink-0 overflow-hidden rounded-full border-transparent font-semibold text-white uppercase px-3.5 py-1.5 text-lg leading-6"> New
 All product features, and:
-Pay-as-you-go for orbs
+Pay-as-you-go for Amp-hosted orbs
+Unlimited self-hosted orbs, free
 Or use your own runners for free
 Use tokens from anywhere
-Use your ChatGPT sub & other subs
+Use your ChatGPT, Claude & other subs
 Bring your own keys (BYOK)
 No Amp token fees or limits
 Public/private repositories
@@ -22,8 +23,10 @@ $20 ∕ mo.
 Megawatt Gigawatt
 All product features, and:
 45,000 minutes of orbin' time
+Minutes are for Amp-hosted orbs
+Unlimited self-hosted orbs, free
 Use tokens from anywhere
-Use your ChatGPT sub & other subs
+Use your ChatGPT, Claude & other subs
 Bring your own keys (BYOK)
 No Amp token fees or limits svg]:size-4 new-badge relative isolate shrink-0 overflow-hidden rounded-full border-transparent font-semibold text-white uppercase px-2"> New
 Unlimited public/private repositories
@@ -41,7 +44,7 @@ Shared billing and pooled credits
 SAML/OIDC SSO
 Use your own domains for portals
 Use tokens from anywhere
-Use your ChatGPT sub & other subs
+Use your ChatGPT, Claude & other subs
 Bring your own keys (BYOK)
 No Amp token fees or limits
 Shared BYOK & model routing
@@ -52,6 +55,7 @@ All Individual and Teams features, and:
 Pooled credits only, no paid user seats
 SCIM user directory sync
 Spend limits and reporting
+Custom self-hosted orbs
 Audit logs and network/MCP access controls
 IP allowlisting and regional endpoints
 Higher resource quotas and rate limits
@@ -82,7 +86,9 @@ Docs
 What Are Orbs?
 Models
 Resources
+About
 Chronicle
+Notes
 Pricing
 Podcast
 Press Kit
@@ -91,6 +97,5 @@ How to Build an Agent
 Context Management
 Community
 𝕏 @ampcode
-Amp Insiders
 YouTube
 </untrusted-page-text>
