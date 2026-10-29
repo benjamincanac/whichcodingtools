@@ -67,6 +67,16 @@ pricing:
       limits:
         - Native terminal, every CLI agent with your own keys, browser panels, socket API, skills
         - Local session history, no Cloud VMs
+    - id: plus
+      name: Plus
+      price: 15
+      per: flat
+      audience: individual
+      limits:
+        - 1 saved Cloud VM in total, including paused machines
+        - 2–8 vCPU, 4–16 GiB RAM and 16–128 GiB disk
+        - No monthly hour cap
+        - Community support
     - id: pro
       name: Pro
       price: 50
@@ -110,14 +120,14 @@ pricing:
 status: active
 sources:
   - url: https://cmux.com/pricing
-    verified_at: 2026-10-28
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://cmux.com
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, features, wraps, general]
   - url: https://cmux.com/docs/getting-started
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, features]
   - url: https://github.com/manaflow-ai/cmux
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [license, features]

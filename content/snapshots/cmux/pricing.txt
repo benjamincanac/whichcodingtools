@@ -68,7 +68,7 @@ Native macOS terminal, open source
 Local CLI agents with your own keys
 Vertical tabs, splits, notifications, socket API
 Cloud agents on Cloud VMs -
-Concurrent Cloud VMs - 5 5 5 per paid seat Custom
+Saved Cloud VMs, including paused machines - 5 5 5 per paid seat Custom
 Cloud VM resources - 20 vCPUs and 40 GB RAM, shared 80 vCPUs and 160 GB RAM, shared 20 vCPUs and 40 GB RAM per paid seat, shared across the team Custom
 Largest Cloud VM - 16 GB RAM / 8 vCPU (24 GB / 12 vCPU and 32 GB / 16 vCPU require Max) 64 GB RAM / 32 vCPU (includes 24 GB / 12 vCPU and 32 GB / 16 vCPU) 16 GB RAM / 8 vCPU (24 GB / 12 vCPU and 32 GB / 16 vCPU require Max) Custom
 Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
@@ -132,6 +132,14 @@ Vertical tabs, workspaces, split panes, and completion notifications
 Browser panels, a scriptable socket API, and custom skills
 Local session history
 Community support on Discord and GitHub
+Plus
+$15 /mo
+Get Plus
+Includes:
+1 saved VM total, including paused machines
+2–8 vCPU · 4–16 GiB RAM · 16–128 GiB disk
+Community support
+No monthly hour cap
 Pro Billing period Monthly · Yearly
 $50 /mo
 Get Pro
@@ -167,6 +175,8 @@ Custom VM limits and volume pricing
 SOC 2 and an SLA, with dedicated support
 Free $0
 Download for Mac
+Plus $15 /mo
+Get Plus
 Pro $50 /mo
 Get Pro
 Max $200 /mo
@@ -179,15 +189,15 @@ Native macOS terminal, open source
 Local CLI agents with your own keys
 Vertical tabs, splits, notifications, socket API
 Cloud agents on Cloud VMs -
-Concurrent Cloud VMs - 5 5 5 per paid seat Custom
-Cloud VM resources - 20 vCPUs and 40 GB RAM, shared 80 vCPUs and 160 GB RAM, shared 20 vCPUs and 40 GB RAM per paid seat, shared across the team Custom
-Largest Cloud VM - 16 GB RAM / 8 vCPU (24 GB / 12 vCPU and 32 GB / 16 vCPU require Max) 64 GB RAM / 32 vCPU (includes 24 GB / 12 vCPU and 32 GB / 16 vCPU) 16 GB RAM / 8 vCPU (24 GB / 12 vCPU and 32 GB / 16 vCPU require Max) Custom
-Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
-iOS app -
-SSO and SAML sign-in - - - -
-Self-hosted and air-gapped execution - - - -
-Audit logs: sessions, network, browser - - - -
-Volume pricing - - - -
-SOC 2 and an SLA - - - -
-Support Community Email Email Priority Dedicated
+Saved Cloud VMs, including paused machines - 1 5 5 5 per paid seat Custom
+Cloud VM resources - 2–8 vCPU · 4–16 GiB RAM · 16–128 GiB disk 20 vCPUs and 40 GB RAM, shared 80 vCPUs and 160 GB RAM, shared 20 vCPUs and 40 GB RAM per paid seat, shared across the team Custom
+Largest Cloud VM - 16 GiB RAM / 8 vCPU 16 GB RAM / 8 vCPU (24 GB / 12 vCPU and 32 GB / 16 vCPU require Max) 64 GB RAM / 32 vCPU (includes 24 GB / 12 vCPU and 32 GB / 16 vCPU) 16 GB RAM / 8 vCPU (24 GB / 12 vCPU and 32 GB / 16 vCPU require Max) Custom
+Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited Unlimited
+iOS app - -
+SSO and SAML sign-in - - - - -
+Self-hosted and air-gapped execution - - - - -
+Audit logs: sessions, network, browser - - - - -
+Volume pricing - - - - -
+SOC 2 and an SLA - - - - -
+Support Community Community Email Email Priority Dedicated
 </untrusted-page-text>
