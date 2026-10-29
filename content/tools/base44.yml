@@ -100,11 +100,11 @@ pricing:
 status: active
 sources:
   - url: https://base44.com/pricing
-    verified_at: 2026-09-28
+    verified_at: 2026-10-29
     covers: [pricing, general]
   - url: https://docs.base44.com/Building-your-app/AI-chat-modes
     verified_at: 2026-08-23
     covers: [models, features]
   - url: https://docs.base44.com/llms.txt
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [features, platforms]
