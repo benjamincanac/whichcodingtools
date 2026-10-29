@@ -59,14 +59,14 @@ pricing:
 status: active
 sources:
   - url: https://cline.bot/pricing
-    verified_at: 2026-09-09
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://cline.bot/cline-pass
-    verified_at: 2026-09-09
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://cline.bot
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, models, features, license, general]
   - url: https://docs.cline.bot/usage/acp
-    verified_at: 2026-08-27
+    verified_at: 2026-10-29
     covers: [features]
