@@ -6,121 +6,28 @@
 > Use this file to discover all available pages before exploring further.
 # CodeRabbit FAQs: reviews, pricing, security, and setup
 > Answers to common CodeRabbit questions about triggering reviews, supported platforms, pricing, data privacy, self-hosting, and pull request automation.
-export const EnterprisePlanBadge = ({tip = "This feature is available exclusively as part of the Enterprise plan. Please refer to our pricing page for more information about our plans and features.", title = "Enterprise Plan", cta = "Read more", href = "https://coderabbit.ai/pricing", disabled = false}) => {
-return
-{title}
-;
-};
-export const Hint = ({type, children, headline, tip, href, cta}) => {
-const TIPS = {
-learnings: {
-headline: "Learnings",
-tip: "Review preferences CodeRabbit learns from your chat conversations and applies automatically to future reviews.",
-cta: "Learn about Learnings",
-href: "/knowledge-base/learnings",
-content: "Learnings"
-},
-walkthrough: {
-headline: "PR Walkthrough",
-tip: "A structured comment posted by CodeRabbit at the top of every pull request, summarizing changes, sequence diagrams, review effort, and more.",
-cta: "Learn about PR Walkthroughs",
-href: "/pr-reviews/walkthroughs",
-content: "Walkthrough"
-},
-"finishing-touches": {
-headline: "Finishing Touches",
-tip: "Post-review agentic actions (Autofix, writing docstrings or unit tests, and more) you trigger from a PR comment or a checkbox in the Walkthrough.",
-cta: "See all Finishing Touches",
-href: "/finishing-touches",
-content: "Finishing Touches"
-},
-"coding-plan": {
-headline: "Coding Plan",
-tip: "A detailed, codebase-aware implementation plan CodeRabbit generates from an issue or description, ready to hand off to any coding agent.",
-cta: "Learn about Coding Plans",
-href: "/plan",
-content: "Coding Plan"
-},
-"knowledge-base": {
-headline: "Knowledge Base",
-tip: "The collected context sources CodeRabbit draws on during reviews: Learnings, Code Guidelines, issue trackers, connected MCP servers, and cross-repo analysis.",
-cta: "Explore the Knowledge Base",
-href: "/knowledge-base",
-content: "Knowledge Base"
-},
-"path-instructions": {
-headline: "Path Instructions",
-tip: "Custom review rules that only apply to files matching a glob pattern, e.g. 'src/controllers/**'.",
-cta: "Configure path instructions",
-href: "/configuration/path-instructions",
-content: "Path Instructions"
-},
-"change-stack": {
-headline: "Change Stack",
-tip: "An improved code inspection interface that reorganizes a pull request from a flat file list into a structured, layer-by-layer walkthrough with range-specific summaries and diagrams when useful.",
-cta: "Learn about Change Stack",
-href: "/change-stack",
-content: "Change Stack"
-},
-scope: {
-headline: "Scope",
-tip: "A named set of repositories, connections, and spend limits that controls what CodeRabbit Agent can access in a given Slack conversation.",
-cta: "Learn about Scopes",
-href: "/slack-agent/scopes",
-content: "Scope"
-},
-"coderabbit-agent": {
-headline: "CodeRabbit Agent for Slack",
-tip: "An AI agent built into Slack that investigates issues, generates implementation plans, and opens pull requests right from the Slack threads.",
-cta: "Explore CodeRabbit Agent",
-href: "/slack-agent",
-content: "CodeRabbit Agent"
-},
-"configuration-inheritance": {
-headline: "Configuration Inheritance",
-tip: "A setting that merges configuration values across multiple levels — repository YAML, central YAML, and UI settings — instead of using only the highest-priority source.",
-cta: "Learn about Configuration Inheritance",
-href: "/configuration/configuration-inheritance",
-content: "Configuration Inheritance"
-},
-"coding-agent": {
-headline: "Coding Agent",
-tip: "Turns a user request, a review finding, a coding plan or a failing CI check into a task that CodeRabbit's agent implements in the cloud, then delivers as a commit or a stacked pull request for you to approve.",
-cta: "Learn about Coding Agent",
-href: "/code",
-content: "Coding Agent"
-},
-triage: {
-headline: "Triage",
-tip: "A single cross-repository queue of open pull requests, ranked by what each one needs next and what acting on it is worth.",
-cta: "Learn about Triage",
-href: "/triage",
-content: "Triage"
-}
-};
-const defaults = TIPS[type] || ({});
-return
-{children ?? defaults.content}
-;
-};
 ## General Questions
 ### How to trigger a CodeRabbit Review?
-Once installed, CodeRabbit automatically triggers a review when a pull request is opened against the main branch of any repository. We automatically detect the name of the primary branch (whether this be master, main, dev, etc.). You have fine-grained control over what gets reviewed: target branches, draft PRs, labels, title exclusions, and more — through [automatic review controls](/configuration/auto-review).
-You can also manually trigger a review at any time by commenting on a pull request with one of these commands (see [Commands](/guides/commands) for the full list):
+Once installed, CodeRabbit automatically triggers a review when a pull request is opened against the main branch of any repository. We automatically detect the name of the primary branch (whether this be master, main, dev, etc.). You have fine-grained control over what gets reviewed: target branches, draft PRs, labels, title exclusions, and more — through [automatic review controls](https://docs.coderabbit.ai/configuration/auto-review.md).
+You can also manually trigger a review at any time by commenting on a pull request with one of these commands (see [Commands](https://docs.coderabbit.ai/guides/commands.md) for the full list):
 * `@coderabbitai review` - Triggers an incremental review of new changes only
 * `@coderabbitai full review` - Triggers a full review of the entire pull request
 ### How to run a review from my IDE?
 You can trigger CodeRabbit reviews directly from your IDE using our editor plugins:
-* [VS Code Extension](/ide) - For VS Code, Cursor or Windsurf users
+* [VS Code Extension](https://docs.coderabbit.ai/ide.md) - For VS Code, Cursor or Windsurf users
 These plugins allow you to request reviews without leaving your development environment. See the individual plugin documentation for installation and usage instructions.
 ### How to install CodeRabbit?
 View step-by-step instructions depending on your platform:
-See our [GitHub App installation guide](/platforms/github-com) for
+**GitHub**
+See our [GitHub App installation guide](https://docs.coderabbit.ai/platforms/github-com.md) for
 step-by-step instructions.
-Follow our [GitLab integration guide](/platforms/gitlab-com) to get started.
-Check out the [Bitbucket installation steps](/platforms/bitbucket-cloud) for
+**GitLab**
+Follow our [GitLab integration guide](https://docs.coderabbit.ai/platforms/gitlab-com.md) to get started.
+**Bitbucket**
+Check out the [Bitbucket installation steps](https://docs.coderabbit.ai/platforms/bitbucket-cloud.md) for
 detailed setup.
-View our [Azure DevOps setup guide](/platforms/azure-devops) for complete
+**Azure DevOps**
+View our [Azure DevOps setup guide](https://docs.coderabbit.ai/platforms/azure-devops.md) for complete
 installation instructions.
 ### How accurate is CodeRabbit?
 > CodeRabbit demonstrates high accuracy in code reviews based on early adoption results. While 100% accuracy isn't guaranteed due to AI's evolving nature, our technology continuously improves through:
@@ -146,7 +53,7 @@ CodeRabbit offers two distinct features that serve different roles in your devel
 * **Comprehensive Review**: Analyzes code quality, security, performance, and best practices
 * **Actionable Feedback**: Provides specific, line-by-line suggestions and improvements
 * **Comment Interaction**: Engages with users through comments in pull requests and issues for clarifications and discussions
-* **Plan availability**: Features and limits vary across Free, OSS, Essentials, Team, Advanced, and Enterprise; see [Plans and pricing](/management/plans) for the current matrix
+* **Plan availability**: Features and limits vary across Free, OSS, Essentials, Team, Advanced, and Enterprise; see [Plans and pricing](https://docs.coderabbit.ai/management/plans.md) for the current matrix
 #### CodeRabbit Reports
 **Role**: Project Manager and Communication Hub
 **Access Level**: Summary-only access without direct code interaction
@@ -168,17 +75,21 @@ CodeRabbit offers two distinct features that serve different roles in your devel
 * **Reports** = High-level summaries with no code access for project management
 ### Data Security
 Your proprietary code remains confidential with CodeRabbit. CodeRabbit never uses customer code for model training. Data retention only controls whether CodeRabbit stores code-related data on our side to support features such as learnings and related review context. Data retention governs storage of code-related Knowledge Base data. Model output logging governs whether model outputs and reasoning from private-repository reviews may enter support troubleshooting logs.
+**Code Privacy**
 * Your code is shared with OpenAI and/or Anthropic for reviewing purposes only
 * Neither CodeRabbit, OpenAI, nor Anthropic uses your code to train our models
 * We adhere to rigorous privacy policies to guarantee the safety and confidentiality of your code
 * Complete data isolation for your proprietary code
+**Code Storage**
 * Caching of encrypted code and dependency archives for faster reviews
 * Code indexing in which we store vector representations of code for efficient code base context
 * Longer-lived review context such as Learnings (opt out available)
 * On self-hosted CodeRabbit (available for Enterprise), you can opt out of all data retention at any time
+**Training Data**
 * CodeRabbit never uses customer code for training
 * This remains true whether data retention is enabled or disabled
 * Data retention only affects storage of code-related data such as learnings and review context
+**Model output logging**
 Eligible **non-open-source** organizations can enable **Account > Settings > Model output logging**. The control is **off by default**, with no automatic opt-in. Organization Settings read access governs visibility, and Organization Settings write access is required to change it. Open-source organizations and organizations without a qualifying plan cannot enable the setting.
 When enabled, OpenAI and Anthropic model outputs and reasoning from **private-repository** reviews may be included in support troubleshooting logs. CodeRabbit excludes prompts, does not use logged data for training, and does not change existing logging behavior for public or open-source repositories.
 Changes apply to reviews started after the setting is saved.
@@ -187,6 +98,7 @@ Switch between organizations easily:
 1. Click organization name (top-left corner)
 2. Select desired organization
 3. Access organization-specific settings
+![Organization Switcher](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/assets/images/cr_support_orgs_light-3e7ca94d81cc0f66f3fd51d7b850c22f.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=3b7b8863aafb3f8a172346ee75cef50a)
 ### Comparison with Other Tools
 > Code reviews remain essential, whether the code is written by a human or a bot. This is mainly because the perspective of the reviewer differs from that of the code generator, whether human or machine. This distinction is precisely why human peer reviews have been effective for so long. While AI-powered code-generation tools like GitHub Copilot hold immense potential, it's important to recognize that these generators are still in their early stages and may not be equipped to auto-generate meaningful code for moderately complex applications.
 #### vs AI Code Generators
@@ -203,12 +115,13 @@ Switch between organizations easily:
 * ✅ **New PRs**: Automatic review when created
 * ✅ **New Commits**: Automatic review when pushed to any PR
 * ⚡ **Older PRs**: Use `@coderabbitai review` to trigger manually
+![CodeRabbit- Full-Review](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/assets/images/full-review-cb8972e79cad8e9c787f5954ea9d4fe7.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=3d702dcccc9b9fa4265c3e93e4ad72ee)
 ### Customization Options
 #### How to Add or Update Your Billing Email
 To add or update your billing email, go to [**Subscription and Billing**](https://app.coderabbit.ai/settings/subscription), select **Billing Overview**, then edit **Billing information**. Update the billing email or additional invoice recipients, review the change, and save.
 ### Usage and Configuration
 * **Language Settings**: Configure review language in repository settings
-* **Review Rules**: Customize via [review instructions](/configuration/path-instructions)
+* **Review Rules**: Customize via [review instructions](https://docs.coderabbit.ai/configuration/path-instructions.md)
 * **Branch Selection**: Default branch reviews enabled by default (configurable)
 ### Access & Permissions
 * Minimal repository access required
@@ -219,36 +132,39 @@ Interact with CodeRabbit by:
 1. Replying directly to CodeRabbit comments
 2. Tagging `@coderabbitai` in PR discussions
 3. Adding review comments for specific lines
-4. Customize via [review instructions](/configuration/path-instructions)
-When team members are active in PRs, use `@coderabbitai` to engage the bot.
+4. Customize via [review instructions](https://docs.coderabbit.ai/configuration/path-instructions.md)
+> [!TIP]
+>
+> When team members are active in PRs, use `@coderabbitai` to engage the bot.
 ### Usage Limits
-The default 14-day Advanced trial includes 10 PR, IDE, and CLI reviews per developer per hour, plus 50 chat messages per hour. Trials for another selected plan use that plan's review limit. See [Plans and pricing](/management/plans#rate-limits) for the full table. Open-source and paid plans use their own rate limits. All limits use rolling windows, so capacity becomes available as earlier usage ages out.
+The default 14-day Advanced trial includes 10 PR, IDE, and CLI reviews per developer per hour, plus 50 chat messages per hour. Trials for another selected plan use that plan's review limit. See [Plans and pricing](https://docs.coderabbit.ai/management/plans.md#rate-limits) for the full table. Open-source and paid plans use their own rate limits. All limits use rolling windows, so capacity becomes available as earlier usage ages out.
 For paid PR reviews, your plan includes a set number of PR reviews per developer, per hour. Essentials includes 5 PR reviews per hour, Team includes 8, Advanced includes 10, and Enterprise includes 12. Existing customers who are grandfathered from Pro+ into Team retain 10 reviews per hour. Additional reviews become available as earlier reviews age out of the rolling window rather than resetting all at once.
-CodeRabbit uses recent PR review activity to decide when more reviews become available. For Essentials, Team, and Advanced adaptive limits, the applicable rolling window can be the past 24 hours or the past 7 days. Sustained activity can gradually space out additional reviews for that developer. Reducing or pausing review activity lets recent usage come down over time, which can restore faster review availability. To learn more, see our [Fair Usage Limits Policy](/management/rate-limits#fair-usage-limits-policy). See [Rate limits](/management/plans#rate-limits) for the per-developer limits on each plan.
+CodeRabbit uses recent PR review activity to decide when more reviews become available. For Essentials, Team, and Advanced adaptive limits, the applicable rolling window can be the past 24 hours or the past 7 days. Sustained activity can gradually space out additional reviews for that developer. Reducing or pausing review activity lets recent usage come down over time, which can restore faster review availability. To learn more, see our [Fair Usage Limits Policy](https://docs.coderabbit.ai/management/rate-limits.md#fair-usage-limits-policy). See [Rate limits](https://docs.coderabbit.ai/management/plans.md#rate-limits) for the per-developer limits on each plan.
+Enterprise Plan (This feature is available exclusively as part of the Enterprise plan. Please refer to our pricing page for more information about our plans and features.)
 Only new Enterprise contracts explicitly enrolled in adaptive limits use a refill rate based on delivered included native Git reviews over the past 7 days, counted per developer within the organization. That activity counter resets at the confirmed billing period start; paid continuations do not increase it. Existing Enterprise agreements, including fixed 12 reviews per hour or custom terms, remain unchanged unless otherwise agreed. Any upgrade, including a self-serve upgrade, requires new approved Enterprise contract terms and explicit enrollment. A trial start, renewal, organization creation, or upgrade alone does not enroll you. Trial, CLI, IDE, and self-hosted limits, custom limits, and exemptions are unchanged.
-To reduce unnecessary PR reviews, tune [automatic review controls](/configuration/auto-review): pause automatic incremental reviews after 1 or 2 reviewed commits, turn off automatic reviews and add a configured ready-for-review label to opt PRs in, use title exclusions for WIP or generated changes, or request reviews manually. If your organization needs uninterrupted eligible over-limit reviews, you can purchase credits as [usage-based reviews](/management/usage-based-addon). CLI and agentic API-key reviews also use assigned-seat allowance first, then usage credits only for eligible over-limit reviews.
+To reduce unnecessary PR reviews, tune [automatic review controls](https://docs.coderabbit.ai/configuration/auto-review.md): pause automatic incremental reviews after 1 or 2 reviewed commits, turn off automatic reviews and add a configured ready-for-review label to opt PRs in, use title exclusions for WIP or generated changes, or request reviews manually. If your organization needs uninterrupted eligible over-limit reviews, you can purchase credits as [usage-based reviews](https://docs.coderabbit.ai/management/usage-based-addon.md). CLI and agentic API-key reviews also use assigned-seat allowance first, then usage credits only for eligible over-limit reviews.
 ### What exactly uses one of my PR reviews?
-Opening a pull request or marking a draft ready for review (when auto-review is enabled), pushing to a working branch (when incremental auto-review is enabled), force-pushing, rebasing, and editing a file in the GitHub web UI each produce a review as well - any change to a working branch. You can control automated review behavior using [Auto-review controls](/configuration/auto-review).
-See [What counts as a review event](/management/rate-limits#what-counts-as-a-review-event) for the full list.
+Opening a pull request or marking a draft ready for review (when auto-review is enabled), pushing to a working branch (when incremental auto-review is enabled), force-pushing, rebasing, and editing a file in the GitHub web UI each produce a review as well - any change to a working branch. You can control automated review behavior using [Auto-review controls](https://docs.coderabbit.ai/configuration/auto-review.md).
+See [What counts as a review event](https://docs.coderabbit.ai/management/rate-limits.md#what-counts-as-a-review-event) for the full list.
 ### Where did my organization's reviews go?
-The [Review Usage](/management/review-usage-dashboard) dashboard counts every review event for your organization over the past 7 or 30 days, and shows which pull requests and developers consumed them, which reviews were blocked or continued with credits, and how each developer's adaptive limit changed. The Review Log lists the most recent events and flags pull requests where pushes arrived faster than reviews could finish, so earlier reviews were superseded before they produced feedback (still consuming a full review unit that's counted towards your plan).
+The [Review Usage](https://docs.coderabbit.ai/management/review-usage-dashboard.md) dashboard counts every review event for your organization over the past 7 or 30 days, and shows which pull requests and developers consumed them, which reviews were blocked or continued with credits, and how each developer's adaptive limit changed. The Review Log lists the most recent events and flags pull requests where pushes arrived faster than reviews could finish, so earlier reviews were superseded before they produced feedback (still consuming a full review unit that's counted towards your plan).
 ### Why is one developer hitting limits while everyone else has capacity?
-Review limits apply per developer identity. If a CI bot, a shared service account, or a single coding-agent account opens every pull request, the whole organization's review volume lands on that one identity while other seats stay unused. Adding seats does not change this. See [One identity for every pull request](/management/rate-limits#one-identity-for-every-pull-request).
-### How can I check my remaining PR review limit?
-You can comment `@coderabbitai rate limit` or ask an obvious question such as `@coderabbitai reviews remaining?` to check your PR review limit and next availability timing without consuming a review.
+Review limits apply per developer identity. If a CI bot, a shared service account, or a single coding-agent account opens every pull request, the whole organization's review volume lands on that one identity while other seats stay unused. Adding seats does not change this. See [One identity for every pull request](https://docs.coderabbit.ai/management/rate-limits.md#one-identity-for-every-pull-request).
+### How can I check whether another PR review is available?
+You can comment `@coderabbitai rate limit` or ask an obvious question such as `@coderabbitai reviews remaining?` to check whether another PR review is available and when to try again without consuming a review.
 ## Plans and Pricing
 ### What's the difference between Essentials, Team, and Advanced?
-The **Essentials plan** includes the core AI code review experience — PR reviews, docstrings, autofix, built-in pre-merge checks, integrations, Knowledge base , and analytics. Essentials was previously called Pro.
-The **Team plan** includes everything in Essentials, plus . It also includes tasks and actions that happen upstream and downstream of the review process — [CodeRabbit Plan](/plan), issue planning, [unit test generation](/finishing-touches/unit-test-generation), [simplify code](/finishing-touches/simplify), [merge conflict resolution](/finishing-touches/resolve-merge-conflict), and other pre/post-merge actions. Team was previously called Pro+ and offers higher [rate limits](/management/plans#rate-limits) and increased limits for [MCP connections](/connections/mcp-servers) and [linked repository analysis](/knowledge-base/multi-repo-analysis).
-The **Advanced plan** includes everything in Team and adds continuous pull request security review through CodeRabbit Security. AI Deep Scan remains usage-based and is billed separately.
-See [Plans and pricing](/management/plans) for the full comparison.
+The **Essentials plan** includes the core AI code review experience — PR reviews, docstrings, review fixes, built-in pre-merge checks, integrations, Knowledge base (The collected context sources CodeRabbit draws on during reviews: Learnings, Code Guidelines, issue trackers, connected MCP servers, and cross-repo analysis.), and analytics. Essentials was previously called Pro.
+The **Team plan** includes everything in Essentials, plus Triage (A single cross-repository queue of open pull requests, ranked by what each one needs next and what acting on it is worth.). It also includes tasks and actions that happen upstream and downstream of the review process — [CodeRabbit Plan](https://docs.coderabbit.ai/plan.md), issue planning, [unit test generation](https://docs.coderabbit.ai/finishing-touches/unit-test-generation.md), [simplify code](https://docs.coderabbit.ai/finishing-touches/simplify.md), [merge conflict resolution](https://docs.coderabbit.ai/finishing-touches/resolve-merge-conflict.md), and other pre/post-merge actions. Team was previously called Pro+ and offers higher [rate limits](https://docs.coderabbit.ai/management/plans.md#rate-limits) and increased limits for [MCP connections](https://docs.coderabbit.ai/connections/mcp-servers.md) and [linked repository analysis](https://docs.coderabbit.ai/knowledge-base/multi-repo-analysis.md).
+The **Advanced plan** includes everything in Team and adds continuous pull request security review through CodeRabbit Security. Deep Scan remains usage-based and is billed separately.
+See [Plans and pricing](https://docs.coderabbit.ai/management/plans.md) for the full comparison.
 ### What billing details are required, and how are the emails used?
-CodeRabbit collects account contact details (name, company, primary email, phone) and invoice details (billing email, billing address, optional Tax ID) when you start or update a paid subscription. See [Billing and changing plans](/management/billing#what-billing-details-are-required) for the full breakdown of required fields and how each is used.
+CodeRabbit collects account contact details (name, company, primary email, phone) and invoice details (billing email, billing address, optional Tax ID) when you start or update a paid subscription. See [Billing and changing plans](https://docs.coderabbit.ai/management/billing.md#what-billing-details-are-required) for the full breakdown of required fields and how each is used.
 ### How do upgrades and downgrades work?
-Upgrade-style changes (adding seats or moving to a higher plan) take effect immediately; downgrade-style changes are scheduled for the end of the billing cycle. See [Billing and changing plans](/management/billing#how-do-upgrades-and-downgrades-work) for the full behavior table.
+Upgrade-style changes (adding seats or moving to a higher plan) take effect immediately; downgrade-style changes are scheduled for the end of the billing cycle. See [Billing and changing plans](https://docs.coderabbit.ai/management/billing.md#how-do-upgrades-and-downgrades-work) for the full behavior table.
 ### Is CodeRabbit Agent for Slack or Discord included in my subscription?
 No. CodeRabbit Agent is billed separately from CodeRabbit review plans. Your CodeRabbit subscription covers pull request reviews, IDE and CLI reviews, and related features. CodeRabbit Agent usage is measured in **agent minutes** — the actual runtime each run spends working, and is charged independently.
-You do not need a paid CodeRabbit review plan to use CodeRabbit Agent, and a paid review plan does not include Agent usage. Some Agent trials include a limited Agent Minutes grant; after the trial grant is exhausted or expires, an admin must activate the Agent plan before new Agent runs can continue. See the [Slack Agent overview](/slack-agent) and [Usage](/slack-agent/usage) for details.
+You do not need a paid CodeRabbit review plan to use CodeRabbit Agent, and a paid review plan does not include Agent usage. Some Agent trials include a limited Agent Minutes grant; after the trial grant is exhausted or expires, an admin must activate the Agent plan before new Agent runs can continue. See the [Slack Agent overview](https://docs.coderabbit.ai/slack-agent.md) and [Usage](https://docs.coderabbit.ai/slack-agent/usage.md) for details.
 ## Integration Guide
 ### Prerequisites
 * Organization admin access
@@ -258,7 +174,9 @@ You do not need a paid CodeRabbit review plan to use CodeRabbit Agent, and a pai
 1. Sign up at [coderabbit.ai](https://coderabbit.ai) using your GitHub account
 2. Add your repository through the dashboard
 3. That's it. CodeRabbit will automatically start reviewing your PRs
-Visit our [Support](/support) page for additional assistance or reach out to our team on [Discord](https://discord.gg/coderabbit).
+> [!TIP]
+>
+> Visit our [Support](https://docs.coderabbit.ai/support) page for additional assistance or reach out to our team on [Discord](https://discord.gg/coderabbit).
 #### Unable to View Repositories in GitLab
 If you cannot view repositories in the CodeRabbit UI, please ensure that you
 are added as a Developer in the primary group for GitLab Cloud or in the first
@@ -274,34 +192,48 @@ If you can manage your organization's subscription, go to
 open your current plan, click **Cancel CodeRabbit paid plan**, and follow the
 prompts to confirm.
 If the page is read-only, ask an organization Admin or Billing Admin to make
-the change. For the full flow, see [Canceling a paid subscription](/management/subscription-management#canceling-a-paid-subscription).
+the change. For the full flow, see [Canceling a paid subscription](https://docs.coderabbit.ai/management/subscription-management.md#canceling-a-paid-subscription).
 ### How to troubleshoot CodeRabbit not functioning on certain repositories?
 If CodeRabbit is not functioning on certain repositories, it is likely due to the repository not being accessible to CodeRabbit and you must reinstall the GitHub App or GitLab Integration.
 For newly added GitHub organizations, first use **Refresh organization list** in CodeRabbit after returning from GitHub. If the organization or repositories are not visible immediately, refresh or retry the add flow; CodeRabbit preserves your place while setup is active. If setup is not completed promptly (about 30 minutes), restart **Add organization**.
 To troubleshoot this issue, please attempt to reinstall the GitHub App or GitLab Integration by following the steps below:
+**General Instructions**
 1. Confirm that the author of a pull request has an active seat in CodeRabbit. If not please provide a seat to the user under [Subscription](https://app.coderabbit.ai/settings/subscription) page to enable CodeRabbit for the user. Then have the user close/reopen a new pull request for the change to see CodeRabbit active on the new user.
 2. Please ensure if not selecting all repositories, that you have added all repositories that you would like to enable to the selected list in the app configuration.
 3. If the repository is not in the list, you do not have to uninstall and reinstall the CodeRabbit App. Please add it to the list.
+![Select Repos](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/select-repos.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=aa57a44bcf721e056ae003ef0b495e3f)
+**GitHub**
 1. Go to Repository settings
 2. Click **GitHub Apps** in the left sidebar under **Integrations**
 3. Select **Configure**
+![Select Repos](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/assets/images/github-app-settings-06660d4ae7168ff37bad71c1b8f9697d.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=853b6d37174e22548c6504e694407edd)
 4. Click **Uninstall** at the bottom of the app configuration page.
+![Uninstall](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/coderabbit-github-menu.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=c31baa3cada424cda0b614a8168f87e0)
 5. Go into the [CodeRabbit App](https://github.com/apps/coderabbitai) and install it again with the **Add Repository** button.
+![Add Repository](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/add-repository.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=f4bb387682ea14fa18096b9e568e3c6e)
+**GitLab**
 1. Remove OAuth App from User Settings > Applications
 2. Remove Webhook from Group > Project Settings > Webhooks
 3. Go into the [CodeRabbit App](https://gitlab.com/apps/coderabbitai) and install it again.
+![Install](https://mintcdn.com/coderabbit/69LGK0BhaHIxrC15/images/platforms/img/integrations/gitlab-webhook.png?fit=max\&auto=format\&n=69LGK0BhaHIxrC15\&q=85\&s=b471c4147b9f77e08fbf1c5c1ffbe17c)
 ### How do I delete my CodeRabbit account?
-Irreversible Account Deletion
-Deleting your CodeRabbit account is permanent and cannot be undone. This action will permanently erase:
-* Organization and Repository data
-* AI Bot learnings and insights
-* CodeRabbit Security scans and scan history, findings, etc.
-* Subscriptions and billing information
-* All settings and configurations
-* Reports and recurring reports
-* Third-party service integrations
-Organization-scoped CodeRabbit Security data is permanently removed. Reactivating an organization does not restore prior Security scans, findings, settings, or related records.
-Deleting the organization immediately cancels any active subscription rather than leaving it active through the end of the current billing term.
+> [!CAUTION]
+>
+> Irreversible Account Deletion
+> Deleting your CodeRabbit account is permanent and cannot be undone. This action will permanently erase:
+>
+> * Organization and Repository data
+> * AI Bot learnings and insights
+> * CodeRabbit Security scans and scan history, findings, etc.
+> * Subscriptions and billing information
+> * All settings and configurations
+> * Reports and recurring reports
+> * Third-party service integrations
+>
+> Organization-scoped CodeRabbit Security data is permanently removed. Reactivating an organization does not restore prior Security scans, findings, settings, or related records.
+>
+> Deleting the organization immediately cancels any active subscription rather than leaving it active through the end of the current billing term.
+**Account Deletion Steps**
 1. Sign into your CodeRabbit account
 2. Navigate to the [**Subscription and Billing**](https://app.coderabbit.ai/settings/subscription) page
 3. Select the **Danger Zone** tab
@@ -309,31 +241,62 @@ Deleting the organization immediately cancels any active subscription rather tha
 5. Review the deletion confirmation drawer and acknowledge the required warnings
 6. Type `delete ` to confirm
 7. Complete platform-specific cleanup on the tab above.
-The **Danger Zone** tab and **Delete account** action are only visible to admin users.
+> [!NOTE]
+>
+> The **Danger Zone** tab and **Delete account** action are only visible to admin users.
 A confirmation drawer will appear explaining the consequences of account deletion. You can expand each section for detailed information.
-After account deletion, you must:
-**Remove OAuth App:**
-1. Go to Organization settings
-2. Click **OAuth Application Policy**
-3. Find **coderabbitai** and click the pencil icon
-4. Click **Revoke**
-**Uninstall GitHub App:**
-1. Go to Organization settings
-2. Click **GitHub Apps**
-3. Select **Configure**
-4. Click **Uninstall**
+**GitHub Cleanup**
+After account deletion, remove CodeRabbit from GitHub. The settings live in different places depending on whether CodeRabbit was installed on an organization or on your personal account.
+> **Organization accounts**
+>
+> Remove the OAuth app:
+>
+> 1. Go to Organization settings
+> 2. Under **Third-party Access**, click **OAuth app policy**
+> 3. Find **coderabbitai** and click the pencil icon
+> 4. Click **Revoke**
+>
+> Uninstall the GitHub App:
+>
+> 1. Go to Organization settings
+> 2. Under **Third-party Access**, click **GitHub Apps**
+> 3. Select **Configure**
+> 4. Click **Uninstall**
+> **Personal accounts**
+>
+> Personal accounts have no organization settings, so use your own account settings instead.
+>
+> Revoke the OAuth app:
+>
+> 1. Click your profile picture, then select **Settings**
+> 2. In the sidebar, under **Integrations**, click **Applications**
+> 3. Open the **Authorized OAuth Apps** tab
+> 4. Find **coderabbitai** and click the three-dot menu, then select **Revoke**
+>
+> Uninstall the GitHub App:
+>
+> 1. Go to **Settings** > **Integrations** > **Applications**
+> 2. Open the **Installed GitHub Apps** tab
+> 3. Find **CodeRabbit** and click **Configure**
+> 4. In the **Danger zone** section, click **Uninstall**
+**GitLab Cleanup**
 Complete these steps:
 1. Remove OAuth App from User Settings > Applications
 2. Remove Webhook from Group > Project Settings > Webhooks
 3. Remove Bot User from Group > Manage > Members
+**Azure DevOps Cleanup**
 1. Go to Project Settings > Service Hooks
 2. Delete CodeRabbit webhooks
 3. Remove CodeRabbit user or delete associated Personal Access Token
+**Bitbucket Cleanup**
 1. Go to Project Settings > Webhooks
 2. Delete CodeRabbit webhooks
 3. Remove CodeRabbit user or delete associated App Passwords
-The platform-specific cleanup steps are necessary to completely remove CodeRabbit access. Without completing these steps:
-* CodeRabbit may retain some platform permissions
-* Signing back in will recreate minimal account data only
+> [!WARNING]
+>
+> The platform-specific cleanup steps are necessary to completely remove CodeRabbit access. Without completing these steps:
+>
+> * CodeRabbit may retain some platform permissions
+> * Signing back in will recreate minimal account data only
 This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.
 </untrusted-page-text>
