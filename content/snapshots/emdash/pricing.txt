@@ -5,10 +5,10 @@ Emdash — Open-Source Agentic Development Environment
 Get early access to Emdash 2.0 - Join waitlist
 Docs Blog Changelog Emdash 2.0
 Join Discord
-6,097 Download
+6,105 Download
 Docs Blog Changelog Emdash 2.0
 Join Discord
-6,097 Download
+6,105 Download
 [ Backed by Combinator ]
 Open-source agentic development environment
 Run agents in parallel, schedule repeat work, preview apps in the built-in browser, and manage prompts, skills, and MCP tools from one place.
@@ -295,7 +295,7 @@ Get product updates
 New releases, improvements, and notes from the team. Subscribe
 [ Open Source ]
 Proudly open source.
-6,097 View on GitHub
+6,105 View on GitHub
 General Action © 2026
 Docs Blog RSS Changelog
 About us Privacy Policy Terms of Service
