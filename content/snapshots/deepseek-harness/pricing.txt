@@ -95,7 +95,7 @@ src/label.ts
 10 + return text || 'Untitled' ;
 10 11 }
 Adapt to your workflow
-Enable the Scheduled tasks plugin to start tasks anytime and run recurring work on schedule. Stay on top of progress and inspect tool call details when needed.
+Start tasks anytime and run recurring work on schedule. Stay on top of progress and inspect tool call details when needed.
 Every Friday at 17:00 Beijing time, summarize this week's project notes in a weekly report.
 Deep diving...
 Worked
