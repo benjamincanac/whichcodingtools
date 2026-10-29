@@ -44,17 +44,17 @@ aliases:
     note: On July 9, 2026 the standalone Codex app merged into the ChatGPT desktop app for macOS and Windows. Codex kept its own view inside the app.
 sources:
   - url: https://learn.chatgpt.com/docs/pricing
-    verified_at: 2026-10-10
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://learn.chatgpt.com/docs/app
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, features, general]
   - url: https://learn.chatgpt.com/docs/whats-new
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, features, general]
   - url: https://learn.chatgpt.com/docs/auth
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [models, wraps]
   - url: https://learn.chatgpt.com/docs/linux/linux-app
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms]
