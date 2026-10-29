@@ -56,8 +56,8 @@ pricing:
 status: active
 sources:
   - url: https://github.com/smtg-ai/claude-squad
-    verified_at: 2026-09-18
+    verified_at: 2026-10-29
     covers: [pricing, license, platforms, wraps, features]
   - url: https://smtg-ai.github.io/claude-squad/
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [general]
