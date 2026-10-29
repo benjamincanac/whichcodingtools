@@ -52,7 +52,7 @@ pricing:
 status: active
 sources:
   - url: https://www.tabbyml.com/pricing
-    verified_at: 2026-10-10
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://www.tabbyml.com
     verified_at: 2026-08-24
