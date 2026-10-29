@@ -1,25 +1,14 @@
 # https://www.blackbox.ai/pricing
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
-Blackbox Pricing: commit more, pay less per token
-PLATFORM
-MODELS Model catalog Compare models Blackbox Router
-DEPLOYMENT Dedicated deployment Zero data retention Microsoft Azure Forward-deployed engineering
-ENTERPRISE
-Move faster with direct support from Blackbox engineers, from your first token to production scale. TALK TO SALES →
-RESOURCES
-GET /V1/USERS/{ID}
-API REFERENCE SDK / GUIDES Developer Documentation GUIDES · API REFERENCE · SDKS Quickstarts, the full API reference, and SDK guides, from your first key to production traffic.
-LATEST BLOGS Agents Beat Two Accelerator Chips on Inference in Under 24 Hours, No Human in the Loop OCT 16, 2026 · 2 MIN READ Same GPUs, More TPM: BLACKBOX AI vs Other Inference Providers OCT 15, 2026 · 5 MIN READ Nemotron 3.5 Super VL: E2EE inference at 500+ tokens/sec on one GPU OCT 13, 2026 · 5 MIN READ View all blogs →
-COMPANY Careers Brand guide
-GET STARTED Create an account Log in
-TALK TO US
-Questions about deployment, procurement, or a custom contract? We route you to a person, not a form reply. CONTACT US → CONTACT SALES
+Blackbox Pricing: priced per token, committed once
 LOGIN
-Log in to Secure Inference Log in to Secure AI Cloud
+LOG IN TO
+SECURE INFERENCE APP.BLACKBOX.AI
+SECURE AI CLOUD CONSOLE.BLACKBOX.AI CONTACT SALES
 PRICING
 Priced per token, committed once.
-The same 300+ model catalog at the same rack rates, with end-to-end encryption on every connection. Commitment is the only variable. Commit annual enterprise spend for a discount on every token: the balance decreases as your teams consume it, with dedicated deployments, customer-managed keys, and custom contracts when you need them. No platform fees, no markups, and no seats.
+The same 300+ model catalog at the same rack rates, with end-to-end encryption on every connection. Commit annual enterprise spend, and the balance decreases as your teams consume it, with dedicated deployments, customer-managed keys, and custom contracts when you need them. No platform fees, no markups, and no seats.
 01 ENTERPRISE
 Your model, your keys, your contract.
 Custom
@@ -39,9 +28,9 @@ End-to-end encryption on every connection
 Guaranteed TPM · custom rate limits
 Dedicated Remote Agent runners · SSO
 Agents API: cloud coding agents
-Custom SLAs · volume discounts
+Custom SLAs
 TALK TO SALES
-Your contract is quoted against the per-token rates below as a reference point. The rate on your contract improves as committed spend grows.
+Your contract is quoted against the per-token rates below as a reference point.
 02 COMPARE
 Everything, by plan.
 Enterprise
@@ -73,10 +62,12 @@ Data residency ✓
 We suppress retention and training on routed traffic through provider terms and per-request flags, wherever the provider API supports it. Blackbox runs dedicated deployments on single-tenant infrastructure, isolated from every other customer.
 03 PER-MODEL RATES
 Transparent token pricing
-Priced per 1M tokens. We bill input, output, and cached reads separately. These are list rates. We quote contracts against them, and your rate improves as committed spend grows.
+Priced per 1M tokens. We bill input, output, and cached reads separately. These are list rates. We quote contracts against them.
 MODEL TYPE CONTEXT INPUT / 1M OUTPUT / 1M CACHE READ / 1M
 moonshotai
 kimi-k3 Text 1M $3.00 $15.00 $0.30
+deepseek
+deepseek-v4.1-flash-1017 Text 1M $0.07 $0.30 $0.002
 zai
 glm-5.3 Text 1M $1.40 $4.40 $0.14
 alibaba
@@ -85,8 +76,6 @@ deepseek
 deepseek-v4-pro-0813 Text 1M $0.66 $1.98 $0.07
 deepseek
 deepseek-v4.1-flash Text 1M $0.07 $0.30 $0.002
-tencent
-hy4-preview Text 1M $0.83 $2.50 $0.04
 $0.44
 BLENDED / 1M ON NEMOTRON 3 ULTRA · #1 SPEED
 2.7×
@@ -104,19 +93,19 @@ Every surface uses the same balance: Enterprise Inference , the Blackbox Router 
 What happens to unused commitment?
 It expires at the end of the billing period. We send spend alerts at 75% and 90% of your commit, so nothing expires without warning. Size the commit to your minimum usage.
 Is there a platform fee?
-No. There is no credit-purchase fee and no per-seat charge. You pay for tokens at or below the list rates.
+No. There is no credit-purchase fee and no per-seat charge. You pay only for tokens.
 Can I connect my own provider accounts?
 Yes. Connect your OpenAI, Anthropic, or Google accounts and route through your existing provider relationships and negotiated rates. Routing, failover, caching, and the dashboard remain available, while usage bills through your provider.
-Why is the open-weight discount bigger?
-Open-weight models run on infrastructure that Blackbox operates end to end, which includes the Nemotron deployment that Artificial Analysis benchmarked #1 on output speed (July 2026). Closed models route to their providers, and we pass our scale discounts to you.
 What is included beyond the tokens?
 The trust stack: end-to-end encryption, encryption at rest, the PII anonymization layer, custom SLAs, and a forward-deployed engineer who configures the account with you at contract start. See the security overview for the full detail.
 What does a forward-deployed engineer actually do?
 The engineer writes code in your stack: migration from your current provider, production integrations, eval harnesses, and routing and latency tuning. On Enterprise, the engineer is dedicated to your account, and implementation is included at no added cost.
 When do I have to talk to sales?
-From the start. The commit is the contract. Enterprise exists for committed discounts, dedicated single-tenant deployments, data residency, and custom contracts.
+From the start. The commit is the contract. Enterprise exists for dedicated single-tenant deployments, data residency, and custom contracts.
 How does an engagement start?
 With a conversation, not a signup. We scope the workload and the volume with you and agree a commit. A forward-deployed engineer then configures the account, with any controls, such as PII removal, that your security review requires. Talk to sales to start one.
+// NEXT STEP
+The most secure inference for enterprise
 Scope a deployment with our team.
 Tell us the workload, the controls that it must satisfy, and the volume that you expect. We reply with a commit and a deployment plan, not a form reply.
 TALK TO SALES
@@ -125,7 +114,7 @@ The high-trust inference layer for teams that deploy at scale. BLACKBOX AI TECHN
 535 MISSION STREET
 SAN FRANCISCO, CA
 PLATFORM
-Enterprise Inference Model catalog Nemotron 3 Ultra Provider benchmarks Compare models Pricing
+Enterprise Inference Model catalog Nemotron 3 Ultra Self-improving inference Provider benchmarks Compare models Pricing
 DEPLOYMENT
 Dedicated deployment Zero data retention Microsoft Azure Forward-deployed engineering Talk to sales
 DEVELOPERS
