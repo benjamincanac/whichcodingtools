@@ -103,23 +103,23 @@ pricing:
 status: active
 sources:
   - url: https://www.coderabbit.ai/pricing
-    verified_at: 2026-10-07
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://docs.coderabbit.ai/management/plans.md
-    verified_at: 2026-10-07
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://docs.coderabbit.ai/faq.md
-    verified_at: 2026-10-07
+    verified_at: 2026-10-29
     covers: [models, pricing]
   - url: https://docs.coderabbit.ai
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, general]
   - url: https://docs.coderabbit.ai/overview/ide-cli-review.md
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, features]
   - url: https://docs.coderabbit.ai/cli/index.md
-    verified_at: 2026-10-07
+    verified_at: 2026-10-29
     covers: [platforms, pricing]
   - url: https://docs.coderabbit.ai/knowledge-base/mcp-context.md
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [features]
