@@ -35,8 +35,10 @@ pricing:
       overage:
         kind: api-list
       limits:
+        - Pay-as-you-go for Amp-hosted orbs
+        - Unlimited self-hosted orbs, free
         - Use your own runners for free
-        - Use your ChatGPT subscription and other subscriptions
+        - Use your ChatGPT, Claude and other subscriptions
         - Bring your own keys (BYOK), no Amp token fees or limits
         - Public/private repositories
       notes: The March 30, 2026 news post describes a $10 daily usage grant, ad-free, kept for existing accounts and paused or reduced for some users since May 2026.
@@ -47,8 +49,9 @@ pricing:
       overage:
         kind: api-list
       limits:
-        - 45,000 minutes of orbin' time
-        - Use your ChatGPT subscription and other subscriptions
+        - 45,000 minutes of orbin' time, for Amp-hosted orbs
+        - Unlimited self-hosted orbs, free
+        - Use your ChatGPT, Claude and other subscriptions
         - Bring your own keys (BYOK), no Amp token fees or limits
         - Unlimited public/private repositories
         - Use your own domains for portals
@@ -88,6 +91,7 @@ pricing:
         - Pooled credits only, no paid user seats
         - SCIM user directory sync
         - Spend limits and reporting
+        - Custom self-hosted orbs
         - Audit logs and network/MCP access controls
         - IP allowlisting and regional endpoints
         - Higher resource quotas and rate limits
@@ -96,13 +100,13 @@ pricing:
 status: active
 sources:
   - url: https://ampcode.com/pricing
-    verified_at: 2026-09-13
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://ampcode.com/manual
     verified_at: 2026-08-23
     covers: [platforms, models, features, general]
   - url: https://ampcode.com/news/amp-free-is-ad-free
-    verified_at: 2026-09-13
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://ampcode.com/terms
     verified_at: 2026-10-02
