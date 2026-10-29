@@ -63,7 +63,7 @@ pricing:
 status: active
 sources:
   - url: https://nimbalyst.com/pricing
-    verified_at: 2026-10-18
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://nimbalyst.com
     verified_at: 2026-08-23
