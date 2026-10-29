@@ -2,7 +2,7 @@
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
 Pricing | Conductor
-Changelog Docs Pricing Enterprise Join Us Download
+Changelog Docs Pricing Enterprise Join Us Sign in Download
 Pricing
 Free
 $0
@@ -17,13 +17,12 @@ $50 /mo
 Get Pro
 Everything in Free, plus:
 └ Conductor Cloud and a bunch of cloud workspace hours
-└ Multiplayer
 └ Live collaboration with up to 5 Pro users
 └ Conductor API
 └ Conductor mobile app
 Teams
 $60 /mo/user
-Contact us
+Get Teams
 Everything in Pro, plus:
 └ Live collaboration for teams of any size
 └ Admin portal
@@ -41,11 +40,12 @@ Trusted by 100k+ builders Trusted by 100k+ builders
 How do I get access to Cloud workspaces? └
 Cloud workspaces are available to users on Pro, Teams, or Enterprise plans.
 What are the differences between Pro, Teams, and Enterprise plans? └
-Our Pro plan is for individual users who want to get the most out of Conductor. Pro gets you access to cloud workspaces and all of our latest features like the Conductor API, our mobile app, and a whole lot more coming soon.
+Our Pro plan is for individual users who want to get the most out of Conductor. Pro gets you access to cloud workspaces and all of our latest features like the Conductor API, our mobile app, and a whole lot more coming soon. Additionally, users with a Pro plan can create shared orgs with up to 5 total Pro users to collaborate live with Conductor Multiplayer.
 Our Team plan gets you all of Pro’s features to use across your company. And now with Conductor Multiplayer, users in the same Conductor org can collaborate live by sharing workspaces and prompting agents in real-time together. Our Team plan also provides centralized billing and an admin portal to manage user roles within your org.
 Our Enterprise plan has all of Teams’ features with the additional security and privacy controls large organizations expect like automated user provisioning, SLA for dedicated support, and fine-grained security controls.
-How do I sign up my company for a Team plan? └
-Team plans are currently invite-only. If your company is interested in purchasing a Team plan, you can reach out to us here: https://www.conductor.build/team-plan
+Can I have both a Pro plan and a Team plan? └
+Yes. Pro is billed per person and lets you create cloud orgs with up to 5 Pro users total. It’s a good fit for small groups that don’t need centralized billing.
+Team is billed per company. A Team seat doesn’t include Pro, so if you also want small cloud orgs outside your company, you’ll need a separate Pro plan.
 Do I have to use API keys to set up inference in cloud workspaces? └
 No, just like local Conductor, you can bring your own subscriptions and/or API keys for cloud workspaces.
 Do I have to pay an additional fee for cloud workspaces? └
