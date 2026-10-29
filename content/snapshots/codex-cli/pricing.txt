@@ -25,16 +25,16 @@ Deploy and scale your API integrations
 API reference
 Explore endpoints, parameters, and responses
 ChatGPT
-Sign in with ChatGPT
-Apps powered by your user's ChatGPT plan
 Plugins
 Extend ChatGPT and Codex
-Workspace Agents
-Trigger published ChatGPT workspace agents
+Sign in with ChatGPT
+Apps powered by your user's ChatGPT plan
 Commerce
 Build commerce flows in ChatGPT
 Ads
 Publish and measure ads in ChatGPT
+Workspace Agents
+Trigger published ChatGPT workspace agents
 ChatGPT + Codex user docs
 Guides and product docs for ChatGPT and Codex
 Use cases
@@ -65,14 +65,16 @@ Search docs
 Suggested
 responses create reasoning_effort realtime prompt caching
 Overview Models Agents Tools Audio & voice Production API reference
-Overview Models Agents Tools Audio & voice Production API reference Docs Overview
+Docs Overview
 Home
 Get started
 Quickstart
 Using GPT-6
 Key concepts
+API credits for ChatGPT subscribers
 Core concepts
 Responses API
+Decisions API
 Conversation state
 Background mode
 Streaming
@@ -103,7 +105,6 @@ Getting started
 Working with evals
 Prompt optimizer
 External models
-Best practices
 Graders
 Fine-tuning
 Optimization cycle
@@ -157,11 +158,13 @@ Sessions
 Run and continue sessions
 Events and items
 Manage sessions
+Scheduled automations
 Webhooks
 Environments and sandboxes
 OpenAI-hosted sandboxes
 Self-hosted sandboxes
 Sandbox lifecycle
+Pre-warm sandboxes
 Sandbox security
 Files and artifacts
 Tools and integrations
@@ -212,6 +215,8 @@ Async tool calling
 Computer and code
 Shell
 Computer use
+Integration recipes
+Driver reference
 Apply Patch
 Local shell
 Code interpreter
@@ -233,6 +238,7 @@ Voice activity detection
 Tools and MCP
 Build with voice
 Voice agents
+Connect voice to Decisions
 Custom voices
 Cost optimization
 Connections
@@ -256,6 +262,9 @@ Ultrafast mode
 Latency optimization
 Predicted Outputs
 Accuracy optimization
+Evaluation
+Evaluation best practices
+Promptfoo
 Cost and throughput
 Cost optimization
 Prompt caching
@@ -299,6 +308,7 @@ Google Cloud
 Oracle Cloud Infrastructure
 GitHub Actions
 SPIFFE
+Idira
 IP egress ranges
 Amazon Bedrock
 Operations
@@ -306,26 +316,9 @@ Rate limits
 Spend limits
 Admin APIs
 Error codes
-Overview Sign in with ChatGPT Plugins Workspace Agents Commerce Ads ChatGPT + Codex user docs
+Overview Plugins Sign in with ChatGPT Commerce Ads Workspace Agents ChatGPT + Codex user docs
 Use cases
-Overview Sign in with ChatGPT Plugins Workspace Agents Commerce Ads ChatGPT + Codex user docs Use cases Docs Overview
-Home
-Quickstart
-Request a client ID
-Identity
-On your website
-In your ChatGPT plugin
-ChatGPT plan usage
-Overview
-UI/UX guidelines
-Registration and sign-in
-Accounts and sessions
-Models and inference
-Codex app-server
-Self-hosted VMs
-Token reference
-Errors and recovery
-Preview limitations
+Docs Overview
 Home
 Quickstart
 Core concepts
@@ -347,6 +340,7 @@ Examples
 Test and publish
 Connect and test your plugin
 Submit and publish
+Submit desktop-only plugins
 Submission error reference
 Conversion specs
 Restaurant reservation spec
@@ -365,9 +359,23 @@ MCP server review requirements
 Plugin UI reference
 Checkout API reference
 Home
-Get started
-Trigger workspace agent runs
-Authenticate with Workspace Agent access tokens
+Quickstart
+Request a client ID
+Identity
+On your website
+In your ChatGPT plugin
+Account security notification
+ChatGPT plan usage
+Overview
+UI/UX guidelines
+Registration and sign-in
+Accounts and sessions
+Models and inference
+Codex app-server
+Self-hosted VMs
+Token reference
+Errors and recovery
+Preview limitations
 Home
 Guides
 Get started
@@ -409,8 +417,12 @@ Ads
 Insights
 Files
 Conversion Setup
+Home
+Get started
+Trigger workspace agent runs
+Authenticate with Workspace Agent access tokens
 Overview Features Configuration Developers Security Administration Use Cases Resources
-Overview Features Configuration Developers Security Administration Use Cases Resources Docs Overview
+Docs Overview
 Home
 Get started
 Quickstart
@@ -431,7 +443,7 @@ Pricing
 Glossary
 Available on
 ChatGPT desktop app
-Remote
+ChatGPT mobile app
 ChatGPT on the web
 Codex CLI
 Codex IDE extension
@@ -443,7 +455,6 @@ Open Source
 Overview
 Workflows
 Projects and chats
-Sites
 Build plugins
 Visualizations
 Scheduled tasks
@@ -455,6 +466,7 @@ Capabilities
 Browser
 Computer use
 Voice
+Composer Predictions
 Plugins
 Sign in with ChatGPT
 Web search
@@ -463,6 +475,12 @@ Image inputs
 Appshots
 Browser extension
 Work with files
+Sites
+Overview
+Create a site
+Data and connections
+Publish and share
+Manage a site
 dots
 Meet dots
 Getting started
@@ -524,6 +542,7 @@ Cloud environments
 Build with Codex
 Codex SDK
 App Server
+Model catalogs
 GitHub Action
 Non-interactive mode
 Third-party integrations
@@ -543,6 +562,11 @@ Auto-review
 Agent approvals & security
 Codex Security
 Overview
+Codex Security Cloud
+Setup
+Security Review
+Improving the threat model
+FAQ
 Codex Security plugin
 Quickstart
 Run a security scan
@@ -558,16 +582,13 @@ Changelog
 Codex Security CLI
 Quickstart
 Run bulk scans
-Run scans in CI
+CI/CD
+Overview
+GitHub Actions
 GitLab CI/CD
 Reference
 FAQ
-TypeScript SDK
-Codex Security Cloud
-Setup
-Security Review
-Improving the threat model
-FAQ
+Codex Security SDK
 Cyber safety
 Models & Trusted Access
 Recommended configuration
@@ -575,33 +596,38 @@ Overview
 Getting started
 Admin rollout guide
 Admin plugin
-Feature setup
+Feature Configuration
 Dots
 Space
+Sites
 Teams and Team Tasks
 ChatGPT in Slack and Teams
 Workspace connections
 Local computer access for Work Cloud and dots
-Sites
 Identity and access
 Authentication overview
 Groups and provisioning
+Dynamic groups
 User lifecycle management
 Roles and workspace permissions
 Personal access tokens
 Service accounts
 Deployment and configuration
-Windows app deployment
+Windows app and CLI deployment
 Manage app updates
 Managed configuration
+Codex security cookbook
 Remote connections
 Workspace model availability
 Amazon Bedrock
 Bedrock GovCloud configuration
 Connect to a gateway
-Deploy Codex through a gateway
+Roll out a gateway
 Gateway compatibility
 Bedrock through LiteLLM
+ChatGPT EDU
+Education plans
+Higher education setup
 ChatGPT Work
 Overview
 Cloud security
@@ -656,14 +682,14 @@ Blog
 Company blog
 Developer blog
 Showcase Blog Cookbook Learn Community
-Showcase Blog Cookbook Learn Community Docs Select...
+Docs Showcase
 All posts
 Recent
+Designing failover across OpenAI model providers
+Maintaining software with the GPT-6 family
 Bringing my LED display to life with GPT-Live-1 and Codex
 Rethinking skills and prompts for GPT-6 Astra
 Architectural visualization with Astra
-Building games with Astra
-Meet Rosalind Workbench: Empowering every scientist to be their own research team
 Topics
 General
 API
@@ -706,6 +732,7 @@ Video generation
 Community
 Programs
 Codex Ambassadors
+Meet the ambassadors
 Codex for Students
 Codex for Open Source
 OpenAI for Startups
@@ -737,7 +764,7 @@ Pricing
 Glossary
 Available on
 ChatGPT desktop app
-Remote
+ChatGPT mobile app
 ChatGPT on the web
 Codex CLI
 Codex IDE extension
@@ -748,13 +775,14 @@ Feature Maturity
 Open Source
 Copy Page
 Pricing
-ChatGPT Work and Codex are included in your ChatGPT Free, Go, Plus, Pro, Business, Edu, or Enterprise plan
 Copy Page
+ChatGPT Work and Codex are included in your ChatGPT Free, Go, Plus, Pro, Business, Edu, or Enterprise plan
 ChatGPT Work and Codex share usage. ChatGPT Work usage inside
 ChatGPT uses the same pricing, credits, and usage limits as Codex.
-GPT-5.5 retires from ChatGPT, ChatGPT Work, and Codex on all plans on
-October 14, 2026. The OpenAI API isn’t affected. See
-GPT-5.5 retirement for migration guidance.
+GPT-5.5 retires from Codex with ChatGPT sign-in on October 14, 2026, at noon
+PDT (19:00 UTC). The OpenAI API and Codex sessions authenticated with an API
+key aren’t affected. See GPT-5.5 retirement
+for migration guidance.
 See token rates for credit-based plans and
 GPT-6.1 Sol model guidance for model details.
 API token prices are separate from subscription usage; don’t use them to
@@ -785,7 +813,7 @@ From
 $100 /month Get Pro
 Everything in Plus and:
 Plans at $100, $200, or $500 USD per month
-Astra Ultrafast
+Ultrafast mode
 access on Pro $500
 Other ChatGPT features as part of the
 Pro plan
@@ -864,6 +892,7 @@ Plus
 Standard Business
 GPT-6 Astra 5-45 5-45
 GPT-6.1 Sol 15-160 15-160
+GPT-6.1 Terra 35-285 35-285
 GPT-6 Sol 15-150 15-150
 GPT-6 Luna 350-3,000 350-3,000
 Local messages and cloud chats share your plan’s usage allowance. Weekly
@@ -875,6 +904,8 @@ usage limits as Plus for most features.
 Usage limits are shared with other agentic features once pricing for those
 features is effective. This currently includes ChatGPT for
 Excel on Plus and Pro.
+GPT-6.1 Sol usage drawn from your subscription has no long-context surcharge
+in Codex or ChatGPT Work.
 Fast and Ultrafast modes use included subscription limits and paid credits
 at different rates, relative to Standard mode for the same model:
 Speed mode
@@ -886,14 +917,15 @@ Fast
 GPT-6 Astra Ultrafast
 8x
 6x
-These billing multipliers don’t describe speed increases. Credit rates
-alone don’t determine how quickly you use included subscription limits;
-check your usage dashboard for
+GPT-6.1 Sol Ultrafast
+8x
+6x
+Check your usage dashboard for
 current limits and reset times. See Speed
 for supported models and how speed modes affect usage.
 Image generations use included limits ~3-5x faster on average, depending on
 image quality and size.
-For GPT-6 Astra Ultrafast eligibility, billing, and administrator controls,
+For Ultrafast mode eligibility and administrator controls,
 see Ultrafast mode .
 How much does Sites cost?
 Sites is included with eligible ChatGPT plans during public
@@ -962,6 +994,7 @@ Cached input tokens
 Output Tokens
 GPT-6 Astra 250 credits 25 credits 1,250 credits
 GPT-6.1 Sol 50 credits 2.5 credits 250 credits
+GPT-6.1 Terra 25 credits 1.25 credits 125 credits
 GPT-6 Sol 50 credits 5 credits 250 credits
 GPT-6 Luna 2.5 credits 0.25 credits 12.5 credits
 GPT-5.6 Sol 100 credits 10 credits 500 credits
@@ -970,14 +1003,13 @@ Daybreak Red 312.5 credits 31.25 credits 1875 credits
 GPT-5.6 Terra 50 credits 5 credits 300 credits
 GPT-5.6 Luna 5 credits 0.5 credits 30 credits
 GPT-Rosalind-Research 125 credits 12.5 credits 625 credits
-GPT-5.5 125 credits 12.50 credits 750 credits
 GPT-Image-2 (image) 200 credits 50 credits 750 credits
 GPT-Image-2 (text) 125 credits 31.25 credits 250 credits
 A typical GPT-5.6 Sol task may use 2-15 credits.
 These are Standard credit rates. For purchased credits and Enterprise
 pay-as-you-go usage, Fast mode uses 2x the Standard rate where
-available, and GPT-6 Astra Ultrafast uses 6x. Included subscription
-usage has different multipliers. See
+available, and Ultrafast mode uses 6x. Included subscription usage has
+different multipliers. See
 Speed for availability
 and billing details.
 Daybreak access requires Trusted Access for
@@ -1018,6 +1050,11 @@ In ChatGPT, GPT-6.1 Sol is available in Work and Codex, not Chat. For Enterprise
 and Edu, the model is off by default until an administrator enables it. Using
 it in ChatGPT Work or Codex also requires access to the respective surface.
 API-key access follows API model availability.
+GPT-6.1 Terra is available in Work and Codex on
+Plus, Pro, Business, Enterprise, and Edu plans. It does not support
+UAE inference residency. It isn’t available in Chat. Access requires the corresponding
+surface; Enterprise access also depends on workspace availability and
+administrator controls. Overall Work and Codex plan limits are unchanged.
 Feature ChatGPT Plus ChatGPT Pro ChatGPT Business Enterprise / Education API Key
 Access and surfaces
 Codex cloud
@@ -1034,9 +1071,10 @@ ChatGPT for Excel
 —
 Models and multimodal
 GPT-6.1 Sol
+GPT-6.1 Terra
 GPT-6 Sol and Luna
 Fast mode
-Astra Ultrafast (Pro $500 and eligible Enterprise/Edu plans) —
+Ultrafast (Pro $500 and eligible Enterprise/Edu plans) —
 —
 Image generation and editing
 Voice dictation
@@ -1045,6 +1083,7 @@ ChatGPT Voice
 —
 Web search
 Local features
+Composer predictions (beta) — Limited* — — —
 Local code review with /review
 Auto-review for approval requests
 Sandboxing and permission controls
@@ -1130,15 +1169,18 @@ Automation access tokens
 ChatGPT for Excel
 Models and multimodal
 GPT-6.1 Sol
+GPT-6.1 Terra
 GPT-6 Sol and Luna
 Fast mode
-Astra Ultrafast (Pro $500 and eligible Enterprise/Edu plans)
+Ultrafast (Pro $500 and eligible Enterprise/Edu plans)
 —
 Image generation and editing
 Voice dictation
 ChatGPT Voice
 Web search
 Local features
+Composer predictions (beta)
+—
 Local code review
 Auto-review for approval requests
 Sandboxing and permission controls
