@@ -5,87 +5,75 @@ GitHub - Aider-AI/aider: aider is AI pair programming in your terminal · GitHub
 Skip to content
 Navigation Menu
 Sign in
-Appearance settings
+Products
 Platform
-AI CODE CREATION
-GitHub Copilot Write better code with AI
-GitHub Copilot app Direct agents from issue to merge
-MCP Registry Integrate external tools
-DEVELOPER WORKFLOWS
-Actions Automate any workflow
-Codespaces Instant dev environments
-Issues Plan and track work
-Code Review Manage code changes
-Code Quality Enforce quality at merge
-APPLICATION SECURITY
-GitHub Advanced Security Find and fix vulnerabilities
-Code security Secure your code as you build
-Secret protection Stop leaks before they start
-EXPLORE
-Why GitHub
+GitHub Repository hosting, code review, and collaboration
+Copilot AI coding agent for tasks, projects and automated work
+Build & Ship
+Actions CI/CD and automation
+Code Quality Quality analysis, fixes, and enforcement
+Codespaces Cloud development environments
+Secure
+Code Security Vulnerability detection and remediation
+Secret Protection Secret scanning and leak prevention
+All Features
+Developers
+Learn
 Documentation
-Blog
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Events
 Changelog
-Marketplace
-View all features
-Solutions
-BY COMPANY SIZE
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
 Enterprises
-Small and medium teams
+Team
 Startups
 Nonprofits
-BY USE CASE
-App Modernization
-DevSecOps
-DevOps
-CI/CD
-View all use cases
-BY INDUSTRY
+By Industry
 Healthcare
 Financial services
 Manufacturing
 Government
-View all industries
-View all solutions
-Resources
-EXPLORE BY TOPIC
-AI
-Software Development
-DevOps
-Security
-View all topics
-EXPLORE BY TYPE
-Customer stories
-Events & webinars
-Ebooks & reports
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
 Business insights
-GitHub Skills
-SUPPORT & SERVICES
-Documentation
-Customer support
-Community forum
-Trust center
-Partners
-View all resources
-Open Source
-COMMUNITY
-GitHub Sponsors Fund open source developers
-PROGRAMS
-Security Lab
-Maintainer Community
-GitHub Stars
-Archive Program
-REPOSITORIES
-Topics
-Trending
-Collections
-Enterprise
-ENTERPRISE SOLUTIONS
-Enterprise platform AI-powered developer platform
-AVAILABLE ADD-ONS
-GitHub Advanced Security Enterprise-grade security features
-Copilot for Business Enterprise-grade AI features
+Trust Center
+Add-ons
+GitHub Advanced Security Enterprise-grade code security
+Copilot for business Enterprise-grade AI features
 Premium Support Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
 Pricing
 Search /
 Sign in Sign up
@@ -96,33 +84,39 @@ You switched accounts on another tab or window. Reload to refresh your session.
 Dismiss alert
 {{ message }}
 Aider-AI
-/
 aider
-Public
-Notifications
-You must be signed in to change notification settings
-Fork
-5k
-Star
-49k
+Repository navigation
 Code
-Issues
-1.4k
-Pull requests
-500
-Actions
-Projects
-Security and quality
-0
-Insights
-Additional navigation options
-Code
-Issues
-Pull requests
+Issues 1.4k ( 1.4k )
+Pull requests 527 ( 527 )
 Actions
 Projects
 Security and quality
 Insights
+More items
+aider Public
+Notifications You must be signed in to change notification settings
+Fork 5.1k ( 5.1k )
+Star 49.8k ( 49.8k ) You must be signed in to star a repository
+About
+aider is AI pair programming in your terminal
+aider.chat/
+Topics
+anthropic chatgpt claude-3 cli command-line gemini gpt-3 gpt-35-turbo gpt-4 gpt-4o llama openai sonnet
+Resources
+Readme
+Apache-2.0 license
+Contributing
+Contributing
+Activity
+Custom properties
+Stars
+49.8k stars
+Watchers
+267 watching
+Forks
+5.1k forks
+Report repository
 main
 Branches
 Tags
@@ -281,11 +275,11 @@ Contributing
 Activity
 Custom properties
 Stars
-49.0k stars
+49.8k stars
 Watchers
-268 watching
+267 watching
 Forks
-5.0k forks
+5.1k forks
 Report repository
 Releases
 Packages
