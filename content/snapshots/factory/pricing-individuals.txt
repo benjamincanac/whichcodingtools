@@ -14,7 +14,7 @@ Organizations
 Available Models
 Contact Support
 Product Surfaces
-Software Factory
+Automations
 Platform Capabilities
 Factory Enterprise
 factory.com
@@ -25,7 +25,7 @@ Individual Plans
 Copy page
 Compare Factory Pro, Plus, and Max plans for individual developers.
 Individual plans are for developers who own their own Factory subscription. Pro, Plus, and Max include the Factory App , Droid CLI , and Droid SDK , with usage governed by rolling Rate Limits.
-Individual tiers #
+Individual tiers
 Pro · $20/mo
 Factory App , Droid CLI , and Droid SDK
 Cloud and local background agents
@@ -41,18 +41,18 @@ Everything in Plus
 ~10x Pro usage
 Early feature access for high-volume work Get started
 Max · $200/mo
-How individual usage works #
+How individual usage works
 Rate Limits: three rolling windows, 5-hour, 7-day, and 30-day. Each runs independently.
 Standard Usage: consumed first on Individual plans.
 Droid Core : free open-weight model pool with separate Rate Limits after Standard Usage runs out.
 Extra Usage: prepaid credits, $10 minimum, no expiration. The toggle stays on until you turn it off or run out.
 Monitor usage: open Settings > Usage or run /limits in Droid .
-Missions and BYOK #
+Missions and BYOK
 Missions use the same rolling Rate Limits as regular sessions and require Extra Usage to be enabled. If a Mission hits a Rate Limit, it pauses.
 BYOK is free up to an allowance on all Individual plans. After that, usage is charged according to your specific plan.
 Tip
 Run Missions on Droid Core when possible. Core models often deliver comparable results and stretch your plan further.
-FAQ #
+FAQ
 What counts toward each rate limit? +
 Do the three rate limits run independently? +
 When does each window reset? +
