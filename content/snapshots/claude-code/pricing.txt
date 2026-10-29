@@ -6,7 +6,9 @@ Product
 Products
 Claude
 Claude Code
-@Claude
+Claude Cowork
+Claude Duet
+Claude Tag
 Specialized
 Claude Security
 Claude Science
@@ -17,11 +19,11 @@ Connectors
 Plugins
 Skills
 Extensions
-Claude for Chrome
+Claude in Chrome
+Claude for Google Workspace
 Claude for Microsoft 365
 Models
-Mythos
-Fable
+Mythos (including Fable)
 Opus
 Sonnet
 Haiku
@@ -48,6 +50,7 @@ Use Cases
 AI Agents
 Coding
 Commerce
+Managed Agents
 Departments
 Customer support
 Cybersecurity
@@ -93,7 +96,8 @@ Latest news
 Claude Cowork is now just Claude.
 Rolling out to Pro and Max, with more plans to follow. Read what changed (opens in new tab)
 Pricing
-Individual Team & Enterprise API
+Individual Developer Team & Enterprise API
+Individual
 Free
 Try Claude
 $0
@@ -105,7 +109,7 @@ Memory across conversations
 Connect your apps and tools
 Create Artifacts
 Claude Design, Slides, Docs
-Pro
+Pro Claude Code included
 For everyday work
 $17
 Per month with annual subscription discount ( $200 billed up front). $20 if billed monthly.
@@ -114,12 +118,11 @@ Everything in Free, plus:
 More usage*
 Hand off and schedule tasks
 Claude Dashboards (beta)
-Claude Code
 Claude Science
 Projects
 More Claude models
 Claude in Chrome and Microsoft 365
-Max
+Max Claude Code included
 For people who work with Claude all day
 From $100
 Per month
@@ -435,7 +438,7 @@ Enterprise
 For large businesses operating at scale
 Get Enterprise plan Chat with buying specialist
 Seat price + usage at API rates
-US$20/seat/month, billed annually. Usage cost scales with model and task.
+US$20/seat/month, billed annually, 20 seat minimum. Usage cost scales with model and task.
 All Team plan features, plus:
 Admins set user and org spend limits
 Role-based access with fine grained permissioning
@@ -730,7 +733,7 @@ Yes
 Yes
 Context window
 More information Up to 1M varies by model Up to 1M varies by model Up to 1M varies by model
-Extra usage
+Usage credits
 More information
 Yes n/a n/a
 New Monthly API credits † Up to $500/month
@@ -980,7 +983,8 @@ Products
 Claude
 Claude Code
 Claude Cowork
-@Claude
+Claude Duet
+Claude Tag
 Claude Science
 Claude Security
 Download app
@@ -994,10 +998,10 @@ Plugins
 Skills
 Extensions
 Claude in Chrome
+Claude for Google Workspace
 Claude for Microsoft 365
 Models
-Mythos
-Fable
+Mythos (including Fable)
 Opus
 Sonnet
 Haiku
@@ -1036,6 +1040,7 @@ Marketplace
 Claude on AWS
 Google Cloud
 Microsoft Foundry
+Managed Agents
 Resources
 Overview
 Articles
@@ -1076,7 +1081,8 @@ Products
 Claude
 Claude Code
 Claude Cowork
-@Claude
+Claude Duet
+Claude Tag
 Claude Science
 Claude Security
 Download app
@@ -1090,10 +1096,10 @@ Plugins
 Skills
 Extensions
 Claude in Chrome
+Claude for Google Workspace
 Claude for Microsoft 365
 Models
-Mythos
-Fable
+Mythos (including Fable)
 Opus
 Sonnet
 Haiku
@@ -1132,6 +1138,7 @@ Marketplace
 Claude on AWS
 Google Cloud
 Microsoft Foundry
+Managed Agents
 Resources
 Overview
 Articles
@@ -1169,6 +1176,7 @@ Terms of Service: US K-12
 Data Processing Agreement: US K-12
 Usage Policy
 © 2026 Anthropic PBC
+Add to Preferred Sources
 English
 English
 日本語

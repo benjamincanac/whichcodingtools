@@ -83,11 +83,11 @@ pricing:
 status: active
 sources:
   - url: https://claude.com/pricing
-    verified_at: 2026-10-10
+    verified_at: 2026-10-29
     covers: [pricing]
   - url: https://code.claude.com/docs/en/overview
-    verified_at: 2026-08-23
+    verified_at: 2026-10-29
     covers: [platforms, models, features, general]
   - url: https://code.claude.com/docs/en/worktrees
-    verified_at: 2026-08-26
+    verified_at: 2026-10-29
     covers: [features]
