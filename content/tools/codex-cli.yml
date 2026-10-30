@@ -82,7 +82,7 @@ pricing:
 status: active
 sources:
   - url: https://learn.chatgpt.com/docs/pricing
-    verified_at: 2026-10-29
+    verified_at: 2026-10-30
     covers: [pricing, models]
   - url: https://github.com/openai/codex
     verified_at: 2026-10-29
