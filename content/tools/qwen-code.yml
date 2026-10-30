@@ -64,7 +64,7 @@ sources:
     verified_at: 2026-10-02
     covers: [general]
   - url: https://www.alibabacloud.com/help/en/model-studio/coding-plan
-    verified_at: 2026-10-02
+    verified_at: 2026-10-30
     covers: [pricing]
   - url: https://qwenlm.github.io/qwen-code-docs/en/users/configuration/auth/
     verified_at: 2026-10-02
