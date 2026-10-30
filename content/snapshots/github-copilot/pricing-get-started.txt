@@ -22,60 +22,62 @@ Copilot CLI quickstart
 Copilot app quickstart
 Copilot SDK quickstart
 Plans
+Enterprise and Copilot billing
 Best practices
 Enterprise AI governance
 Concepts
 Copilot surfaces
 GitHub Copilot app
 Copilot CLI
-Copilot on GitHub.com
+Copilot on GitHub.com and Mobile
 Copilot in IDEs
-Agents
-Cloud agent
-Agent management
-Custom agents
-About automations
-Rationale, confidence, and approvals
-MCP and cloud agent
-Copilot CLI
-Comparing CLI features
-Copilot CLI in Actions
-Cancel and roll back
-Context management
-About remote control
-Custom agents
-Autonomous task completion
-Parallel task execution
-Researching with Copilot
-About rubber duck
-LSP servers
-CLI extensions
-Tool search
-Understanding local sandboxing
-Code review
-Computer use
-Agentic Workflows
-Copilot Memory
-Dynamic workflows
-Hooks
-Plugins
+Agent capabilities
+About agents
+GitHub Copilot agents
 Third-party coding agents
 Agent apps
-OpenAI Codex
-Anthropic Claude
-Agent skills
-Prompting
-Prompt engineering
-Response customization
-Context
-MCP
-Spaces
-Repository indexing
-Tools
+Choosing and delegating agent work
 AI tools
-About Copilot integrations
+Agent management
+Copilot integrations
+Delegate and parallelize work
+Getting a second opinion
+Researching with agents
+Agent-powered workflows and operations
+Code review
+About automations
+Rationale, confidence, and approvals
+Dynamic workflows
+Agentic Workflows
+Copilot CLI in Actions
+About remote control
+Autopilot
+Tool search
+Computer use
+Image generation
+Prompting and context
+Prompt engineering
+Context management
+Custom instructions
+Copilot Memory
+Copilot Dreaming
+Prompt files
+Repository indexing
+Spaces
+Customizations
+Comparing customizations
+Agent skills
+Assisted permissions
+Custom agents
+MCP
+Connectors
+Hooks
+Extensions
+Plugins
+LSP servers
 Models
 Overview
+Copilot Fusion
 Auto model selection
 Bring your own key
 Utility models
@@ -94,7 +96,9 @@ Copilot usage metrics
 Security, governance, and network settings
 Content exclusion
 Session data
-Cloud and local sandboxes
+Local sandboxing
+Understanding local sandboxing
+Cloud sandboxes
 Risks and mitigations
 Network settings
 Enterprise
@@ -102,11 +106,9 @@ Policies
 Default availability
 FedRAMP models
 New features and models
-Agent management
 MCP management
 Plugin standards
 OpenTelemetry
-Cloud agent access
 Copilot-only enterprises
 How-tos
 Copilot on GitHub
@@ -132,14 +134,17 @@ Add personal instructions
 Add repository instructions
 Add organization instructions
 Customize cloud agent
+Personalize cloud sessions
 Create custom agents
 Add agent skills
 Use hooks
-Customize the agent environment
+Customize Actions environment
+Create a custom environment
 Configure secrets and variables
 Test custom agents
 Customize the firewall
 Configure MCP servers
+Create a plugin marketplace
 Spaces
 Create Copilot Spaces
 Collaborate with others
@@ -154,6 +159,7 @@ Research, plan, iterate
 Manage agent sessions
 Copilot code review
 Review Copilot output
+Watch and fix pull requests
 Copilot in your IDE
 Set up Copilot
 Install Copilot extension
@@ -170,8 +176,8 @@ Enterprise configuration
 Configure toolsets
 Change MCP registry
 Use Copilot Spaces
+Use plugins in Visual Studio Code
 Chat with Copilot
-Get started with Chat in your IDE
 Chat in IDE
 Change the chat model
 Chat in Windows Terminal
@@ -198,15 +204,18 @@ Troubleshoot Copilot CLI auth
 Use Copilot CLI
 Overview
 Allowing tools
+Use Autopilot mode
 Voice input
+Choose a model
 Computer use
 Connect to VS Code
 Delegate tasks to Copilot
 Browse issues, PRs, gists
 Ask a side question
-Roll back changes
+Cancel and roll back
 Work with multiple sessions
 Invoke custom agents
+Research with Copilot CLI
 Steer agents
 Steer a session remotely
 Set an AI credit limit
@@ -230,19 +239,21 @@ Create custom agents
 Add LLM models
 Plugins: Find and install
 Plugins: Create a plugin
-Plugins: Create a marketplace
 Administer for enterprise
 Copilot CLI in Actions
 Sandbox Copilot
-Enable or disable cloud sandboxes
+Manage cloud sandboxes
 Use local sandboxing
 Configure local sandbox
 GitHub Copilot app
 All articles
 Customize the GitHub Copilot app
 Agent sessions
+Choose a model
+Projects
 Computer use
 Canvas extensions
+View and fix security alerts
 Managing issues and pull requests
 Automations
 Add LLM models
@@ -251,26 +262,28 @@ Copilot SDK
 Authentication
 Authenticate
 BYOK
-Server-to-server tokens
+Server To Server Tokens
 Features
 Agent Loop
+Changing Tools
 Citations
-Client info
+Client Info
 Cloud Sessions
-Context management
+Context Management
 Custom Agents
+Customization Locations
 Fleet Mode
 Hooks
 Image Input
 MCP
 Plugin Directories
 Remote Sessions
-Session limits
+Session Limits
 Session Persistence
 Skills
 Steering And Queueing
 Streaming Events
-Usage and billing
+Usage And Billing
 Use hooks
 Error Handling
 Hooks Overview
@@ -278,7 +291,7 @@ Post Tool Use
 Pre Tool Use
 Session Lifecycle
 User Prompt Submitted
-User prompt transformed
+User Prompt Transformed
 Integrations
 Microsoft Agent Framework
 Observability
@@ -289,7 +302,7 @@ Backend Services
 Bundled CLI
 Choosing A Setup Path
 GitHub OAuth
-In-process runtime
+In Process Runtime
 Local CLI
 Multi Tenancy
 Scaling
@@ -307,8 +320,8 @@ Create cloud automations
 Manage rationale, confidence, and approvals
 Changing the AI model
 Configuring agent settings
-Use cloud agent on GitHub
-Use cloud agent on GitHub Mobile
+Use Copilot in the cloud on GitHub
+Use Copilot in the cloud on Mobile
 Use agent apps
 Use cloud agent via the API
 Use cloud agent from the GitHub CLI
@@ -316,6 +329,7 @@ Use cloud agent via GitHub MCP Server
 Use cloud agent from Raycast
 Troubleshoot cloud agent
 Copilot Memory
+Create memories
 Manage for yourself
 Manage as administrator
 Copilot code review
@@ -348,7 +362,8 @@ Manage requests for access
 Revoke access
 Manage network access
 Manage policies
-Add Copilot cloud agent
+Manage Copilot in the cloud
+Manage GitHub App access
 Configure agent runners
 Prepare for custom agents
 Manage default models
@@ -370,13 +385,14 @@ Manage enterprise policies
 Use enterprise managed settings
 Get started
 Deploy managed settings
-Override settings for teams
+Enterprise team overrides
+Manage plugins and marketplaces
 Copilot Business only
 Manage agents
 Prepare for custom agents
 Create github-private repository
 Monitor agentic activity
-Enable Copilot cloud agent
+Manage Copilot in the cloud
 Block agentic features
 Enable Copilot code review
 Manage model availability
@@ -412,6 +428,7 @@ CLI plugin reference
 CLI programmatic reference
 ACP server
 CLI configuration directory
+Plugins and marketplaces
 GitHub Copilot app reference
 Repository configuration
 Slash commands
@@ -419,6 +436,7 @@ Built-in skills
 Custom agents configuration
 Custom instructions support
 Hooks reference
+Supported connectors
 Supported surfaces for policies
 Copilot allowlist reference
 Metrics data
@@ -509,9 +527,8 @@ Bug fix teammate
 Cleanup specialist
 Cloud agent
 Get the best results
-Pilot cloud agent
 Improve a project
-Build guardrails
+Build enterprise guardrails
 Give access to resources
 Set up budgets
 Get started with budgets
@@ -535,7 +552,7 @@ Maintain codebase standards
 Enable developers
 Drive adoption
 Roll out the Copilot app
-Integrate AI agents
+Understand agent workflows
 Drive agentic adoption
 Drive downstream impact
 Achieve company goals
@@ -555,7 +572,7 @@ Reduce technical debt
 Stack AI pull requests
 Review AI code
 Vibe coding
-Use hooks with Copilot CLI
+Roll out CLI hooks
 Use an AI SME
 Create CLI extensions
 Responsible use
@@ -589,10 +606,12 @@ GitHub Copilot Business : Subscribe to Copilot Business .
 Made for organizations and enterprises, this plan offers centralized management and Copilot policy control for organization members.
 GitHub Copilot Enterprise : Subscribe to Copilot Enterprise .
 Designed for enterprises using GitHub Enterprise Cloud. This plan includes all the features of Copilot Business, offers a larger monthly pool of AI credits, plus additional enterprise-grade capabilities.
+Copilot access : Available to eligible enterprises.
+Provides the same feature and model eligibility as Copilot Enterprise, with a $0 seat charge for users with a GitHub Enterprise Cloud license or $10 USD per user per month for Copilot Standalone. Metered usage is billed separately, with no included allowance.
 Note
 Copilot is not currently available for GitHub Enterprise Server.
 Copilot plans overview
-The table below provides an overview of differences between plans. All plans include Copilot CLI and Copilot app.
+The table below compares pricing, usage allowances, agents, and models. All plans include Copilot CLI and the Copilot app.
 Plan Pricing GitHub AI Credits Agents Models
 Copilot Free Free An allowance of GitHub AI Credits Limited Auto model selection only
 Copilot Student Free An allowance of GitHub AI Credits
@@ -608,7 +627,11 @@ Copilot Business $19 USD per granted seat per month Total per user per month: 1,
 Access to premium models
 Copilot Enterprise $39 USD per granted seat per month Total per user per month: 3,900
 Priority access to premium models
-Each plan comes with an allowance of GitHub AI Credits. For more information, including how GitHub AI Credits work, see Usage-based billing for individuals and Usage-based billing for organizations and enterprises .
+Copilot access $0 for licensed users of GitHub Enterprise Cloud
+$10 USD per user per month for Copilot Standalone (users with no GitHub Enterprise Cloud license) No included allowance
+Priority access to premium models
+For more information about how GitHub AI Credits work, see Usage-based billing for individuals and Usage-based billing for organizations and enterprises .
+Feature and model availability is subject to administrator policies and spending controls.
 For more detail on what's uniquely available in each plan, see the following sections:
 Individual plans
 Organization and enterprise plans
@@ -619,7 +642,8 @@ Paid plans including Copilot Pro, Copilot Pro+, and Copilot Max.
 With these plans you'll receive access to the following features and capabilities.
 Note
 Copilot Free plans are only available to individual developers who don't have access to Copilot through an organization or enterprise.
-Verified teachers, and maintainers of popular open source projects may be eligible for free access to Copilot Pro.
+Verified teachers and maintainers of popular open source projects may be eligible for free access to Copilot Pro.
+Users on paid plans have access to Copilot in the cloud, subject to applicable organization and enterprise policies. Copilot Free users can continue to use Copilot Chat on GitHub.com and GitHub Mobile, and can upgrade to a paid plan to access Copilot in the cloud.
 GitHub AI Credits allowance by plan
 The following table shows what's included with each paid plan.
 Plan Price per month Base credits Flex allotment Total monthly AI credits
@@ -653,14 +677,10 @@ Claude Fable 5.1 2
 Claude Sonnet 4.6
 Claude Sonnet 5
 Claude Sonnet 5.5
-Gemini 3.7 Flash
 Gemini 3.8 Flash
-GPT-5 mini
+Gemini 4 Argon
 GPT-5.3-Codex
-GPT-5.4
-GPT-5.4 mini
 GPT-5.4 nano 3
-GPT-5.5
 GPT-5.6 Luna
 GPT-5.6 Sol
 GPT-5.6 Terra
@@ -668,6 +688,7 @@ GPT-6 Astra
 GPT-6 Luna
 GPT-6 Sol
 GPT-6.1 Sol
+GPT-6.1 Terra
 Grok 4.5
 Grok 4.6
 Grok 4.7
@@ -675,7 +696,7 @@ Kimi K3
 MAI-Code-1.1-Flash
 Agents
 Agents Copilot Free Copilot Student Copilot Pro Copilot Pro+ Copilot Max
-Copilot cloud agent
+Copilot in the cloud
 Agent mode
 Copilot code review Only "Review selection" in VS Code
 Model Context Protocol (MCP)
@@ -695,35 +716,42 @@ Copilot pull request summaries
 Audit logs
 Content exclusion
 Copilot CLI
-Copilot app
-GitHub Spark (public preview)
+The Copilot app
 Organization and enterprise plans
-The Copilot plans available for organizations and enterprises are:
-Copilot Business
-Copilot Enterprise
-With these plans you'll receive access to the following features and capabilities.
-Note
-With GitHub Enterprise Cloud, an enterprise owner chooses the plan for each organization in the enterprise. For guidance on choosing a plan, see Choosing your enterprise's plan for GitHub Copilot .
+Organizations and enterprises can centrally manage access, policies, and usage controls with Copilot Business, Copilot Enterprise, or Copilot access for eligible enterprises.
+For organizations within an enterprise, enterprise owners make the plan decisions.
+How the billing models differ
+There are two billing models:
+With included credits : Copilot Business and Copilot Enterprise charge a monthly fee per seat and include a shared pool of AI credits. Copilot Enterprise includes more credits per seat and priority access to new models and features. Usage beyond the shared pool is billed separately.
+Without included credits : Copilot access provides the same feature and model eligibility as Copilot Enterprise, but metered usage is billed from the first use.
+An enterprise must choose one billing model. Copilot access cannot coexist with Copilot Business or Copilot Enterprise seats in the same enterprise. Organizations within the enterprise cannot choose a different billing model.
+Eligible enterprises can provide Copilot access through two options:
+Through GitHub Enterprise Cloud : Copilot access has a $0 seat cost for users with a GitHub Enterprise Cloud license.
+As Copilot Standalone : Copilot access costs $10 USD per user per month, without requiring a GitHub Enterprise Cloud license for the user.
+An enterprise can use both access options. Existing Copilot Business and Copilot Enterprise plans remain supported, and transitioning is voluntary. For eligibility and transition details, see What's changing with GitHub Enterprise and Copilot billing .
 GitHub AI Credits allowance by plan
+Copilot access does not include any GitHub AI Credits. Copilot Business and Copilot Enterprise include the following allowances:
 Plan Price per granted seat per month GitHub AI Credits per user per month
 Copilot Business $19 USD 1,900
 Copilot Enterprise $39 USD 3,900
-Copilot usage is measured in AI credits under usage-based billing. Each license contributes AI credits to a shared enterprise pool, and usage beyond the pool is charged at $0.01 USD per AI credit. Code completions and next edit suggestions are not billed in AI credits and remain unlimited for all paid plans.
+These licenses contribute credits to a shared pool, and usage beyond the pool is charged at $0.01 USD per AI credit.
 For a full explanation of how AI credits work, including pooling, additional usage, and what happens when credits run out, see Usage-based billing for organizations and enterprises .
-Inline suggestions and Copilot Chat
+Inline suggestions and GitHub Copilot in the cloud
 Inline suggestions : Inline suggestion features are available in all plans:
 Real-time code suggestions with included models
 Next edit suggestions
-Copilot Chat features are available in all plans:
-Copilot Chat in IDEs
+These features are unlimited and do not consume credits, including when a user has a $0 USD budget or reaches an enforced spending limit.
+Chat features are available in all plans:
+Copilot in IDEs
 Inline chat
 Slash commands
-Copilot Chat in GitHub Mobile
-Copilot Chat in GitHub
-Copilot Chat in Windows Terminal
-Copilot Chat skills in IDEs 1
+Copilot in GitHub
+Copilot in GitHub Mobile
+Copilot in Windows Terminal
+Copilot skills in IDEs 1
+GitHub Copilot in the cloud
 Models
-Available models Copilot Business Copilot Enterprise
+Available models Copilot Business Copilot Enterprise and Copilot access
 Claude Haiku 4.5
 Claude Haiku 5.5
 Claude Opus 4.8
@@ -735,14 +763,10 @@ Claude Fable 5.1 2
 Claude Sonnet 4.6
 Claude Sonnet 5
 Claude Sonnet 5.5
-Gemini 3.7 Flash
 Gemini 3.8 Flash
-GPT-5 mini
+Gemini 4 Argon
 GPT-5.3-Codex
-GPT-5.4
-GPT-5.4 mini
 GPT-5.4 nano 3
-GPT-5.5
 GPT-5.6 Luna
 GPT-5.6 Sol
 GPT-5.6 Terra
@@ -750,20 +774,21 @@ GPT-6 Astra
 GPT-6 Luna
 GPT-6 Sol
 GPT-6.1 Sol
+GPT-6.1 Terra
 Grok 4.5
 Grok 4.6
 Grok 4.7
 Kimi K3
 MAI-Code-1.1-Flash
 Agents
-Agents Copilot Business Copilot Enterprise
-Copilot cloud agent
+Agents Copilot Business Copilot Enterprise and Copilot access
+Copilot in the cloud
 Agent mode
 Copilot code review
 Model Context Protocol (MCP)
 Third-party Agents (public preview)
 Customization
-Customization Copilot Business Copilot Enterprise
+Customization Copilot Business Copilot Enterprise and Copilot access
 Repository and personal custom instructions
 Organization custom instructions
 Prompt files
@@ -772,13 +797,12 @@ Block suggestions matching public code
 Exclude specified files from Copilot
 Organization-wide policy management
 Other features
-Copilot Business Copilot Enterprise
+Copilot Business Copilot Enterprise and Copilot access
 Copilot pull request summaries
 Audit logs
 Content exclusion
 Copilot CLI
-Copilot app
-GitHub Spark (public preview)
+The Copilot app
 Further reading
 To compare feature support across IDEs, see Copilot feature matrix .
 To compare models supported across plans, features, and IDEs, see Supported AI models in GitHub Copilot .

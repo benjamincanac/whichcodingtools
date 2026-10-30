@@ -24,60 +24,62 @@ Copilot CLI quickstart
 Copilot app quickstart
 Copilot SDK quickstart
 Plans
+Enterprise and Copilot billing
 Best practices
 Enterprise AI governance
 Concepts
 Copilot surfaces
 GitHub Copilot app
 Copilot CLI
-Copilot on GitHub.com
+Copilot on GitHub.com and Mobile
 Copilot in IDEs
-Agents
-Cloud agent
-Agent management
-Custom agents
-About automations
-Rationale, confidence, and approvals
-MCP and cloud agent
-Copilot CLI
-Comparing CLI features
-Copilot CLI in Actions
-Cancel and roll back
-Context management
-About remote control
-Custom agents
-Autonomous task completion
-Parallel task execution
-Researching with Copilot
-About rubber duck
-LSP servers
-CLI extensions
-Tool search
-Understanding local sandboxing
-Code review
-Computer use
-Agentic Workflows
-Copilot Memory
-Dynamic workflows
-Hooks
-Plugins
+Agent capabilities
+About agents
+GitHub Copilot agents
 Third-party coding agents
 Agent apps
-OpenAI Codex
-Anthropic Claude
-Agent skills
-Prompting
-Prompt engineering
-Response customization
-Context
-MCP
-Spaces
-Repository indexing
-Tools
+Choosing and delegating agent work
 AI tools
-About Copilot integrations
+Agent management
+Copilot integrations
+Delegate and parallelize work
+Getting a second opinion
+Researching with agents
+Agent-powered workflows and operations
+Code review
+About automations
+Rationale, confidence, and approvals
+Dynamic workflows
+Agentic Workflows
+Copilot CLI in Actions
+About remote control
+Autopilot
+Tool search
+Computer use
+Image generation
+Prompting and context
+Prompt engineering
+Context management
+Custom instructions
+Copilot Memory
+Copilot Dreaming
+Prompt files
+Repository indexing
+Spaces
+Customizations
+Comparing customizations
+Agent skills
+Assisted permissions
+Custom agents
+MCP
+Connectors
+Hooks
+Extensions
+Plugins
+LSP servers
 Models
 Overview
+Copilot Fusion
 Auto model selection
 Bring your own key
 Utility models
@@ -96,7 +98,9 @@ Copilot usage metrics
 Security, governance, and network settings
 Content exclusion
 Session data
-Cloud and local sandboxes
+Local sandboxing
+Understanding local sandboxing
+Cloud sandboxes
 Risks and mitigations
 Network settings
 Enterprise
@@ -104,11 +108,9 @@ Policies
 Default availability
 FedRAMP models
 New features and models
-Agent management
 MCP management
 Plugin standards
 OpenTelemetry
-Cloud agent access
 Copilot-only enterprises
 How-tos
 Copilot on GitHub
@@ -134,14 +136,17 @@ Add personal instructions
 Add repository instructions
 Add organization instructions
 Customize cloud agent
+Personalize cloud sessions
 Create custom agents
 Add agent skills
 Use hooks
-Customize the agent environment
+Customize Actions environment
+Create a custom environment
 Configure secrets and variables
 Test custom agents
 Customize the firewall
 Configure MCP servers
+Create a plugin marketplace
 Spaces
 Create Copilot Spaces
 Collaborate with others
@@ -156,6 +161,7 @@ Research, plan, iterate
 Manage agent sessions
 Copilot code review
 Review Copilot output
+Watch and fix pull requests
 Copilot in your IDE
 Set up Copilot
 Install Copilot extension
@@ -172,8 +178,8 @@ Enterprise configuration
 Configure toolsets
 Change MCP registry
 Use Copilot Spaces
+Use plugins in Visual Studio Code
 Chat with Copilot
-Get started with Chat in your IDE
 Chat in IDE
 Change the chat model
 Chat in Windows Terminal
@@ -200,15 +206,18 @@ Troubleshoot Copilot CLI auth
 Use Copilot CLI
 Overview
 Allowing tools
+Use Autopilot mode
 Voice input
+Choose a model
 Computer use
 Connect to VS Code
 Delegate tasks to Copilot
 Browse issues, PRs, gists
 Ask a side question
-Roll back changes
+Cancel and roll back
 Work with multiple sessions
 Invoke custom agents
+Research with Copilot CLI
 Steer agents
 Steer a session remotely
 Set an AI credit limit
@@ -232,19 +241,21 @@ Create custom agents
 Add LLM models
 Plugins: Find and install
 Plugins: Create a plugin
-Plugins: Create a marketplace
 Administer for enterprise
 Copilot CLI in Actions
 Sandbox Copilot
-Enable or disable cloud sandboxes
+Manage cloud sandboxes
 Use local sandboxing
 Configure local sandbox
 GitHub Copilot app
 All articles
 Customize the GitHub Copilot app
 Agent sessions
+Choose a model
+Projects
 Computer use
 Canvas extensions
+View and fix security alerts
 Managing issues and pull requests
 Automations
 Add LLM models
@@ -253,26 +264,28 @@ Copilot SDK
 Authentication
 Authenticate
 BYOK
-Server-to-server tokens
+Server To Server Tokens
 Features
 Agent Loop
+Changing Tools
 Citations
-Client info
+Client Info
 Cloud Sessions
-Context management
+Context Management
 Custom Agents
+Customization Locations
 Fleet Mode
 Hooks
 Image Input
 MCP
 Plugin Directories
 Remote Sessions
-Session limits
+Session Limits
 Session Persistence
 Skills
 Steering And Queueing
 Streaming Events
-Usage and billing
+Usage And Billing
 Use hooks
 Error Handling
 Hooks Overview
@@ -280,7 +293,7 @@ Post Tool Use
 Pre Tool Use
 Session Lifecycle
 User Prompt Submitted
-User prompt transformed
+User Prompt Transformed
 Integrations
 Microsoft Agent Framework
 Observability
@@ -291,7 +304,7 @@ Backend Services
 Bundled CLI
 Choosing A Setup Path
 GitHub OAuth
-In-process runtime
+In Process Runtime
 Local CLI
 Multi Tenancy
 Scaling
@@ -309,8 +322,8 @@ Create cloud automations
 Manage rationale, confidence, and approvals
 Changing the AI model
 Configuring agent settings
-Use cloud agent on GitHub
-Use cloud agent on GitHub Mobile
+Use Copilot in the cloud on GitHub
+Use Copilot in the cloud on Mobile
 Use agent apps
 Use cloud agent via the API
 Use cloud agent from the GitHub CLI
@@ -318,6 +331,7 @@ Use cloud agent via GitHub MCP Server
 Use cloud agent from Raycast
 Troubleshoot cloud agent
 Copilot Memory
+Create memories
 Manage for yourself
 Manage as administrator
 Copilot code review
@@ -350,7 +364,8 @@ Manage requests for access
 Revoke access
 Manage network access
 Manage policies
-Add Copilot cloud agent
+Manage Copilot in the cloud
+Manage GitHub App access
 Configure agent runners
 Prepare for custom agents
 Manage default models
@@ -372,13 +387,14 @@ Manage enterprise policies
 Use enterprise managed settings
 Get started
 Deploy managed settings
-Override settings for teams
+Enterprise team overrides
+Manage plugins and marketplaces
 Copilot Business only
 Manage agents
 Prepare for custom agents
 Create github-private repository
 Monitor agentic activity
-Enable Copilot cloud agent
+Manage Copilot in the cloud
 Block agentic features
 Enable Copilot code review
 Manage model availability
@@ -414,6 +430,7 @@ CLI plugin reference
 CLI programmatic reference
 ACP server
 CLI configuration directory
+Plugins and marketplaces
 GitHub Copilot app reference
 Repository configuration
 Slash commands
@@ -421,6 +438,7 @@ Built-in skills
 Custom agents configuration
 Custom instructions support
 Hooks reference
+Supported connectors
 Supported surfaces for policies
 Copilot allowlist reference
 Metrics data
@@ -511,9 +529,8 @@ Bug fix teammate
 Cleanup specialist
 Cloud agent
 Get the best results
-Pilot cloud agent
 Improve a project
-Build guardrails
+Build enterprise guardrails
 Give access to resources
 Set up budgets
 Get started with budgets
@@ -537,7 +554,7 @@ Maintain codebase standards
 Enable developers
 Drive adoption
 Roll out the Copilot app
-Integrate AI agents
+Understand agent workflows
 Drive agentic adoption
 Drive downstream impact
 Achieve company goals
@@ -557,7 +574,7 @@ Reduce technical debt
 Stack AI pull requests
 Review AI code
 Vibe coding
-Use hooks with Copilot CLI
+Roll out CLI hooks
 Use an AI SME
 Create CLI extensions
 Responsible use
@@ -619,7 +636,9 @@ Conversation length and complexity : Longer conversations and more elaborate tas
 Agentic features : Features like agent mode and Copilot cloud agent can involve multiple model calls within a single task. A complex agentic session working across a large codebase will consume significantly more usage than a quick question in chat.
 Model choice : Different models have different costs per token. More capable models designed for complex reasoning cost more than lighter models suited to quick tasks. Switching to a less expensive model is one way to extend your usage allowance.
 Note
-If you are on a paid Copilot plan, you qualify for a 10% discount on model costs while using auto model selection in Copilot Chat, Copilot CLI, GitHub Copilot app, or Copilot cloud agent.
+Through November 30, 2026, users on paid Copilot plans receive a 30% discount on model costs when using Copilot Fusion.
+Note
+If you are on a paid Copilot plan, you qualify for a 10% discount on model costs while using auto model selection in Copilot Chat, or Copilot cloud agent.
 For guidance on how to optimize your usage and reduce spend, including how to set session limits to cap spend for agent tasks, see Optimizing your AI usage to maximize efficiency and reduce cost .
 What happens if I exceed my included AI credits?
 Note
@@ -631,7 +650,7 @@ Alternatively, wait until the next monthly cycle when your included usage resets
 Your additional usage budget is set in US dollars, and your usage is shown in GitHub AI Credits. GitHub AI Credits draw down your budget at a fixed rate: 1 AI credits = $0.01 USD, so a $10 budget covers 1,000 AI credits.
 To set up a budget for GitHub AI Credits, see Setting up budgets to control spending on metered products .
 About changes to your Copilot plan
-If you have an active Copilot Pro, Copilot Pro+, or Copilot Max plan, and are then assigned a seat as part of a Copilot Business or Copilot Enterprise plan, your personal Copilot plan will be automatically canceled. You will receive a prorated refund for any remaining portion of your personal plan's current billing cycle. You will then be able to continue using Copilot according to the policies set by your company.
+If you have an active Copilot Pro, Copilot Pro+, or Copilot Max plan, and are then assigned a seat through Copilot Business, Copilot Enterprise, or Copilot access, your personal Copilot plan will be automatically canceled. This includes Copilot access through GitHub Enterprise Cloud or as Copilot Standalone. You will receive a prorated refund for any remaining portion of your personal plan's current billing cycle. You will then be able to continue using Copilot according to the policies set by your company.
 You can cancel your Copilot plan at any time. The cancellation will take effect at the end of your current billing cycle. See Viewing and changing your GitHub Copilot plan .
 Determining your billing date
 Your billing date will depend on whether or not you are already being billed by GitHub.
