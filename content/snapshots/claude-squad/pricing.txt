@@ -97,7 +97,7 @@ Insights
 More items
 claude-squad Public
 Notifications You must be signed in to change notification settings
-Fork 625 ( 625 )
+Fork 624 ( 624 )
 Star 8.7k ( 8.7k ) You must be signed in to star a repository
 About
 Manage multiple AI terminal agents like Claude Code, Codex, OpenCode, and Amp.
@@ -116,7 +116,7 @@ Stars
 Watchers
 28 watching
 Forks
-625 forks
+624 forks
 Report repository
 main
 Branches
@@ -299,7 +299,7 @@ Stars
 Watchers
 28 watching
 Forks
-625 forks
+624 forks
 Report repository
 Releases
 Used by
