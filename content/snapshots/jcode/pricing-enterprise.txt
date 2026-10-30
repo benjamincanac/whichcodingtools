@@ -8,18 +8,18 @@ Need specific enterprise features? Let's talk.
 Contact us
 jcode · justrust
 jcode
-Pricing
+justrust
 Enterprise
-Rust builds
+Pricing
+Account
 Docs
 SDK
 Bench
 Support
 Demo Day hoodie
 Author
-Privacy
-Terms
 GitHub
-jcode.sh · Backed by
+Discord
+Backed by
 Combinator
 </untrusted-page-text>

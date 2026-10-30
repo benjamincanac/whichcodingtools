@@ -3,8 +3,8 @@
 <untrusted-page-text>
 Jcode Hosted-Model Pricing | Solo Systems
 Pricing
-The agent is free. The compute is up to you.
-Bring your own models, or add hosted inference, cloud sessions, and remote Rust builds.
+The all-in-one coding subscription.
+We provide cloud agent VMs, remote Rust compiles, and token plans.
 Token plans
 Every plan gets double its price in monthly inference credit and access to Jcode Cloud. Pick the plan that matches how much you use, and switch plans here any time.
 · Manage account
@@ -33,6 +33,7 @@ Check : click the link in the email, or type the 6-digit code
 Sign in
 Sign in here, then subscribe to your selected plan. Use a different email
 Subscribe to the $10/month plan
+Have an invite code? Redeem it on your account . No card required.
 Billing details
 Subscription Recurring $10 charge each month while subscribed.
 Monthly credit Every successful $10 payment grants $20 of inference credit, double what you pay. Fresh credit arrives each month and does not accumulate.
@@ -41,14 +42,13 @@ Remote Rust builds Not included on the $10 plan. Remote Rust builds start at $20
 After credit Raise your extra usage limit to continue at provider API prices once the credit is used, billed by usage in addition to the subscription.
 Extra usage limit Defaults to $0 of additional inference per UTC month after your credit. Raise it any time in your account. Your custom limit is kept when you change plans.
 Included models
-Claude Opus 5.5, Sonnet 5.5, and Haiku 5.5. Your inference credit applies to all three.
+Claude Opus 5.5, Sonnet 5.5, and Haiku 5.5, plus GPT-6.1 Sol and GPT-6 Sol, Astra, and Luna. Your inference credit applies to all of them.
 Loading the live router catalog…
 retry
 Model
 Provider
 Availability
 Loading current model access…
-GPT models coming soon.
 Every monthly plan payment grants double its price in inference credit, plus 50 Jcode Cloud
 machine hours per $10 of plan. Inference beyond the credit is billed at provider API prices,
 with an extra usage limit that defaults to $0 per month. Raise it in your account ; custom limits are kept when you change plans.
@@ -58,18 +58,18 @@ Free trial First month of the $20 plan free, with 5,000 builds. Inference credit
 Included Plans from $20: 2,500 builds each UTC month for every $10 of plan, so $20 gets 5,000 and $100 gets 25,000.
 After that $0.10 per paid extra build, with a separate monthly limit that defaults to $0. Opt in and adjust it in your account . Included and trial builds are unaffected; builds never count toward your extra usage limit.
 jcode
-Pricing
+justrust
 Enterprise
-Rust builds
+Pricing
+Account
 Docs
 SDK
 Bench
 Support
 Demo Day hoodie
 Author
-Privacy
-Terms
 GitHub
-jcode.sh · Backed by
+Discord
+Backed by
 Combinator
 </untrusted-page-text>
