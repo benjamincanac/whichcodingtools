@@ -112,17 +112,27 @@ pricing:
       overage:
         kind: credits
         rate: 0.01
+    - id: access
+      name: Copilot access
+      price: 10
+      audience: enterprise
+      overage:
+        kind: credits
+        notes: Metered usage is billed separately, with no included allowance.
+      limits:
+        - No seat charge for users with a GitHub Enterprise Cloud license, the price shown is Copilot Standalone for users without one
+        - Same feature and model eligibility as Copilot Enterprise
   notes: Agent, chat and cloud usage is metered in GitHub AI Credits since the June 2026 plan change. Code completions and next edit suggestions stay unmetered on paid plans. Flex allotments can change over time.
 status: active
 sources:
   - url: https://github.com/features/copilot/plans
-    verified_at: 2026-10-13
+    verified_at: 2026-10-30
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/get-started/plans
-    verified_at: 2026-10-13
+    verified_at: 2026-10-30
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals
-    verified_at: 2026-10-13
+    verified_at: 2026-10-30
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli
     verified_at: 2026-08-23
