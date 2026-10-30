@@ -67,10 +67,10 @@ pricing:
 status: active
 sources:
   - url: https://jcode.sh/pricing
-    verified_at: 2026-10-16
+    verified_at: 2026-10-30
     covers: [pricing, general]
   - url: https://jcode.sh/enterprise
-    verified_at: 2026-10-16
+    verified_at: 2026-10-30
     covers: [pricing]
   - url: https://github.com/1jehuang/jcode
     verified_at: 2026-09-04
