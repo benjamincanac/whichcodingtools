@@ -18,7 +18,7 @@ All Products
 Alibaba Cloud Model Studio:Coding plan overview
 Document Center
 Alibaba Cloud Model Studio:Coding plan overview
-Last Updated:Sep 28, 2026
+Last Updated:Oct 11, 2026
 Coding Plan gives you access to models including Qwen, GLM, Kimi, and MiniMax in popular AI coding tools. For a fixed monthly fee, it offers a cost-effective alternative to pay-as-you-go API billing.
 Plan details
 Note
@@ -28,7 +28,7 @@ Pro
 Supported models
 Only the following exact model versions are supported:
 Recommended models: qwen3.7-plus (vision), qwen3.6-plus (vision), kimi-k2.5 (vision), glm-5 , and MiniMax-M2.5
-More models: qwen3.5-plus (vision) , qwen3-max-2026-01-23 , qwen3-coder-next , qwen3-coder-plus , and glm-4.7
+More models: qwen3.5-plus (vision)
 Models not listed above are not supported.
 Price
 $ 50 /month
@@ -78,7 +78,9 @@ VS Code extension for intelligent code completion and debugging Qoder
 Agentic coding platform for real-world software development
 Lingma
 Intelligent coding assistant with standalone IDE Kilo CLI
-Lightweight, high-performance command-line programming tool More tools
+Lightweight, high-performance command-line programming tool WorkBuddy
+Desktop AI agent workbench
+More tools
 Other programming tools
 Before you subscribe
 The Coding Plan service is non-refundable . Before you subscribe, note the following:
