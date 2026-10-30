@@ -638,7 +638,7 @@ Collaboration and sharing
 GPTs and sharing
 Plugins and connections
 Plugin controls
-Plugin management
+Import and sync plugins from GitHub
 Skill controls
 Migrate custom GPTs to plugins
 Usage and analytics
