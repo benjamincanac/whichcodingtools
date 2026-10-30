@@ -69,10 +69,10 @@ pricing:
 status: active
 sources:
   - url: https://www.onorca.dev
-    verified_at: 2026-10-29
+    verified_at: 2026-10-30
     covers: [pricing, platforms, features, general]
   - url: https://www.onorca.dev/enterprise
-    verified_at: 2026-10-29
+    verified_at: 2026-10-30
     covers: [pricing]
   - url: https://www.onorca.dev/docs
     verified_at: 2026-08-23
