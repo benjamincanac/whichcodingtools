@@ -8,6 +8,7 @@ Claude
 Claude Code
 Claude Cowork
 Claude Duet
+Claude Platform
 Claude Tag
 Specialized
 Claude Security
@@ -35,6 +36,7 @@ Developers
 Build with
 Claude Code
 Claude Platform
+Managed Agents
 For developers
 Claude Academy
 Community
@@ -50,7 +52,6 @@ Use Cases
 AI Agents
 Coding
 Commerce
-Managed Agents
 Departments
 Customer support
 Cybersecurity
@@ -92,9 +93,6 @@ Pricing
 Explore here
 Ask questions about this page
 Copy as markdown
-Latest news
-Claude Cowork is now just Claude.
-Rolling out to Pro and Max, with more plans to follow. Read what changed (opens in new tab)
 Pricing
 Individual Developer Team & Enterprise API
 Individual
@@ -103,66 +101,107 @@ Try Claude
 $0
 Free for everyone
 Try Claude
+Limited usage every 5 hours and every week *
 Chat on web, desktop, and mobile
 Search the web, create files, and run code
 Memory across conversations
 Connect your apps and tools
 Create Artifacts
 Claude Design, Slides, Docs
-Pro Claude Code included
+Pro
 For everyday work
 $17
 Per month with annual subscription discount ( $200 billed up front). $20 if billed monthly.
 Try Claude
 Everything in Free, plus:
-More usage*
+More usage than Free , every 5 hours and every week *
+Fable, paid with usage credits New
 Hand off and schedule tasks
 Claude Dashboards (beta)
+Claude Code
 Claude Science
 Projects
 More Claude models
 Claude in Chrome and Microsoft 365
-Max Claude Code included
-For people who work with Claude all day
-From $100
+Max
+For all-day work
+$100
 Per month
 Try Claude
 Everything in Pro, plus:
-Choose 5x or 20x more usage than Pro*
-Higher output limits for all tasks
+5x Pro usage every 5 hours and every week*
+Fable included, up to half your weekly limit New
+$100 a month in API credits to build on the Claude Platform † New
 Early access to advanced Claude features
 Priority access at high traffic times
-$100 to $200/month in API credits to build on the Claude Platform †
-Usage limits apply. Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic's discretion.
-Usage limits apply. Price and plans are subject to change at Anthropic's discretion.
+Ultra
+For your longest tasks
+$200
+Per month
+Try Claude
+Everything in Max, plus:
+No 5-hour limit ‡
+10x Pro usage every week*
+$200 a month in API credits, up from $100 on Max † New
+* Usage limits apply. How fast you reach a limit depends on the model you use, how long your chats are, and how large your files are.
+‡ No 5-hour limit for verified accounts .
+Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic's discretion.
+Price and plans are subject to change at Anthropic's discretion.
 Compare features across plans
 Search
 Free
 Try Claude
 Pro
 Try Claude
-Max 5x
+Max
 Try Claude
-Max 20x
+Ultra
 Try Claude
 Features and capabilities
-Features Free Pro Max 5x Max 20x
-@Claude
+Features Free Pro Max Ultra
+Chat on web, iOS, Android and Desktop
+Yes
+Yes
+Yes
+Yes
+Hand off and schedule tasks
+No
+Yes
+Yes
+Yes
+Create Artifacts
+More information
+Yes
+Yes
+Yes
+Yes
+Claude Dashboards (beta)
+No
+Yes
+Yes
+Yes
+Claude Design
+Yes
+Yes
+Yes
+Yes
+Claude Docs
+Yes
+Yes
+Yes
+Yes
+Claude Motion (beta)
+More information
 No
 No
 No
 No
+Claude Slides
+Yes
+Yes
+Yes
+Yes
 Claude Code
-No
-Yes
-Yes
-Yes
-Claude Science
-No
-Yes
-Yes
-Yes
-Claude in Chrome
 No
 Yes
 Yes
@@ -177,42 +216,29 @@ No
 Yes
 Yes
 Yes
-Chat on web, iOS, Android and Desktop
-Yes
-Yes
-Yes
-Yes
-Claude Design
-Yes
-Yes
-Yes
-Yes
-Claude Slides
-Yes
-Yes
-Yes
-Yes
-Claude Docs
-Yes
-Yes
-Yes
-Yes
-Claude Dashboards (beta)
+Claude in Chrome
 No
 Yes
 Yes
 Yes
-Claude Motion (beta)
+Claude Science
+No
+Yes
+Yes
+Yes
+Claude Tag
+More information
 No
 No
 No
 No
-Ability to search the web
+Connectors
+More information
 Yes
 Yes
 Yes
 Yes
-Create Artifacts
+Create and edit files with code execution
 More information
 Yes
 Yes
@@ -223,12 +249,39 @@ Yes
 Yes
 Yes
 Yes
-Voice mode
-Yes
-Yes
-Yes
-Yes
+Enterprise search
+More information
+No
+No
+No
+No
 Incognito chats
+More information
+Yes
+Yes
+Yes
+Yes
+Memory
+Yes
+Yes
+Yes
+Yes
+Project sharing and collaboration
+More information
+No
+No
+No
+No
+Projects Up to 5
+Yes
+Yes
+Yes
+Research
+No
+Yes
+Yes
+Yes
+Skills
 More information
 Yes
 Yes
@@ -239,39 +292,7 @@ Yes
 Yes
 Yes
 Yes
-Projects Up to 5
-Yes
-Yes
-Yes
-Project sharing and collaboration
-No
-No
-No
-No
-Create and edit files with code execution
-More information
-Yes
-Yes
-Yes
-Yes
-Research
-No
-Yes
-Yes
-Yes
-Memory
-Yes
-Yes
-Yes
-Yes
-Skills
-More information
-Yes
-Yes
-Yes
-Yes
-Connectors
-More information
+Voice mode
 Yes
 Yes
 Yes
@@ -281,94 +302,10 @@ Yes
 Yes
 Yes
 Yes
-Enterprise search
-More information
-No
-No
-No
-No
-Security and administration
-Features Free Pro Max 5x Max 20x
-Single sign-on (SSO) and domain capture
-No
-No
-No
-No
-Central billing and administration
-No
-No
-No
-No
-Admin controls for remote and local connectors
-No
-No
-No
-No
-Enterprise deployment for the Claude desktop app
-No
-No
-No
-No
-Role-based access
-No
-No
-No
-No
-System for Cross-domain Identity Management (SCIM)
-No
-No
-No
-No
-Audit logs
-No
-No
-No
-No
-Usage analytics
-No
-No
-No
-No
-Compliance API
-No
-No
-No
-No
-HIPAA-ready offering
-No
-No
-No
-No
-Custom data retention controls
-No
-No
-No
-No
-Organization wide skills deployment
-No
-No
-No
-No
-Payment options
-Features Free Pro Max 5x Max 20x
-Credit card n/a
-Yes
-Yes
-Yes
-ACH
-No
-No
-No
-No
-Invoicing / net terms
-No
-No
-No
-No
-Billing cycle n/a Monthly and annual Monthly Monthly
-Adding seats midterm n/a n/a n/a n/a
 Models and usage
-Features Free Pro Max 5x Max 20x
+Features Free Pro Max Ultra
+Limit every 5 hours Limited 1x 5x No 5-hour limit ‡
+Limit every week Limited 1x 5x 10x
 Fable
 More information
 No Usage credits 50% of weekly limits* 50% of weekly limits*
@@ -404,12 +341,107 @@ No
 Yes
 Yes
 User and organizational level spend controls
+More information
 No
 No
 No
 No
 Model training
 More information Opt-out Opt-out Opt-out Opt-out
+Security and administration
+Features Free Pro Max Ultra
+Single sign-on (SSO) and domain capture
+More information
+No
+No
+No
+No
+Central billing and administration
+More information
+No
+No
+No
+No
+Admin controls for remote and local connectors
+More information
+No
+No
+No
+No
+Enterprise deployment for the Claude desktop app
+More information
+No
+No
+No
+No
+Role-based access
+More information
+No
+No
+No
+No
+System for Cross-domain Identity Management (SCIM)
+More information
+No
+No
+No
+No
+Audit logs
+More information
+No
+No
+No
+No
+Usage analytics
+More information
+No
+No
+No
+No
+Compliance API
+More information
+No
+No
+No
+No
+HIPAA-ready offering
+More information
+No
+No
+No
+No
+Custom data retention controls
+More information
+No
+No
+No
+No
+Organization wide skills deployment
+More information
+No
+No
+No
+No
+Payment options
+Features Free Pro Max Ultra
+Credit card n/a
+Yes
+Yes
+Yes
+ACH
+More information
+No
+No
+No
+No
+Invoicing / net terms
+More information
+No
+No
+No
+No
+Billing cycle n/a Monthly and annual Monthly Monthly
+Adding seats midterm n/a n/a n/a n/a
 Team
 For teams of 2 to 150
 Get Team plan
@@ -425,7 +457,7 @@ Claude Code and Claude Cowork
 Claude Design, Slides, and Docs
 Claude Motion and Dashboards (beta)
 Claude Science
-Microsoft 365, @Claude, and more
+Microsoft 365, Claude Tag, and more
 Enterprise search across your organization
 Central billing and administration
 Single sign-on (SSO)
@@ -471,11 +503,53 @@ Enterprise (sales-assisted)
 Contact sales
 Features and capabilities
 Features Team Enterprise (self-serve) Enterprise (sales-assisted)
-@Claude
+Chat on web, iOS, Android and Desktop
+Yes
+Yes
+Yes
+Create Artifacts
+More information
+Yes
+Yes
+Yes
+Claude Dashboards (beta)
+More information
+Yes
+Yes
+Yes
+Claude Design
+More information
+Yes
+Yes
+Yes
+Claude Docs
+More information
+Yes
+Yes
+Yes
+Claude Motion (beta)
+More information
+Yes
+Yes
+Yes
+Claude Slides
+More information
 Yes
 Yes
 Yes
 Claude Code
+Yes
+Yes
+Yes
+Claude for Microsoft 365
+Yes
+Yes
+Yes
+Claude for Microsoft Outlook
+Yes
+Yes
+Yes
+Claude in Chrome
 Yes
 Yes
 Yes
@@ -488,96 +562,7 @@ More information
 No
 Yes
 Yes
-Claude in Chrome
-Yes
-Yes
-Yes
-Claude for Microsoft 365
-Yes
-Yes
-Yes
-Claude for Microsoft Outlook
-Yes
-Yes
-Yes
-Chat on web, iOS, Android and Desktop
-Yes
-Yes
-Yes
-Claude Design
-More information
-Yes
-Yes
-Yes
-Claude Slides
-More information
-Yes
-Yes
-Yes
-Claude Docs
-More information
-Yes
-Yes
-Yes
-Claude Dashboards (beta)
-More information
-Yes
-Yes
-Yes
-Claude Motion (beta)
-More information
-Yes
-Yes
-Yes
-Ability to search the web
-Yes
-Yes
-Yes
-Create Artifacts
-More information
-Yes
-Yes
-Yes
-Desktop extensions
-Yes
-Yes
-Yes
-Voice mode
-Yes
-Yes
-Yes
-Incognito chats
-More information
-Yes
-Yes
-Yes
-User preferences
-Yes
-Yes
-Yes
-Projects
-Yes
-Yes
-Yes
-Project sharing and collaboration
-Yes
-Yes
-Yes
-Create and edit files with code execution
-More information
-Yes
-Yes
-Yes
-Research
-Yes
-Yes
-Yes
-Memory
-Yes
-Yes
-Yes
-Skills
-More information
+Claude Tag
 Yes
 Yes
 Yes
@@ -586,7 +571,12 @@ More information
 Yes
 Yes
 Yes
-Web search
+Create and edit files with code execution
+More information
+Yes
+Yes
+Yes
+Desktop extensions
 Yes
 Yes
 Yes
@@ -595,6 +585,80 @@ More information
 Yes
 Yes
 Yes
+Incognito chats
+More information
+Yes
+Yes
+Yes
+Memory
+Yes
+Yes
+Yes
+Project sharing and collaboration
+Yes
+Yes
+Yes
+Projects
+Yes
+Yes
+Yes
+Research
+Yes
+Yes
+Yes
+Skills
+More information
+Yes
+Yes
+Yes
+User preferences
+Yes
+Yes
+Yes
+Voice mode
+Yes
+Yes
+Yes
+Web search
+Yes
+Yes
+Yes
+Models and usage
+Features Team Enterprise (self-serve) Enterprise (sales-assisted)
+Fable
+More information 50% of weekly limits* on premium seats
+Yes
+Yes
+Opus
+Yes
+Yes
+Yes
+Sonnet
+Yes
+Yes
+Yes
+Haiku
+Yes
+Yes
+Yes
+Context window
+More information Up to 1M varies by model Up to 1M varies by model Up to 1M varies by model
+Usage credits
+More information
+Yes n/a n/a
+New Monthly API credits † Up to $500/month
+No
+No
+Priority access at high traffic times
+Yes
+Yes
+Yes
+User and organizational level spend controls
+Yes
+Yes
+Yes
+Model training
+More information None by default None by default None by default
 Security and administration
 Features Team Enterprise (self-serve) Enterprise (sales-assisted)
 Single sign-on (SSO)
@@ -672,25 +736,6 @@ Inference hooks
 No
 Yes
 Yes
-Payment options
-Features Team Enterprise (self-serve) Enterprise (sales-assisted)
-Credit card
-Yes
-Yes
-Yes
-ACH
-No
-Yes
-Yes
-Invoicing / net terms
-No
-No
-Yes
-Billing cycle Monthly and annual Annual Annual
-Adding seats midterm
-Yes
-Yes
-Yes
 Partnership
 Features Team Enterprise (self-serve) Enterprise (sales-assisted)
 AWS Marketplace availability
@@ -713,42 +758,25 @@ Customer success support at certain spend thresholds
 No
 No
 Yes
-Models and usage
+Payment options
 Features Team Enterprise (self-serve) Enterprise (sales-assisted)
-Fable
-More information 50% of weekly limits* on premium seats
-Yes
-Yes
-Opus
+Credit card
 Yes
 Yes
 Yes
-Sonnet
+ACH
+No
 Yes
 Yes
-Yes
-Haiku
-Yes
-Yes
-Yes
-Context window
-More information Up to 1M varies by model Up to 1M varies by model Up to 1M varies by model
-Usage credits
-More information
-Yes n/a n/a
-New Monthly API credits † Up to $500/month
+Invoicing / net terms
 No
 No
-Priority access at high traffic times
+Yes
+Billing cycle Monthly and annual Annual Annual
+Adding seats midterm
 Yes
 Yes
 Yes
-User and organizational level spend controls
-Yes
-Yes
-Yes
-Model training
-More information None by default None by default None by default
 Latest models
 Contact sales Start building (opens in new tab)
 Save 50% with batch processing. Learn more Batch processing
@@ -943,10 +971,10 @@ Plans and usage Billing and payments Managing your plan
 Plans and usage
 What do I get with Claude Pro?
 The Pro plan gives you everything in a Free plan with more usage and more of Claude's capabilities. That includes Claude Code, along with projects to organize your chats and documents, access to more Claude models, and Claude for Microsoft 365. You can choose a monthly or annual subscription.
-How is Claude Max different from Pro?
-The Max plan is built for people who work with Claude throughout the day and want longer, uninterrupted sessions. You get everything in Pro, plus more usage: choose from 5x or 20x the usage of Pro per 5-hour session. Max also gives you higher output limits. Both options are billed monthly. See the cards above for current pricing.
+How are Max and Ultra different from Pro?
+Max and Ultra are built for people who work with Claude throughout the day and want longer, uninterrupted sessions. You get everything in Pro, plus more usage. Max gives you 5x the usage of Pro, every 5 hours and every week. Ultra gives you 10x the weekly usage of Pro, with no 5-hour limit for verified accounts . Both plans include Fable, our top model, for up to half your weekly limit, and a monthly API credit to build on the Claude Platform: $100 on Max, $200 on Ultra. Both plans are billed monthly. See the cards above for current pricing.
 What are the usage limits on each plan, and what happens when I hit them?
-Every plan has usage limits that reset on a rolling five-hour session window, and paid plans add weekly limits on top. Your activity across Claude on web, desktop, mobile, and Claude Code all draws from the same pool. How much you can do depends on the length and complexity of your conversations, the model you choose, and the features you use, so there's no fixed message count. Free covers everyday questions. Pro gives you at least 5x more usage per 5-hour session than Free. Max gives you 5x or 20x more usage per 5-hour session than Pro. On Team plans, Standard seats give more than Pro and Premium seats give 5x more than Standard. To manage capacity and make sure all users have fair access, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion. When you reach a limit, you can wait for it to reset, move to a higher plan, or, on paid plans, turn on usage credits to keep working at standard API rates. You can see where you stand anytime in Settings > Usage .
+Every plan has usage limits . Most accounts have a limit that resets on a rolling five-hour session window, and paid plans add weekly limits on top. Your activity across Claude on web, desktop, mobile, and Claude Code all draws from the same pool. How much you can do depends on the length and complexity of your conversations, the model you choose, and the features you use, so there's no fixed message count. Free covers everyday questions. Pro gives you at least 5x more usage per 5-hour session than Free. Max gives you 5x the usage of Pro every 5 hours and every week. Ultra gives you 10x the weekly usage of Pro, with no 5-hour limit for verified accounts . On Team plans, Standard seats give more than Pro and Premium seats give 5x more than Standard. To manage capacity and make sure all users have fair access, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion. When you reach a limit, you can wait for it to reset, move to a higher plan, or, on paid plans, turn on usage credits to keep working at standard API rates. You can see where you stand anytime in Settings > Usage .
 Is Claude Code included in my plan?
 Claude Code is included in all paid plans. It shares the same usage limits as the rest of your plan, so your work in the terminal and your chats draw from one pool. For heavy coding sessions, you can also switch to pay-as-you-go API credits through a Console account .
 How much does the Claude Enterprise plan cost?
@@ -969,7 +997,7 @@ For individual plans, go to Settings > Billing and choose Manage subscription.
 On Team plans, an Owner or Primary Owner manages this under Organization settings > Billing. See more details here .
 Upgrades take effect right away, and any unused time on your current plan is credited toward the new one, so you won't pay twice for the same days.
 Moving from monthly to annual works the same way, with your remaining time credited to the first annual invoice.
-In some upgrades (for example Pro Annual to Max 5x Monthly), your remaining value on your old plan is larger than the cost of one billing period of the new plan. In this case, the excess will be stored as credit, which will automatically get used for future purchases.
+In some upgrades (for example Pro Annual to Max Monthly), your remaining value on your old plan is larger than the cost of one billing period of the new plan. In this case, the excess will be stored as credit, which will automatically get used for future purchases.
 Downgrades take effect at the end of your current billing period, and your chats, projects, and files stay with your account whichever plan you're on.
 How do I cancel my Claude subscription?
 You can cancel anytime, and your plan stays active until the end of your current billing period. To avoid the next charge, cancel at least 24 hours before your renewal date.
@@ -977,7 +1005,9 @@ If you signed up on the web or the desktop app, go to Settings > Billing and cli
 If you subscribed through the App Store or Google Play, cancel from that app under Billing > Manage subscription, or directly in your Apple or Google Play account.
 Team and self-serve Enterprise: an Owner or Primary Owner cancels under Organization settings > Billing .
 Sales-assisted Enterprise: Reach out to your Anthropic Contact or our Sales team to discuss cancellation.
-Canceling doesn't delete your data. Your chats, projects, and files stay with your account, though some features aren't available on the Free plan. For Pro and Max, your account moves to the Free plan once the period ends. For step-by-step help, see how to cancel a Pro or Max plan or cancel a Team plan .
+Canceling doesn't delete your data. Your chats, projects, and files stay with your account, though some features aren't available on the Free plan. For Pro, Max, and Ultra, your account moves to the Free plan once the period ends. For step-by-step help, see how to cancel a Pro, Max, or Ultra plan or cancel a Team plan .
+Does Claude offer volume discounts?
+Yes, Claude Enterprise and Claude API pricing can be customized for your organization with volume and committed-spend discounts through our sales team. We don't publish discount rates, so figures you see elsewhere may not reflect our pricing. Contact sales to learn more.
 © 2026 Anthropic PBC
 Products
 Claude

@@ -44,26 +44,28 @@ pricing:
         notes: Optional extra usage at API rates once the plan allowance is used.
       limits:
         - Usage allowance shared with claude.ai chat, resets in five-hour windows
-    - id: max-5x
-      name: Claude Max 5x
+    - id: max
+      name: Claude Max
       price: 100
       audience: individual
       overage:
         kind: api-list
       limits:
-        - 5x the Pro allowance
+        - 5x Pro usage every 5 hours and every week
+        - Fable included, up to half your weekly limit
         - Monthly API credits to build on the Claude Platform
-      notes: $100/month in API credits.
-    - id: max-20x
-      name: Claude Max 20x
+      notes: $100 a month in API credits.
+    - id: ultra
+      name: Claude Ultra
       price: 200
       audience: individual
       overage:
         kind: api-list
       limits:
-        - 20x the Pro allowance
+        - 10x Pro usage every week
+        - No 5-hour limit for verified accounts
         - Monthly API credits to build on the Claude Platform
-      notes: The pricing page reads "starting at" for both Max tiers. $200 is the published monthly price for 20x. $200/month in API credits.
+      notes: $200 a month in API credits, up from $100 on Max.
     - id: team
       name: Claude Team
       price: 25
@@ -83,7 +85,7 @@ pricing:
 status: active
 sources:
   - url: https://claude.com/pricing
-    verified_at: 2026-10-29
+    verified_at: 2026-10-31
     covers: [pricing]
   - url: https://code.claude.com/docs/en/overview
     verified_at: 2026-10-29
