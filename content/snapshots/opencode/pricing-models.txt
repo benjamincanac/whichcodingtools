@@ -10,7 +10,7 @@ Start typing to search the documentation. Console navigation
 Intro
 Models
 Providers
-Web Search
+Web search
 Go
 Workspace
 Basics
@@ -33,7 +33,7 @@ Raycast
 Intro
 Models
 Providers
-Web Search
+Web search
 Go
 Workspace
 Basics
@@ -68,6 +68,8 @@ You are charged per request and can add credits to your account.
 Endpoints
 You can also access the models directly through the following API endpoints. Free-tier chat models require OpenCode;
 use paid models or Go from other clients.
+Each model is listed with its native API, but every text model also works through the other APIs, which Console
+translates. See Base URLs for the full set.
 Model Model ID Endpoint AI SDK Package
 GPT 6 Astra gpt-6-astra https://opencode.ai/inference/openai/v1/responses @ai-sdk/openai
 GPT 6 Sol gpt-6-sol https://opencode.ai/inference/openai/v1/responses @ai-sdk/openai
@@ -327,6 +329,7 @@ Auto-recharge buys credits when your balance runs low, and
 budgets cap monthly spend for the workspace and each member.
 Deprecated models
 Model Deprecation date
+DeepSeek V4 Flash October 26, 2026
 GPT 5.2 Codex July 23, 2026
 GPT 5.1 Codex July 23, 2026
 GPT 5.1 Codex Max July 23, 2026
@@ -391,4 +394,5 @@ Privacy
 For teams
 Background
 Goals
+System status
 </untrusted-page-text>
