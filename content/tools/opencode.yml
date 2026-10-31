@@ -48,7 +48,7 @@ pricing:
         kind: blocked
         notes: Requests stop at the limit unless you fall back to the free models or enable the Use balance option to draw from a Console balance.
       limits:
-        - Monthly usage limit varies by model, $15 to $80, with two limited-time free models currently unlimited
+        - Monthly usage limit varies by model, $15 to $100, with two limited-time free models currently unlimited
         - 5-hour limit is 20 percent of the monthly figure, weekly limit is 50 percent
         - One Go or Go Plus subscriber per workspace
         - Works with OpenCode or any other agent
@@ -64,6 +64,18 @@ pricing:
         - 5-hour limit is 20 percent of the monthly figure, weekly limit is 50 percent
         - One Go or Go Plus subscriber per workspace
         - Works with OpenCode or any other agent
+    - id: go-teams
+      name: OpenCode Go Teams
+      price: 20
+      audience: team
+      overage:
+        kind: credits
+        notes: Extra Usage starts on and falls back to the Console pay-as-you-go balance after the limits, and can be turned off on the Go page.
+      limits:
+        - Every member gets their own limits, higher than Go on every model
+        - Monthly usage limit varies by model, up to $105, same token prices as Go
+        - 5-hour limit is 20 percent of the monthly figure, weekly limit is 50 percent
+        - Only for workspaces with more than one member, covers every member except service accounts
     - id: zen
       name: OpenCode Console pay-as-you-go
       price: null
@@ -79,7 +91,7 @@ pricing:
 status: active
 sources:
   - url: https://opencode.ai/v2/docs/console/go/
-    verified_at: 2026-10-27
+    verified_at: 2026-10-31
     covers: [pricing]
   - url: https://opencode.ai/v2/docs/console/models/
     verified_at: 2026-10-25
