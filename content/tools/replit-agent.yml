@@ -44,9 +44,9 @@ pricing:
         kind: credits
         notes: Effort-based pay as you go once monthly credits run out.
       limits:
+        - Up to 30 hours of chat on Free Mode
+        - Up to 60 projects on Free Mode
         - AI integrations
-        - More free agent usage
-        - Plan mode
         - Unlimited workspaces
         - Remove "Made with Replit" badge
     - id: pro
@@ -62,9 +62,9 @@ pricing:
       overage:
         kind: credits
       limits:
-        - 10 parallel agents
-        - Premium Support
-        - Up to 15 collaborators and 50 viewers
+        - Even more Free Mode usage
+        - Premium support
+        - Up to 15 collaborators
         - Database rollback up to 28 days
     - id: enterprise
       name: Enterprise
@@ -78,7 +78,7 @@ pricing:
 status: active
 sources:
   - url: https://replit.com/pricing
-    verified_at: 2026-10-16
+    verified_at: 2026-11-01
     covers: [pricing]
   - url: https://docs.replit.com/chat/agent-modes
     verified_at: 2026-09-07
