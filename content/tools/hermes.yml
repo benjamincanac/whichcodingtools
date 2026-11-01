@@ -35,47 +35,45 @@ pricing:
       audience: individual
       limits:
         - Your own keys or a free Nous Portal account with standard rate limits
+        - Free models only
     - id: portal-plus
       name: Nous Portal Plus
       price: 20
       audience: individual
-      included:
-        amount: 22
-        unit: usd
-        usd_value: 22
-        notes: $22 of monthly credits with a $10 rollover cap
       overage:
         kind: credits
-        notes: Top up $10 to $200 of credits at a time.
+        notes: Credits pay for API key usage, bigger cloud agent sizes and extra agents. Top up $10 to $200 at a time.
       limits:
-        - High rate limits, hosted tool usage through the Tool Gateway
+        - Hermes Agent usage included, within limits that reset daily, weekly and monthly
+        - Cloud agent with up to 4 GB RAM and 25 GB disk included
+        - Large models have their own monthly limit
     - id: portal-super
       name: Nous Portal Super
       price: 100
       audience: individual
-      included:
-        amount: 110
-        unit: usd
-        usd_value: 110
-        notes: $110 of monthly credits with a $50 rollover cap
       overage:
         kind: credits
+        notes: Credits pay for API key usage, bigger cloud agent sizes and extra agents. Top up $10 to $200 at a time.
+      limits:
+        - Hermes Agent usage included, within limits that reset daily, weekly and monthly
+        - Cloud agent with up to 4 GB RAM and 100 GB disk included
+        - Large models have their own monthly limit
     - id: portal-ultra
       name: Nous Portal Ultra
       price: 200
       audience: individual
-      included:
-        amount: 220
-        unit: usd
-        usd_value: 220
-        notes: $220 of monthly credits with a $100 rollover cap
       overage:
         kind: credits
+        notes: Credits pay for API key usage, bigger cloud agent sizes and extra agents. Top up $10 to $200 at a time.
+      limits:
+        - Hermes Agent usage included, within limits that reset daily, weekly and monthly
+        - Cloud agent with up to 8 GB RAM and 100 GB disk included
+        - Large models have their own monthly limit
   notes: The agent is free. Nous Portal is an optional subscription that bundles inference plus web search, image generation, text to speech and a cloud browser. The docs describe Hermes as an autonomous assistant rather than a coding copilot, it also runs as a gateway on Telegram, Discord, Slack, WhatsApp, Signal and email. Windows installs with a PowerShell one liner.
 status: active
 sources:
   - url: https://portal.nousresearch.com
-    verified_at: 2026-09-23
+    verified_at: 2026-11-01
     covers: [pricing]
   - url: https://github.com/NousResearch/hermes-agent
     verified_at: 2026-08-23
