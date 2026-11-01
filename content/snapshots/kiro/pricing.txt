@@ -3,50 +3,44 @@
 <untrusted-page-text>
 Pricing - Kiro
 Pricing
-Get $20 credited toward your subscription when you first upgrade to a paid plan using social login or AWS Builder ID.
+Free trial: when you first upgrade to Pro, you’ll get the rest of the month free, plus 500 trial credits to use within 12 months.
 KIRO FREE
 $0
 per month
 50 credits
-Access to open weight models* and Claude Sonnet 4.5
+Access to open weight models
+and Claude Sonnet 4.5
 Download now
-for teams up to 500
 KIRO PRO
 $20
 per user / month
 1,000 credits
-Access to premium models**
+Access to premium models
 Add-on credits ($0.04/credit)
-Sign up / upgrade
-for teams up to 500
+Download now
 KIRO PRO+
 $40
 per user / month
 2,000 credits
-Access to premium models**
+Access to premium models
 Add-on credits ($0.04/credit)
-Sign up / upgrade
-for teams up to 500
+Download now
 KIRO PRO MAX
 $100
 per user / month
 5,000 credits
-Access to premium models**
+Access to premium models
 Add-on credits ($0.04/credit)
-Sign up / upgrade
-for teams up to 500
+Download now
 KIRO POWER
 $200
 per user / month
 10,000 credits
-Access to premium models**
+Access to premium models
 Add-on credits ($0.04/credit)
-Sign up / upgrade
+Download now
 Kiro for enterprise Centralized billing, SSO, usage analytics, and enterprise security controls.
 Contact sales Enterprise features
-* Users on the Free Tier who signed up with social logins or AWS Builder ID have access to Claude Sonnet 4.5 and open weight models such as Qwen3 Coder Next, DeepSeek 3.2, and MiniMax M2.1. Access is subject to rate limits .
-** Paid plan users have access to open weight and premium models , including Auto, Claude Sonnet 5 and Claude Opus 5. Not all premium models are available in all countries/regions.
-Prices are exclusive of applicable taxes and duties, including VAT and applicable sales tax. For customers with a Japanese billing address, use of Kiro is subject to Japanese Consumption Tax.
 Common Questions
 How does Kiro pricing work?
 How does Kiro pricing work?
@@ -54,9 +48,9 @@ Kiro offers flexible pricing tiers designed around how developers use Kiro. New 
 Which models does Kiro use under the hood?
 Which models does Kiro use under the hood?
 By default, your prompts are processed by Auto, an agent that uses a mix of different frontier models, combined with specialized models that are experts in specific tasks, intent detection, caching, and other techniques to give you a better balance of quality, latency, and costs. You can also choose a specific model, including OpenAI's GPT-5.6 (Sol, Terra, and Luna), Anthropic's Claude models (Opus 5, Opus 4.8, Sonnet 5, Sonnet 4.6, Sonnet 4.5, and Haiku 4.5), and open weight models such as DeepSeek 3.2, MiniMax M2.5, GLM-5, and Qwen3 Coder Next. See the [models page](/docs/models) for the full list and current credit multipliers.
-How does the sign-up bonus work?
-How does the sign-up bonus work?
-The first time you upgrade to any Kiro paid plan, you get $20 credited towards your subscription when using Kiro via social login or Builder ID (not AWS Identity Center). Upgrading to a paid subscription requires a valid credit card. Kiro processes paid subscriptions on the 1st day of each calendar month. Let’s assume you first upgrade to a Kiro Pro plan ($20/month) on the 15th of June, for example, here’s how the sign-up bonus would work for you: you’d get credited $20 * 15/30 days left in June, which is $10. on July 1st, your card would get charged for (July subscription price) - (remaining free trial credit), which is $20 - ($20 * 15/30) = $10.
+How does the free trial work?
+How does the free trial work?
+The first time you upgrade from Kiro Free to Pro, the rest of that month is free, and you get 500 trial credits to use within 12 months. Plan fees and credits are prorated to the second, so you get plan credits for the time left in the month, and your first bill arrives on the 1st of the following month. Trial credits are used after you run out of plan credits. Upgrading to a paid subscription requires a valid credit card. For example, if you upgrade to Pro ($20/month) at 00:00 UTC on the 15th of a 30-day month, 16 days remain: your prorated fee is $10.67, which the free month covers, so you pay $0 and get 533 plan credits plus 500 trial credits. If you start on Pro+, Pro Max, or Power instead, the free Pro month still counts, and you pay only the difference between your plan's prorated price and the prorated Pro price (for example, $10.67 for Pro+ in the same scenario). If you go back to Kiro Free, your unused trial credits carry over, but you can only spend them on free-tier models. The free trial applies only to your first upgrade. If you upgrade again later, your fee and credits are prorated as usual, without a free month. If you upgraded before November 1, you keep the $20 discount and your unused credits.
 What is a credit?
 What is a credit?
 A credit is a unit of work in response to user prompts. Simple prompts can consume less than 1 credit. More complex prompts, such as executing a spec task, typically cost more than 1 credit. Additionally, different models consume credits at different rates, with a prompt executed via Sonnet 4.6 costing more credits than executing it with Auto. For example, a given task that consumes X credits to execute in Auto, will cost you 1.3X credits to execute via Sonnet 4.6. Credits are metered to the second decimal point, so the least number of credits a task can consume is 0.01 credits.
@@ -66,6 +60,9 @@ Any prompt you ask Kiro to execute, whether in vibe mode or spec mode, as well a
 How can I track my credit usage?
 How can I track my credit usage?
 You can see the monthly credit limits for your plan, the number of credits used, and credits remaining in your subscription dashboard accessible in Kiro. Credit usage is updated at least every 5 minutes.
+How do Kiro workflows affect credit usage?
+How do Kiro workflows affect credit usage?
+[Workflows](/docs/workflows/) use the same Kiro credit model as other agent work. Credit usage depends on the agent work they run, so more complex workflows can use more credits. You can guide how Kiro divides the work through your prompt or [steering](/docs/steering/). Kiro currently reports credit usage through your existing account usage view.
 Can I buy more credits?
 Can I buy more credits?
 Yes — how it works depends on your plan:
@@ -76,7 +73,7 @@ Can I share my Kiro subscription with my team?
 For team usage, each developer needs their own subscription. Learn about [team billing and management features](/docs/enterprise/billing/).
 With which tools can I use my Kiro subscription?
 With which tools can I use my Kiro subscription?
-Kiro subscriptions can be used with Kiro IDE, Kiro CLI, Kiro on the web, Kiro Crew, ACP compatible IDEs, and automation in software development (ex: reviews during CI/CD). Use through third-party automation harnesses (such as OpenClaw) that route requests outside of Kiro's native interfaces is not permitted.
+Kiro subscriptions can be used with Kiro IDE, Kiro CLI, Kiro Web, Kiro Crew, ACP compatible IDEs, and automation in software development (ex: reviews during CI/CD). Use through third-party automation harnesses (such as OpenClaw) that route requests outside of Kiro's native interfaces is not permitted.
 What happens if I don’t use all my monthly credits?
 What happens if I don’t use all my monthly credits?
 Usage limits reset at the start of each billing month. Unused credits do not roll over to the next month.
@@ -100,13 +97,11 @@ Yes, Kiro pricing in [AWS GovCloud](https://docs.aws.amazon.com/govcloud-us/late
 Is the free tier available for Enterprise or AWS GovCloud (US) Regions?
 Is the free tier available for Enterprise or AWS GovCloud (US) Regions?
 No. The free tier is not available in Kiro Enterprise or AWS GovCloud (US) Regions. Both require a paid subscription plan (Pro, Pro+, Pro Max, or Power) and enterprise authentication via AWS IAM Identity Center or an external identity provider.
-Who is Kiro for?
-Who is Kiro for?
-Kiro is built for professional developers on software teams, businesses and enterprises. Plans are sold per user and are designed for organizations adopting Kiro across a team — from small and medium businesses to enterprises. Teams get consolidated billing, usage analytics and reporting, SAML/SCIM single sign-on via AWS IAM Identity Center, an organizational management dashboard, and enterprise security and privacy controls. Organizations larger than 500 users, or with custom requirements, can [contact sales](https://pages.awscloud.com/kiro-contact-us.html) about [Kiro for enterprise](/enterprise/).
 View billing docs
 Loading image...
 Product
 About Kiro
+Agents
 IDE
 CLI
 Web
@@ -121,6 +116,7 @@ Students
 Community
 Overview
 Ambassadors
+Case studies
 Discord
 Events
 Powers
@@ -131,6 +127,7 @@ Docs
 Blog
 Changelog
 FAQs
+Videos
 Report a bug
 Suggest an idea
 Billing support
@@ -138,15 +135,12 @@ Social
 English
 Site Terms License Responsible AI Policy Legal Privacy Policy Cookie Preferences
 English
-Loading image...
+Agents
 Apps
-CLI
-Web
 Enterprise
 Pricing
 Docs
 Community
 Resources
 SIGN IN DOWNLOADS
-Loading image...
 </untrusted-page-text>

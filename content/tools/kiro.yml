@@ -92,11 +92,11 @@ pricing:
       audience: enterprise
       limits:
         - Centralized billing, SSO, usage analytics and enterprise security controls
-  notes: Each developer needs their own subscription. Unused credits do not roll over. A $20 credit applies on the first upgrade with social login or AWS Builder ID. GovCloud pricing is about 20 percent higher with no free tier.
+  notes: Each developer needs their own subscription. Unused credits do not roll over. The first upgrade from Free to Pro gets the rest of that month free plus 500 trial credits to use within 12 months. GovCloud pricing is about 20 percent higher with no free tier.
 status: active
 sources:
   - url: https://kiro.dev/pricing/
-    verified_at: 2026-09-18
+    verified_at: 2026-11-01
     covers: [pricing]
   - url: https://kiro.dev/docs/models/available-models/
     verified_at: 2026-08-23
