@@ -3,31 +3,25 @@
 <untrusted-page-text>
 Pricing and Plans | Replit
 Skip to content
-Products
-CREATE
-Design
-Apps & Websites
-Slides
-PLATFORM
-Agents
+Product
+Agent
 Databases
-Integrations
 Security
+Integrations
 Solutions
+BY USE CASE
+Apps
+Websites
+Landing Pages
+Design
+Slides
 BY ROLE
 Founders
 Product Managers
 Designers
 Engineers
 Operations
-IT
-BY USE CASE
-Apps
-Websites
-Landing Pages
-Dashboards
-Prototypes
-Chatbots
+Government
 Pricing
 Enterprise
 Resources
@@ -35,39 +29,32 @@ LEARN & SUPPORT
 Docs
 Community
 Support
-Replit Experts
 Partners
 DISCOVER
 Customer Stories
-Gallery
 Blog
+Frontier Blog
 Newsroom
-Contact sales Log in Create account
-Products
-CREATE
-Design
-Apps & Websites
-Slides
-PLATFORM
-Agents
+Contact sales Log in Sign up
+Product
+Agent
 Databases
-Integrations
 Security
+Integrations
 Solutions
+BY USE CASE
+Apps
+Websites
+Landing Pages
+Design
+Slides
 BY ROLE
 Founders
 Product Managers
 Designers
 Engineers
 Operations
-IT
-BY USE CASE
-Apps
-Websites
-Landing Pages
-Dashboards
-Prototypes
-Chatbots
+Government
 Pricing
 Enterprise
 Resources
@@ -75,38 +62,38 @@ LEARN & SUPPORT
 Docs
 Community
 Support
-Replit Experts
 Partners
 DISCOVER
 Customer Stories
-Gallery
 Blog
+Frontier Blog
 Newsroom
-Log in Create account
+Log in Sign up
 Pricing Choose the best plan for you.
 Monthly
 Yearly
 Up to 10% off
 Core
 $20 $18 / month, billed annually
-AI integrations
+For personal projects and simple apps.
 Up to 30 hours of chat on Free Mode
 Up to 60 projects on Free Mode
 $20 towards more powerful models
-Plan mode
 Unlimited workspaces
+AI integrations
 Try now
 Pro
 $100 $90 / month, billed annually
-10 parallel agents
-Premium Support
+For commercial and professional builds.
 Everything in Core plus:
-Even more Free Mode usage to chat and create
+Even more Free Mode usage
 $100 towards most powerful models
+Premium support
 Up to 15 collaborators
-Invite up to 50 viewers
 Database rollback up to 28 days
-Upgrade to Pro
+$100 credits
+Save $10
+$90 / month $215 / month $425 / month $825 / month $2,000 / month Upgrade to Pro
 Enterprise Custom
 Enterprise-grade security and control
 SSO, SCIM & audit logs
