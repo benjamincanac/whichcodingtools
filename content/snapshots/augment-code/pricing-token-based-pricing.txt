@@ -51,13 +51,13 @@ Different models consume your usage balance at different rates. All rates below 
 | **Claude Opus 4.8** | \$5.00 | \$25.00 | \$0.50 | \$6.25 | Great for complex, multi-step agentic tasks. |
 | **Claude Opus 4.7** | \$5.00 | \$25.00 | \$0.50 | \$6.25 | Best for long-running tasks, deep reasoning, and opinionated code generation. |
 | **Claude Opus 4.6** | \$5.00 | \$25.00 | \$0.50 | \$6.25 | Previous-generation Opus model. Same pricing as 4.7. |
-| **Claude Sonnet 5.5** | \$2.00 | \$10.00 | \$0.20 | \$2.50 | Latest Sonnet for medium or large tasks and multi-step work. |
+| **Claude Sonnet 5.5** | \$2.00 | \$10.00 | \$0.10 | \$2.50 | Latest Sonnet for medium or large tasks and multi-step work. |
 | **Claude Sonnet 5** | \$2.00 | \$10.00 | \$0.20 | \$2.50 | Previous-generation Sonnet; available under More where Sonnet 5.5 is offered. |
 | **Claude Sonnet 4.6** | \$3.00 | \$15.00 | \$0.30 | \$3.75 | Previous-generation Sonnet. Consider Sonnet 5.5 for the latest improvements. |
 | **Claude Haiku 5.5** | \$0.10 | \$0.50 | \$0.01 | \$0.125 | 100K-token context window. |
 | **Claude Haiku 4.5** | \$1.00 | \$5.00 | \$0.10 | \$1.25 | Quick edits and small tasks. Scheduled to retire on October 15, 2026 (Pacific time). |
 | **DeepSeek V4.1 Flash 1017** | \$0.30 | \$1.20 | \$0.006 | \$0.30 | Updated DeepSeek snapshot with image support and a 1M-token context window. |
-| **DeepSeek V4.1 Flash** | \$0.22 | \$0.66 | \$0.007 | \$0.22 | Multimodal tasks with a 1M-token context window and lower cost. |
+| **DeepSeek V4.1 Flash** | \$0.30 | \$1.20 | \$0.006 | \$0.30 | Multimodal tasks with a 1M-token context window. Same rates as the recommended 1017 snapshot. |
 | **Gemini 4 Argon** | \$2.00 | \$10.00 | \$0.10 | \$2.00 | Reasoning for coding and complex workflows in eligible workspaces; 1M-token context window. |
 | **Gemini 3.8 Flash** | \$0.75 | \$3.75 | \$0.075 | \$0.75 | Fast and cost-efficient, with a 1M-token context window. |
 | **Gemini 3.7 Flash** | \$0.75 | \$3.75 | \$0.075 | \$0.75 | Fast and cost-efficient, with a 1M-token context window. |
@@ -65,19 +65,23 @@ Different models consume your usage balance at different rates. All rates below 
 | **GLM 5.3 Flash** | \$0.15 | \$0.50 | \$0.03 | \$0.15 | Cost-efficient performance with native vision and a 1M-token context window. |
 | **GPT-6 Astra** | \$10.00 | \$50.00 | \$1.00 | \$12.50 | Complex reasoning and long-horizon agentic work. |
 | **GPT-6.1 Sol** | \$2.00 | \$10.00 | \$0.10 | \$2.50 | Successor to GPT-6 Sol for coding and agentic tasks in eligible workspaces. |
+| **GPT-6.1 Terra** | \$1.00 | \$5.00 | \$0.05 | \$1.25 | Fast, efficient tasks in eligible workspaces; recommended upgrade for GPT-5.6 Terra. |
 | **GPT-6 Sol** | \$2.00 | \$10.00 | \$0.20 | \$2.50 | Previous-generation Sol; available under More where GPT-6.1 Sol is offered. |
 | **GPT-6 Luna** | \$0.10 | \$0.50 | \$0.01 | \$0.125 | Focused, high-volume tasks. |
 | **GPT-5.6 Sol** | \$4.00 | \$20.00 | \$0.40 | \$5.00 | Previous-generation Sol model for complex reasoning and long-horizon agentic work. |
-| **GPT-5.6 Terra** | \$2.00 | \$12.00 | \$0.20 | \$2.50 | Everyday coding and agentic tasks. |
+| **GPT-5.6 Terra** | \$2.00 | \$12.00 | \$0.20 | \$2.50 | Previous-generation Terra. Consider GPT-6.1 Terra where available. |
 | **GPT-5.6 Luna** | \$0.20 | \$1.20 | \$0.02 | \$0.25 | Previous-generation Luna model for small-scale automations and lightweight tasks. |
 | **GPT-5.5** | \$5.00 | \$30.00 | \$0.50 | \$5.00 | Advanced GPT option. Designed for highest-complexity coding and multi-agent orchestration. |
 | **Grok 4.7** | \$2.00 | \$6.00 | \$0.50 | \$0.00 | Latest xAI frontier model for coding and agentic tasks. |
 | **Grok 4.6** | \$2.00 | \$6.00 | \$0.50 | \$0.00 | Previous-generation Grok model for coding and agentic tasks. |
-| **Grok 4.5** | \$2.00 | \$6.00 | \$0.50 | \$0.00 | Previous-generation Grok model for coding and agentic tasks. |
+| **Grok 4.5** | \$2.00 | \$6.00 | \$0.30 | \$0.00 | Previous-generation Grok model for coding and agentic tasks. |
 | **Kimi K3** | \$3.00 | \$15.00 | \$0.30 | \$3.00 | Strong performance at lower cost, with a 1M-token context window and image support. |
 | **Prism (Claude + GPT)** | Variable (routed) | Variable (routed) | Variable (routed) | Variable (routed) | Routes among Claude Opus 5, Claude Sonnet 5, and a GPT-5.6 Luna no-thinking solver tier. |
 | **Prism (GPT)** | Variable (routed) | Variable (routed) | Variable (routed) | Variable (routed) | Routes among GPT-5.6 Sol, GPT-5.6 Luna, and a GPT-5.6 Luna no-thinking solver tier. |
 For Claude Haiku 5.5, all token rates are five times higher when the total prompt, including cached input, exceeds 100,000 tokens.
+For GPT-5.6, GPT-6, and GPT-6.1 models, input, cache-read, and cache-write rates are doubled and output rates are 1.5 times higher when the total prompt, including cached input, exceeds 272,000 tokens. The higher rates apply to the entire request, not just tokens above the threshold.
+For Grok 4.5, 4.6, and 4.7, all token rates double for the entire request when the total prompt, including cached input, reaches 200,000 tokens. Grok 4.6 and 4.7 currently have prompt limits below this threshold.
+Gemini 3.7 Flash is scheduled to retire from model pickers on January 21, 2027 (Pacific time). Use Gemini 3.8 Flash for new work.
 Gemini 4 Argon uses introductory rates and is available in eligible workspaces that offer Claude Opus 5.5, subject to organization restrictions. These rates are before service fees and compute.
 > [!NOTE]
 >
@@ -153,41 +157,41 @@ These background activities use a small fraction of your total token consumption
 5. **Scope your Cosmos sessions.** Compute is billed at \$0.19/hour in 5-minute increments with no service fee. Closing a session when you're done releases the compute and stops the meter at the next increment boundary.
 6. **Review usage patterns.** Check your dashboards regularly to identify optimization opportunities. Team admins can set guidelines on which models to use for which work.
 ## Frequently asked questions
-> **How is the cost of a single request calculated?**
+> [accordion] How is the cost of a single request calculated?
 >
 > Each request is billed as the sum of input tokens × input rate, output tokens × output rate, cache reads × cache read rate, cache writes × cache write rate, plus a 40% service fee on the LLM total, plus Cosmos compute minutes × \$0.19/hour if compute was used. Each request appears as a line item in your dashboard with the component breakdown.
-> **What does the 40% service fee cover?**
+> [accordion] What does the 40% service fee cover?
 >
 > The service fee covers the Context Engine — which hosts your codebase and dynamically indexes changes as you work — and the Cosmos platform that orchestrates your sessions, manages model fallback and concurrency, and runs the surrounding infrastructure.
-> **Is there a service fee on compute?**
+> [accordion] Is there a service fee on compute?
 >
 > No. Cosmos compute is billed at \$0.19/hour with no service fee on top.
-> **Does unused included usage roll over?**
+> [accordion] Does unused included usage roll over?
 >
 > No. The \$100 of included usage resets at the start of each billing cycle.
-> **Is included usage prorated?**
+> [accordion] Is included usage prorated?
 >
 > Yes. If you start a Business plan mid-cycle, included usage is prorated for the remainder of the billing period.
-> **What happens when I use up my \$100?**
+> [accordion] What happens when I use up my \$100?
 >
 > Billing continues automatically on pay-as-you-go at the same rates. There's no need to top up manually, and there's no minimum spend.
-> **Can I switch models mid-conversation?**
+> [accordion] Can I switch models mid-conversation?
 >
 > Yes. In **Auggie CLI**, switch models mid-conversation with the `/model` command. Each message consumes tokens based on the model selected for that specific message.
-> **Where do I see live per-million-token rates?**
+> [accordion] Where do I see live per-million-token rates?
 >
 > Visit [app.augmentcode.com](https://app.augmentcode.com) and open **Usage → Models**. The dashboard always shows current input, output, cache read, and cache write rates for every available model.
 ## Related resources
-> **[Available Models](https://docs.augmentcode.com/models/available-models.md)**
+> [card] [Available Models](https://docs.augmentcode.com/models/available-models.md)
 >
 > Learn about the different AI models available in Augment.
-> **[Pricing Plans](https://www.augmentcode.com/pricing)**
+> [card] [Pricing Plans](https://www.augmentcode.com/pricing)
 >
 > View current pricing plans and what's included on each.
-> **[Teams Admin Guide](https://docs.augmentcode.com/teams/teams-admin-guide.md)**
+> [card] [Teams Admin Guide](https://docs.augmentcode.com/teams/teams-admin-guide.md)
 >
 > Manage team subscriptions and billing.
-> **[Usage Dashboards & Budgets](https://docs.augmentcode.com/analytics/credit-dashboard-and-quotas.md)**
+> [card] [Usage Dashboards & Budgets](https://docs.augmentcode.com/analytics/credit-dashboard-and-quotas.md)
 >
 > Monitor token consumption and set budgets across your organization.
 This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.
