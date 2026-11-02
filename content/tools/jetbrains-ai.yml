@@ -195,7 +195,7 @@ pricing:
 status: active
 sources:
   - url: https://www.jetbrains.com/help/ai-assistant/licensing-and-subscriptions.html
-    verified_at: 2026-09-18
+    verified_at: 2026-11-02
     covers: [pricing, models]
   - url: https://lp.jetbrains.com/ai-ides-faq/
     verified_at: 2026-09-18
