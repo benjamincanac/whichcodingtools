@@ -30,11 +30,11 @@ wraps:
 pricing:
   same_as: claude-code
   bundled_with: claude
-  notes: Chat works on the Free plan. Code and Cowork need Pro, Max, Team or Enterprise. On Linux, Computer Use and dictation are not available yet.
+  notes: Chat works on the Free plan. Code and Cowork need Pro, Max, Ultra, Team or Enterprise. On Linux, Computer Use and dictation are not available yet.
 status: active
 sources:
   - url: https://claude.com/download
-    verified_at: 2026-10-29
+    verified_at: 2026-11-02
     covers: [pricing, platforms, features, general]
   - url: https://code.claude.com/docs/en/overview
     verified_at: 2026-10-29
