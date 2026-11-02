@@ -1,0 +1,93 @@
+slug: ibm-bob
+name: IBM Bob
+description: IBM's coding assistant in an IDE and, as Bob Shell, in the terminal. Agent, ask and plan modes, subagents and MCP. Paid plans include a Bobcoin allowance.
+layer: editor
+secondary_layers: [harness]
+vendor: IBM
+homepage: https://bob.ibm.com
+links:
+  docs: https://bob.ibm.com/docs
+  pricing: https://bob.ibm.com/pricing
+  changelog: https://bob.ibm.com/docs/ide/changelog
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://bob.ibm.com/download
+  - method: curl
+    command: curl -fsSL https://bob.ibm.com/download/bobshell.sh | bash
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  byok: none
+  local: false
+features: [subagents, mcp-client, hooks]
+pricing:
+  tiers:
+    - id: pro
+      name: Pro
+      price: 20
+      audience: individual
+      included:
+        amount: 50
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        notes: The pricing page says overage charges are opt-in and billed monthly. It gives no rate.
+      limits:
+        - Simple coding and reviews
+    - id: pro-plus
+      name: Pro+
+      price: 60
+      audience: individual
+      included:
+        amount: 180
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        notes: The pricing page says overage charges are opt-in and billed monthly. It gives no rate.
+      limits:
+        - Large code bases and reviews
+    - id: ultra
+      name: Ultra
+      price: 200
+      audience: individual
+      included:
+        amount: 1000
+        unit: credits
+        period: month
+      overage:
+        kind: credits
+        notes: The pricing page says overage charges are opt-in and billed monthly. It gives no rate.
+      limits:
+        - Large code bases and reviews
+        - Advanced code analysis and skills
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Deploy on premises or air-gapped
+        - Team dashboard with roles, and Bobcoins distributed across individuals and teams
+        - Bobalytics usage metrics and priority support
+  notes: A free 30 day trial includes 50 Bobcoins with no payment required. Credits are Bobcoins. Premium packages are paid add-ons, Java Modernization at $20 per month and IBM i at $40 per month, and IBM Z is enterprise only, annual, by contact sales. Prices are indicative, vary by country and exclude taxes and duties. Yearly billing saves 20 percent.
+status: active
+sources:
+  - url: https://bob.ibm.com/pricing
+    verified_at: 2026-10-20
+    covers: [pricing]
+  - url: https://bob.ibm.com
+    verified_at: 2026-10-20
+    covers: [general, features]
+  - url: https://bob.ibm.com/docs/ide/getting-started/install
+    verified_at: 2026-10-20
+    covers: [platforms]
+  - url: https://bob.ibm.com/docs/shell/getting-started/install-and-setup
+    verified_at: 2026-10-20
+    covers: [platforms]
+  - url: https://bob.ibm.com/docs/ide/changelog
+    verified_at: 2026-10-20
+    covers: [features]
