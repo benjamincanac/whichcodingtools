@@ -2,6 +2,7 @@
 const { site } = useAppConfig()
 
 const year = new Date().getFullYear()
+const dataUrl = `https://github.com/${site.repo}/tree/main/content/tools`
 </script>
 
 <template>
@@ -14,7 +15,7 @@ const year = new Date().getFullYear()
 
     <p class="text-sm text-muted text-center text-pretty">
       Prices read off vendor pages on the date shown. <ULink
-        :to="`https://github.com/${site.repo}/tree/main/content/tools`"
+        :to="dataUrl"
         target="_blank"
         class="text-highlighted underline underline-offset-4"
       >No affiliate links, data on GitHub.</ULink>

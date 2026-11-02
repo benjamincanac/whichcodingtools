@@ -1,0 +1,46 @@
+slug: dirac
+name: Dirac
+description: Open source coding agent for VS Code and the terminal, forked from Cline. Edits through hash anchors and AST tools, using your own model provider API key.
+layer: extension
+secondary_layers: [harness]
+vendor: Dirac Delta Labs
+homepage: https://dirac.run
+links:
+  docs: https://dirac.run/docs
+  repo: https://github.com/dirac-run/dirac
+platforms: [macos, linux]
+hosts: [vscode]
+install:
+  - method: download
+    url: https://marketplace.visualstudio.com/items?itemName=dirac-run.dirac
+  - method: npm
+    command: npm install -g dirac-cli
+  - method: curl
+    command: curl -fsSL https://raw.githubusercontent.com/dirac-run/dirac/master/scripts/install.sh | bash
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/dirac-run/dirac
+models:
+  providers: [anthropic, openai, google, xai, mistral, deepseek, openrouter]
+  byok: full
+  notes: Any OpenAI-compatible endpoint, plus Azure OpenAI, Groq and Hugging Face. A separate utility model can handle context compaction and permission requests.
+features: [subagents, worktrees, diff-review, browser-automation, acp-agent]
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+  notes: Dirac is open source under Apache 2.0 and runs on your own provider API key.
+status: active
+sources:
+  - url: https://dirac.run
+    verified_at: 2026-10-27
+    covers: [pricing, platforms, models, features, license, general]
+  - url: https://dirac.run/docs/cli
+    verified_at: 2026-10-27
+    covers: [platforms, models]
+  - url: https://dirac.run/docs/vscode
+    verified_at: 2026-10-27
+    covers: [features]

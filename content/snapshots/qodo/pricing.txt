@@ -3,6 +3,8 @@
 <untrusted-page-text>
 Qodo Plans & Pricing | Free to Start
 Skip to content
+Qodo 3.0: Quality Control for the Agentic Software Factory
+See What Shipped
 Log in
 Platform
 Book a Demo
@@ -10,11 +12,12 @@ Start Trial
 Book a Demo
 Start Trial
 Platform
-AI Code Quality and Governance Platfom Enterprise grade code review across the SDLC
-Pull request review Git integration
-Full codebase intelligence Context Engine
-Codebase Quality Rules, standards, and code health
-Agentic Toolbox A CLI-powered quality counterpart for coding agents
+Multi Agent Code Review Enforce organizational standards on every pull request.
+Wisdom Base Bring knowledge from your codebase, PR history, and business requirements into every step of your agentic SDLC.
+Rules & Skills Lifecycle Transform tribal knowledge and PR history into self-learning standards.
+Cross Repo Review Catch breaking changes before they reach other repos and cause downstream impact.
+Software Map New See how every repo, service and contract connects. Track the blast radius of every change.
+Agentic Toolbox New Give coding agents (including Codex, Claude, and Kiro) a CLI-powered quality counterpart.
 Resources
 Book a Demo
 Start Trial
@@ -40,9 +43,7 @@ Log in
 Log in
 Book a Demo
 Start Trial
-904.2K
-648.6K
-13.1K
+13.7K
 Code Quality that Scales with Your Team
 $.012/credit, pooled across the team
 Switch packs anytime
@@ -180,7 +181,7 @@ Yes. Upgrade, downgrade, or switch credit packs from the dashboard at any time. 
 What happens if I use all my credits before the month ends?
 Reviews keep running. Once your base credits are depleted, you enter overage at the same per-credit rate as your base plan, with no premium and no penalty. Overage accrues against a monthly spending cap that you set and can change at any time.
 Is there a limit on the number of repositories, users, or reviews?
-No limits on repositories or reviews. Add unlimited users during your free trial, and when you upgrade to Pro Teams, the plan supports up to 30 users. Install Qodo on as many repos as you want, run as many reviews as your credit pool supports, and your engineers never need to create Qodo accounts.
+No limits on repositories, users, or reviews. Install Qodo on as many repos as you want and add as many users as you need, during your free trial and after you upgrade to Pro Team. Your developers don’t need Qodo accounts. Reviews draw from your team’s shared credit pool, then continue as overage up to the monthly spending cap you set.
 Do unused credits roll over to the next month?
 Credits expire at the end of each monthly cycle. Each cycle starts fresh with a new pool. Pick a plan that fits your typical usage so you’re not leaving credits on the table, and size up if you find yourself in overage every month
 Will my reviews ever stop running unexpectedly?
