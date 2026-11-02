@@ -129,7 +129,7 @@ pricing:
 status: active
 sources:
   - url: https://www.warp.dev/pricing
-    verified_at: 2026-10-08
+    verified_at: 2026-11-02
     covers: [pricing]
   - url: https://docs.warp.dev/agents/cli-agents/overview/
     verified_at: 2026-08-23
