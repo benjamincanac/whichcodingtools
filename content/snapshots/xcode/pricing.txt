@@ -76,6 +76,12 @@ alexeypegov
 As a developer with more that 20 years of development experience who recently switched to iOS and swift, I must admit that Xcode is not a tool Apple ecosystem deserves. Being a wonderful product itself, iPhone and iOS has established a new level of customer satisfaction that affected the whole market. Xcode looks like a tool from completely different world — a world of unsatisfaction, pain and unproductivity. A world no one who has ever tried to use IntelliJ products whould like to visit: Xcode hangs, eats CPU, stops highlighting, its unable to perform any refactoring besides rename, and even a simple rename it might fail to complete. It is a shame, Apple. A real shame. And if you are not able to provide developers with a decent tool, please, let us use something else by allowing other people to compete with you: open your formats, allow other to build tools on top of your toolchain, that's not that hard and I'm sure it will cause some significant positive changes for everyone, including your own developers, your own tools and your own ecosystem.
 What’s New
 Version History
+Xcode 27.2 includes Swift 6.4 and SDKs for iOS 27.2, iPadOS 27.2, tvOS 27.2, watchOS 27.2, visionOS 27.2, and macOS 27.2.
+This update adds support for Touch on MacBook Pro with PROLED XDR Display, so you can test how your app responds to real touch input in Previews and Device Hub. It introduces a JSON-based project format that's more readable, easier to edit, and merge-friendly. It also includes a code coverage tool for coding agents, brings slow-motion animation, simulated shake, and simulated memory pressure in Device Hub, and provides bug fixes and improved stability.
+27.2 3d ago
+Xcode 27.1 includes Swift 6.4 and SDKs for iOS 27.1, iPadOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, and macOS 27.0.
+This update adds development support for iPhone Duo. This includes a simulator for the all-new poses and orientations of iPhone Duo and a coding intelligence skill to help you prepare and optimize your app. It also provides bug fixes and improved stability.
+27.1 Oct 15
 Xcode 27 includes Swift 6.4 and SDKs for iOS 27, iPadOS 27, tvOS 27, watchOS 27, visionOS 27, and macOS 27.
 Accelerate your development with agentic coding that plans features, writes code, runs tests, and validates changes in previews and on device. Xcode has integrated support for agents from Anthropic, Google, and OpenAI. You can also add any agent compatible with the Agent Client Protocol, and extend Xcode with your own skills and tools using the Model Context Protocol.
 * Agent tools can now build your project, render previews with variants, drive your app in Device Hub, run tests, read the console, and search Apple documentation.
@@ -92,7 +98,7 @@ Also in Xcode 27:
 * Organizer prioritizes performance work with a new overview of high-impact regressions, storage and hitch metrics, metric goals calibrated to similar apps, and agent-generated fix recommendations.
 * Xcode Cloud helps you build high-quality apps, with a simplified setup, streamlined app record creation, and support for Apple Vision Pro and apps using Metal.
 * Icon Composer supports multi-layer Liquid Glass icons with a sharper rendering mode and deeper shadows.
-27.0 3d ago
+27.0 Sep 14
 Xcode 26.6 includes Swift 6.3.3 and SDKs for iOS 26.5, iPadOS 26.5, tvOS 26.5, watchOS 26.5, visionOS 26.5, and macOS 26.5.
 This update adds support for Google Gemini in the coding assistant, in addition to Anthropic Claude Agent and OpenAI Codex. It also enables use of other compatible agents through the Agent Client Protocol, and provides bug fixes and improved stability.
 26.6 Jun 25
@@ -198,27 +204,9 @@ Xcode 15 includes Swift 5.9 and SDKs for iOS 17, iPadOS 17, tvOS 17, watchOS 10,
 This update fixes an issue that could prevent development when targeting devices running iOS 13.
 Xcode 14.3.1 includes Swift 5.8.1 and SDKs for iOS 16.4, iPadOS 16.4, tvOS 16.4, watchOS 9.4, and macOS Ventura 13.3.
 14.3.1 06/01/2023
-Xcode 14.3 includes Swift 5.8 and SDKs for iOS 16.4, iPadOS 16.4, tvOS 16.4, watchOS 9.4, and macOS Ventura 13.3.
-14.3 03/30/2023
-Xcode 14.2 includes SDKs for iOS 16.2, iPadOS 16.2, tvOS 16.1, watchOS 9.1, and macOS Ventura 13.1.
-14.2 12/13/2022
-Xcode 27 includes Swift 6.4 and SDKs for iOS 27, iPadOS 27, tvOS 27, watchOS 27, visionOS 27, and macOS 27.
-Accelerate your development with agentic coding that plans features, writes code, runs tests, and validates changes in previews and on device. Xcode has integrated support for agents from Anthropic, Google, and OpenAI. You can also add any agent compatible with the Agent Client Protocol, and extend Xcode with your own skills and tools using the Model Context Protocol.
-* Agent tools can now build your project, render previews with variants, drive your app in Device Hub, run tests, read the console, and search Apple documentation.
-* Plan mode lays out your approach before any code is written, with plans rendered in Markdown, including diagrams and support for inline comments.
-* Built-in skills help agents modernize your code with new APIs and best practices, covering SwiftUI, App Intents, universal sizing, accessibility, testing, performance, and more.
-* Xcode services stay available to external coding agents at all times, including builds, previews, tests, and simulators.
-Also in Xcode 27:
-* Device Hub unifies simulated and physical devices in one app, with dynamic resizing and adjustable appearance.
-* Themes extend color and fonts throughout the interface, with new customizable presets and a theme you can set per project.
-* String Catalogs help you localize your app with coding agents that can add languages, discover new strings, and use code context and prior translations to improve output quality.
-* Express new project workflow lets you start writing code immediately, with no project configuration. And standalone Swift files render previews and playground results in the canvas.
-* Previews display a grid of variations for any property with #Preview(arguments:), render multiple localizations, and resize to arbitrary canvas sizes.
-* New instruments deepen performance analysis with Swift Executors for cooperative pool and actor activity, Foundation Models for prompts, responses, and token usage, and Core AI for tracing model execution.
-* Organizer prioritizes performance work with a new overview of high-impact regressions, storage and hitch metrics, metric goals calibrated to similar apps, and agent-generated fix recommendations.
-* Xcode Cloud helps you build high-quality apps, with a simplified setup, streamlined app record creation, and support for Apple Vision Pro and apps using Metal.
-* Icon Composer supports multi-layer Liquid Glass icons with a sharper rendering mode and deeper shadows. more
-Version 27.0 3d ago
+Xcode 27.2 includes Swift 6.4 and SDKs for iOS 27.2, iPadOS 27.2, tvOS 27.2, watchOS 27.2, visionOS 27.2, and macOS 27.2.
+This update adds support for Touch on MacBook Pro with PROLED XDR Display, so you can test how your app responds to real touch input in Previews and Device Hub. It introduces a JSON-based project format that's more readable, easier to edit, and merge-friendly. It also includes a code coverage tool for coding agents, brings slow-motion animation, simulated shake, and simulated memory pressure in Device Hub, and provides bug fixes and improved stability. more
+Version 27.2 3d ago
 App Privacy
 App Privacy
 The developer, Apple , indicated that the app’s privacy practices may include handling of data as described below. For more information, see the developer’s privacy policy .
@@ -244,22 +232,17 @@ Privacy practices may vary, for example, based on the features you use or your a
 Accessibility
 The developer has not yet indicated which accessibility features this app supports. Learn More
 Information
-Seller
-Apple Inc.
-Size
-3.1 GB
-Category
-Developer Tools
+Seller Apple Inc.
+Size 3.1 GB
+Category Developer Tools
 Compatibility Requires macOS 26.6 or later and a Mac with Apple M1 chip or later.
 Mac
 Requires macOS 26.6 or later and a Mac with Apple M1 chip or later.
-Languages
-English
+Languages English
 Age Rating 4+
 4+
 Learn More
-Copyright
-Copyright © 2026 Apple Inc. All rights reserved.
+Copyright Copyright © 2026 Apple Inc. All rights reserved.
 Developer Website
 Privacy Policy
 License Agreement
@@ -277,6 +260,9 @@ Read, listen, discover.
 View
 Apple Podcasts
 Audio and video podcasts
+View
+Find My iPhone
+Utilities
 View
 Find My Friends
 Social Networking
@@ -307,9 +293,6 @@ We’re here to help
 View
 TestFlight
 Beta testing made simple
-View
-iTunes Remote
-Entertainment
 United States
 Español (México)
 العربية
