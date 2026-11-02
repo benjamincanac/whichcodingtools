@@ -9,60 +9,61 @@ To access the JetBrains AI service, you usually need a JetBrains AI subscription
 AI Assistant provides other ways to activate AI-powered features . However, using the JetBrains AI service subscription ensures that all features are available and work as expected.
 In organizations that have been migrated to JetBrains Central , you do not need a separate JetBrains AI subscription. Instead, an administrator grants you AI access, and your usage draws from a pool of resources shared across the whole organization. For details, refer to the Organizations (JetBrains Central) tab in Available license tiers .
 Due to the restrictions imposed by providers of the AI models connected to JetBrains AI, such as OpenAI, Google, and Anthropic, usage of the JetBrains AI service is restricted to the allowed territories .
+Since July 13, 2026, the JetBrains AI service is no longer available in China. You can still use AI Assistant there with your own API keys or third-party and local models . In JetBrains IDEs 2025.3.2 and later, you can also install ACP-compatible agents from the ACP registry . Using ACP agents does not require a JetBrains AI subscription.
 Available license tiers
 JetBrains AI offers several license tiers – AI Free [1] , AI Pro , AI Ultimate [1] , and AI Enterprise :
 The AI Free , AI Pro , and AI Ultimate license tiers are available for both individual users and organizations.
 The AI Enterprise license tier is available only to organizations as a part of JetBrains IDE services .
 There is also an AI Trial license tier intended for evaluation and available to both individual and organizational users.
 [1] The AI Free and AI Ultimate tiers are available in most JetBrains IDEs starting from version 2025.1 , though some restrictions may apply.
-Each license provides a quota – a resource that regulates access to AI-powered features. It is represented by AI Credits , which are consumed when you use AI features that rely on cloud models.
+Each license provides a quota – a resource that regulates access to AI-powered features. It is represented by AI credits , which are consumed when you use AI features that rely on cloud models.
 License tier
 Price
-AI Credits
-Ability to top up AI Credits
+AI credits
+Ability to purchase more AI credits
 AI Trial
 Free
-10 AI Credits per trial period
+10 AI credits per trial period
 AI Free
 Free
-3 AI Credits per 30-days
+3 AI credits per 30-days
 AI Pro
 $10 USD
-10 AI Credits per 30-days
+10 AI credits per 30-days
 AI Ultimate
 $30 USD
-35 AI Credits per 30-days
-The number of AI Credits included in your plan corresponds to its subscription price, with a small bonus for the AI Ultimate license tier. Each AI Credit equals $1 USD charged in your local currency.
-If you run out of AI Credits included in your subscription, you can top up your balance to continue using AI features. These Top-up AI Credits are valid for 12 months and remain available until they are used or expire.
+35 AI credits per 30-days
+The number of AI credits included in your plan corresponds to its subscription price, with a small bonus for the AI Ultimate license tier. Each AI credit equals $1 USD charged in your local currency.
+If you run out of AI credits included in your subscription, you can purchase more to continue using AI features. Purchased AI credits are valid for 12 months and remain available until they are used or expire.
 License tier
 Price
-AI Credits
-Ability to top up AI Credits
+AI credits
+Ability to purchase more AI credits
 AI Trial
 Free
-20 AI Credits per trial period
+20 AI credits per trial period
 AI Free
 Free
-3 AI Credits per 30-days
+3 AI credits per 30-days
 AI Pro
 $20 USD
-20 AI Credits per 30-days
+20 AI credits per 30-days
 AI Ultimate
 $60 USD
-70 AI Credits per 30-days
+70 AI credits per 30-days
 AI Enterprise
 $60 USD
 On par with AI Ultimate quota, or higher [2]
 [3]
-[2] Currently, we cannot disclose the exact number of AI Credits for the AI Enterprise license tier, as we are still rethinking the AI quota model.
-[3] The ability to top up AI Credits for the AI Enterprise license tier will be implemented later.
-The number of AI Credits included in your plan corresponds to its subscription price, with a small bonus for the AI Ultimate license tier. Each AI Credit equals $1 USD charged in your local currency.
-If you run out of AI Credits included in your subscription, you can top up your balance to continue using AI features. These Top-up AI Credits are valid for 12 months and remain available until they are used or expire.
-Organizations are being migrated to JetBrains Central gradually. In an organization that uses it, AI access isn't tied to individual licenses: an administrator grants or revokes AI access independent of licenses and controls how many AI Credits you can use through a default limit for everyone, with optional per-user limits.
-The AI Credits included in the organization's licenses aren't assigned to individual users. Instead, they're added to a single pool shared across the whole organization, and purchased Top-up AI Credits join the same pool. Pooled AI Credits accumulate monthly. Purchased Top-up AI Credits expire one year after being added to the pool, while AI Credits converted into the pool from a license expire at the end of the month when that license expires. This differs from the per-user model, where each user's monthly quota expires when the subscription is renewed.
-Each license that includes AI resources contributes a fixed number of monthly AI Credits to the pool. This includes dedicated AI license tiers as well as IDE licenses that bundle AI resources:
+[2] Currently, we cannot disclose the exact number of AI credits for the AI Enterprise license tier, as we are still rethinking the AI quota model.
+[3] The ability to purchase more AI credits for the AI Enterprise license tier will be implemented later.
+The number of AI credits included in your plan corresponds to its subscription price, with a small bonus for the AI Ultimate license tier. Each AI credit equals $1 USD charged in your local currency.
+If you run out of AI credits included in your subscription, you can purchase more to continue using AI features. Purchased AI credits are valid for 12 months and remain available until they are used or expire.
+Organizations are being migrated to JetBrains Central gradually. In an organization that uses the new model, AI access is managed separately from product licenses: an admin can grant or revoke AI access and set how many AI credits each user can spend per month by configuring a default limit for users and, if needed, individual per-user limits.
+AI credits transferred from the organization's existing licenses that included AI resources are placed in a single shared pool rather than assigned to individual users. Recurring credits provided through eligible licenses are added to this pool monthly, and purchased AI credits are added to the same pool. Purchased AI credits expire 12 months after purchase, while AI credits transferred from a license expire on the last day of the calendar month in which the original license expires. This differs from the previous per-user model, in which each user's monthly allocation of AI credits expired when it renewed.
+During migration, each eligible license that included AI resources contributes a credit allocation based on its former monthly AI credit allocation. These allocations correspond to former dedicated AI subscriptions and IDE subscriptions that bundled AI resources, such as All Products Pack and dotUltimate:
 License
-AI Credits per month
+AI credits per month
 AI Ultimate
 70
 AI Pro
@@ -73,7 +74,7 @@ dotUltimate
 20
 AI Free
 3
-For more details on how existing quotas are aggregated into the shared pool, refer to JetBrains Central Console documentation.
+For more details on how AI credits from existing licenses are converted into the shared pool, refer to JetBrains Central Console documentation.
 License tiers differ mostly in the size of the quota they provide. For a detailed comparison of what each tier includes, refer to the JetBrains AI pricing page. If you have not found the information you are looking for, please visit our FAQ .
 License tiers availability
 Some license tiers may be unavailable in older versions of JetBrains IDEs. For example, the AI Free license tier is only available in IDEs starting from version 2025.1 or later. The AI Ultimate [4] license tier is available in IDEs starting from version 2024.2.1 ; earlier versions only support AI Pro and AI Enterprise license tiers:
@@ -92,7 +93,7 @@ The AI Free license tier is not available in Community Editions of PyCharm and I
 The AI Free license tier is not automatically included in any IDE trial license.
 The AI Pro license tier provided for free with the All Products Pack or dotUltimate subscription, as well as the AI Free license tier, cannot be activated if the IDE license is obtained through the License Server .
 The AI Pro license tier is provided for free with DataSpell .
-The AI Free and AI Ultimate license tiers are only available in the serviceable territories , with the exception of Mainland China for now.
+The AI Free and AI Ultimate license tiers are only available in the serviceable territories .
 Manage a license
 This section provides instructions on how to manage a JetBrains AI license.
 Manage multiple licenses
@@ -108,78 +109,78 @@ Navigate to Settings | Tools | AI Assistant | Providers & API keys .
 In the JetBrains AI section, click Log out .
 After that, you can configure other authentication options to keep using AI Assistant.
 If you want to log in again using your JetBrains AI service subscription, refer to the Enable JetBrains AI alongside custom models section.
-Add and manage Top-up AI Credits
-Top-up AI Credits are additional AI Credits that you can purchase to continue using AI features after the quota included in your license tier is exhausted. Once purchased, these credits are automatically added to your balance and consumed the same way as your regular quota. You can purchase and manage them through the JetBrains AI widget in your IDE or in JetBrains Account settings.
+Add and manage AI credits
+You can purchase additional AI credits to continue using AI features after the quota included in your license tier is exhausted. Once purchased, these credits are automatically added to your balance and consumed the same way as your regular quota. You can purchase and manage them through the JetBrains AI widget in your IDE or in JetBrains Account settings.
 Using the JetBrains AI widget
-The JetBrains AI widget located in the window header toolbar lets you quickly purchase additional Top-up AI Credits and track your usage.
-Purchasing Top-up AI Credits through the widget is available only for personal accounts.
-Add Top-up AI Credits
-Click Buy near the top-up credits counter.
-On the eStore Order Checkout page, specify the number of Top-up AI Credits you want to purchase.
+The JetBrains AI widget located in the window header toolbar lets you purchase additional AI credits and track your usage.
+Purchasing AI credits through the widget is available only for personal accounts.
+Add AI credits
+Click Buy near the credits counter.
+On the eStore Order Checkout page, specify the number of AI credits you want to purchase.
 Provide any other required information and submit your order.
-Track Top-up AI Credits usage
-The top-up credits counter shows how many Top-up AI Credits you currently have, with an option to add more, if needed.
+Track AI credits usage
+The top-up credits counter shows how many purchased AI credits you currently have, with an option to add more, if needed.
 Using JetBrains Account
-You can purchase Top-up AI Credits and view usage information in your JetBrains Account settings.
-If your organization has been migrated to the shared credit pool model , manage AI Credits in JetBrains Central Console instead.
-Add Top-up AI Credits
+You can purchase AI credits and view usage information in your JetBrains Account settings.
+If your organization has been migrated to the shared credit pool model , manage AI credits in JetBrains Central Console instead.
+Add AI credits
 Log in to your JetBrains Account .
 Navigate to the JetBrains AI Settings section.
 In the Top-up AI Credits for personal use card, click the Add AI Credits button.
-Top-up AI Credits can be purchased only if you already have an active JetBrains AI license.
+AI credits can be purchased only if you already have an active JetBrains AI license.
 Pass eStore Identification and proceed to checkout.
-On the eStore Order Checkout page, specify the number of Top-up AI Credits you want to purchase.
+On the eStore Order Checkout page, specify the number of AI credits you want to purchase.
 Provide any other required information and submit your order.
-Track Top-up AI Credits usage
+Track AI credits usage
 Log in to your JetBrains Account .
 Navigate to the JetBrains AI Settings section.
-Review the Top-up AI Credits for personal use and Top-up AI Credits for work cards. The upper card displays your personal AI Credits, while the lower one displays AI Credits assigned to you by your organization.
+Review the cards. The upper card displays your personal AI credits, while the lower one displays AI credits assigned to you by your organization.
 Currently, the progress bar has only two states:
-Fully filled as long as there is at least one Top-up AI Credit.
+Fully filled as long as there is at least one AI credit.
 Empty when the balance reaches zero.
 This implementation is temporary and will be improved in the future.
 All actions related to managing an organization profile require you to have admin permissions .
-Add Top-up AI Credits
+Add AI credits
 Log in to your JetBrains Account .
 Switch to your organization.
 Navigate to the JetBrains AI Settings section.
 In the Top-up AI Credits for your organization card, click the Add AI Credits button.
-Top-up AI Credits can be purchased only if you already have an active JetBrains AI license.
+AI credits can be purchased only if you already have an active JetBrains AI license.
 Pass eStore Identification and proceed to checkout.
-On the eStore Order Checkout page, specify the number of Top-up AI Credits you want to purchase.
+On the eStore Order Checkout page, specify the number of AI credits you want to purchase.
 Provide any other required information and submit your order.
-Limit monthly use of Top-up AI Credits
+Limit monthly use of AI credits
 Log in to your JetBrains Account .
 Switch to your organization.
 Navigate to the JetBrains AI Settings section.
-In the Monthly limit for top-up AI Credits card, specify how many Top-up AI Credits can be used in a month per subscription.
+In the Monthly limit for top-up AI Credits card, specify how many AI credits can be used in a month per subscription.
 Click Save to apply the changes.
-Track Top-up AI Credits usage
+Track AI credits usage
 Log in to your JetBrains Account .
 Switch to your organization.
 Navigate to the JetBrains AI Settings section.
-Review the Top-up AI Credits for your organization card. It displays the number of Top-up AI Credits available to your organization.
+Review the Top-up AI Credits for your organization card. It displays the number of AI credits available to your organization.
 Currently, the progress bar has only two states:
-Fully filled as long as there is at least one Top-up AI Credit.
+Fully filled as long as there is at least one AI credit.
 Empty when the balance reaches zero.
 This implementation is temporary and will be improved in the future.
 Using JetBrains Central Console
-Organizations that have been migrated to the shared credit pool model manage AI Credits in JetBrains Central Console .
+Organizations that have been migrated to the shared credit pool model manage AI credits in JetBrains Central Console .
 For instructions, refer to the JetBrains Central Console documentation:
 Manage AI access – grant or revoke AI access to users.
-Manage AI Credits – add AI Credits, set limits, and configure an auto-purchase schedule for your organization.
-Monitor AI Credits usage – track how AI Credits are consumed across your organization.
-Review Top-up AI Credits usage report
-At the beginning of each month, you receive a report with details of your Top-up AI Credits usage for the previous month. The report is sent to the email address associated with your JetBrains Account .
-The report provides various details, but the following fields are the most important for interpreting your Top-up AI Credits usage:
+Manage AI credits – add AI credits, set limits, and configure an auto-purchase schedule for your organization.
+Monitor AI credits usage – track how AI credits are consumed across your organization.
+Review AI credits usage report
+At the beginning of each month, you receive a report with details of your AI credits usage for the previous month. The report is sent to the email address associated with your JetBrains Account .
+The report provides various details, but the following fields are the most important for interpreting your AI credits usage:
 Period – the date range covered by the report.
-Total – the total number of Top-up AI Credits spent during the specified period. Only purchased Top-up AI Credits are counted.
-Including credits for free – the number of Top-up AI Credits spent that were obtained at no cost through discounts or promotional offers.
-Quota and AI Credits FAQ
-This section provides answers to common questions about quota, AI Credits, and Top-up AI Credits. What is quota and what are AI Credits?
-Quota is a monthly resource measured in AI Credits, which are consumed when you use AI-powered features.
-The number of AI Credits available to you matches the price of your subscription. Each AI Credit corresponds to $1 USD charged in your local currency. How much usage do I get from one AI Credit?
-One AI Credit gives you about:
+Total – the total number of AI credits spent during the specified period. Only purchased AI credits are counted.
+Including credits for free – the number of AI credits spent that were obtained at no cost through discounts or promotional offers.
+Quota and AI credits FAQ
+This section provides answers to common questions about quota and AI credits. What is quota and what are AI credits?
+Quota is a monthly resource measured in AI credits, which are consumed when you use AI-powered features.
+The number of AI credits available to you matches the price of your subscription. Each AI credit corresponds to $1 USD charged in your local currency. How much usage do I get from one AI credit?
+One AI credit gives you about:
 ~10 requests to generate code in AI Chat.
 ~40 requests to generate code in the editor.
 ~25 requests to explain selected code fragments with AI.
@@ -189,34 +190,34 @@ This is a rough approximation, as the final cost of AI actions depends on multip
 The quota reset occurs every 30 days from the date when you first used your JetBrains AI license. How is quota usage calculated?
 Quota usage is calculated dynamically for each interaction based on several factors, primarily the number of tokens used — units of text from both your input and the AI’s response. Since token usage can vary depending on the length, complexity, and context of a request, the quota cost may differ from one interaction to another. How can I track my quota usage?
 Quota usage can be tracked in the JetBrains AI widget located in the toolbar in the window header:
-The monthly credits left counter shows how many AI Credits you have left out of your subscription quota . The progress bar reflects overall usage and decreases as you use cloud-based features. The date under the progress bar indicates when the monthly quota resets. What to do if the quota usage limit is reached?
+The monthly credits left counter shows how many AI credits you have left out of your subscription quota . The progress bar reflects overall usage and decreases as you use cloud-based features. The date under the progress bar indicates when the monthly quota resets. What to do if the quota usage limit is reached?
 Once the quota for the current period is exhausted, you have the following options:
 Wait for the next 30-day cycle when the quota resets.
-(Trial, AI Pro, AI Ultimate) Top up your AI Credits to continue using AI features beyond your monthly quota.
+(Trial, AI Pro, AI Ultimate) Purchase AI credits to continue using AI features beyond your monthly quota.
 Use a different license if you have multiple JetBrains AI licenses .
-Upgrade to a higher tier to renew the quota. This also increases the total number of AI Credits available per 30-day period.
+Upgrade to a higher tier to renew the quota. This also increases the total number of AI credits available per 30-day period.
 Configure AI Assistant to use models from third-party providers or set up agents. What can lead to high quota usage?
 Several factors can increase quota consumption:
 Long chat threads: Using a single chat instance for multiple topics causes context to grow exponentially, increasing token consumption and quickly using up your quota.
 Expensive models: Models with higher token costs ( marked with the icon) consume quota faster.
-Agent mode: Extensive use of the agent mode leads to higher quota consumption.
+Use of agents: Extensive use of agents leads to higher quota consumption.
 How to reduce quota usage:
 Start a new chat for each unrelated topic or task.
 Switch to more cost-effective models.
-For heavy agentic workloads, consider upgrading to the AI Ultimate license tier, which has a larger monthly quota. What are Top-up AI Credits?
-Top-up AI Credits are additional AI Credits you can purchase to continue using AI features after the dedicated quota included in your license tier is exhausted.
-You can top up your AI Credits balance in the settings of your JetBrains Account . How Top-up AI Credits are spent?
-AI Assistant starts using your Top-up AI Credits only after your monthly quota is fully used. They remain in use until the monthly quota is renewed. Once the new monthly quota becomes available, AI Assistant switches back to using it. Any remaining Top-up AI Credits stay in your balance and will be used again only after the next monthly quota runs out. Where can I track the usage of Top-up AI Credits?
-Top-up AI Credits can be tracked in the JetBrains AI widget located in the toolbar in the window header:
-As an alternative, you can also track Top-up AI Credits in the settings of your JetBrains Account .
-In addition, a report with details of your Top-up AI Credits usage for the previous month is sent at the beginning of each month. Do Top-up AI Credits expire?
-Top-up AI Credits stay valid for 12 months from the date they were added, unless specified or agreed differently. They remain available to you until they are used or expire. Can I use Top-up AI Credits in other licenses?
-Top-up AI Credits can be used across all JetBrains AI licenses purchased under the same customer account. This means that any Top-up AI Credits you purchased yourself can be used only for licenses you personally bought.
-Likewise, Top-up AI Credits provided by your organization can be used only for licenses assigned to you by the organization. How are Top-up AI Credits used in an organization?
-Top-up AI Credits are shared among all JetBrains AI licenses purchased by your organization. Administrators can set the limit on how much Top-up AI Credits can be used per subscription in the settings of your organization account. Are there any regional limitations on using Top-up AI Credits?
-Currently, Top-up AI Credits are not available for use in Mainland China.
+For heavy agentic workloads, consider upgrading to the AI Ultimate license tier, which has a larger monthly quota. Can I buy more AI credits?
+Yes, you can purchase additional AI credits to continue using AI features after the dedicated quota included in your license tier is exhausted.
+You can add AI credits to your balance in the settings of your JetBrains Account . How are purchased AI credits spent?
+AI Assistant starts using your purchased AI credits only after your monthly quota is fully used. They remain in use until the monthly quota is renewed. Once the new monthly quota becomes available, AI Assistant switches back to using it. Any remaining purchased AI credits stay in your balance and will be used again only after the next monthly quota runs out. Where can I track the usage of purchased AI credits?
+Purchased AI credits can be tracked in the JetBrains AI widget located in the toolbar in the window header:
+As an alternative, you can also track purchased AI credits in the settings of your JetBrains Account .
+In addition, a report with details of your purchased AI credits usage for the previous month is sent at the beginning of each month. Do purchased AI credits expire?
+Purchased AI credits stay valid for 12 months from the date they were added, unless specified or agreed differently. They remain available to you until they are used or expire. Can I use purchased AI credits in other licenses?
+Purchased AI credits can be used across all JetBrains AI licenses purchased under the same customer account. This means that any AI credits you purchased yourself can be used only for licenses you personally bought.
+Likewise, AI credits provided by your organization can be used only for licenses assigned to you by the organization. How are purchased AI credits used in an organization?
+Purchased AI credits are shared among all JetBrains AI licenses purchased by your organization. Administrators can set the limit on how many AI credits can be used per subscription in the settings of your organization account. Are there any regional limitations on using purchased AI credits?
+Purchased AI credits are not available for use in China.
 Contact support
 If you need any help regarding your license, you can contact our support team .
-22 July 2026
+14 October 2026
 Bring your own key (BYOK) Data handling
 </untrusted-page-text>
