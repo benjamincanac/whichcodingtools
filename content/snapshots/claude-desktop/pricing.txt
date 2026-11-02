@@ -12,6 +12,7 @@ Claude
 Claude Code
 Claude Cowork
 Claude Duet
+Claude Platform
 Claude Tag
 Specialized
 Claude Security
@@ -39,6 +40,7 @@ Developers
 Build with
 Claude Code
 Claude Platform
+Managed Agents
 For developers
 Claude Academy
 Community
@@ -54,7 +56,6 @@ Use Cases
 AI Agents
 Coding
 Commerce
-Managed Agents
 Departments
 Customer support
 Cybersecurity
@@ -157,7 +158,7 @@ Kick off a coding task from your phone
 Use Remote Control on mobile to send tasks from your phone to the Claude Code CLI. Access your local dev environment or files.
 FAQ
 Do I need a paid plan to use the desktop or mobile apps?
-No. Claude apps are available to all plan types—Free, Pro, Max, Team, and Enterprise. Some features are only available to paid plans.
+No. Claude apps are available to all plan types: Free, Pro, Max, Ultra, Team, and Enterprise. Some features are only available to paid plans.
 What’s the difference between the desktop app and using Claude in my browser?
 The desktop app is always accessible from your dock and includes quick entry for instant access from anywhere in your system. You also get desktop extensions to connect Claude with your local tools and files.
 Can I use the same account across desktop, web, and mobile?
@@ -175,7 +176,7 @@ Visit our Help Center for setup guides, troubleshooting, and system requirements
 Which Linux distributions does Claude Desktop support?
 Claude Desktop for Linux is in beta and supports Ubuntu and Debian (x64 and arm64). Support for additional distributions is coming in the future.
 Which plans include Claude Desktop for Linux?
-Chat is available on all plans, including Free. Claude Code and Claude Cowork are available on Pro, Max, Team, and Enterprise.
+Chat is available on all plans, including Free. Claude Code and Claude Cowork are available on Pro, Max, Ultra, Team, and Enterprise.
 Are all features available on Linux?
 Most are. Claude Code, Claude Cowork, and Chat are all available at launch. Computer Use is not yet available on Linux, and is coming soon. Dictation is also not available in this release. The Quick Entry global hotkey works on X11; on native Wayland it requires the desktop's GlobalShortcuts portal.
 © 2026 Anthropic PBC
