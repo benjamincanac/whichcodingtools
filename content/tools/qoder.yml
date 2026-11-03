@@ -104,10 +104,10 @@ pricing:
 status: active
 sources:
   - url: https://docs.qoder.com/account/pricing
-    verified_at: 2026-10-22
+    verified_at: 2026-11-03
     covers: [pricing]
   - url: https://docs.qoder.com/events/pricing-adjustment-notice
-    verified_at: 2026-10-22
+    verified_at: 2026-11-03
     covers: [pricing]
   - url: https://docs.qoder.com/release-notes/lite-launch-announcement.md
     verified_at: 2026-10-22
