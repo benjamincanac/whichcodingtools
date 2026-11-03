@@ -35,7 +35,7 @@ Cloud runtimes aren't live yet. Leave your email and we'll reach out when they a
 Email
 Why cloud? Optional
 Join waitlist
-Current version: v0.6.1 · What’s new in v0.6.1 · View all releases
+Current version: v0.7.2 · What’s new in v0.7.2 · View all releases
 multica
 Project management for human + agent teams. Source-available, self-hostable, built for the future of work.
 Get started
