@@ -10,7 +10,7 @@ Changelog
 Docs
 Customer stories
 Try GitHub Copilot app
-Attend GitHub Universe
+See what's new
 AI & ML
 AI & ML
 Learn about artificial intelligence and machine learning across the GitHub ecosystem and the wider industry.
@@ -222,7 +222,7 @@ Learn about core challenges in DevSecOps, and how you can start addressing them 
 Changelog
 Docs
 Customer stories
-Attend GitHub Universe
+See what's new
 Try GitHub Copilot app
 Home / News & insights / Company news
 GitHub Copilot is moving to usage-based billing
@@ -279,18 +279,18 @@ What this means for individuals
 What this means for businesses and enterprises
 The bottom line
 Related posts
+Company news
+GitHub Universe 2026: Evolving every layer of the stack
+Today, we laid out our vision for GitHub as the most comprehensive, end-to-end software delivery system in the world.
+Jay Parikh
 News & insights
-Developers want more efficient software. Here’s what over 1,000 GitHub users told us they need.
-New research from GitHub and Yale Program on Climate Change Communication finds strong demand for tools, measurement, and practical guidance that can help developers reduce wasted compute.
-Paull Young
+Octoverse: Commits, pushes, reach new highs in 2026 as developers build with agents
+See how a record year of growth reached every industry, every field, and every kind of builder in the 2026 Octoverse report.
+GitHub Staff
 Company news
-GitHub availability report: August 2026
-In August, we experienced five incidents that resulted in degraded performance across GitHub services.
-Jakub Oleksy
-Company news
-The August 17 outage, and the work ahead
-An update on the August 17 outage and the steps we’re taking to improve reliability.
-Vlad Fedorov
+The next developer interface is ambient intelligence
+AI, agents, voice, and physical controls are shifting software development from operating tools to expressing intent—and helping developers stay focused on building.
+Martin Woodward
 Explore more from GitHub
 Docs
 Everything you need to master GitHub, all in one place.
@@ -302,8 +302,8 @@ Customer stories
 Meet the companies and engineering teams that build with GitHub.
 Learn more
 GitHub Universe 2026
-Join us October 28-29 in San Francisco or online for GitHub Universe, our flagship developer event uniting people, agents, and the world’s code.
-Register now
+Catch up on the key announcements shaping the future of software development.
+See what's new
 We do newsletters, too
 Discover tips, technical guides, and best practices in our biweekly newsletter just for devs.
 Your email address
