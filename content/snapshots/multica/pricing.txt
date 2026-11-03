@@ -122,7 +122,7 @@ One person’s skill is every agent’s skill. Build once, benefit everywhere ac
 Compound growth
 Day 1: you teach an agent to deploy. Day 30: every agent deploys, writes tests, and does code review. Your team’s capabilities grow exponentially.
 One dashboard for all your compute
-Local daemons and cloud runtimes, managed from a single panel. Real-time monitoring of online/offline status, usage charts, and activity heatmaps. Auto-detects 26 supported coding tools on your machine.
+Local daemons and cloud runtimes, managed from a single panel. Real-time monitoring of online/offline status, usage charts, and activity heatmaps. Auto-detects 28 supported coding tools on your machine.
 Runtimes
 MacBook Pro
 online
@@ -152,7 +152,7 @@ Local daemons and cloud runtimes in one view. No context switching between diffe
 Real-time monitoring
 Online/offline status, usage charts, and activity heatmaps. Know exactly what your compute is doing at any moment.
 Auto-detection on first run
-Multica scans for 26 supported coding tools — Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, and ZeroClaw — and registers a runtime for each one it finds.
+Multica scans for 28 supported coding tools — Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Devin CLI, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Muse Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, and ZeroClaw — and registers a runtime for each one it finds.
 Get started
 Hire your first AI employee
 in the next hour.
@@ -161,7 +161,7 @@ Sign up & create your workspace
 Enter your email, verify with a code, and you’re in. Your workspace is created automatically — no setup wizard, no configuration forms.
 02
 Install the CLI & connect your machine
-Run multica setup — it walks you through OAuth, starts the daemon, and scans for the 26 supported coding tools (Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, ZeroClaw). Whichever ones you already have installed get registered as runtimes automatically.
+Run multica setup — it walks you through OAuth, starts the daemon, and scans for the 28 supported coding tools (Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Devin CLI, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Muse Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, ZeroClaw). Whichever ones you already have installed get registered as runtimes automatically.
 03
 Create your first agent
 Give it a name, write instructions, and attach skills. Agents automatically activate on assignment, on comment, or on mention.
@@ -186,7 +186,7 @@ Built with the community, not just for it. Contribute skills, integrations, and 
 FAQ
 Questions & answers.
 What coding agents does Multica support?
-Multica supports 26 coding tools out of the box: Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, and ZeroClaw. The daemon auto-detects whichever CLIs you already have installed and registers a runtime for each one. Since the source code is public, you can also add your own backends.
+Multica supports 28 coding tools out of the box: Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Devin CLI, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Muse Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, and ZeroClaw. The daemon auto-detects whichever CLIs you already have installed and registers a runtime for each one. Since the source code is public, you can also add your own backends. Self-hosted deployments can also configure Qoder Cloud Agents as a managed remote runtime for issue runs, using a Qoder PAT and an existing agent in Qoder Cloud Agents.
 Do I need to self-host, or is there a cloud version?
 Both. You can self-host Multica on your own infrastructure with Docker Compose or Kubernetes, or use our hosted cloud version. Your data, your choice.
 Can I use Multica commercially?
