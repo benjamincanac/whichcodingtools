@@ -85,10 +85,10 @@ pricing:
 status: active
 sources:
   - url: https://www.kimi.ai/membership/pricing
-    verified_at: 2026-10-25
+    verified_at: 2026-11-03
     covers: [pricing]
   - url: https://www.kimi.com/en/help/membership/membership-overview
-    verified_at: 2026-10-20
+    verified_at: 2026-11-03
     covers: [pricing]
   - url: https://www.kimi.com/code/docs/
     verified_at: 2026-08-23

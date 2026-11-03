@@ -2,6 +2,7 @@
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
 Redeem Subscription
+Purchase notice: K3.1 Pro requests may queue or fail at launch. Wait times vary with overall load. Purchase as needed.
 # Your Plan Plays From Here
 Upgrade to Kimi Membership to unlock faster models, higher concurrency, and more powerful research preview capabilities
 Individual Business API
@@ -13,6 +14,7 @@ $ 15 / month $19
 Billed annually $180
 Subscribe
 More agent credits
+3D Modeling / 3D Web
 Work with documents, spreadsheets, and slides
 Deep Research
 Website deployment
@@ -32,6 +34,7 @@ $ 31 / month $39
 Billed annually $372
 Subscribe
 2x agent credits
+3D Modeling / 3D Web
 Work with documents, spreadsheets, and slides
 Deep Research
 Website deployment
@@ -54,6 +57,7 @@ $ 79 / month $99
 Billed annually $948
 Subscribe
 5x agent credits
+3D Modeling / 3D Web
 Work with documents, spreadsheets, and slides
 Deep Research
 Website deployment
@@ -77,6 +81,7 @@ $ 159 / month $199
 Billed annually $1,908
 Subscribe
 10x agent credits
+3D Modeling / 3D Web
 Work with documents, spreadsheets, and slides
 Deep Research
 Website deployment
@@ -99,7 +104,7 @@ Gift your friend a Kimi Membership to unlock faster models, higher concurrency, 
 Find the right plan for you
 Plan
 Annually
-Adagio
+Free
 $0
 Plus
 $180 / year
