@@ -34,7 +34,7 @@ pricing:
 status: preview
 sources:
   - url: https://fx.sh
-    verified_at: 2026-10-29
+    verified_at: 2026-11-03
     covers: [pricing, general]
   - url: https://github.com/vercel-labs/fx
     verified_at: 2026-08-23
