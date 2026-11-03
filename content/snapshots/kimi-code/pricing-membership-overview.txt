@@ -15,7 +15,7 @@ API API
 Business Business
 Kimi Business Business plans Contact sales
 Research Research
-Kimi K3 PerceptionBench Kimi K2.6 Agent Swarm WorldVQA Kimi K2.5 Kimi Vendor Verifier Kimi K2 Thinking Kimi K2
+Kimi K3.1 Pro Kimi K3 PerceptionBench Kimi K2.6 Agent Swarm WorldVQA Kimi K2.5 Kimi Vendor Verifier Kimi K2 Thinking Kimi K2
 All research
 Help Help
 Pricing Pricing
@@ -33,6 +33,7 @@ Docs & Sheets
 PPT
 Deep Research
 Build
+3D Make
 Membership
 Membership Subscription Benefits
 Membership Credit Updates and Usage Rules
@@ -128,7 +129,7 @@ Membership support contacts
 Was this article helpful?
 Yes
 No
-Previous Kimi Build FAQ Next
+Previous 3D Make FAQ Next
 Membership Credit Updates and Usage Rules
 New plan pricing
 Key benefits
@@ -150,7 +151,7 @@ English
 Products Kimi Kimi Work Kimi Code Kimi Browser Extension Kimi Platform Downloads All products
 Pricing Individual Business API
 Business Kimi Business Contact sales
-Research Kimi K3 tech blog Kimi K2.6 tech blog Kimi K2.5 tech blog PerceptionBench Agent Swarm WorldVQA All research
+Research Kimi K3.1 Pro tech blog Kimi K3 tech blog Kimi K2.6 tech blog Kimi K2.5 tech blog PerceptionBench Agent Swarm WorldVQA All research
 Company About us Moonshot AI Brand guidelines Terms of Service Privacy Policy
 © 2026 Moonshot AI | 京ICP备2023011302号-14 | 京B2-20240852 | 京公网安备11010802043150号
 </untrusted-page-text>
