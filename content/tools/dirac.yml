@@ -36,7 +36,7 @@ pricing:
 status: active
 sources:
   - url: https://dirac.run
-    verified_at: 2026-10-27
+    verified_at: 2026-11-03
     covers: [pricing, platforms, models, features, license, general]
   - url: https://dirac.run/docs/cli
     verified_at: 2026-10-27
