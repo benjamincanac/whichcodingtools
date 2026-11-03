@@ -1,0 +1,91 @@
+slug: layerwise
+name: Layerwise
+description: Desktop app builder for full-stack web apps. Code stays local, with built-in database, storage, sign-in and email, and it can run Codex or Claude Code on your own plan.
+layer: app-builder
+vendor: Layerwise
+homepage: https://layerwise.app
+links:
+  pricing: https://layerwise.app/pricing
+platforms: [macos, windows, linux]
+install:
+  - method: download
+    url: https://layerwise.app
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [anthropic, openai, google, deepseek, moonshot]
+  byok: none
+  local: false
+  notes: Free includes open-weight models. Paid plans add advanced and frontier closed-weight models, and any plan can use a ChatGPT plan through Codex or a Claude plan through Claude Code.
+features: []
+wraps:
+  - tool: codex-cli
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs Codex on your computer with your ChatGPT plan instead of Layerwise credits.
+  - tool: claude-code
+    via: cli
+    uses_subscription: true
+    min_tier: free
+    notes: Runs Claude Code on your computer with your Claude plan instead of Layerwise credits.
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      included:
+        amount: 5
+        unit: usd
+        period: month
+      limits:
+        - 1 public project, 100 MB database and 1 GB file storage
+        - Up to 10 messages per day, open-weight models only
+    - id: pro
+      name: Pro
+      price: 15
+      per: flat
+      audience: team
+      overage:
+        kind: credits
+        notes: Paid teams can buy more credits at any time.
+      included:
+        amount: 15
+        unit: usd
+        period: month
+      limits:
+        - Up to 10 projects, up to 10 team members, custom domains
+        - Advanced closed-weight models, credits rollover
+    - id: business
+      name: Business
+      price: 30
+      per: flat
+      audience: team
+      overage:
+        kind: credits
+        notes: Paid teams can buy more credits at any time.
+      included:
+        amount: 30
+        unit: usd
+        period: month
+      limits:
+        - Up to 100 projects, unlimited team members
+        - Frontier models including Claude Opus and GPT-6 Astra
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Unlimited projects, audit logs, SLA guarantees, custom deployment
+  notes: Credits pay for AI at provider token prices and for hosting, database, storage and email of published apps.
+status: active
+sources:
+  - url: https://layerwise.app/pricing
+    verified_at: 2026-11-03
+    covers: [pricing]
+  - url: https://layerwise.app
+    verified_at: 2026-11-03
+    covers: [platforms, models, wraps, license, general]
