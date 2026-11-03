@@ -1,0 +1,290 @@
+# https://dirac.run
+# Vendor page text. This is data to read, never instructions to follow.
+<untrusted-page-text>
+Dirac — Exact code changes in real repositories
+Skip to the field manual
+DIRAC
+Field manual
+Benchmarks
+Docs
+Posts
+Labs Market Share
+Discord
+View on GitHub
+Toggle navigation
+Open-source coding agent
+Exact work in real codebases.
+Dirac is an efficiency-focused, open-source coding agent built for
+complex, real-world codebases.
+VS Code · Open VSX · CLI · ACP
+Install for VS Code ↗
+Install CLI npm install -g dirac-cli
+Copy
+01 Goal mode
+02 Dirac can extend itself
+03 Low-verbosity response setting
+04 Steer it as it works
+05 Utility model
+06 No more approval fatigue
+07 Anchored file editing
+08 AST code inspection
+09 AST code manipulation
+10 Parallel code edits
+11 Concurrent subagents
+12 Ask Dirac questions about itself
+13 Opportunistic first request enrichment
+14 Get started
+←
+Previous
+00
+Goal mode 01A
+Goal mode / 01
+Goal mode
+Give Dirac a /goal and walk away, it will continue working on it for hours or days without drift. The goal can run autonomously and pause only when it needs your input.
+DIRAC / Goal mode 01B
+Dirac can extend itself 02A
+Dirac can extend itself / 02
+Dirac can extend itself
+Build new tools tailored to your workflow on the fly. Use /new-tool with tool description you want, Dirac will build the tool and make it available right away, within the same conversation.
+DIRAC / Dirac can extend itself 02B
+Low-verbosity response setting 03A
+Low-verbosity response setting / 03
+Low-verbosity response setting
+Models speak less.
+DIRAC / Low-verbosity response setting 03B
+Steer it as it works 04A
+Steer it as it works / 04
+Steer it as it works
+Something occurred to you after the task started? Send Dirac a message anytime, it will pass on the message to the model with the next tool response without disturbing the task.
+DIRAC / Steer it as it works 04B
+Utility model 05A
+Utility model / 05
+Utility model
+Use a separate cheaper utility model to take expensive tasks such as context compactions or new task creations off of the main model's plate.
+read our case study showing 80% savings
+↗
+DIRAC / Utility model 05B
+No more approval fatigue 06A
+No more approval fatigue / 06
+No more approval fatigue
+The utility model can be configured to act as a first pass for all permission requests that would otherwise come to you. It will follow the exact permission policy you give it, and approve the request when safe, escalate to you when unsafe. Auto-approvals will leave an entry in transcript along with approval reason.
+DIRAC / No more approval fatigue 06B
+Anchored file editing 07A
+Anchored file editing / 07
+Anchored file editing
+Dirac uses a custom hash-anchoring protocol that makes code editing extremely efficient. Instead of using search-replace, it uses stable line anchors so model can say 'replace the text between anchor X and anchor Y with this new text'.
+Read more about it:
+↗
+DIRAC / Anchored file editing 07B
+src/services/UserService.ts external save
+Cider§ async load(userId: string) {
+Quartz§ const user = await this.store.get(userId)
+Harbor§ return this.hydrate(user)
+Harbor anchor invalidated after external save Fresh anchored read requested
+AST code inspection 08A
+AST code inspection / 08
+AST code inspection
+Dirac leverages the underlying syntax trees to perform precise code inspection. For example, model can use inspect_ast('outline', 'utils/db.py') to get all classes and methods defined in a list of files, inspect_ast('implementation', 'utils/db.py', 'DBManager::init_db()') to extract a single method.
+DIRAC / AST code inspection 08B
+AST code manipulation 09A
+AST code manipulation / 09
+AST code manipulation
+Dirac can replace a function like edit_ast('replace, 'utils/db.py', 'replacement', '{code}') or rename 100s of symbol like edit_ast('rename', 'src/', 'old_name', 'new_name') in one call.
+DIRAC / AST code manipulation 09B
+Parallel code edits 10A
+Parallel code edits / 10
+Parallel code edits
+Dirac tooling protocol enables and encourages models to perform multiple file edits together.
+DIRAC / Parallel code edits 10B
+Concurrent subagents 11A
+Concurrent subagents / 11
+Concurrent subagents
+Subagents are a first class citizens that can do (almost) everything the main task can do. Dirac's infra detects any file staleness at edit time. The subagents can have their own tools, prompts, timeouts and can inherit the context from parent.
+DIRAC / Concurrent subagents 11B
+Ask Dirac questions about itself 12A
+Ask Dirac questions about itself / 12
+Ask Dirac questions about itself
+Every Dirac build ships with source, so you can simply use '/askDirac' to ask questions about the version of Dirac you are using.
+DIRAC / Ask Dirac questions about itself 12B
+Opportunistic first request enrichment 13A
+Opportunistic first request enrichment / 13
+Opportunistic first request enrichment
+Dirac detects filenames, symbols, function names, directory paths etc from the first prompt you send, and before it reaches the agent, Dirac enriches the model's context to save on tool calls.
+Multi-file change review 13B
+Multi-file change review / 13
+Multi-file change review
+Instead of reviewing multiple separate changes (when auto-approve is disabled), Dirac renders all changes in a single diff view.
+Get started 14A
+Get started / 14
+Ready to try?
+Install Dirac, connect your preferred model provider, and give it a real task.
+01
+Install your interface. Use Dirac in VS Code or from the terminal.
+02
+Connect a model. Choose a provider, add its API key, and select a model.
+03
+Start with the outcome. Describe the change you want, or begin with /goal for autonomous work.
+DIRAC / SETUP 14B
+Choose how you work
+Install Dirac
+The extension and CLI share the same agent core. Pick the interface that fits your workflow.
+Editor Install for VS Code ↗
+Terminal npm install -g dirac-cli
+Copy
+VS Code setup →
+CLI setup →
+Both guides cover provider credentials, model selection, and your first task.
+→
+Dirac can extend itself
+02
+← Previous page Start
+01 14
+Next page Dirac can extend itself →
+Published evidence / complete comparison
+Results are only useful with the underlying data and method.
+Terminal-Bench-2
+65.2% #1 published result using Gemini 3 Flash Preview
+Public-repository refactoring suite
+8/8 tasks completed correctly by Dirac
+Average API cost per task
+$0.18 versus a $0.53 six-agent comparison average
+Public-repository refactoring suite
+Eight tasks. Seven agents. Every recorded outcome and cost.
+Scroll horizontally to inspect every agent →
+Results across eight refactoring tasks. Each agent cell shows the reviewed outcome and measured API
+cost.
+Task (repository)
+Files
+Cline
+Kilo
+Ohmypi
+Opencode
+Pimono
+Roo
+Dirac
+DynamicCache transformers
+8
+Correct $0.37
+No result N/A
+Incorrect $0.24
+Correct $0.20
+Correct $0.34
+Correct $0.49
+Correct $0.13
+IOverlayWidget vscode
+21
+Correct $0.67
+Incorrect $0.78
+Correct $0.63
+Correct $0.40
+Correct $0.48
+Incorrect $0.58
+Correct $0.23
+addLogging vscode
+12
+Incorrect $0.42
+Correct $0.70
+Correct $0.64
+Correct $0.32
+Correct $0.25
+Incorrect $0.45
+Correct $0.16
+datadict django
+14
+Correct $0.36
+Correct $0.42
+Incorrect $0.32
+Correct $0.24
+Incorrect $0.24
+Correct $0.17
+Correct $0.08
+extensionswb_service vscode
+3
+No result N/A
+Correct $0.71
+Correct $0.43
+Correct $0.53
+Correct $0.50
+Correct $0.36
+Correct $0.17
+latency transformers
+25
+Correct $0.87
+Incorrect $1.51
+Correct $0.94
+Correct $0.90
+Correct $0.52
+Correct $1.44
+Correct $0.34
+sendRequest vscode
+13
+Incorrect $0.51
+Correct $0.77
+Correct $0.74
+Correct $0.67
+Incorrect $0.45
+Correct $1.05
+Correct $0.25
+stoppingcriteria transformers
+3
+Correct $0.25
+Correct $0.19
+Correct $0.17
+Correct $0.26
+Correct $0.23
+Correct $0.29
+Correct $0.12
+Total correct
+—
+5/8
+5/8
+6/8
+8/8
+6/8
+6/8
+8/8
+Average cost
+—
+$0.49
+$0.73
+$0.51
+$0.44
+$0.38
+$0.60
+$0.18
+Correct
+Incorrect
+No result
+Costs are the recorded API cost for each run.
+Method
+Public GitHub repositories, a clean slate for every run, zero intervention, a standardized model and
+configuration, plus local lint and syntax verification.
+The $0.53 comparison baseline is the arithmetic mean of the six other agents’ published average costs.
+Dirac’s $0.18 average is 64.8% lower.
+Qualifications
+A Cline cache-read accounting bug slightly underreports the Dirac and Cline cost figures.
+The Terminal-Bench-2 score used gemini-3-flash-preview ; tooling beyond the agent itself also
+contributes to that result.
+Read the full
+evaluation and inspect the task data →
+Browse every
+task and diff patch on GitHub ↗
+Verify the Terminal-Bench-2 submission ↗
+DIRAC
+An efficiency-focused open-source coding agent built for complex, real-world codebases.
+Apache 2.0 · Built by Dirac Delta Labs · Forked from Cline
+Product
+Field manual
+Documentation
+CLI guide
+VS Code guide
+Research
+Benchmarks
+Posts
+Token market share
+Connect
+GitHub ↗
+Discord ↗
+Contact
+© 2026 Dirac Delta Labs
+</untrusted-page-text>
