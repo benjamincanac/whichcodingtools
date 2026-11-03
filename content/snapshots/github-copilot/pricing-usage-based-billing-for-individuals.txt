@@ -562,6 +562,7 @@ Increase test coverage
 Accelerate pull requests
 Reduce security debt
 Copilot usage metrics
+Communicate impact
 Measure trial success
 Explore a codebase
 Explore issues and discussions

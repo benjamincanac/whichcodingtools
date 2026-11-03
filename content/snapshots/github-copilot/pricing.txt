@@ -83,6 +83,68 @@ You signed out in another tab or window. Reload to refresh your session.
 You switched accounts on another tab or window. Reload to refresh your session.
 Dismiss alert
 {{ message }}
+Take flight with GitHub Copilot
+Pricing plans
+For individuals For businesses
+Free
+For getting started with GitHub Copilot.
+$ 0 USD
+Get started Open in VS Code
+What's included:
+2,000 completions per month
+Access to Haiku 4.5, GPT-5 mini, and more
+Copilot CLI
+Community Support
+No credit card required. Verified students have access to the GitHub Copilot Student plan. Learn more
+Pro
+For everyday coding with agents in GitHub Copilot.
+$ 10 USD per user / month
+Get started
+Everything in Free and:
+Access to Copilot in the cloud and code review
+Unlimited code completion and next edit suggestions
+Access to 3rd party agents (Claude Code and Codex)
+Model selection
+$15 monthly total credits for Pro
+Pro+
+For more complex development with premium models.
+$ 39 USD per user / month
+Get started
+Everything in Pro and:
+Access to premium models, including Opus
+Audit logs
+4x+ included usage than Pro
+$70 monthly total credits for Pro+
+Max
+For sustained, high-volume agent workflows with GitHub Copilot.
+$ 100 USD per user / month
+Get started
+Everything in Pro+ and:
+Priority access to new models and features
+2.9x+ included usage than Pro+
+$200 monthly total credits for Max
+Best value
+GitHub Copilot is available on your favorite platforms:
+GitHub
+GitHub
+VS Code
+VS Code
+Visual Studio
+Visual Studio
+Xcode
+Xcode
+JetBrains IDEs
+JetBrains IDEs
+Neovim
+Neovim
+Eclipse
+Eclipse
+Raycast
+Raycast
+SQL Server Management Studio
+SQL Server Management Studio
+Zed
+Zed
 Compare features
 Pricing plans
 Free
