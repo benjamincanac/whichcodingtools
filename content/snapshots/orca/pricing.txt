@@ -3,7 +3,8 @@
 <untrusted-page-text>
 Orca Enterprise
 Orca Docs Changelog Enterprise
-110.4k
+114.7k
+Plugins
 Download
 Bring agent engineering to your whole team.
 Orca is the best way to run many coding agents in parallel. Roll it out with local-first worktrees, reviewable agent changes, and deployment options that fit your security model.
@@ -43,6 +44,7 @@ The agent development environment. Free and open source for macOS, Windows, and 
 Product
 Download
 Changelog
+Plugins
 Enterprise
 Docs
 Community

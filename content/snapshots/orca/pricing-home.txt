@@ -3,7 +3,8 @@
 <untrusted-page-text>
 Orca — The agent development environment
 Orca Docs Changelog Enterprise
-110.4k
+114.7k
+Plugins
 Download
 Backed by
 Ship 100x with the agent IDE
@@ -354,6 +355,7 @@ The agent development environment. Free and open source for macOS, Windows, and 
 Product
 Download
 Changelog
+Plugins
 Enterprise
 Docs
 Community
