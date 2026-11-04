@@ -33,7 +33,7 @@
     "ai": "^7.0.159",
     "comark-content": "^0.4.3",
     "eve": "^0.44.3",
-    "nuxt": "^4.6.3",
+    "nuxt": "^4.6.4",
     "nuxt-agent-discovery": "^0.8.1",
     "nuxt-llms": "^0.3.1",
     "satori": "^0.63.2",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
-    "@nuxt/kit": "^4.6.3",
+    "@nuxt/kit": "^4.6.4",
     "@types/node": "^26.6.6",
     "eslint": "^10.14.0",
     "microsandbox": "^0.7.12",
