@@ -29,7 +29,7 @@ Integrations
 Explore
 Trending repos
 GitHub Sponsors
-Events
+Developer articles
 Changelog
 Changelog
 Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
@@ -88,7 +88,7 @@ aider
 Repository navigation
 Code
 Issues 1.4k ( 1.4k )
-Pull requests 539 ( 539 )
+Pull requests 537 ( 537 )
 Actions
 Projects
 Security and quality
