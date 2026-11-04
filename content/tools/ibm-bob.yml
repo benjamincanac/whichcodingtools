@@ -21,7 +21,7 @@ license:
 models:
   byok: none
   local: false
-features: [subagents, mcp-client, hooks]
+features: [subagents, mcp-client, hooks, acp-agent]
 pricing:
   tiers:
     - id: pro
@@ -90,4 +90,7 @@ sources:
     covers: [platforms]
   - url: https://bob.ibm.com/docs/ide/changelog
     verified_at: 2026-10-20
+    covers: [features]
+  - url: https://bob.ibm.com/docs/shell/features/acp
+    verified_at: 2026-11-04
     covers: [features]
