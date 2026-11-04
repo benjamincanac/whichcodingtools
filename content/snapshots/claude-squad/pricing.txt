@@ -29,7 +29,7 @@ Integrations
 Explore
 Trending repos
 GitHub Sponsors
-Events
+Developer articles
 Changelog
 Changelog
 Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
@@ -88,7 +88,7 @@ claude-squad
 Repository navigation
 Code
 Issues 16 ( 16 )
-Pull requests 35 ( 35 )
+Pull requests 34 ( 34 )
 Discussions
 Actions
 Projects
@@ -97,7 +97,7 @@ Insights
 More items
 claude-squad Public
 Notifications You must be signed in to change notification settings
-Fork 624 ( 624 )
+Fork 622 ( 622 )
 Star 8.7k ( 8.7k ) You must be signed in to star a repository
 About
 Manage multiple AI terminal agents like Claude Code, Codex, OpenCode, and Amp.
@@ -116,7 +116,7 @@ Stars
 Watchers
 28 watching
 Forks
-624 forks
+622 forks
 Report repository
 main
 Branches
@@ -299,7 +299,7 @@ Stars
 Watchers
 28 watching
 Forks
-624 forks
+622 forks
 Report repository
 Releases
 Used by
