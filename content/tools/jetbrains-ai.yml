@@ -59,6 +59,10 @@ wraps:
     via: acp
     uses_subscription: true
     min_tier: ai-free
+  - tool: dirac
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
   - tool: factory
     via: acp
     uses_subscription: true
@@ -80,6 +84,11 @@ wraps:
     via: acp
     uses_subscription: true
     min_tier: ai-free
+  - tool: ibm-bob
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
+    notes: Listed as Bob.
   - tool: junie-cli
     via: acp
     uses_subscription: true

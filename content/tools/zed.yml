@@ -63,6 +63,10 @@ wraps:
     via: acp
     uses_subscription: true
     min_tier: personal
+  - tool: dirac
+    via: acp
+    uses_subscription: true
+    min_tier: personal
   - tool: factory
     via: acp
     uses_subscription: true
@@ -84,6 +88,11 @@ wraps:
     via: acp
     uses_subscription: true
     min_tier: personal
+  - tool: ibm-bob
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as Bob.
   - tool: junie-cli
     via: acp
     uses_subscription: true
