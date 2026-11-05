@@ -92,20 +92,20 @@ sources:
     verified_at: 2026-10-29
     covers: [pricing]
   - url: https://docs.factory.ai/models
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [models]
   - url: https://docs.factory.ai/model-independence/byok
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [models]
   - url: https://docs.factory.ai/droid-cli/quickstart
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [platforms]
   - url: https://docs.factory.ai/factory-app/quickstart
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [platforms, features]
   - url: https://docs.factory.ai/droid-cli/overview
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [features, general]
   - url: https://docs.factory.ai/integrations/zed
-    verified_at: 2026-08-27
+    verified_at: 2026-11-05
     covers: [features]
