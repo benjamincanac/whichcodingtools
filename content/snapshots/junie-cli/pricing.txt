@@ -11,9 +11,8 @@ The most cost efficient coding agent
 The coding agent that works with any model you choose.
 Mac or Linux Windows Mac or Linux Windows
 curl -fsSL https://junie.jetbrains.com/install.sh | bash
-Free to start. No card or subscription required.
+New: Junie Lite – free AI layer, no trial, no card.
 Just open your terminal and paste the command.
-Gemini 3.8 Flash 75% OFF base pricing for a limited time
 Powered by IDEs
 Proven in Benchmarks
 IntelliJ IDEA Engine
@@ -24,24 +23,25 @@ supported via BYOK
 Plan on a powerful model, implement on a fast one.
 Same quality, fraction of the cost.
 Top performing models supported
-Claude Opus 5
-Claude Sonnet 5
+Claude Opus 5.5
+Claude Sonnet 5.5
 Claude Fable 5.1
 Gemini 3.1 Pro
 Gemini 3.8 Flash
 GPT-6 ASTRA
-Grok 4.6
+GPT-6.1 SOL
+Grok 4.7
 Junie CLI works with
 Terminal
-IDE
+Air in IDEs
 GitHub
 GitLab
 Terminal
 Run Junie directly from your terminal.
-IDE
-Available in JetBrains IDEs and Android Studio
+Air in IDEs
+Run Junie across multiple projects.
 Use IDE's full code intelligence and tooling you already rely on .
-Install in IDE
+Try Junie in Air
 GitHub Action
 Run Junie directly from GitHub issues and pull requests.
 Learn more about Junie in GitHub
@@ -77,7 +77,9 @@ Persistent guidelines + Agent Skills packages
 Pricing
 Purchase JetBrains AI tools in one subscription Annual Monthly Annual Monthly
 Free to Start
-5 AI credits included, enough for a real task Bring Your Own Key:
+Junie Lite:
+A free model, always on, in every JetBrains account.
+Bring Your Own Key:
 Provider-rate pricing, zero markup.
 Works with any AI model
 Supports locally running models
