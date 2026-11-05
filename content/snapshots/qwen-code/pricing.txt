@@ -7,9 +7,8 @@ All Products
 Search
 Document Center
 Alibaba Cloud Model Studio
-User Guide (Models)
 Token Plan
-Coding Plan
+Coding Plan (legacy)
 Overview
 all-products-head
 This Product
@@ -18,7 +17,7 @@ All Products
 Alibaba Cloud Model Studio:Coding plan overview
 Document Center
 Alibaba Cloud Model Studio:Coding plan overview
-Last Updated:Oct 11, 2026
+Last Updated:Nov 04, 2026
 Coding Plan gives you access to models including Qwen, GLM, Kimi, and MiniMax in popular AI coding tools. For a fixed monthly fee, it offers a cost-effective alternative to pay-as-you-go API billing.
 Plan details
 Note
@@ -76,20 +75,19 @@ Chatbox
 Cross-platform AI desktop client Cline
 VS Code extension for intelligent code completion and debugging Qoder
 Agentic coding platform for real-world software development
-Lingma
-Intelligent coding assistant with standalone IDE Kilo CLI
+Kilo CLI
 Lightweight, high-performance command-line programming tool WorkBuddy
 Desktop AI agent workbench
 More tools
 Other programming tools
 Before you subscribe
 The Coding Plan service is non-refundable . Before you subscribe, note the following:
-Prohibition of API calls : This plan is for interactive use in programming tools such as Claude Code, Qoder, Qoder CN, and OpenClaw. Do not use the plan's API key for automated scripts, application backends, or other non-interactive scenarios. Using the API key outside the permitted scope is a violation that may result in subscription suspension or API key revocation.
+Prohibition of API calls : This plan is for interactive use in programming tools such as Claude Code, Qoder and OpenClaw. Do not use the plan's API key for automated scripts, application backends, or other non-interactive scenarios. Using the API key outside the permitted scope is a violation that may result in subscription suspension or API key revocation.
 Account usage policy : The plan is for your use only and must not be shared. Account sharing may lead to restrictions on your subscription.
 Rate limits and resource scheduling : To ensure fair use for all users, in addition to the quota limits above, this service enforces technical limits on the number of concurrent requests and the request rate per account. When overall platform load is high, or when a single account consumes an unusually concentrated amount of resources within a short period, we may temporarily queue, throttle, or briefly interrupt requests from that account. Such adjustments are typically lifted automatically within minutes to hours. These adjustments are standard technical safeguards and are not considered a service interruption or a breach of contract. The specific thresholds are part of platform security and stability policies and may be adjusted dynamically based on operating conditions.
 FAQ
 Unexpected charges with a Coding Plan
-This happens when you use the general Model Studio API key and base URL instead of your Coding Plan-specific ones. This usage is billed on a pay-as-you-go basis, resulting in extra charges. To resolve this, switch to your Coding Plan API key (starting with sk-sp- ) and base URL (containing coding.dashscope.aliyuncs.com ). See Get your plan-specific API key and base URL . To stop pay-as-you-go billing, go to the API Key management page in the Model Studio console and delete the general API key (starting with sk- ), keeping only your Coding Plan API key. Subsequent calls are then deducted from your plan quota only and no longer incur pay-as-you-go charges.
+This happens when you use the general Model Studio API key and base URL instead of your Coding Plan-specific ones. This usage is billed on a pay-as-you-go basis, resulting in extra charges. To resolve this, switch to your Coding Plan API key (starting with sk-sp- ) and base URL (containing coding-intl.dashscope.aliyuncs.com ). See Get your plan-specific API key and base URL . To stop pay-as-you-go billing, go to the API Key management page in the Model Studio console and delete the general API key (starting with sk- ), keeping only your Coding Plan API key. Subsequent calls are then deducted from your plan quota only and no longer incur pay-as-you-go charges.
 Why is the Lite plan no longer available for new subscriptions?
 Due to a product upgrade, the Coding Plan Lite plan stopped accepting new orders on March 20, 2026 (see discontinuation announcement ), and renewals and upgrades were discontinued on April 13, 2026 (see renewal discontinuation announcement ). Existing subscribers can continue using the service until it expires.
 Are existing Lite plan subscribers affected?
