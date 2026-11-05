@@ -78,7 +78,7 @@ What’s New
 Version History
 Xcode 27.2 includes Swift 6.4 and SDKs for iOS 27.2, iPadOS 27.2, tvOS 27.2, watchOS 27.2, visionOS 27.2, and macOS 27.2.
 This update adds support for Touch on MacBook Pro with PROLED XDR Display, so you can test how your app responds to real touch input in Previews and Device Hub. It introduces a JSON-based project format that's more readable, easier to edit, and merge-friendly. It also includes a code coverage tool for coding agents, brings slow-motion animation, simulated shake, and simulated memory pressure in Device Hub, and provides bug fixes and improved stability.
-27.2 3d ago
+27.2 6d ago
 Xcode 27.1 includes Swift 6.4 and SDKs for iOS 27.1, iPadOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, and macOS 27.0.
 This update adds development support for iPhone Duo. This includes a simulator for the all-new poses and orientations of iPhone Duo and a coding intelligence skill to help you prepare and optimize your app. It also provides bug fixes and improved stability.
 27.1 Oct 15
@@ -206,7 +206,7 @@ Xcode 14.3.1 includes Swift 5.8.1 and SDKs for iOS 16.4, iPadOS 16.4, tvOS 16.4,
 14.3.1 06/01/2023
 Xcode 27.2 includes Swift 6.4 and SDKs for iOS 27.2, iPadOS 27.2, tvOS 27.2, watchOS 27.2, visionOS 27.2, and macOS 27.2.
 This update adds support for Touch on MacBook Pro with PROLED XDR Display, so you can test how your app responds to real touch input in Previews and Device Hub. It introduces a JSON-based project format that's more readable, easier to edit, and merge-friendly. It also includes a code coverage tool for coding agents, brings slow-motion animation, simulated shake, and simulated memory pressure in Device Hub, and provides bug fixes and improved stability. more
-Version 27.2 3d ago
+Version 27.2 6d ago
 App Privacy
 App Privacy
 The developer, Apple , indicated that the app’s privacy practices may include handling of data as described below. For more information, see the developer’s privacy policy .
