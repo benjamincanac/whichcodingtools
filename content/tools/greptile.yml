@@ -64,7 +64,7 @@ pricing:
 status: active
 sources:
   - url: https://www.greptile.com/pricing
-    verified_at: 2026-10-23
+    verified_at: 2026-11-05
     covers: [pricing]
   - url: https://www.greptile.com
     verified_at: 2026-08-24
