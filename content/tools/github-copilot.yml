@@ -135,20 +135,20 @@ sources:
     verified_at: 2026-11-03
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [features, platforms, models]
   - url: https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [platforms, general]
   - url: https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-extension
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [platforms]
   - url: https://docs.github.com/en/copilot/concepts/models/bring-your-own-key
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [models]
   - url: https://docs.github.com/en/copilot/reference/ai-models/supported-models
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [models]
   - url: https://docs.github.com/en/copilot/get-started/features
-    verified_at: 2026-08-23
+    verified_at: 2026-11-05
     covers: [features, general]
