@@ -39,12 +39,22 @@ per user / month
 Access to premium models
 Add-on credits ($0.04/credit)
 Download now
-Kiro for enterprise Centralized billing, SSO, usage analytics, and enterprise security controls.
-Contact sales Enterprise features
+Teams and enterprises
+Credit pooling for teams of 2 or more
+$20 per seat / month
+500 included credits / seat / month
+$0.04 per additional credit
+Set up your team Contact sales Enterprise features
+Don’t leave credits on the table, share them across your team
+Administrators can create pools of Kiro credits, purchase credit pooling seats at $20/seat/month, and assign 2 or more seats to a credit pool. Each seat adds 500 included credits per month to the pool. Admins can purchase add-on credits at $0.04 per credit. All seat holders in a pool share the available credits.
+Maximize credit utilization: Heavy users can draw on credits that lighter users don’t need.
+Stay in control: Manage pool membership and set credit usage limits for individuals, groups, and profile.
+Track usage and spending: Monitor seat and credit utilization using centralized dashboards and automated alerts.
+Built for enterprises: Simplify administration with centralized billing, SSO, enterprise security controls, and more.
 Common Questions
 How does Kiro pricing work?
 How does Kiro pricing work?
-Kiro offers flexible pricing tiers designed around how developers use Kiro. New users can start with the perpetual Kiro Free tier, which includes 50 credits. The Free Tier includes access to open weight models and Claude Sonnet 4.5, with limits. You can upgrade to paid tiers ranging from Pro ($20/month), Pro+ ($40/month), Pro Max ($100/month), to Power ($200/month) for increased capacity. Paid tiers allow purchasing add-on credits to continue using Kiro beyond plan limits. Plans for teams include flexible overages available at $0.04 per additional credit. Kiro prices shown do not include applicable taxes or duties (such as VAT or sales tax) unless explicitly noted. Note that if you have a Japanese billing address, Japanese Consumption Tax will apply to your Kiro usage. The amount of tax collected depends on many factors, including, but not limited to, your Tax Registration Number ("TRN" or Tax ID), and billing address. Kiro in GovCloud pricing is approximately 20% higher than commercial pricing and does not include the Free tier. Kiro processes paid subscriptions on the 1st day of each calendar month.
+Kiro offers flexible pricing tiers designed around how developers use Kiro. New users can start with the perpetual Kiro Free tier, which includes 50 credits per month. The Free Tier includes access to open weight models and Claude Sonnet 4.5, with limits. You can upgrade to paid tiers ranging from Pro ($20/month), Pro+ ($40/month), Pro Max ($100/month), to Power ($200/month) for increased capacity. Paid tiers allow purchasing add-on credits to continue using Kiro beyond plan limits. Plans for teams (of 2 and more) are available for $20/seat/month and come with 500 included credits per seat with an option to purchase credits at $0.04 per add-on credit. Kiro prices shown do not include applicable taxes or duties (such as VAT or sales tax) unless explicitly noted. Note that if you have a Japanese billing address, Japanese Consumption Tax will apply to your Kiro usage. The amount of tax collected depends on many factors, including, but not limited to, your Tax Registration Number ("TRN" or Tax ID), and billing address. Kiro in GovCloud pricing is approximately 20% higher than commercial pricing and does not include the Free tier. Kiro processes paid subscriptions on the 1st day of each calendar month.
 Which models does Kiro use under the hood?
 Which models does Kiro use under the hood?
 By default, your prompts are processed by Auto, an agent that uses a mix of different frontier models, combined with specialized models that are experts in specific tasks, intent detection, caching, and other techniques to give you a better balance of quality, latency, and costs. You can also choose a specific model, including OpenAI's GPT-5.6 (Sol, Terra, and Luna), Anthropic's Claude models (Opus 5, Opus 4.8, Sonnet 5, Sonnet 4.6, Sonnet 4.5, and Haiku 4.5), and open weight models such as DeepSeek 3.2, MiniMax M2.5, GLM-5, and Qwen3 Coder Next. See the [models page](/docs/models) for the full list and current credit multipliers.
@@ -59,7 +69,7 @@ What can I use credits for?
 Any prompt you ask Kiro to execute, whether in vibe mode or spec mode, as well as spec refinement, task execution, and agent hook execution, will consume credits.
 How can I track my credit usage?
 How can I track my credit usage?
-You can see the monthly credit limits for your plan, the number of credits used, and credits remaining in your subscription dashboard accessible in Kiro. Credit usage is updated at least every 5 minutes.
+You can see the monthly credit limits for your plan, the number of credits used, and credits remaining in your subscription dashboard accessible in Kiro. Credit usage is updated at least every 5 minutes. For credit pooling, credit usage can be tracked via admin dashboards.
 How do Kiro workflows affect credit usage?
 How do Kiro workflows affect credit usage?
 [Workflows](/docs/workflows/) use the same Kiro credit model as other agent work. Credit usage depends on the agent work they run, so more complex workflows can use more credits. You can guide how Kiro divides the work through your prompt or [steering](/docs/steering/). Kiro currently reports credit usage through your existing account usage view.
@@ -67,16 +77,16 @@ Can I buy more credits?
 Can I buy more credits?
 Yes — how it works depends on your plan:
 **When signing in with social login or AWS Builder ID (Pro, Pro+, Pro Max, Power):** Purchase add-on credits to continue working. Credits cost $0.04 each, are billed immediately when you buy a pack, and you control exactly how much extra capacity to add. Packs range from $5 (125 credits) to $100. Unused add-on credits roll over and expire 12 months from the date of purchase. See [Add-on credits](/docs/billing/add-on-credits/) for details.
-**Enterprise:** Admins can enable overages so users keep working past their limits automatically. Additional usage is billed at $0.04 per credit at month-end based on usage beyond the plan allocation. Overages are disabled by default and must be enabled in the Kiro console settings.
+**Teams and Enterprise:** With credit pooling, admins can set thresholds at user or pool level, and purchase add-on credits for the pool at any point at $0.04 per credit. Credit pooling doesn’t use overages. Existing Enterprise customers on Pro, Pro+, Pro Max, or Power subscriptions can continue to use [overages](/docs/enterprise/subscription-management/#enable-overages-for-kiro-users).
 Can I share my Kiro subscription with my team?
 Can I share my Kiro subscription with my team?
-For team usage, each developer needs their own subscription. Learn about [team billing and management features](/docs/enterprise/billing/).
+For team and enterprise usage, the default pricing model now uses credit pooling. Admins can purchase seats and assign 2 or more seats to a credit pool. Each seat adds 500 included credits per month to the pool and all seat holders in a pool can share credits. Learn about [team billing and management features](/docs/enterprise/billing/).
 With which tools can I use my Kiro subscription?
 With which tools can I use my Kiro subscription?
 Kiro subscriptions can be used with Kiro IDE, Kiro CLI, Kiro Web, Kiro Crew, ACP compatible IDEs, and automation in software development (ex: reviews during CI/CD). Use through third-party automation harnesses (such as OpenClaw) that route requests outside of Kiro's native interfaces is not permitted.
 What happens if I don’t use all my monthly credits?
 What happens if I don’t use all my monthly credits?
-Usage limits reset at the start of each billing month. Unused credits do not roll over to the next month.
+For individual subscriptions, usage limits reset at the start of each billing month. Unused credits do not roll over to the next month. For credit pooling, unused included credits expire at the end of the monthly cycle. Any add-on credits that are added by the admin to the pool have a 12-month expiry after purchase.
 What payment methods do you accept?
 What payment methods do you accept?
 We accept all major credit cards.
@@ -85,6 +95,21 @@ What countries or regions are supported for paid plans?
 When signing in with social login or AWS Builder ID, you can purchase a Kiro paid plan with a billing address in Afghanistan, Algeria, Angola, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bangladesh, Belgium, Belize, Bermuda, Bhutan, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Brunei, Bulgaria, Burkina Faso, Burundi, Cambodia, Canada, Cape Verde, Cayman Islands, Central African Republic, Chad, Chile, China, Colombia, Comoros, Congo, Cook Islands, Costa Rica, Croatia, Curacao, Cyprus, Czech Republic, Democratic Republic of the Congo, Denmark, Djibouti, Dominica, Dominican Republic, East Timor, Ecuador, El Salvador, Equatorial Guinea, Eritrea, Estonia, Ethiopia, Falkland Islands, Fiji, Finland, France, French Guiana, Gabon, Gambia, Germany, Gibraltar, Greece, Greenland, Grenada, Guatemala, Guinea, Guinea-Bissau, Guyana, Haiti, Honduras, Hong Kong SAR, Hungary, India, Indonesia, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kiribati, Kosovo, Latvia, Lebanon, Lesotho, Liberia, Libya, Lithuania, Luxembourg, Macao SAR, Macedonia, Madagascar, Malawi, Malaysia, Maldives, Mali, Malta, Mauritania, Mexico, Mongolia, Montenegro, Morocco, Mozambique, Myanmar, Namibia, Nauru, Nepal, Netherlands, New Zealand, Nicaragua, Niger, Norway, Palestinian Territories, Panama, Papua New Guinea, Paraguay, Philippines, Poland, Portugal, Qatar, Romania, Rwanda, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Samoa, San Marino, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, Solomon Islands, Somalia, South Africa, South Korea, South Sudan, Spain, Sri Lanka, Swaziland, Sweden, Switzerland, Tajikistan, Tanzania, Thailand, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkmenistan, Tuvalu, United Arab Emirates, United Kingdom, United States of America, Uruguay, Uzbekistan, Vanuatu, Vatican City State, Venezuela, and Yemen. More countries or regions will be added soon.
 Enterprise plans are purchased and billed through AWS rather than by billing address, so supported locations follow the AWS Regions where you set up your Kiro profile and can differ from the list above. See [Enterprise billing](/docs/enterprise/billing/) for details.
 Model availability can vary by country or region. Kiro’s model offerings align with each model provider’s usage and geographic requirements for third-party services and interfaces. For more information, see each model provider's supported countries and regions, if relevant: [OpenAI](https://platform.openai.com/docs/supported-countries), [Anthropic](https://www.anthropic.com/supported-countries), Qwen, DeepSeek, MiniMax, and GLM.
+What is Kiro credit pooling?
+What is Kiro credit pooling?
+Credit pooling is Kiro’s new pricing model for teams and enterprise customers that allows admins to share Kiro credits across teams. Admins purchase credit pooling seats at $20/seat/month and assign 2 or more seats to a credit pool that is shared by the assigned seats. For each seat assigned to a pool, 500 credits are added to the pool each month. Those credits are prioritized for use by any seat holder assigned to that pool. The admin can add more credits to the pool at $0.04 per credit and those add-on credits have 12-month expiry.
+What is the difference between included credits and add-on credits?
+What is the difference between included credits and add-on credits?
+The $20 per seat per month fee is an access fee for a credit pool. Every seat assignment to a pool adds 500 included credits to the pool. These included credits are available for use each month that the seat exists. Unused included credits do not roll over month-to-month. Add-on credits purchased by admins at $0.04 per credit roll over month over month and can be used for 12 months.
+How is credit pooling different from individual subscription tiers?
+How is credit pooling different from individual subscription tiers?
+Credit pooling pricing is for teams and enterprise customers only. It allows admins to set up Kiro credit pools sharable across seats that admins can assign to team members in a group. There are no individual subscription tiers in the credit pooling pricing model. For individual developers who would like to purchase Kiro subscriptions, the existing tiered pricing of Free, Pro, Pro+, Pro Max, and Power remain available.
+Why should my team use Kiro credit pooling?
+Why should my team use Kiro credit pooling?
+Developers consume credits at different rates. With pooling, heavy users can draw on credits that lighter users don’t need, reducing waste and unnecessary add-on purchases. Teams get more flexibility to accommodate changing usage patterns without having to manage individual credit allowances. Kiro credit pooling enables cost-efficient use of credits across teams.
+How can administrators monitor and control credit pooling across teams?
+How can administrators monitor and control credit pooling across teams?
+Administrators can organize users into groups, assign them to credit pools, and set usage limits for individuals, groups, and profiles. They maintain visibility on user credit, pool credit, and seat utilization via dashboards and get alerts when utilization levels reach 80% and 100% so that they can purchase add-on credits for the pool. Administrators can manage Kiro credit usage with clear policies, real-time enforcement, and automated guardrails. Also, they can choose to create groups for power users and set high credit usage limits for those groups to meet power usage. Light and regular users of Kiro credits can continue to access Kiro independently at lower group-level or individual-level limits without being affected by power users’ credit consumption.
 Is Kiro Web included in my current plan or will I be charged extra?
 Is Kiro Web included in my current plan or will I be charged extra?
 Kiro Web uses the existing credit model. Credits are consumed regardless of which interface the work runs on (IDE, CLI, or web). No separate charge for cloud compute. Available to Kiro Pro, Pro+, Pro Max, and Power users.
@@ -96,7 +121,7 @@ Is Kiro pricing different in AWS GovCloud (US) Regions?
 Yes, Kiro pricing in [AWS GovCloud](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-kiro.html) (US) Regions is approximately 20% higher than standard commercial region pricing. All Kiro subscription tiers (Pro, Pro+, Pro Max, and Power) are subject to this regional pricing adjustment when accessed through AWS GovCloud (US) Regions.
 Is the free tier available for Enterprise or AWS GovCloud (US) Regions?
 Is the free tier available for Enterprise or AWS GovCloud (US) Regions?
-No. The free tier is not available in Kiro Enterprise or AWS GovCloud (US) Regions. Both require a paid subscription plan (Pro, Pro+, Pro Max, or Power) and enterprise authentication via AWS IAM Identity Center or an external identity provider.
+No. The free tier is not available in Kiro Enterprise or AWS GovCloud (US) Regions. Both require a paid plan and enterprise authentication via AWS IAM Identity Center or an external identity provider. New Kiro Enterprise customers purchase credit pooling seats. Existing Enterprise customers can stay on their Pro, Pro+, Pro Max, or Power subscriptions or opt in to credit pooling when they are ready.
 View billing docs
 Loading image...
 Product
