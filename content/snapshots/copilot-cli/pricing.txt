@@ -30,7 +30,7 @@ Integrations
 Explore
 Trending repos
 GitHub Sponsors
-Events
+Developer articles
 Changelog
 Changelog
 Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
