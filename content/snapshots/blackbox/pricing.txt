@@ -74,8 +74,8 @@ zai
 glm-5.3 Text 1M $1.40 $4.40 $0.14
 alibaba
 qwen3.8-max Text 262K $2.00 $6.00 $0.25
-deepseek
-deepseek-v4-pro-0813 Text 1M $0.66 $1.98 $0.07
+meituan
+longcat-2.5 Text 1M $0.30 $1.20 $0.006
 $0.44
 BLENDED / 1M ON NEMOTRON 3 ULTRA · #1 SPEED
 2.7×
