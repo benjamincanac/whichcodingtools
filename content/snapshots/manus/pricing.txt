@@ -20,17 +20,14 @@ Table of contents
 You can find our pricing through the http://manus.im/home -> https://manus.im/pricing .
 After entering the Manus homepage, scroll down to the bottom of the page to view our product pricing.
 Currently, Manus offers Free & Pro & Team plan options to meet the needs of different users. Whether you are an individual user or a team user, Manus can provide you with efficient solutions.
-*Please note that Free users only have access to Manus 2.0 Lite in Agent Mode, while Pro users have access to Manus 2.0, Manus 2.0 Max, and Manus 2.0 Lite. Both Free and Pro users have access to Chat Mode.
 Here are the detailed contents of each plan:
 [Free Plan Price: $0/month]
-Access to Chat Mode and Manus 2.0 Lite in Agent Mode.
 Features: Daily Refresh Credits: 300 credits provided daily for quickly answering simple questions.
 Concurrent Tasks: Supports 1 concurrent task.
 Scheduled Automations: Supports 2 Scheduled Automations.
 Use Cases: Suitable for individual users with low functional requirements to experience Manus's basic features.
 [Pro Plan Price 1: Starting from $20/month (Enjoy a 17% discount with annual billing)]
 Free users can upgrade to a membership for more credits. Members who need additional credits can switch to a higher plan.
-Access to Chat Mode and Manus 2.0 Max, Manus 2.0, and Manus 2.0 Lite in Agent Mode.
 Features: Monthly Credits: Starting from 4,000 credits per month, supporting higher frequency usage needs.
 Advanced Research: Supports advanced research on any topic.
 Professional Website Deployment: Provides professional-level website deployment services.
@@ -41,7 +38,6 @@ Beta Feature Early Access: Experience the latest features in advance.
 Use Cases: Suitable for users who need to conduct in-depth research and generate professional reports, helping to improve work efficiency.
 [Pro Plan Price 2: Starting from $40/month with 7-day free trial (Enjoy a 17% discount with annual billing)]
 Free users can upgrade to a membership for more credits. Members who need additional credits can switch to a higher plan.
-Access to Chat Mode and Manus 2.0 Max, Manus 2.0, and Manus 2.0 Lite in Agent Mode.
 Features: Monthly Credits: Starting from 8,000 credits per month, supporting higher frequency usage needs.
 Advanced Research: Supports advanced research on any topic.
 Professional Website Deployment: Provides professional-level website deployment services.
@@ -52,7 +48,6 @@ Beta Feature Early Access: Experience the latest features in advance.
 Use Cases: Suitable for users who need to conduct in-depth research and generate professional reports, helping to improve work efficiency.
 *Visit https://manus.im/docs/features/projects for more information on Manus' features.
 [Team Plan Price: Starting from $20 per seat/month (Enjoy a 17% discount with annual billing)]
-Access to Chat Mode and Manus 2.0 Max, Manus 2.0, and Manus 2.0 Lite in Agent mode.
 Target Users: Team users who need collaboration and advanced management features.
 Features: Includes all features of the Pro plan.
 SSO (Single Sign-On): Provides more convenient login methods.
@@ -81,11 +76,11 @@ Do I need to pay monthly for an annual subscription?
 How much can I save with an annual subscription?
 Is annual payment more cost-effective than monthly payment?
 Related Articles
-What are the differences between Chat mode and Agent mode?
 What is Manus Team plan?
 What is Wide Research?
+How can I use Mail Manus?
 What is the current Single Sign-On (SSO) subscription pricing for Manus Team?
-Manus Free Access: Campaign Rules
+Understanding the Guest User Role In A Manus Team Plan
 Did this answer your question?
 Disappointed Reaction 😞 Neutral Reaction 😐 Smiley Reaction 😃
 Table of contents
