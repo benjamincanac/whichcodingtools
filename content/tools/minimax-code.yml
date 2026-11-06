@@ -48,7 +48,7 @@ pricing:
       limits:
         - 3× Go usage
         - H3 video model, not in Go
-      notes: Billed yearly the page lists $550/year, shown next to $648/year.
+      notes: Billed yearly the page lists $550/year, shown next to $660/year.
     - id: build
       name: Build
       price: 132
@@ -57,7 +57,7 @@ pricing:
         - 7.5× Go usage
         - H3 video model
         - Priority access during peak hours and early access to new features
-      notes: Billed yearly the page lists $1,320/year, shown next to $1,560/year.
+      notes: Billed yearly the page lists $1,320/year, shown next to $1,584/year.
   notes: MiniMax Code, the AI agent app, is included with M Plan, with no extra subscription or API key to set up. One-time credit packs are also sold, Starter $5 for 5,000 credits, Growth $25 for 25,000 credits, High Volume $100 for 100,000 credits, valid for one year.
 status: active
 sources:
@@ -107,7 +107,7 @@ sources:
     verified_at: 2026-09-29
     covers: [features]
   - url: https://www.minimax.io/m-plan
-    verified_at: 2026-10-12
+    verified_at: 2026-11-06
     covers: [pricing]
   - url: https://raw.githubusercontent.com/MiniMax-AI/minimax-code/main/README.md
     verified_at: 2026-09-29
