@@ -11,7 +11,7 @@ News
 Company
 Docs
 Log in / Sign up
-Contact Sales
+Book demo
 Product
 Enterprise
 Pricing
@@ -19,7 +19,7 @@ News
 Company
 Docs
 Log in / Sign up
-Contact Sales
+Book demo
 Plans
 Pricing Plans
 01
