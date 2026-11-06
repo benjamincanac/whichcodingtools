@@ -8,7 +8,7 @@ Sign in
 Products
 Platform
 GitHub Repository hosting, code review, and collaboration
-Copilot AI coding agent for tasks, projects and automated work
+Copilot AI coding agent for tasks, projects, and automated work
 Build & Ship
 Actions CI/CD and automation
 Code Quality Quality analysis, fixes, and enforcement
@@ -88,7 +88,7 @@ aider
 Repository navigation
 Code
 Issues 1.4k ( 1.4k )
-Pull requests 537 ( 537 )
+Pull requests 541 ( 541 )
 Actions
 Projects
 Security and quality
@@ -97,7 +97,7 @@ More items
 aider Public
 Notifications You must be signed in to change notification settings
 Fork 5.1k ( 5.1k )
-Star 49.9k ( 49.9k ) You must be signed in to star a repository
+Star 50k ( 50k ) You must be signed in to star a repository
 About
 aider is AI pair programming in your terminal
 aider.chat/
@@ -111,7 +111,7 @@ Contributing
 Activity
 Custom properties
 Stars
-49.9k stars
+50.0k stars
 Watchers
 267 watching
 Forks
@@ -275,7 +275,7 @@ Contributing
 Activity
 Custom properties
 Stars
-49.9k stars
+50.0k stars
 Watchers
 267 watching
 Forks
