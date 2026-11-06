@@ -126,7 +126,7 @@ pricing:
 status: active
 sources:
   - url: https://github.com/features/copilot/plans
-    verified_at: 2026-11-05
+    verified_at: 2026-11-06
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/get-started/plans
     verified_at: 2026-11-03
