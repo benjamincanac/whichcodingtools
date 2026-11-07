@@ -3,8 +3,8 @@
 <untrusted-page-text>
 Qodo Plans & Pricing | Free to Start
 Skip to content
-Qodo 3.0: Quality Control for the Agentic Software Factory
-See What Shipped
+Build Your Software Factory: Win an iPhone Duo, Mac Mini, or Switch 2
+Join the Hackathon →
 Log in
 Platform
 Book a Demo
@@ -43,9 +43,9 @@ Log in
 Log in
 Book a Demo
 Start Trial
-13.9K
+15.1K
 Code Quality that Scales with Your Team
-$.012/credit, pooled across the team
+$0.015/credit, pooled across the team
 Switch packs anytime
 No annual commitment on Pro Team plan
 No rate limits
@@ -61,12 +61,12 @@ Free 14 Day Trial
 no credit card
 Unlimited reviews
 Unlimited credits
-~18 Reviews/Mo
-2,500 credits
-~36 Reviews/Mo
-5,000 credits
-~144 Reviews/Mo
-20,000 credits
+~14 Reviews/Mo
+2,000 credits
+~29 Reviews/Mo
+4,000 credits
+~114 Reviews/Mo
+16,000 credits
 See additional plan options
 Agentic PR code review
 Rules system (no limit)
@@ -95,70 +95,51 @@ Compare plans
 Pro Team Plan
 Same as Trial
 Enterprise Plans
-core
+included in both plans
 Agentic PR code review
 Pro Team Plan: Included
 Enterprise Plans: Included
-Rules system (no limit)
+Context Engine (Codebase wisdom, PR History, and more)
 Pro Team Plan: Included
 Enterprise Plans: Included
-Git + IDE integrations
+Rules Management System
 Pro Team Plan: Included
 Enterprise Plans: Included
-Shift-left skills
+Cross Repo Software Map
 Pro Team Plan: Included
 Enterprise Plans: Included
-Strict data retention
+Agentic Quality Toolbox for Coding Agents
 Pro Team Plan: Included
 Enterprise Plans: Included
-advanced
-Self-learning system
-Pro Team Plan: Not included
-Enterprise Plans: Included
-Cross-repo capabilities
+Analytics Dashboard
 Pro Team Plan: Included
 Enterprise Plans: Included
-Custom agentic workflows
-Pro Team Plan: Not included
-Enterprise Plans: Included
-Gerrit support
-Pro Team Plan: Not included
-Enterprise Plans: Included
-Analytics
-Dashboard & Analytics
+Strict Data Retention
 Pro Team Plan: Included
 Enterprise Plans: Included
-Advanced Analytics
-Pro Team Plan: Not included
-Enterprise Plans: Included
-security & deployment
-SSO / SAML
-Pro Team Plan: Not included
-Enterprise Plans: Included
-Audit logs
-Pro Team Plan: Not included
-Enterprise Plans: Included
-BYOK (bring your own LLM keys)
-Pro Team Plan: Not included
-Enterprise Plans: Included
+enterprise only
 Single-tenant SaaS
 Pro Team Plan: Not included
 Enterprise Plans: Included
 On-prem / air-gapped
 Pro Team Plan: Not included
 Enterprise Plans: Included
-support
-Standard support
-Pro Team Plan: Included
+Gerrit support
+Pro Team Plan: Not included
+Enterprise Plans: Included
+BYOK (bring your own LLM keys)
+Pro Team Plan: Not included
+Enterprise Plans: Included
+Audit logs
+Pro Team Plan: Not included
+Enterprise Plans: Included
+Advanced analytics
+Pro Team Plan: Not included
 Enterprise Plans: Included
 Priority support / SLA
 Pro Team Plan: Not included
 Enterprise Plans: Included
 Dedicated CSM
-Pro Team Plan: Not included
-Enterprise Plans: Included
-commercial
-Annual contracts & negotiated pricing
 Pro Team Plan: Not included
 Enterprise Plans: Included
 MSA / DPA

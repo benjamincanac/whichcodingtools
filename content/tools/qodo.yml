@@ -33,18 +33,18 @@ pricing:
       audience: team
       trial_days: 14
       included:
-        amount: 2500
+        amount: 2000
         unit: credits
         period: month
         usd_value: 30
-        notes: 2,500 credits pooled across the team, about 18 reviews a month
+        notes: 2,000 credits pooled across the team, about 14 reviews a month
       overage:
         kind: credits
-        rate: 0.012
-        notes: Same $0.012 per credit with no premium, under a monthly cap you set.
+        rate: 0.015
+        notes: Same $0.015 per credit with no premium, under a monthly cap you set.
       limits:
         - Up to 30 users, monthly billing with no commitment
-        - 5,000 and 20,000 credit packs at the same per-credit rate
+        - 4,000 and 16,000 credit packs at the same per-credit rate
     - id: enterprise
       name: Enterprise
       price: null
@@ -62,7 +62,7 @@ aliases:
     note: Renamed to Qodo with the Series A announcement on September 30, 2024.
 sources:
   - url: https://www.qodo.ai/pricing
-    verified_at: 2026-11-04
+    verified_at: 2026-11-07
     covers: [pricing, platforms]
   - url: https://docs.qodo.ai/qodo-ide
     verified_at: 2026-08-23
