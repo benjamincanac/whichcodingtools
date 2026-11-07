@@ -11,42 +11,55 @@ Enterprise
 Resources
 🚀 Launch Remote Control Download
 🚀 Launch Remote Control
+EN
+English (United States) Bahasa Indonesia (Indonesia) Deutsch (Deutschland) English (Canada) English (United Kingdom) Español (España) Español (México) Français (France) Italiano (Italia) Polski (Polska) Português (Brasil) हिन्दी (भारत) ไทย (ประเทศไทย) 日本語 (日本) 简体中文 (中国) 繁體中文 (台灣) 한국어 (대한민국)
 Explore our next generation products
 See overview
 Products
-Antigravity 2.0
-Antigravity CLI
+Antigravity App
 Antigravity Extensions
+Antigravity CLI
 Antigravity IDE
 Antigravity SDK
-Built for developers in the agent-first era
+Built for developers and teams in the agent-first era
 See overview
-Frontend Fullstack Science Marketer
+Developer Use Cases
+Frontend Development Full-Stack Development Legacy & Codebase Migrations Technical Debt & Backlog Burndown Automated Testing & QA Verification Incident Triage & Root Cause Analysis
+Data Pipelines & SQL Engineering Developer Onboarding & Architecture Full-Stack Prototyping Enterprise Architecture & Strategy Daily Operations & Code Reviews Specialized Systems Engineering
+Other Roles
+Product Management Technical Program Management Sales & GTM Finance
+Business & Operations Design & UX Science Marketer
 Everything you need to stay up-to-date and get help
-Documentation
-Blog Changelog
-Support Press Releases
+Blog Documentation
+Changelog
+Newsletter Support Press Releases
 Products
 Explore our next generation products
 See overview
 Products
-Antigravity 2.0
-Antigravity CLI
+Antigravity App
 Antigravity Extensions
+Antigravity CLI
 Antigravity IDE
 Antigravity SDK
 Use Cases
-Built for developers in the agent-first era
+Built for developers and teams in the agent-first era
 See overview
-Frontend Fullstack Science Marketer
+Developer Use Cases
+Frontend Development Full-Stack Development Legacy & Codebase Migrations Technical Debt & Backlog Burndown Automated Testing & QA Verification Incident Triage & Root Cause Analysis
+Data Pipelines & SQL Engineering Developer Onboarding & Architecture Full-Stack Prototyping Enterprise Architecture & Strategy Daily Operations & Code Reviews Specialized Systems Engineering
+Other Roles
+Product Management Technical Program Management Sales & GTM Finance
+Business & Operations Design & UX Science Marketer
 Pricing
 Enterprise
 Resources
 Everything you need to stay up-to-date and get help
-Documentation
-Blog Changelog
-Support Press Releases
+Blog Documentation
+Changelog
+Newsletter Support Press Releases
 Download
+New Introducing voice mode in Antigravity, enabled by Gemini Live Read post
 Choose the perfect plan for your journey Choose the perfect plan for your journey
 Generally Available
 For Individuals
@@ -75,7 +88,7 @@ Flexible AI credit pool *
 For Organizations
 Business plan
 via Google Cloud
-Google Cloud customers can now access Antigravity 2.0, CLI, and through IDEs via Antigravity IDE extensions .
+Google Cloud customers can now access the Antigravity app, CLI, and through IDEs via Antigravity IDE extensions .
 Contact Sales For subscription options
 Start now via API
 Available now:
@@ -89,7 +102,24 @@ Spend caps across API and subscription plans
 Centralized administrative controls with eligible subscription plans
 Existing Gemini Enterprise customers with an invoiced Cloud billing account can visit the setup guide to enable AI Developer tools for Antigravity.
 Experience liftoff
-Product Download Product Docs Changelog Press Releases
-Resources Blog Pricing Use Cases
+Product Product Download Antigravity App Antigravity Extensions Antigravity CLI Antigravity IDE Antigravity SDK
+Resources Docs Changelog Releases Blog Newsletter Pricing Use Cases Press
 About Google Google Products Privacy Terms Manage cookies
+Your download has started
+How did you hear about us?
+Pick one. It helps us reach more people like you.
+Search engine
+AI assistant
+YouTube
+X (Twitter)
+LinkedIn
+Reddit
+Hacker News
+Friend or colleague
+News or blog
+Event or conference
+Another Google product
+Other
+Skip
+Thanks for letting us know!
 </untrusted-page-text>
