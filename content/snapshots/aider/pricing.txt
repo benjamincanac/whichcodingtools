@@ -88,7 +88,7 @@ aider
 Repository navigation
 Code
 Issues 1.4k ( 1.4k )
-Pull requests 541 ( 541 )
+Pull requests 540 ( 540 )
 Actions
 Projects
 Security and quality
