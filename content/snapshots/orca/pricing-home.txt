@@ -3,12 +3,12 @@
 <untrusted-page-text>
 Orca — The agent development environment
 Orca Docs Changelog Enterprise
-114.7k
+118k
 Plugins
 Download
 Backed by
 Ship 100x with the agent IDE
-Run Claude Code, Codex, and any other coding agent in parallel, each in its own worktree. Terminals, diffs, a browser, and a CLI, in one app built for agents.
+Run Claude Code, Codex, and any other coding agent in parallel, each in its own worktree. Chat or terminal, on your laptop or in the cloud, with diffs, a browser, and a CLI in one app.
 Run Claude Code, Codex, and any other coding agent in parallel. Get the mobile companion for iOS or Android.
 Open App Store
 Android APK
@@ -16,120 +16,78 @@ Also on macOS, Windows & Linux
 View on GitHub
 Download for Mac Also for Intel · Windows · Linux
 View on GitHub
-Run a fleet of agents Automate everything Review AI output Git integration
+Orchestrate agents Chat or terminal Review AI output Git integration Extend with plugins Run anywhere
 Orca
+Search
 Tasks
 Automations
-Search ⌘J
 Projects
-acme-web 4
+Local Mac 1
+acme-web
 checkout-flow-v2 primary
 feature/checkout-flow-v2
-5 agents
-running checkout regression tests 49m
-validating EU promo codes 3h
-updating checkout e2e snapshots 4h
-reviewing tax calculation module 4h
-revert cart rounding to previous behavior 5h
-checkout-baseline
-feature/checkout-baseline
-auth-session-refresh
-feature/auth-session-refresh
-cart-recovery-email
-feature/cart-recovery-email
-acme-internal 4
+Tighten address validation opus-5.5 49m
+Validating EU promo codes gpt-6-astra 3h
+mac-mini mac-mini.local 3
+acme-internal
+eu-promo-checkout
+fix/eu-promo-checkout
+Fix ACME-412: EU promo codes… opus-5.5 now
 Improve agent handoff summary
 feature/agent-handoff-summary
+Drafting handoff copy gpt-6-astra 12m
 Fix CI checks detail link
 fix/checks-detail-link
-Webhook retry backoff
-fix/webhook-retry-backoff
-Observability dashboard tiles
-feature/observ-metrics-dash
-running checkout regression tests ×
-validating EU promo codes ×
-updating checkout e2e snapshots ×
-reviewing tax calculation module ×
-revert cart rounding to previous behavior ×
-Claude Code
-Claude Code v2.1.173
-Opus · Claude Max
-~/work/acme/checkout-flow-v2
-› tighten address validation and add coverage
-• I'm checking the existing form flow, then I'll patch the validator and run the focused tests.
-Ran 1 shell command
-• src/checkout/AddressForm.tsx:38: validateAddress(values)
-src/checkout/validators.ts:12: export function validateAddress
-Read(src/checkout/validators.ts)
-⎿ Read 180 lines (ctrl+o to expand)
-• Found the country-specific branch. I'm making the ZIP/postal path explicit and keeping the existing checkout copy unchanged.
-Update( src/checkout/validators.ts )
-⎿ Added 8 line s , removed 3 line s
-44 export function validateAddress(values: AddressValues) {
-45 - if (!values.country) return true;
-45 + if (!values.country) return { ok: false, field: 'country' };
-46 + if (values.country === 'CA') return validateCanadianPostal(values);
-Ran 1 shell command
-• PASS src/checkout/validators.test.ts (18)
-PASS src/checkout/AddressForm.test.tsx (9)
-• Focused tests pass. I'm running lint on the touched files before summarizing the change.
-Ran 1 shell command
-• No ESLint warnings or errors
-• Updated validation behavior and added regression tests for US ZIP+4, Canadian postal codes, and missing country.
-⠋ Thinking…
-›
-Terminal 2 ×
-localhost:3000 ×
-orca ~/work/acme/checkout-flow-v2 [feature/checkout-flow-v2] $ pnpm dev
-> [email protected] dev
-> next dev --turbo
-▲ Next.js 16.2.1 (Turbopack)
-- Local: http://localhost:3000
-✓ Ready in 731ms
-○ Compiling /checkout ...
-✓ Compiled /checkout in 812ms
-○ Compiling / ...
-GET /checkout 200 in 96ms
-acme-web
-.github
-.next
-public
-src
-app
-checkout
-components
-lib
-tests
-.gitignore
-components.json
-next.config.ts
-package.json
-pnpm-lock.yaml
-README.md
-58 % 5h · 41 % wk
-52 % 5h · 37 % wk
+Fix checks detail link opus-5.5 6h
+Fix ACME-412: EU promo codes skip regional tax
+Full access
+Opus 5.5
+42 % 2h 48m · 59 % 4d 6h
+48 % 3h 12m · 63 % 1d 9h
+24 % 3d 4h
+Off
 1.2 GB ·
 4
 2
-SSH Connected
+2 hosts
 Used by engineers at
 Your dev loop, agentified.
 Workspaces
 Orchestration
+Chat or terminal
+Remote
 Browser
 Terminal
 Tasks
 Editor
 Notes
-Ship with AI
+Git integration
 Workspaces
 Quickly split tasks into isolated environments, so multiple agents can work side by side without interfering with each other.
-set up orca.yaml
-Edit auth/withSession.ts
-fix login race condition
-Typecheck passes. Pulling on the login route next.
-speed up CI pipeline
-Adding tests for the redirect path.
+Orca
+Projects
+Local Mac 1
+acme-web
+checkout-flow-v2 primary
+feature/checkout-flow-v2
+Tighten address validation opus-5.5 2m
+Validating EU promo codes gpt-6-astra 3h
+mac-mini mac-mini.local 2
+acme-internal
+eu-promo-checkout
+fix/eu-promo-checkout
+tax-rules gpt-6-astra 4m
+promo-tests grok-4.7 4m
+Improve agent handoff summary
+feature/agent-handoff-summary
+Drafting handoff copy gpt-6-astra 12m
+Tighten address validation
+Tighten address validation and add coverage.
+Worked for 2m 14s
+Address validation is tightened and 27 tests pass.
+Ask anything, @ to mention files, / for commands
+Full access
+Opus 5.5
 Bring your own agent / subscription
 Works with Claude Code, Codex, OpenCode, Grok, and any other agent CLI. Plug in the subscriptions you already have and run them side by side in Orca.
 Claude Code
@@ -161,128 +119,273 @@ Qwen Code
 Rovo Dev
 Any other CLI agent
 Keep agents moving from your phone.
-Pair Orca with the companion app to watch live agent status, check usage, switch accounts, and keep terminal work moving when you are away from your desk.
+Pair Orca with the companion app to get pinged when an agent needs you, reply in chat, and keep work moving on any of your machines when you are away from your desk.
 Open App Store
 Android APK
-Orca
-Welcome back
-1,284
-Agents spawned
-142h
-Agent time
-96
-PRs created
-Desktops
-MacBook Pro
-Connected · 40 worktrees · 5 active
-M1 Mini · home
-Disconnected
-Resume
-feat/mobile-page
-orca · feat/mobile-page
-Tasks
-Tasks
-GitHub · Linear
-Quick Actions
-Pair Desktop
-New Workspace
-Account usage
-[email protected]
-5h
-7d
-[email protected]
-5h
-7d
-MacBook Pro
-Filter
-Recent
-Repo
-Pinned 3
-feat/mobile-page
-#2491
-orca feat/mobile-page
-claude · refactoring v3 mock to use real screens…
-2
-runtime/web-pairing
-#2487
-orca feat/web-pairing
-$ pnpm test --filter web-runtime
-1
-infra/notifier
-orca main
-awaiting permission · sudo apt install
-1
-Active 37
-docs/styleguide-update
-orca feat/styleguide
-$ pnpm lint
-1
-feat/runtime-perf
-orca feat/runtime-perf
-fix/notifier-cooldown
-#2483
-orca feat/notifier-cooldown
-claude · investigating macOS notification queue…
-1
-chore/deps-bump
-orca feat/deps-bump
-feat/mobile-page
-2 terminals · claude active
-claude
-shell
-PLAN.md
-dev@mac orca/feat-mobile-page $ claude ● Read mobile/orca-mobile-sidebar-mock-v3.html ⎿ Read 2103 lines ● Edit mobile/orca-mobile-sidebar-mock-v3.html ⎿ Replaced pair-scan slide with terminal session ● Bash pnpm test --filter mobile ⎿ PASS src/transport/host-store.test.ts PASS src/cache/worktree-cache.test.ts ● 14 passed, 1 skipped (1.8s) I've replaced the pair-scan slide with a high-fidelity terminal screen. Tokyonight palette, Menlo, real claude tool-call formatting. Want me to add the diff next? ›
-Paste
-Esc
-Tab
-⌫
-↑
-↓
-←
-→
-Ctrl+C
-Type a command…
+9:41
+mac-mini
+macOS · mac-mini.local
+acme-internal 3
+eu-promo-checkout
+fix/eu-promo-checkout
+Both workers are done. Open the PR? now
+tax-rules · Fixed, 11 tests pass 2m
+promo-tests · 8 regression tests pass 1m
+Improve agent handoff summary
+feature/agent-handoff-summary
+Drafting handoff copy 12m
+Fix CI checks detail link
+fix/checks-detail-link
+Fixed the checks detail URL 6h
+Search workspaces
 Agent-first, end to end.
 IDEs were built for you. An ADE is built for you and your agents: worktrees, terminals, browser, and CLI in one app.
-Click to inspect
-Parallel Worktrees
-Every task runs in its own isolated git worktree. No stashing, no branch juggling. Fan one prompt across 5 agents, compare, merge the winner.
-Click to inspect
-Terminal Splits
-WebGL rendering, infinite splits, scrollback restored on restart, full scrollback search.
-Click to inspect
-Design Mode
-A real Chromium window per worktree. Click any UI element to send its HTML, CSS, and a cropped screenshot into your agent.
-Click to inspect
-GitHub & Linear, native
-Browse PRs, issues, and Project boards in-app. Open a worktree from any task, review and approve PRs, and create Linear issues without a context switch.
-Click to inspect
-Every CLI Agent
-Claude Code, Codex, Cursor CLI, Gemini, Copilot, OpenCode, Pi, all preconfigured. Any other CLI agent drops right in.
-Click to inspect
-SSH Worktrees
-Run agents on a beefy remote box with full file editing, git, and terminals. Auto-reconnect, port forwarding, passphrase caching.
-Click to inspect
-Drag Files to Agents
-VS Code's editor, autosave everywhere, quick-open with hidden files, drag-drop files or Finder images into an agent prompt.
-Click to inspect
-Annotate AI Diffs
-Drop markdown comments on any diff line, batch them, ship them back to the agent. Inspect CI, resolve conflicts, open PRs, all in-app.
-Click to inspect
-Orca CLI
-Agents drive Orca too: orca worktree create , snapshot , click , fill .
-Click to inspect
-Native Search
-Search across worktrees, files, agents, commands, and repo context without leaving your flow.
-Click to inspect
-Account Switcher & Usage Tracking
-See Claude and Codex usage, rate-limit resets, and hot-swap Codex accounts without re-logging in.
-Click to inspect
-Rich Repo Previews
-Preview Markdown, images, PDFs, and repo docs in the workspace without bouncing between apps.
-Click to inspect
-Split Anything
-Arrange agents, terminals, browsers, diffs, and files into split panes that match the shape of the task.
+mac-mini mac-mini.local 2
+acme-internal
+eu-promo-checkout
+fix/eu-promo-checkout
+Fix ACME-412 opus-5.5 now
+promo-tests
+Creating worktree…
+promo-tests
+promo-tests
+Cover EU promo codes grok-4.7 now
+Fix ACME-412 ×
+Claude Code v2.1.318
+Opus 5.5 · Claude Max
+~/acme/eu-promo-checkout
+> Hand the EU promo tests to a Grok worker
+⏺ Bash ( orca worktree create --name promo-tests --agent grok --prompt "Cover EU promo codes" )
+⎿ id: acme-internal::~/acme/promo-tests
+… +18 lines (ctrl+o to expand)
+⏺ promo-tests is running on Grok.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+⏵⏵ bypass permissions on
+Orca CLI Click to inspect
+Anything you can do in Orca, your agents can do too: create worktrees, start workers, drive the browser and desktop apps, and schedule automations, all from the command line.
+Claude ×
+Claude Code v2.1.318
+Opus 5.5 · Claude Max
+~/acme
+> Accept Canadian postcodes
+⏺ Read ( validators.ts )
+⎿ Read 64 lines
+⏺ Update ( validators.ts )
+⎿ 18 additions, 3 removals
+⏺ Canadian postcodes pass now.
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+⏵⏵ bypass permissions on
+Checkout ×
+localhost
+Shipping address
+City San Francisco
+ZIP / Postal 94105
+Terminal ×
+~/acme $ pnpm dev
+▲ Next.js 16.2.1 (Turbopack)
+- Local: http://localhost:3000
+✓ Ready in 731ms
+○ Compiling /checkout ...
+✓ Compiled /checkout in 812ms
+GET /checkout 200 in 41ms
+GET /api/cart 200 in 18ms
+validators.ts ×
+validators.ts
+9 + switch (country) {
+10 + case "US":
+11 + return US_ZIP;
+12 + case "CA":
+13 + return CA_POSTAL;
+14 + default:
+Split Anything Click to inspect
+Put agents, terminals, browsers, and diffs side by side in split panes shaped to the task.
+Local Mac 1
+acme-web
+checkout-flow-v2 primary
+feature/checkout-flow-v2
+Tighten address validation opus-5.5 2m
+mac-mini 2
+acme-internal
+Improve agent handoff summary
+feature/agent-handoff-summary
+Drafting handoff copy gpt-6-astra 12m
+eu-promo-checkout
+fix/eu-promo-checkout
+tax-rules gpt-6-astra 4m
+Drafting handoff copy
+Draft the handoff summary for the checkout rollout.
+Working for 12s
+Reading the last three PRs to summarise what changed.
+Ask anything, @ to mention files, / for commands
+Full access
+GPT-6 Astra
+checkout
+Workspaces
+eu-promo- checkout acme-internal
+checkout -flow-v2 primary acme-web
+Open Tabs
+Tighten address validation 2m acme-web
+Jump Anywhere Click to inspect
+One shortcut jumps to any workspace or tab across every repo and host.
+acme-web
+src
+checkout
+AddressForm.tsx M
+shipping.ts
+validators.ts M
+cart
+tests
+package.json
+Tighten address validation ×
+Worked for 2m 14s
+Address validation is tightened and 27 tests pass.
+AddressForm.tsx
+Full access
+Opus 5.5
+Drag Files to Agents Click to inspect
+Drag files from the explorer, or images from Finder, straight into an agent's prompt.
+Shipping address step ×
+Add a shipping address step to checkout.
+Worked for 1m 36s
+The address step is live at localhost:3000/checkout.
+Attached browser context from http://localhost:3000/checkout
+Full access
+Opus 5.5
+Acme Checkout ×
+http://localhost:3000/checkout
+Copied — press S to screenshot, or select another element Cancel
+Acme Checkout
+Shipping address
+City San Francisco
+ZIP / Postal 94105 Continue to payment
+Design Mode Click to inspect
+Click any element in Orca's browser to copy its HTML, styles, and selector, then paste it into your agent's chat.
+Checkout screenshot ×
+Screenshot the new checkout form.
+Worked for 9s
+Ran pnpm e2e:shots
+Saved it to screenshots/checkout.png .
+Ask anything, @ to mention files, / for commands
+Full access
+Opus 5.5
+checkout.png ×
+Acme Checkout
+Shipping address
+Enter your delivery details to continue.
+Full name Jordan Lee Street address 428 Market St
+City Toronto
+ZIP / Postal M5V 2T6
+Country Canada Continue to payment
+26 % checkout.png 750 x 1200 184 KB
+Rich Previews Click to inspect
+Open images, PDFs, and Markdown right in the workspace, next to the agent that made them.
+Test sign-up flow ×
+Test sign-up on the simulator.
+Worked for 14s
+Ran orca emulator tap 0.5 0.31
+Ran orca emulator type " [email protected] "
+Ran orca emulator tap 0.5 0.4
+Ran orca emulator ax
+Sign-up works on iPhone 17 Pro : Continue lands on Check your inbox.
+Ask anything, @ to mention files, / for commands
+Full access
+Opus 5.5
+iPhone 17 Pro ×
+iPhone 17 Pro Connected
+Sign up
+Start your free trial.
+Email
+[email protected]
+Continue
+Have an account? Sign in
+Back
+Check your inbox
+We sent a link to
+[email protected]
+Open Mail
+9:41
+Mobile Emulator Click to inspect
+Run an iOS Simulator or Android emulator beside your agent, and let it tap, type, and check its own work.
+Checkout footer ×
+Worked for 52s
+Added the payment badges to the checkout footer and updated its snapshot test.
+Full access
+Opus 5.5
+Speaking
+Can you fix it and add
+⌘ E
+Dictation Click to inspect
+Press a shortcut and talk. Orca types what you say into the agent's prompt or terminal.
+Claude Updated just now
+[email protected]
+Session
+42 % used Resets in 2h 48m
+Weekly
+59 % used Resets in 4d 6h
+Claude Account
+[email protected] Acme · Team
+42 % used 2h 48m
+59 % used wk
+[email protected] Personal
+8 % used 4h 10m
+21 % used wk
+Manage Accounts…
+42 % 2h 48m · 59 % 4d 6h
+48 % 3h 12m · 63 % 1d 9h
+24 % 3d 4h
+Usage & Accounts Click to inspect
+See how much of your Claude, Codex, and Grok limits you've used and when they reset, and switch accounts without logging out.
+Automations
+Search...
+New Automation
+Name Schedule Next run Agent
+Nightly deps Daily at 2:00 AM Nov 6, 2:00 AM (in 11h)
+Issue triage Mondays at 9:00 AM Nov 10, 9:00 AM (in 5d)
+Create automation
+Use template
+Flaky tests
+Prompt
+Rerun the flaky e2e specs and open a PR that fixes the worst one.
+Agent
+Grok
+Schedule
+Daily
+Time
+6 : 00 PM
+Once saved, runs automatically until paused. Cancel Create
+Automations Click to inspect
+Schedule prompts to run on any repo: nightly dependency bumps, weekly triage, flaky-test sweeps.
+Check Safari checkout
+Try a Canadian postcode in Safari.
+Worked for 14s
+Ran orca computer get-app-state --app Safari
+Ran orca computer set-value --app Safari --element-index 42 --value "M5V 2T6"
+Safari's checkout accepts M5V 2T6 for Toronto.
+Ask anything, @ to mention files, / for commands
+Full access
+Opus 5.5
+localhost:3000
+Shipping address
+City Toronto
+ZIP / Postal M5V 2T6
+Computer Use Click to inspect
+When there's no CLI or API, agents can see and drive desktop apps and external browsers.
+All Installed 1 Not installed
+Search plugins
+Orca Midnight
+stablyai
+A quiet dark theme tuned for long coding sessions.
+Install
+Installed
+Excalidraw
+stablyai
+Draw and edit .excalidraw diagrams right in Orca's editor.
+Plugins Click to inspect
+Themes, editors, languages, and panels from the community, installed in a click.
 Built by engineers
 who ship with agents
 Orca is open source and used daily by teams at the largest companies and by the people building the next ones. Every quote below is a public post on X. Click one to read the original.
@@ -323,7 +426,11 @@ macOS only
 Open source under MIT
 GPU-rendered terminal with splits
 Embedded Chromium with design mode
-Remote worktrees over SSH
+Chat UI and terminal, switch any time
+One or the other
+Remote servers, SSH hosts, and cloud VMs
+Limited
+Coordinator agents that run worker agents
 Inline diff comments sent back to the agent
 Limited
 27 supported agents
@@ -338,7 +445,8 @@ How do worktrees work in Orca?
 Which agents does it support?
 What is the terminal like?
 Does it run on Windows and Linux?
-Can I run agents on a remote machine?
+Does Orca have a chat view, or only terminals?
+Can I run agents on a remote machine or in the cloud?
 Is Orca a Cursor alternative?
 How often does Orca ship?
 Is it free?
