@@ -5,87 +5,75 @@ GitHub - imbue-ai/sculptor: Build product with grounded, parallel coding agents.
 Skip to content
 Navigation Menu
 Sign in
-Appearance settings
+Products
 Platform
-AI CODE CREATION
-GitHub Copilot Write better code with AI
-GitHub Copilot app Direct agents from issue to merge
-MCP Registry Integrate external tools
-DEVELOPER WORKFLOWS
-Actions Automate any workflow
-Codespaces Instant dev environments
-Issues Plan and track work
-Code Review Manage code changes
-Code Quality Enforce quality at merge
-APPLICATION SECURITY
-GitHub Advanced Security Find and fix vulnerabilities
-Code security Secure your code as you build
-Secret protection Stop leaks before they start
-EXPLORE
-Why GitHub
+GitHub Repository hosting, code review, and collaboration
+Copilot AI coding agent for tasks, projects, and automated work
+Build & Ship
+Actions CI/CD and automation
+Code Quality Quality analysis, fixes, and enforcement
+Codespaces Cloud development environments
+Secure
+Code Security Vulnerability detection and remediation
+Secret Protection Secret scanning and leak prevention
+All Features
+Developers
+Learn
 Documentation
-Blog
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Developer articles
 Changelog
-Marketplace
-View all features
-Solutions
-BY COMPANY SIZE
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
 Enterprises
-Small and medium teams
+Team
 Startups
 Nonprofits
-BY USE CASE
-App Modernization
-DevSecOps
-DevOps
-CI/CD
-View all use cases
-BY INDUSTRY
+By Industry
 Healthcare
 Financial services
 Manufacturing
 Government
-View all industries
-View all solutions
-Resources
-EXPLORE BY TOPIC
-AI
-Software Development
-DevOps
-Security
-View all topics
-EXPLORE BY TYPE
-Customer stories
-Events & webinars
-Ebooks & reports
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
 Business insights
-GitHub Skills
-SUPPORT & SERVICES
-Documentation
-Customer support
-Community forum
-Trust center
-Partners
-View all resources
-Open Source
-COMMUNITY
-GitHub Sponsors Fund open source developers
-PROGRAMS
-Security Lab
-Maintainer Community
-GitHub Stars
-Archive Program
-REPOSITORIES
-Topics
-Trending
-Collections
-Enterprise
-ENTERPRISE SOLUTIONS
-Enterprise platform AI-powered developer platform
-AVAILABLE ADD-ONS
-GitHub Advanced Security Enterprise-grade security features
-Copilot for Business Enterprise-grade AI features
+Trust Center
+Add-ons
+GitHub Advanced Security Enterprise-grade code security
+Copilot for business Enterprise-grade AI features
 Premium Support Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
 Pricing
 Search /
 Sign in Sign up
@@ -96,31 +84,37 @@ You switched accounts on another tab or window. Reload to refresh your session.
 Dismiss alert
 {{ message }}
 imbue-ai
-/
 sculptor
-Public
-Notifications
-You must be signed in to change notification settings
-Fork
-17
-Star
-233
+Repository navigation
 Code
-Issues
-0
-Pull requests
-21
-Actions
-Security and quality
-0
-Insights
-Additional navigation options
-Code
-Issues
-Pull requests
+Issues 2 ( 2 )
+Pull requests 30 ( 30 )
 Actions
 Security and quality
 Insights
+More items
+sculptor Public
+Notifications You must be signed in to change notification settings
+Fork 20 ( 20 )
+Star 246 ( 246 ) You must be signed in to star a repository
+About
+Build product with grounded, parallel coding agents.
+Resources
+Readme
+MIT license
+Contributing
+Contributing
+Security policy
+Security policy
+Activity
+Custom properties
+Stars
+246 stars
+Watchers
+0 watching
+Forks
+20 forks
+Report repository
 main
 Branches
 Tags
@@ -129,8 +123,8 @@ Code
 Open more actions menu
 Latest commit
 History
-2,048 Commits
-2,048 Commits
+2,165 Commits
+2,165 Commits
 Folders and files
 Name Name
 Last commit message
@@ -296,11 +290,11 @@ Security policy
 Activity
 Custom properties
 Stars
-233 stars
+246 stars
 Watchers
 0 watching
 Forks
-17 forks
+20 forks
 Report repository
 Releases
 Packages
