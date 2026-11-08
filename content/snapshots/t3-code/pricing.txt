@@ -5,87 +5,75 @@ GitHub - pingdotgg/t3code · GitHub
 Skip to content
 Navigation Menu
 Sign in
-Appearance settings
+Products
 Platform
-AI CODE CREATION
-GitHub Copilot Write better code with AI
-GitHub Copilot app Direct agents from issue to merge
-MCP Registry Integrate external tools
-DEVELOPER WORKFLOWS
-Actions Automate any workflow
-Codespaces Instant dev environments
-Issues Plan and track work
-Code Review Manage code changes
-Code Quality Enforce quality at merge
-APPLICATION SECURITY
-GitHub Advanced Security Find and fix vulnerabilities
-Code security Secure your code as you build
-Secret protection Stop leaks before they start
-EXPLORE
-Why GitHub
+GitHub Repository hosting, code review, and collaboration
+Copilot AI coding agent for tasks, projects, and automated work
+Build & Ship
+Actions CI/CD and automation
+Code Quality Quality analysis, fixes, and enforcement
+Codespaces Cloud development environments
+Secure
+Code Security Vulnerability detection and remediation
+Secret Protection Secret scanning and leak prevention
+All Features
+Developers
+Learn
 Documentation
-Blog
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Developer articles
 Changelog
-Marketplace
-View all features
-Solutions
-BY COMPANY SIZE
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
 Enterprises
-Small and medium teams
+Team
 Startups
 Nonprofits
-BY USE CASE
-App Modernization
-DevSecOps
-DevOps
-CI/CD
-View all use cases
-BY INDUSTRY
+By Industry
 Healthcare
 Financial services
 Manufacturing
 Government
-View all industries
-View all solutions
-Resources
-EXPLORE BY TOPIC
-AI
-Software Development
-DevOps
-Security
-View all topics
-EXPLORE BY TYPE
-Customer stories
-Events & webinars
-Ebooks & reports
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
 Business insights
-GitHub Skills
-SUPPORT & SERVICES
-Documentation
-Customer support
-Community forum
-Trust center
-Partners
-View all resources
-Open Source
-COMMUNITY
-GitHub Sponsors Fund open source developers
-PROGRAMS
-Security Lab
-Maintainer Community
-GitHub Stars
-Archive Program
-REPOSITORIES
-Topics
-Trending
-Collections
-Enterprise
-ENTERPRISE SOLUTIONS
-Enterprise platform AI-powered developer platform
-AVAILABLE ADD-ONS
-GitHub Advanced Security Enterprise-grade security features
-Copilot for Business Enterprise-grade AI features
+Trust Center
+Add-ons
+GitHub Advanced Security Enterprise-grade code security
+Copilot for business Enterprise-grade AI features
 Premium Support Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
 Pricing
 Search /
 Sign in Sign up
@@ -96,33 +84,38 @@ You switched accounts on another tab or window. Reload to refresh your session.
 Dismiss alert
 {{ message }}
 pingdotgg
-/
 t3code
-Public
-Notifications
-You must be signed in to change notification settings
-Fork
-5.8k
-Star
-23k
+Repository navigation
 Code
-Issues
-735
-Pull requests
-1.3k
-Discussions
-Actions
-Security and quality
-0
-Insights
-Additional navigation options
-Code
-Issues
-Pull requests
+Issues 1.9k ( 1.9k )
+Pull requests 3.9k ( 3.9k )
 Discussions
 Actions
 Security and quality
 Insights
+More items
+t3code Public
+Notifications You must be signed in to change notification settings
+Fork 9.9k ( 9.9k )
+Star 51.5k ( 51.5k ) You must be signed in to star a repository
+About
+t3.codes
+Resources
+Readme
+MIT license
+Contributing
+Contributing
+Security policy
+Security policy
+Activity
+Custom properties
+Stars
+51.5k stars
+Watchers
+108 watching
+Forks
+9.9k forks
+Report repository
 main
 Branches
 Tags
@@ -131,8 +124,8 @@ Code
 Open more actions menu
 Latest commit
 History
-4,150 Commits
-4,150 Commits
+9,724 Commits
+9,724 Commits
 Folders and files
 Name Name
 Last commit message
@@ -141,8 +134,6 @@ Last commit date
 .agents/ skills
 .claude
 .claude
-.codex
-.codex
 .cursor
 .cursor
 .devcontainer
@@ -163,8 +154,10 @@ assets
 assets
 docs
 docs
-infra/ relay
-infra/ relay
+evals
+evals
+infra
+infra
 native
 native
 oxlint-plugin-t3code
@@ -177,16 +170,22 @@ patches
 patches
 scripts
 scripts
-.coderabbit.yaml
-.coderabbit.yaml
+third-party-licenses/ spdx/ v3.28.0
+third-party-licenses/ spdx/ v3.28.0
+.coderabbit.config.ts
+.coderabbit.config.ts
 .env.example
 .env.example
 .gitattributes
 .gitattributes
 .gitignore
 .gitignore
-.mcp.json
-.mcp.json
+.pnpmfile.cjs
+.pnpmfile.cjs
+.task-cache.json
+.task-cache.json
+.vercelignore
+.vercelignore
 AGENTS.md
 AGENTS.md
 CLAUDE.md
@@ -211,6 +210,8 @@ third-party-licenses.config.json
 third-party-licenses.config.json
 tsconfig.base.json
 tsconfig.base.json
+tsconfig.effect.json
+tsconfig.effect.json
 vite.config.ts
 vite.config.ts
 View all files
@@ -222,19 +223,20 @@ Security
 More items
 T3 Code
 T3 Code is an "agent harness control surface". It enables control of the agents on your machine with a best-in-class mobile app ( iOS , Android ), web app and Electron-based desktop app .
-Works with your subscriptions on Claude Code, Codex, Cursor, Grok Build, OpenCode, and Google Antigravity. If they're set up on your computer, T3 Code can control them.
+Works with your subscriptions on Claude Code, Codex, Cursor, Grok Build, OpenCode, Google Antigravity, and fx. If they're set up on your computer, T3 Code can control them.
 "Wait, what are you selling me?"
 Nothing. We built T3 Code because we wanted the best possible development experience with agents. We were inspired by existing solutions like the Codex desktop app, Conductor, Claude Desktop and Cursor Glass, but none met our bar.
 We wanted something performant, remote-ready, and truly open. If we ever go the wrong direction, we want you to have everything you need to fork and build the editor that you want.
 Installation
 Warning
-T3 Code currently supports Codex, Claude, Cursor, Grok Build, OpenCode, and Antigravity. Install and authenticate at least one provider before use:
+T3 Code currently supports Codex, Claude, Cursor, Grok Build, OpenCode, Antigravity, and fx. Install and authenticate at least one provider before use:
 Codex: install Codex CLI and run codex login
 Claude: install Claude Code and run claude auth login
 Cursor: install Cursor CLI and run agent login
 Grok Build: install Grok Build CLI and run grok login
 OpenCode: install OpenCode and run opencode auth login
 Antigravity: enable it in Settings, then use Install Antigravity and Sign in with Google . No CLI is required.
+fx: install fx and run fx login on the machine running the T3 Code server ( setup guide )
 Command line
 curl -fsSL https://t3.codes/install.sh | sh
 On Windows, in PowerShell:
@@ -245,24 +247,37 @@ Desktop app
 Install the latest version of the desktop app from GitHub Releases , or from your favorite package registry:
 Windows ( winget )
 winget install T3Tools.T3Code
+Windows ( scoop )
+scoop install extras/t3code
 macOS (Homebrew)
 brew install --cask t3-code
+Debian, Ubuntu ( .deb )
+Download the .deb from GitHub Releases , then:
+sudo apt install ./T3-Code- * .deb
 Arch Linux (AUR)
 Stable:
 yay -S t3code-bin
 Nightly:
 yay -S t3code-nightly-bin
 The AUR packaging is maintained in this repository under packaging/aur .
+Nix (nixpkgs)
+nix profile add github:NixOS/nixpkgs/nixos-unstable#t3code
+The package is maintained in nixpkgs
+and includes the desktop app ( t3code-desktop ) and the t3 command.
+See Nix installation for NixOS configuration and updates.
 Some notes
 We are very very early in this project. Expect bugs.
 We are (mostly) not accepting contributions yet. Small fixes may be considered. Big features will not be.
 Documentation
 Full docs live in docs/ . There's no docs site yet.
+FAQ
 Install and first run
 Permission modes
 Keyboard shortcuts
 Project settings
+Appearance preferences
 Remote access from a phone or another machine
+Connect Claude Code, Codex, ChatGPT and other agents over MCP
 Keeping app and server in sync
 Source control integrations
 Multiple accounts: Codex · Claude
@@ -293,14 +308,13 @@ Security policy
 Activity
 Custom properties
 Stars
-23.0k stars
+51.5k stars
 Watchers
-61 watching
+108 watching
 Forks
-5.8k forks
+9.9k forks
 Report repository
 Releases
-Packages
 Used by
 Contributors
 Languages
