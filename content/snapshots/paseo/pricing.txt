@@ -4,7 +4,8 @@
 Paseo – Run Claude Code, Codex, Copilot, OpenCode from anywhere
 Paseo
 Plugins Blog Docs Changelog Download Sponsor
-20.3k
+EN
+23.4k
 The agentic development
 environment
 Run many coding agents at once,
@@ -12,8 +13,8 @@ on any machine.
 From your desk and from your phone.
 Download for Mac
 Supports
-+ 33 more
-Build Review Ship Extend
++33 more
+Parallel agents Code review Pull requests Plugins
 New workspace
 History
 Schedules
@@ -252,7 +253,7 @@ Pi
 OMP
 Cursor
 Muse Code
-Antigravity + 33 more
+Antigravity +33 more
 Run it anywhere
 Use Paseo locally, from another machine, or with a team
 Desktop app
@@ -266,6 +267,30 @@ Docs
 Teams and triggers
 Share access or start work from GitHub, Slack, and Discord
 Paseo Hub
+Ask Paseo to change Paseo
+Agents in Paseo can change the whole UI without a restart, even on mobile.
+Add a sidebar panel with the PRs waiting on my review.
+I'll build it as a local plugin and install it.
+Read paseo-plugin/SKILL.md
+Shell paseo plugin init review-queue
+Write review-queue/index.ts
+Write review-queue/review-queue.client.tsx
+Shell paseo plugin install ./review-queue
+Review queue is in your sidebar.
+Review queue 3
+Retry flaky relay handshake
+#418 · ana · 12m
+Group schedules by project
+#415 · kenji · 1h
+Add Gruvbox theme
+#409 · lea · 3h
+400+ community plugins
+Built by developers on the same plugin API your agents use
+Browse plugins
+Plugin docs
+Themes Sidebar Workspaces Providers Orchestration Git
+Paseo is Apache 2.0.
+Fork the repo
 Built for automation
 Use MCP, the CLI, or the TypeScript SDK to automate Paseo
 MCP docs
@@ -279,22 +304,35 @@ SDK
 From code
 Take the open GitHub issues labeled ready and fan them out to separate worktree agents.
 I found two ready issues. I will run each in its own worktree.
-create_agent #412 claude/opus-4.6 worktree
-create_agent #417 codex/gpt-5.6-sol worktree
+Create agent Fix #412: retry flaky relay handshake
+Create agent Fix #417: group schedules by project
 Done, two agents are running. I will let you know when they finish.
-Extend it with plugins
-Add new panels and functionality that work in desktop, web and mobile
-Plugins
-Browse plugins
-Plugin docs
-UI
-Screens, workspace panels, sidebar items, slash commands, and themes
-Agent lifecycle
-Change configuration, environment, and MCP servers. Answer permissions. Follow up when a turn ends
-Providers
-Add a coding agent as a provider, used the same way as the built-in ones
-Paseo is Apache 2.0.
-Fork the repo
+Sponsors
+Cloud coding agents
+Become a sponsor
+Sponsor Paseo
+Paseo is an independent project used by tens of thousands of developers daily.
+It is maintained by one person, full time, and shaped by the community. There are no investors and no company behind it. I have turned down funding to keep it that way. A tool that sits between you and your code, your keys and your machines has to stay neutral, and funding creates pressure to monetize.
+Paseo is self-funded through sponsorship and Paseo Hub . Your support is what lets me keep working on it.
+Mo , maintainer
+GitHub Sponsors
+Open Collective
+Buy Me a Coffee
+Sponsor as a company
+Philosophy
+What Paseo stands for, and what every feature is built on
+Private
+No telemetry, tracking, or forced login. Code stays on your machine.
+Independent
+Paseo doesn't answer to investors. Its users guide what gets built.
+Polished
+Install the app and start working. No need to know what a daemon is.
+Unified
+Every coding agent, used the same way. Switch providers any time.
+Composable
+Run agents on a laptop or a server, and connect from any device.
+Extensible
+If Paseo doesn't fit how you work, change it with a plugin or fork.
 FAQ
 + − Is this free?
 Yes. Paseo is free and open source. You need agent providers installed with your own credentials. Voice is local-first by default and can optionally use cloud speech providers if you configure them. + − Does my code leave my machine?
@@ -307,29 +345,6 @@ Yes. You can use the hosted relay (end-to-end encrypted, Paseo can't read your t
 No. Paseo works in any directory. Worktrees are optional and only relevant if you use git. You can run agents anywhere you'd normally work. + − Can I get banned for using Paseo?
 Paseo is designed to use each provider's officially supported integration and does not attempt to bypass its terms of service. It doesn't extract tokens or call inference APIs directly. + − How do worktrees work?
 When you launch an agent with the worktree option (from the app, desktop, or CLI), Paseo creates a git worktree and runs the agent inside it. The agent works on an isolated branch without touching your main working directory. See the worktrees docs .
-Philosophy
-What Paseo stands for, and what every feature is built on
-Private
-No telemetry, tracking, or forced login. Code stays on your machine.
-Independent
-Paseo doesn't answer to investors. Its users guide what gets built.
-Polished
-Install the app and start working. No need to know what a daemon is.
-Unified
-Every coding agent, used the same way. Switch providers any time.
-Composable
-Run agents on your laptop or a server, and connect from any device.
-Extensible
-If Paseo doesn't fit how you work, change it with a plugin or fork.
-Sponsor Paseo
-Paseo is an independent project used by tens of thousands of developers daily.
-It is maintained by one person, full time, and shaped by the community. There are no investors and no company behind it. I have turned down funding to keep it that way. A tool that sits between you and your code, your keys and your machines has to stay neutral, and funding creates pressure to monetize.
-Paseo is self-funded through sponsorship and Paseo Hub . Your support is what lets me keep working on it.
-Mo , maintainer
-GitHub Sponsors
-Open Collective
-Buy Me a Coffee
-Sponsor as a company
 Product
 Blog Docs Plugins Changelog Hub CLI Privacy Terms Sponsor
 Agents
