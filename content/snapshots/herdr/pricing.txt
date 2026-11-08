@@ -1,188 +1,96 @@
 # https://herdr.dev
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
-Herdr: the runtime coding agents run on
-herdr
-Docs
-Plugins
-Blog
-Compare
-40,190
-ink
-paper
-Install
-Docs
-Plugins
-Blog
-Compare
-@herdrdev
-Discord
-Ground
-ink
-paper
-We raised $6M. We’re hiring ↗
-the agent runtime
-Run them anywhere. Leave them running.
-Herdr is where your coding agents live. However many you run, across however many projects, each in its own terminal. Walk away and they keep working. Come back from any machine and they're where you left them.
-$ curl -fsSL https://herdr.dev/install.sh | sh
-copy
-macOS · Linux · Windows · Apache 2.0 — windows, homebrew, nix and manual install →
-New Connecting the machines →
-40,190
-github stars
-1,021,145
-installs to date
-1,297
-community plugins
-22
-agent CLIs detected
-the herd, from a client that isn't there
-click an agent
-spaces
-herdr master
-web-dashboard feat/usage-charts
-data-pipeline backfill/events-v2
-agents grouped
-●
-herdr working · claude
-○
-explore idle · opencode
-◉
-web-dashboard blocked · claude
-●
-data-pipeline done · codex
-opencode herdr +
-▐▛███▜▌
-▝▜█████▛▘
-▘▘ ▝▝
-Claude Code v2.1.198
-Fable 5 with high effort · Claude Max
-~/Projects/herdr/website
-❯ make the herdr.dev hero mock look exactly like real claude code
-● Ha. I read the real pane over the socket — the mock was on v2.1.168, Claude Code is v2.1.198 now. Missing the logo block and the whole rate-limit row.
-● Plan:
-· index.html — swap ✻ for the real ▐▛███▜▌ mark, bump the version
-· css/style.css — coral bypass line, add the 5h / Week bars
-❯ perfect. and make the dialogue about this, obviously
-⠋ Baking… ( 13m 36s · esc to interrupt)
+Herdr: no two look alike
+Herdr
+App Core Gallery Guide Blog
+Herdr TUI ↗ GitHub Download
+No two Herdrs
+look alike.
+Herdr is an app for running coding agents that you shape by asking. Every window here is Herdr. Someone imagined it, their agent built it, and they shared it.
+Download Herdr Browse the gallery →
+215 layouts 435 mods 393 people
+Click any window ↗ Close · Esc ← → See the layout →
+Not just looks: 435 mods add features too →
+One sentence in.
+A different app out.
+Ask your agent to change Herdr. Try one: Herdr 1 Terminals 2 Code 3 Board 4 Pasture 5 1998 6
 ❯
-~/Projects/herdr/website > master * ↑1 > ctx ──────── 3% 31k/1M
-⏵⏵ bypass permissions on (shift+tab to cycle)
-~/Projects/herdr master
-❯ bun run dev
-$ node scripts/prepare-docs.mjs && astro dev
-02:10:44 [types] Generated 0ms
-02:10:44 [content] Synced content
-astro v5.18.1 ready in 668 ms
-┃ Local http://localhost:4321/
-Network use --host to expose
-02:10:44 watching for file changes...
-+ Thought: 468ms
-→ Read src/main.rs
-+ Thought: 292ms
-This is src/main.rs — the entry point for herdr . Here's what it does:
-1. Arg parsing — session::configure_from_args , then remote args for the SSH bridge.
-2. Subcommand dispatch — server , client , update — each returns early.
-3. Session mode — auto_detect_launch() connects to a running server or spawns one.
-Build · MiMo V2.5 Free · 16.6s
-Build · MiMo V2.5 Free OpenCode Zen
-25.2K (13%) ctrl+p commands
-claude dev server +
-▐▛███▜▌
-▝▜█████▛▘
-▘▘ ▝▝
-Claude Code v2.1.198
-Fable 5 with high effort · Claude Max
-~/Projects/web-dashboard
-❯ finish the usage chart and ship it to staging
-● Wrote src/components/UsageChart.tsx — stacked area, empty state, and the tooltip you asked for.
-● Typecheck and build are clean, 41.2 kB gzipped. Ready to push to staging.
-Bash command
-bunx wrangler deploy --env staging
-Deploy the dashboard to the staging environment
-Do you want to proceed?
-❯ 1. Yes
-2. No, and tell Claude what to do differently (esc)
-~/Projects/web-dashboard feat/usage-charts
-❯ bun run dev
-VITE v6.3.1 ready in 412 ms
-Local http://localhost:5173/
-02:30:58 hmr update /src/components/UsageChart.tsx
-02:31:04 hmr update /src/styles/chart.css
-02:31:09 page reload src/routes/usage.tsx
-02:31:15 WARN chunk "charts" is 512 kB after minification
-02:31:18 hmr update /src/components/UsageChart.tsx
-02:31:24 hmr update /src/components/Tooltip.tsx
-02:31:33 ✓ built in 1.94s
-codex backfill +
-• Explored
-└ Read jobs/backfill_events.py
-• Ran
-└ uv run pytest tests/test_backfill.py
-└ 14 passed · 0 failed · 41.3s
-• Checkpointing works, so the job resumes from the last committed offset instead of restarting. The backfill in the next tab has been running for six hours and is unaffected by your laptop.
-• Next I can add the p95 lag alert to the nightly run. Want that?
-›
-gpt-5.5 medium · ~/data-pipeline · backfill/events-v2 · Context 6% used
-~/data-pipeline backfill/events-v2
-❯ uv run jobs/backfill_events.py --from 2024-01-01
-connected · batch size 5,000 · checkpoint every 60s
-02:28:41 batch 4,102 ok 20,510,000 rows
-02:29:03 batch 4,103 ok checkpoint written
-02:29:25 batch 4,104 ok
-02:30:07 batch 4,105 ok
-02:30:18 WARN upstream throttled, retrying in 2s
-02:30:42 batch 4,106 ok checkpoint written
-02:31:09 elapsed 6h 12m · 68% complete · eta 2h 54m
-The whole herd in one terminal. Click the sidebar, it's a real layout.
-Three workspaces, four agents, two of them mid-task. Nobody is attached to any of it right now.
-01
-Always running. →
-Herdr isn't an app you keep open. It's a server running in the background, and the terminals live inside it. Close the lid or drop the network and the agents keep working; restart the machine and Herdr brings the layout back and resumes their sessions.
-herdr-server up
-3 workspaces &middot; 4 agents &middot; nobody attached
-02
-You never hunt for the stuck one. →
-Herdr reads every pane and marks each agent working, blocked or idle. When one stops and needs an answer it says so, so you don't go pane by pane looking for whoever is waiting on you.
-web-dashboard blocked
-herdr working
-data-pipeline idle
-03
-Agent-native. →
-The CLI and the socket API are the same surface agents drive. They split panes, start each other, prompt each other, and wait until another agent is genuinely blocked instead of firing keystrokes and hoping.
-$
-04
-Runs what you already run. →
-Claude Code, Codex, Cursor, opencode, Grok and the rest. Herdr doesn't wrap them or replace them, it just owns their terminals — one binary for macOS, Linux, and Windows.
-Claude Code
-Codex
-Pi
-opencode
-Cursor
-Grok
-Copilot
-Hermes
-22 agents detected out of the box
-05
-All your machines. One Herdr. →
-Your laptop, the desktop upstairs, a server you rent. Add them over SSH and their workspaces and agents sit alongside your local ones. Switch machines without opening another client. Disconnect and they keep working.
-$ herdr machine add workbox
-local connected
-workbox connected
-Herdr Cloud coming soon
-Same machines. No SSH setup.
-Connect your own machines to Herdr without configuring SSH. We're building it next.
-Join the waitlist →
-Give them somewhere to live.
-One command, and nothing else about your setup changes — the agent CLIs you already run keep working exactly as they did, except now they don't stop when you do.
-$ curl -fsSL https://herdr.dev/install.sh | sh
-copy
-Windows: irm https://herdr.dev/install.ps1 | iex — endpoint-protected install · all install methods →
-docs
-plugins
-blog
-compare
-built in the terminal · © 2026 Herdr, Inc.
-v0.9.1 · Apache 2.0
+Your agents run agents.
+And hear back.
+Your agent can hand a review or a test run to another agent and keep working. When the helper finishes, its report shows up in your agent's input, so you never copy anything between windows.
+It starts helpers hc run --bg codex "review my diff. Done: hc send t1" Any agent can start another, like Claude, Codex or a test script, and tell it where to report.
+It steers them hc send t3 "take another look" While a helper works, your agent can change its task or answer its questions.
+They report back <hc from="t3 reviewer"> Reports, exits and requests for help go to your agent. You only see the result.
+README.md 01 See who needs you 02 Close it, they keep working 03 Every machine in one sidebar 04 Change anything 05 Any agent 06 Open source 07 Questions
+## See who needs you
+Each agent tells Herdr whether it's working, done or waiting on you. The sidebar and the tab show which one needs you, so you can stop checking the rest.
+Use a space for each repo and a tab for each task.
+## Close it, they keep working
+Your agents run in herdr-core , a small server on your machine, not in the window. Quit the app, update it or let it crash, and every terminal is still where you left it.
+More about herdr-core →
+## Every machine in one sidebar
+Add any machine you can reach over SSH, like a server, a VM or a cloud sandbox. Its spaces and agents show up in the same sidebar under its name, and you start agents there the same way.
+# or ask your agent: "add my server vps"
+hc machine add vps
+Its agents keep running there while your laptop sleeps or the app is closed.
+## Change anything
+Herdr keeps its layout, sidebar, tabs, keys and themes as plain files in ~/.config/herdr-app . An AGENTS.md in there explains them to your agent. You say what you want and your agent writes it.
+~/.config/herdr-app/
+├── AGENTS.md what your agent can change
+├── settings.json fonts, theme, sounds
+├── keys.json
+├── layouts/
+│ ├── main.json
+│ └── board.json
+├── mods/
+│ ├── agents/main.js
+│ └── tabs/main.js
+└── themes/
+❯ put a timer on each tab: how long its agent has been working
+⏺ Update (mods/tabs/main.js)
+⎿ Updated mods/tabs/main.js with 6 additions and 1 removal
+⏺ Done. Each tab shows how long its agent has been at it.
+## Any agent
+Herdr runs real terminals, so your agents work the way they do now. Agents that support OSC 7501 , an open status protocol, also show whether they're working, done or need you. Your own script can do it with one line.
+# one line, and your own script is an agent too
+printf '\e]7501;state=blocked:app=my-agent\e\\'
+## Open source
+The app, herdr-core and Herdr TUI are open source under Apache 2.0. You can read the code, change it, or build your own app on top of herdr-core.
+herdrdev/herdr-app → herdrdev/herdr-core → herdrdev/herdr →
+## Questions What is Herdr?
+A native app for running coding agents. They run in herdr-core, so they keep going when you close the window, and your agent can change any part of the app. How is it different from Herdr TUI?
+Herdr TUI is the original Herdr: a terminal app with its own server. This is a new, separate program built on herdr-core. They don't share agents, so what runs in one doesn't show up in the other. Herdr TUI keeps working, and everything for it is at herdr.dev/tui . Which agents does it work with?
+Anything that runs in a terminal. Agents that speak OSC 7501 , an open protocol for reporting status, also show whether they're working, done or need you. An agent that doesn't speak it still runs, just without a status. My agent doesn't show up in the agents list
+The list shows agents that report their status through OSC 7501, so check these:
+Older versions of an agent may not report it yet. Update the agent.
+An agent running inside tmux within Herdr can't report through tmux. Run it in a Herdr pane directly.
+Agents started in Herdr TUI live in its own server, so they don't show up in the app. What happens when I quit, update or reboot?
+Quitting or updating the app changes nothing: every agent keeps running in herdr-core. If the machine reboots or herdr-core stops, the programs stop too. Their panes come back with a shell in the same folder, but Herdr doesn't restart an agent or resume its work in progress. Start it again and carry on. Which systems does it run on?
+macOS (Apple silicon), Linux (x86_64 and arm64) and Windows (x86_64). Other machines join over SSH, whatever they run. Is it free?
+Yes. The app, herdr-core and Herdr TUI are all open source.
+No two Herdrs
+look alike.
+Download for Mac or install from the terminal:
+macOS · Linux Windows
+$ curl -fsSL https://releases.herdr.dev/app/install.sh | sh Copy
+$ powershell -c "irm https://releases.herdr.dev/app/install.ps1 | iex" Copy
+Paste it in a terminal.
+All downloads and what happens next →
+Herdr
+Made for your agents. Remade by them. Open source, Apache 2.0
+Product
+Download
+Gallery
+herdr-core
+Learn
+Guide
+Blog
+Herdr TUI
+Privacy
+Community
+GitHub
+Discord
+X
 [email protected]
 </untrusted-page-text>
