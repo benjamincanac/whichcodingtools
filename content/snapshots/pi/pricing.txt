@@ -5,87 +5,75 @@ pi/packages/coding-agent/README.md at main · earendil-works/pi · GitHub
 Skip to content
 Navigation Menu
 Sign in
-Appearance settings
+Products
 Platform
-AI CODE CREATION
-GitHub Copilot Write better code with AI
-GitHub Copilot app Direct agents from issue to merge
-MCP Registry Integrate external tools
-DEVELOPER WORKFLOWS
-Actions Automate any workflow
-Codespaces Instant dev environments
-Issues Plan and track work
-Code Review Manage code changes
-Code Quality Enforce quality at merge
-APPLICATION SECURITY
-GitHub Advanced Security Find and fix vulnerabilities
-Code security Secure your code as you build
-Secret protection Stop leaks before they start
-EXPLORE
-Why GitHub
+GitHub Repository hosting, code review, and collaboration
+Copilot AI coding agent for tasks, projects, and automated work
+Build & Ship
+Actions CI/CD and automation
+Code Quality Quality analysis, fixes, and enforcement
+Codespaces Cloud development environments
+Secure
+Code Security Vulnerability detection and remediation
+Secret Protection Secret scanning and leak prevention
+All Features
+Developers
+Learn
 Documentation
-Blog
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Developer articles
 Changelog
-Marketplace
-View all features
-Solutions
-BY COMPANY SIZE
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
 Enterprises
-Small and medium teams
+Team
 Startups
 Nonprofits
-BY USE CASE
-App Modernization
-DevSecOps
-DevOps
-CI/CD
-View all use cases
-BY INDUSTRY
+By Industry
 Healthcare
 Financial services
 Manufacturing
 Government
-View all industries
-View all solutions
-Resources
-EXPLORE BY TOPIC
-AI
-Software Development
-DevOps
-Security
-View all topics
-EXPLORE BY TYPE
-Customer stories
-Events & webinars
-Ebooks & reports
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
 Business insights
-GitHub Skills
-SUPPORT & SERVICES
-Documentation
-Customer support
-Community forum
-Trust center
-Partners
-View all resources
-Open Source
-COMMUNITY
-GitHub Sponsors Fund open source developers
-PROGRAMS
-Security Lab
-Maintainer Community
-GitHub Stars
-Archive Program
-REPOSITORIES
-Topics
-Trending
-Collections
-Enterprise
-ENTERPRISE SOLUTIONS
-Enterprise platform AI-powered developer platform
-AVAILABLE ADD-ONS
-GitHub Advanced Security Enterprise-grade security features
-Copilot for Business Enterprise-grade AI features
+Trust Center
+Add-ons
+GitHub Advanced Security Enterprise-grade code security
+Copilot for business Enterprise-grade AI features
 Premium Support Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
 Pricing
 Search /
 Sign in Sign up
@@ -96,35 +84,17 @@ You switched accounts on another tab or window. Reload to refresh your session.
 Dismiss alert
 {{ message }}
 earendil-works
-/
 pi
-Public
-Notifications
-You must be signed in to change notification settings
-Fork
-13.8k
-Star
-109k
+Repository navigation
 Code
-Issues
-153
-Pull requests
-63
+Issues 231 ( 231 )
+Pull requests 31 ( 31 )
 Discussions
 Actions
 Projects
-Security and quality
-4
+Security and quality 4 ( 4 )
 Insights
-Additional navigation options
-Code
-Issues
-Pull requests
-Discussions
-Actions
-Projects
-Security and quality
-Insights
+More items
 Files
 Expand file tree
 main
@@ -143,7 +113,7 @@ Latest commit
 History
 History
 History
-70 lines (47 loc) · 2.4 KB
+95 lines (61 loc) · 3.98 KB
 main
 Breadcrumbs
 pi
@@ -157,7 +127,7 @@ File metadata and controls
 Preview
 Code
 Blame
-70 lines (47 loc) · 2.4 KB
+95 lines (61 loc) · 3.98 KB
 Raw
 Copy raw file
 Download raw file
@@ -165,19 +135,31 @@ Outline
 Edit and raw actions
 New issues and PRs from new contributors are closed automatically. Maintainers review closed submissions daily. See CONTRIBUTING.md .
 Pi
-Pi is a minimal, extensible AI agent for the terminal. Adapt Pi to your workflow, not the other way around.
-Ask Pi to create the prompt templates, skills, extensions, and themes you need, or install a Pi package. Use Pi directly, automate it in print, JSON, or RPC mode, or build applications with the TypeScript SDK.
+Pi is a minimal, extensible agent harness that you can make your own.
+Adapt Pi to your workflows, not the other way around. Customize Pi with extensions , skills , prompt templates , and themes . Bundle them as Pi packages and share via npm or git.
+Pi ships with powerful defaults but skips features like sub-agents and plan mode. Ask Pi to build what you want, or install a package that does it your way.
+Use Pi interactively , automate it in print or JSON mode , control it over RPC , or build apps with the Pi TypeScript SDK . See OpenClaw for a real-world integration.
 Getting started
-Install the command-line interface with npm:
-npm install -g --ignore-scripts @earendil-works/pi-coding-agent
-This requires Node.js 22.19 or newer. Pi does not require dependency lifecycle scripts for a normal npm installation.
-On macOS or Linux, you can instead use the installer:
+Install the command-line interface:
 curl -fsSL https://pi.dev/install.sh | sh
+On Windows:
+powershell -c " irm https://pi.dev/install.ps1 | iex "
+The installer pins all dependencies and updates Pi with pi update . Alternatively, install directly with npm, which does not pin transitive dependencies:
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+Pi requires Node.js 22.19 or newer. The macOS, Linux, and Windows installers can install it if needed. Pi does not require dependency lifecycle scripts for a normal npm installation.
+On macOS and Linux, Nix users can install the latest release with nix profile add github:earendil-works/pi/stable . See the quickstart for updating and pinning releases.
 Start Pi in the directory where you want it to work:
 cd /path/to/project
 pi
 For a built-in AI provider, run /login inside Pi to connect a subscription or API key. Then give Pi a task.
 See the documentation for full setup and usage instructions.
+Share your OSS coding agent sessions
+If you use Pi for open source work, please share your coding agent sessions.
+Public OSS session data helps improve models, prompts, tools, and evaluations using real development workflows.
+For the full explanation, see this post on X .
+To publish sessions, use badlogic/pi-share-hf using a Hugging Face account and the Hugging Face CLI.
+Demo video on how to publish Pi sessions
+Published Pi development sessions: badlogicgames/pi-mono on Hugging Face .
 Development
 Clone the repository, install its dependencies, and run Pi from source:
 git clone https://github.com/earendil-works/pi
