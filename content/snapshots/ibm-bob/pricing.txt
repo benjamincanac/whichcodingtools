@@ -41,7 +41,7 @@ $200
 per month
 1000 Bobcoins Buy now (opens in a new tab)
 Large code bases and reviews
-Advanced code analysis and skills
+More Bobcoins for advanced code analysis
 MCP integration, modes, and hooks
 IDE & Shell
 Prices are indicative, vary by country, exclude taxes and duties, and subject to availability.
@@ -54,42 +54,54 @@ Smart code actions and reviews
 Powerful tools: Run commands, file operations, code analysis
 MCP integration
 Enterprise plan only:
-Deploy IBM Bob on your infrastructure—on premises or air-gapped.
+Deploy IBM Bob on your infrastructure—on premises or air-gapped
 Invite and manage team members with a centralized dashboard
 Organize users into teams with flexible role assignments
 Distribute Bobcoins across individuals and teams
 Track your entitlements and balances to predict costs
 Get metrics and insights on your AI usage across your organization with Bobalytics
 Get priority support from our dedicated team
-Contact sales (opens in a new tab)
+Explore plan details (opens in a new tab)
 Premium packages
 Get advanced help with your coding. Modernize your applications with speed and confidence using specialized modes, workflows, and skills.
+Prices are indicative, vary by country, exclude taxes and duties, and subject to availability. Subscription is required to trial a premium package.
+DevSecOps
+$20 per month Buy now
+Shift-left security with vulnerability insight built into every step of delivery.
+Block unsafe dependencies before they land
+Real-time SAST and supply chain scanning
+Prioritized list of issues in Bob Findings
+Fix vulnerabilities manually or let Bob handle it
+AI-driven code scanning that finds vulnerabilities missed by the SAST tools Learn more
+(opens in new tab)
 Java Modernization
 $20 per month Buy now
-Specialist workflows to help with modernizing Java applications
+Specialist workflows to help with modernizing Java applications.
 Upgrade your Java version from 8 to 25
 Migrate multi-framework UIs
 Get a contextual analysis of architecture and dependencies
 Automatically detect and fix common migrations issues
 Generate concise mermaid diagrams for complex migrations
-Automated CVE vulnerability detection
+Automated vulnerability remediation Learn more
+(opens in new tab)
 IBM i
 $40 per month Buy now
-Specialist modes, workflows, and skills to work with IBM i applications
+Specialist modes, workflows, and skills to work with IBM i applications.
 Connect to an IBM i server to read, write, test, and compile code
-Document, refactor, generate code, and write unit tests using skills
+Support RPG and COBOL to document, refactor, generate code, and write unit tests using skills and agentic workflows
 Analyze, optimize, and troubleshoot SQL and DDS queries
-Navigate complex modernization projects with guided agentic workflows
-Access IBM i documentation to improve accuracy
+Build an application knowledge base for faster and more accurate responses that use fewer Bobcoins
+Access IBM i documentation to improve accuracy Learn more
+(opens in new tab)
 IBM Z
-Enterprise only annual Contact sales (opens in a new tab)
-Specialist modes, workflows, and skills to modernize Z applications
+Enterprise only annual Explore package details (opens in a new tab)
+Specialist modes, workflows, and skills to modernize Z applications.
 Understand complex applications using metadata scanned from enterprise code
 Analyze and plan changes to COBOL, PL/I, Assembler and Java applications
 Generate, refactor, and transform code using your coding standards
 Generate local and enterprise data dictionaries to handle cryptic variables in code
-Generate application documentation
-Prices are indicative, vary by country, exclude taxes and duties, and subject to availability. Subscription is required to trial a premium package.
+Generate application documentation Learn more
+(opens in new tab)
 FAQs
 What are Bobcoins?
 How can I keep using Bob if I run out of Bobcoins?
