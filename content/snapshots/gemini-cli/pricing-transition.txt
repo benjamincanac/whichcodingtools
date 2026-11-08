@@ -47,15 +47,28 @@ Previous
 Next
 Related Posts
 AI
-Announcements
-Learn
-Why client SDK generation belongs in the open
-SEPT. 17, 2026
+Cloud
+How-To Guides
+Industry Trends
+Cost per task: Using cheap classifiers to route across Gemini models and thinking levels
+NOV. 3, 2026
+Mobile
+Web
+Tutorials
+How-To Guides
+Fast, reliable A2UI, with swappable inference formats
+OCT. 27, 2026
+Mobile
 AI
+How-To Guides
 Announcements
-Events
-Colab is now part of your Google AI plan
-SEPT. 22, 2026
+Smaller apps and faster GPU inference with LiteRT in Google Play services
+OCT. 28, 2026
+AI
+Problem-Solving
+Learn
+Agent Distraction
+NOV. 6, 2026
 Connect
 Blog
 Bluesky
