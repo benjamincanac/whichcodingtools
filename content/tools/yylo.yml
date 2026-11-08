@@ -47,7 +47,7 @@ pricing:
 status: active
 sources:
   - url: https://github.com/yylo-dev/yylo
-    verified_at: 2026-09-13
+    verified_at: 2026-11-08
     covers: [pricing, license, features, models, general]
   - url: https://github.com/yylo-dev/yylo/blob/main/src/templates/services/README.md
     verified_at: 2026-09-13
