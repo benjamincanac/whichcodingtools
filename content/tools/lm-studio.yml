@@ -70,12 +70,12 @@ pricing:
       audience: enterprise
       limits:
         - Deploy Bionic in LM Studio's Zero Data Retention cloud, on your own infrastructure, or on edge devices
-        - Centralized billing for teams using inference credits, subscription plans for teams coming soon
+        - Teams can create an organization and choose pay-as-you-go pooled credits or team seat-based plans
   notes: LM Studio's desktop app has no license fee. Cloud credits cover usage beyond the allowance included with a paid plan.
 status: active
 sources:
   - url: https://lmstudio.ai/pricing
-    verified_at: 2026-10-06
+    verified_at: 2026-11-08
     covers: [pricing]
   - url: https://lmstudio.ai/enterprise
     verified_at: 2026-10-06
