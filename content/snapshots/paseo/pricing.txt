@@ -5,7 +5,7 @@ Paseo – Run Claude Code, Codex, Copilot, OpenCode from anywhere
 Paseo
 Plugins Blog Docs Changelog Download Sponsor
 EN
-23.4k
+23.6k
 The agentic development
 environment
 Run many coding agents at once,
