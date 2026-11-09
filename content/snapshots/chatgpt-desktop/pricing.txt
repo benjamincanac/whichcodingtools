@@ -8,6 +8,7 @@ ChatGPT
 Start searching
 API Dashboard
 Try ChatGPT
+Theme Light Dark System
 Home
 API
 Overview
@@ -61,6 +62,7 @@ Suggested
 responses create reasoning_effort realtime prompt caching
 Primary navigation
 API ChatGPT Docs Use cases Training Resources Resources
+Theme Light Dark System
 Search docs
 Suggested
 responses create reasoning_effort realtime prompt caching
@@ -88,6 +90,9 @@ Counting tokens
 SDKs and CLI
 OpenAI SDK
 OpenAI CLI
+Cloud providers
+Amazon Bedrock
+Google Cloud
 Resources
 Changelog
 Deprecations
@@ -111,8 +116,6 @@ Optimization cycle
 Supervised fine-tuning
 Vision fine-tuning
 Direct preference optimization
-Reinforcement fine-tuning
-RFT use cases
 Best practices
 Assistants API
 Migration guide
@@ -133,6 +136,7 @@ Prompt generation
 Frontend prompting
 Reasoning
 Reasoning models
+Preserved reasoning
 Reasoning best practices
 Images
 Images and vision
@@ -145,7 +149,6 @@ Audio and speech
 Getting started
 Voice agents
 Specialized models
-Deep research
 Embeddings
 Moderation
 Overview
@@ -219,7 +222,6 @@ Computer use
 Integration recipes
 Driver reference
 Apply Patch
-Local shell
 Code interpreter
 Media
 Image generation
@@ -256,6 +258,7 @@ Text to speech
 Audio in Chat Completions
 Go live
 Production best practices
+API keys and service accounts
 Deployment checklist
 Performance and quality
 Fast mode
@@ -311,7 +314,6 @@ GitHub Actions
 SPIFFE
 Idira
 IP egress ranges
-Amazon Bedrock
 Operations
 Rate limits
 Spend limits
@@ -433,6 +435,7 @@ Meet dots
 Import from another agent
 Foundations
 Prompting
+Working with agents
 Model selection
 Personalize ChatGPT
 Skills & Plugins
@@ -543,7 +546,6 @@ Cloud environments
 Build with Codex
 Codex SDK
 App Server
-Model catalogs
 GitHub Action
 Non-interactive mode
 Third-party integrations
@@ -613,7 +615,7 @@ User lifecycle management
 Roles and workspace permissions
 Personal access tokens
 Service accounts
-Deployment and configuration
+Configuration
 Windows app and CLI deployment
 NFS home directories
 Manage app updates
@@ -622,12 +624,11 @@ Self-host configuration
 Codex security cookbook
 Remote connections
 Workspace model availability
+Advanced deployment
 Amazon Bedrock
-Bedrock GovCloud configuration
+GovCloud deployment
 Connect to a gateway
 Roll out a gateway
-Gateway compatibility
-Bedrock through LiteLLM
 ChatGPT EDU
 Education plans
 Higher education setup
@@ -651,6 +652,7 @@ Analytics API
 Security and compliance
 Governance
 Agent security
+Safety and security in dots
 Prisma AIRS
 HIPAA configuration
 Compliance API and audit events
@@ -756,6 +758,7 @@ Meet dots
 Import from another agent
 Foundations
 Prompting
+Working with agents
 Model selection
 Personalize ChatGPT
 Skills & Plugins
