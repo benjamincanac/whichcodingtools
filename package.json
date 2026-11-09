@@ -33,6 +33,7 @@
     "ai": "^7.0.165",
     "comark-content": "^0.5.1",
     "eve": "^0.44.3",
+    "forges": "^0.3.2",
     "nuxt": "^4.6.4",
     "nuxt-agent-discovery": "^0.8.1",
     "nuxt-llms": "^0.3.1",

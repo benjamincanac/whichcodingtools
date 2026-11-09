@@ -207,10 +207,13 @@ importers:
         version: 7.0.165(zod@4.6.7)
       comark-content:
         specifier: ^0.5.1
-        version: 0.5.1(unstorage@1.17.6(@vercel/functions@3.11.0(ws@8.22.0))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2)))
+        version: 0.5.1(forges@0.3.2)(unstorage@1.17.6(@vercel/functions@3.11.0(ws@8.22.0))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2)))
       eve:
         specifier: ^0.44.3
         version: 0.44.4(@vercel/functions@3.11.0(ws@8.22.0))(ai@7.0.165(zod@4.6.7))(chokidar@5.0.0)(dotenv@17.4.2)(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(jiti@2.7.0)(lru-cache@11.5.3)(microsandbox@0.7.13)(rollup@4.67.4)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.15)(yaml@2.9.1))
+      forges:
+        specifier: ^0.3.2
+        version: 0.3.2
       nuxt:
         specifier: ^4.6.4
         version: 4.6.4(@babel/plugin-syntax-jsx@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@babel/plugin-syntax-typescript@7.29.7(@babel/core@7.29.7(supports-color@10.2.2)))(@oxc-project/types@0.155.0)(@types/node@26.6.6)(@vercel/functions@3.11.0(ws@8.22.0))(@vue/compiler-sfc@3.5.44)(acorn@8.18.0)(confbox@0.3.1)(db0@0.3.4)(dotenv@17.4.2)(esbuild@0.28.2)(eslint@10.14.0(jiti@2.7.0)(supports-color@10.2.2))(giget@3.3.1)(ioredis@5.11.1(supports-color@10.2.2))(lightningcss@1.33.0)(mlly@1.8.2)(optionator@0.9.4)(oxc-parser@0.153.0)(rolldown@1.2.15)(rollup-plugin-visualizer@7.1.1(rolldown@1.2.15)(rollup@4.67.4))(rollup@4.67.4)(srvx@0.11.22)(supports-color@10.2.2)(terser@5.50.0)(tsx@4.23.15)(typescript@6.0.3)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.15)(yaml@2.9.1))(vue-tsc@3.3.14(typescript@6.0.3))(yaml@2.9.1)
@@ -4050,6 +4053,10 @@ packages:
     peerDependenciesMeta:
       vite:
         optional: true
+
+  forges@0.3.2:
+    resolution: {integrity: sha512-x6epJowWXC8yOQThyxmvgPL4duk8iB9/smsmEU0gKuq7M6CGgzcljoA1KDyIlhrYwTZP8HtMNMQXIPm931OiyA==}
+    engines: {node: '>=22.18'}
 
   fraction.js@5.3.4:
     resolution: {integrity: sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ==}
@@ -9724,7 +9731,7 @@ snapshots:
 
   colortranslator@5.0.0: {}
 
-  comark-content@0.5.1(unstorage@1.17.6(@vercel/functions@3.11.0(ws@8.22.0))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))):
+  comark-content@0.5.1(forges@0.3.2)(unstorage@1.17.6(@vercel/functions@3.11.0(ws@8.22.0))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))):
     dependencies:
       comark: 0.9.0
       hookable: 6.1.2
@@ -9733,6 +9740,7 @@ snapshots:
       slugify: 1.6.9
       ufo: 1.6.4
     optionalDependencies:
+      forges: 0.3.2
       unstorage: 1.17.6(@vercel/functions@3.11.0(ws@8.22.0))(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))
     transitivePeerDependencies:
       - beautiful-mermaid
@@ -10489,6 +10497,8 @@ snapshots:
       - idb-keyval
       - ioredis
       - uploadthing
+
+  forges@0.3.2: {}
 
   fraction.js@5.3.4: {}
 
