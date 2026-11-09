@@ -1,9 +1,10 @@
 import { comarkContent, type JsonSchema, type Source } from 'comark-content'
 import fs from 'comark-content/sources/fs'
-import github from 'comark-content/sources/github'
+import forge from 'comark-content/sources/forge'
 import yaml from 'comark-content/plugins/yaml'
 import schemaValidation from 'comark-content/plugins/schema-validation'
 import tracingDebug from 'comark-content/plugins/tracing/debug'
+import { github } from 'forges/github'
 import { toolJsonSchema } from '#shared/schema'
 
 /**
@@ -25,13 +26,12 @@ function source(ref: string): Source {
   if (!remoteContent()) {
     return fs('./content/tools', { schema })
   }
-  return github({
+  const token = githubToken()
+  return forge({
+    provider: github(token ? { auth: { type: 'token', token } } : {}),
     repo: githubRepo(),
-    branch: ref,
+    ref,
     path: contentDir(),
-    token: githubToken(),
-    // `ref` is a commit SHA, immutable, so the file list can be cached hard.
-    ttl: 60 * 60 * 24,
     schema
   })
 }
