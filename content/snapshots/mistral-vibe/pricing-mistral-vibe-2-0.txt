@@ -10,12 +10,10 @@ Cloud
 Customers
 Company
 Get in touch
-Login
-Seminal contributions to AI
-Latest research
+Start building
 Why Sovereign AI
-Our products
-Our method
+Products
+Method
 Sovereign AI in practice
 Inference
 Compute
@@ -23,17 +21,16 @@ Energy & utilities
 Manufacturing
 Financial services
 Public sector
+Cybersecurity
 All customers
 Blog
 Docs
 About us
 Careers
 Research Sovereign AI Cloud Customers Company
-Seminal contributions to AI
-Latest research
 Why Sovereign AI
-Our products
-Our method
+Products
+Method
 Sovereign AI in practice
 Inference
 Compute
@@ -41,21 +38,23 @@ Energy & utilities
 Manufacturing
 Financial services
 Public sector
+Cybersecurity
 All customers
 Blog
 Docs
 About us
 Careers
 Get in touch
-Login
+Start building
 Studio
 Vibe
+Pricing
 Product
 Terminally online Mistral Vibe.
 January 27, 2026
-By Mistral AI
+By Mistral
 Back to Blog
-4 min read
+3 min read
 Share this post
 Copy url to clipboard Copied
 Today, we're releasing Mistral Vibe 2.0—a major upgrade to our terminal-native coding agent, powered by the state-of-the-art Devstral 2 model family. Build custom subagents, clarify before you execute, load skills with slash commands, and configure your own workflows to match how you work.
@@ -92,7 +91,9 @@ For teams with advanced needs, we offer fine-tuning on internal languages and DS
 Contact us to learn more.
 Get started.
 1. Install the Vibe CLI in your terminal:
+Bash
 curl -LsSf https://mistral.ai/vibe/install.sh | bash
+Bash
 uv tool install mistral-vibe
 2. Sign up to get started to unlock full access.
 3. Start building: run vibe in your terminal.
