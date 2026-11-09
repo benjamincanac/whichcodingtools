@@ -3,7 +3,7 @@
 <untrusted-page-text>
 Orca — The agent development environment
 Orca Docs Changelog Enterprise
-118k
+119.5k
 Plugins
 Download
 Backed by
@@ -388,7 +388,7 @@ Plugins Click to inspect
 Themes, editors, languages, and panels from the community, installed in a click.
 Built by engineers
 who ship with agents
-Orca is open source and used daily by teams at the largest companies and by the people building the next ones. Every quote below is a public post on X. Click one to read the original.
+Orca is open source and used daily by teams at the largest companies and by the people building the next ones.
 “ I tried almost every parallel ADE. So far loving Orca the most. Native TUI, custom commands, mobile app, usage tracking, design mode built in, GitHub to agent task tracking. Truly feeling the 10x. ”
 Jason Zhou @ jasonzhou1993
 Founder, SuperDesign and AI Builder Club
