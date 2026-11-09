@@ -10,12 +10,10 @@ Cloud
 Customers
 Company
 Get in touch
-Login
-Seminal contributions to AI
-Latest research
+Start building
 Why Sovereign AI
-Our products
-Our method
+Products
+Method
 Sovereign AI in practice
 Inference
 Compute
@@ -23,17 +21,16 @@ Energy & utilities
 Manufacturing
 Financial services
 Public sector
+Cybersecurity
 All customers
 Blog
 Docs
 About us
 Careers
 Research Sovereign AI Cloud Customers Company
-Seminal contributions to AI
-Latest research
 Why Sovereign AI
-Our products
-Our method
+Products
+Method
 Sovereign AI in practice
 Inference
 Compute
@@ -41,15 +38,17 @@ Energy & utilities
 Manufacturing
 Financial services
 Public sector
+Cybersecurity
 All customers
 Blog
 Docs
 About us
 Careers
 Get in touch
-Login
+Start building
 Studio
 Vibe
+Pricing
 Pricing
 Pricing
 Pricing
@@ -102,7 +101,7 @@ Excluding taxes
 Including taxes
 Subject to fair usage limits and Mistral's Terms of Service .
 Even higher limits.
-Faster responses.
+Even faster responses.
 Up to 30GB of storage /user.
 Domain name verification.
 Data export.
