@@ -87,8 +87,8 @@ aaif-goose
 goose
 Repository navigation
 Code
-Issues 403 ( 403 )
-Pull requests 170 ( 170 )
+Issues 406 ( 406 )
+Pull requests 168 ( 168 )
 Discussions
 Actions
 Projects
@@ -98,7 +98,7 @@ More items
 goose Public
 Notifications You must be signed in to change notification settings
 Fork 6.6k ( 6.6k )
-Star 56.3k ( 56.3k ) You must be signed in to star a repository
+Star 56.4k ( 56.4k ) You must be signed in to star a repository
 About
 an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM
 goose-docs.ai/
@@ -116,9 +116,9 @@ Security policy
 Activity
 Custom properties
 Stars
-56.3k stars
+56.4k stars
 Watchers
-286 watching
+287 watching
 Forks
 6.6k forks
 Report repository
@@ -130,8 +130,8 @@ Code
 Open more actions menu
 Latest commit
 History
-5,930 Commits
-5,930 Commits
+5,932 Commits
+5,932 Commits
 Folders and files
 Name Name
 Last commit message
@@ -289,9 +289,9 @@ Security policy
 Activity
 Custom properties
 Stars
-56.3k stars
+56.4k stars
 Watchers
-286 watching
+287 watching
 Forks
 6.6k forks
 Report repository
