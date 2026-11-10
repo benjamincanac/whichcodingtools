@@ -320,7 +320,7 @@ Full lifecycle management to build, scale, govern, and optimize agents in produc
 Enterprise security, data privacy, and centralized agent governance
 Cancel anytime. No refunds for partial billing periods, except as required by applicable law. By subscribing, you agree to terms for Google One , Google , and offers . See how Google handles data . Google AI plans and Gemini for Gmail, Docs, and more are only available for ages 18+. Gemini for Gmail, Docs and more is available in select languages . Rate limits may apply .
 1.
-Google AI Plus, Pro, and Ultra plans are available in more than 140 countries and territories — see full list of countries . Certain AI benefits are only available for those aged 18+. Learn more .
+Google AI Plus, Pro, and Ultra plans are available in more than 150 countries and territories — see full list of countries . Certain AI benefits are only available for those aged 18+. Learn more .
 2.
 Usage access limits in the Gemini app: For the Gemini app, compute-based usage limits factor in the complexity of your prompt, the features you use, and the length of your chat. Your limit refreshes every 5 hours until you reach your weekly limit. You can extend your limits by purchasing AI credits. To learn more about usage access and how to use AI credits, please visit our Help Center .
 3.
