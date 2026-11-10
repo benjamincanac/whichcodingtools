@@ -88,7 +88,7 @@ goose
 Repository navigation
 Code
 Issues 406 ( 406 )
-Pull requests 168 ( 168 )
+Pull requests 165 ( 165 )
 Discussions
 Actions
 Projects
@@ -118,7 +118,7 @@ Custom properties
 Stars
 56.4k stars
 Watchers
-287 watching
+286 watching
 Forks
 6.6k forks
 Report repository
@@ -130,8 +130,8 @@ Code
 Open more actions menu
 Latest commit
 History
-5,932 Commits
-5,932 Commits
+5,936 Commits
+5,936 Commits
 Folders and files
 Name Name
 Last commit message
@@ -291,7 +291,7 @@ Custom properties
 Stars
 56.4k stars
 Watchers
-287 watching
+286 watching
 Forks
 6.6k forks
 Report repository
