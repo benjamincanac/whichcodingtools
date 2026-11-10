@@ -136,7 +136,6 @@ Prompt generation
 Frontend prompting
 Reasoning
 Reasoning models
-Preserved reasoning
 Reasoning best practices
 Images
 Images and vision
@@ -261,6 +260,7 @@ Production best practices
 API keys and service accounts
 Deployment checklist
 Performance and quality
+Keep the prefix unchanged
 Fast mode
 Ultrafast mode
 Latency optimization
@@ -690,11 +690,11 @@ Showcase Blog Cookbook Learn Community
 Docs Showcase
 All posts
 Recent
+Build a retro handheld game with Codex and ModRetro Chromatic
 Designing failover across OpenAI model providers
 Maintaining software with the GPT-6 family
 Bringing my LED display to life with GPT-Live-1 and Codex
 Rethinking skills and prompts for GPT-6 Astra
-Architectural visualization with Astra
 Topics
 General
 API
