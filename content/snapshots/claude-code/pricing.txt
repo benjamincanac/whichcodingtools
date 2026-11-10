@@ -94,7 +94,8 @@ Explore here
 Ask questions about this page
 Copy as markdown
 Pricing
-Individual Team & Enterprise API
+Individual Developer Team & Enterprise API
+Individual
 Free
 Try Claude
 $0
@@ -107,7 +108,7 @@ Memory across conversations
 Connect your apps and tools
 Create Artifacts
 Claude Design, Slides, Docs
-Pro
+Pro Claude Code included
 For everyday work
 $17
 Per month with annual subscription discount ( $200 billed up front). $20 if billed monthly.
@@ -117,12 +118,11 @@ More usage than Free , every 5 hours and every week *
 Fable, paid with usage credits New
 Hand off and schedule tasks
 Claude Dashboards (beta)
-Claude Code
 Claude Science
 Projects
 More Claude models
 Claude in Chrome and Microsoft 365
-Max
+Max Claude Code included
 For all-day work
 $100
 Per month
@@ -133,7 +133,7 @@ Fable included, up to half your weekly limit New
 $100 a month in API credits to build on the Claude Platform † New
 Early access to advanced Claude features
 Priority access at high traffic times
-Ultra
+Ultra Claude Code included
 For your longest tasks
 $200
 Per month
@@ -779,17 +779,17 @@ Yes
 Latest models
 Contact sales Start building (opens in new tab)
 Save 50% with batch processing. Learn more Batch processing
-Fable 5.1
+Fable 5.2
 Next generation intelligence for long-running agents
 Prompt caching
 Read
-$0.25 / MTok
+$0.20 / MTok
 Write
-$12.50 / MTok
-Input
 $10 / MTok
+Input
+$8 / MTok
 Output
-$50 / MTok
+$40 / MTok
 Opus 5.5
 Daily driver for agentic coding and enterprise work
 Prompt caching
@@ -836,7 +836,7 @@ $0.50 / MTok
 Prompts > 100K tokens
 $2.50 / MTok
 For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens. Learn more .
-Get up to 2.5x faster speeds with fast mode for Opus 5.5 at 2x standard pricing. Learn more .
+Get up to 2.5x faster speeds with fast mode for Opus 5.5 and Fable 5.2 at 2x standard pricing. Learn more .
 Prompt caching pricing reflects 5-minute TTL. Learn about extended prompt caching .
 Explore detailed pricing (opens in new tab)
 Pricing for Claude Platform features
@@ -863,6 +863,16 @@ Batch
 For asynchronous workloads that can be processed together for better efficiency
 Legacy models
 Learn more (opens in new tab) Explore detailed pricing (opens in new tab)
+Fable 5.1
+Prompt caching
+Read
+$0.25 / MTok
+Write
+$12.50 / MTok
+Input
+$10 / MTok
+Output
+$50 / MTok
 Haiku 4.5
 Prompt caching
 Read
@@ -873,6 +883,7 @@ Input
 $1 / MTok
 Output
 $5 / MTok
+Save 50% with batch processing. Learn more Batch processing
 Sonnet 5
 Prompt caching
 Read
@@ -883,7 +894,6 @@ Input
 $2 / MTok
 Output
 $10 / MTok
-Save 50% with batch processing. Learn more Batch processing
 Opus 5
 Prompt caching
 Read
