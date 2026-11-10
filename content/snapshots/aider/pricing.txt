@@ -88,7 +88,7 @@ aider
 Repository navigation
 Code
 Issues 1.4k ( 1.4k )
-Pull requests 540 ( 540 )
+Pull requests 546 ( 546 )
 Actions
 Projects
 Security and quality
@@ -96,7 +96,7 @@ Insights
 More items
 aider Public
 Notifications You must be signed in to change notification settings
-Fork 5.1k ( 5.1k )
+Fork 5.2k ( 5.2k )
 Star 50k ( 50k ) You must be signed in to star a repository
 About
 aider is AI pair programming in your terminal
@@ -113,9 +113,9 @@ Custom properties
 Stars
 50.0k stars
 Watchers
-267 watching
+266 watching
 Forks
-5.1k forks
+5.2k forks
 Report repository
 main
 Branches
@@ -277,9 +277,9 @@ Custom properties
 Stars
 50.0k stars
 Watchers
-267 watching
+266 watching
 Forks
-5.1k forks
+5.2k forks
 Report repository
 Releases
 Packages
