@@ -47,5 +47,5 @@ sources:
     verified_at: 2026-10-02
     covers: [platforms, wraps, features, models, general]
   - url: https://github.com/imbue-ai/sculptor
-    verified_at: 2026-11-07
+    verified_at: 2026-11-10
     covers: [pricing, license, platforms, models, wraps, features]
