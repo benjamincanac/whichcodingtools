@@ -97,7 +97,7 @@ More items
 aider Public
 Notifications You must be signed in to change notification settings
 Fork 5.2k ( 5.2k )
-Star 50k ( 50k ) You must be signed in to star a repository
+Star 50.1k ( 50.1k ) You must be signed in to star a repository
 About
 aider is AI pair programming in your terminal
 aider.chat/
@@ -111,9 +111,9 @@ Contributing
 Activity
 Custom properties
 Stars
-50.0k stars
+50.1k stars
 Watchers
-266 watching
+265 watching
 Forks
 5.2k forks
 Report repository
@@ -275,9 +275,9 @@ Contributing
 Activity
 Custom properties
 Stars
-50.0k stars
+50.1k stars
 Watchers
-266 watching
+265 watching
 Forks
 5.2k forks
 Report repository
