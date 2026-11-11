@@ -63,6 +63,10 @@ wraps:
     via: acp
     uses_subscription: true
     min_tier: personal
+  - tool: dirac
+    via: acp
+    uses_subscription: true
+    min_tier: personal
   - tool: factory
     via: acp
     uses_subscription: true
@@ -84,6 +88,11 @@ wraps:
     via: acp
     uses_subscription: true
     min_tier: personal
+  - tool: ibm-bob
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as Bob.
   - tool: junie-cli
     via: acp
     uses_subscription: true
@@ -98,6 +107,11 @@ wraps:
     uses_subscription: true
     min_tier: personal
     notes: Listed as Kimi CLI.
+  - tool: kiro
+    via: acp
+    uses_subscription: true
+    min_tier: personal
+    notes: Listed as Kiro CLI.
   - tool: minimax-code
     via: acp
     uses_subscription: true
@@ -163,5 +177,5 @@ sources:
     verified_at: 2026-08-23
     covers: [platforms, features, license]
   - url: https://agentclientprotocol.com/registry
-    verified_at: 2026-10-07
+    verified_at: 2026-11-11
     covers: [wraps]
