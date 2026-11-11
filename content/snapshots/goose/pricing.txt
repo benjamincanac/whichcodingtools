@@ -87,8 +87,8 @@ aaif-goose
 goose
 Repository navigation
 Code
-Issues 406 ( 406 )
-Pull requests 165 ( 165 )
+Issues 399 ( 399 )
+Pull requests 166 ( 166 )
 Discussions
 Actions
 Projects
@@ -130,8 +130,8 @@ Code
 Open more actions menu
 Latest commit
 History
-5,936 Commits
-5,936 Commits
+5,946 Commits
+5,946 Commits
 Folders and files
 Name Name
 Last commit message
