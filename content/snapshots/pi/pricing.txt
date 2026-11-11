@@ -87,8 +87,8 @@ earendil-works
 pi
 Repository navigation
 Code
-Issues 231 ( 231 )
-Pull requests 31 ( 31 )
+Issues 232 ( 232 )
+Pull requests 42 ( 42 )
 Discussions
 Actions
 Projects
