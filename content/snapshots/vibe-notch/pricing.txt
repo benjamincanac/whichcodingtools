@@ -87,7 +87,7 @@ farouqaldori
 vibe-notch
 Repository navigation
 Code
-Issues 27 ( 27 )
+Issues 28 ( 28 )
 Pull requests 31 ( 31 )
 Actions
 Projects
@@ -96,7 +96,7 @@ Insights
 More items
 vibe-notch Public
 Notifications You must be signed in to change notification settings
-Fork 359 ( 359 )
+Fork 360 ( 360 )
 Star 2.5k ( 2.5k ) You must be signed in to star a repository
 About
 Claude Code notifications without the context switch. A minimal, always-present session manager for macOS.
@@ -109,7 +109,7 @@ Stars
 Watchers
 9 watching
 Forks
-359 forks
+360 forks
 Report repository
 main
 Branches
@@ -179,7 +179,7 @@ Stars
 Watchers
 9 watching
 Forks
-359 forks
+360 forks
 Report repository
 Releases
 Packages
