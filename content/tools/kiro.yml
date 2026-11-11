@@ -85,6 +85,21 @@ pricing:
       overage:
         kind: credits
         rate: 0.04
+    - id: credit-pooling
+      name: Credit pooling
+      price: 20
+      audience: team
+      included:
+        amount: 500
+        unit: credits
+        period: month
+        usd_value: 20
+      overage:
+        kind: credits
+        rate: 0.04
+      limits:
+        - Minimum 2 seats per pool, credits shared by all seat holders
+        - Pool membership and per-user, group and profile usage limits
     - id: enterprise
       name: Enterprise
       price: null
@@ -96,7 +111,7 @@ pricing:
 status: active
 sources:
   - url: https://kiro.dev/pricing/
-    verified_at: 2026-11-01
+    verified_at: 2026-11-07
     covers: [pricing]
   - url: https://kiro.dev/docs/models/available-models/
     verified_at: 2026-08-23
@@ -108,7 +123,7 @@ sources:
     verified_at: 2026-08-23
     covers: [features, general]
   - url: https://kiro.dev/docs/cli/acp/
-    verified_at: 2026-08-23
+    verified_at: 2026-11-11
     covers: [features]
   - url: https://kiro.dev/docs/powers/
     verified_at: 2026-08-23
