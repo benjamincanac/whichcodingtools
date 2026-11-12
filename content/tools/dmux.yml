@@ -81,5 +81,5 @@ sources:
     verified_at: 2026-11-08
     covers: [pricing, platforms, models, wraps, features, license, general]
   - url: https://dmux.ai
-    verified_at: 2026-08-23
+    verified_at: 2026-11-12
     covers: [license, general]
