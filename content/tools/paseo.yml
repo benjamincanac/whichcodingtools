@@ -57,7 +57,7 @@ pricing:
 status: active
 sources:
   - url: https://paseo.sh
-    verified_at: 2026-11-11
+    verified_at: 2026-11-12
     covers: [pricing, platforms, wraps, features, general]
   - url: https://github.com/getpaseo/paseo
     verified_at: 2026-08-28
