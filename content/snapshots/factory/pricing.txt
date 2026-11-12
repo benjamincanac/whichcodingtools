@@ -10,68 +10,61 @@ Pricing
 News
 Company
 Docs
-Log in / Sign up
-Book demo
+Sign in
+Contact sales
+Download
 Product
 Enterprise
 Pricing
 News
 Company
 Docs
-Log in / Sign up
-Book demo
+Sign in
+Contact sales
+Download
 Plans
 Pricing Plans
-01
-Pro
-Pro
-$20
+Free
+$ 0 $0
 / mo
+per individual
+Bring your own inference
+•
+Sign in with ChatGPT, GitHub Copilot, or OpenRouter
+•
+Connect your own API keys or custom endpoint
+Download
+Pro
+Pro
+Plus
+Max
+$ 2 0 $20
+/ mo
+per individual
 Complete software development agents for individuals.
-Agent-native, multi-platform experience
 •
 Desktop / CLI / SDK
 •
-Cloud & local background agents
-•
-Track billing and usage statistics
-•
-Agent-readiness dashboard
-Sign Up Arrow Right Icon
-02
-Plus
-Plus
-$100
-/ mo
+Full model availability
+Get Pro Arrow Right Icon
+$100/mo per individual
 Everything in Pro, and:
-Expanded rolling rate limits
 •
 ~5x the usage of Pro
-•
-Droid Computers — access to Factory-managed cloud computers for remote Droids
-Sign Up Arrow Right Icon
-03
-Max
-Max
-$200
-/ mo
-Everything in Plus, and:
-Expanded rolling rate limits
+Get Plus Arrow Right Icon
+$200/mo per individual
+Everything in Pro, and:
 •
 ~10x the usage of Pro
-•
-Early access to new features
-Sign Up Arrow Right Icon
-04
+Get Max Arrow Right Icon
 Teams
-Teams
-$60/mo
-per team, plus $40/mo per seat
-For small teams with shared billing.
+$ 6 0 $60
+/ mo
+per team, plus $40/mo per individual
 Everything in Pro, for your whole team
 •
 Up to 10 seats with centralized billing
-Sign Up Arrow Right Icon
+Get Teams Arrow Right Icon
 05
 Business
 Business
@@ -91,7 +84,7 @@ Zero Data Retention (ZDR)
 Audit logging and activity trails
 •
 Basic admin controls (model selection, autonomy level, model access controls, org-level deny lists, network policy)
-Contact Sales Arrow Right Icon
+Contact sales Arrow Right Icon
 06
 Enterprise
 Enterprise
@@ -121,7 +114,7 @@ Dedicated Account Manager and Customer Engineer
 Priority support with SLAs
 •
 Custom onboarding program
-Contact Sales Arrow Right Icon
+Contact sales Arrow Right Icon
 Trusted by leading engineering teams
 RBC
 T-Mobile

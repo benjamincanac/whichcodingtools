@@ -29,6 +29,12 @@ models:
 features: [subagents, mcp-client, hooks, plugins, sandboxing, browser-automation, parallel-agents, scheduled-tasks, remote-execution, diff-review, mobile-companion, acp-agent]
 pricing:
   tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+      limits:
+        - Bring your own inference, sign in with ChatGPT, GitHub Copilot or OpenRouter, or connect your own API keys or custom endpoint
     - id: pro
       name: Pro
       price: 20
@@ -47,7 +53,6 @@ pricing:
         kind: credits
       limits:
         - About 5x the Pro usage
-        - Managed Droid Computers for remote runs
     - id: max
       name: Max
       price: 200
@@ -56,15 +61,14 @@ pricing:
         kind: credits
       limits:
         - About 10x the Pro usage
-        - Early access to new features
     - id: teams
       name: Teams
       price: 40
       audience: team
       limits:
         - $60 a month team base fee, on top of the per-seat price
-        - Up to 10 seats, centralized billing, each seat gets Pro rate limits
-      notes: Self-serve, billed month to month.
+        - Everything in Pro for the whole team, up to 10 seats, centralized billing
+      notes: Self-serve.
     - id: business
       name: Business
       price: null
@@ -83,13 +87,13 @@ pricing:
 status: active
 sources:
   - url: https://factory.com/pricing
-    verified_at: 2026-11-06
+    verified_at: 2026-11-12
     covers: [pricing]
   - url: https://docs.factory.com/pricing/individuals
-    verified_at: 2026-10-29
+    verified_at: 2026-11-12
     covers: [pricing]
   - url: https://docs.factory.com/pricing/organizations
-    verified_at: 2026-10-29
+    verified_at: 2026-11-12
     covers: [pricing]
   - url: https://docs.factory.ai/models
     verified_at: 2026-11-05
