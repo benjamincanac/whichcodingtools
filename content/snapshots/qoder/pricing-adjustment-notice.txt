@@ -15,21 +15,14 @@ Qoder Series Qoder IDE JetBrains Plugin CLI Agent SDK Cloud Agents Mobile & Web 
 Website
 Forum
 Blog
+Changelog
 Product Overview
 What is Qoder
 Customer Cases
 Quick Start
 Quick Start
-Changelog
-Qoder Release Notes
-IDE Release Notes
-JetBrains Plugin Release Notes
-Qoder CLI Release Notes
-Qoder Agent SDK Release Notes
-Cloud Agents Release Notes
-QoderWake Release Notes
-QoderWork Release Notes
 Product Announcements
+Qoder model and tier retirement notice
 Introducing Qoder Lite: Start creating with Qoder for $10 a month
 Qoder Tier Upgrade: Performance Becomes Fast
 Qoder Model Usage Reference Factor Adjustment Notice
@@ -40,18 +33,17 @@ Credits
 Pricing
 Billing
 Events
+Qoduck: Try the Stealth Model Free for a Limited Time
 Limited Time: Bonus SOTA Credits with Your First Subscription
 Invite Friends to Complete Tasks and Earn Rewards
-Qoder 1024 · Community Boost
 Limited-Time Offer: Double Credits on Your First Subscription, Plus Bonus Credits on Renewal and Upgrade
 Claim 100 Credits Every Day
-DeepSeek-Flash: Free for a Limited Time
-Qwen3.8-Flash: Free for a Limited Time
-SOTA Models — Limited-Time Free Experience
 Efficient Model Tier: Free for Paid Users for a Limited Time
 Premium Model Discount Rates
-[Ended] Double First-Month Credits and 1,000 Bonus Credits on Renewal
+DeepSeek-Flash: Free for a Limited Time
+Qwen3.8-Flash: Free for a Limited Time
 The New Qoder Is Here: Limited-Time Launch Benefits
+[Ended] Double First-Month Credits and 1,000 Bonus Credits on Renewal
 Pricing Update: End of Discount & Teams Plan Changes
 Copy page
 Copy page
@@ -110,7 +102,7 @@ Terms of Service Privacy Policy
 Other ways to use
 IDE JetBrains Plugin CLI
 Get Started
-Enterprise Price Download
+Enterprise Price All downloads
 Resource
 Marketplace Activities Docs Blog FAQ Changelog
 Connect
@@ -122,21 +114,14 @@ Qoder Series
 Website
 Forum
 Blog
+Changelog
 Product Overview
 What is Qoder
 Customer Cases
 Quick Start
 Quick Start
-Changelog
-Qoder Release Notes
-IDE Release Notes
-JetBrains Plugin Release Notes
-Qoder CLI Release Notes
-Qoder Agent SDK Release Notes
-Cloud Agents Release Notes
-QoderWake Release Notes
-QoderWork Release Notes
 Product Announcements
+Qoder model and tier retirement notice
 Introducing Qoder Lite: Start creating with Qoder for $10 a month
 Qoder Tier Upgrade: Performance Becomes Fast
 Qoder Model Usage Reference Factor Adjustment Notice
@@ -147,16 +132,15 @@ Credits
 Pricing
 Billing
 Events
+Qoduck: Try the Stealth Model Free for a Limited Time
 Limited Time: Bonus SOTA Credits with Your First Subscription
 Invite Friends to Complete Tasks and Earn Rewards
-Qoder 1024 · Community Boost
 Limited-Time Offer: Double Credits on Your First Subscription, Plus Bonus Credits on Renewal and Upgrade
 Claim 100 Credits Every Day
-DeepSeek-Flash: Free for a Limited Time
-Qwen3.8-Flash: Free for a Limited Time
-SOTA Models — Limited-Time Free Experience
 Efficient Model Tier: Free for Paid Users for a Limited Time
 Premium Model Discount Rates
-[Ended] Double First-Month Credits and 1,000 Bonus Credits on Renewal
+DeepSeek-Flash: Free for a Limited Time
+Qwen3.8-Flash: Free for a Limited Time
 The New Qoder Is Here: Limited-Time Launch Benefits
+[Ended] Double First-Month Credits and 1,000 Bonus Credits on Renewal
 </untrusted-page-text>
