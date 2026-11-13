@@ -9,37 +9,37 @@ KIRO FREE
 $0
 per month
 50 credits
-Access to open weight models
+Open-weight models
 and Claude Sonnet 4.5
 Download now
 KIRO PRO
 $20
 per user / month
 1,000 credits
-Access to premium models
+Premium models
 Add-on credits ($0.04/credit)
-Download now
+Sign up / upgrade
 KIRO PRO+
 $40
 per user / month
 2,000 credits
-Access to premium models
+Premium models
 Add-on credits ($0.04/credit)
-Download now
+Sign up / upgrade
 KIRO PRO MAX
 $100
 per user / month
 5,000 credits
-Access to premium models
+Premium models
 Add-on credits ($0.04/credit)
-Download now
+Sign up / upgrade
 KIRO POWER
 $200
 per user / month
 10,000 credits
-Access to premium models
+Premium models
 Add-on credits ($0.04/credit)
-Download now
+Sign up / upgrade
 Teams and enterprises
 Credit pooling for teams of 2 or more
 $20 per seat / month
@@ -155,9 +155,7 @@ Blog
 Changelog
 FAQs
 Videos
-Report a bug
-Suggest an idea
-Billing support
+Support
 Social
 English
 Site Terms License Responsible AI Policy Legal Privacy Policy Cookie Preferences
