@@ -41,13 +41,14 @@ Image generation and editing
 Deep Research
 Gemini Live
 Canvas
-Gems
+Skills
 Google Flow 3
 Access to our AI creative studio to create cinematic scenes and stories, including limited access to Nano Banana Pro.
 Gemini Notebook
 Research and writing assistant
 Storage
 15 GB of cloud storage across Gmail, Drive, and Photos
+Includes Gemini 4 Hydrogen
 Google AI Plus 1
 Get more access to new and powerful features to boost your productivity and creativity.
 $4.99 / month
@@ -55,7 +56,7 @@ Get 2x higher usage access than Free
 Get started
 Everything in Free and:
 Gemini app
-Access to our Flash model
+Access to Gemini 4 Hydrogen
 Get double the usage limits 2 than Free and access to more features like video generation and Daily Brief.
 Google Flow 3
 Get 200 Google Flow Credits to use across our AI creative studio to create cinematic scenes and stories with access to Gemini Omni Flash and custom tool creation.
@@ -78,12 +79,12 @@ Everything in Free and:
 Gemini app
 Access to Gemini 4 Argon
 Access to our Pro model
-Access to our Flash model
+Access to Gemini 4 Hydrogen
 Get four times higher usage limits 2 than Free and access to more features like video generation and Daily Brief.
 Google Flow 3
 Get 1,000 Google Flow Credits to use across our AI creative studio to create cinematic scenes and stories with access to Gemini Omni Flash and custom tool creation.
 Google Search 4
-Higher access to Gemini 4 Argon, Nano Banana, agentic capabilities, and more.
+Higher access to Nano Banana, agentic capabilities, and more.
 Google Antigravity
 Entry rate limits to agent model in Google Antigravity, our agentic development platform
 Gemini Notebook
@@ -99,7 +100,7 @@ Most videos ad-free, offline, and in the background
 Storage
 5 TB of cloud storage across Gmail, Drive, and Photos
 Google AI Pro is available in more than 150 countries and territories - see full list of countries .
-Includes Gemini 4 Argon
+Includes Gemini 4 Carbon
 Google AI Ultra 1
 Unlock the highest level of access to the best of Google AI and exclusive features.
 Starting at:
@@ -109,14 +110,14 @@ $199.99 / month: 20x higher usage limits vs. AI Pro
 Get started
 Everything in Google AI Pro and:
 Gemini app
+Highest access to Gemini 4 Carbon
 Highest access to Gemini 4 Argon
-Highest access to our Pro model
-Highest access to our Flash model
+Highest access to Gemini 4 Hydrogen
 Get up to 20x higher usage limits 2 in Gemini than the Pro plan, plus first access to advanced features like Tasks in Gemini (in select countries ).
 Google Flow 3
 Get 10,000 or 25,000 Google Flow Credits to use across our AI creative studio to create cinematic scenes and stories with access to Gemini Omni Flash and custom tool creation.
 Google Search 4
-Highest access to Gemini 4 Argon, Nano Banana, agentic capabilities, and more.
+Highest access to Gemini 4 Carbon, Nano Banana, agentic capabilities, and more.
 Google Antigravity
 Ultra 5x: Higher rate limits to agent model in Google Antigravity, our agentic development platform
 Ultra 20x: Highest rate limits to agent model in Google Antigravity, our agentic development platform
@@ -326,7 +327,7 @@ Usage access limits in the Gemini app: For the Gemini app, compute-based usage l
 3.
 Google Flow features may vary by Google AI subscription tier, platform (web vs. mobile), and region. 18+. See Google Flow Help Center for more info.
 4.
-Gemini 4 Argon model, Nano Banana Pro, and Deep Search in AI Mode are available in select countries — see full list of countries with Gemini 4 Argon in AI Mode and full list of countries with Nano Banana Pro in AI Mode .
+Gemini 4 Carbon model and Nano Banana Pro in AI Mode are available in select countries — see full list of countries with Gemini 4 Carbon in AI Mode and full list of countries with Nano Banana Pro in AI Mode .
 5.
 Requires Google Home app, Wi-Fi, and internet connection. Features subject to change; available in select countries and languages. Gemini features work independently of Gemini apps. Check responses for accuracy; results may vary.
 6.
