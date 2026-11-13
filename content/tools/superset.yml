@@ -1,26 +1,25 @@
 slug: superset
-name: Superset
-description: Source-available desktop app that runs many CLI agents in parallel, one git worktree per workspace, with a diff dashboard, SSH workspaces and scheduled automations.
+name: Paradev
+description: Open-source desktop app that runs many CLI agents in parallel, one git worktree per workspace, with a diff dashboard, SSH workspaces and scheduled automations.
 layer: orchestrator
-vendor: Superset
-homepage: https://superset.sh
+vendor: Paradev
+homepage: https://paradev.com
 links:
-  docs: https://docs.superset.sh
-  pricing: https://superset.sh/pricing
-  repo: https://github.com/superset-sh/superset
+  docs: https://docs.paradev.com
+  pricing: https://paradev.com/pricing
+  repo: https://github.com/ParadevAI/Paradev
 platforms: [macos, linux]
 install:
   - method: download
-    url: https://superset.sh/download
+    url: https://paradev.com/download
   - method: brew
-    command: brew install superset-sh/tap/superset
+    command: brew install paradevai/tap/superset
   - method: curl
-    command: curl -fsSL https://superset.sh/cli/install.sh | sh
+    command: curl -fsSL https://paradev.com/cli/install.sh | sh
 license:
-  spdx: Elastic-2.0
-  kind: source-available
-  repo: https://github.com/superset-sh/superset
-  notes: Elastic License 2.0. Public code, not OSI approved.
+  spdx: MIT
+  kind: open-source
+  repo: https://github.com/ParadevAI/Paradev
 models:
   byok: full
   local: false
@@ -62,8 +61,13 @@ pricing:
       price: 20
       price_annual: 16
       audience: team
+      overage:
+        kind: fixed
+        rate: 0.06
+        notes: Per GB-hour past the shared cloud pool. Extra GB-hours can be bought as needed and never expire.
       limits:
         - Unlimited users, remote access, automations, mobile, Linear and Slack integrations
+        - 320 cloud GB-hours per seat each month, one shared pool for the team (beta)
     - id: team
       name: Team
       price: 60
@@ -91,15 +95,15 @@ pricing:
       contact_sales: true
       audience: enterprise
       notes: Annual billing only. Everything in Ultra, SAML SSO, SCIM, audit logs, SOC 2 Type II report, uptime SLA, custom integrations.
-  notes: Paid plans add remote workspaces and team features, not model usage. Pro is billed per active seat. Copilot and any other CLI agent also run. Windows is not available yet and an iOS app is listed as coming soon.
+  notes: Paid plans add remote workspaces and team features, not model usage. Pro is billed per active seat. Copilot and any other CLI agent also run. Windows is not available yet. An iPhone and iPad app is on the App Store.
 status: active
 sources:
-  - url: https://superset.sh/pricing
-    verified_at: 2026-10-23
+  - url: https://paradev.com/pricing
+    verified_at: 2026-11-04
     covers: [pricing, wraps]
-  - url: https://superset.sh
-    verified_at: 2026-08-23
+  - url: https://paradev.com
+    verified_at: 2026-11-04
     covers: [platforms, features, license, general]
-  - url: https://github.com/superset-sh/superset
-    verified_at: 2026-08-23
+  - url: https://github.com/ParadevAI/Paradev
+    verified_at: 2026-11-04
     covers: [license, platforms, features]
