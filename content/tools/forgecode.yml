@@ -1,0 +1,46 @@
+slug: forgecode
+name: ForgeCode
+description: Hosted agent service that starts work from bugs, Slack or alerts and lands tested changes on a board. Runs on managed or your own cloud machines, billed per agent-hour.
+layer: cloud
+vendor: ForgeCode
+homepage: https://forgecode.dev
+links:
+  pricing: https://forgecode.dev/pricing
+platforms: [web]
+license:
+  spdx: proprietary
+  kind: proprietary
+  notes: Hosted service under ForgeCode's terms of service. The terms page was not read when this entry was drafted.
+models:
+  byok: full
+  notes: Bring your own keys for 300+ model providers, or use the optimised models on the ForgeCode gateway, pay as you go at API pricing from prepaid credit.
+features: [parallel-agents, scheduled-tasks, checkpoints]
+pricing:
+  tiers:
+    - id: pay-as-you-go
+      name: Pay as you go
+      price: null
+      audience: individual
+      overage:
+        kind: fixed
+        rate: 0.2
+        notes: $0.20 per agent-hour on a Small machine. Medium is $0.40, Large $0.80 and Ultra $1.60.
+    - id: enterprise
+      name: Enterprise
+      price: null
+      contact_sales: true
+      audience: enterprise
+      limits:
+        - Bring your own cloud on AWS, Google Cloud or Azure
+        - Organisations and teams
+        - SAML SSO
+        - Forward-deployed engineer
+  notes: Launch offer on the pricing page, $1 for $100 worth of credits.
+status: active
+sources:
+  - url: https://forgecode.dev/pricing
+    verified_at: 2026-11-10
+    covers: [pricing, models, general]
+  - url: https://forgecode.dev
+    verified_at: 2026-11-10
+    covers: [platforms, features, general]
