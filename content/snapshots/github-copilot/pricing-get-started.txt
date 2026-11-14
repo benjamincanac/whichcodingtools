@@ -455,6 +455,8 @@ Model multipliers for annual plans (legacy)
 Review excluded files
 Copilot usage metrics
 Copilot usage metrics data
+Coverage and requirements
+Industry comparisons
 Interpret usage metrics
 Reconciling Copilot usage metrics
 Copilot LoC metrics
@@ -465,6 +467,7 @@ Agent session filters
 Agentic audit log events
 Enterprise managed settings
 MCP private registry enforcement
+OpenTelemetry reference
 Policy conflicts
 Tutorials
 All tutorials
@@ -675,11 +678,14 @@ Claude Opus 5
 Claude Opus 5.5
 Claude Fable 5 2
 Claude Fable 5.1 2
+Claude Fable 5.2 2
 Claude Sonnet 4.6
 Claude Sonnet 5
 Claude Sonnet 5.5
 Gemini 3.8 Flash
 Gemini 4 Argon
+Gemini 4 Carbon
+Gemini 4 Hydrogen
 GPT-5.3-Codex
 GPT-5.4 nano 3
 GPT-5.6 Luna
@@ -761,11 +767,14 @@ Claude Opus 5
 Claude Opus 5.5
 Claude Fable 5 2
 Claude Fable 5.1 2
+Claude Fable 5.2 2
 Claude Sonnet 4.6
 Claude Sonnet 5
 Claude Sonnet 5.5
 Gemini 3.8 Flash
 Gemini 4 Argon
+Gemini 4 Carbon
+Gemini 4 Hydrogen
 GPT-5.3-Codex
 GPT-5.4 nano 3
 GPT-5.6 Luna
@@ -809,7 +818,7 @@ To compare feature support across IDEs, see Copilot feature matrix .
 To compare models supported across plans, features, and IDEs, see Supported AI models in GitHub Copilot .
 Footnotes
 Copilot Chat skills in IDEs is available in Visual Studio Code and Visual Studio. ↩ ↩ 2
-When Claude Fable 5 or Claude Fable 5.1 is used, Anthropic retains data, including prompts and outputs, by default to operate safety classifiers that detect harmful use. Customers can request to use Claude Fable 5 or Claude Fable 5.1 with zero data retention (ZDR) through the end of 2026 under a time-bound exemption while Anthropic rolls out Enterprise Frontier Safeguards (EFS). After that point, continued use of these models would require EFS, which will enable eligible customers to keep their data under their own control while also enabling automated safety monitoring. For an enterprise that has been approved and configured for this type of access, Claude Fable 5 and Claude Fable 5.1 requests will use the ZDR endpoint through the end of 2026 when the models are enabled. To learn whether your enterprise is eligible and request access, contact your GitHub account team. Approval for access does not automatically enable Claude Fable 5 or Claude Fable 5.1. An enterprise or organization administrator must still enable each model before users can access it. Other Claude models, except for Claude Fable 5 and Claude Fable 5.1, continue to operate under ZDR. Customers who enable a Fable model with ZDR agree to use this model only for internal operations, including to develop and evaluate products for their own customers. They may not make the model endpoints or outputs available externally. To enable these models, see Configuring access to AI models in GitHub Copilot . ↩ ↩ 2 ↩ 3 ↩ 4
+When Claude Fable 5, Claude Fable 5.1, or Claude Fable 5.2 is used, Anthropic retains data, including prompts and outputs, by default to operate safety classifiers that detect harmful use. Customers can request to use Claude Fable 5, Claude Fable 5.1, or Claude Fable 5.2 with zero data retention (ZDR) through the end of 2026 under a time-bound exemption while Anthropic rolls out Enterprise Frontier Safeguards (EFS). After that point, continued use of these models would require EFS, which will enable eligible customers to keep their data under their own control while also enabling automated safety monitoring. For an enterprise that has been approved and configured for this type of access, Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2 requests will use the ZDR endpoint through the end of 2026 when the models are enabled. To learn whether your enterprise is eligible and request access, contact your GitHub account team. Approval for access does not automatically enable Claude Fable 5, Claude Fable 5.1, or Claude Fable 5.2. An enterprise or organization administrator must still enable each model before users can access it. Other Claude models, except for Claude Fable 5, Claude Fable 5.1, and Claude Fable 5.2, continue to operate under ZDR. Customers who enable a Fable model with ZDR agree to use this model only for internal operations, including to develop and evaluate products for their own customers. They may not make the model endpoints or outputs available externally. To enable these models, see Configuring access to AI models in GitHub Copilot . ↩ ↩ 2 ↩ 3 ↩ 4 ↩ 5 ↩ 6
 GPT-5.4 nano is currently only available in the Codex Visual Studio Code extension (Copilot Pro+ only) and is not available in Copilot Chat. ↩ ↩ 2
 Back to top
 Help and support
