@@ -30,6 +30,7 @@ Use Lovable from other tools
 Build
 Projects
 Chats
+Automations
 The agent
 Context & instructions
 File generation
@@ -56,8 +57,8 @@ Project access
 Deploy & host
 Hosting
 Publish
+Website access
 Custom domains
-Transfer a domain
 Publishing domain
 ENT
 Branded app URLs
@@ -65,6 +66,7 @@ Ownership & portability
 Grow & optimize
 Growth tools
 SEO and AEO
+Site metadata
 Analytics
 Ads
 Payments
@@ -83,6 +85,7 @@ Change or cancel your subscription
 Invoices and billing
 Credits and usage
 Credit top-ups
+Referral program
 Usage limits & alerts
 Low balance and recovery
 Guides & reference
@@ -110,9 +113,8 @@ Change or cancel your subscription
 Upgrade, downgrade, switch between monthly and annual billing, or cancel, and see what happens to your credits afterward.
 Invoices and billing
 Find and download invoices and receipts, update your payment method, and edit billing and tax details.
-For how credits work, what uses credits, and how to add credits with top-ups, see Credits and usage .
+For how credits work and what uses credits, see Credits and usage . To buy more credits on Pro or Business, workspace admins and owners can add a one-time top-up or set up auto top-up from Workspace settings → Plans & credit usage . See Credit top-ups .
 Need help with a plan? For plan and billing questions, contact the support team . For Enterprise pricing and contracts, contact sales .
-​
 Compare plans
 Each plan is designed for a different kind of user.
 Plan Best for
@@ -120,7 +122,6 @@ Free Trying Lovable and building smaller projects
 Pro Fast-moving teams building together in real time
 Business Growing departments that need advanced controls and governance
 Enterprise Large organizations that need flexibility, scale, and governance
-​
 Credits and usage
 This table summarizes which credit features are included by plan. For a full explanation of credit types, expiry, usage costs, top-ups, auto top-up, and usage tracking, see Credits and usage .
 Feature Free Pro Business Enterprise
@@ -134,11 +135,11 @@ Usage limits & alerts — Yes Yes Yes
 Credit rollovers — Yes Yes —
 On-demand credit top-ups — Yes Yes —
 Auto top-up — Yes Yes —
+Referral program Yes Yes Yes —
 Bulk CSV import of member credit limits — — — Yes
 *After you reach the monthly cap, Lovable stops granting the daily 5 credits for the rest of that calendar month and resumes on the 1st at 00:00 UTC. For example, on Free, you receive daily build credits for the first 6 days each month (6 × 5 = 30), then none until the next month starts.
 Make the most of your included daily chat allowance and daily build credits . Chat usage follows its own pricing model, including a per-message price and a daily chat allowance. Free, Pro, and Business plans include the daily chat allowance for messages in Chats and Chat mode , including Lovable in Slack and Telegram . It resets every day at 00:00 UTC and does not roll over. See Chat costs . Free, Pro, and Business plans also include 5 daily build credits at no extra cost. They reset every day at 00:00 UTC and do not roll over. On Free plans, daily build credits are capped at 30 per calendar month . After you reach the monthly cap, daily build credits resume on the 1st of the next calendar month at 00:00 UTC . Pro and Business plans do not have a monthly cap for daily build credits.
 Free, Pro, and Business workspaces include monthly Cloud and AI grants so you can host apps, run their built-in backend (Cloud), and use AI features in deployed apps without spending general credits on that usage first. Enterprise terms vary by contract. Enterprise plans do not include the daily chat allowance, daily build credits, or the monthly Cloud and AI grants. Contact your account team for account-specific details.
-​
 Building and publishing
 This table shows which building, publishing, and code features each plan includes.
 Feature Free Pro Business Enterprise
@@ -147,6 +148,7 @@ Workspace-private projects Yes Yes Yes Yes
 Git sync (GitHub, GitLab, and Bitbucket) Yes Yes Yes Yes
 Create custom connectors Yes Yes Yes Yes
 Publish to invited people only Up to 10 people per project Up to 10 people per project Yes Yes
+Automations (tasks Lovable runs on a schedule) Up to 3 per person Up to 10 per person Up to 25 per person —
 Edit code — Yes Yes Yes
 Download code — Yes Yes Yes
 Custom domains — Yes Yes Yes
@@ -163,7 +165,6 @@ Publishing domain (every app under your own domain) — — — Yes
 Sharing controls — — — Yes
 Design systems from an existing npm package — — — Yes
 Support for custom connectors built by Lovable — — — Yes
-​
 Security and governance
 This table shows which access, security, and governance features each plan includes.
 Feature Free Pro Business Enterprise
@@ -182,7 +183,6 @@ Audit logs — — — Yes
 Data exports — — — Yes
 Scheduled security scans — — — Yes
 EU inference — — — Yes
-​
 Support
 This table shows the support channels included with each plan. For response times and how to contact the support team, see the Support policy .
 Feature Free Pro Business Enterprise
@@ -191,7 +191,6 @@ Email support — Yes Yes Yes
 Priority support — — Yes Yes
 Dedicated support — — — Yes
 Onboarding services — — — Yes
-​
 Subscription tiers and billing cycles
 Pro and Business plans come in monthly credit tiers, from 100 to 10,000 credits per month. You choose the tier from the credits dropdown on the plan card in Workspace settings → Plans & credit usage .
 Each tier is billed monthly or annually. Annual billing gives you two months free compared with paying monthly. Monthly plan credits on annual billing are still issued monthly and stay valid until 1 month after the annual billing period ends.
@@ -224,7 +223,6 @@ Monthly credits Monthly billing Annual billing
 5,000 $2,250 $22,500 ($1,875/month)
 7,500 $3,300 $33,000 ($2,750/month)
 10,000 $4,300 $43,000 ($3,584/month)
-​
 Student and teacher discount
 Students and teachers at universities, colleges, and schools get 50% off for up to 12 months on the Pro plan with 100 credits per month, billed monthly. Lovable verifies your status on lovable.dev/students by checking the domain of your account’s email address (the part after the @) against a list of academic institutions. Verification is available only to workspaces on the Free plan, and each person can use the discount once.
 1
@@ -242,7 +240,6 @@ Credit top-ups are charged at standard prices.
 The discount is tied to the account that verified and cannot be transferred to another account or person.
 My institution’s email domain is not recognized If the verification dialog shows Invalid email , either your address is a personal one, which Lovable cannot verify, or your institution’s domain is not on the list yet. For an institution domain, select Why did this happen? and then Request review . Lovable reviews requested domains and adds eligible institutions to the list. If Lovable adds yours, verify again from lovable.dev/students .
 If your projects are in a workspace owned by an account with a personal email, verify with a new account that uses your academic email and subscribe there. Then invite your personal account to the new workspace, because you can move a project only between workspaces you belong to. Logged in as your personal account, select Move workspace in each project’s settings to move the project there. See Move a project to another workspace .
-​
 FAQ
 How do I upgrade, downgrade, or cancel my plan?
 You change your plan yourself in Workspace settings → Plans & credit usage . To cancel, select Manage on your plan card, then Downgrade to free . For the steps for each change and what happens to your credits afterward, see Change or cancel your subscription .
