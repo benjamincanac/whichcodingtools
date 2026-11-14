@@ -15,7 +15,7 @@ Pricing & Plans
 What is the current membership pricing for Manus?
 What is the current membership pricing for Manus?
 Learn about monthly and annual plans, pricing locations, and how much you can save with annual subscriptions.
-Updated yesterday
+Updated this week
 Table of contents
 You can find our pricing through the http://manus.im/home -> https://manus.im/pricing .
 After entering the Manus homepage, scroll down to the bottom of the page to view our product pricing.
@@ -76,7 +76,7 @@ Do I need to pay monthly for an annual subscription?
 How much can I save with an annual subscription?
 Is annual payment more cost-effective than monthly payment?
 Related Articles
-What is Manus Team plan?
+What is the pricing unit for Manus globally? Can I pay in local currency?
 What is Wide Research?
 How can I use Mail Manus?
 What is the current Single Sign-On (SSO) subscription pricing for Manus Team?
