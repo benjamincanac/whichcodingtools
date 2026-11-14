@@ -48,7 +48,7 @@ pricing:
 status: active
 sources:
   - url: https://www.blackbox.ai/pricing
-    verified_at: 2026-11-13
+    verified_at: 2026-11-14
     covers: [pricing, models]
   - url: https://www.blackbox.ai/vs-code
     verified_at: 2026-08-23
