@@ -89,16 +89,16 @@ VS Code is open source. Built in the open, by us. And by you.
 The roadmap, the iteration plans and every issue are public, so you can see where VS Code is headed and help steer it.
 3,000+ contributors
 56,000+ PRs merged
-Drag a chat window's chat by its whole header by sandy081
-agentHost: fix Keep and Undo getting stuck after forking a chat by justschen
-build: remove the CI build from the product build pipeline by lszomoru
-policy: let admins permit Claude and Codex alongside managed settings by rwoll
-map: preserve custom toKey and re-key on ResourceMap copy by ShakilUrRehman21
-Engineering - split the Linux flaky unit tests by iteration parity, and give Electron unit iterations 20 minutes by bryanchen-d
-sessions: make canvas pinning an optional list feature by osortega
-Show Copilot Fusion instead of Auto in the model picker at startup by bhavyaus
-fix: memory leak in markersView by SimonSiefke
-sessions: add saved drafts and scheduled chat requests by meganrogge
+agentHost: skip the changeset catalogue refresh of chats that are not in memory by sandy081
+Align animated menus and action widgets to device pixels by sbatten
+Engineering - check the mobile dependency boundary in pull request CI and the CI build pipeline by bryanchen-d
+Fix agent host file watches on Windows hosts when path casing differs by kycutler
+github: migrate plugin marketplace discovery to shared clients by dmitrivMS
+sessions: compose worktree suggestions outside the mobile core by osortega
+chat: restore spacing below plain-text tool confirmation messages by justschen
+agentHost: declare forwarded task-analytics telemetry by bhavyaus
+agentHost: report utility model calls in telemetry by karthiknadig
+fix: trim leading whitespace on canvas font assignments for webgl terminal by deepak1556
 The next merge on main could be yours.
 Recent merges on GitHub · How to contribute
 From the blog All posts
