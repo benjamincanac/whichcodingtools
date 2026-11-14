@@ -78,7 +78,7 @@ kimi-k3 Text 1M $3.00 $15.00 $0.30
 deepseek
 deepseek-v4.1-flash-1017 Text 1M $0.30 $1.20 $0.007
 alibaba
-qwen3.8-max Text 262K $2.00 $6.00 $0.25
+qwen3.8-max Text 1M $2.00 $6.00 $0.25
 zai
 glm-5.3 Text 1M $1.40 $4.40 $0.14
 meituan
