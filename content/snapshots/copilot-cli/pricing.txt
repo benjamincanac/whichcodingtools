@@ -3,7 +3,8 @@
 <untrusted-page-text>
 GitHub Copilot · Plans & pricing for every developer & team · GitHub · GitHub
 Skip to content
-GitHub Enterprise now includes access to GitHub Copilot. Learn more
+GitHub Universe 2026
+Catch up on all that was announced. See what's new
 Navigation Menu
 Sign in
 Products
@@ -93,8 +94,8 @@ Get started Open in VS Code
 What's included:
 2,000 completions per month
 Access to Haiku 4.5, GPT-5 mini, and more
-Copilot CLI
 Community Support
+Access to Copilot Fusion Standard
 No credit card required. Verified students have access to the GitHub Copilot Student plan. Learn more
 Pro
 For everyday coding with agents in GitHub Copilot.
@@ -115,6 +116,7 @@ Access to premium models, including Opus
 Audit logs
 4x+ included usage than Pro
 $70 monthly total credits for Pro+
+Access to Copilot Fusion Standard, High, and Max
 Max
 For sustained, high-volume agent workflows with GitHub Copilot.
 $ 100 USD per user / month
@@ -414,6 +416,48 @@ Pro+ plan
 Included
 Max plan
 Included
+Copilot Fusion
+Copilot Fusion
+Fusion Standard
+Everyday work. Copilot Fusion selects one model for each task.
+Free plan
+Included
+Pro plan
+Included
+Pro+ plan
+Included
+Max plan
+Included
+Fusion High
+Substantial, well-scoped coding tasks, such as fixing a complex bug or making a change across several files, when additional model calls may be worth the extra time and AI credits.
+Free plan
+Not included
+Pro plan
+Not included
+Pro+ plan
+Included
+Max plan
+Included
+Fusion Max
+Tasks requiring the deepest possible reasoning and most thorough analysis.
+Free plan
+Not included
+Pro plan
+Not included
+Pro+ plan
+Included
+Max plan
+Included
+Fusion Fast
+Not selectable by users. Only available in Visual Studio Code inline chat.
+Free plan
+Included
+Pro plan
+Included
+Pro+ plan
+Included
+Max plan
+Included
 Models in Copilot
 Models in Copilot
 Available models
@@ -421,6 +465,7 @@ Agent mode, code review, coding agent, Copilot CLI, and Copilot Chat use AI Cred
 Free plan
 Anthropic Claude Fable 5
 Anthropic Claude Fable 5.1
+Anthropic Claude Fable 5.2
 Anthropic Claude Haiku 4.5
 Anthropic Claude Haiku 5.5
 Anthropic Claude Sonnet 4
@@ -450,6 +495,8 @@ Microsoft MAI-Code-1.1-Flash
 Google Gemini 3.7 Flash
 Google Gemini 3.8 Flash
 Google Gemini 4 Argon
+Google Gemini 4 Carbon
+Google Gemini 4 Hydrogen
 xAI Grok 4.5
 xAI Grok 4.6
 xAI Grok 4.7
@@ -457,6 +504,7 @@ Kimi K3
 Pro plan
 Anthropic Claude Fable 5
 Anthropic Claude Fable 5.1
+Anthropic Claude Fable 5.2
 Anthropic Claude Haiku 4.5
 Anthropic Claude Haiku 5.5
 Anthropic Claude Sonnet 4
@@ -486,6 +534,8 @@ Microsoft MAI-Code-1.1-Flash
 Google Gemini 3.7 Flash
 Google Gemini 3.8 Flash
 Google Gemini 4 Argon
+Google Gemini 4 Carbon
+Google Gemini 4 Hydrogen
 xAI Grok 4.5
 xAI Grok 4.6
 xAI Grok 4.7
@@ -493,6 +543,7 @@ Kimi K3
 Pro+ plan
 Anthropic Claude Fable 5
 Anthropic Claude Fable 5.1
+Anthropic Claude Fable 5.2
 Anthropic Claude Haiku 4.5
 Anthropic Claude Haiku 5.5
 Anthropic Claude Sonnet 4
@@ -522,6 +573,8 @@ Microsoft MAI-Code-1.1-Flash
 Google Gemini 3.7 Flash
 Google Gemini 3.8 Flash
 Google Gemini 4 Argon
+Google Gemini 4 Carbon
+Google Gemini 4 Hydrogen
 xAI Grok 4.5
 xAI Grok 4.6
 xAI Grok 4.7
@@ -529,6 +582,7 @@ Kimi K3
 Max plan
 Anthropic Claude Fable 5
 Anthropic Claude Fable 5.1
+Anthropic Claude Fable 5.2
 Anthropic Claude Haiku 4.5
 Anthropic Claude Haiku 5.5
 Anthropic Claude Sonnet 4
@@ -558,6 +612,8 @@ Microsoft MAI-Code-1.1-Flash
 Google Gemini 3.7 Flash
 Google Gemini 3.8 Flash
 Google Gemini 4 Argon
+Google Gemini 4 Carbon
+Google Gemini 4 Hydrogen
 xAI Grok 4.5
 xAI Grok 4.6
 xAI Grok 4.7

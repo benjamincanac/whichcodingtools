@@ -280,6 +280,10 @@ What this means for businesses and enterprises
 The bottom line
 Related posts
 Company news
+GitHub availability report: October 2026
+In October, we experienced eight incidents that resulted in degraded performance across GitHub services.
+Jakub Oleksy
+Company news
 GitHub Universe 2026: Evolving every layer of the stack
 Today, we laid out our vision for GitHub as the most comprehensive, end-to-end software delivery system in the world.
 Jay Parikh
@@ -287,10 +291,6 @@ News & insights
 Octoverse: Commits, pushes, reach new highs in 2026 as developers build with agents
 See how a record year of growth reached every industry, every field, and every kind of builder in the 2026 Octoverse report.
 GitHub Staff
-Company news
-The next developer interface is ambient intelligence
-AI, agents, voice, and physical controls are shifting software development from operating tools to expressing intent—and helping developers stay focused on building.
-Martin Woodward
 Explore more from GitHub
 Docs
 Everything you need to master GitHub, all in one place.
