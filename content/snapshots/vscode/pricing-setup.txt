@@ -71,17 +71,18 @@ AI in VS Code
 Overview
 Get Started
 Find a Guide
+Choose an AI Feature
 Set Up GitHub Copilot
 Agents Quickstart
 Agents Tutorial
-Cloud Continuity Tutorial
 Best Practices
 Work with AI
 Inline Suggestions
-Chat View
+Smart Actions
+Chat View and Layout
 Agents Window
 Inline Chat & Quick Chat
-Use Chat
+Chat Interactions
 Canvases
 Add Prompt Context
 Review & Revert Changes
@@ -119,6 +120,7 @@ Hooks
 Prompt Files
 Migrate Existing Customizations
 Work Across Apps and Machines
+Cloud Continuity Tutorial
 Remote Agent Sessions
 Cloud Sessions
 Session History
@@ -277,17 +279,18 @@ Intro Videos
 Overview
 Get Started
 Find a Guide
+Choose an AI Feature
 Set Up GitHub Copilot
 Agents Quickstart
 Agents Tutorial
-Cloud Continuity Tutorial
 Best Practices
 Work with AI
 Inline Suggestions
-Chat View
+Smart Actions
+Chat View and Layout
 Agents Window
 Inline Chat & Quick Chat
-Use Chat
+Chat Interactions
 Canvases
 Add Prompt Context
 Review & Revert Changes
@@ -325,6 +328,7 @@ Hooks
 Prompt Files
 Migrate Existing Customizations
 Work Across Apps and Machines
+Cloud Continuity Tutorial
 Remote Agent Sessions
 Cloud Sessions
 Session History
@@ -465,19 +469,21 @@ Additional Components
 Uninstall
 Languages & Runtimes
 Extension Docs
-On this page there are 8 sections On this page
+On this page there are 9 sections On this page
 Before you start
 Set up GitHub Copilot
 Use Copilot with a GHE account
+Other AI access options
 Use a different GitHub account with Copilot
 Use a different GitHub account per workspace or profile
 Remove AI features from VS Code
 Disable AI features for a workspace
 Next steps
 Related
-Get started with AI
-Complete your first coding task with an AI agent in VS Code.
-Start quickstart
+Choose your first AI task
+Start with your own code or a guided sample project.
+Explore your code without changing files
+Build a sample app
 Set up GitHub Copilot in VS Code
 Copy as Markdown
 Copy as Markdown
@@ -485,24 +491,22 @@ View as Markdown
 Ask in VS Code
 Ask in VS Code Insiders
 Use this guide to sign in to GitHub Copilot in Visual Studio Code and manage your account. If you already have Copilot access, sign in with that GitHub account.
-For a different access path, follow the Anthropic Claude setup , OpenAI Codex setup , or bring your own model key . These routes have their own requirements; some agent workflows without GitHub sign-in are experimental.
-Note
-Claude and Codex harnesses are disabled when Copilot enterprise-managed settings apply , even with separate provider credentials. Contact the IT team that deployed the settings to discuss access.
+To use another provider's account or your own API key, see other AI access options .
 Before you start
 Review these account, usage, and data-handling details before you send project content to an AI model:
 Account access : the recommended setup uses a GitHub account with a Copilot plan. If your employer provides Copilot, use the account and policies for your organization. Without a plan, signing in enrolls an eligible account in Copilot Free.
-Usage and billing : models accessed through Copilot consume AI credits from your Copilot plan. Access through another provider's credentials follows that provider's usage and billing terms. Compare harness authentication and billing options .
+Usage and billing : models accessed through Copilot consume AI credits from your Copilot plan. Learn about AI credits and model costs .
 Monitor usage : open the Copilot status dashboard from the VS Code Status Bar to view the percentage of your monthly allowance that you used. Learn how to monitor usage and what happens when you reach a limit .
-Data handling : review the GitHub Copilot Trust Center and your organization's policies before you send work code. Models that use third-party credentials or your own API key follow that provider's terms. VS Code telemetry settings are separate from AI-provider data handling.
-BYOK can provide chat access without a Copilot plan, but it doesn't replace the GitHub Copilot service for inline suggestions, semantic search, or embeddings. Check the requirements for your chosen BYOK workflow .
+Data handling : review the GitHub Copilot Trust Center and your organization's policies before you send work code. VS Code telemetry settings are separate from AI-provider data handling.
 Set up GitHub Copilot
 Follow these steps to get started with Copilot in VS Code:
 Hover over the Copilot icon in the Status Bar and select Use AI Features .
 Choose a sign-in method and follow the prompts.
 If you already have a Copilot subscription for your account, VS Code will use that subscription.
 If you don't have a Copilot subscription yet, you'll be signed up for the Copilot Free plan and get a monthly allowance of inline suggestions and AI credits. Learn more about the different GitHub Copilot plans .
-Start using Copilot in VS Code!
-Learn the basics with the agents quickstart .
+Choose a first task:
+Use your own project : explore a codebase without changing files and check the explanation against your code.
+Use a practice project : build and validate a small app with recommended defaults.
 Important
 Telemetry in your free version of GitHub Copilot is currently enabled. By default, code suggestions that match public code, including code references in the VS Code and github.com experience, are allowed. You can opt out of telemetry data collection by disabling telemetry in VS Code by setting
 telemetry.telemetryLevel
@@ -514,6 +518,12 @@ If your Copilot subscription is associated with a GitHub Enterprise (GHE) accoun
 If you haven't already, hover over the Copilot icon in the Status Bar and select Use AI Features .
 In the sign in dialog, choose Continue with GHE.com and provide your GHE instance URL and credentials.
 If you need to switch between a GitHub.com account and a GHE account, see Use a different GitHub account per workspace or profile for instructions.
+Other AI access options
+To use another provider's account, follow the Anthropic Claude setup or OpenAI Codex setup . To connect a model with your own API key, follow the bring your own key (BYOK) setup . These routes have their own requirements. Some agent workflows without GitHub sign-in are experimental.
+Access through another provider's credentials follows that provider's usage, billing, and data-handling terms. Compare harness authentication and billing options .
+BYOK can provide chat access without a Copilot plan, but it doesn't replace the GitHub Copilot service for inline suggestions, semantic search, or embeddings.
+Note
+Claude and Codex harnesses are disabled when Copilot enterprise-managed settings apply , even with separate provider credentials. Contact the IT team that deployed the settings to discuss access.
 Use a different GitHub account with Copilot
 If your Copilot subscription is associated with another GitHub account, follow these steps to sign out of your GitHub account in VS Code, and sign in with another account.
 Select the Accounts menu in the Activity Bar, and then select Sign out for the account you're currently signed in with.
@@ -551,7 +561,8 @@ Open in VS Code
 Open in VS Code Insiders
 setting in workspace settings. This setting is available in the Settings editor ( ⌘, (Windows, Linux Ctrl+, ) ), or you can edit the settings.json file in the workspace.
 Next steps
-Continue with the Quickstart for using AI to discover the key features for AI-powered development in VS Code.
+Explore your codebase without changing files .
+Build and validate a sample app with an agent .
 11/11/2026
 Microsoft
 Community

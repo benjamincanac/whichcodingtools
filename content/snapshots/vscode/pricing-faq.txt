@@ -70,17 +70,18 @@ AI in VS Code
 Overview
 Get Started
 Find a Guide
+Choose an AI Feature
 Set Up GitHub Copilot
 Agents Quickstart
 Agents Tutorial
-Cloud Continuity Tutorial
 Best Practices
 Work with AI
 Inline Suggestions
-Chat View
+Smart Actions
+Chat View and Layout
 Agents Window
 Inline Chat & Quick Chat
-Use Chat
+Chat Interactions
 Canvases
 Add Prompt Context
 Review & Revert Changes
@@ -118,6 +119,7 @@ Hooks
 Prompt Files
 Migrate Existing Customizations
 Work Across Apps and Machines
+Cloud Continuity Tutorial
 Remote Agent Sessions
 Cloud Sessions
 Session History
@@ -277,17 +279,18 @@ Intro Videos
 Overview
 Get Started
 Find a Guide
+Choose an AI Feature
 Set Up GitHub Copilot
 Agents Quickstart
 Agents Tutorial
-Cloud Continuity Tutorial
 Best Practices
 Work with AI
 Inline Suggestions
-Chat View
+Smart Actions
+Chat View and Layout
 Agents Window
 Inline Chat & Quick Chat
-Use Chat
+Chat Interactions
 Canvases
 Add Prompt Context
 Review & Revert Changes
@@ -325,6 +328,7 @@ Hooks
 Prompt Files
 Migrate Existing Customizations
 Work Across Apps and Machines
+Cloud Continuity Tutorial
 Remote Agent Sessions
 Cloud Sessions
 Session History
