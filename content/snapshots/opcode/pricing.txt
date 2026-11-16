@@ -98,7 +98,7 @@ More items
 opcode Public
 Notifications You must be signed in to change notification settings
 Fork 1.7k ( 1.7k )
-Star 22.4k ( 22.4k ) You must be signed in to star a repository
+Star 22.5k ( 22.5k ) You must be signed in to star a repository
 About
 A powerful GUI app and Toolkit for Claude Code - Create custom agents, manage interactive Claude Code sessions, run secure background agents, and more.
 opcode.sh
@@ -112,7 +112,7 @@ Contributing
 Activity
 Custom properties
 Stars
-22.4k stars
+22.5k stars
 Watchers
 102 watching
 Forks
@@ -448,7 +448,7 @@ Contributing
 Activity
 Custom properties
 Stars
-22.4k stars
+22.5k stars
 Watchers
 102 watching
 Forks
