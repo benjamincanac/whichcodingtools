@@ -88,7 +88,7 @@ sculptor
 Repository navigation
 Code
 Issues 2 ( 2 )
-Pull requests 31 ( 31 )
+Pull requests 30 ( 30 )
 Actions
 Security and quality
 Insights
@@ -123,8 +123,8 @@ Code
 Open more actions menu
 Latest commit
 History
-2,216 Commits
-2,216 Commits
+2,239 Commits
+2,239 Commits
 Folders and files
 Name Name
 Last commit message
