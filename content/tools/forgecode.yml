@@ -2,7 +2,7 @@ slug: forgecode
 name: ForgeCode
 description: Hosted agent service that starts work from bugs, Slack or alerts and lands tested changes on a board. Runs on managed or your own cloud machines, billed per agent-hour.
 layer: cloud
-vendor: ForgeCode
+vendor: Tailcall
 homepage: https://forgecode.dev
 links:
   pricing: https://forgecode.dev/pricing
@@ -10,7 +10,7 @@ platforms: [web]
 license:
   spdx: proprietary
   kind: proprietary
-  notes: Hosted service under ForgeCode's terms of service. The terms page was not read when this entry was drafted.
+  notes: Hosted service under ForgeCode's terms of service, provided by Tailcall, Inc. The earlier Forge terminal agent is Apache-2.0 at github.com/tailcallhq/forgecode, but its forgecode.dev/cli installer returns 404 and the site no longer mentions it.
 models:
   byok: full
   notes: Bring your own keys for 300+ model providers, or use the optimised models on the ForgeCode gateway, pay as you go at API pricing from prepaid credit.
@@ -35,7 +35,7 @@ pricing:
         - Organisations and teams
         - SAML SSO
         - Forward-deployed engineer
-  notes: Launch offer on the pricing page, $1 for $100 worth of credits.
+  notes: Launch offer on the pricing page, $1 for $100 worth of credits. The terms say access may require an invitation during early access.
 status: active
 sources:
   - url: https://forgecode.dev/pricing
@@ -44,3 +44,9 @@ sources:
   - url: https://forgecode.dev
     verified_at: 2026-11-10
     covers: [platforms, features, general]
+  - url: https://forgecode.dev/terms/
+    verified_at: 2026-11-16
+    covers: [license, general]
+  - url: https://github.com/tailcallhq/forgecode
+    verified_at: 2026-11-16
+    covers: [general]
