@@ -78,7 +78,7 @@ pricing:
 status: active
 sources:
   - url: https://github.com/standardagents/dmux
-    verified_at: 2026-11-08
+    verified_at: 2026-11-16
     covers: [pricing, platforms, models, wraps, features, license, general]
   - url: https://dmux.ai
     verified_at: 2026-11-12
