@@ -34,7 +34,7 @@ pricing:
 status: active
 sources:
   - url: https://claude.com/download
-    verified_at: 2026-11-09
+    verified_at: 2026-11-12
     covers: [pricing, platforms, features, general]
   - url: https://code.claude.com/docs/en/overview
     verified_at: 2026-10-29

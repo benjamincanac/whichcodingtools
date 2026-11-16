@@ -59,7 +59,7 @@ Blog Documentation
 Changelog
 Newsletter Support Press Releases
 Download
-New Introducing voice mode in Antigravity, enabled by Gemini Live Read post
+New Gemini 4 Hydrogen and Orchestrator now in Google Antigravity Read post
 Choose the perfect plan for your journey Choose the perfect plan for your journey
 Generally Available
 For Individuals
@@ -90,7 +90,7 @@ Business plan
 via Google Cloud
 Google Cloud customers can now access the Antigravity app, CLI, and through IDEs via Antigravity IDE extensions .
 Contact Sales For subscription options
-Start now via API
+Get Started
 Available now:
 Access via API with consumption-based pricing
 Available to eligible Gemini Enterprise customers:

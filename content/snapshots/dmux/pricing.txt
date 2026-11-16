@@ -96,7 +96,7 @@ Insights
 More items
 dmux Public
 Notifications You must be signed in to change notification settings
-Fork 138 ( 138 )
+Fork 140 ( 140 )
 Star 1.8k ( 1.8k ) You must be signed in to star a repository
 About
 A dev agent multiplexer for git worktrees and coding agents.
@@ -115,7 +115,7 @@ Stars
 Watchers
 6 watching
 Forks
-138 forks
+140 forks
 Report repository
 main
 Branches
@@ -299,7 +299,7 @@ Stars
 Watchers
 6 watching
 Forks
-138 forks
+140 forks
 Report repository
 Releases
 Packages

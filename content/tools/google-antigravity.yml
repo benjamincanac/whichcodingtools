@@ -72,10 +72,10 @@ pricing:
 status: active
 sources:
   - url: https://antigravity.google/pricing
-    verified_at: 2026-11-07
+    verified_at: 2026-11-13
     covers: [pricing, models]
   - url: https://gemini.google/us/subscriptions/
-    verified_at: 2026-11-10
+    verified_at: 2026-11-13
     covers: [pricing]
   - url: https://antigravity.google/download
     verified_at: 2026-08-23

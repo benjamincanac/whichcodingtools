@@ -126,10 +126,10 @@ pricing:
 status: active
 sources:
   - url: https://github.com/features/copilot/plans
-    verified_at: 2026-11-06
+    verified_at: 2026-11-14
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/get-started/plans
-    verified_at: 2026-11-03
+    verified_at: 2026-11-14
     covers: [pricing]
   - url: https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals
     verified_at: 2026-11-03

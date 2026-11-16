@@ -25,7 +25,8 @@ Same quality, fraction of the cost.
 Top performing models supported
 Claude Opus 5.5
 Claude Sonnet 5.5
-Claude Fable 5.1
+Claude Fable 5.2
+Gemini 4 Carbon
 Gemini 4 Argon
 Gemini 3.8 Flash
 GPT-6 ASTRA

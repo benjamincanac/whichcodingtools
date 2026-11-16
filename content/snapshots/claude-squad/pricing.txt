@@ -87,8 +87,8 @@ smtg-ai
 claude-squad
 Repository navigation
 Code
-Issues 16 ( 16 )
-Pull requests 34 ( 34 )
+Issues 15 ( 15 )
+Pull requests 37 ( 37 )
 Discussions
 Actions
 Projects
@@ -97,7 +97,7 @@ Insights
 More items
 claude-squad Public
 Notifications You must be signed in to change notification settings
-Fork 623 ( 623 )
+Fork 636 ( 636 )
 Star 8.8k ( 8.8k ) You must be signed in to star a repository
 About
 Manage multiple AI terminal agents like Claude Code, Codex, OpenCode, and Amp.
@@ -114,9 +114,9 @@ Custom properties
 Stars
 8.8k stars
 Watchers
-28 watching
+29 watching
 Forks
-623 forks
+636 forks
 Report repository
 main
 Branches
@@ -126,8 +126,8 @@ Code
 Open more actions menu
 Latest commit
 History
-222 Commits
-222 Commits
+223 Commits
+223 Commits
 Folders and files
 Name Name
 Last commit message
@@ -297,9 +297,9 @@ Custom properties
 Stars
 8.8k stars
 Watchers
-28 watching
+29 watching
 Forks
-623 forks
+636 forks
 Report repository
 Releases
 Used by
