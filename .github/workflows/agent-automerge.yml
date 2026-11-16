@@ -82,14 +82,14 @@ jobs:
           if ! grep -qE '^agent/[a-z0-9-]+$' <<<"$head_ref"; then
             echo "PR #$number is on $head_ref, which is not an agent branch"; exit 0
           fi
+          if [ "$draft" != "false" ]; then
+            echo "PR #$number is a draft"; exit 0
+          fi
           # COMMUNITY_BRANCH in agent/lib/github.ts: a session holding a stranger's text.
           if grep -qE '^agent/community-' <<<"$head_ref"; then
             echo "PR #$number is on $head_ref, the lane that waits for a person"
             { echo "number=$number"; echo "manual=yes"; } >> "$GITHUB_OUTPUT"
             exit 0
-          fi
-          if [ "$draft" != "false" ]; then
-            echo "PR #$number is a draft"; exit 0
           fi
 
           {
