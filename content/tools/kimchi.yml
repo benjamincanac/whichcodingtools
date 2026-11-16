@@ -1,0 +1,94 @@
+slug: kimchi
+name: Kimchi
+description: Open source terminal coding agent with a multi-model orchestrator, Ollama support for local models, and an ACP mode for JetBrains, VS Code and Zed.
+layer: harness
+vendor: Cast AI
+homepage: https://kimchi.dev
+links:
+  docs: https://docs.kimchi.dev
+  pricing: https://kimchi.dev/pricing
+  repo: https://github.com/getkimchi/kimchi
+platforms: [macos, linux, windows]
+install:
+  - method: curl
+    command: curl -fsSL https://github.com/getkimchi/kimchi/releases/latest/download/install.sh | bash
+  - method: brew
+    command: brew install getkimchi/tap/kimchi
+  - method: download
+    command: irm https://github.com/getkimchi/kimchi/releases/latest/download/install.ps1 | iex
+license:
+  spdx: Apache-2.0
+  kind: open-source
+  repo: https://github.com/getkimchi/kimchi
+models:
+  providers: [moonshot, minimax, anthropic]
+  byok: full
+  local: true
+  notes: The orchestrator picks a model per role. Models come through Kimchi's gateway, any OpenAI-compatible endpoint or Ollama. First launch also offers a login with an OpenAI Codex (ChatGPT) subscription.
+features: [mcp-client, subagents, hooks, plugins, acp-agent, remote-execution]
+pricing:
+  tiers:
+    - id: open-source
+      name: Open source
+      price: 0
+      audience: individual
+      limits:
+        - You run it on your own machine and bring your own inference
+        - No hosted inference
+    - id: coder
+      name: Coder
+      price: 20
+      audience: individual
+      included:
+        amount: 25
+        unit: usd
+        period: month
+        notes: Monthly credits
+      limits:
+        - Max 3 seats
+        - Max 1 team
+        - 1M context window
+        - Priority request speed
+    - id: teams
+      name: Teams
+      price: 35
+      audience: team
+      included:
+        amount: 45
+        unit: usd
+        period: month
+        notes: Monthly credits
+      limits:
+        - Max 150 seats
+        - Unlimited teams
+        - Kimchi Studio
+        - Team budget monitoring and RBAC
+        - Cloud marketplace billing
+    - id: enterprise
+      name: Enterprise
+      price: null
+      audience: enterprise
+      contact_sales: true
+      limits:
+        - Self-hosted deployment option in your VPC
+        - Unlimited seats
+status: active
+sources:
+  - url: https://kimchi.dev/pricing
+    verified_at: 2026-11-03
+    covers: [pricing]
+  - url: https://github.com/getkimchi/kimchi
+    verified_at: 2026-11-03
+    covers: [license]
+  - url: https://docs.kimchi.dev/docs/coding-getting-started.md
+    verified_at: 2026-11-03
+    covers: [platforms, general]
+  - url: https://docs.kimchi.dev/docs/coding-overview.md
+    verified_at: 2026-11-03
+    covers: [models, features]
+  - url: https://docs.kimchi.dev/docs/kimchi-cli.md
+    verified_at: 2026-11-03
+    covers: [features]
+  - url: https://docs.kimchi.dev/docs/coding-acp.md
+    verified_at: 2026-11-03
+    covers: [features]
