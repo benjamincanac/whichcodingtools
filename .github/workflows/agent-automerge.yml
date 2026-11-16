@@ -212,20 +212,35 @@ jobs:
           # --match-head-commit is what makes the merge fail closed. Everything above validated
           # one SHA, and `gh pr merge` would otherwise merge whatever the head is by then.
           #
-          # Three attempts, because GitHub refuses a merge while it recomputes mergeability after
-          # main moved. A conflict or a failed validation fails all three, the run goes red and
-          # the pull request stays open.
-          for attempt in 1 2 3; do
+          # GitHub refuses a merge with "Base branch was modified" while it recomputes mergeability
+          # after main moved, and a sweep merges a dozen pull requests in the same two minutes.
+          # Three tries 15 seconds apart lost that race, so a refused merge is retried for about
+          # six minutes, with a growing and jittered wait so the runs of one sweep spread
+          # out instead of retrying in step. A conflict or a failed validation is not going to
+          # clear on its own, so either one fails the run at once and the pull request stays
+          # open. A head that moved means a newer `ci` run owns the pull request now.
+          for attempt in 1 2 3 4 5 6 7 8; do
             git fetch --quiet origin main
             git checkout --quiet --force --detach origin/main
+            state=$(gh pr view "$NUMBER" --repo "${{ github.repository }}" --json state,headRefOid --jq '.state + " " + .headRefOid')
             # A merge that went through and still answered an error, the branch delete for one.
-            if [ "$(gh pr view "$NUMBER" --repo "${{ github.repository }}" --json state --jq .state)" = MERGED ]; then
+            if [ "${state% *}" = MERGED ]; then
               pnpm validate
               exit 0
             fi
-            if git -c user.name=agent-automerge -c user.email=agent-automerge@users.noreply.github.com merge --quiet --no-edit "$HEAD_SHA" \
-              && pnpm validate \
-              && gh pr merge "$NUMBER" \
+            if [ "${state#* }" != "$HEAD_SHA" ]; then
+              echo "PR #$NUMBER moved to ${state#* }, the ci run for that commit decides"
+              exit 0
+            fi
+            if ! git -c user.name=agent-automerge -c user.email=agent-automerge@users.noreply.github.com merge --quiet --no-edit "$HEAD_SHA"; then
+              echo "PR #$NUMBER conflicts with main"
+              exit 1
+            fi
+            if ! pnpm validate; then
+              echo "PR #$NUMBER fails validation merged into main"
+              exit 1
+            fi
+            if gh pr merge "$NUMBER" \
                 --repo "${{ github.repository }}" \
                 --match-head-commit "$HEAD_SHA" \
                 --squash --delete-branch \
@@ -236,8 +251,7 @@ jobs:
               pnpm validate
               exit 0
             fi
-            git merge --abort 2>/dev/null || true
-            sleep 15
+            if [ "$attempt" -lt 8 ]; then sleep $((attempt * 10 + RANDOM % 15)); fi
           done
           exit 1
 
