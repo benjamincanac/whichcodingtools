@@ -7,6 +7,9 @@
 # CodeRabbit FAQs: reviews, pricing, security, and setup
 > Answers to common CodeRabbit questions about triggering reviews, supported platforms, pricing, data privacy, self-hosting, and pull request automation.
 ## General Questions
+### Does CodeRabbit only review the diff?
+No. CodeRabbit reviews pull request changes using relevant context from across the repository. For example, if a PR changes a function, CodeRabbit can inspect a caller in another file outside the diff to understand how the change might affect it.
+See the [architecture overview](https://docs.coderabbit.ai/overview/architecture.md) for more about how CodeRabbit analyzes your code.
 ### How to trigger a CodeRabbit Review?
 Once installed, CodeRabbit automatically triggers a review when a pull request is opened against the main branch of any repository. We automatically detect the name of the primary branch (whether this be master, main, dev, etc.). You have fine-grained control over what gets reviewed: target branches, draft PRs, labels, title exclusions, and more — through [automatic review controls](https://docs.coderabbit.ai/configuration/auto-review.md).
 You can also manually trigger a review at any time by commenting on a pull request with one of these commands (see [Commands](https://docs.coderabbit.ai/guides/commands.md) for the full list):
@@ -15,20 +18,25 @@ You can also manually trigger a review at any time by commenting on a pull reque
 ### How to run a review from my IDE?
 You can trigger CodeRabbit reviews directly from your IDE using our editor plugins:
 * [VS Code Extension](https://docs.coderabbit.ai/ide.md) - For VS Code, Cursor or Windsurf users
+* [JetBrains plugin](https://docs.coderabbit.ai/ide/jetbrains.md) (beta) - For IntelliJ IDEA, PyCharm, WebStorm, and other JetBrains IDEs on version 2025.3 or later
 These plugins allow you to request reviews without leaving your development environment. See the individual plugin documentation for installation and usage instructions.
 ### How to install CodeRabbit?
 View step-by-step instructions depending on your platform:
-**GitHub**
-See our [GitHub App installation guide](https://docs.coderabbit.ai/platforms/github-com.md) for
-step-by-step instructions.
-**GitLab**
-Follow our [GitLab integration guide](https://docs.coderabbit.ai/platforms/gitlab-com.md) to get started.
-**Bitbucket**
-Check out the [Bitbucket installation steps](https://docs.coderabbit.ai/platforms/bitbucket-cloud.md) for
-detailed setup.
-**Azure DevOps**
-View our [Azure DevOps setup guide](https://docs.coderabbit.ai/platforms/azure-devops.md) for complete
-installation instructions.
+> [tab] GitHub
+>
+> See our [GitHub App installation guide](https://docs.coderabbit.ai/platforms/github-com.md) for
+> step-by-step instructions.
+> [tab] GitLab
+>
+> Follow our [GitLab integration guide](https://docs.coderabbit.ai/platforms/gitlab-com.md) to get started.
+> [tab] Bitbucket
+>
+> Check out the [Bitbucket installation steps](https://docs.coderabbit.ai/platforms/bitbucket-cloud.md) for
+> detailed setup.
+> [tab] Azure DevOps
+>
+> View our [Azure DevOps setup guide](https://docs.coderabbit.ai/platforms/azure-devops.md) for complete
+> installation instructions.
 ### How accurate is CodeRabbit?
 > CodeRabbit demonstrates high accuracy in code reviews based on early adoption results. While 100% accuracy isn't guaranteed due to AI's evolving nature, our technology continuously improves through:
 * Regular model updates
@@ -46,7 +54,7 @@ CodeRabbit offers two distinct features that serve different roles in your devel
 **Role**: Developer, QA, and Code Reviewer
 **Access Level**: Full code access with comprehensive analysis capabilities
 **Key Features:**
-* **Complete Toolchain**: Runs all available analysis tools on your codebase
+* **Complete Toolchain**: Runs the [third-party analysis tools](https://docs.coderabbit.ai/tools.md) that apply to your codebase and are enabled
 * **Static Analysis**: Can execute shell commands and perform deep static analysis against your codebase
 * **Direct Code Access**: Has full access to code in issues and pull requests
 * **Interactive Chat**: Provides chat features for real-time collaboration and questions
@@ -75,24 +83,30 @@ CodeRabbit offers two distinct features that serve different roles in your devel
 * **Reports** = High-level summaries with no code access for project management
 ### Data Security
 Your proprietary code remains confidential with CodeRabbit. CodeRabbit never uses customer code for model training. Data retention only controls whether CodeRabbit stores code-related data on our side to support features such as learnings and related review context. Data retention governs storage of code-related Knowledge Base data. Model output logging governs whether model outputs and reasoning from private-repository reviews may enter support troubleshooting logs.
-**Code Privacy**
-* Your code is shared with OpenAI and/or Anthropic for reviewing purposes only
-* Neither CodeRabbit, OpenAI, nor Anthropic uses your code to train our models
-* We adhere to rigorous privacy policies to guarantee the safety and confidentiality of your code
-* Complete data isolation for your proprietary code
-**Code Storage**
-* Caching of encrypted code and dependency archives for faster reviews
-* Code indexing in which we store vector representations of code for efficient code base context
-* Longer-lived review context such as Learnings (opt out available)
-* On self-hosted CodeRabbit (available for Enterprise), you can opt out of all data retention at any time
-**Training Data**
-* CodeRabbit never uses customer code for training
-* This remains true whether data retention is enabled or disabled
-* Data retention only affects storage of code-related data such as learnings and review context
-**Model output logging**
-Eligible **non-open-source** organizations can enable **Account > Settings > Model output logging**. The control is **off by default**, with no automatic opt-in. Organization Settings read access governs visibility, and Organization Settings write access is required to change it. Open-source organizations and organizations without a qualifying plan cannot enable the setting.
-When enabled, OpenAI and Anthropic model outputs and reasoning from **private-repository** reviews may be included in support troubleshooting logs. CodeRabbit excludes prompts, does not use logged data for training, and does not change existing logging behavior for public or open-source repositories.
-Changes apply to reviews started after the setting is saved.
+> [tab] Code Privacy
+>
+> * Your code is shared with OpenAI and/or Anthropic for reviewing purposes only
+> * Neither CodeRabbit, OpenAI, nor Anthropic uses your code to train our models
+> * We adhere to rigorous privacy policies to guarantee the safety and confidentiality of your code
+> * Complete data isolation for your proprietary code
+> [tab] Code Storage
+>
+> * Caching of encrypted code and dependency archives for faster reviews
+> * Code indexing in which we store vector representations of code for efficient code base context
+> * Longer-lived review context such as Learnings (opt out available)
+> * On self-hosted CodeRabbit (available for Enterprise), you can opt out of all data retention at any time
+> [tab] Training Data
+>
+> * CodeRabbit never uses customer code for training
+> * This remains true whether data retention is enabled or disabled
+> * Data retention only affects storage of code-related data such as learnings and review context
+> [tab] Model output logging
+>
+> Eligible **non-open-source** organizations can enable **Account > Settings > Model output logging**. The control is **off by default**, with no automatic opt-in. Organization Settings read access governs visibility, and Organization Settings write access is required to change it. Open-source organizations and organizations without a qualifying plan cannot enable the setting.
+>
+> When enabled, OpenAI and Anthropic model outputs and reasoning from **private-repository** reviews may be included in support troubleshooting logs. CodeRabbit excludes prompts, does not use logged data for training, and does not change existing logging behavior for public or open-source repositories.
+>
+> Changes apply to reviews started after the setting is saved.
 ### Organization Management
 Switch between organizations easily:
 1. Click organization name (top-left corner)
@@ -154,7 +168,7 @@ Review limits apply per developer identity. If a CI bot, a shared service accoun
 You can comment `@coderabbitai rate limit` or ask an obvious question such as `@coderabbitai reviews remaining?` to check whether another PR review is available and when to try again without consuming a review.
 ## Plans and Pricing
 ### What's the difference between Essentials, Team, and Advanced?
-The **Essentials plan** includes the core AI code review experience — PR reviews, docstrings, review fixes, built-in pre-merge checks, integrations, Knowledge base (The collected context sources CodeRabbit draws on during reviews: Learnings, Code Guidelines, issue trackers, connected MCP servers, and cross-repo analysis.), and analytics. Essentials was previously called Pro.
+The **Essentials plan** includes the core AI code review experience — PR reviews, review fixes, built-in pre-merge checks, integrations, Knowledge base (The collected context sources CodeRabbit draws on during reviews: Learnings, Code Guidelines, issue trackers, connected MCP servers, and cross-repo analysis.), and analytics. Essentials was previously called Pro.
 The **Team plan** includes everything in Essentials, plus Triage (A single cross-repository queue of open pull requests, ranked by what each one needs next and what acting on it is worth.). It also includes tasks and actions that happen upstream and downstream of the review process — [CodeRabbit Plan](https://docs.coderabbit.ai/plan.md), issue planning, [unit test generation](https://docs.coderabbit.ai/finishing-touches/unit-test-generation.md), [simplify code](https://docs.coderabbit.ai/finishing-touches/simplify.md), [merge conflict resolution](https://docs.coderabbit.ai/finishing-touches/resolve-merge-conflict.md), and other pre/post-merge actions. Team was previously called Pro+ and offers higher [rate limits](https://docs.coderabbit.ai/management/plans.md#rate-limits) and increased limits for [MCP connections](https://docs.coderabbit.ai/connections/mcp-servers.md) and [linked repository analysis](https://docs.coderabbit.ai/knowledge-base/multi-repo-analysis.md).
 The **Advanced plan** includes everything in Team and adds continuous pull request security review through CodeRabbit Security. Deep Scan remains usage-based and is billed separately.
 See [Plans and pricing](https://docs.coderabbit.ai/management/plans.md) for the full comparison.
@@ -197,25 +211,35 @@ the change. For the full flow, see [Canceling a paid subscription](https://docs.
 If CodeRabbit is not functioning on certain repositories, it is likely due to the repository not being accessible to CodeRabbit and you must reinstall the GitHub App or GitLab Integration.
 For newly added GitHub organizations, first use **Refresh organization list** in CodeRabbit after returning from GitHub. If the organization or repositories are not visible immediately, refresh or retry the add flow; CodeRabbit preserves your place while setup is active. If setup is not completed promptly (about 30 minutes), restart **Add organization**.
 To troubleshoot this issue, please attempt to reinstall the GitHub App or GitLab Integration by following the steps below:
-**General Instructions**
-1. Confirm that the author of a pull request has an active seat in CodeRabbit. If not please provide a seat to the user under [Subscription](https://app.coderabbit.ai/settings/subscription) page to enable CodeRabbit for the user. Then have the user close/reopen a new pull request for the change to see CodeRabbit active on the new user.
-2. Please ensure if not selecting all repositories, that you have added all repositories that you would like to enable to the selected list in the app configuration.
-3. If the repository is not in the list, you do not have to uninstall and reinstall the CodeRabbit App. Please add it to the list.
-![Select Repos](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/select-repos.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=aa57a44bcf721e056ae003ef0b495e3f)
-**GitHub**
-1. Go to Repository settings
-2. Click **GitHub Apps** in the left sidebar under **Integrations**
-3. Select **Configure**
-![Select Repos](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/assets/images/github-app-settings-06660d4ae7168ff37bad71c1b8f9697d.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=853b6d37174e22548c6504e694407edd)
-4. Click **Uninstall** at the bottom of the app configuration page.
-![Uninstall](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/coderabbit-github-menu.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=c31baa3cada424cda0b614a8168f87e0)
-5. Go into the [CodeRabbit App](https://github.com/apps/coderabbitai) and install it again with the **Add Repository** button.
-![Add Repository](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/add-repository.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=f4bb387682ea14fa18096b9e568e3c6e)
-**GitLab**
-1. Remove OAuth App from User Settings > Applications
-2. Remove Webhook from Group > Project Settings > Webhooks
-3. Go into the [CodeRabbit App](https://gitlab.com/apps/coderabbitai) and install it again.
-![Install](https://mintcdn.com/coderabbit/69LGK0BhaHIxrC15/images/platforms/img/integrations/gitlab-webhook.png?fit=max\&auto=format\&n=69LGK0BhaHIxrC15\&q=85\&s=b471c4147b9f77e08fbf1c5c1ffbe17c)
+> [tab] General Instructions
+>
+> 1. Confirm that the author of a pull request has an active seat in CodeRabbit. If not please provide a seat to the user under [Subscription](https://app.coderabbit.ai/settings/subscription) page to enable CodeRabbit for the user. Then have the user close/reopen a new pull request for the change to see CodeRabbit active on the new user.
+>
+> 2. Please ensure if not selecting all repositories, that you have added all repositories that you would like to enable to the selected list in the app configuration.
+>
+> 3. If the repository is not in the list, you do not have to uninstall and reinstall the CodeRabbit App. Please add it to the list.
+>
+> ![Select Repos](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/select-repos.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=aa57a44bcf721e056ae003ef0b495e3f)
+> [tab] GitHub
+>
+> 1. Go to Repository settings
+> 2. Click **GitHub Apps** in the left sidebar under **Integrations**
+> 3. Select **Configure**
+>
+> ![Select Repos](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/assets/images/github-app-settings-06660d4ae7168ff37bad71c1b8f9697d.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=853b6d37174e22548c6504e694407edd)
+> 4. Click **Uninstall** at the bottom of the app configuration page.
+>
+> ![Uninstall](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/coderabbit-github-menu.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=c31baa3cada424cda0b614a8168f87e0)
+> 5. Go into the [CodeRabbit App](https://github.com/apps/coderabbitai) and install it again with the **Add Repository** button.
+>
+> ![Add Repository](https://mintcdn.com/coderabbit/D_rqUjBaYiE185JH/images/faq/add-repository.png?fit=max\&auto=format\&n=D_rqUjBaYiE185JH\&q=85\&s=f4bb387682ea14fa18096b9e568e3c6e)
+> [tab] GitLab
+>
+> 1. Remove OAuth App from User Settings > Applications
+> 2. Remove Webhook from Group > Project Settings > Webhooks
+> 3. Go into the [CodeRabbit App](https://gitlab.com/apps/coderabbitai) and install it again.
+>
+> ![Install](https://mintcdn.com/coderabbit/69LGK0BhaHIxrC15/images/platforms/img/integrations/gitlab-webhook.png?fit=max\&auto=format\&n=69LGK0BhaHIxrC15\&q=85\&s=b471c4147b9f77e08fbf1c5c1ffbe17c)
 ### How do I delete my CodeRabbit account?
 > [!CAUTION]
 >
@@ -233,65 +257,81 @@ To troubleshoot this issue, please attempt to reinstall the GitHub App or GitLab
 > Organization-scoped CodeRabbit Security data is permanently removed. Reactivating an organization does not restore prior Security scans, findings, settings, or related records.
 >
 > Deleting the organization immediately cancels any active subscription rather than leaving it active through the end of the current billing term.
-**Account Deletion Steps**
-1. Sign into your CodeRabbit account
-2. Navigate to the [**Subscription and Billing**](https://app.coderabbit.ai/settings/subscription) page
-3. Select the **Danger Zone** tab
-4. In the **Delete account** section, click **Delete account**
-5. Review the deletion confirmation drawer and acknowledge the required warnings
-6. Type `delete ` to confirm
-7. Complete platform-specific cleanup on the tab above.
-> [!NOTE]
+> [tab] Account Deletion Steps
 >
-> The **Danger Zone** tab and **Delete account** action are only visible to admin users.
-A confirmation drawer will appear explaining the consequences of account deletion. You can expand each section for detailed information.
-**GitHub Cleanup**
-After account deletion, remove CodeRabbit from GitHub. The settings live in different places depending on whether CodeRabbit was installed on an organization or on your personal account.
-> **Organization accounts**
+> 1. Sign into your CodeRabbit account
 >
-> Remove the OAuth app:
+> 2. Navigate to the [**Subscription and Billing**](https://app.coderabbit.ai/settings/subscription) page
 >
-> 1. Go to Organization settings
-> 2. Under **Third-party Access**, click **OAuth app policy**
-> 3. Find **coderabbitai** and click the pencil icon
-> 4. Click **Revoke**
+> 3. Select the **Danger Zone** tab
 >
-> Uninstall the GitHub App:
+> 4. In the **Delete account** section, click **Delete account**
 >
-> 1. Go to Organization settings
-> 2. Under **Third-party Access**, click **GitHub Apps**
-> 3. Select **Configure**
-> 4. Click **Uninstall**
-> **Personal accounts**
+> 5. Review the deletion confirmation drawer and acknowledge the required warnings
 >
-> Personal accounts have no organization settings, so use your own account settings instead.
+> 6. Type `delete ` to confirm
 >
-> Revoke the OAuth app:
+> 7. Complete platform-specific cleanup on the tab above.
 >
-> 1. Click your profile picture, then select **Settings**
-> 2. In the sidebar, under **Integrations**, click **Applications**
-> 3. Open the **Authorized OAuth Apps** tab
-> 4. Find **coderabbitai** and click the three-dot menu, then select **Revoke**
+> > [!NOTE]
+> >
+> > The **Danger Zone** tab and **Delete account** action are only visible to admin users.
 >
-> Uninstall the GitHub App:
+> A confirmation drawer will appear explaining the consequences of account deletion. You can expand each section for detailed information.
+> [tab] GitHub Cleanup
 >
-> 1. Go to **Settings** > **Integrations** > **Applications**
-> 2. Open the **Installed GitHub Apps** tab
-> 3. Find **CodeRabbit** and click **Configure**
-> 4. In the **Danger zone** section, click **Uninstall**
-**GitLab Cleanup**
-Complete these steps:
-1. Remove OAuth App from User Settings > Applications
-2. Remove Webhook from Group > Project Settings > Webhooks
-3. Remove Bot User from Group > Manage > Members
-**Azure DevOps Cleanup**
-1. Go to Project Settings > Service Hooks
-2. Delete CodeRabbit webhooks
-3. Remove CodeRabbit user or delete associated Personal Access Token
-**Bitbucket Cleanup**
-1. Go to Project Settings > Webhooks
-2. Delete CodeRabbit webhooks
-3. Remove CodeRabbit user or delete associated App Passwords
+> After account deletion, remove CodeRabbit from GitHub. The settings live in different places depending on whether CodeRabbit was installed on an organization or on your personal account.
+>
+> > [accordion] Organization accounts
+> >
+> > Remove the OAuth app:
+> >
+> > 1. Go to Organization settings
+> > 2. Under **Third-party Access**, click **OAuth app policy**
+> > 3. Find **coderabbitai** and click the pencil icon
+> > 4. Click **Revoke**
+> >
+> > Uninstall the GitHub App:
+> >
+> > 1. Go to Organization settings
+> > 2. Under **Third-party Access**, click **GitHub Apps**
+> > 3. Select **Configure**
+> > 4. Click **Uninstall**
+>
+> > [accordion] Personal accounts
+> >
+> > Personal accounts have no organization settings, so use your own account settings instead.
+> >
+> > Revoke the OAuth app:
+> >
+> > 1. Click your profile picture, then select **Settings**
+> > 2. In the sidebar, under **Integrations**, click **Applications**
+> > 3. Open the **Authorized OAuth Apps** tab
+> > 4. Find **coderabbitai** and click the three-dot menu, then select **Revoke**
+> >
+> > Uninstall the GitHub App:
+> >
+> > 1. Go to **Settings** > **Integrations** > **Applications**
+> > 2. Open the **Installed GitHub Apps** tab
+> > 3. Find **CodeRabbit** and click **Configure**
+> > 4. In the **Danger zone** section, click **Uninstall**
+> [tab] GitLab Cleanup
+>
+> Complete these steps:
+>
+> 1. Remove OAuth App from User Settings > Applications
+> 2. Remove Webhook from Group > Project Settings > Webhooks
+> 3. Remove Bot User from Group > Manage > Members
+> [tab] Azure DevOps Cleanup
+>
+> 1. Go to Project Settings > Service Hooks
+> 2. Delete CodeRabbit webhooks
+> 3. Remove CodeRabbit user or delete associated Personal Access Token
+> [tab] Bitbucket Cleanup
+>
+> 1. Go to Project Settings > Webhooks
+> 2. Delete CodeRabbit webhooks
+> 3. Remove CodeRabbit user or delete associated App Passwords
 > [!WARNING]
 >
 > The platform-specific cleanup steps are necessary to completely remove CodeRabbit access. Without completing these steps:

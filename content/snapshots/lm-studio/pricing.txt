@@ -5,15 +5,14 @@ Bionic Pricing | LM Studio
 LM Studio
 Models
 Resources
-Docs Careers Blog Changelog Developers Pricing
-Models
-Resources
-Docs Careers Blog Changelog Developers Pricing
+Enterprise Docs Docs Careers Blog Changelog
+Developers
+Pricing
 Create account
 Download
 Download Login
 Pricing
-Bionic cloud inference is US-hosted, with Zero data retention (ZDR)
+Bionic cloud inference is US-hosted, with Zero Data Retention (ZDR)
 Free
 $ 0
 Run local LLMs on your machine
@@ -48,27 +47,25 @@ Can I use Bionic for free?
 Yes. The Free plan includes Bionic Agent and local model support.
 Can I continue running models locally?
 Yes. Bionic supports local models alongside optional cloud models.
-What does zero data retention mean?
-Zero data retention means your prompts and responses are not stored by the provider.
+What does Zero Data Retention (ZDR) mean?
+Zero Data Retention (ZDR) means your prompts and responses are not stored by the provider.
 Does web search use Zero Data Retention (ZDR)?
 Yes. Web search uses Zero Data Retention (ZDR). However, querying and processing data from the web always carries its own privacy and security risks. Be mindful of sensitive information in your queries and treat web content as untrusted.
 What are cloud credits for?
 Cloud credits cover usage beyond the allowance included with your plan.
 Do you offer plans for teams?
-We currently offer centralized billing for teams using inference credits. Create an organization and invite your team. Subscription plans for teams coming soon.
+Yes. Create an organization and choose between pay-as-you-go pooled credits or team seat-based plans.
 Can I change my plan later?
 You can manage your plan from your dashboard.
 LM Studio
 Product
-Download the app Models LM Link LM Studio Hub Beta Releases
-Changelog
-Changelog
+Download the app Models LM Link LM Studio Hub Beta Releases Changelog
 Developer
 Developer Docs lmstudio-js lmstudio-python LM Studio CLI (lms) llms.txt
 Company
 Careers We're Hiring!
 Blog RSS feed
-Enterprise Solutions Brand Guidelines
+Enterprise Solutions Brand Guidelines Trust Center
 Legal
 Terms Privacy
 Element Labs, Inc. © 2026

@@ -457,6 +457,8 @@ Model multipliers for annual plans (legacy)
 Review excluded files
 Copilot usage metrics
 Copilot usage metrics data
+Coverage and requirements
+Industry comparisons
 Interpret usage metrics
 Reconciling Copilot usage metrics
 Copilot LoC metrics
@@ -467,6 +469,7 @@ Agent session filters
 Agentic audit log events
 Enterprise managed settings
 MCP private registry enforcement
+OpenTelemetry reference
 Policy conflicts
 Tutorials
 All tutorials
@@ -653,6 +656,8 @@ To set up a budget for GitHub AI Credits, see Setting up budgets to control spen
 About changes to your Copilot plan
 If you have an active Copilot Pro, Copilot Pro+, or Copilot Max plan, and are then assigned a seat through Copilot Business, Copilot Enterprise, or Copilot access, your personal Copilot plan will be automatically canceled. This includes Copilot access through GitHub Enterprise Cloud or as Copilot Standalone. You will receive a prorated refund for any remaining portion of your personal plan's current billing cycle. You will then be able to continue using Copilot according to the policies set by your company.
 You can cancel your Copilot plan at any time. The cancellation will take effect at the end of your current billing cycle. See Viewing and changing your GitHub Copilot plan .
+AI credits usage beyond your plan’s included amount is billed after it occurs, separately from your subscription renewal. You must pay for usage you incurred before you canceled, downgraded to Copilot Free, or reduced your additional usage budget to $0. Usage from your final days on the plan might not appear on your last invoice, so you might receive a charge after you cancel.
+To investigate a charge, review the payment history section in Managing your payment and billing information and compare the invoice or receipt with the usage dates in the usage reports section of Viewing your usage of metered products and licenses . Your current plan, budget, or payment date alone does not show when the usage occurred.
 Determining your billing date
 Your billing date will depend on whether or not you are already being billed by GitHub.
 If you are not already being billed by GitHub , in most cases your billing cycle will start on the day you sign up for Copilot. For example, if you sign up on 3 September, with monthly billing, your initial billing cycle will run from 3 September until and including 2 October, and then on the same days of subsequent months.
@@ -674,7 +679,6 @@ We recommend keeping your IDE, client, and Copilot extensions on the latest avai
 Further reading
 Plans for GitHub Copilot
 Manage your GitHub Copilot account
-Managing your payment and billing information
 Back to top
 Help and support
 Was this Doc helpful?
