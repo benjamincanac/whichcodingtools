@@ -56,7 +56,7 @@ pricing:
         - Extra usage past the credit is off until you raise the limit in your account, it defaults to $0 per UTC month
         - Jcode Cloud included, 50 machine hours each month for every ten dollars of plan
         - Remote Rust builds with justrust, only on plans from $20, 2,500 each UTC month for every ten dollars of plan
-        - Free trial of the first month of the $20 plan, with 5,000 builds, inference credit starts with the first paid month, card required
+        - Free trial of 7 days of the $20 plan, with up to 500 builds (ends at whichever comes first), inference credit starts with the first paid invoice or earlier from your account, card required
       notes: Monthly plan chosen from $10 to $1,000; the credit and the Jcode Cloud hours scale with the plan.
     - id: enterprise
       name: Enterprise
@@ -67,10 +67,10 @@ pricing:
 status: active
 sources:
   - url: https://jcode.sh/pricing
-    verified_at: 2026-11-03
+    verified_at: 2026-11-10
     covers: [pricing, general]
   - url: https://jcode.sh/enterprise
-    verified_at: 2026-11-03
+    verified_at: 2026-11-10
     covers: [pricing]
   - url: https://github.com/1jehuang/jcode
     verified_at: 2026-09-04

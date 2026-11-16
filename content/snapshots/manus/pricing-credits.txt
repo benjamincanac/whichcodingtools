@@ -15,7 +15,7 @@ Credits & Usage
 What are the rules for credits consumption? And how can I obtain them?
 What are the rules for credits consumption? And how can I obtain them?
 Learn how Manus credits work, consumption rules, and how to obtain more credits.
-Updated over a week ago
+Updated this week
 Table of contents
 How do credits work?
 Credits are primarily consumed based on:
@@ -34,7 +34,7 @@ The monthly consumption limit for daily refresh credits for free users is set to
 Monthly credits are obtained through subscription and automatically refresh on the same date each month based on your subscription date.
 Add-On credits: These credits can only be used with an active paid subscription, and can be rolled/carried over to your next subscription cycle(s) as long as you have an active paid subscription. If your account switches to a Free membership or the subscription lapses, these credits become inactive.
 Free credits never expire.
-Unused credits require an active paid subscription to remain valid. If your subscription is canceled, any remaining purchased credits may no longer be accessible.
+Unused add-on credits require an active paid subscription to remain valid. If your subscription is canceled, any remaining purchased credits may no longer be accessible.
 Event credits can be earned by participating in events and expire when the event ends.
 Monthly credits need to be used within the subscription period. For example, if you purchase a $20 Pro membership on January 1st, you will receive 4000 monthly credits, and these credits need to be used before February 1st. If not used up, they will reset on February 1st.
 What happens if my credits reach zero during a task?
@@ -54,7 +54,7 @@ If you are on an annual subscription, your credits refresh monthly during the su
 Impact of Plan Upgrades
 Upgrading to a higher plan during a billing cycle does not alter the original cycle end date. Your credits will still refresh on the same calendar date as before. When the new cycle begins, you will receive the updated credit allocation associated with your upgraded plan. It is important to note that unused credits from the previous cycle are cleared on the original renewal date, even if you upgrade mid-cycle. When you upgrade mid-cycle, the system will issue the credits for the difference between the two plans based on the remaining time of your current plan after you upgrade and pay.
 Policy on Unused Credits and Rollover
-Manus does not allow unused credits to roll over to the next cycle. At the start of each new cycle, all unused credits are cleared and replaced with the new allocation for that cycle. This policy applies to both monthly and annual subscriptions. To maximize the value of your subscription, ensure that you use all your credits within the current cycle.
+Manus does not allow unused subscription credits to roll over to the next cycle. At the start of each new cycle, all unused subscription credits are cleared and replaced with the new allocation for that cycle. This policy applies to both monthly and annual subscriptions. To maximize the value of your subscription, ensure that you use all your credits within the current cycle.
 *Please note that both credit purchases and credit refreshes follow the UTC+0 timezone.
 Credits Refresh Rule: Google Play Subscribers
 Google Play subscriptions will have time accumulation in upgrade scenarios, causing subscription cycles to exceed one month, but credits are still refreshed monthly. If proration leads to the last credit refresh cycle being less than one full month, the credits issued for that final period will be prorated based on the remaining time. Total credits will be calculated based on your remaining duration divided by the month’s total duration, and multiplying that by your total monthly credits ( Remaining duration/total duration of the month * total monthly credits ).

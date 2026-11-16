@@ -54,7 +54,7 @@ machine hours per $10 of plan. Inference beyond the credit is billed at provider
 with an extra usage limit that defaults to $0 per month. Raise it in your account ; custom limits are kept when you change plans.
 Remote Rust builds
 justrust runs your agent's cargo check and test on a bigger machine when that is faster.
-Free trial First month of the $20 plan free, with 5,000 builds. Inference credit starts with the first paid month, and you can start it early from your account. Card required, $20/month after unless canceled.
+Free trial 7 days of the $20 plan free, with up to 500 builds (the trial ends at whichever comes first). Inference credit starts with the first paid invoice, and you can start it early from your account. Card required, $20/month after unless canceled.
 Included Plans from $20: 2,500 builds each UTC month for every $10 of plan, so $20 gets 5,000 and $100 gets 25,000.
 After that $0.10 per paid extra build, with a separate monthly limit that defaults to $0. Opt in and adjust it in your account . Included and trial builds are unaffected; builds never count toward your extra usage limit.
 jcode

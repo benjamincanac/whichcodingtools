@@ -33,9 +33,6 @@ pricing:
       name: Open source
       price: 0
       audience: individual
-      limits:
-        - Your own keys or a free Nous Portal account with standard rate limits
-        - Free models only
     - id: portal-plus
       name: Nous Portal Plus
       price: 20
@@ -73,7 +70,7 @@ pricing:
 status: active
 sources:
   - url: https://portal.nousresearch.com
-    verified_at: 2026-11-01
+    verified_at: 2026-11-05
     covers: [pricing]
   - url: https://github.com/NousResearch/hermes-agent
     verified_at: 2026-08-23
