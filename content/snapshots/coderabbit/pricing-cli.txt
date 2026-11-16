@@ -16,36 +16,42 @@ coderabbit review --uncommitted # Staged and tracked local edits
 coderabbit review --include-untracked # Also review files not added to Git
 ```
 ## Key features
-> **Review local changes**
+> [card] Review local changes
 >
 > Catch bugs before they reach your repository. CodeRabbit scans committed and uncommitted Git changes for race conditions, null pointer exceptions, and logic errors.
-> **Turn findings into fixes**
+> [card] Turn findings into fixes
 >
 > CodeRabbit reports each issue with fix guidance. Apply the change in your editor, or pass structured findings to your AI coding agent to implement it.
-> **Context-aware reviews**
+> [card] Context-aware reviews
 >
 > Paid plans unlock reviews powered by your team's codebase history: error handling conventions, architectural patterns, and coding preferences applied automatically to every review.
-> **[Install agent skills](https://docs.coderabbit.ai/cli/skills.md)**
+> [card] [Install agent skills](https://docs.coderabbit.ai/cli/skills.md)
 >
 > Run `coderabbit skills` to preview and install or update verified CodeRabbit skills for supported coding agents.
 ## Getting started
 **1. Install CLI**
 Install the CLI using your preferred method:
-**Install script**
-```bash theme={null}
-curl -fsSL https://cli.coderabbit.ai/install.sh | sh
-```
-If `coderabbit` is not available immediately after installation, start a new shell, or run the exact shell-specific reload command printed under **Next steps**. If the install script offers browser sign-in without first asking for a region, EU users should skip it and authenticate later with an explicit `--region eu`.
-**Homebrew**
-```bash theme={null}
-brew install coderabbit
-```
-If `coderabbit` is not available immediately after installation, start a new shell.
-**Windows**
-```powershell PowerShell theme={null}
-irm https://cli.coderabbit.ai/install.ps1 | iex
-```
-See [Install CodeRabbit CLI on Windows](https://docs.coderabbit.ai/cli/windows.md) for prerequisites, version pinning, and troubleshooting. If `coderabbit` is not available immediately after installation, open a new PowerShell window.
+> [tab] Install script
+>
+> ```bash theme={null}
+> curl -fsSL https://cli.coderabbit.ai/install.sh | sh
+> ```
+>
+> If `coderabbit` is not available immediately after installation, start a new shell, or run the exact shell-specific reload command printed under **Next steps**. If the install script offers browser sign-in without first asking for a region, EU users should skip it and authenticate later with an explicit `--region eu`.
+> [tab] Homebrew
+>
+> ```bash theme={null}
+> brew install coderabbit
+> ```
+>
+> If `coderabbit` is not available immediately after installation, start a new shell.
+> [tab] Windows
+>
+> ```powershell PowerShell theme={null}
+> irm https://cli.coderabbit.ai/install.ps1 | iex
+> ```
+>
+> See [Install CodeRabbit CLI on Windows](https://docs.coderabbit.ai/cli/windows.md) for prerequisites, version pinning, and troubleshooting. If `coderabbit` is not available immediately after installation, open a new PowerShell window.
 **2. Authenticate**
 Link your CodeRabbit account to enable personalized reviews based on your team's patterns.
 ```bash theme={null}
@@ -261,22 +267,22 @@ CodeRabbit detects the problems, then your AI coding agent implements the fixes.
 > **Claude Code users**: Claude Code now supports CodeRabbit through a native plugin. See the [Claude Code integration guide](https://docs.coderabbit.ai/cli/claude-code-integration.md) for the recommended plugin-based setup using `/coderabbit:coderabbit-review` instead of the CLI commands shown below.
 ### Integration guides
 See detailed workflows for AI coding agents and workflows:
-> **[CodeRabbit Skills](https://docs.coderabbit.ai/cli/skills.md)**
+> [card] [CodeRabbit Skills](https://docs.coderabbit.ai/cli/skills.md)
 >
 > Run `coderabbit skills` to install agent-native Skills and trigger reviews with an explicit request such as "Run a CodeRabbit review."
-> **[Antigravity integration](https://docs.coderabbit.ai/cli/antigravity.md)**
+> [card] [Antigravity integration](https://docs.coderabbit.ai/cli/antigravity.md)
 >
 > Install the CodeRabbit plugin in Antigravity so its agent reviews and fixes your changes.
-> **[Claude Code integration](https://docs.coderabbit.ai/cli/claude-code-integration.md)**
+> [card] [Claude Code integration](https://docs.coderabbit.ai/cli/claude-code-integration.md)
 >
 > Automated workflow with background execution and task-based fixes
-> **[Codex integration](https://docs.coderabbit.ai/cli/codex-integration.md)**
+> [card] [Codex integration](https://docs.coderabbit.ai/cli/codex-integration.md)
 >
 > Integrated code review and fix implementation with Codex CLI
-> **[Cursor integration](https://docs.coderabbit.ai/cli/cursor-integration.md)**
+> [card] [Cursor integration](https://docs.coderabbit.ai/cli/cursor-integration.md)
 >
 > Install the CodeRabbit plugin so Cursor Agent routes review requests to CodeRabbit
-> **[Headless CLI integration](https://docs.coderabbit.ai/cli/headless-cli-integration.md)**
+> [card] [Headless CLI integration](https://docs.coderabbit.ai/cli/headless-cli-integration.md)
 >
 > Authenticate CodeRabbit non-interactively in GitHub Actions and other bot-driven automation
 For the structure of `--agent` output and the exit codes your agent should check, see [agent mode output and exit codes](https://docs.coderabbit.ai/cli/agent-mode.md). To make a review exit with code `2` when it reports findings at or above a severity, such as `cr review --agent --gate major`, see [Gate a review on finding severity](https://docs.coderabbit.ai/cli/agent-mode.md#gate-a-review-on-finding-severity).
@@ -287,7 +293,7 @@ Please implement phase 7.3 of the planning doc and then run cr --agent, let it r
 ```
 ### Components of a good prompt
 Breaking down what makes an effective CodeRabbit + AI agent workflow:
-> **1. Run CodeRabbit CLI**
+> [accordion] 1. Run CodeRabbit CLI
 >
 > Tell your AI agent to run CodeRabbit with the `--agent` flag:
 >
@@ -304,14 +310,14 @@ Breaking down what makes an effective CodeRabbit + AI agent workflow:
 > # With specific base branch
 > cr --agent --base develop
 > ```
-> **2. Run in the background**
+> [accordion] 2. Run in the background
 >
 > CodeRabbit reviews can take 7-30+ minutes depending on the scope of changes. Instruct your AI agent to run CodeRabbit in the background and set up a timer to check periodically:
 >
 > ```text Prompt wrap theme={null}
 > Run cr review --agent --uncommitted in the background, let it take as long as it needs, and check on it periodically.
 > ```
-> **3. Evaluate and implement fixes**
+> [accordion] 3. Evaluate and implement fixes
 >
 > Once CodeRabbit completes, have your AI agent evaluate the findings and prioritize:
 >
@@ -320,14 +326,14 @@ Breaking down what makes an effective CodeRabbit + AI agent workflow:
 > ```
 >
 > This keeps your agent focused on meaningful improvements rather than minor style issues. If the `complete` event has `status: "review_skipped"`, there were no file changes in scope.
-> **4. Verify with a second pass**
+> [accordion] 4. Verify with a second pass
 >
 > Run CodeRabbit one more time to ensure fixes didn't introduce new issues:
 >
 > ```text Prompt wrap theme={null}
 > Once those changes are implemented, run cr --agent one more time to make sure we addressed all the critical issues and didn't introduce any additional bugs.
 > ```
-> **5. Set loop limits**
+> [accordion] 5. Set loop limits
 >
 > Prevent infinite iteration by setting clear completion criteria:
 >
@@ -338,10 +344,10 @@ Breaking down what makes an effective CodeRabbit + AI agent workflow:
 > This ensures your AI agent completes the task efficiently and provides a clear report.
 ## Pricing and capabilities
 See the [rate limits table on the Plans and pricing page](https://docs.coderabbit.ai/management/plans.md#rate-limits) for current per-plan limits. To increase the limits, consider upgrading your plan or using [usage-based reviews](#cli-with-usage-based-add-on).
-> **Free tier**
+> [card] Free tier
 >
 > Basic static analysis with limited daily usage. Catches syntax errors, logic issues, and security vulnerabilities. Eligible Free users may see an Advanced trial prompt after sign-in or when a CLI review reaches the rate limit.
-> **Paid plans**
+> [card] Paid plans
 >
 > Enhanced reviews powered by learnings from your CodeRabbit organization plus higher rate limits and more files per review. Paid users reviewing repositories connected to that organization get:
 >
@@ -349,7 +355,7 @@ See the [rate limits table on the Plans and pricing page](https://docs.coderabbi
 > * **Full contextual analysis**: Understands your imports, dependencies, and project structure
 > * **Team standards enforcement**: Applies your documented coding guidelines automatically
 > * **Advanced issue detection**: Spots subtle race conditions, performance bottlenecks, and security vulnerabilities
-> **Usage-based reviews (pay-as-you-go)**
+> [card] Usage-based reviews (pay-as-you-go)
 >
 > Continues eligible CodeRabbit CLI reviews after rate limits
 >

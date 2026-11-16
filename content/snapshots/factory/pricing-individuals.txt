@@ -5,7 +5,8 @@ Individual Plans
 Factory
 Documentation API Reference Changelog
 Search ⌘K
-Log in / Sign up
+Sign in
+Download
 Welcome
 Start Here
 Plans & Pricing
@@ -23,33 +24,20 @@ Plans & Pricing
 Individual Plans
 Individual Plans
 Copy page
-Compare Factory Pro, Plus, and Max plans for individual developers.
-Individual plans are for developers who own their own Factory subscription. Pro, Plus, and Max include the Factory App , Droid CLI , and Droid SDK , with usage governed by rolling Rate Limits.
-Individual tiers
-Pro · $20/mo
-Factory App , Droid CLI , and Droid SDK
-Cloud and local background agents
-Managed Droid Computers for remote runs
-Billing, usage, and readiness dashboards Get started
-Pro · $20/mo
-Plus · $100/mo
-Everything in Pro
-~5x Pro usage Get started
-Plus · $100/mo
-Max · $200/mo
-Everything in Plus
-~10x Pro usage
-Early feature access for high-volume work Get started
-Max · $200/mo
+Compare Factory Free, Pro, Plus, and Max plans for individual developers.
+Individual plan tiers
+Free: bring your own inference. Sign in with ChatGPT, GitHub Copilot, or OpenRouter, or connect your own API keys/custom endpoint.
+Pro, Plus, and Max: Factory Managed Inference, with usage governed by rolling Rate Limits.
+See current plans and prices on the pricing page
+.
 How individual usage works
 Rate Limits: three rolling windows, 5-hour, 7-day, and 30-day. Each runs independently.
 Standard Usage: consumed first on Individual plans.
 Droid Core : free open-weight model pool with separate Rate Limits after Standard Usage runs out.
 Extra Usage: prepaid credits, $10 minimum, no expiration. The toggle stays on until you turn it off or run out.
 Monitor usage: open Settings > Usage or run /limits in Droid .
-Missions and BYOK
+Missions
 Missions use the same rolling Rate Limits as regular sessions and require Extra Usage to be enabled. If a Mission hits a Rate Limit, it pauses.
-BYOK is free up to an allowance on all Individual plans. After that, usage is charged according to your specific plan.
 Tip
 Run Missions on Droid Core when possible. Core models often deliver comparable results and stretch your plan further.
 FAQ
@@ -67,8 +55,8 @@ Compare Teams, Business, and Enterprise plans.
 Available Models
 Browse the model catalog and multipliers that drive usage costs.
 On this page
-Individual tiers
+Individual plan tiers
 How individual usage works
-Missions and BYOK
+Missions
 FAQ
 </untrusted-page-text>

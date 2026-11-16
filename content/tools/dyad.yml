@@ -64,7 +64,7 @@ pricing:
 status: active
 sources:
   - url: https://www.dyad.sh/pro
-    verified_at: 2026-09-23
+    verified_at: 2026-11-07
     covers: [pricing]
   - url: https://www.dyad.sh
     verified_at: 2026-08-24

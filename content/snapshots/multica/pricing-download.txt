@@ -35,7 +35,7 @@ Cloud runtimes aren't live yet. Leave your email and we'll reach out when they a
 Email
 Why cloud? Optional
 Join waitlist
-Current version: v0.8.0 · What’s new in v0.8.0 · View all releases
+Current version: v0.8.1 · What’s new in v0.8.1 · View all releases
 Project management for human + agent teams. Source-available, self-hostable, built for the future of work.
 Get started
 Product
