@@ -15,7 +15,7 @@ Pricing & Plans
 What is the current membership pricing for Manus?
 What is the current membership pricing for Manus?
 Learn about monthly and annual plans, pricing locations, and how much you can save with annual subscriptions.
-Updated over 2 weeks ago
+Updated this week
 Table of contents
 You can find our pricing through the http://manus.im/home -> https://manus.im/pricing .
 After entering the Manus homepage, scroll down to the bottom of the page to view our product pricing.
@@ -36,7 +36,7 @@ Wide Research: Performs better in high-intensity tasks.
 Task Quantity: Supports 20 concurrent tasks and 20 Scheduled Automations.
 Beta Feature Early Access: Experience the latest features in advance.
 Use Cases: Suitable for users who need to conduct in-depth research and generate professional reports, helping to improve work efficiency.
-[Pro Plan Price 2: Starting from $40/month with 7-day free trial (Enjoy a 17% discount with annual billing)]
+[Pro Plan Price 2: Starting from $40/month (Enjoy a 17% discount with annual billing)]
 Free users can upgrade to a membership for more credits. Members who need additional credits can switch to a higher plan.
 Features: Monthly Credits: Starting from 8,000 credits per month, supporting higher frequency usage needs.
 Advanced Research: Supports advanced research on any topic.
@@ -76,7 +76,7 @@ Do I need to pay monthly for an annual subscription?
 How much can I save with an annual subscription?
 Is annual payment more cost-effective than monthly payment?
 Related Articles
-What is Manus Team plan?
+What is the pricing unit for Manus globally? Can I pay in local currency?
 What is Wide Research?
 How can I use Mail Manus?
 What is the current Single Sign-On (SSO) subscription pricing for Manus Team?
