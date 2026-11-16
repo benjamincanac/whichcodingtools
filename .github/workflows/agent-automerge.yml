@@ -13,7 +13,10 @@ name: agent-automerge
 #
 # Everything else waits for a person: a diff across several tools, and `agent/community-*`,
 # where a session that holds text from someone without commit rights has to push. People's own
-# pull requests and Renovate's are not the agent's and are never touched here.
+# pull requests and Renovate's are not the agent's and are never touched here. An agent pull
+# request that waits for a person, or whose merge failed, gets the `manual-merge` label, so the
+# open ones carrying it are the list to merge by hand. A conflicting branch gets no `ci` run and
+# so never reaches this workflow: GitHub's conflict marker is the only sign of that one.
 #
 # This is a review policy, not a wider sandbox. Every existing guardrail is untouched: the agent
 # still cannot push anywhere but `agent/*`, still cannot reach outside `content/` and
@@ -32,6 +35,9 @@ on:
 permissions:
   contents: write
   pull-requests: write
+
+env:
+  MANUAL_LABEL: manual-merge
 
 jobs:
   merge:
@@ -78,7 +84,9 @@ jobs:
           fi
           # COMMUNITY_BRANCH in agent/lib/github.ts: a session holding a stranger's text.
           if grep -qE '^agent/community-' <<<"$head_ref"; then
-            echo "PR #$number is on $head_ref, the lane that waits for a person"; exit 0
+            echo "PR #$number is on $head_ref, the lane that waits for a person"
+            { echo "number=$number"; echo "manual=yes"; } >> "$GITHUB_OUTPUT"
+            exit 0
           fi
           if [ "$draft" != "false" ]; then
             echo "PR #$number is a draft"; exit 0
@@ -232,3 +240,18 @@ jobs:
             sleep 15
           done
           exit 1
+
+      # GitHub drops a label that does not exist, so it is created on first use. A failed step
+      # above, the merge included, means the pull request is still open and needs a person.
+      - name: Label for a person
+        if: >-
+          always()
+          && steps.pr.outputs.number != ''
+          && (steps.pr.outputs.manual == 'yes' || steps.check.outputs.ok == 'no' || failure())
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ steps.pr.outputs.number }}
+        run: |
+          gh label create "$MANUAL_LABEL" --repo "${{ github.repository }}" --color b60205 \
+            --description "An agent pull request that agent-automerge left for a person" 2>/dev/null || true
+          gh api --silent "repos/${{ github.repository }}/issues/$NUMBER/labels" -f "labels[]=$MANUAL_LABEL"
