@@ -39,7 +39,7 @@ pricing:
 status: active
 sources:
   - url: https://forgecode.dev/pricing
-    verified_at: 2026-11-10
+    verified_at: 2026-11-17
     covers: [pricing, models, general]
   - url: https://forgecode.dev
     verified_at: 2026-11-10
