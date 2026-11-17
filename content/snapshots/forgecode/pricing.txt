@@ -15,10 +15,10 @@ $0.20 per agent-hour on a Small machine
 Each agent is billed separately, based on actual agent hours used, at the rate of the machine size you pick. Bring your own keys for 300+ model providers, or use the optimised models on the ForgeCode gateway at API pricing.
 Pay as you go price per agent-hour by machine size
 Machine Per agent-hour
-Small 2 vCPU / 8 GB RAM / 128 GB disk $0.20
-Medium 4 vCPU / 16 GB RAM / 256 GB disk $0.40
-Large 8 vCPU / 32 GB RAM / 512 GB disk $0.80
-Ultra 16 vCPU / 64 GB RAM / 1024 GB disk $1.60
+Small 2 vCPU / 4 GB RAM / 32 GB disk $0.20
+Medium 4 vCPU / 8 GB RAM / 64 GB disk $0.40
+Large 8 vCPU / 16 GB RAM / 128 GB disk $0.80
+Ultra 16 vCPU / 32 GB RAM / 256 GB disk $1.60
 Sign in
 Enterprise
 For your organisation
