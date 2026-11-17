@@ -3,7 +3,7 @@
 <untrusted-page-text>
 Pricing | Kimchi.dev
 Product
-Kimchi Coding The governed AI coding platform Inference Serverless API for open-source models Studio Visual workspace for AI agents Teleport Hand off sessions to the cloud Code Review AI-powered pull-request review
+Kimchi Coding The governed AI coding platform Inference Serverless API for open-source models Studio Visual workspace for AI agents Code Review AI-powered pull-request review Software Factory Agents across your whole SDLC
 Workspaces New Persistent cloud machines for coding agents, built from one template your admins control.
 Credentials injected at the boundary
 Egress allowlist per template
@@ -12,11 +12,13 @@ Enterprise
 Pricing
 Resources
 Blog Careers Docs Contact Us
-Sign in Get Kimchi ☰
+Sign in
+Get Kimchi ☰
 Product
-Kimchi Coding The governed AI coding platform Inference Serverless API for open-source models Studio Visual workspace for AI agents Teleport Hand off sessions to the cloud Code Review AI-powered pull-request review Workspaces New Cloud runtimes for coding agents Enterprise Pricing Resources
-Blog Careers Docs Contact Us
-Sign in Get Kimchi
+Kimchi Coding The governed AI coding platform Inference Serverless API for open-source models Studio Visual workspace for AI agents Code Review AI-powered pull-request review Software Factory Agents across your whole SDLC Workspaces New Cloud runtimes for coding agents Enterprise Pricing Resources
+Blog Careers Docs Contact Us Sign in
+United States app.kimchi.dev Europe app.eu.kimchi.dev
+Get Kimchi
 Flexible pricing for every team
 Choose the plan that fits your usage.
 Coder
@@ -63,7 +65,18 @@ Model choice per repo
 Per-repo instructions and excluded paths
 Findings count against your budget caps
 Every event stored for audit
-$15 /user /mo Request Access
+$25 /user /mo Request Access
+Unlimited Repos
+Workspaces
+Governed cloud workspaces for your team's agents, available as an add-on. An admin defines the template once - compute, tools, network policy - and the policy arrives with every workspace.
+Templates set compute, tools and network policy
+Credentials injected by the gateway, never on disk
+Web IDE, VS Code and SSH access
+Sessions keep running when you close the laptop
+Idle workspaces hibernate after 24 hours
+Audit log and per-user quotas
+$0.1027 /vCPU /hour Request Access
+Billed per vCPU-hour
 Open source
 Security, compliance, and control aren't afterthoughts. Every feature ships enterprise-ready. Download Kimchi
 Compare all plans
@@ -104,10 +117,10 @@ The governed AI coding platform.
 Product
 Kimchi Coding
 Inference
-Teleport
 Studio
 Workspaces
 Code Review
+Software Factory
 Pricing
 Enterprise Company
 Contact Us
