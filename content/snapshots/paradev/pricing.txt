@@ -8,7 +8,7 @@ Resources
 Pricing
 Enterprise
 Join us GitHub
-15.9k
+16.3k
 Pricing
 Simple pricing for every team
 Start free. Upgrade when your team outgrows it. Enterprise plans for organizations with advanced security and compliance needs.
@@ -29,8 +29,6 @@ $20 $16 per user/month
 $192 per user, billed yearly
 Get Pro
 Everything in Free
-Cloud workspaces Beta
-40 hours per seat each month
 Remote access
 Automations
 Linear integration
@@ -42,7 +40,7 @@ $60 $54 per user/month
 $648 per user, billed yearly
 Get Team
 Everything in Pro
-Cloud workspaces Beta
+Cloud workspaces
 150 hours per seat each month
 Ultra
 For people who keep agents running all day
@@ -50,7 +48,7 @@ $200 per user/month
 Billed monthly
 Get Ultra
 Everything in Team
-Cloud workspaces Beta
+Cloud workspaces
 500 hours per seat each month
 Enterprise
 For organizations with advanced needs
@@ -71,13 +69,13 @@ Usage
 Team members 1 Unlimited Unlimited Unlimited Unlimited
 Workspaces Unlimited Unlimited Unlimited Unlimited Unlimited
 Projects Unlimited Unlimited Unlimited Unlimited Unlimited
-Cloud workspaces Beta
+Cloud workspaces
 Cloud GB-hours per seat each month
-320 1,200 4,000 Custom
+1,200 4,000 Custom
 Cloud environments
 5 10 Custom
 GB-hours past the pool
-$0.06 per GB-hour $0.06 per GB-hour $0.06 per GB-hour Custom
+$0.06 per GB-hour $0.06 per GB-hour Custom
 Extra GB-hours, bought as needed
 $0.06 per GB-hour $0.06 per GB-hour Custom
 Features
@@ -107,12 +105,10 @@ Workspaces
 Unlimited
 Projects
 Unlimited
-Cloud workspaces Beta
+Cloud workspaces
 Cloud GB-hours per seat each month
-320
 Cloud environments
 GB-hours past the pool
-$0.06 per GB-hour
 Extra GB-hours, bought as needed
 Features
 Desktop app
@@ -139,7 +135,6 @@ Is there a free plan?
 Yes. Free covers individuals with 1 user, local workspaces, the desktop app, and the CLI. No credit card required. How do the paid plans work?
 Paid plans are priced per user per month and billed for each active seat on your team. Pro: $20 per user/month, or $16 billed yearly, Team: $60 per user/month, or $54 billed yearly, and Ultra: $200 per user/month. How do cloud hours work?
 Each seat adds its plan's hours to one pool your team shares:
-Pro: 40 hours (320 GB-hours) per seat
 Team: 150 hours (1,200 GB-hours) per seat
 Ultra: 500 hours (4,000 GB-hours) per seat
 Hours assume a standard 4 vCPU / 8 GB workspace. We meter GB-hours, the memory of the machine times the hours it runs, so a machine with twice the memory uses hours twice as fast.

@@ -61,13 +61,8 @@ pricing:
       price: 20
       price_annual: 16
       audience: team
-      overage:
-        kind: fixed
-        rate: 0.06
-        notes: Per GB-hour past the shared cloud pool. Extra GB-hours can be bought as needed and never expire.
       limits:
         - Unlimited users, remote access, automations, mobile, Linear and Slack integrations
-        - 320 cloud GB-hours per seat each month, one shared pool for the team (beta)
     - id: team
       name: Team
       price: 60
@@ -78,7 +73,7 @@ pricing:
         rate: 0.06
         notes: Per GB-hour past the shared cloud pool. Extra GB-hours can be bought as needed and never expire.
       limits:
-        - 1,200 cloud GB-hours per seat each month, one shared pool for the team (beta)
+        - 1,200 cloud GB-hours per seat each month, one shared pool for the team
     - id: ultra
       name: Ultra
       price: 200
@@ -88,7 +83,7 @@ pricing:
         rate: 0.06
         notes: Per GB-hour past the shared cloud pool. Extra GB-hours can be bought as needed and never expire.
       limits:
-        - 4,000 cloud GB-hours per seat each month, 3.3x Team, one shared pool for the team (beta)
+        - 4,000 cloud GB-hours per seat each month, 3.3x Team, one shared pool for the team
     - id: enterprise
       name: Enterprise
       price: null
@@ -104,7 +99,7 @@ aliases:
     note: Renamed to Paradev on October 26, 2026 and updated in place. superset.sh redirects to paradev.com.
 sources:
   - url: https://paradev.com/pricing
-    verified_at: 2026-11-04
+    verified_at: 2026-11-17
     covers: [pricing, wraps]
   - url: https://paradev.com
     verified_at: 2026-11-04
