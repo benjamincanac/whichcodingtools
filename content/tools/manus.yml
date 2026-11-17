@@ -46,7 +46,7 @@ pricing:
         period: month
       overage:
         kind: credits
-        notes: Add-on credits roll over while a paid subscription is active. 17 percent off with annual billing.
+        notes: "Add-on credits roll over while a paid subscription is active until they expire: new packs after one year, existing packs on 31 December 2027. 17 percent off with annual billing."
       limits:
         - 20 concurrent tasks, 20 Scheduled Automations
     - id: pro-8000
@@ -77,7 +77,7 @@ sources:
     verified_at: 2026-11-16
     covers: [pricing, models]
   - url: https://help.manus.im/en/articles/11711097-what-are-the-rules-for-credits-consumption-and-how-can-i-obtain-them
-    verified_at: 2026-11-16
+    verified_at: 2026-11-17
     covers: [pricing]
   - url: https://help.manus.im/en/articles/14089011-how-to-download-the-manus-desktop-app
     verified_at: 2026-08-23
