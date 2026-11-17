@@ -51,6 +51,7 @@ pricing:
       limits:
         - US-hosted open source models, Kimi K3, GLM 5.3, DeepSeek V4 Flash and more, with Zero Data Retention
         - Discounted bulk tokens
+        - LM Link for up to 20 devices
         - Web search and page extraction
     - id: pro
       name: Pro
@@ -62,6 +63,8 @@ pricing:
       limits:
         - 5x usage limits
         - Discounted bulk tokens
+        - LM Link for up to 100 devices
+        - Included usage for GPT Sol 6.1 and Claude Opus 5.5 (ZDR)
         - Early access to new features
     - id: enterprise
       name: Enterprise and Teams
@@ -75,7 +78,7 @@ pricing:
 status: active
 sources:
   - url: https://lmstudio.ai/pricing
-    verified_at: 2026-11-08
+    verified_at: 2026-11-17
     covers: [pricing]
   - url: https://lmstudio.ai/enterprise
     verified_at: 2026-10-06

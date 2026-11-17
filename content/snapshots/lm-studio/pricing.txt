@@ -29,6 +29,7 @@ Private, US-hosted OSS models.
 Everything in Free, and:
 US-hosted open source models: Kimi K3, GLM 5.3, DeepSeek V4 Flash, and more
 Discounted bulk tokens
+LM Link for up to 20 devices
 Web search and page extraction
 Get Bionic+
 Pro
@@ -37,6 +38,8 @@ More included usage.
 Everything in Bionic+, and:
 5× usage limits
 Discounted bulk tokens
+LM Link for up to 100 devices
+Included usage for GPT Sol 6.1 and Claude Opus 5.5 (ZDR)
 Early access to new features
 Get Pro
 Need centralized billing for your team? Create an organization
