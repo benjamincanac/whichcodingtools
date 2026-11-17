@@ -15,7 +15,7 @@ Credits & Usage
 What are the rules for credits consumption? And how can I obtain them?
 What are the rules for credits consumption? And how can I obtain them?
 Learn how Manus credits work, consumption rules, and how to obtain more credits.
-Updated over 2 weeks ago
+Updated today
 Table of contents
 How do credits work?
 Credits are primarily consumed based on:
@@ -32,9 +32,13 @@ Will credits expire?
 Credits are consumed in the following order: event credits > daily credits > monthly credits > add-on credits > free credits.
 The monthly consumption limit for daily refresh credits for free users is set to 1,500 credits; paid users have no limit. Daily credits can only be used for Manus 2.0 lite.
 Monthly credits are obtained through subscription and automatically refresh on the same date each month based on your subscription date.
-Add-On credits: These credits can only be used with an active paid subscription, and can be rolled/carried over to your next subscription cycle(s) as long as you have an active paid subscription. If your account switches to a Free membership or the subscription lapses, these credits become inactive.
+Add-on credits
+Add-on credits require an active paid subscription to be used. Unused add-on credits can carry over between subscription cycles until they expire.
+New add-on credit packs have a one-year validity period .
+Existing add-on credit packs have been assigned an expiry date of 31 December 2027 .
+If your paid subscription ends or your account switches to the Free plan, your remaining add-on credits become inactive. You can use them again after renewing a paid subscription, provided they have not expired.
+An active subscription does not prevent add-on credits from expiring. Please use them before their expiry date.
 Free credits never expire.
-Unused add-on credits require an active paid subscription to remain valid. If your subscription is canceled, any remaining purchased credits may no longer be accessible.
 Event credits can be earned by participating in events and expire when the event ends.
 Monthly credits need to be used within the subscription period. For example, if you purchase a $20 Pro membership on January 1st, you will receive 4000 monthly credits, and these credits need to be used before February 1st. If not used up, they will reset on February 1st.
 What happens if my credits reach zero during a task?
@@ -46,6 +50,7 @@ A negative balance simply means the final action of a task consumed more credits
 Negative balances are automatically resolved when your credits next refresh.
 You will not be able to start new tasks while your effective available credits are at or below zero.
 Overview of Credit Refresh Cycles
+The refresh rules below apply to credits included in your subscription. Add-on credits follow their own expiry rules and are not cleared simply because a new monthly subscription cycle begins.
 Manus credits refresh on a recurring cycle tied to your subscription. The refresh timing depends on whether you are on a monthly or annual plan. At the start of each new cycle, your credits are replenished, and any unused credits from the previous cycle are cleared.
 Monthly Subscriptions
 For monthly subscriptions, credits refresh on the same calendar date each month, based on your subscription start date. For example, if your subscription began on the 13th of a month, your credits will refresh on the 13th of each subsequent month. The number of credits allocated per cycle depends on your specific plan. Unused credits from the previous month do not roll over and are cleared at the start of the new cycle. This ensures that your account always starts fresh with the full allocation of credits for the new month.
@@ -71,6 +76,8 @@ Can my credit balance go negative?
 Why does my credit balance show a negative number?
 Will I be charged extra if my credits go negative?
 Can I still use Manus if my credit balance is negative?
+When do add-on credits expire?
+Can unused add-on credits carry over to the next subscription cycle?
 Related Articles
 How can I upgrade or downgrade my subscription?
 What should I do if my daily refresh credits have not refreshed?
