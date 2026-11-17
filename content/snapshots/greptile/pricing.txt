@@ -116,7 +116,7 @@ Greptile is free for qualified non-commercial projects with an OSI-approved lice
 Apply for OSS
 [ STARTUP DISCOUNT ]
 Free credits for early-stage startups
-Pre-Series A startups with under $2M revenue in the past 12 months get 500 free credits a month for 6 months.
+Pre-Series A startups with 20 or fewer employees and under $2M revenue in the past 12 months get 500 free credits a month for 6 months.
 Apply for startup discount
 FAQ
 How does pricing work?
