@@ -37,6 +37,7 @@ Developers
 Build with
 Claude Code
 Claude Platform
+Code Review
 Managed Agents
 For developers
 Claude Academy
@@ -478,7 +479,7 @@ Mix and match seat types
 Up to $500 per month in pooled API credits †
 Enterprise
 For large businesses operating at scale
-Get Enterprise plan Chat with buying specialist
+Get Enterprise plan Chat about your plan
 Seat price + usage at API rates
 US$20/seat/month, billed annually, 20 seat minimum. Usage cost scales with model and task.
 All Team plan features, plus:
@@ -1047,6 +1048,7 @@ Claude Duet
 Claude Tag
 Claude Science
 Claude Security
+Code Review
 Download app
 Pricing
 Log in
@@ -1145,6 +1147,7 @@ Claude Duet
 Claude Tag
 Claude Science
 Claude Security
+Code Review
 Download app
 Pricing
 Log in
