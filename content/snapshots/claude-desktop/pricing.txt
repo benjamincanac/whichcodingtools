@@ -40,6 +40,7 @@ Developers
 Build with
 Claude Code
 Claude Platform
+Code Review
 Managed Agents
 For developers
 Claude Academy
@@ -132,7 +133,7 @@ Slack Install
 Excel Install
 PowerPoint Install
 Word Install
-Outlook beta Install
+Outlook Install
 Google Workspace beta Install
 Claude Code environments
 Build, debug, and ship where you work best.
@@ -188,6 +189,7 @@ Claude Duet
 Claude Tag
 Claude Science
 Claude Security
+Code Review
 Download app
 Pricing
 Log in
@@ -286,6 +288,7 @@ Claude Duet
 Claude Tag
 Claude Science
 Claude Security
+Code Review
 Download app
 Pricing
 Log in
