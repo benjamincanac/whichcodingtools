@@ -22,7 +22,7 @@ Monthly billing. Switch plans any time.
 Included each month
 Inference credit $20 Double what you pay
 Jcode Cloud 50 hours For your cloud sessions
-Remote Rust builds From the $20 plan 5,000 builds at $20/month
+Remote Rust builds From the $20 plan 2,000 builds at $20/month
 After your inference credit: provider API prices, up to $0 of additional inference per month. Raise your extra usage limit .
 Email for your Jcode account
 Email me a link
@@ -38,7 +38,7 @@ Billing details
 Subscription Recurring $10 charge each month while subscribed.
 Monthly credit Every successful $10 payment grants $20 of inference credit, double what you pay. Fresh credit arrives each month and does not accumulate.
 Jcode Cloud Subscribing includes Jcode Cloud with 50 machine hours each month, in proportion to your plan (50 hours per $10).
-Remote Rust builds Not included on the $10 plan. Remote Rust builds start at $20 (5,000 a month, 2,500 per $10).
+Remote Rust builds Not included on the $10 plan. Remote Rust builds start at $20 (2,000 a month, 1,000 per $10).
 After credit Raise your extra usage limit to continue at provider API prices once the credit is used, billed by usage in addition to the subscription.
 Extra usage limit Defaults to $0 of additional inference per UTC month after your credit. Raise it any time in your account. Your custom limit is kept when you change plans.
 Included models
@@ -55,8 +55,8 @@ with an extra usage limit that defaults to $0 per month. Raise it in your accoun
 Remote Rust builds
 justrust runs your agent's cargo check and test on a bigger machine when that is faster.
 Free trial 7 days of the $20 plan free, with up to 500 builds (the trial ends at whichever comes first). Inference credit starts with the first paid invoice, and you can start it early from your account. Card required, $20/month after unless canceled.
-Included Plans from $20: 2,500 builds each UTC month for every $10 of plan, so $20 gets 5,000 and $100 gets 25,000.
-After that $0.10 per paid extra build, with a separate monthly limit that defaults to $0. Opt in and adjust it in your account . Included and trial builds are unaffected; builds never count toward your extra usage limit.
+Included Plans from $20: 1,000 builds each UTC month for every $10 of plan, so $20 gets 2,000 and $100 gets 10,000.
+After that $0.01 per paid extra build, with a separate monthly limit that defaults to $0. Opt in and adjust it in your account . Included and trial builds are unaffected; builds never count toward your extra usage limit.
 jcode
 justrust
 Enterprise

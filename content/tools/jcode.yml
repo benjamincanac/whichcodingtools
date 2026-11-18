@@ -51,11 +51,11 @@ pricing:
         notes: Every successful payment grants inference credit worth double the plan price, which does not accumulate.
       overage:
         kind: api-list
-        notes: Past the credit, inference is billed at provider API prices on top of the subscription, up to an extra usage limit that defaults to $0 per UTC month and is raised in the account. Remote Rust builds past the included allowance cost $0.10 each, with a separate monthly limit that defaults to $0.
+        notes: Past the credit, inference is billed at provider API prices on top of the subscription, up to an extra usage limit that defaults to $0 per UTC month and is raised in the account. Remote Rust builds past the included allowance cost $0.01 each, with a separate monthly limit that defaults to $0.
       limits:
         - Extra usage past the credit is off until you raise the limit in your account, it defaults to $0 per UTC month
         - Jcode Cloud included, 50 machine hours each month for every ten dollars of plan
-        - Remote Rust builds with justrust, only on plans from $20, 2,500 each UTC month for every ten dollars of plan
+        - Remote Rust builds with justrust, only on plans from $20, 1,000 each UTC month for every ten dollars of plan
         - Free trial of 7 days of the $20 plan, with up to 500 builds (ends at whichever comes first), inference credit starts with the first paid invoice or earlier from your account, card required
       notes: Monthly plan chosen from $10 to $1,000; the credit and the Jcode Cloud hours scale with the plan.
     - id: enterprise
@@ -67,7 +67,7 @@ pricing:
 status: active
 sources:
   - url: https://jcode.sh/pricing
-    verified_at: 2026-11-10
+    verified_at: 2026-11-18
     covers: [pricing, general]
   - url: https://jcode.sh/enterprise
     verified_at: 2026-11-10
