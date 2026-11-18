@@ -102,6 +102,10 @@ wraps:
     uses_subscription: true
     min_tier: personal
     notes: Listed as Kilo.
+  - tool: kimchi
+    via: acp
+    uses_subscription: true
+    min_tier: personal
   - tool: kimi-code
     via: acp
     uses_subscription: true
