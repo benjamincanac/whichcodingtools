@@ -66,7 +66,7 @@ Limited messages and web searches.
 Limited coding sessions.
 Basic image generation and editing.
 100+ connectors.
-Start now
+Start Free
 Popular
 Pro
 Education plan
@@ -93,7 +93,7 @@ All-day coding in the CLI, IDE, or on web.
 More image generations.
 $15 /mo in API credits.
 Chat and email support.
-Start now
+Get Pro
 Team
 Secure, collaborative workspace for teams building with AI.
 $24.99
@@ -109,7 +109,7 @@ Data export.
 $50
 /mo
 Users
-Start now
+Get Team
 Enterprise
 Private deployments powered by custom models, UI, and tools.
 Custom models.
@@ -118,15 +118,15 @@ Custom workflows.
 Audit logs.
 SAML SSO.
 White label.
-Contact us
+Contact Sales
 Free
-Start now
+Start Free
 Pro
-Start now
+Get Pro
 Team
-Start now
+Get Team
 Enterprise
-Contact us
+Contact Sales
 Interfaces.
 Vibe on web
 Vibe in your browser: run long-horizon work and code tasks from a chat interface.
