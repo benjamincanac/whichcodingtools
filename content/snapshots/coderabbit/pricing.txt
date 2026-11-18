@@ -102,7 +102,7 @@ Attack-surface visibility
 Enterprise Controls
 Multi-org administration and enforced workspace policies
 Custom RBAC, SSO, and audit logs
-API access and usage metrics
+Admin APIs and usage metrics
 Support SLA, dedicated customer success, and technical enablement
 Custom deployment options
 Purchase via Marketplaces
@@ -199,6 +199,8 @@ Scheduled, customizable activity reports
 Included
 Usage controls and monthly spending caps
 Included
+API and MCP server access
+Included
 MCP connections to external tools and context 5
 Custom pre-merge checks per organization
 Not included
@@ -208,7 +210,7 @@ Multi-org administration and enforced workspace policies
 Not included
 Custom roles and permissions, SSO, and audit logs
 Not included
-API access, including review and MCP usage metrics
+Admin APIs and MCP connection usage metrics
 Not included
 Support SLA, dedicated customer success, & technical enablement
 Not included
@@ -386,6 +388,11 @@ Included
 Included
 Included
 Included
+API and MCP server access
+Included
+Included
+Included
+Included
 MCP connections to external tools and context 5 10 15 20
 Custom pre-merge checks per organization
 Not included 10 20 20
@@ -399,7 +406,7 @@ Custom roles and permissions, SSO, and audit logs
 Not included
 Not included
 Not included Included
-API access, including review and MCP usage metrics
+Admin APIs and MCP connection usage metrics
 Not included
 Not included
 Not included Included
@@ -431,6 +438,8 @@ How are on demand products priced?
 Charges for on demand products are separate from your base plan. CodeRabbit Security Scan uses variable pricing based on the scan. CodeRabbit Agent costs $0.40 per agent minute for cloud coding tasks, Slack, and automations. You are billed based on how many minutes your agents run, after applicable trial and free minutes are used. Enabling paid Agent usage gives everyone in your organization access, with a configurable monthly spending cap.
 Which plans include CodeRabbit Security?
 Continuous security monitoring and security reviews on pull requests are included with Advanced and Enterprise. Full codebase scans are available separately with usage-based pricing.
+Which plans include the CodeRabbit API and MCP server?
+The CodeRabbit API and MCP server are included with every plan, and each call works with the features in your plan. Admin APIs for users, seats, roles, audit logs, and metrics are included with Enterprise. Reviews, Triage, security scans, and other product features work through the API and MCP server for GitHub Cloud organizations. Organizations on self-hosted CodeRabbit or on a self-hosted Git provider, such as GitHub Enterprise Server, can't connect to the MCP server.
 Will I be charged for all the developers in my organization?
 No, you will only be charged for developers who create pull requests. You can also manually assign purchased seats to specific developers.
 Is it possible to reassign seats to other developers?
