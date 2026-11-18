@@ -1,7 +1,7 @@
 # https://dirac.run
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
-Dirac — Exact code changes in real repositories
+Dirac — Open-source coding agent
 Skip to the field manual
 DIRAC
 Field manual
@@ -9,17 +9,19 @@ Benchmarks
 Docs
 Posts
 Labs Market Share
+Dark
 Discord
 View on GitHub
 Toggle navigation
 Open-source coding agent
-Exact work in real codebases.
 Dirac is an efficiency-focused, open-source coding agent built for
 complex, real-world codebases.
 VS Code · Open VSX · CLI · ACP
 Install for VS Code ↗
 Install CLI npm install -g dirac-cli
 Copy
+Inside the field manual
+14 sections
 01 Goal mode
 02 Dirac can extend itself
 03 Low-verbosity response setting
@@ -140,16 +142,14 @@ Dirac can extend itself
 ← Previous page Start
 01 14
 Next page Dirac can extend itself →
-Published evidence / complete comparison
-Results are only useful with the underlying data and method.
+Benchmarks
 Terminal-Bench-2
 65.2% #1 published result using Gemini 3 Flash Preview
 Public-repository refactoring suite
 8/8 tasks completed correctly by Dirac
 Average API cost per task
 $0.18 versus a $0.53 six-agent comparison average
-Public-repository refactoring suite
-Eight tasks. Seven agents. Every recorded outcome and cost.
+Public-repository refactoring
 Scroll horizontally to inspect every agent →
 Results across eight refactoring tasks. Each agent cell shows the reviewed outcome and measured API
 cost.
@@ -265,11 +265,11 @@ Qualifications
 A Cline cache-read accounting bug slightly underreports the Dirac and Cline cost figures.
 The Terminal-Bench-2 score used gemini-3-flash-preview ; tooling beyond the agent itself also
 contributes to that result.
-Read the full
-evaluation and inspect the task data →
-Browse every
-task and diff patch on GitHub ↗
-Verify the Terminal-Bench-2 submission ↗
+Evaluation and
+task data →
+Tasks and
+patches on GitHub ↗
+Terminal-Bench-2 submission ↗
 DIRAC
 An efficiency-focused open-source coding agent built for complex, real-world codebases.
 Apache 2.0 · Built by Dirac Delta Labs · Forked from Cline
