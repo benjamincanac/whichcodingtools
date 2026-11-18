@@ -87,8 +87,8 @@ aaif-goose
 goose
 Repository navigation
 Code
-Issues 412 ( 412 )
-Pull requests 138 ( 138 )
+Issues 371 ( 371 )
+Pull requests 122 ( 122 )
 Discussions
 Actions
 Projects
@@ -118,7 +118,7 @@ Custom properties
 Stars
 56.7k stars
 Watchers
-285 watching
+289 watching
 Forks
 6.6k forks
 Report repository
@@ -130,8 +130,8 @@ Code
 Open more actions menu
 Latest commit
 History
-6,005 Commits
-6,005 Commits
+6,057 Commits
+6,057 Commits
 Folders and files
 Name Name
 Last commit message
@@ -291,7 +291,7 @@ Custom properties
 Stars
 56.7k stars
 Watchers
-285 watching
+289 watching
 Forks
 6.6k forks
 Report repository
