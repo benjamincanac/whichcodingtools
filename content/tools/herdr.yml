@@ -60,8 +60,8 @@ sources:
     verified_at: 2026-11-17
     covers: [pricing, platforms, wraps, general]
   - url: https://herdr.dev/docs/
-    verified_at: 2026-08-23
+    verified_at: 2026-11-19
     covers: [features]
   - url: https://github.com/herdrdev/herdr
-    verified_at: 2026-08-23
+    verified_at: 2026-11-19
     covers: [license, platforms, features]
