@@ -97,7 +97,7 @@ More items
 yylo Public
 Notifications You must be signed in to change notification settings
 Fork 10 ( 10 )
-Star 67 ( 67 ) You must be signed in to star a repository
+Star 69 ( 69 ) You must be signed in to star a repository
 About
 YYLO (why-lo): AI coding-agent orchestration CLI with equivalent yylo and yy launchers.
 yylo.dev
@@ -111,7 +111,7 @@ Security policy
 Activity
 Custom properties
 Stars
-67 stars
+69 stars
 Watchers
 0 watching
 Forks
@@ -634,7 +634,7 @@ Security policy
 Activity
 Custom properties
 Stars
-67 stars
+69 stars
 Watchers
 0 watching
 Forks
