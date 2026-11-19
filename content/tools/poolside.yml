@@ -1,0 +1,35 @@
+slug: poolside
+name: Poolside
+description: Terminal coding agent (pool) from Poolside, built around its open-weight Laguna models. Free developer access, or connect OpenRouter or an OpenAI-compatible provider.
+layer: harness
+vendor: Poolside
+homepage: https://poolside.ai
+links:
+  docs: https://docs.poolside.ai
+platforms: [macos, linux, windows]
+install:
+  - method: curl
+    command: curl -fsSL https://downloads.poolside.ai/pool/install.sh | sh
+license:
+  spdx: proprietary
+  kind: proprietary
+models:
+  providers: [first-party, openrouter]
+  byok: full
+  notes: Log in with Poolside Platform for a free API key, an OpenRouter account, an enterprise Poolside deployment, or any OpenAI-compatible provider.
+features: []
+pricing:
+  tiers:
+    - id: free
+      name: Free
+      price: 0
+      audience: individual
+  notes: Paid access to Poolside models with a larger context window is available through an OpenRouter account.
+status: active
+sources:
+  - url: https://docs.poolside.ai/get-started/quickstart
+    verified_at: 2026-11-17
+    covers: [pricing, platforms, models]
+  - url: https://poolside.ai
+    verified_at: 2026-11-17
+    covers: [general]
