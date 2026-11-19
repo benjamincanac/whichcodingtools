@@ -75,8 +75,7 @@ Web IDE, VS Code and SSH access
 Sessions keep running when you close the laptop
 Idle workspaces hibernate after 24 hours
 Audit log and per-user quotas
-$0.1027 /vCPU /hour Request Access
-Billed per vCPU-hour
+Book a call
 Open source
 Security, compliance, and control aren't afterthoughts. Every feature ships enterprise-ready. Download Kimchi
 Compare all plans
@@ -121,6 +120,7 @@ Studio
 Workspaces
 Code Review
 Software Factory
+Deployment
 Pricing
 Enterprise Company
 Contact Us
