@@ -98,6 +98,10 @@ wraps:
     uses_subscription: true
     min_tier: ai-free
     notes: Listed as Kilo.
+  - tool: kimchi
+    via: acp
+    uses_subscription: true
+    min_tier: ai-free
   - tool: kimi-code
     via: acp
     uses_subscription: true
