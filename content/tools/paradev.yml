@@ -99,7 +99,7 @@ aliases:
     note: Renamed to Paradev on October 26, 2026 and updated in place. superset.sh redirects to paradev.com.
 sources:
   - url: https://paradev.com/pricing
-    verified_at: 2026-11-17
+    verified_at: 2026-11-19
     covers: [pricing, wraps]
   - url: https://paradev.com
     verified_at: 2026-11-04
