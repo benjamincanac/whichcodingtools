@@ -1,11 +1,12 @@
 # https://gemini.google/us/subscriptions/?hl=en
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
-Google AI Pro & Ultra — get access to Gemini 4 Argon & more
-Looking for Gemini 4 Argon? Select AI Pro or AI Ultra below to get access starting today. Upgrade now.
+Google AI Pro & Ultra — get access to Gemini 4 Neon & more
+College students get a free Pro plan for one year. Learn more
 Close
 Skip to main content
 For Students
+For Business
 Features
 Gemini Live
 Image Generation
@@ -17,7 +18,6 @@ Daily Brief
 Canvas
 Gemini in Chrome
 Productivity
-Explore
 Subscriptions
 What's New
 Gemini for desktop
@@ -36,7 +36,7 @@ $0 / month with a Google Account
 Get started
 Gemini app
 Your personal, proactive and powerful AI Assistant
-Access to our Flash-Lite model
+Auto model selection
 Image generation and editing
 Deep Research
 Gemini Live
@@ -66,10 +66,12 @@ Gemini Notebook
 Research and writing assistant with more Audio Overviews, notebooks, and more
 Gemini in Gmail, Vids, and more
 Access Gemini directly in Google apps
+Gemini in Chrome 9
+Access Chrome auto browse to help complete tasks for you
 Storage
 400 GB of cloud storage across Gmail, Drive, and Photos
 Google AI Plus is available in more than 160 countries and territories - see full list of countries .
-Includes Gemini 4 Argon
+Includes Gemini 4 Neon
 Google AI Pro 1
 Get higher access to new and powerful features to boost your productivity and creativity.
 $19.99 / month
@@ -77,8 +79,7 @@ Get 4x higher usage access than Free
 Get started
 Everything in Free and:
 Gemini app
-Access to Gemini 4 Argon
-Access to our Pro model
+Access to Gemini 4 Neon
 Access to Gemini 4 Hydrogen
 Get four times higher usage limits 2 than Free and access to more features like video generation and Daily Brief.
 Google Flow 3
@@ -93,8 +94,8 @@ Gemini in Gmail, Docs, Vids, and more
 Access Gemini directly in Google apps
 Google Home Premium (Standard plan) 5
 30 days of event history and Gemini features
-Gemini in Chrome
-Access Chrome auto browse to help complete tasks for you
+Gemini in Chrome 9
+Expanded access to Chrome auto browse to help complete tasks for you
 YouTube Premium Lite plan 6
 Most videos ad-free, offline, and in the background
 Storage
@@ -111,7 +112,7 @@ Get started
 Everything in Google AI Pro and:
 Gemini app
 Highest access to Gemini 4 Carbon
-Highest access to Gemini 4 Argon
+Highest access to Gemini 4 Neon
 Highest access to Gemini 4 Hydrogen
 Get up to 20x higher usage limits 2 in Gemini than the Pro plan, plus first access to advanced features like Tasks in Gemini (in select countries ).
 Google Flow 3
@@ -127,16 +128,16 @@ Gemini in Gmail, Docs, Vids, and more
 Highest limits to Gemini directly in Google apps
 Google Home Premium (Advanced plan) 5
 24/7 video history, event descriptions, and more
-Gemini in Chrome
+Gemini in Chrome 9
 Highest access to Chrome auto browse to help complete tasks for you
 Project Genie 7
 Create and explore interactive worlds in realtime with our breakthrough Genie 3 world model
-YouTube Premium individual plan 8
-YouTube ad-free, offline, and in the background
+YouTube Premium family plan 8
+YouTube ad-free, offline, and in the background for you and up to 5 household members.
 Storage
 Cloud storage starting at 20 TB across Gmail, Drive, and Photos
 Google AI Ultra is available in more than 150 countries — see full list of countries .
-YouTube Premium individual plan is available in over 40 countries — see full list of countries .
+YouTube Premium Family plan is available in over 100 countries — see full list of countries .
 Create
 Learn
 Work
@@ -245,38 +246,51 @@ Will Google AI Pro work in the Gemini mobile app?
 Yes, however, there might be some feature differences between the Gemini mobile app and Gemini web app. How to upgrade
 If you want to manage your Google AI subscription in the mobile app, tap your profile picture to access the Settings menu.
 United States
-Gemini Enterprise
-Business edition
-For small businesses and teams. No IT setup needed.
+For small businesses
+Gemini with Google Workspace
+Get Gemini together with Workspace productivity suite with business-grade security.
 Starting at:
-$21 USD per seat per month
+$14 USD per seat per month
 Start a trial
-Gemini - your personal, proactive and powerful AI assistant built for business
-Gemini Notebook for enterprise
-Search and analyze information, generate insights, and create text, image, and video content
-Securely connect to productivity tools like Microsoft 365, Google Workspace, HubSpot, Jira, and more
-Break organizational data silos with a library of connectors for various data sources
-Build custom agents with our no-code Workflow Builder
-Automate workflows with prebuilt Google-made agents
-Access, create, and manage all your agents through a single, centralized view
-Built-in security and governance
-25 GiB storage and data indexing per seat (pooled)
+Chat with Gemini
+Brainstorm, create content, analyze information, and generate insights with your secure everyday AI assistant at work
+Get instant insights with Gemini Notebook
+Turn your trusted business files into audio overviews and visual aids with your secure AI research partner
+Premium built-in AI
+Boost productivity with built-in AI writing, editing, analysis, and visualization tools right inside Gmail, Docs, Sheets, Slides, and more
+Better video meetings
+AI notetaking, translated captions, noise cancellation, and recordings
+Core business tools
+Get professional email (you@your-company.com), appointment booking pages, and eSignature with Docs and PDFs
+Data confidentiality
+Your company data is not used for AI model training or ads
+2 TB pooled storage per user
+across Drive, Gmail, and Photos
 Up to 300 seats
+For Microsoft 365 users and large organizations
 Gemini Enterprise
-Standard / Plus editions
-For organizations that need enterprise-grade IT controls.
+Add Gemini to your existing productivity suite such as Microsoft 365 with enterprise-grade IT controls.
 Starting at:
 $30 USD per seat per month
 Contact sales
-Everything in Business edition and:
+Start a trial
 Higher usage limits for Gemini
-Bring in your own agents built using Google’s Agent Development Kit (ADK) or 3rd party agents
-Access advanced security and governance features like VPC-SC and Customer-Managed Encryption Keys
-Get enterprise-grade cloud compliance and sovereign data boundaries for your data residency needs
-Access enterprise compliance features in Gemini Notebook for enterprise
-Up to 75 GiB storage and data indexing per seat (pooled)
+Gemini Notebook for enterprise
+with access to enterprise compliance features
+Securely connect to productivity tools
+such as Microsoft 365, HubSpot, Jira, and more
+Break organizational data silos
+using a library of data source connectors
+Automate workflows
+with prebuilt Google-made agents
+Build custom agents
+with our no-code Workflow Builder, or bring in your own agents built with Google’s Agent Development Kit (ADK) or 3rd-party platforms
+Access, create, and manage all your agents
+through a single, centralized workspace view
+Data confidentiality
+Your company data is not used for AI model training or ads with built-in security, VPC-SC, Customer-Managed Encryption Keys (CMEK), and sovereign data boundaries for residency needs
+Up to 75 GiB pooled storage and data indexing per seat
 Unlimited seats
-Option to buy Gemini Enterprise Frontline, designed specifically for frontline workers
 Leading businesses use Gemini
 Frequently asked questions
 What is Gemini Enterprise and what does it do?
@@ -335,7 +349,9 @@ The YouTube Premium Lite plan included in this bundle won’t activate if you al
 7.
 Project Genie is available in more than 140 countries — see full list of countries . Only available with a Google AI Ultra plan.
 8.
-YouTube Premium individual plan is available in over 40 countries — see full list of countries .
+Google AI Ultra must be purchased by a family manager to enable YouTube Premium Family sharing, which can only be shared with family members in the same household (ages 13+). Learn more . YouTube Premium Family plan is available in over 100 countries — see full list of countries .
+9.
+Chrome auto browse is available in the US and India. Learn more .
 What Gemini Can Do
 Gemini Live
 Image Generation
@@ -587,6 +603,8 @@ Suisse
 français
 Svizzera
 italiano
+Switzerland
+English
 Côte d’Ivoire
 English
 Cameroon

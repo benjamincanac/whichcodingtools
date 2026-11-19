@@ -9,8 +9,9 @@ Use Cases
 Pricing
 Enterprise
 Resources
-🚀 Launch Remote Control Download
-🚀 Launch Remote Control
+Open web app Web app
+Download
+Open web app Web app
 EN
 English (United States) Bahasa Indonesia (Indonesia) Deutsch (Deutschland) English (Canada) English (United Kingdom) Español (España) Español (México) Français (France) Italiano (Italia) Polski (Polska) Português (Brasil) हिन्दी (भारत) ไทย (ประเทศไทย) 日本語 (日本) 简体中文 (中国) 繁體中文 (台灣) 한국어 (대한민국)
 Explore our next generation products
@@ -59,48 +60,113 @@ Blog Documentation
 Changelog
 Newsletter Support Press Releases
 Download
-New Gemini 4 Hydrogen and Orchestrator now in Google Antigravity Read post
+New Gemini 4 Neon and Orchestrator now in Google Antigravity Read post
 Choose the perfect plan for your journey Choose the perfect plan for your journey
+Start building for free, scale daily agent workflows with Google AI Pro or Ultra, or deploy organization-wide on Google Cloud.
+Subscription plans
+Model details
+Quota & credits
+Workspace accounts
+Enterprise setup
 Generally Available
 For Individuals
 $0/month
 Experience Antigravity without a subscription plan
 Get started
 Plan includes:
-Access to a variety of agent models
-Unlimited Tab completions
-Unlimited Command requests
-Basic weekly rate limits *
-Get a Taste
+Access across the Antigravity app , CLI, IDE Extensions , and Python SDK
+Parallel background agents, subagents , browser use , and scheduled tasks
+Baseline agent quota refreshed weekly 1
+Models included:
+Gemini 3.8 Flash
+Claude Sonnet 4.6 (thinking) 4
+Claude Opus 4.6 (thinking) 4
+GPT-OSS-120b 4
+For Builders
 Google AI Pro
-Experience what it is like to build, work, and automate with agents
+Scale multi-workspace agent workflows across the app, CLI, and IDE Extensions with higher 5-hour refreshed quotas.
 Get Pro
 Everything in Individual and:
-More rate limits *
-Flexible AI credit pool *
+Generous agent quota refreshed every 5 hours and higher weekly limits 1
+Deep reasoning with /boost , multi-agent teamwork , and Remote Control
+Optional AI credit overages above baseline quota 1
+Models included:
+Gemini 4 Neon 2
+Gemini 4 Argon 2
+Gemini 4 Hydrogen 3
+Orchestrator (Neon) 2
+Orchestrator (Argon) 2
+Gemini 3.8 Flash
+Claude Sonnet 5.5 (thinking) 3
+Claude Opus 5.5 (thinking) 3
+Claude Sonnet 4.6 (thinking) 4 5
+Claude Opus 4.6 (thinking) 4 5
+GPT-OSS-120b 4
 For Developers
 Google AI Ultra
-Leverage Antigravity as your daily driver with higher access to our latest Gemini models
+Run Antigravity as your daily driver across every surface with our highest quotas and flagship Gemini 4 Neon and Gemini 4 Carbon models.
 Get Ultra
 Everything in Pro and:
-Even more rate limits *
-Flexible AI credit pool *
+Highest agent quota refreshed every 5 hours and maximum weekly limits 1
+Consumer access to Gemini 4 Neon , Gemini 4 Carbon , Orchestrator (Neon) , and Orchestrator (Carbon)
+Full access to third-party partner models and AI credit overages 1
+Models included:
+Gemini 4 Neon
+Gemini 4 Carbon
+Gemini 4 Argon
+Gemini 4 Hydrogen
+Orchestrator (Neon)
+Orchestrator (Carbon)
+Orchestrator (Argon)
+Gemini 3.8 Flash
+Claude Sonnet 5.5 (thinking)
+Claude Opus 5.5 (thinking)
+GPT-OSS-120b 4
 For Organizations
 Business plan
 via Google Cloud
-Google Cloud customers can now access the Antigravity app, CLI, and through IDEs via Antigravity IDE extensions .
+Google Cloud customers can now access the Antigravity app, CLI, and Antigravity IDE Extensions .
 Contact Sales For subscription options
 Get Started
 Available now:
 Access via API with consumption-based pricing
 Available to eligible Gemini Enterprise customers:
 Standard/Plus plans starting at $30 USD per seat per month
-Pay-as-you-go plan with $0 seat fee and consumption based pricing
+Pay-as-you-go plan with $0 seat fee and consumption-based pricing
 Key Benefits:
 Access under Google Cloud Terms of Service
 Spend caps across API and subscription plans
 Centralized administrative controls with eligible subscription plans
-Existing Gemini Enterprise customers with an invoiced Cloud billing account can visit the setup guide to enable AI Developer tools for Antigravity.
+Models included:
+Gemini 4 Neon 6
+Gemini 4 Carbon 6
+Gemini 4 Argon 6
+Gemini 4 Hydrogen 6
+Gemini 3.8 Flash 6
+Gemini 3.7 Flash 6
+Gemini 3.6 Flash 6
+Gemini 3.1 Pro 6
+Claude Sonnet 5.5 (thinking) 7
+Claude Opus 5.5 (thinking) 7
+Existing Gemini Enterprise customers with an invoiced or upgraded self-serve Cloud billing account can visit the setup guide to enable AI Developer tools for Antigravity.
+Signing in with a work account?
+Google Workspace accounts Signing in as you@yourcompany.com through Google Workspace? Google AI Pro and Ultra plans require a personal Google Account. Use a personal account, pay as you go with your own Google Cloud project, or set up Gemini Enterprise.
+Gemini Enterprise customers Assign licenses, turn on AI developer tools, and sign in with your organization's Gemini Enterprise subscription.
+Plan & model notes
+1
+Rate limits and AI credit pools vary by plan and task complexity. See plans for details .
+2
+Available with paid Google AI Pro plans or on trial with eligible premium devices. To switch to a paid Google AI Pro plan, submit a request .
+3
+Available on Google AI Pro for non-trial subscriptions only. To cancel your trial and switch to a paid Google AI Pro plan, submit a request .
+4
+Will be removed on November 18, 2026.
+5
+Included during Google AI Pro trial subscriptions; paid Google AI Pro subscriptions include Claude Sonnet 5.5 and Claude Opus 5.5 instead.
+6
+First-party Gemini models are enabled by default in Gemini Enterprise and draw from pooled edition seat credits ($10/month Standard, $15/month Plus) or pay-as-you-go billing.
+7
+Third-party partner models require administrator opt-in in the Google Cloud Console and are billed by token consumption across four thinking levels ( low , medium , high , and max ).
 Experience liftoff
 Product Product Download Antigravity App Antigravity Extensions Antigravity CLI Antigravity IDE Antigravity SDK
 Resources Docs Changelog Releases Blog Newsletter Pricing Use Cases Press
