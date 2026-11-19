@@ -87,16 +87,16 @@ imbue-ai
 sculptor
 Repository navigation
 Code
-Issues 2 ( 2 )
-Pull requests 30 ( 30 )
+Issues
+Pull requests 33 ( 33 )
 Actions
 Security and quality
 Insights
 More items
 sculptor Public
 Notifications You must be signed in to change notification settings
-Fork 21 ( 21 )
-Star 246 ( 246 ) You must be signed in to star a repository
+Fork 24 ( 24 )
+Star 277 ( 277 ) You must be signed in to star a repository
 About
 Build product with grounded, parallel coding agents.
 Resources
@@ -109,11 +109,11 @@ Security policy
 Activity
 Custom properties
 Stars
-246 stars
+277 stars
 Watchers
 0 watching
 Forks
-21 forks
+24 forks
 Report repository
 main
 Branches
@@ -123,8 +123,8 @@ Code
 Open more actions menu
 Latest commit
 History
-2,239 Commits
-2,239 Commits
+2,464 Commits
+2,464 Commits
 Folders and files
 Name Name
 Last commit message
@@ -290,11 +290,11 @@ Security policy
 Activity
 Custom properties
 Stars
-246 stars
+277 stars
 Watchers
 0 watching
 Forks
-21 forks
+24 forks
 Report repository
 Releases
 Packages
