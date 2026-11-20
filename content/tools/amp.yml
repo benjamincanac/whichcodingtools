@@ -36,8 +36,7 @@ pricing:
         kind: api-list
       limits:
         - Pay-as-you-go for Amp-hosted orbs
-        - Unlimited self-hosted orbs, free
-        - Use your own runners for free
+        - Unlimited self-hosted orbs and runners, free
         - Use your ChatGPT, Claude and other subscriptions
         - Bring your own keys (BYOK), no Amp token fees or limits
         - Public/private repositories
@@ -50,7 +49,7 @@ pricing:
         kind: api-list
       limits:
         - 45,000 minutes of orbin' time, for Amp-hosted orbs
-        - Unlimited self-hosted orbs, free
+        - Unlimited self-hosted orbs and runners, free
         - Use your ChatGPT, Claude and other subscriptions
         - Bring your own keys (BYOK), no Amp token fees or limits
         - Unlimited public/private repositories
