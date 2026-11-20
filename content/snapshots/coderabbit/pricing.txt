@@ -455,6 +455,7 @@ CodeRabbit Review
 CodeRabbit Triage
 CodeRabbit Explain
 CodeRabbit Secure
+CodeRabbit Verify
 CodeRabbit Engineer
 Explore
 Pricing

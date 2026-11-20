@@ -65,7 +65,7 @@ Essentials was previously called Pro, and Team was previously called Pro+. Advan
 | Continuous pull request security review | Not included | Not included | Included | Included |
 | Deep Scan | Usage-based | Usage-based | Usage-based | Usage-based |
 ## Rate limits
-The following review and chat limits are enforced **per developer** over rolling time windows. OSS PR review limits are additionally scoped per repository. For how the allowance is counted and refills, see [Review rate limits](https://docs.coderabbit.ai/management/rate-limits.md).
+The following review limits are enforced **per developer** over rolling time windows. OSS PR review limits are additionally scoped per repository. For how the allowance is counted and refills, see [Review rate limits](https://docs.coderabbit.ai/management/rate-limits.md). Chat limits are enforced **per developer** for each organization or account that owns the repository, over a fixed one-hour window that refills all at once. For what counts as a chat message and what happens at the limit, see [Chat rate limits](https://docs.coderabbit.ai/guide/chat.md#chat-rate-limits).
 The **Files/review** column is the maximum number of files CodeRabbit reviews in a single review, not an hourly limit. The files per review are counted after path filter exclusions.
 Plan
 Reviews \* per developer per hour
@@ -138,7 +138,7 @@ Some features have per-plan limits that are separate from the rate limits above.
 | - | - | - | - | - |
 | 0 | 1 | 5 | 10 | 20 |
 For details on how limits are enforced when your configuration exceeds your plan's allowance, see [Multi-Repo Analysis — Plan limits](https://docs.coderabbit.ai/knowledge-base/multi-repo-analysis.md#plan-limits).
-These limits also apply to [linked context in Deep Scan](https://docs.coderabbit.ai/security.md#linked-repositories), with a maximum of 20 context repositories per scan. Essentials supports manual links; Team and higher also support automatic linking. Deep Scan usage is billed separately, and enabling usage billing does not add linked context to the Free plan. Scan source access has a separate saved selection in Security repository settings.
+These limits also apply to [linked context in Deep Scan](https://docs.coderabbit.ai/security/deep-scan.md#linked-repositories), with a maximum of 20 context repositories per scan. Essentials supports manual links; Team and higher also support automatic linking. Deep Scan usage is billed separately, and enabling usage billing does not add linked context to the Free plan. Scan source access has a separate saved selection in Security repository settings.
 ### Knowledge repositories
 [Knowledge repositories](https://docs.coderabbit.ai/knowledge-base/connected-repositories.md) give CodeRabbit your team's documents, such as a handbook, runbooks, or architecture notes, as reference knowledge in reviews, chat, scans, and agent tasks. The number of repositories you can connect depends on your plan:
 | Free | Essentials | Team | Advanced | Enterprise |
