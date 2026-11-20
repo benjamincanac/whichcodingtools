@@ -74,8 +74,6 @@ Cloud GB-hours per seat each month
 1,200 4,000 Custom
 Cloud environments
 5 10 Custom
-GB-hours past the pool
-$0.06 per GB-hour $0.06 per GB-hour Custom
 Extra GB-hours, bought as needed
 $0.06 per GB-hour $0.06 per GB-hour Custom
 Features
@@ -108,7 +106,6 @@ Unlimited
 Cloud workspaces
 Cloud GB-hours per seat each month
 Cloud environments
-GB-hours past the pool
 Extra GB-hours, bought as needed
 Features
 Desktop app
@@ -138,7 +135,7 @@ Each seat adds its plan's hours to one pool your team shares:
 Team: 150 hours (1,200 GB-hours) per seat
 Ultra: 500 hours (4,000 GB-hours) per seat
 Hours assume a standard 4 vCPU / 8 GB workspace. We meter GB-hours, the memory of the machine times the hours it runs, so a machine with twice the memory uses hours twice as fast.
-The pool resets every month. Usage past it is billed per GB-hour at the rate shown on each plan. Can I buy more cloud GB-hours?
+The pool resets every month. Can I buy more cloud GB-hours?
 Yes. On plans with cloud workspaces, owners can buy any amount of extra GB-hours at $0.06 per GB-hour in Settings, Billing. Bought GB-hours are used after the monthly pool and never expire, and auto top-up can buy more when they run low. Can I switch plans or cancel anytime?
 Yes. You can upgrade, downgrade, or cancel at any time from the billing settings inside the app. Upgrades start right away, and you pay only the difference for the rest of the period. Downgrades and cancellations take effect at the end of your current billing period. What's included in Enterprise?
 Everything in Ultra plus custom cloud GB-hours, SSO & SAML, SCIM provisioning, IP restrictions, audit logs, a custom SLA, dedicated support, and custom contracts. Pricing is tailored to your organization. Get in touch and we'll scope something that fits. Is Paradev SOC 2 compliant?
