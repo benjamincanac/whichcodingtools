@@ -56,7 +56,7 @@ By using VS Code, you agree to
 License
 &
 Privacy .
-GitHub Universe, on demand. Watch the VS Code session recordings.
+Join VS Code at Microsoft Ignite or catch the sessions online.
 A year of VS Code, wrapped. Explore the highlights.
 Dismiss this update
 Documentation
@@ -71,7 +71,7 @@ AI in VS Code
 Overview
 Get Started
 Find a Guide
-Choose an AI Feature
+AI Features Cheat Sheet
 Set Up GitHub Copilot
 Agents Quickstart
 Agents Tutorial
@@ -79,65 +79,67 @@ Best Practices
 Work with AI
 Inline Suggestions
 Smart Actions
-Chat View and Layout
+Use the Chat View
 Agents Window
-Inline Chat & Quick Chat
-Chat Interactions
+Inline Chat and Quick Chat
+Chat Messages and Responses
 Canvases
 Add Prompt Context
-Review & Revert Changes
+Review and Undo Changes
 Configure the Agents Window
 Plan and Run Tasks
 Plan Work
 Use Tools
-Browser Tools
-Subagents
+Use Browser Tools
+Use Subagents
 Automations
 Sessions
 Manage Sessions
-Organize & Triage Sessions
+Organize and Triage Sessions
 Memory
 Artifacts
 Permissions and Security
-Approvals & Permissions
-Agent Sandboxing
-AI Security
+Approvals and Permissions
+Configure Agent Sandboxing
+Secure Development with AI
 Choose Models and Agents
 Choose and Configure Models
 Choose an Agent Harness
 Move from Local to Copilot
-Compare Model Results
+Compare Models Side by Side
+Guide: Choose the Right Model
 Customize and Extend
 Overview
-Plugins
+Agent Plugins
 Agent Skills
-Instructions
+Custom Instructions
 Custom Agents
 Copilot Connectors
 Add and Use MCP Servers
 Manage MCP Servers
-Hooks
+Agent Hooks
 Prompt Files
 Migrate Existing Customizations
 Work Across Apps and Machines
-Cloud Continuity Tutorial
+Tutorial: Agent Continuity
 Remote Agent Sessions
 Cloud Sessions
 Session History
-Tutorials & Guides
+Tutorials and Guides
 Find a Guide
 Explore a Codebase
 Add a Feature
-Fix a Bug
+Fix an API Bug
 Refactor Safely
+Compare and Choose Models
 Add Tests
 Test Web Apps
+Test-Driven Development
 Run Parallel Tasks
 Get Back on Track
 Adapt Agents to Your Project
-Context Engineering
-Test-Driven Development
-Jupyter Notebooks
+Context Engineering Workflow
+Work with Jupyter Notebooks
 Reduce Credit Usage
 Prompt Examples
 Concepts
@@ -146,15 +148,15 @@ How Models Work
 Context
 Tools
 Sessions and Chats
-Trust & Safety
+Trust and Safety
 Agent Harnesses
 Agent Customization
 Reference and Help
 Reference
-Cheat Sheet
-Tools and Context
+AI Features Cheat Sheet
+Tool Names and Context References
 Workspace Context
-Settings Reference
+AI Settings
 VS Code Pet
 Custom Agent File Reference
 Custom Instructions Reference
@@ -228,21 +230,27 @@ Appearance
 Advanced
 Debugging & Testing
 Debugging
+Debugging Quickstart
 Debug Configuration
 Tasks
 Testing
 Integrated Browser
 Port Forwarding
 Guides & Tutorials
+Fix an API Bug
+Add Tests
 Test-Driven Development
 Test Web Apps
 Enterprise
 Overview
-Enterprise Policies
+Deploy to Managed Devices
 Manage AI Settings
+Enterprise Policies
 Extensions
 Telemetry
 Updates
+Network Configuration
+Troubleshoot Managed Deployments
 Remote
 Overview
 VS Code for the Web
@@ -279,7 +287,7 @@ Intro Videos
 Overview
 Get Started
 Find a Guide
-Choose an AI Feature
+AI Features Cheat Sheet
 Set Up GitHub Copilot
 Agents Quickstart
 Agents Tutorial
@@ -287,65 +295,67 @@ Best Practices
 Work with AI
 Inline Suggestions
 Smart Actions
-Chat View and Layout
+Use the Chat View
 Agents Window
-Inline Chat & Quick Chat
-Chat Interactions
+Inline Chat and Quick Chat
+Chat Messages and Responses
 Canvases
 Add Prompt Context
-Review & Revert Changes
+Review and Undo Changes
 Configure the Agents Window
 Plan and Run Tasks
 Plan Work
 Use Tools
-Browser Tools
-Subagents
+Use Browser Tools
+Use Subagents
 Automations
 Sessions
 Manage Sessions
-Organize & Triage Sessions
+Organize and Triage Sessions
 Memory
 Artifacts
 Permissions and Security
-Approvals & Permissions
-Agent Sandboxing
-AI Security
+Approvals and Permissions
+Configure Agent Sandboxing
+Secure Development with AI
 Choose Models and Agents
 Choose and Configure Models
 Choose an Agent Harness
 Move from Local to Copilot
-Compare Model Results
+Compare Models Side by Side
+Guide: Choose the Right Model
 Customize and Extend
 Overview
-Plugins
+Agent Plugins
 Agent Skills
-Instructions
+Custom Instructions
 Custom Agents
 Copilot Connectors
 Add and Use MCP Servers
 Manage MCP Servers
-Hooks
+Agent Hooks
 Prompt Files
 Migrate Existing Customizations
 Work Across Apps and Machines
-Cloud Continuity Tutorial
+Tutorial: Agent Continuity
 Remote Agent Sessions
 Cloud Sessions
 Session History
-Tutorials & Guides
+Tutorials and Guides
 Find a Guide
 Explore a Codebase
 Add a Feature
-Fix a Bug
+Fix an API Bug
 Refactor Safely
+Compare and Choose Models
 Add Tests
 Test Web Apps
+Test-Driven Development
 Run Parallel Tasks
 Get Back on Track
 Adapt Agents to Your Project
-Context Engineering
-Test-Driven Development
-Jupyter Notebooks
+Context Engineering Workflow
+Work with Jupyter Notebooks
 Reduce Credit Usage
 Prompt Examples
 Concepts
@@ -354,14 +364,14 @@ How Models Work
 Context
 Tools
 Sessions and Chats
-Trust & Safety
+Trust and Safety
 Agent Harnesses
 Agent Customization
 Reference and Help Reference
-Cheat Sheet
-Tools and Context
+AI Features Cheat Sheet
+Tool Names and Context References
 Workspace Context
-Settings Reference
+AI Settings
 VS Code Pet
 Custom Agent File Reference
 Custom Instructions Reference
@@ -431,20 +441,26 @@ Shell Integration
 Appearance
 Advanced
 Debugging
+Debugging Quickstart
 Debug Configuration
 Tasks
 Testing
 Integrated Browser
 Port Forwarding
 Guides & Tutorials
+Fix an API Bug
+Add Tests
 Test-Driven Development
 Test Web Apps
 Overview
-Enterprise Policies
+Deploy to Managed Devices
 Manage AI Settings
+Enterprise Policies
 Extensions
 Telemetry
 Updates
+Network Configuration
+Troubleshoot Managed Deployments
 Overview
 VS Code for the Web
 SSH
@@ -563,7 +579,7 @@ setting in workspace settings. This setting is available in the Settings editor 
 Next steps
 Explore your codebase without changing files .
 Build and validate a sample app with an agent .
-11/11/2026
+11/18/2026
 Microsoft
 Community
 GitHub
