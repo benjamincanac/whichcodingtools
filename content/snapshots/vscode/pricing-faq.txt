@@ -55,7 +55,7 @@ By using VS Code, you agree to
 License
 &
 Privacy .
-GitHub Universe, on demand. Watch the VS Code session recordings.
+Join VS Code at Microsoft Ignite or catch the sessions online.
 A year of VS Code, wrapped. Explore the highlights.
 Dismiss this update
 Documentation
@@ -70,7 +70,7 @@ AI in VS Code
 Overview
 Get Started
 Find a Guide
-Choose an AI Feature
+AI Features Cheat Sheet
 Set Up GitHub Copilot
 Agents Quickstart
 Agents Tutorial
@@ -78,65 +78,67 @@ Best Practices
 Work with AI
 Inline Suggestions
 Smart Actions
-Chat View and Layout
+Use the Chat View
 Agents Window
-Inline Chat & Quick Chat
-Chat Interactions
+Inline Chat and Quick Chat
+Chat Messages and Responses
 Canvases
 Add Prompt Context
-Review & Revert Changes
+Review and Undo Changes
 Configure the Agents Window
 Plan and Run Tasks
 Plan Work
 Use Tools
-Browser Tools
-Subagents
+Use Browser Tools
+Use Subagents
 Automations
 Sessions
 Manage Sessions
-Organize & Triage Sessions
+Organize and Triage Sessions
 Memory
 Artifacts
 Permissions and Security
-Approvals & Permissions
-Agent Sandboxing
-AI Security
+Approvals and Permissions
+Configure Agent Sandboxing
+Secure Development with AI
 Choose Models and Agents
 Choose and Configure Models
 Choose an Agent Harness
 Move from Local to Copilot
-Compare Model Results
+Compare Models Side by Side
+Guide: Choose the Right Model
 Customize and Extend
 Overview
-Plugins
+Agent Plugins
 Agent Skills
-Instructions
+Custom Instructions
 Custom Agents
 Copilot Connectors
 Add and Use MCP Servers
 Manage MCP Servers
-Hooks
+Agent Hooks
 Prompt Files
 Migrate Existing Customizations
 Work Across Apps and Machines
-Cloud Continuity Tutorial
+Tutorial: Agent Continuity
 Remote Agent Sessions
 Cloud Sessions
 Session History
-Tutorials & Guides
+Tutorials and Guides
 Find a Guide
 Explore a Codebase
 Add a Feature
-Fix a Bug
+Fix an API Bug
 Refactor Safely
+Compare and Choose Models
 Add Tests
 Test Web Apps
+Test-Driven Development
 Run Parallel Tasks
 Get Back on Track
 Adapt Agents to Your Project
-Context Engineering
-Test-Driven Development
-Jupyter Notebooks
+Context Engineering Workflow
+Work with Jupyter Notebooks
 Reduce Credit Usage
 Prompt Examples
 Concepts
@@ -145,15 +147,15 @@ How Models Work
 Context
 Tools
 Sessions and Chats
-Trust & Safety
+Trust and Safety
 Agent Harnesses
 Agent Customization
 Reference and Help
 Reference
-Cheat Sheet
-Tools and Context
+AI Features Cheat Sheet
+Tool Names and Context References
 Workspace Context
-Settings Reference
+AI Settings
 VS Code Pet
 Custom Agent File Reference
 Custom Instructions Reference
@@ -227,21 +229,27 @@ Appearance
 Advanced
 Debugging & Testing
 Debugging
+Debugging Quickstart
 Debug Configuration
 Tasks
 Testing
 Integrated Browser
 Port Forwarding
 Guides & Tutorials
+Fix an API Bug
+Add Tests
 Test-Driven Development
 Test Web Apps
 Enterprise
 Overview
-Enterprise Policies
+Deploy to Managed Devices
 Manage AI Settings
+Enterprise Policies
 Extensions
 Telemetry
 Updates
+Network Configuration
+Troubleshoot Managed Deployments
 Remote
 Overview
 VS Code for the Web
@@ -279,7 +287,7 @@ Intro Videos
 Overview
 Get Started
 Find a Guide
-Choose an AI Feature
+AI Features Cheat Sheet
 Set Up GitHub Copilot
 Agents Quickstart
 Agents Tutorial
@@ -287,65 +295,67 @@ Best Practices
 Work with AI
 Inline Suggestions
 Smart Actions
-Chat View and Layout
+Use the Chat View
 Agents Window
-Inline Chat & Quick Chat
-Chat Interactions
+Inline Chat and Quick Chat
+Chat Messages and Responses
 Canvases
 Add Prompt Context
-Review & Revert Changes
+Review and Undo Changes
 Configure the Agents Window
 Plan and Run Tasks
 Plan Work
 Use Tools
-Browser Tools
-Subagents
+Use Browser Tools
+Use Subagents
 Automations
 Sessions
 Manage Sessions
-Organize & Triage Sessions
+Organize and Triage Sessions
 Memory
 Artifacts
 Permissions and Security
-Approvals & Permissions
-Agent Sandboxing
-AI Security
+Approvals and Permissions
+Configure Agent Sandboxing
+Secure Development with AI
 Choose Models and Agents
 Choose and Configure Models
 Choose an Agent Harness
 Move from Local to Copilot
-Compare Model Results
+Compare Models Side by Side
+Guide: Choose the Right Model
 Customize and Extend
 Overview
-Plugins
+Agent Plugins
 Agent Skills
-Instructions
+Custom Instructions
 Custom Agents
 Copilot Connectors
 Add and Use MCP Servers
 Manage MCP Servers
-Hooks
+Agent Hooks
 Prompt Files
 Migrate Existing Customizations
 Work Across Apps and Machines
-Cloud Continuity Tutorial
+Tutorial: Agent Continuity
 Remote Agent Sessions
 Cloud Sessions
 Session History
-Tutorials & Guides
+Tutorials and Guides
 Find a Guide
 Explore a Codebase
 Add a Feature
-Fix a Bug
+Fix an API Bug
 Refactor Safely
+Compare and Choose Models
 Add Tests
 Test Web Apps
+Test-Driven Development
 Run Parallel Tasks
 Get Back on Track
 Adapt Agents to Your Project
-Context Engineering
-Test-Driven Development
-Jupyter Notebooks
+Context Engineering Workflow
+Work with Jupyter Notebooks
 Reduce Credit Usage
 Prompt Examples
 Concepts
@@ -354,14 +364,14 @@ How Models Work
 Context
 Tools
 Sessions and Chats
-Trust & Safety
+Trust and Safety
 Agent Harnesses
 Agent Customization
 Reference and Help Reference
-Cheat Sheet
-Tools and Context
+AI Features Cheat Sheet
+Tool Names and Context References
 Workspace Context
-Settings Reference
+AI Settings
 VS Code Pet
 Custom Agent File Reference
 Custom Instructions Reference
@@ -431,20 +441,26 @@ Shell Integration
 Appearance
 Advanced
 Debugging
+Debugging Quickstart
 Debug Configuration
 Tasks
 Testing
 Integrated Browser
 Port Forwarding
 Guides & Tutorials
+Fix an API Bug
+Add Tests
 Test-Driven Development
 Test Web Apps
 Overview
-Enterprise Policies
+Deploy to Managed Devices
 Manage AI Settings
+Enterprise Policies
 Extensions
 Telemetry
 Updates
+Network Configuration
+Troubleshoot Managed Deployments
 Overview
 VS Code for the Web
 SSH
@@ -536,11 +552,14 @@ Microsoft ended support and is no longer providing security updates for Windows 
 VS Code will no longer provide product updates or security fixes on old Windows versions. VS Code version 1.70.3 is the last available release for Windows 7 users and version 1.79 will be the last available release for Windows 8 and 8.1 users. You can learn more about upgrading your Windows version at support.microsoft.com .
 Additionally, 32-bit OEM support has been dropped with Windows 10, version 2004. The last stable VS Code version to support Windows 32-bit is 1.83 (September 2023). You will need to update to the 64-bit release.
 Can I run VS Code on old macOS versions?
-VS Code desktop version starting with 1.105 (September 2025) is deprecating support for macOS Big Sur (version 11.0 and older). Starting with VS Code 1.107 (November 2025), we will stop updating VS Code on macOS Big Sur (version 11.0 and older). You will need to upgrade to a newer macOS version to use later versions of VS Code.
-VS Code will no longer provide product updates or security fixes on macOS Big Sur (versions 11.0 and older) and VS Code version 1.106 will be the last available release for macOS Big Sur (11.0 and older). You can learn more about upgrading your macOS version at support.apple.com .
+VS Code desktop version starting with 1.147 (November 2026) is deprecating support for macOS Ventura (version 13) and macOS Sonoma (version 14). Starting in December 2026, VS Code will no longer provide product updates or security fixes on macOS Ventura and macOS Sonoma, and VS Code version 1.149 will be the last available release for these macOS versions. You can learn more about upgrading your macOS version at support.apple.com .
 Can I run VS Code on older Linux distributions?
 Starting with VS Code release 1.86.1 (January 2024), VS Code desktop is only compatible with Linux distributions based on glibc 2.28 or later, for example, Debian 10, RHEL 8, or Ubuntu 20.04.
 If you are unable to upgrade your Linux distribution, the recommended alternative is to use our web client . If you would like to use the desktop version, then you can download the VS Code release 1.85 from here . Depending on your platform, make sure to disable updates to stay on that version. A good recommendation is to set up the installation with Portable Mode .
+Can I run VS Code on 32-bit ARM Linux?
+VS Code desktop version starting with 1.147 (November 2026) is deprecating support for 32-bit ARM Linux (armhf). Starting in December 2026, we will stop updating VS Code on 32-bit ARM Linux. VS Code version 1.149 will be the last available release for 32-bit ARM Linux, and it will no longer receive product updates or security fixes.
+To keep using the latest version of VS Code, switch to a 64-bit operating system and install the 64-bit ARM (arm64) version of VS Code from the download page .
+If you can't switch to a 64-bit operating system, you can use the web client . Running the VS Code Server on 32-bit ARM Linux hosts for remote development is already unsupported. Learn more in the Remote Development FAQ .
 Can I run a portable version of VS Code?
 Yes, VS Code has a Portable Mode that lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 Telemetry and crash reporting
@@ -703,6 +722,7 @@ update.mode
 Open in VS Code
 Open in VS Code Insiders
 ) from default to none .
+To manage updates across your organization's devices, use enterprise update policies and servicing guidance rather than configuring each user's settings.
 To modify the update mode, go to File > Preferences > Settings , search for update mode and change the setting to none .
 If you use the JSON editor for your settings, add the following line:
 {

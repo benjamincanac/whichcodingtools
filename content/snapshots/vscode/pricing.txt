@@ -55,7 +55,7 @@ By using VS Code, you agree to
 License
 &
 Privacy .
-GitHub Universe, on demand. Watch the VS Code session recordings.
+Join VS Code at Microsoft Ignite or catch the sessions online.
 A year of VS Code, wrapped. Explore the highlights.
 Dismiss this update
 The interactive illustrations could not load. You can still explore VS Code using the links below.
@@ -89,28 +89,28 @@ VS Code is open source. Built in the open, by us. And by you.
 The roadmap, the iteration plans and every issue are public, so you can see where VS Code is headed and help steer it.
 3,000+ contributors
 56,000+ PRs merged
-agentHost: skip the changeset catalogue refresh of chats that are not in memory by sandy081
-Align animated menus and action widgets to device pixels by sbatten
-Engineering - check the mobile dependency boundary in pull request CI and the CI build pipeline by bryanchen-d
-Fix agent host file watches on Windows hosts when path casing differs by kycutler
-github: migrate plugin marketplace discovery to shared clients by dmitrivMS
-sessions: compose worktree suggestions outside the mobile core by osortega
-chat: restore spacing below plain-text tool confirmation messages by justschen
-agentHost: declare forwarded task-analytics telemetry by bhavyaus
-agentHost: report utility model calls in telemetry by karthiknadig
-fix: trim leading whitespace on canvas font assignments for webgl terminal by deepak1556
+chat: Preserve custom agents when Agent Host chats resume by connor4312
+chat: mark Local-format hooks and migrate them with the agent by vritant24
+chat: page long Agent Host chats from the gutter and Find by osortega
+Telemetry: Structure model conversation.messageText payloads and separate inline reasoning by vijayupadya
+Editor window: the Changes editor shows its header with the changeset picker by sandy081
+Automations: Keep shared visibility in local UI state by benvillalobos
+build: replace the direct event-stream dependency by dmitrivMS
+agentHost: classify steering from confirmed runtime delivery by amunger
+Give model routers a tab of their own in the model picker by bhavyaus
+agentHost: name who changed Autopilot in its chat notices and trim them by benibenj
 The next merge on main could be yours.
 Recent merges on GitHub · How to contribute
 From the blog All posts
+November 18, 2026
+The Copilot harness: Building on a shared foundation
+Learn why VS Code is moving from the Local harness to the Copilot harness, guided by data and user feedback.
 October 28, 2026
 VS Code Wrapped: GitHub Universe 2026
-Explore how VS Code evolved between GitHub Universe 2025 and 2026, with new ways to code, collaborate with agents, and manage work across tools and environments.
 October 26, 2026
 Tune GitHub Copilot Inline Suggestions with Configurable Eagerness
 October 15, 2026
 Modernizing the VS Code UI
-September 23, 2026
-Building the new GitHub Copilot Inline Suggestions Model: Part Two
 Happy coding!
 Download Visual Studio Code
 Download GitHub Mobile
