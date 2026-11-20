@@ -3,8 +3,7 @@
 <untrusted-page-text>
 GitHub Copilot · Plans & pricing for every developer & team · GitHub · GitHub
 Skip to content
-GitHub Universe 2026
-Catch up on all that was announced. See what's new
+30% off Copilot Fusion usage until Nov 30th. Learn more
 Navigation Menu
 Sign in
 Products
@@ -472,9 +471,6 @@ Anthropic Claude Sonnet 4
 Anthropic Claude Sonnet 4.6
 Anthropic Claude Sonnet 5
 Anthropic Claude Sonnet 5.5
-Anthropic Claude Opus 4.8
-Anthropic Claude Opus 4.8 (fast mode) (Preview)
-Anthropic Claude Opus 5
 Anthropic Claude Opus 5.5
 OpenAI GPT-5 mini
 OpenAI GPT-5.2
@@ -484,14 +480,17 @@ OpenAI GPT-5.4
 OpenAI GPT-5.4 mini
 OpenAI GPT-5.5
 OpenAI GPT-5.6 Sol
-OpenAI GPT-5.6 Terra
 OpenAI GPT-5.6 Luna
 OpenAI GPT-6 Astra
 OpenAI GPT-6 Luna
 OpenAI GPT-6 Sol
 OpenAI GPT-6.1 Sol
 OpenAI GPT-6.1 Terra
+OpenAI GPT-6.2 Astra
+OpenAI GPT-6.2 Sol
 Microsoft MAI-Code-1.1-Flash
+Microsoft MAI Code 2
+Microsoft MAI Code 2 Flash
 Google Gemini 3.7 Flash
 Google Gemini 3.8 Flash
 Google Gemini 4 Argon
@@ -511,9 +510,6 @@ Anthropic Claude Sonnet 4
 Anthropic Claude Sonnet 4.6
 Anthropic Claude Sonnet 5
 Anthropic Claude Sonnet 5.5
-Anthropic Claude Opus 4.8
-Anthropic Claude Opus 4.8 (fast mode) (Preview)
-Anthropic Claude Opus 5
 Anthropic Claude Opus 5.5
 OpenAI GPT-5 mini
 OpenAI GPT-5.2
@@ -523,14 +519,17 @@ OpenAI GPT-5.4
 OpenAI GPT-5.4 mini
 OpenAI GPT-5.5
 OpenAI GPT-5.6 Sol
-OpenAI GPT-5.6 Terra
 OpenAI GPT-5.6 Luna
 OpenAI GPT-6 Astra
 OpenAI GPT-6 Luna
 OpenAI GPT-6 Sol
 OpenAI GPT-6.1 Sol
 OpenAI GPT-6.1 Terra
+OpenAI GPT-6.2 Astra
+OpenAI GPT-6.2 Sol
 Microsoft MAI-Code-1.1-Flash
+Microsoft MAI Code 2
+Microsoft MAI Code 2 Flash
 Google Gemini 3.7 Flash
 Google Gemini 3.8 Flash
 Google Gemini 4 Argon
@@ -550,9 +549,6 @@ Anthropic Claude Sonnet 4
 Anthropic Claude Sonnet 4.6
 Anthropic Claude Sonnet 5
 Anthropic Claude Sonnet 5.5
-Anthropic Claude Opus 4.8
-Anthropic Claude Opus 4.8 (fast mode) (Preview)
-Anthropic Claude Opus 5
 Anthropic Claude Opus 5.5
 OpenAI GPT-5 mini
 OpenAI GPT-5.2
@@ -562,14 +558,17 @@ OpenAI GPT-5.4
 OpenAI GPT-5.4 mini
 OpenAI GPT-5.5
 OpenAI GPT-5.6 Sol
-OpenAI GPT-5.6 Terra
 OpenAI GPT-5.6 Luna
 OpenAI GPT-6 Astra
 OpenAI GPT-6 Luna
 OpenAI GPT-6 Sol
 OpenAI GPT-6.1 Sol
 OpenAI GPT-6.1 Terra
+OpenAI GPT-6.2 Astra
+OpenAI GPT-6.2 Sol
 Microsoft MAI-Code-1.1-Flash
+Microsoft MAI Code 2
+Microsoft MAI Code 2 Flash
 Google Gemini 3.7 Flash
 Google Gemini 3.8 Flash
 Google Gemini 4 Argon
@@ -589,9 +588,6 @@ Anthropic Claude Sonnet 4
 Anthropic Claude Sonnet 4.6
 Anthropic Claude Sonnet 5
 Anthropic Claude Sonnet 5.5
-Anthropic Claude Opus 4.8
-Anthropic Claude Opus 4.8 (fast mode) (Preview)
-Anthropic Claude Opus 5
 Anthropic Claude Opus 5.5
 OpenAI GPT-5 mini
 OpenAI GPT-5.2
@@ -601,14 +597,17 @@ OpenAI GPT-5.4
 OpenAI GPT-5.4 mini
 OpenAI GPT-5.5
 OpenAI GPT-5.6 Sol
-OpenAI GPT-5.6 Terra
 OpenAI GPT-5.6 Luna
 OpenAI GPT-6 Astra
 OpenAI GPT-6 Luna
 OpenAI GPT-6 Sol
 OpenAI GPT-6.1 Sol
 OpenAI GPT-6.1 Terra
+OpenAI GPT-6.2 Astra
+OpenAI GPT-6.2 Sol
 Microsoft MAI-Code-1.1-Flash
+Microsoft MAI Code 2
+Microsoft MAI Code 2 Flash
 Google Gemini 3.7 Flash
 Google Gemini 3.8 Flash
 Google Gemini 4 Argon
