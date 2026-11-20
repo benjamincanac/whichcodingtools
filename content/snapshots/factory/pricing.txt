@@ -127,6 +127,7 @@ Medline
 Under Armour
 Groq
 Chainguard
+NHBC
 RBC
 T-Mobile
 Blackstone
@@ -138,6 +139,7 @@ Medline
 Under Armour
 Groq
 Chainguard
+NHBC
 RBC
 T-Mobile
 Blackstone
@@ -149,6 +151,7 @@ Medline
 Under Armour
 Groq
 Chainguard
+NHBC
 RBC
 T-Mobile
 Blackstone
@@ -160,6 +163,7 @@ Medline
 Under Armour
 Groq
 Chainguard
+NHBC
 Customers
 “ As a fintech company handling sensitive financial data, we were concerned about how to leverage AI while maintaining strict data privacy and security standards. Factory provided us with a secure, controlled way to unify our engineering context without compromising our compliance requirements. The difference between that and having sensitive information flowing into random LLMs is night and day.
 ”
