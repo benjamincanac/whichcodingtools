@@ -28,16 +28,17 @@ Press
 Careers
 About
 Contact
-93.6K
-Access Cloud Access Cloud
+93.9K
+Talk to us Talk to us
 Get OpenHands Get OpenHands
-93.6K
-Access Cloud Access Cloud
+93.9K
+Talk to us Talk to us
 Get OpenHands Get OpenHands Menu Close
-Pricing that fits your rollout
-Agent Canvas
+Start free. Scale on your terms.
+Open Source
 Free
 Open source and free to self-host.
+For individual developers building and running AI agents locally or in the cloud.
 Open source (MIT)
 Runs on your laptop or shared VM
 Single user / shared identity
@@ -47,8 +48,9 @@ Automations
 Download Download
 Teams
 $500/month
-Up to 10 users (+$50/mo per seat)
-Up to 10 users
+10 users included (+$50/mo per seat)
+For teams bringing AI agents into shared workflows, with enterprise capabilities.
+10 users included
 Self-hosted
 Multi-user identity & RBAC
 Bring your own LLM key
@@ -57,10 +59,11 @@ Built-in Integrations
 Automations
 Budgeting controls
 SSO / SAML
-Start 30 Day Trial Start 30 Day Trial
+Start free trial Start free trial
 Enterprise
 Custom pricing
 Built for secure, governed AI at enterprise scale.
+For larger organizations scaling AI agents across teams with dedicated support.
 Everything in Teams
 Unlimited seats
 Unlimited users
@@ -68,9 +71,10 @@ Enterprise agreement
 Standard or Premium Support
 Customer success manager
 Contact Us Contact Us
-Agent Canvas Teams Enterprise
-Price Free $500/mo, up to 10 users (30-day trial) Custom
-Seats Shared identity Up to 10 users (+$50/mo per seat) Custom
+Whether you’re building agents on your own or deploying them across an organization, OpenHands scales with you. Start with open source, share workflows across your team, or choose Enterprise for larger deployments and dedicated support.
+Open Source Teams Enterprise
+Price Free $500/mo, 10 users included (30-day trial) Custom
+Seats Shared identity 10 users included (+$50/mo per seat) Custom
 Organizations — 1 Unlimited
 Deployment Local Self-hosted Self-hosted Self-hosted
 Automations
