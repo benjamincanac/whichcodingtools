@@ -55,6 +55,7 @@ Copilot CLI in Actions
 About remote control
 Autopilot
 Tool search
+Browser use
 Computer use
 Image generation
 Prompting and context
@@ -105,6 +106,7 @@ Risks and mitigations
 Network settings
 Enterprise
 Policies
+Governance controls
 Default availability
 FedRAMP models
 New features and models
@@ -193,6 +195,7 @@ Use agent mode
 Use plan mode
 Use subagents
 Use custom agents
+Browser use
 Use cloud agent in your IDE
 Copilot CLI
 All articles
@@ -209,6 +212,7 @@ Allowing tools
 Use Autopilot mode
 Voice input
 Choose a model
+Browser use
 Computer use
 Connect to VS Code
 Delegate tasks to Copilot
@@ -253,10 +257,12 @@ Customize the GitHub Copilot app
 Agent sessions
 Choose a model
 Projects
+Browser use
 Computer use
 Canvas extensions
 View and fix security alerts
 Managing issues and pull requests
+Manage Azure DevOps work
 Automations
 Add LLM models
 Open with deep links
@@ -407,6 +413,7 @@ Configure MCP registry
 Restrict based on registry
 Download activity report
 View usage and adoption
+View repository insights
 View code generation
 View impact dashboard
 Troubleshoot Copilot
@@ -460,6 +467,7 @@ Copilot usage metrics data
 Coverage and requirements
 Industry comparisons
 Interpret usage metrics
+Repository insights
 Reconciling Copilot usage metrics
 Copilot LoC metrics
 Team-level metrics
