@@ -89,16 +89,16 @@ VS Code is open source. Built in the open, by us. And by you.
 The roadmap, the iteration plans and every issue are public, so you can see where VS Code is headed and help steer it.
 3,000+ contributors
 56,000+ PRs merged
-chat: Preserve custom agents when Agent Host chats resume by connor4312
-chat: mark Local-format hooks and migrate them with the agent by vritant24
-chat: page long Agent Host chats from the gutter and Find by osortega
-Telemetry: Structure model conversation.messageText payloads and separate inline reasoning by vijayupadya
-Editor window: the Changes editor shows its header with the changeset picker by sandy081
-Automations: Keep shared visibility in local UI state by benvillalobos
-build: replace the direct event-stream dependency by dmitrivMS
-agentHost: classify steering from confirmed runtime delivery by amunger
-Give model routers a tab of their own in the model picker by bhavyaus
-agentHost: name who changed Autopilot in its chat notices and trim them by benibenj
+configuration: cache policy-applied configuration model by dmitrivMS
+chat: show Copilot hook files that failed to load in Customizations by vritant24
+chat: enable inline attachments and HTML/native visuals by default by justschen
+Fix integrated browser HTTP Basic sign-in, prompt(), and hidden-page dialogs by kycutler
+sessions: search the selected workspace target directly on phones by osortega
+sessions: match Automations view options button height by benvillalobos
+sessions: add 10 and 30 minute inbox snooze options by meganrogge
+copilot: update the sources copied from vscode and make the copy script safe to rerun by alexdima
+agentHost: hide non-user-invocable skills from completions by aeschli
+Sync restricted telemetry state on user discovery refresh by vijayupadya
 The next merge on main could be yours.
 Recent merges on GitHub · How to contribute
 From the blog All posts

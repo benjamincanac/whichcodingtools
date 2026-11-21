@@ -58,7 +58,7 @@ pricing:
 status: active
 sources:
   - url: https://code.visualstudio.com
-    verified_at: 2026-11-20
+    verified_at: 2026-11-21
     covers: [pricing, platforms, general]
   - url: https://code.visualstudio.com/docs/copilot/setup
     verified_at: 2026-11-20
