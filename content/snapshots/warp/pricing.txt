@@ -1,314 +1,352 @@
 # https://www.warp.dev/pricing
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
-Pricing | Warp
-Live Nov 10 — Solving the code review bottleneck: Agent verification & PR risk assessment — Register →
+Warp Factories pricing | Warp
+Introducing Warp Learn: A free, hands-on course for building your own software factory Get Started →
 Products
+nav/Products 12 links
+Products Warp Factories Open infrastructure for software factories Warp Terminal A modern terminal for agentic coding Warp Agent CLI A powerful coding agent that works in any terminal
+Features Factories as code Benchmarks Scorers
+Automations
+Self-improvement
+Platform Agents & Models
+Compute & Infrastructure
+Integrations
+APIs & SDKs
+Enterprise
+nav/Enterprise 12 links
+Enterprise Overview
+Security & Trust Trust Center
+Security
+Privacy & Data
+Bring your own LLM
+Deployment Warp-Hosted
+Self-Hosted
+Hybrid
+Administration Identity & Access
+Agent Governance
+Admin Controls
+Roles & Permissions
+Resources
+nav/Resources 13 links
+Explore Blog Learn Customer Stories Research & Reports Events
+Developers Docs
+Changelog
+Github
+Community
+Support
+Company About Careers Press Pricing
+Sign in
+Sign in 2 links
+Warp Terminal Warp Factories Book a demo
+Get started
+Get started 2 links
+Build a software factory Run fleets of coding agents across your SDLC Download Warp Terminal A modern terminal designed for working with agents
+Warp Factories Warp Agent
 Warp Factories
-Run fleets of coding agents across your SDLC
-Warp Terminal
-A modern terminal for agentic coding
-Warp Agent CLI
-A powerful coding agent that works in any terminal Solutions
-Use Cases
-Code Review First-pass review on every PR
-Bug Investigation Reproduce bugs and route fixes
-Refactors & Migration Scope, migrate, and validate changes
-Incident Response Investigate alerts and summarize next steps
-Industry
-Financial Services Secure, compliant AI development
-Insurance Modernize policy & claims systems
-Telecommunications Scale with your network Resources
-Developers
-Docs API docs and guides
-GitHub
-Star Warp and explore the source
-Blog News and product updates
-Community Get help and connect
-Agent Kits Pre-built agent gallery
-Events Webinars and sessions
-Changelog What's new in Warp
-Roadmap
-See what we're building next
-Support Help and issue tracking
-Company
-About Our mission and team
-How We Work Our culture and values
-Careers Join the team at Warp
-Press Media coverage and press kit
-Research Reports and insights
-Newsroom Announcements and press releases Enterprise
-Overview
-Secure, compliant agentic development for your org
-Customers
-Teams shipping faster with Warp Pricing
-Sign In
-Book a demo
-Get Started
-Products
-Warp Factories
-Run fleets of coding agents across your SDLC
-Warp Terminal
-A modern terminal for agentic coding
-Warp Agent CLI
-A powerful coding agent that works in any terminal Solutions
-Use Cases
-Code Review First-pass review on every PR
-Bug Investigation Reproduce bugs and route fixes
-Refactors & Migration Scope, migrate, and validate changes
-Incident Response Investigate alerts and summarize next steps
-Industry
-Financial Services Secure, compliant AI development
-Insurance Modernize policy & claims systems
-Telecommunications Scale with your network Resources
-Developers
-Docs API docs and guides
-GitHub
-Star Warp and explore the source
-Blog News and product updates
-Community Get help and connect
-Agent Kits Pre-built agent gallery
-Events Webinars and sessions
-Changelog What's new in Warp
-Roadmap
-See what we're building next
-Support Help and issue tracking
-Company
-About Our mission and team
-How We Work Our culture and values
-Careers Join the team at Warp
-Press Media coverage and press kit
-Research Reports and insights
-Newsroom Announcements and press releases Enterprise
-Overview
-Secure, compliant agentic development for your org
-Customers
-Teams shipping faster with Warp Pricing
-Sign In
-Book a demo
-Get Started
-Warp Terminal and agents Warp Factories Automated software delivery
-Pricing for Warp
+Build and run self-improving software factories with Warp's open infrastructure.
 Free
-$0 /month
 For developers who want Warp’s modern terminal with the flexibility to use Warp’s AI or bring their own.
+$0 /month
 Download Now
 Includes core terminal features
-○
 State-of-the-art modern terminal
-○
-Warp Agent CLI access
-○
-Additional agent usage at pay-as-you-go rates
-○
-Bring your own AI inference*
-○
-Limited cloud agents access
-○
-Use any harness in the cloud (beta)
-○
-Individually configured data controls
-○
-Limited Warp Drive and collaboration feature access
-○
-Limited cloud conversation storage
+Warp Agent CLI access Use the Warp Agent from any terminal on macOS or Linux, including over SSH. Your Warp account, plan, usage, and model access stay the same.
+Additional agent usage at pay-as-you-go rates Buy additional AI usage anytime, with no subscription required.
+Bring your own AI inference* Power the Warp Agent with your own API keys for OpenAI, Anthropic, or Google models, connect SuperGrok, or use a custom OpenAI-compatible endpoint. You can also sign in with ChatGPT to use your subscription’s included Work and Codex usage in Warp.
+* Available for individual users and organizations with 10 or fewer employees, subject to Warp's Terms of Service; larger organizations require a Warp Business or Enterprise plan.
+Limited cloud agents access Cloud connected, background agents that run automatically from schedules, CI, webhooks, or integration events.
+Use any harness in the cloud (beta) Bring Claude Code, Codex, and the Warp Agent into Oz cloud environments, and mix and match them across workflows.
+Individually configured data controls Configure app telemetry and data settings in Settings > Privacy. Warp does not allow contracted model providers to retain, store, or train models on your data.
+Limited Warp Drive and collaboration feature access Create and share a limited number of workflows, notebooks, and shared sessions.
+Limited cloud conversation storage Save and continue past AI conversations across devices. Free includes up to 30 cloud-stored conversations.
 Purchase additional agent usage
 Build
-Recommended
 Monthly Annual
-Monthly plan
+For developers who want flexible access to AI that scales with their usage
 $20 /month
-For developers who want flexible access to AI that scales with their usage
 Start Today
 Everything in Free, plus:
-○
-$20 of agent usage included each month at API rates
-○
-Full Warp Agent access (frontier and open-source models from OpenAI, Anthropic, z.ai, and more)
-○
-Add-on agent usage, auto-reload, and team-wide spend cap
-○
+$20 of agent usage included each month at API rates Cloud and local agent usage is metered at API rates. Different models and actions have different costs.
+Full Warp Agent access (frontier and open-source models from OpenAI, Anthropic, z.ai, and more) Top models include Fable 5, Claude Opus 5, GPT-5.6, Gemini 3.1 Pro, GLM 5.2, Kimi K3, and DeepSeek V4.
+Add-on agent usage, auto-reload, and team-wide spend cap Additional AI usage is shared across your team, rolls over to future billing cycles, and is valid for 12 months.
 Extended cloud agents access
-○
 Highest codebase indexing limits
-○
 Unlimited Warp Drive objects and collaboration
-○
-Unlimited cloud conversation storage
-○
+Unlimited cloud conversation storage Cloud-synced conversations let you view and continue past AI conversations across devices.
 Private email support
 Purchase additional agent usage
 Max
 Monthly Annual
-Monthly plan
-$200 /month
 For developers who need maximum AI capacity with all the flexibility of Build
+$200 /month
 Start Today
 Everything in Build, plus:
-○
-$200 of agent usage included each month (10× Build)
-○
-Add-on agent usage, auto-reload, and team-wide spend cap
+$200 of agent usage included each month (10× Build) Cloud and local agent usage is metered at API rates.
+Add-on agent usage, auto-reload, and team-wide spend cap Additional AI usage is shared across your team, rolls over to future billing cycles, and is valid for 12 months.
 Purchase additional agent usage
 Business
 Monthly Annual
-Monthly plan
-$50 /user /month
 For teams scaling AI-powered development (up to 25 seats)
+Pay as you go, starting at:
+$50 /user /month
 Start Today
 Everything in Build, plus:
-○
-$20 of agent usage included per seat each month at API rates
-○
-Team usage metrics
-○
-Admin-configurable data controls
-○
-Bring your own API keys and custom inference endpoints
-○
+$20 of agent usage included per seat each month at API rates Cloud and local agent usage is allocated per seat at API rates. Different models and actions have different costs.
+Team usage metrics View team-level usage to understand AI adoption and spend across your team.
+Admin-configurable data controls Admins can configure team-level data settings, including telemetry and data collection controls. Warp does not allow contracted model providers to retain, store, or train models on your data.
+Bring your own API keys and custom inference endpoints Power the Warp Agent with your own API keys or a custom inference endpoint. Per Warp's Terms of Service, organizations with more than 10 employees require a Business or Enterprise plan for these options.
 SAML-based SSO
 Purchase additional agent usage
 Enterprise
-Custom
 For organizations needing advanced control, security, and scale
+Custom
 Contact Sales
 Everything in Business, plus:
-○
 Unlimited seats
-○
-Custom shared usage pools and terms
-○
-Advanced spend controls
-○
-Enterprise admin controls
-○
-Enterprise data governance
-○
-Enterprise Analytics API
-○
+Custom shared usage pools and terms Custom usage allocation, terms, and commercial structure based on your organization's needs.
+Advanced spend controls Configure team-wide and per-user spend limits, usage policies, and custom controls for your organization.
+Enterprise admin controls Advanced controls for governance, security, and usage management, including AI autonomy controls, model selection, Codebase Context controls, agent attribution, secret redaction, domain capture, and auditability.
+Enterprise data governance Configure organization-wide data, telemetry, retention, model, and agent policies for your security and compliance needs.
+Enterprise Analytics API Pull team-level usage data into your own dashboards, cost allocation tools, or audit pipelines. Includes access to summary metrics, per-user rollups, and message-level activity metadata.
 Multi-admin support
-○
-Route inference through your own cloud (BYOLLM)
-○
-Self-hosted cloud agents on your infrastructure
-○
-Custom codebase indexing
-○
-Cross-harness agent memory (Research Preview)
-○
-White-glove onboarding and implementation engineer support
-○
+Route inference through your own cloud (BYOLLM) Run inference through models hosted in your own cloud, including AWS Bedrock and Google Vertex AI. Warp handles routing, orchestration, governance, and observability.
+Self-hosted cloud agents on your infrastructure Run Warp cloud agents on your own infrastructure, including Docker, Kubernetes, or custom internal compute environments.
+Custom codebase indexing Custom limits and controls for larger organizations and complex codebases.
+Cross-harness agent memory (Research Preview) Carry preferences, project knowledge, and learnings across harnesses and sessions.
+White-glove onboarding and implementation engineer support A structured multi-week implementation program with hands-on guidance from Warp engineers to help your team deploy production Oz Cloud Agent automations.
 Dedicated account manager and a shared Slack channel with your team
 Free
-$0 /month
 For developers who want Warp’s modern terminal with the flexibility to use Warp’s AI or bring their own.
+$0 /month
 Download Now
 Includes core terminal features
-○
 State-of-the-art modern terminal
-○
-Warp Agent CLI access
-○
-Additional agent usage at pay-as-you-go rates
-○
-Bring your own AI inference*
-○
-Limited cloud agents access
-○
-Use any harness in the cloud (beta)
-○
-Individually configured data controls
-○
-Limited Warp Drive and collaboration feature access
-○
-Limited cloud conversation storage
+Warp Agent CLI access Use the Warp Agent from any terminal on macOS or Linux, including over SSH. Your Warp account, plan, usage, and model access stay the same.
+Additional agent usage at pay-as-you-go rates Buy additional AI usage anytime, with no subscription required.
+Bring your own AI inference* Power the Warp Agent with your own API keys for OpenAI, Anthropic, or Google models, connect SuperGrok, or use a custom OpenAI-compatible endpoint. You can also sign in with ChatGPT to use your subscription’s included Work and Codex usage in Warp.
+* Available for individual users and organizations with 10 or fewer employees, subject to Warp's Terms of Service; larger organizations require a Warp Business or Enterprise plan.
+Limited cloud agents access Cloud connected, background agents that run automatically from schedules, CI, webhooks, or integration events.
+Use any harness in the cloud (beta) Bring Claude Code, Codex, and the Warp Agent into Oz cloud environments, and mix and match them across workflows.
+Individually configured data controls Configure app telemetry and data settings in Settings > Privacy. Warp does not allow contracted model providers to retain, store, or train models on your data.
+Limited Warp Drive and collaboration feature access Create and share a limited number of workflows, notebooks, and shared sessions.
+Limited cloud conversation storage Save and continue past AI conversations across devices. Free includes up to 30 cloud-stored conversations.
 Purchase additional agent usage
 Build
-Recommended
 Monthly Annual
-Annual plan
-$18 /month
 For developers who want flexible access to AI that scales with their usage
+$18 /month
 Start Today
 Everything in Free, plus:
-○
-$20 of agent usage included each month at API rates
-○
-Full Warp Agent access (frontier and open-source models from OpenAI, Anthropic, z.ai, and more)
-○
-Add-on agent usage, auto-reload, and team-wide spend cap
-○
+$20 of agent usage included each month at API rates Cloud and local agent usage is metered at API rates. Different models and actions have different costs.
+Full Warp Agent access (frontier and open-source models from OpenAI, Anthropic, z.ai, and more) Top models include Fable 5, Claude Opus 5, GPT-5.6, Gemini 3.1 Pro, GLM 5.2, Kimi K3, and DeepSeek V4.
+Add-on agent usage, auto-reload, and team-wide spend cap Additional AI usage is shared across your team, rolls over to future billing cycles, and is valid for 12 months.
 Extended cloud agents access
-○
 Highest codebase indexing limits
-○
 Unlimited Warp Drive objects and collaboration
-○
-Unlimited cloud conversation storage
-○
+Unlimited cloud conversation storage Cloud-synced conversations let you view and continue past AI conversations across devices.
 Private email support
 Purchase additional agent usage
 Max
 Monthly Annual
-Annual plan
-$180 /month
 For developers who need maximum AI capacity with all the flexibility of Build
+$180 /month
 Start Today
 Everything in Build, plus:
-○
-$200 of agent usage included each month (10× Build)
-○
-Add-on agent usage, auto-reload, and team-wide spend cap
+$200 of agent usage included each month (10× Build) Cloud and local agent usage is metered at API rates.
+Add-on agent usage, auto-reload, and team-wide spend cap Additional AI usage is shared across your team, rolls over to future billing cycles, and is valid for 12 months.
 Purchase additional agent usage
 Business
 Monthly Annual
-Annual plan
-$45 /user /month
 For teams scaling AI-powered development (up to 25 seats)
+Pay as you go, starting at:
+$45 /user /month
 Start Today
 Everything in Build, plus:
-○
-$20 of agent usage included per seat each month at API rates
-○
-Team usage metrics
-○
-Admin-configurable data controls
-○
-Bring your own API keys and custom inference endpoints
-○
+$20 of agent usage included per seat each month at API rates Cloud and local agent usage is allocated per seat at API rates. Different models and actions have different costs.
+Team usage metrics View team-level usage to understand AI adoption and spend across your team.
+Admin-configurable data controls Admins can configure team-level data settings, including telemetry and data collection controls. Warp does not allow contracted model providers to retain, store, or train models on your data.
+Bring your own API keys and custom inference endpoints Power the Warp Agent with your own API keys or a custom inference endpoint. Per Warp's Terms of Service, organizations with more than 10 employees require a Business or Enterprise plan for these options.
 SAML-based SSO
 Purchase additional agent usage
 Enterprise
-Custom
 For organizations needing advanced control, security, and scale
+Custom
 Contact Sales
 Everything in Business, plus:
-○
 Unlimited seats
-○
-Custom shared usage pools and terms
-○
-Advanced spend controls
-○
-Enterprise admin controls
-○
-Enterprise data governance
-○
-Enterprise Analytics API
-○
+Custom shared usage pools and terms Custom usage allocation, terms, and commercial structure based on your organization's needs.
+Advanced spend controls Configure team-wide and per-user spend limits, usage policies, and custom controls for your organization.
+Enterprise admin controls Advanced controls for governance, security, and usage management, including AI autonomy controls, model selection, Codebase Context controls, agent attribution, secret redaction, domain capture, and auditability.
+Enterprise data governance Configure organization-wide data, telemetry, retention, model, and agent policies for your security and compliance needs.
+Enterprise Analytics API Pull team-level usage data into your own dashboards, cost allocation tools, or audit pipelines. Includes access to summary metrics, per-user rollups, and message-level activity metadata.
 Multi-admin support
-○
-Route inference through your own cloud (BYOLLM)
-○
-Self-hosted cloud agents on your infrastructure
-○
-Custom codebase indexing
-○
-Cross-harness agent memory (Research Preview)
-○
-White-glove onboarding and implementation engineer support
-○
+Route inference through your own cloud (BYOLLM) Run inference through models hosted in your own cloud, including AWS Bedrock and Google Vertex AI. Warp handles routing, orchestration, governance, and observability.
+Self-hosted cloud agents on your infrastructure Run Warp cloud agents on your own infrastructure, including Docker, Kubernetes, or custom internal compute environments.
+Custom codebase indexing Custom limits and controls for larger organizations and complex codebases.
+Cross-harness agent memory (Research Preview) Carry preferences, project knowledge, and learnings across harnesses and sessions.
+White-glove onboarding and implementation engineer support A structured multi-week implementation program with hands-on guidance from Warp engineers to help your team deploy production Oz Cloud Agent automations.
 Dedicated account manager and a shared Slack channel with your team
+Trusted by 800k+ devs at
+Livestream Livestream Case Study Launch Partner Course Partner Case Study
+Livestream Livestream Case Study Launch Partner Course Partner Case Study
+Compare pricing plans
+Feature
+Free $0/mo
+Download Now
+Build $20/mo
+Start today
+Max $200/mo
+Start today
+Business $50/mo
+Start today
+Enterprise Custom
+Contact Sales
+Seats
+Team members Maximum number of members on a team. 10 10 10 25 Unlimited
+Agents
+Included monthly usage Value of AI usage included each month at API rates. Different models and actions have different costs. — $20 $200 $20 per seat Custom
+Access to frontier and open-source models The latest models from OpenAI, Anthropic, Google, and xAI, plus top open-source models like GLM 5.2. With purchased usage or your own inference All frontier + open-source models All frontier + open-source models All frontier + open-source models Custom
+Warp Agent CLI Use the Warp Agent from any terminal on macOS or Linux, including over SSH.
+Included
+Included
+Included
+Included
+Included
+Additional agent usage Purchase additional agent usage anytime. Available at pay-as-you-go rates.
+Included
+Included
+Included Custom
+Auto-reload Automatically purchase more agent usage when your balance runs low, subject to spend caps. —
+Included
+Included
+Included Custom
+Bring your own API key Power the Warp Agent with your own OpenAI, Anthropic, or Google API key. Individuals and orgs up to 10 people Individuals and orgs up to 10 people Individuals and orgs up to 10 people
+Included
+Included
+Custom inference endpoint Connect an OpenAI-compatible inference endpoint to power the Warp Agent. Individuals and orgs up to 10 people Individuals and orgs up to 10 people Individuals and orgs up to 10 people
+Included
+Included
+Inference in your cloud Route inference through models hosted in your own cloud, including AWS Bedrock and Google Vertex AI, while Warp manages routing and orchestration. — — — —
+Included
+Team-managed API keys and endpoints Admins centrally configure API keys and inference endpoints for their team. — — — —
+Included
+Concurrent cloud agents The maximum number of cloud agent sessions that can run simultaneously. 100 100 100 100 Custom
+Default cloud agent machine size Each plan's default machine size is listed. Warp-hosted Linux runners can be configured up to 16 vCPUs and 64 GB; larger machine sizes cost more. 2 vCPUs, 4 GB 4 vCPUs, 8 GB 4 vCPUs, 8 GB 8 vCPUs, 16 GB 8 vCPUs, 16 GB
+Self-hosting for cloud agents Run cloud agents on your own infrastructure for maximum control and compliance. — — — —
+Included
+Cross-harness agent memory Carry preferences, project knowledge, and learnings across harnesses and sessions. — — — — Research Preview
+Indexed codebases Number of codebases that can be indexed for AI-powered code search and context. 3 40 40 80 Custom
+Files per codebase Maximum number of files that can be indexed within a single codebase. 3,000 100,000 100,000 100,000 Custom
+MCP support Connect external tools and data sources via the Model Context Protocol.
+Included
+Included
+Included
+Included
+Included
+Cloud conversation storage How many AI conversations are stored in the cloud for access across devices. 30 conversations Unlimited Unlimited Unlimited Custom
+Terminal and Collaboration
+Shared Warp Drive Share workflows, notebooks, and other Warp Drive objects with your team. 10 workflows, 3 notebooks Unlimited Unlimited Unlimited Custom
+Session sharing Share live terminal sessions with teammates for pair programming and debugging. Up to 5 shared sessions Unlimited Unlimited Unlimited Custom
+Admin and Security
+SOC 2 compliance Warp maintains a SOC 2 Type II attestation, ensuring data is handled securely.
+Included
+Included
+Included
+Included
+Included
+Model provider ZDR Contracted LLM providers never retain, store, or train on your data.
+Included
+Included
+Included
+Included
+Included
+Data controls How telemetry and data settings are managed across your account or team. Individually configured Individually configured Individually configured Admin-configurable Enterprise data governance
+SAML-based SSO Single sign-on integration with your identity provider. — — —
+Included
+Included
+Usage reporting Usage reporting varies by plan. Free users can view their own usage. Build and Max admins can view aggregate team usage. Business admins can view usage by user. Enterprise admins get advanced reporting by user, usage type, and harness, including AI, compute, and platform cost breakdowns. Individual only Team aggregate Team aggregate Per-user and team aggregate Advanced per-user + usage breakdowns
+Analytics and usage API Pull team-level usage data into your own dashboards and pipelines. — — — —
+Included
+Cost controls Configure spend limits and usage policies. — Team-wide spend cap Team-wide spend cap Team-wide spend cap Team-wide and per-user spend limits
+Multi-admin controls Assign multiple administrators to manage your organization. — — — —
+Included
+Domain capture Automatically claim users who sign up with your company email domain. — — — —
+Included
+Individual AI controls Configure AI autonomy, model selection, and permissions for your own account.
+Included
+Included
+Included
+Included
+Included
+Admin-enforced AI controls Admins can enforce AI autonomy, model, and permission policies across the team. — — — —
+Included
+Model selection controls Who controls which models are available. Individual Individual Individual Individual Team-configurable
+Support
+Private email support Get direct email support from the Warp team for faster issue resolution. —
+Included
+Included
+Included
+Included
+Implementation engineer support Hands-on help from a Warp implementation engineer. — — — —
+Included
+White-glove onboarding and support A structured onboarding program with dedicated guidance from Warp. — — — —
+Included
+Dedicated account manager A dedicated point of contact for onboarding, configuration, and ongoing support. — — — —
+Included
+Shared Slack support channel A shared Slack channel with the Warp team. — — — —
+Included
+Free Build Max Business Enterprise
+Free $0/mo
+Download Now
+Free plan comparison
+Seats
+Team members Maximum number of members on a team. 10
+Agents
+Included monthly usage Value of AI usage included each month at API rates. Different models and actions have different costs. —
+Access to frontier and open-source models The latest models from OpenAI, Anthropic, Google, and xAI, plus top open-source models like GLM 5.2. With purchased usage or your own inference
+Warp Agent CLI Use the Warp Agent from any terminal on macOS or Linux, including over SSH.
+Included
+Additional agent usage Purchase additional agent usage anytime. Available at pay-as-you-go rates.
+Auto-reload Automatically purchase more agent usage when your balance runs low, subject to spend caps. —
+Bring your own API key Power the Warp Agent with your own OpenAI, Anthropic, or Google API key. Individuals and orgs up to 10 people
+Custom inference endpoint Connect an OpenAI-compatible inference endpoint to power the Warp Agent. Individuals and orgs up to 10 people
+Inference in your cloud Route inference through models hosted in your own cloud, including AWS Bedrock and Google Vertex AI, while Warp manages routing and orchestration. —
+Team-managed API keys and endpoints Admins centrally configure API keys and inference endpoints for their team. —
+Concurrent cloud agents The maximum number of cloud agent sessions that can run simultaneously. 100
+Default cloud agent machine size Each plan's default machine size is listed. Warp-hosted Linux runners can be configured up to 16 vCPUs and 64 GB; larger machine sizes cost more. 2 vCPUs, 4 GB
+Self-hosting for cloud agents Run cloud agents on your own infrastructure for maximum control and compliance. —
+Cross-harness agent memory Carry preferences, project knowledge, and learnings across harnesses and sessions. —
+Indexed codebases Number of codebases that can be indexed for AI-powered code search and context. 3
+Files per codebase Maximum number of files that can be indexed within a single codebase. 3,000
+MCP support Connect external tools and data sources via the Model Context Protocol.
+Included
+Cloud conversation storage How many AI conversations are stored in the cloud for access across devices. 30 conversations
+Terminal and Collaboration
+Shared Warp Drive Share workflows, notebooks, and other Warp Drive objects with your team. 10 workflows, 3 notebooks
+Session sharing Share live terminal sessions with teammates for pair programming and debugging. Up to 5 shared sessions
+Admin and Security
+SOC 2 compliance Warp maintains a SOC 2 Type II attestation, ensuring data is handled securely.
+Included
+Model provider ZDR Contracted LLM providers never retain, store, or train on your data.
+Included
+Data controls How telemetry and data settings are managed across your account or team. Individually configured
+SAML-based SSO Single sign-on integration with your identity provider. —
+Usage reporting Usage reporting varies by plan. Free users can view their own usage. Build and Max admins can view aggregate team usage. Business admins can view usage by user. Enterprise admins get advanced reporting by user, usage type, and harness, including AI, compute, and platform cost breakdowns. Individual only
+Analytics and usage API Pull team-level usage data into your own dashboards and pipelines. —
+Cost controls Configure spend limits and usage policies. —
+Multi-admin controls Assign multiple administrators to manage your organization. —
+Domain capture Automatically claim users who sign up with your company email domain. —
+Individual AI controls Configure AI autonomy, model selection, and permissions for your own account.
+Included
+Admin-enforced AI controls Admins can enforce AI autonomy, model, and permission policies across the team. —
+Model selection controls Who controls which models are available. Individual
+Support
+Private email support Get direct email support from the Warp team for faster issue resolution. —
+Implementation engineer support Hands-on help from a Warp implementation engineer. —
+White-glove onboarding and support A structured onboarding program with dedicated guidance from Warp. —
+Dedicated account manager A dedicated point of contact for onboarding, configuration, and ongoing support. —
+Shared Slack support channel A shared Slack channel with the Warp team. —
 Models
 The best for the job
 Access Fable 5, Claude Opus 5, GPT-5.6, Gemini 3.1 Pro, GLM 5.2, Kimi K3, and more. Pick the best model for the task. Run different tasks with different models in parallel, or switch between models for a given task, all without leaving your workflow.
@@ -324,92 +362,261 @@ Control exactly how much autonomy agents have, from approving every step to allo
 Full transparency
 You can read the list of high-level telemetry events sent for app analytics and monitor telemetry in real time with our native Network Log.
 Explore Privacy at Warp
+Pricing FAQ
+How is agent usage billed? [+]
+Warp shows agent usage in dollars. Build includes $20 of agent usage each month, Business includes $20 per seat each month, and Max includes $200 each month. These amounts cover usage in the Warp app, Warp Agent CLI, and Oz cloud agents.
+The cost of an action depends on the model, the size of the task, the context and codebase involved, and whether the agent runs locally or in the cloud. Cloud and managed-agent runs can also include platform and compute costs.
+Is the Warp Agent CLI included in my plan? [+]
+Yes. The Warp Agent CLI is included with every Warp plan on macOS and Linux. Sign in with the same Warp account to use your plan, models, and synced conversations.
+CLI requests draw on the same included or purchased agent usage as the Warp app. Free users can purchase additional usage or add an OpenAI, Anthropic, or Google API key or SuperGrok subscription with /api-keys . Warp's Auto models use Warp-provided inference.
+The CLI footer shows total conversation usage. Run /cost to see the cost of each response.
+Does Warp have a SOC 2 Type II attestation? [+]
+Yes, Warp has obtained a SOC 2 Type II attestation from an accredited third party. Visit Warp's Trust Center to request the report.
+Which AI models can I use in Warp? [+]
+Paid plans include frontier models from OpenAI, Anthropic, Google, and xAI, plus top open-source models like GLM 5.2, Kimi K3, and DeepSeek V4 hosted on Fireworks AI in the US. Model access is the same in the Warp app and the Warp Agent CLI.
+You can pick a model per prompt, or let Warp's Auto routing choose for you — including an open-weights option that routes between the best open-source models for lower cost and faster speed.
+On the Free plan, you can bring your own inference instead: use your own API keys, connect your SuperGrok subscription, or connect a custom OpenAI-compatible endpoint.
+See the full list of supported models in our docs.
+Can I bring my own AI inference? [+]
+Yes. Warp supports several ways to use your own AI inference with Warp Agent:
+API keys: Connect your own OpenAI, Anthropic, or Google API key.
+SuperGrok subscription: Sign in with your xAI account to run Grok models through your existing SuperGrok subscription — no API key needed.
+Custom inference endpoints: Connect an OpenAI-compatible provider or gateway, such as OpenRouter, LiteLLM, z.ai, or an internal gateway.
+Inference in your cloud (BYOLLM): On Enterprise, run inference through models hosted in your own cloud, such as AWS Bedrock or Google Vertex AI.
+Team-managed API keys and endpoints: On Enterprise, admins centrally configure API keys and endpoints for their team, including for cloud agents.
+In the Warp Agent CLI, add API keys or a SuperGrok subscription with /api-keys . Custom inference endpoints are available only in the Warp app.
+Self-serve API keys, SuperGrok subscriptions, and custom inference endpoints are available to individual users and organizations with 10 or fewer employees, subject to Warp's Terms of Service; larger organizations require a Warp Business or Enterprise plan. Contact us if you have questions about the right setup for your team.
+With BYOLLM, admins configure inference centrally for the whole team and no API keys are stored. Inference runs and is billed in your cloud account, not through Warp. AWS Bedrock and Google Vertex AI are supported today, with Azure AI Foundry coming soon. Learn more about Bring Your Own LLM in our docs.
+Warp's Zero Data Retention agreements apply to Warp-provided inference. When you bring your own inference, requests are sent directly to your provider under your own account and terms.
+What's the difference between bringing my own API key (BYOK) and bringing my own LLM (BYOLLM)? [+]
+Bring Your Own API Key (BYOK) is set up by each user: add your own OpenAI, Anthropic, or Google API key (stored on your device) and Warp routes requests to the provider with your key. BYOK is available to individual users and organizations with 10 or fewer employees, subject to Warp's Terms of Service; larger organizations need a Business or Enterprise plan.
+Bring Your Own LLM (BYOLLM) is an Enterprise feature that admins configure for the whole team: inference runs through models hosted in your own cloud account, such as AWS Bedrock or Google Vertex AI, with no stored API keys and costs billed to your cloud account.
+Enterprise admins can also configure team-managed API keys and endpoints : shared provider keys and inference endpoints that work for the whole team, including cloud agents.
+Contact us if you're not sure which setup fits your organization.
+Does Warp have Zero Data Retention agreements with LLM providers? [+]
+Yes. Warp has Zero Data Retention agreements with supported LLM providers, including Anthropic, OpenAI, Google, xAI, and Fireworks AI.
+For supported models, these agreements prevent providers from training on customer-generated data processed through Warp, and require prompts and outputs to be deleted after the response is generated within a fixed period of time.
+Zero Data Retention applies to Warp-provided inference only. If you use your own API key, SuperGrok subscription, custom endpoint, or LLM, requests are sent directly to your provider under your own account and terms.
+How can I enable Zero Data Retention in Warp? [+]
+Zero Data Retention (ZDR) can be enabled in two ways:
+Individual level: Any user can enable full ZDR for their own account by disabling Help Improve Warp in Settings > Privacy .
+Organization-wide: On the Business and Enterprise plans, admins can enforce ZDR for all members by default via the admin panel, ensuring team-wide compliance without relying on individual settings.
+If you'd like to request organization-wide ZDR, please contact your Warp sales representative at sales@warp.dev or submit a request via our Contact Sales form.
+Should I subscribe to the Build plan, Max plan, or the Business plan? [+]
+Build is a good fit for individual developers or small teams that want flexible access to Warp AI. It includes $20 of usage at API rates each month, optional add-on usage, full Warp Agent access, and higher codebase indexing limits.
+Max is best for heavy AI users who consistently need more capacity. It includes $200 of usage each month — 10× Build.
+Business is best for teams that need SSO, team usage metrics, admin-configurable data controls, and centralized spend management. It supports up to 25 team members and includes $20 of usage per seat each month.
+For larger organizations needing unlimited seats, advanced governance, custom usage terms, or self-hosted cloud agents, contact us about Enterprise.
+How can I subscribe to a Warp Business or Enterprise plan? [+]
+You can subscribe to the Business plan directly from our upgrade page or via your in-app Settings > Billing & usage page.
+For larger engineering organizations or companies that need advanced compliance, governance, custom usage terms, or dedicated support, Warp also offers an Enterprise plan with custom pricing and deployment options. To learn more, contact us at sales@warp.dev or submit a request .
+Can I purchase additional agent usage on any plan? [+]
+Yes. Free, Build, Max, and Business users can purchase additional agent usage.
+Add-on usage is shared across your team, rolls over month to month, and remains valid for 12 months. Paid-plan admins can set team spend caps and auto-reload. Build, Max, and Business also include monthly agent usage.
+When does included AI usage reset? [+]
+Included monthly usage resets every 30 days from your subscription or renewal date. You can view your remaining balance under Settings > Billing & usage .
+If you run out before the next reset, you can purchase additional agent usage to keep using AI features without interruption. On eligible plans, admins can also configure auto-reload and team-wide spend caps.
+How does additional agent usage work for teams? [+]
+Included monthly usage is assigned to each paid seat and resets every 30 days from the team's subscription or renewal date. Purchased add-on usage is pooled across the team: when any member purchases more, the whole team shares the balance.
+Team admins can set a team-wide spend cap and choose whether members purchase add-on usage manually or use auto-reload. With auto-reload on, Warp purchases the selected add-on when the team's balance falls below the threshold, as long as the team remains under its spend cap.
+Are there any Warp discounts for students, non-profits, or open-source teams? [+]
+At this time, Warp does not offer discounts for students, non-profits, or open-source teams. We recommend Warp's Free plan, which includes the core terminal features plus support for bringing your own AI inference.
+What payment options are available? [+]
+Warp uses Stripe for payment processing and the only available payment method is by credit card.
+Warp cannot currently accept payment by ACH, cash, check, money order, or cryptocurrency.
 Have more questions?
 Talk to our team about which plan is right for you.
-Contact Sales
-View Documentation
-Pricing for Warp Factories
-Build, run, and scale software factories. Execution is usage-based; each plan adds capabilities for teams, governance, and infrastructure.
-Pay as you go
-$0 /month
-For teams getting started with software factories.
-Request access
-○
-Usage at 20% above API rates
-○
-Built-in and custom agents with cloud run management
-○
-Automations, insights, and self-improvement
-○
-Warp-hosted factory-as-code and cross-platform cloud runners
-Purchase additional agent usage
-Build
-$20 /month
-For developers building repeatable factory workflows.
+Contact Sales View Documentation
+Start
+For small teams getting started with software factories
+$0 / month + usage
+Up to 10 seats
+$0 included usage pool
+Inference at API rates
+Passthrough Compute
+$3.50 / agent hour
+Warp’s platform fee is billed in agent hours, which measure each agent’s billable runtime. Agents running in parallel accrue time separately. Queuing, sandbox setup before the agent starts, and idle time between turns are excluded. Inference and hosted compute are billed separately.
+Pay-as-you-go usage
+Factory workflows run via Warp Agent
+Warp-hosted factory definitions
+Warp-hosted Linux, Mac, and Windows cloud sandboxes
+Get started
+Core software factory features
+Scoring, self-improvement and benchmarking of factory workflows
+Custom model routing
+Factory management including telemetry, agent conversation storage, and team-wide control plane
+Scale POPULAR
+For teams scaling factories across production workflows
+$250 / month per team + usage
+Up to 50 seats
+$150 included monthly usage per team
+Inference at API rates or BYO keys
+Passthrough Compute
+$3.00 / agent hour
+Warp’s platform fee is billed in agent hours, which measure each agent’s billable runtime. Agents running in parallel accrue time separately. Queuing, sandbox setup before the agent starts, and idle time between turns are excluded. Inference and hosted compute are billed separately.
+Pay-as-you-go after included usage
+Factory workflows run via Warp Agent Claude Code Codex Pi
+Warp or self-hosted factory definitions
+Warp-hosted Linux, Mac, and Windows cloud sandboxes
 Start today
-Everything in Pay as you go, plus:
-○
-Usage at API rates
-○
-Claude Code and Codex harnesses
-○
-Factory-as-code in your GitHub code forge
-○
-Attribution controls and multiple admins
-Purchase additional agent usage
-Business
-Recommended
-$50 /user /month
-For teams scaling factories across production workflows.
-Start today
-Everything in Build, plus:
-○
+Everything in Start, plus:
+Team usage metrics and admin-configurable data controls
 SAML-based SSO
-○
-Team telemetry and content controls
-○
-Expanded factory insights
-○
 Bring your own API keys and custom inference endpoints
-Purchase additional agent usage
 Enterprise
+For orgs that need custom usage terms, self-hosting, and advanced admin controls
 Custom
-For organizations with complex governance and infrastructure needs.
+Custom seats
+Custom usage with volume discounts
+Inference at API rates or BYO AI provider
+Passthrough or BYO Compute
+Volume pricing for agent hours
+Warp’s platform fee is billed in agent hours, which measure each agent’s billable runtime. Agents running in parallel accrue time separately. Queuing, sandbox setup before the agent starts, and idle time between turns are excluded. Inference and hosted compute are billed separately.
+Custom additional usage
+Factory workflows run via Warp Agent Claude Code Codex Pi
+Custom workflow harness
+Self-hosted with custom terms
+Warp-hosted or BYO compute for cloud sandboxes
 Contact sales
-Everything in Business, plus:
-○
-Custom shared usage pools and terms
-○
-Bring your own AI provider
-○
-Self-hosted workers, compute, transcripts, and conversation data
-○
-Workspaces to organize factories across teams and business units
-Factory usage is billed separately based on inference, compute, and agent usage.
+Everything in Scale, plus:
+Shared usage pools with custom contract terms
+Advanced spend controls and enterprise admin controls
+Host workers, compute, transcripts, and agent artifacts on your infrastructure
+Connect your own AI provider, including Amazon Bedrock and Google Vertex AI
+Organize factories into workspaces for different teams and business units
+Enterprise Analytics API
+Trusted by 800k+ devs at
+Livestream Livestream Case Study Launch Partner Course Partner Case Study
+Livestream Livestream Case Study Launch Partner Course Partner Case Study
+Compare pricing plans
+Feature
+Start $0/mo + usage
+Get started
+Scale Starting at $250/mo
+Start today
+Enterprise Custom
+Contact sales
+Plan details
+Seats Up to 10 Up to 50 Custom
+Usage pool Included usage shared across a team before additional usage is billed. $0 included; pay as you go $150 included / month, shared across your team Committed usage pool; custom with volume discounts
+Inference Model-provider costs for the AI inference used by factory runs. API rates API rates or BYO keys API rates or BYO AI provider
+Compute Infrastructure costs for sandboxes and workers used by factory runs. Passthrough Passthrough Passthrough or BYO compute
+Agent hours
+Warp’s platform fee is billed in agent hours, which measure each agent’s billable runtime. Agents running in parallel accrue time separately. Queuing, sandbox setup before the agent starts, and idle time between turns are excluded. Inference and hosted compute are billed separately. $3.50 / agent hour $3.00 / agent hour Volume pricing
+Additional usage How usage beyond any included pool or commitment is billed. Pay as you go Pay as you go beyond included usage Custom
+Factory workflows and infrastructure
+Factory workflow harnesses Choose which coding-agent harness runs each factory workflow. Warp Agent Warp Agent, Claude Code, Codex, and Pi Warp Agent, Claude Code, Codex, Pi, and custom
+Factory code repositories Warp-hosted Self-hosted Self-hosted with custom terms
+Cloud sandboxes Warp-hosted Linux, Mac, and Windows Warp-hosted Linux, Mac, and Windows Warp-hosted or BYO compute
+Scoring, self-improvement, and benchmarking Measure outcomes, compare performance, and improve factory workflows over time.
+Included
+Included
+Included
+Custom model routing Choose the models and inference endpoints used by factory workflows.
+Included
+Included
+Included
+Team and enterprise controls
+SAML-based SSO —
+Included
+Included
+Team usage metrics and admin-configurable data controls Monitor team usage and centrally configure telemetry and data settings. —
+Included
+Included
+Bring your own API keys and custom inference endpoints Connect provider API keys or OpenAI-compatible custom inference endpoints. —
+Included
+Included
+Shared usage pools with custom contract terms Share usage allocation and commercial terms across your organization. — —
+Included
+Advanced spend and enterprise admin controls — —
+Included
+Host workers, compute, transcripts, and agent artifacts Keep factory execution and artifacts on infrastructure your organization controls. — —
+Included
+Amazon Bedrock and Google Vertex AI — —
+Included
+Factory workspaces Organize factory access and configuration across teams and business units. — —
+Included
+Enterprise Analytics API — —
+Included
+Start Scale Enterprise
+Start $0/mo + usage
+Get started
+Start plan comparison
+Plan details
+Seats Up to 10
+Usage pool Included usage shared across a team before additional usage is billed. $0 included; pay as you go
+Inference Model-provider costs for the AI inference used by factory runs. API rates
+Compute Infrastructure costs for sandboxes and workers used by factory runs. Passthrough
+Agent hours
+Warp’s platform fee is billed in agent hours, which measure each agent’s billable runtime. Agents running in parallel accrue time separately. Queuing, sandbox setup before the agent starts, and idle time between turns are excluded. Inference and hosted compute are billed separately. $3.50 / agent hour
+Additional usage How usage beyond any included pool or commitment is billed. Pay as you go
+Factory workflows and infrastructure
+Factory workflow harnesses Choose which coding-agent harness runs each factory workflow. Warp Agent
+Factory code repositories Warp-hosted
+Cloud sandboxes Warp-hosted Linux, Mac, and Windows
+Scoring, self-improvement, and benchmarking Measure outcomes, compare performance, and improve factory workflows over time.
+Included
+Custom model routing Choose the models and inference endpoints used by factory workflows.
+Included
+Team and enterprise controls
+SAML-based SSO —
+Team usage metrics and admin-configurable data controls Monitor team usage and centrally configure telemetry and data settings. —
+Bring your own API keys and custom inference endpoints Connect provider API keys or OpenAI-compatible custom inference endpoints. —
+Shared usage pools with custom contract terms Share usage allocation and commercial terms across your organization. —
+Advanced spend and enterprise admin controls —
+Host workers, compute, transcripts, and agent artifacts Keep factory execution and artifacts on infrastructure your organization controls. —
+Amazon Bedrock and Google Vertex AI —
+Factory workspaces Organize factory access and configuration across teams and business units. —
+Enterprise Analytics API —
+Models
+The best for the job
+Access Claude Fable 5.2, Claude Opus 5.5, GPT-6.1 Sol, Gemini 4 Carbon, GLM 5.3, Kimi K3, DeepSeek V4.1 Flash, and more. Pick the best model for each factory workflow, define custom model routers, or connect your own inference provider.
+Your privacy and security
+Transparency and control at every touchpoint.
+Your data, secure and private
+Warp is SOC 2 compliant and has Zero Data Retention policies with all contracted LLM providers: no customer data is retained, stored, or used for training. App telemetry can be individually configured and automatically enforced for teams.
+Complete control of your agents
+Control exactly how much autonomy agents have, from approving every step to allowing full autonomy. Configurable at the individual and enterprise level.
+Full transparency
+You can read the list of high-level telemetry events sent for app analytics and monitor telemetry in real time with our native Network Log.
+Explore Privacy at Warp
+Warp Factories pricing FAQ
+How is factory usage billed? [+]
+Start is pay as you go. Scale is $250 per month per team plus usage and includes $150 of monthly usage shared across the team. Enterprise supports custom committed usage pools, volume discounts, and custom usage terms.
+What is included in Start? [+]
+Start supports up to 10 seats, Warp Agent factory workflows, Warp-hosted factory code repositories, Warp-hosted Linux, Mac, and Windows cloud sandboxes, scoring and self-improvement, custom model routing, and the Factory management control plane.
+When should a team choose Scale? [+]
+Scale is for teams running production factory workflows. It supports up to 50 seats, SAML-based SSO, Claude Code, Codex, and Pi harnesses, self-hosted factory code repositories, team usage metrics, administrative data controls, and your own API keys or custom inference endpoints.
+What does Enterprise add? [+]
+Enterprise adds custom usage terms and shared pools, volume pricing, advanced spend and administrative controls, self-hosted workers, compute, transcripts, and agent artifacts, your own AI provider through Amazon Bedrock or Google Vertex AI, Factory workspaces, and the Enterprise Analytics API. Contact sales to discuss your requirements.
 Build your first software factory
-Start with a self-serve plan or talk with our team about infrastructure and governance.
-Request access
-Explore Warp Factories
-Get Warp Terminal
-Get early access to unreleased and experimental features with Warp Preview
-Mac
-macOS Version 10.14+
-$ brew install --cask warp
-Linux
-.deb Debian, Ubuntu x64 .rpm Red Hat, Fedora, SUSE x64
-.deb
-x64 ARM64
-.rpm
-x64 ARM64
-.tar.zst Arch Linux
-x64 ARM64
-AppImage
-x64 ARM64
-Windows
-.exe Windows 11/10 x64 .exe Windows 11/10 ARM64
-$ winget install Warp.Warp
-.exe
-x64 ARM64
+Get started with usage-based pricing, or talk with our team about custom infrastructure, usage, and governance.
+Get started Explore Warp Factories
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+Building a factory for your team?
+Teams of 10+ engineers can get personalized help plus free Factories credits * to get started
+Schedule a 30 min call with
+a Factories specialist
+Schedule session
+*based on team size and pilot scope
+The software factory infrastructure platform
 Product
 Download
 Pricing
@@ -420,6 +627,7 @@ Open Source
 Status
 Resources
 Blog
+Learn
 FAQ
 Community
 Support
@@ -444,8 +652,7 @@ GitHub
 YouTube
 Slack
 LinkedIn
-Product Hunt 4.8★ (81)
 All Rights Reserved © 2026
-SOC 2 Certified
-Checking Status…
+SOC 2 Certified Checking Status…
+Product Hunt 4.8★ (82)
 </untrusted-page-text>
