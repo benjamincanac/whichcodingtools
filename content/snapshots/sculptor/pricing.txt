@@ -88,7 +88,7 @@ sculptor
 Repository navigation
 Code
 Issues
-Pull requests 33 ( 33 )
+Pull requests 31 ( 31 )
 Actions
 Security and quality
 Insights
@@ -96,7 +96,7 @@ More items
 sculptor Public
 Notifications You must be signed in to change notification settings
 Fork 24 ( 24 )
-Star 277 ( 277 ) You must be signed in to star a repository
+Star 284 ( 284 ) You must be signed in to star a repository
 About
 Build product with grounded, parallel coding agents.
 Resources
@@ -109,7 +109,7 @@ Security policy
 Activity
 Custom properties
 Stars
-277 stars
+284 stars
 Watchers
 0 watching
 Forks
@@ -123,8 +123,8 @@ Code
 Open more actions menu
 Latest commit
 History
-2,464 Commits
-2,464 Commits
+2,596 Commits
+2,596 Commits
 Folders and files
 Name Name
 Last commit message
@@ -290,7 +290,7 @@ Security policy
 Activity
 Custom properties
 Stars
-277 stars
+284 stars
 Watchers
 0 watching
 Forks
