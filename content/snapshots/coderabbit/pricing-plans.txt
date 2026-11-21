@@ -59,8 +59,8 @@ Essentials was previously called Pro, and Team was previously called Pro+. Advan
 | - | - | - | - | - |
 | AI code review, Fix comments, MCP, and built-in Pre-Merge Checks | Included | Included | Included | Included |
 | Triage | Not included | Included | Included | Included |
-| Change Stack core experience | Included | Included | Included | Included |
-| Change Stack AI chat and coding-agent tasks | Not included | Included | Included | Included |
+| CodeRabbit Explain core experience | Included | Included | Included | Included |
+| CodeRabbit Explain AI chat and coding-agent tasks | Not included | Included | Included | Included |
 | CI fixer, issue planning, unit test generation, and merge-conflict resolution | Not included | Included | Included | Included |
 | Continuous pull request security review | Not included | Not included | Included | Included |
 | Deep Scan | Usage-based | Usage-based | Usage-based | Usage-based |

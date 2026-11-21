@@ -99,14 +99,14 @@ pricing:
         - 20 MCP connections, 20 multi-repo analysis repositories, self-hosting, SSO, RBAC, audit logs, API access
         - Continuous security monitoring, security review of each PR
         - Blast radius, architectural impact
-  notes: Per seat, seats can be reassigned between developers. Annual billing saves 20 percent. CodeRabbit Security Scan uses variable pricing based on the scan, not a flat fee. CodeRabbit Agent covers cloud coding tasks, Slack and automations, and bills 40 cents per agent minute, after trial and free minutes are used.
+  notes: Per seat, seats can be reassigned between developers. Annual billing saves 20 percent. CodeRabbit Deep Scan uses variable pricing based on the scan, not a flat fee. CodeRabbit Agent covers cloud coding tasks, Slack and automations, and bills 40 cents per agent minute, after any free turns and trial credits that apply.
 status: active
 sources:
   - url: https://www.coderabbit.ai/pricing
-    verified_at: 2026-11-20
+    verified_at: 2026-11-21
     covers: [pricing]
   - url: https://docs.coderabbit.ai/management/plans.md
-    verified_at: 2026-11-20
+    verified_at: 2026-11-21
     covers: [pricing]
   - url: https://docs.coderabbit.ai/faq.md
     verified_at: 2026-11-20
@@ -118,7 +118,7 @@ sources:
     verified_at: 2026-10-29
     covers: [platforms, features]
   - url: https://docs.coderabbit.ai/cli/index.md
-    verified_at: 2026-11-20
+    verified_at: 2026-11-21
     covers: [platforms, pricing]
   - url: https://docs.coderabbit.ai/knowledge-base/mcp-context.md
     verified_at: 2026-10-29
