@@ -115,7 +115,7 @@ Line-by-line review of entire repos
 On-demand or scheduled
 Verifies elimination of issues
 Try it Free
-CodeRabbit Engineer
+CodeRabbit Agent
 Assign CodeRabbit to common engineering tasks via Slack. Ask questions about your code base or systems, run coding tasks, and create automations that run autonomously or on-demand.
 Diagnose issues & outages
 Turn findings into coding tasks
@@ -133,21 +133,21 @@ CodeRabbit Chat ask questions, understand recommendations, and provide feedback 
 Included
 Learnings Context captured from prior PRs, issues, and guidelines. Viewable/editable by you, applied by CodeRabbit in all activities
 Included
-Autofix One-click code changes for unresolved findings
+Fix Comments One-click fixes for unresolved CodeRabbit review comments
 Included
 Slop Detection Flag low-quality AI-generated PRs
 Included
-Pre-Merge Checks Enforce quality gates and your custom requirements before pull requests are merged
+Pre-Merge Checks Check PR titles, descriptions, and whether changes match linked issues before merge
 Included
 Unit Tests Generate comprehensive tests automatically for PRs, including edge cases and error conditions
 Not included
-Finishing Touches Resolve conflicts, simplify code, and generate docstrings with a single click
+Finishing Touches Resolve conflicts, fix CI failures, and simplify code with a single click
 Not included
 Post-Merge Actions Run automated follow-up work, including changelog updates, tickets, and notifications
 Not included
 Linked Repositories How many repos CodeRabbit works across 1
 Review Velocity Included PR reviews per developer each hour (additional reviews available on consumption with the ability to cap budgets) 5*
-CodeRabbit AI Engineer Trigger the CodeRabbit cloud-based coding agent to execute changes, refactoring, or custom final touches without leaving the PR On-demand
+CodeRabbit Agent Execute changes or refactoring in the cloud without leaving the PR On-demand
 CodeRabbit Triage
 Ranks your PR queue by value, impact, and risk, so you spend your time on the right work and ship fast.
 Prioritized PR Queue Cross-repository queue of open PRs, organized by value, urgency, and next required action with custom filters and saved views
@@ -155,6 +155,8 @@ Not included
 Review Guidance identifies risk, effort, impact, and candidates to be closed
 Not included
 Actions Review, repair, reassign, merge, close, and follow a pull request from the Triage queue
+Not included
+Triage Rules Merge ready PRs, close stale ones, and send Slack reminders automatically
 Not included
 Triage in Slack Get your queue as a scheduled digest, send reviewer requests to others, and approve or close a PR in Slack
 Not included
@@ -168,14 +170,15 @@ Semantic Diff Explains the actual structure of code changes, highlighting exact 
 Included
 Findings Read what CodeRabbit found in a change, judge how ready it is to merge, and decide what to fix first
 Included
-CodeRabbit Chat Ask questions about changes, files, or code
-Included
+Change Stack Chat Ask questions about changes, files, or code
+Not included
 Blast Radius : Opens in a new tab
 Identifies and maps the downstream reach and impact of a pull request beyond its directly modified lines of code
 Not included
 Architecture Impact Describes which system-level responsibilities and relationships have changed and how
 Not included
-CodeRabbit AI Engineer Trigger the CodeRabbit cloud-based coding agent for further analysis or to execute changes for you. On-demand
+CodeRabbit Agent Run further analysis or execute changes in the cloud
+Not included
 CodeRabbit Secure
 Analyzes every line of code and monitors every change, so you understand your risks for total code security.
 Security Code Review Static analysis, secrets, dependency, and infrastructure checks
@@ -183,6 +186,8 @@ Included
 Continuous Security Review with attack-surface visibility
 Not included
 PR Security Review with status, severity, exploitability, and reachability context
+Not included
+Security Merge Blocking Block merges on security comments at or above your chosen severity
 Not included
 Security Architecture Review Assesses the systemic and structural consequences of PRs, tracing changes across trust boundaries, sensitive operations, and downstream dependencies
 Not included
@@ -240,7 +245,7 @@ Included
 Included
 Included
 Included
-Autofix One-click code changes for unresolved findings
+Fix Comments One-click fixes for unresolved CodeRabbit review comments
 Included
 Included
 Included
@@ -250,7 +255,7 @@ Included
 Included
 Included
 Included
-Pre-Merge Checks Enforce quality gates and your custom requirements before pull requests are merged
+Pre-Merge Checks Check PR titles, descriptions, and whether changes match linked issues before merge
 Included
 Included
 Included
@@ -260,7 +265,7 @@ Not included
 Included
 Included
 Included
-Finishing Touches Resolve conflicts, simplify code, and generate docstrings with a single click
+Finishing Touches Resolve conflicts, fix CI failures, and simplify code with a single click
 Not included
 Included
 Included
@@ -272,7 +277,7 @@ Included
 Included
 Linked Repositories How many repos CodeRabbit works across 1 5 10 20
 Review Velocity Included PR reviews per developer each hour (additional reviews available on consumption with the ability to cap budgets) 5* 8* 10* 12*
-CodeRabbit AI Engineer Trigger the CodeRabbit cloud-based coding agent to execute changes, refactoring, or custom final touches without leaving the PR On-demand On-demand On-demand On-demand
+CodeRabbit Agent Execute changes or refactoring in the cloud without leaving the PR On-demand On-demand On-demand On-demand
 Section break before CodeRabbit Triage
 CodeRabbit Triage
 Ranks your PR queue by value, impact, and risk, so you spend your time on the right work and ship fast.
@@ -287,6 +292,11 @@ Included
 Included
 Included
 Actions Review, repair, reassign, merge, close, and follow a pull request from the Triage queue
+Not included
+Included
+Included
+Included
+Triage Rules Merge ready PRs, close stale ones, and send Slack reminders automatically
 Not included
 Included
 Included
@@ -319,8 +329,8 @@ Included
 Included
 Included
 Included
-CodeRabbit Chat Ask questions about changes, files, or code
-Included
+Change Stack Chat Ask questions about changes, files, or code
+Not included
 Included
 Included
 Included
@@ -335,7 +345,8 @@ Not included
 Not included
 Included
 Included
-CodeRabbit AI Engineer Trigger the CodeRabbit cloud-based coding agent for further analysis or to execute changes for you. On-demand On-demand On-demand On-demand
+CodeRabbit Agent Run further analysis or execute changes in the cloud
+Not included On-demand On-demand On-demand
 Section break before CodeRabbit Secure
 CodeRabbit Secure
 Analyzes every line of code and monitors every change, so you understand your risks for total code security.
@@ -350,6 +361,11 @@ Not included
 Included
 Included
 PR Security Review with status, severity, exploitability, and reachability context
+Not included
+Not included
+Included
+Included
+Security Merge Blocking Block merges on security comments at or above your chosen severity
 Not included
 Not included
 Included
@@ -434,8 +450,8 @@ If reviews are unlimited, why are there hourly review limits?
 There is no total limit on the number of pull requests or repositories you can review. Each plan does include a per-developer hourly review allowance to manage bursts of activity. These allowances are subject to our Fair Usage Policy . Usage-based reviews can continue eligible reviews after the included allowance is reached.
 How do usage-based reviews work?
 Usage-based reviews let eligible PR and CLI reviews continue after your plan’s included limit is reached. Admins can choose Automatic, On demand, or Off and set a monthly spending cap. Continued reviews cost $0.25 per reviewed file and are added to the monthly invoice. Enterprise customers can arrange usage-based billing with their account team.
-How are on demand products priced?
-Charges for on demand products are separate from your base plan. CodeRabbit Security Scan uses variable pricing based on the scan. CodeRabbit Agent costs $0.40 per agent minute for cloud coding tasks, Slack, and automations. You are billed based on how many minutes your agents run, after applicable trial and free minutes are used. Enabling paid Agent usage gives everyone in your organization access, with a configurable monthly spending cap.
+How are on-demand products priced?
+Charges for on-demand products are separate from your base plan. CodeRabbit Deep Scan uses variable pricing based on the scan. CodeRabbit Agent costs $0.40 per agent minute for cloud coding tasks, Slack, and automations. You are billed for the minutes your agents run, after any free turns and trial credits that apply. An admin turns on paid agent minutes and can set a monthly spending cap.
 Which plans include CodeRabbit Security?
 Continuous security monitoring and security reviews on pull requests are included with Advanced and Enterprise. Full codebase scans are available separately with usage-based pricing.
 Which plans include the CodeRabbit API and MCP server?

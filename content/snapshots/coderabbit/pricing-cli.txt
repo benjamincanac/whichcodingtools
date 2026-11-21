@@ -145,6 +145,7 @@ coderabbit config --detailed
 Standard setup creates or updates the review style. Manual setup, also available with `--detailed`, lets you configure review style and [path instructions](https://docs.coderabbit.ai/pr-reviews/review-instructions.md). The command creates `.coderabbit.yaml` at the repository root, or updates an existing `.coderabbit.yaml` or `.coderabbit.yml`. It validates against the current official schema, previews the changes, and asks before saving. Existing settings are preserved unless you choose to change them. Commit and push the configuration through your normal workflow to use it for pull request reviews.
 If both YAML filenames exist, resolve the duplicate before setup. Guided setup also refuses to replace a symbolic link, override a TypeScript-only configuration with YAML, or edit a file that delegates through `remote_config`; update the existing configuration source instead. To check a YAML file in your browser, use the [interactive YAML validator](https://docs.coderabbit.ai/configuration/guides/validate-and-test.md#validate-in-the-browser).
 ### Agent-guided setup
+CLI 0.9.6 generates a V3 proposal when the repository and signed-in organization are eligible for V3. If eligibility is unknown or the V3 schema is unavailable, new proposals use V2. For an existing file, the CLI validates against its declared version. See the [V3 migration guide](https://docs.coderabbit.ai/configuration/guides/migrate-to-v3.md).
 Use structured output to inspect configuration or prepare a Standard proposal without writing files:
 ```bash theme={null}
 coderabbit config --agent
@@ -264,7 +265,7 @@ Run `coderabbit review --show-prompts` to print the AI prompts saved from the mo
 CodeRabbit detects the problems, then your AI coding agent implements the fixes.
 > [!NOTE]
 >
-> **Claude Code users**: Claude Code now supports CodeRabbit through a native plugin. See the [Claude Code integration guide](https://docs.coderabbit.ai/cli/claude-code-integration.md) for the recommended plugin-based setup using `/coderabbit:coderabbit-review` instead of the CLI commands shown below.
+> In Claude Code, use the CodeRabbit plugin's `/coderabbit:code-review` skill to review local changes. See the [Claude Code integration guide](https://docs.coderabbit.ai/cli/claude-code-integration.md) to install and set up the plugin.
 ### Integration guides
 See detailed workflows for AI coding agents and workflows:
 > [card] [CodeRabbit Skills](https://docs.coderabbit.ai/cli/skills.md)
