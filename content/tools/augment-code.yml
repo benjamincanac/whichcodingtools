@@ -69,7 +69,7 @@ pricing:
 status: active
 sources:
   - url: https://www.augmentcode.com/pricing
-    verified_at: 2026-10-29
+    verified_at: 2026-11-21
     covers: [pricing]
   - url: https://docs.augmentcode.com/models/token-based-pricing.md
     verified_at: 2026-10-29
