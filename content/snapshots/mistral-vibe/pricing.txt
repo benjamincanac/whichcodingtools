@@ -84,14 +84,12 @@ Faster responses.
 All-day coding in the CLI, IDE, or on web.
 Generate spreadsheets and slides.
 Better image generation and editing.
-$25.5 /mo in API credits.
 Chat and email support.
 More access and usage.
 More messages and web searches.
 Get more complex tasks done.
 All-day coding in the CLI, IDE, or on web.
 More image generations.
-$15 /mo in API credits.
 Chat and email support.
 Get Pro
 Team
@@ -211,6 +209,7 @@ Usage and data.
 Extend usage with PAYG credits
 Keep going past your plan limit by paying only for what you use beyond it at API rate.
 Model training
+Opt-out
 Opt-out
 Opt-out
 Opt-out
