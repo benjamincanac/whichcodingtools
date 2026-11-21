@@ -106,6 +106,7 @@ pricing:
     - id: business
       name: Business
       price: 50
+      price_from: true
       price_annual: 45
       audience: team
       included:
@@ -129,7 +130,7 @@ pricing:
 status: active
 sources:
   - url: https://www.warp.dev/pricing
-    verified_at: 2026-11-04
+    verified_at: 2026-11-21
     covers: [pricing]
   - url: https://docs.warp.dev/agents/cli-agents/overview/
     verified_at: 2026-08-23
