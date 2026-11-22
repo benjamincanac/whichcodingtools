@@ -43,7 +43,7 @@ pricing:
       limits:
         - Hermes Agent usage included, within limits that reset daily, weekly and monthly
         - Cloud agent with up to 4 GB RAM and 25 GB disk included
-        - Large models have their own monthly limit
+        - Pricier models use the included usage faster, API keys always use credits
     - id: portal-super
       name: Nous Portal Super
       price: 100
@@ -54,7 +54,7 @@ pricing:
       limits:
         - Hermes Agent usage included, within limits that reset daily, weekly and monthly
         - Cloud agent with up to 4 GB RAM and 100 GB disk included
-        - Large models have their own monthly limit
+        - Pricier models use the included usage faster, API keys always use credits
     - id: portal-ultra
       name: Nous Portal Ultra
       price: 200
@@ -65,12 +65,12 @@ pricing:
       limits:
         - Hermes Agent usage included, within limits that reset daily, weekly and monthly
         - Cloud agent with up to 8 GB RAM and 100 GB disk included
-        - Large models have their own monthly limit
+        - Pricier models use the included usage faster, API keys always use credits
   notes: The agent is free. Nous Portal is an optional subscription that bundles inference plus web search, image generation, text to speech and a cloud browser. The docs describe Hermes as an autonomous assistant rather than a coding copilot, it also runs as a gateway on Telegram, Discord, Slack, WhatsApp, Signal and email. Windows installs with a PowerShell one liner.
 status: active
 sources:
   - url: https://portal.nousresearch.com
-    verified_at: 2026-11-05
+    verified_at: 2026-11-22
     covers: [pricing]
   - url: https://github.com/NousResearch/hermes-agent
     verified_at: 2026-08-23
