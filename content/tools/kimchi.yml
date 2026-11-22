@@ -75,7 +75,7 @@ pricing:
 status: active
 sources:
   - url: https://kimchi.dev/pricing
-    verified_at: 2026-11-19
+    verified_at: 2026-11-22
     covers: [pricing]
   - url: https://github.com/getkimchi/kimchi
     verified_at: 2026-11-03
