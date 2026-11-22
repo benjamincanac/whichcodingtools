@@ -94,8 +94,7 @@ Models included:
 Gemini 4 Neon 2
 Gemini 4 Argon 2
 Gemini 4 Hydrogen 3
-Orchestrator (Neon) 2
-Orchestrator (Argon) 2
+Orchestrator 2
 Gemini 3.8 Flash
 Claude Sonnet 5.5 (thinking) 3
 Claude Opus 5.5 (thinking) 3
@@ -108,16 +107,14 @@ Run Antigravity as your daily driver across every surface with our highest quota
 Get Ultra
 Everything in Pro and:
 Highest agent quota refreshed every 5 hours and maximum weekly limits 1
-Consumer access to Gemini 4 Neon , Gemini 4 Carbon , Orchestrator (Neon) , and Orchestrator (Carbon)
+Consumer access to Gemini 4 Neon , Gemini 4 Carbon , and Orchestrator
 Full access to third-party partner models and AI credit overages 1
 Models included:
 Gemini 4 Neon
 Gemini 4 Carbon
 Gemini 4 Argon
 Gemini 4 Hydrogen
-Orchestrator (Neon)
-Orchestrator (Carbon)
-Orchestrator (Argon)
+Orchestrator
 Gemini 3.8 Flash
 Claude Sonnet 5.5 (thinking)
 Claude Opus 5.5 (thinking)
@@ -142,6 +139,7 @@ Gemini 4 Neon 6
 Gemini 4 Carbon 6
 Gemini 4 Argon 6
 Gemini 4 Hydrogen 6
+Orchestrator 6 8
 Gemini 3.8 Flash 6
 Gemini 3.7 Flash 6
 Gemini 3.6 Flash 6
@@ -160,13 +158,15 @@ Available with paid Google AI Pro plans or on trial with eligible premium device
 3
 Available on Google AI Pro for non-trial subscriptions only. To cancel your trial and switch to a paid Google AI Pro plan, submit a request .
 4
-Will be removed on November 18, 2026.
+Will be removed on November 30, 2026.
 5
 Included during Google AI Pro trial subscriptions; paid Google AI Pro subscriptions include Claude Sonnet 5.5 and Claude Opus 5.5 instead.
 6
 First-party Gemini models are enabled by default in Gemini Enterprise and draw from pooled edition seat credits ($10/month Standard, $15/month Plus) or pay-as-you-go billing.
 7
 Third-party partner models require administrator opt-in in the Google Cloud Console and are billed by token consumption across four thinking levels ( low , medium , high , and max ).
+8
+In Gemini Enterprise , Orchestrator only runs Gemini 4 Carbon (planner) paired with Gemini 4 Hydrogen (executor); custom planner and executor selection is available on Google AI Pro and Google AI Ultra only.
 Experience liftoff
 Product Product Download Antigravity App Antigravity Extensions Antigravity CLI Antigravity IDE Antigravity SDK
 Resources Docs Changelog Releases Blog Newsletter Pricing Use Cases Press
