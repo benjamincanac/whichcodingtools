@@ -3,27 +3,23 @@
 <untrusted-page-text>
 Pricing | Kimchi.dev
 Product
-Kimchi Coding The governed AI coding platform Inference Serverless API for open-source models Studio Visual workspace for AI agents Code Review AI-powered pull-request review Software Factory Agents across your whole SDLC
-Workspaces New Persistent cloud machines for coding agents, built from one template your admins control.
-Credentials injected at the boundary
-Egress allowlist per template
-Hibernates when idle, keeps its disk
+Kimchi Coding The governed AI coding platform Inference Serverless API for open-source models Studio Visual workspace for AI agents Code Review AI-powered pull-request review Workspaces New Cloud runtimes for coding agents
 Enterprise
 Pricing
 Resources
 Blog Careers Docs Contact Us
 Sign in
-Get Kimchi ☰
+Get Started ☰
 Product
-Kimchi Coding The governed AI coding platform Inference Serverless API for open-source models Studio Visual workspace for AI agents Code Review AI-powered pull-request review Software Factory Agents across your whole SDLC Workspaces New Cloud runtimes for coding agents Enterprise Pricing Resources
+Kimchi Coding The governed AI coding platform Inference Serverless API for open-source models Studio Visual workspace for AI agents Code Review AI-powered pull-request review Workspaces New Cloud runtimes for coding agents Enterprise Pricing Resources
 Blog Careers Docs Contact Us Sign in
 United States app.kimchi.dev Europe app.eu.kimchi.dev
-Get Kimchi
+Get Started
 Flexible pricing for every team
 Choose the plan that fits your usage.
 Coder
 For individual developers who want full access.
-$20 /mo Get Kimchi
+$20 /mo Get Started
 Everything in Open source , plus:
 Includes $25 monthly credits
 Priority request speed
@@ -110,7 +106,7 @@ How does the Open Source plan work?
 You download Kimchi Coding and run it on your own machine or infrastructure. Bring your own inference - Kimchi's managed API, an OpenAI-compatible endpoint, or any LLM provider. No hosted inference, no rate limits imposed by us. Your hardware, your rules.
 Start building with Kimchi Coding
 Community tier. No credit card required.
-Get Kimchi
+Get Started
 Book a call
 The governed AI coding platform.
 Product
