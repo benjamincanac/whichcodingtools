@@ -87,8 +87,8 @@ aaif-goose
 goose
 Repository navigation
 Code
-Issues 364 ( 364 )
-Pull requests 112 ( 112 )
+Issues 369 ( 369 )
+Pull requests 128 ( 128 )
 Discussions
 Actions
 Projects
@@ -98,7 +98,7 @@ More items
 goose Public
 Notifications You must be signed in to change notification settings
 Fork 6.6k ( 6.6k )
-Star 56.8k ( 56.8k ) You must be signed in to star a repository
+Star 56.9k ( 56.9k ) You must be signed in to star a repository
 About
 an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM
 goose-docs.ai/
@@ -116,9 +116,9 @@ Security policy
 Activity
 Custom properties
 Stars
-56.8k stars
+56.9k stars
 Watchers
-289 watching
+287 watching
 Forks
 6.6k forks
 Report repository
@@ -130,8 +130,8 @@ Code
 Open more actions menu
 Latest commit
 History
-6,076 Commits
-6,076 Commits
+6,090 Commits
+6,090 Commits
 Folders and files
 Name Name
 Last commit message
@@ -244,30 +244,45 @@ Contributing
 Apache-2.0 license
 Security
 More items
-goose
-your native open source AI agent — desktop app, CLI, and API — for code, workflows, and everything in between
-goose is a general-purpose AI agent that runs on your machine. Not just for code — use it for research, writing, automation, data analysis, or anything you need to get done.
-A native desktop app for macOS, Linux, and Windows. A full CLI for terminal workflows. An API to embed it anywhere. Built in Rust for performance and portability.
-goose works with 15+ providers — Anthropic, OpenAI, Google, Ollama, OpenRouter, Azure, Bedrock, and more. Use API keys or your existing Claude, ChatGPT, or Gemini subscriptions via ACP . Connect to 70+ extensions via the Model Context Protocol open standard.
-goose is part of the Agentic AI Foundation (AAIF) at the Linux Foundation.
-Get started
+Open Intelligence Kit (oi-kit) and goose
+Build agents that run anywhere with oi-kit.
+oi-kit provides the reusable Rust components for building agents. goose is a complete agent built with oi-kit: use its desktop app or CLI, or make it the agent backend for your own application over ACP.
+Both live in this repository. goose is part of the Agentic AI Foundation (AAIF) at the Linux Foundation.
+Build with oi-kit
+Compose an agent from a state machine, operations, tools, model providers, and context management. Your application owns the interface, policies, and storage.
+Control how the agent works. Compose operations for tool execution, approvals, compaction, and your application's own behavior.
+Resume from saved state. Supply your own storage and let the state machine determine what to do next from the persisted conversation.
+Run in different environments. Use the core runtime in native applications, on servers, or in WebAssembly hosts.
+Run models in-process. Load supported local models directly, without Ollama or a separate inference server, with control over model loading and inference.
+Rust exposes the full agent runtime. Python and Kotlin bindings currently cover model providers, streaming, and conversation compaction. oi-kit is in alpha; use the documentation version that matches your dependencies.
+Getting Started — build a small Rust agent with tools, streaming, and a saved conversation.
+Demos — explore working applications and their source code.
+Concepts — understand the state machine, operations, providers, and authentication.
+Reference — choose crates and find generated Rust, Python, and Kotlin API documentation.
+Use goose
+goose is a general-purpose agent for coding, research, writing, automation, and data analysis. Use the native desktop app on macOS, Linux, or Windows, or work from the terminal with the CLI. Connect tools and data through the Model Context Protocol (MCP) .
+Load local models directly inside goose, without a separate model server, or connect to over 85 providers , including Anthropic, OpenAI, Gemini, OpenRouter, and Amazon Bedrock.
 Download the desktop app for macOS, Linux, and Windows.
 Or install the CLI:
 curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash
+Then follow the goose Quickstart to configure a model and start a session.
+Build an app over ACP
+Use the pre-built goose binary as the agent behind your own application through the Agent Client Protocol (ACP) . Start it as a subprocess:
+goose acp
+Your app sends prompts and receives streamed responses, tool activity, and permission requests. goose supplies the agent, model connections, tools, and saved conversations; your app owns the interface and workflow. This is also how goose Desktop talks to its backend.
+Follow Build an app over ACP for a working client example, then consult the ACP extensions reference for goose-specific capabilities.
 Quick links
 Quickstart
 Installation
 Tutorials
 Documentation
+Contributing
 Governance
 Custom Distributions — build your own goose distro with preconfigured providers, extensions, and branding
 Need help?
 Diagnostics & Reporting
 Known Issues
-a little goose humor 🪿
-Why did the developer choose goose as their AI agent?
-Because it always helps them "migrate" their code to production! 🚀
-goose around with us
+Community
 Discord
 YouTube
 LinkedIn
@@ -289,9 +304,9 @@ Security policy
 Activity
 Custom properties
 Stars
-56.8k stars
+56.9k stars
 Watchers
-289 watching
+287 watching
 Forks
 6.6k forks
 Report repository
