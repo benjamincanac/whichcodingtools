@@ -47,7 +47,7 @@ pricing:
         kind: credits
         notes: On-demand top-ups and auto top-up. Credits roll over.
       limits:
-        - Unlimited users per workspace, custom domains, code download
+        - Unlimited users, custom domains, per-member credit limits, no Lovable badge
     - id: business
       name: Business
       price: 50
@@ -61,7 +61,7 @@ pricing:
       overage:
         kind: credits
       limits:
-        - Role-based access, SSO, security center, internal publish
+        - Role-based access, SSO, security center, workspace publish, priority support
     - id: enterprise
       name: Enterprise
       price: null
@@ -73,7 +73,7 @@ pricing:
 status: active
 sources:
   - url: https://lovable.dev/pricing
-    verified_at: 2026-10-30
+    verified_at: 2026-11-22
     covers: [pricing]
   - url: https://docs.lovable.dev/introduction/subscription-plans
     verified_at: 2026-11-14

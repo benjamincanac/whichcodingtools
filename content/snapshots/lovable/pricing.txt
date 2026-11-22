@@ -3,7 +3,6 @@
 <untrusted-page-text>
 Lovable Pricing
 Skip to main content
-Log in Get started
 Solutions
 Resources
 Community
@@ -14,6 +13,84 @@ Log in Get started
 Pricing
 Start for free. Upgrade to get the capacity that exactly matches your team's needs.
 Plans
+Monthly Yearly 2 months free
+Free
+Discover what Lovable can do for you
+$0
+Get started
+No credit card needed
+Free grants
+Unlimited collaborators
+5 lovable.app domains
+Invite-only publishing
+Publish websites that only people you invite can open. Invite up to 10 people per project.
+Cloud
+Community support
+Pro
+Designed for fast-moving teams building together in real time.
+$25
+/ month 100 monthly credits
+Get started
+Unlimited users
+Free grants
+Everything in Free, plus
+100 Pro credits
+Credit rollovers
+Credits roll over for 1 month on monthly plans, or until one month after the end of your annual plan.
+On-demand credit top-ups
+Unlimited lovable.app domains
+Custom domains
+User roles & permissions
+Per-member credit limits
+Remove the Lovable badge
+Email support
+Design systems
+Business
+Advanced controls and power features for growing departments
+$50
+/ month 100 monthly credits
+Get started
+Unlimited users
+Free grants
+Everything in Pro, plus
+100 Business credits
+Team workspace
+Role-based access
+Workspace publish
+Publish websites that are only accessible to logged in workspace members.
+SSO
+Security center
+Design templates
+Priority support
+Enterprise
+Built for large orgs needing flexibility, scale, and governance.
+Platform fee
+Book a demo
+Volume based pricing
+Unlimited users
+Everything in Business, plus
+Directory sync (SCIM)
+Audit logs
+Restrict who publishes and invites
+Auto-retire abandoned apps
+Scheduled deep security scans
+Sensitive data detection and control
+Advanced design systems support
+Git sync data residency
+EU inference
+GitHub Enterprise, cloud or self-hosted
+Private npm registry
+Named CSM, onboarding and deployment
+Custom SLA
+Lovable for students
+Verify student status and get access to up to 50% off Lovable Pro. Get started
+Lovable for campus
+Billing and administrative controls for universities and colleges. Contact sales
+Lovable for kids
+Compliant access & curriculum for schools in partnership with imagi. Learn more
+Security and compliance
+Enterprise-grade security and compliance certifications
+Learn more
 Frequently asked questions
 What is Lovable and how does it work?
 Lovable is an AI software engineer, which enables anyone to build for the web. Simply chat to instantly build websites and web apps, with no technical knowledge needed.
@@ -65,16 +142,22 @@ Where can I find out more?
 Join the community on Discord or read up more on our documentation .
 Related articles
 Plans and credits
-Company
-Careers
-Press & media
-Enterprise
-Security
-Trust center (opens in new window)
-Partnerships
 Product
 Pricing
 Student discount
+Download apps
+App builder
+Website builder
+AI-powered apps
+Prototyping
+Internal Tools
+Connection s
+(opens in new window)
+Changelo g
+(opens in new window)
+Statu s
+(opens in new window)
+Solutions
 For work
 Small businesses
 Founders
@@ -84,17 +167,9 @@ Marketers
 Sales
 Ops
 People
-App builder
-Website builder
-AI-powered apps
-Prototyping
-Internal Tools
-Download apps
-Connections (opens in new window)
-Changelog (opens in new window)
-Status (opens in new window)
 Resources
-Learn (opens in new window)
+Lear n
+(opens in new window)
 Templates
 Guides
 Connectors
@@ -104,29 +179,45 @@ Blog
 Support
 Reviews
 Sitemap
-Legal
-Privacy policy (opens in new window)
-Do not sell or share my personal information
-Cookie settings
-Enterprise terms (opens in new window)
-General terms (opens in new window)
-Desktop app terms (opens in new window)
-Domain registration terms (opens in new window)
-DMCA copyright policy (opens in new window)
-Accessibility (opens in new window)
-Platform rules (opens in new window)
-Report abuse (opens in new window)
-Report security concerns (opens in new window)
-DPA (opens in new window)
 Community
 Become a partner
-Hire a Lovable partner (opens in new window)
+Hire a Lovable partner
+(opens in new window)
 Affiliates
 Code of conduct
-Discord (opens in new window)
-Reddit (opens in new window)
-X / Twitter (opens in new window)
-YouTube (opens in new window)
-LinkedIn (opens in new window)
+Company
+Vision
+Careers
+Press & media
+Enterprise
+Security
+Trust center
+(opens in new window)
+Partnerships
+Legal
+Privacy policy
+(opens in new window)
+Do not sell or share my personal information
+Cookie settings
+Enterprise terms
+(opens in new window)
+General terms
+(opens in new window)
+Desktop app terms
+(opens in new window)
+Domain registration terms
+(opens in new window)
+DMCA copyright policy
+(opens in new window)
+Accessibilit y
+(opens in new window)
+Platform rules
+(opens in new window)
+Report abuse
+(opens in new window)
+Report security concerns
+(opens in new window)
+DP A
+(opens in new window)
 EN
 </untrusted-page-text>
