@@ -59,6 +59,7 @@ Different models consume your usage balance at different rates. All rates below 
 | **DeepSeek V4.1 Flash 1017** | \$0.30 | \$1.20 | \$0.006 | \$0.30 | Updated DeepSeek snapshot with image support and a 1M-token context window. |
 | **DeepSeek V4.1 Flash** | \$0.30 | \$1.20 | \$0.006 | \$0.30 | Multimodal tasks with a 1M-token context window. Same rates as the recommended 1017 snapshot. |
 | **Gemini 4 Argon** | \$2.00 | \$10.00 | \$0.10 | \$2.00 | Reasoning for coding and complex workflows in eligible workspaces; 1M-token context window. |
+| **Gemini 4 Neon** | \$3.00 | \$15.00 | \$0.15 | \$3.00 | Coding and reasoning in eligible workspaces, with a 1M-token context window. |
 | **Gemini 3.8 Flash** | \$0.75 | \$3.75 | \$0.075 | \$0.75 | Fast and cost-efficient, with a 1M-token context window. |
 | **Gemini 3.7 Flash** | \$0.75 | \$3.75 | \$0.075 | \$0.75 | Fast and cost-efficient, with a 1M-token context window. |
 | **Gemini 3.1 Pro** | \$2.00 | \$12.00 | \$0.20 | \$2.00 | Structural thinking, planning, debugging, and daily execution. |
@@ -83,6 +84,7 @@ For GPT-5.6, GPT-6, and GPT-6.1 models, input, cache-read, and cache-write rates
 For Grok 4.5, 4.6, and 4.7, all token rates double for the entire request when the total prompt, including cached input, reaches 200,000 tokens. Grok 4.6 and 4.7 currently have prompt limits below this threshold.
 Gemini 3.7 Flash is scheduled to retire from model pickers on January 21, 2027 (Pacific time). Use Gemini 3.8 Flash for new work.
 Gemini 4 Argon uses introductory rates and is available in eligible workspaces that offer Claude Opus 5.5, subject to organization restrictions. These rates are before service fees and compute.
+Gemini 4 Neon uses implicit caching. Cache hits are billed at the cache-read rate; cache misses are billed as input, with no separate cache-write charge.
 > [!NOTE]
 >
 > Rates can change over time, so this table is a snapshot. Your dashboard at [app.augmentcode.com](https://app.augmentcode.com) always shows the live per-million-token rates for input, output, cache reads, and cache writes.
