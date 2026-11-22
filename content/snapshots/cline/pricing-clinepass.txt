@@ -88,7 +88,7 @@ SDK Embed
 Cline for Desktop: the coding agent as a native desktop app. No editor required.
 Download for Mac Download for Windows
 Download for Linux
-v0.0.49 · macOS, Windows & Linux Explore Cline for Desktop
+v0.0.50 · macOS, Windows & Linux Explore Cline for Desktop
 Included models
 Includes capable open weight models for coding agents.
 Start with GLM 5.3 Flash, GLM 5.3, GLM 5.2, Kimi K3, Kimi K2.7 Code, Kimi K2.6, DeepSeek V4 Pro, DeepSeek V4 Flash, MiniMax M3, MiMo V2.5 Pro, MiMo V2.5, Qwen3.7-Max, Qwen3.7-Plus, and Qwen3.8-Max.
