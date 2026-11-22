@@ -30,7 +30,6 @@ $ 10 on Qwen 3.7 Plus
 $ 10 on DeepSeek V4.1 Flash
 + 18 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, GLM…
 Free on Glyph Cluster
-Free on Inkling 2 Small
 Free on Flint
 Limited usage analytics
 Discord community support
@@ -50,7 +49,6 @@ $ 70 on Tencent Hy3
 $ 70 on Qwen 3.8 27B
 + 33 more models: Kimi, DeepSeek, MiniMax, Qwen, MiMo, Grok, GLM…
 Free on Glyph Cluster
-Free on Inkling 2 Small
 Free on Flint
 Usage analytics
 Discord community support
@@ -65,7 +63,6 @@ API access
 Open-source + premium models
 $300 on MiniMax M3
 Free on Glyph Cluster
-Free on Inkling 2 Small
 Free on Flint
 Usage analytics
 Higher rate limits
@@ -138,12 +135,6 @@ Free
 Free
 Free
 Free
-Inkling 2 Small effective usage Requests cost no credits while the free tier lasts
-Free
-Free
-Free
-Free
-Free
 Flint effective usage Requests cost no credits while the free tier lasts
 Free
 Free
@@ -200,8 +191,6 @@ MiniMax M3 effective usage Credits go up to 2× further
 $8
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
 Free
-Inkling 2 Small effective usage Requests cost no credits while the free tier lasts
-Free
 Flint effective usage Requests cost no credits while the free tier lasts
 Free
 Typical request volume Approx, depends on chosen models
@@ -237,8 +226,6 @@ Up to $100
 MiniMax M3 effective usage Credits go up to 2× further
 $47
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
-Free
-Inkling 2 Small effective usage Requests cost no credits while the free tier lasts
 Free
 Flint effective usage Requests cost no credits while the free tier lasts
 Free
@@ -276,8 +263,6 @@ MiniMax M3 effective usage Credits go up to 2× further
 $57
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
 Free
-Inkling 2 Small effective usage Requests cost no credits while the free tier lasts
-Free
 Flint effective usage Requests cost no credits while the free tier lasts
 Free
 Typical request volume Approx, depends on chosen models
@@ -314,8 +299,6 @@ MiniMax M3 effective usage Credits go up to 2× further
 ~ $300
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
 Free
-Inkling 2 Small effective usage Requests cost no credits while the free tier lasts
-Free
 Flint effective usage Requests cost no credits while the free tier lasts
 Free
 Typical request volume Approx, depends on chosen models
@@ -351,8 +334,6 @@ $300
 MiniMax M3 effective usage Credits go up to 2× further
 ~ $600
 Glyph Cluster effective usage Requests cost no credits while the stealth preview lasts
-Free
-Inkling 2 Small effective usage Requests cost no credits while the free tier lasts
 Free
 Flint effective usage Requests cost no credits while the free tier lasts
 Free
@@ -437,12 +418,12 @@ Alexandr Wang @alexandr_wang
 See all the love
 // ship
 Changelog
-v 1.89.0
-428 releases shipped
-FEAT Move a running sub-agent to the background with `Ctrl+B` and keep chatting while it works
-FEAT A finished background sub-agent wakes the main agent with its result
-FEAT Sub-agent rows in the background panel and status bar, with live progress, details, stop and dismiss
-FEAT The sub-agent turn limit is configurable from `/config`, and the default rises from 100 to 200
+v 1.92.0
+436 releases shipped
+FEAT Show short tips and session nudges under the status while the agent works
+FEAT Add `/design style <name>`, a nested picker of 10 visual styles
+FEAT Add design system capabilities for consistent design across the project
+FEAT Add `/design variants`, to make multiple variants, show and compare them, and update the actual design to match selected variant
 Read full changelog
 +104k
 Ready to code with your taste? Join 100K+ developers who stopped fixing AI code and started shipping with the best coding agent for open models.
