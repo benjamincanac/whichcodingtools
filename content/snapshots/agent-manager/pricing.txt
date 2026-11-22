@@ -1,14 +1,14 @@
 # https://agent-manager.dev
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
-Agent Manager - the fastest developer workflow
+agent-manager: terminal multiplexer for AI coding agents on tmux
 Features
 Docs
 Compare
 Install
-Go · tmux · Apache-2.0 · macOS, Linux, and WSL
+Go · tmux · Apache-2.0 · macOS, Linux, and Windows
 The fastest developer workflow for every AI coding agent.
-agent-manager is a Go terminal UI on top of tmux that runs every AI coding agent side by side.
+agent-manager is a terminal multiplexer for AI coding agents. It is a Go terminal UI on top of tmux that runs every coding agent side by side.
 Everything is one keypress: spawn one in a sentence, answer a blocked one
 without attaching, review its diff without leaving the list. Each session runs your own
 installed CLI as-is: your login, your config, your MCP servers, every feature it ships.
@@ -17,8 +17,8 @@ How it compares
 $
 brew install agent-manager
 COPY
-Fig. 1 space · five agents, seconds apart
-Five agents sent to work, one key each, the first on its own model and effort. All of it without leaving the list.
+Fig. 1 space · three agents, three CLIs
+Three agents on three CLIs, one sentence each, tab to pick the CLI. Then review a diff and send notes back, without leaving the list.
 Seen in the wild
 The launch escaped the launch post.
 All coverage →
@@ -185,7 +185,7 @@ not a fresh one.
 ↑ The row remembers
 A killed session still shows the snapshot of its pane from when it had one, so the
 row says what the agent was doing when it stopped.
-More .
+How sessions keep their history .
 f Fork the thread
 A named sibling continues the same conversation, so one copy explores an idea while
 the original keeps working. Each fork is a full session of its own, review included.
@@ -199,11 +199,11 @@ spawn will use, and the n form or ctrl+l ,
 ctrl+x and ctrl+y in the bar pick the
 model, effort and profile that tool lists. Live status ships for these:
 Claude Code OpenCode Codex
-Grok Build Gemini CLI Antigravity CLI Pi Command Code Hermes Agent Muse Code Oh My Pi
+Grok Build Gemini CLI Antigravity CLI Pi Command Code Hermes Agent Muse Code Oh My Pi Cursor CLI Kiro CLI
 Each profile lives in the binary, rules included, so a release that fixes a CLI's new
 screen reaches everyone on the next update. Settings picks which ones the pickers offer,
 and a CLI outside the list is one prefilled request away.
-The eleven, and how a new one gets in .
+The thirteen, and how a new one gets in .
 The manager registers its own MCP server into every MCP-capable session it spawns, so the agent can
 drive the workspace: spawn a teammate, send it a message, wait until it is done, and open
 a terminal the user can watch. How registration works .
@@ -214,17 +214,23 @@ review Declares the repo, merge base and diff scope so review opens in the right
 ?
 Questions
 What is agent-manager? agent-manager is a terminal UI written in Go that runs every AI coding agent as a live tmux session. Each row in its list is a real tmux session running a real coding CLI, coloured by what that CLI's pane is doing, so a fleet of agents is read, answered and reviewed from one screen.
-Which coding CLIs does agent-manager support? Eleven, as of v0.40.0: Claude Code, OpenCode, Codex, Grok Build, Gemini CLI, Antigravity CLI, Pi, Command Code, Hermes Agent, Muse Code and Oh My Pi. Each one's launch command, resume and fork commands, MCP registration and status rules are built into the binary, so an upgrade brings the current version of all of them. Hermes, Antigravity and Oh My Pi have no fork. A CLI outside that list is a feature request, and the CLIs row in Settings opens one prefilled.
-Can each session run on its own model? Yes, since v0.40.0. The new-session form has model and effort rows, plus a profile row for a CLI that has profiles, and quick prompt mode picks the same with ctrl+l, ctrl+x and ctrl+y. agent-manager spawn takes --model, --effort and --profile. The lists are read live from each CLI, so a model the CLI ships tomorrow shows up without an agent-manager update. Each CLI keeps your last picks, and the choice is saved on the session, so restart, revive and fork run on it.
+Is agent-manager a terminal multiplexer for AI coding agents? It is built on one. tmux does the multiplexing, and every agent runs in its own tmux session on a private server named agentmgr. agent-manager is the layer on top. It lists those sessions in one tree, colours each row by what its agent is doing, and lets you answer, review, kill and revive them from that one screen. Because tmux stays underneath, the sessions keep running when you close it.
+How do I run multiple Claude Code sessions at once? Open agent-manager, press space on a group row, and press tab until the bar shows Claude Code. Type the task and press enter, and that session is running. The bar clears and stays open, so the next task starts the next session. ctrl+t in the same bar gives a session its own git worktree, so two agents never edit the same checkout. Each session is a real tmux session, so it keeps working after you quit the manager.
+Which coding CLIs does agent-manager support? Thirteen, as of v0.48.0: Claude Code, OpenCode, Codex, Grok Build, Gemini CLI, Antigravity CLI, Pi, Command Code, Hermes Agent, Muse Code, Oh My Pi, Cursor CLI and Kiro CLI. Each one's launch command, resume and fork commands, MCP registration and status rules are built into the binary, so an upgrade brings the current version of all of them. Hermes, Antigravity, Oh My Pi, Cursor CLI and Kiro CLI have no fork. A CLI outside that list is a feature request, and the CLIs row in Settings opens one prefilled.
+Can each session run on its own model? Yes, since v0.40.0. The new-session form has model and effort rows, plus a profile row for a CLI that has profiles, and quick prompt mode picks the same with ctrl+l, ctrl+x and ctrl+y. agent-manager spawn takes --model, --effort and --profile. The lists are read live from each CLI, so a model the CLI ships tomorrow shows up without an agent-manager update. Each CLI keeps your last picks, and the choice is saved on the session, so restart, revive and fork run on it. Since v0.44.0 Antigravity CLI lists models through agy models, with an effort level on each model that has one. Since v0.45.0 the new-session model list stays closed until you type, press left or right, press ctrl+o, or click that row a second time.
+Does the first launch ask me to set anything up? Yes, since v0.45.0. A first run with no stored version opens a setup that picks the agents, the layout, the density and the theme, walks the main keys, and can import conversations the CLIs already saved. Settings has a first-run setup row that walks through it again.
+Can a session launch with its own environment variables? Yes, since v0.45.0. agent-manager env keeps named profiles. A session or a group picks one, and a session with none set inherits the nearest group's, then the calling session's. Settings lists the names and the keys, never the values. SSH sessions do not take a profile.
+Can I copy settings to another machine? Yes, since v0.45.0. agent-manager export writes settings, saved prompts, groups and SSH connections as one JSON file, and agent-manager import merges them by key and by name. Sessions, environment profiles and SSH keys stay where they are. The file can hold tokens, so treat it as a secret.
 What does agent-manager cost? Nothing. It is free and open source under the Apache-2.0 licence, with no account, no licence key and no paid tier. The coding CLIs it runs are billed by their own vendors.
 What licence is agent-manager under? Apache-2.0, since v0.19.0 on 4 August 2026. Releases up to v0.18.0 shipped under MIT, which is why write-ups from July 2026 list MIT. The LICENSE and NOTICE files, GitHub's licence detection and the Homebrew and AUR packages all say Apache-2.0.
-Does agent-manager support the mouse? Yes, since v0.38.0. The wheel moves the cursor, a click focuses a session (a double click in the full-screen layout), a row drags by its handle to reorder it or move it into another group, and the menu at the end of every row opens its actions. The divider between the list and the preview drags. In a focused pane a drag selects and copies text, and a click on a link opens it. Settings has a mouse toggle that hands native selection back to the terminal.
-Which platforms does agent-manager run on? macOS and Linux on both amd64 and arm64, and Windows through WSL2. It needs tmux 3.1 or newer and git.
-How do I install agent-manager? brew install agent-manager on macOS or Linux, from homebrew-core. There is also a Homebrew cask for the prebuilt binary, an install script, an AUR package, mise, go install, and prebuilt binaries for every release.
+Does agent-manager support the mouse? Yes, since v0.38.0. The wheel moves the cursor, a click focuses a session (a double click in the full-screen layout), a row drags by its handle to reorder it or move it into another group, and the menu at the end of every row opens its actions. The divider between the list and the preview drags. In a focused pane a drag selects and copies text, and a click on a link opens it. Since v0.43.0 Settings, Review, Messages and the keys at the bottom take clicks too, and a click runs when the button comes back up. Settings has a mouse toggle that hands native selection back to the terminal.
+Can agent-manager run agents on another machine? Yes, since v0.43.0. C adds an SSH connection to another Linux or macOS machine that runs agent-manager, and its groups, sessions and terminals show up in this list. You can attach, prompt, start, kill, revive or archive an agent there. It needs an SSH key that never asks for a password, and a host you have connected to once by hand. Rename, move, fork and review are not available on a session there yet.
+Which platforms does agent-manager run on? macOS and Linux on both amd64 and arm64. Windows runs natively on psmux 3.4 or newer with PowerShell 7.3 or newer, and it still runs inside WSL2. macOS, Linux and WSL2 need tmux 3.1 or newer and git.
+How do I install agent-manager? brew install agent-manager on macOS or Linux, from homebrew-core. On Windows, scoop bucket add yoanwai https://github.com/YoanWai/scoop-bucket, then scoop install yoanwai/agent-manager, which also installs psmux. There is also a Homebrew cask for the prebuilt binary, an install script you download from the release and read before it runs, an AUR package, mise, go install, and prebuilt binaries for every release.
 Can an agent drive agent-manager? Yes. The binary carries an MCP server that registers into every MCP-capable session it starts, so an agent can spawn other agents, message them, wait on them, claim shared tasks, reserve files and drive terminals on the developer's own machine.
 Does agent-manager replace Claude Code, Codex or OpenCode? No. It starts the CLIs you already installed, with their login, config, MCP servers and features unchanged. It reads each pane the way a human would, or Claude Code hook events, and colours the row by what that CLI is doing.
 How does agent-manager compare to herdr and plain tmux? agent-manager is a Go TUI on tmux, so sessions stay alive if you quit it and you answer or review from the list. herdr replaces tmux with its own runtime. Plain tmux keeps sessions alive but cannot tell which agent is blocked. The feature table is at https://agent-manager.dev/compare/.
-How is agent-manager different from a Claude Code tmux session picker? A picker such as tmux-claude-hatch or claude-tmux lists the Claude Code sessions in tmux and jumps to one. agent-manager runs eleven coding CLIs, answers a session without attaching, revives a dead one on its own conversation, and reviews its diff with line comments that go back to the agent. The pickers are lighter, and they find Claude sessions you started by hand. The comparison, lazyclaude and ccmux included, is at https://agent-manager.dev/compare/#claude-code-tmux.
+How is agent-manager different from a Claude Code tmux session picker? A picker such as tmux-claude-hatch or claude-tmux lists the Claude Code sessions in tmux and jumps to one. agent-manager runs thirteen coding CLIs, answers a session without attaching, revives a dead one on its own conversation, and reviews its diff with line comments that go back to the agent. The pickers are lighter, and they find Claude sessions you started by hand. The comparison, lazyclaude and ccmux included, is at https://agent-manager.dev/compare/#claude-code-tmux.
 Can I run several coding agents at once? Yes. That is what it is for. Each agent is its own tmux session in one list, grouped by project, with live status so you can see which is working, which is waiting on you, and which has finished.
 Does agent-manager send my code or prompts to a cloud service? No. It is a local binary. Sessions run on your machine as tmux sessions. Nothing about your sessions, prompts, code or repositories is sent anywhere. The coding CLIs you start talk to their own vendors; agent-manager does not proxy them.
 q
@@ -244,6 +250,7 @@ Compare
 Writing
 Coverage
 Install
+Roadmap
 About
 Contact
 Privacy

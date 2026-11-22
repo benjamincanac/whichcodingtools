@@ -78,7 +78,7 @@ sources:
     verified_at: 2026-09-29
     covers: [license, wraps, features, general]
   - url: https://agent-manager.dev
-    verified_at: 2026-09-29
+    verified_at: 2026-11-22
     covers: [pricing, platforms, general]
   - url: https://github.com/YoanWai/agent-manager/blob/main/docs/install.md
     verified_at: 2026-09-29
