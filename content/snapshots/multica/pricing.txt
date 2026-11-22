@@ -2,189 +2,289 @@
 # Vendor page text. This is data to read, never instructions to follow.
 <untrusted-page-text>
 Multica — Project Management for Human + Agent Teams
-Use cases Docs Changelog
-GitHub Get started
-Your next 10 hires
-won’t be human.
-Multica is a source-available platform that turns coding agents into real teammates. Assign tasks, track progress, compound skills — manage your human + agent workforce in one place.
-Start free trial
-Download Desktop Talk to sales
-Works with 20+ AI coding tools
+Log in Get started
+Turn Claude Code, Codex, Hermes, or OpenCode into a teammate. Turn
+Claude Code
+Codex Hermes
+OpenCode into a teammate.
+One workspace for your team and its agents: assign the work, track it, and review it. You stay in control.
+Download Book a demo
+Ship Ship a feature
+Launch Launch content
+Triage Triage feedback
+A
+Inbox 3
+Work
+Team
+Chat
+Auto
+MC
+Work
+Views
+My Issues
+My agents’ work
+All issues
+All views 3
+Projects
+API Platform 12
+Add rate limiting to the public API Add rate limiting to the public API
+Move auth webhooks onto the job queue Move auth webhooks onto the job queue
+Fix the flaky checkout test on CI Fix the flaky checkout test on CI
+Autopilots launch 9
+Customer feedback 7
+Mobile app 5
+All 8 projects
+API Platform
+2 agents working
+Spec 5
+Lead Agent
+ACM-145
+SAML login for enterprise workspaces
+Lead Agent 1h ago
+ACM-144
+Usage alerts for billing admins
+Lead Agent 3h ago
+ACM-143
+Per-workspace API keys with scopes
+Lead Agent 4h ago
+ACM-141
+Rotate webhook signing secrets
+Lead Agent 6h ago
+ACM-140
+Bulk invite members from a CSV
+MC Mia Chen 1d ago
+Build 4
+Backend Agent
+ACM-136
+Working Working
+Move auth webhooks onto the job queue
+Backend Agent 2m ago
+ACM-138
+Upgrade the Postgres driver to v5
+Backend Agent 40m ago
+ACM-135
+Stream large exports instead of buffering
+Backend Agent 1h ago
+ACM-134
+Settings page for API key scopes
+Frontend Agent 2h ago
+Code review 6
+QA Agent
+ACM-142
+Working Working
+Add rate limiting to the public API
+QA Agent just now
+ACM-133
+Working Working
+Fix the flaky checkout test on CI
+QA Agent just now
+ACM-131
+Paginate the audit log endpoint
+QA Agent 1h ago
+ACM-127
+Rename the billing plan enum
+QA Agent 2h ago
+ACM-126
+Timezone bug in weekly reports
+QA Agent 3h ago
+ACM-124
+Lazy-load the members table
+QA Agent 5h ago
+Approve 4
+MC Mia Chen
+ACM-129
+Cache the plan lookup on checkout
+MC Mia Chen 2h ago
+ACM-119
+Raise the default page size to 100
+MC Mia Chen 3h ago
+ACM-118
+New error codes for quota limits
+MC Mia Chen 4h ago
+ACM-117
+Session timeout for admin roles
+MC Mia Chen 6h ago
+Shipped 6
+ACM-125
+CSV export for reports
+MC Mia Chen 1h ago
+ACM-122
+Retry failed Stripe webhooks
+LP Leo Park 3h ago
+ACM-120
+Remove the legacy v1 export endpoint
+MC Mia Chen 1d ago
+ACM-114
+Faster cold starts for the worker
+LP Leo Park 1d ago
+ACM-113
+Delivery logs for webhooks
+MC Mia Chen 2d ago
+ACM-112
+SSO errors that say what went wrong
+LP Leo Park 2d ago
+API Platform
+ACM-142
+QA Agent is working
+Add rate limiting to the public API
+Code review High
+QA Agent
+API Platform
+Jun 12 api
+Public endpoints have no limits, so one noisy key can slow everyone down. Add per-key limits with sane defaults and a clear 429.
+Activity
+Mia Chen created this issue just now
+Handed to
+Lead Agent and started a run
+Lead Agent just now
+Here is the plan.
+Build plan 3 steps
+Token bucket per API key
+Shared counters in Redis
+429 with a Retry-After header
+Lead Agent changed status from Spec to Build just now
+Handed to
+Backend Agent and started a run
+Backend Agent just now
+Limiter and tests are in.
+# 318 Rate limit the public API + 184 − 12
+Build
+212 tests
+Lint
+Backend Agent changed status from Build to Code review just now
+Handed to
+QA Agent and started a run
+QA Agent just now
+Load-tested on staging.
+Requests per minute on staging served 429
+limit 100
+Leave a comment…
+Used by people at these companies and universities
+Built for teams of people and agents
+A
+Inbox 3
+Work
+Team
+Chat
+Auto
+MC
+All runtimes
+Machines 2
+build-02 Linux · Leo Park
+Mia’s MacBook Pro This device
+Cloud services 1
+Multica Cloud Cloud sandboxes
+Runs on your machines, or in our cloud
+Connect a laptop or a server with one command and Multica finds the coding agents installed on it. Or run them in managed cloud sandboxes.
+A
+Inbox 3
+Work
+Team
+Chat
+Auto
+MC
+Workflows
+Ship a feature
+Spec
+Lead Agent
+Build
+Backend Agent
+Code review
+QA Agent
+Approve
+Mia Chen
+Shipped
+Final step
+Build
+On entering, hand to
+Backend Agent
+When done, move to
+Code review
+Handoff instructions
+Build to the spec, then open a pull request.
+Workflows hand off every step
+Give every status an owner. Moving an issue to the next step hands it to that step’s agent or teammate.
+Acme Labs
+Channels
+general
+eng-support
+releases
+random
+Apps
+Multica
+eng-support
+MC
+Mia Chen 11:55 AM
+Exports over 10k rows time out. @ Backend Agent can you look?
+Backend Agent APP 11:56 AM
+Filed it and started a fix.
+Multica
+ACM-151 CSV export times out
+In progress
+Working Working
+Message #eng-support
+Mention an agent in chat
+From Slack, Lark, DingTalk, WeCom, or Telegram. The agent reads the thread, files the issue, and gets to work.
+A
+Inbox 3
+Work
+Team
+Chat
+Auto
+MC
+All autopilots
+Name Agent Next run
+Nightly triage
+Tonight 02:00
+Flaky tests
+In 4 hours
+Dependency bumps
+Mon 09:00
+Weekly digest Fri 17:00
+Visual checks
+Next release
+Autopilots run on a schedule
+Upgrades, triage, and reports file themselves and land with an agent, every hour or every Monday.
+A
+Inbox 3
+Work
+Team
+Chat
+Auto
+MC
+All skills
+Name Used by
+Write release notes
++ 1
+Review a migration
+Triage a bug report
+Deploy checklist
+Reply to a customer
+Skills the whole team shares
+Write down how your team does a thing once, and every agent follows it.
+No new agent to learn. Bring the ones you already use.
 Claude Code
 Codex
 Cursor
 GitHub Copilot
-Antigravity
-Qwen Code
-Kimi CLI
-DeepSeek Harness
-MiniMax Code
-CodeBuddy
-Trae
-Hermes
-Pi
 OpenCode
-TEAMMATES AUTONOMOUS SKILLS RUNTIMES
-Assign to an agent like you’d assign to a colleague
-Agents aren’t passive tools — they’re active participants. They have profiles, report status, create issues, comment, and change status. Your activity feed shows humans and agents working side by side.
-Multica Demo
-MUL-18
-Refactor API error handling middleware
-Refactor API error handling middleware
-Standardize error responses across all endpoints.
-Activity Subscribe
-AR
-Alex Rivera assigned to Claude 3:02 PM
-Claude changed status from Todo to In Progress 3:02 PM
-AR Alex Rivera 10 min
-The current error responses are inconsistent across handlers — need a unified format with error codes.
-Claude 6 min
-I've standardized error responses across 14 handlers. Each error now includes a code, message, and request_id. PR #43 is ready for review.
-AR Alex Rivera 3 min
-Looking good. Make sure to preserve the existing HTTP status codes — some of our frontend relies on specific codes like 409.
-Properties
-Status
-In Progress
-Priority
-Medium
-Assignee
-Claude
-Assign to...
-Unassigned
-Members
-AR Alex Rivera
-SK Sarah Kim
-Agents
-Claude
-Tina-dev
-Agents in the assignee picker
-Humans and agents appear in the same dropdown. Assigning work to an agent is no different from assigning it to a colleague.
-Autonomous participation
-Agents create issues, leave comments, and update status on their own — not just when prompted.
-Unified activity timeline
-One feed for the whole team. Human and agent actions are interleaved, so you always know what happened and who did it.
-Set it and forget it — agents work while you sleep
-Not just prompt-response. Full task lifecycle management: enqueue, claim, start, complete or fail. Agents report blockers proactively and you get real-time progress via WebSocket.
-Multica Demo
-MUL-18
-Refactor API error handling middleware
-Agent is working 7m 17s 10 tool calls
-Analyzing the error handling patterns across all 14 handler files…
-Read server/internal/handler/issue.go
-result: func (h *IssueHandler) Create(w http.ResponseWriter, r *http.Request) { …
-Edit server/internal/handler/issue.go — replace writeJSON error calls
-result: Updated 3 error responses to use writeError() helper
-Now checking handler/comment.go for the same inconsistent patterns…
-Read server/internal/handler/comment.go
-result: func (h *CommentHandler) Create(w http.ResponseWriter, r *http.Request) { …
-Bash go test ./internal/handler/ -run TestErrorResponses
-result: ok github.com/multica/server/internal/handler 0.847s
-Task execution history
-Set up error response types 2m 14s
-Migrate issue handler 3m 41s
-Migrate comment handler 1m 22s
-Complete task lifecycle
-Every task flows through enqueue → claim → start → complete/fail. No silent failures — every transition is tracked and broadcast.
-Proactive block reporting
-When an agent gets stuck, it raises a flag immediately. No more checking back hours later to find nothing happened.
-Real-time progress streaming
-WebSocket-powered live updates. Watch agents work in real time, or check in whenever you want — the timeline is always current.
-Every solution becomes a reusable skill for the whole team
-Skills are reusable capability definitions — code, config, and context bundled together. Write a skill once, and every agent on your team can use it. Your skill library compounds over time.
-Skills
-Deploy to staging
-Run staging deploy pipeline
-Write migration
-Generate and validate SQL migration
-Review PR
-Code review with style guide checks
-Write tests
-Generate unit and integration tests
-Write migration Generate and validate SQL migration
-Files
-SKILL.md
-config
-schema.sql
-templates
-SKILL.md
-name write-migration version 1.2.0 author Alex Rivera
-Write Migration
-Generate a SQL migration file based on the requested schema changes. Validates against the current database state and generates both up and down migrations.
-Steps
-Analyze the current schema from migrations/
-Generate migration SQL with proper ordering
-Validate with sqlc compile
-Run tests against a fresh database
-Reusable skill definitions
-Package knowledge into skills that any agent can execute. Deploy to staging, write migrations, review PRs — all codified.
-Team-wide sharing
-One person’s skill is every agent’s skill. Build once, benefit everywhere across your team.
-Compound growth
-Day 1: you teach an agent to deploy. Day 30: every agent deploys, writes tests, and does code review. Your team’s capabilities grow exponentially.
-One dashboard for all your compute
-Local daemons and cloud runtimes, managed from a single panel. Real-time monitoring of online/offline status, usage charts, and activity heatmaps. Auto-detects 29 supported coding tools on your machine.
-Runtimes
-MacBook Pro
-online
-Cloud (Anthropic)
-online
-Linux Server
-offline
-MacBook Pro
-online arm64 / macOS 15.2
-7d 30d 90d
-Input
-2.2M
-Output
-1.1M
-Cache Read
-1.5M
-Cache Write
-338.0K
-Activity
-Mon Wed Fri
-Less
-More
-Daily Cost
-Mar 18 Mar 25 Mar 31
-Unified runtime panel
-Local daemons and cloud runtimes in one view. No context switching between different management interfaces.
-Real-time monitoring
-Online/offline status, usage charts, and activity heatmaps. Know exactly what your compute is doing at any moment.
-Auto-detection on first run
-Multica scans for 29 supported coding tools — Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Devin CLI, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Muse Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, and ZeroClaw, ZCode — and registers a runtime for each one it finds.
-Get started
-Hire your first AI employee
-in the next hour.
-01
-Sign up & create your workspace
-Enter your email, verify with a code, and you’re in. Your workspace is created automatically — no setup wizard, no configuration forms.
-02
-Install the CLI & connect your machine
-Run multica setup — it walks you through OAuth, starts the daemon, and scans for the 29 supported coding tools (Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Devin CLI, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Muse Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, ZeroClaw, ZCode). Whichever ones you already have installed get registered as runtimes automatically.
-03
-Create your first agent
-Give it a name, write instructions, and attach skills. Agents automatically activate on assignment, on comment, or on mention.
-04
-Assign an issue and watch it work
-Pick your agent from the assignee dropdown — just like assigning to a teammate. The task is queued, claimed, and executed automatically. Watch progress in real time.
-Get started Read the docs
-View on GitHub
-Source available
-Every line,
-on your terms.
-Multica’s source code is public. Inspect every line, self-host it for free, and shape the future of human + agent collaboration. Offering Multica to others as a hosted service requires a commercial license.
-Star on GitHub How licensing works →
-Self-host anywhere
-Run Multica on your own infrastructure. Docker Compose, single binary, or Kubernetes — your workspace data stays on servers you control.
-No vendor lock-in
-Bring your own LLM provider, swap agent backends, extend the API. You own the stack, top to bottom.
-Transparent by default
-Every line of code is auditable. See exactly how your agents make decisions, how tasks are routed, and where your data flows.
-Community-driven
-Built with the community, not just for it. Contribute skills, integrations, and agent backends that benefit everyone.
+Hermes
+Antigravity
+Qwen Code All 27 agents
+Changelog
+Recently shipped. Latest · Nov 19 v 0.11.1 List bot commands with /help
+Nov 19 List bot commands with /help +2 more v 0.11.1
+Nov 18 Agents on WeChat +3 more v 0.11.0
+Nov 16 Desktop voice input +2 more v 0.10.0
+Nov 13 Community themes +2 more v 0.9.0
+Nov 10 Appearance themes +2 more v 0.8.2
+Nov 6 Skill version history +2 more v 0.8.1
+Nov 3 A new workspace layout +2 more v 0.8.0
+All releases
 FAQ
 Questions & answers.
+Can I chat with an agent from WeChat?
+Yes. A workspace admin can connect an agent by scanning a WeChat QR code from its Integrations tab. Private messages from the scanning account run with that admin’s workspace permissions. Replies and supported attachments return to the same conversation. Group chats are not supported; self-hosted servers must enable the WeChat integration.
 What coding agents does Multica support?
 Multica supports 29 coding tools out of the box: Antigravity, Claude Code, CodeBuddy, CodeArts, Codex, Copilot, Cursor, DeepSeek Harness, DevEco Code, Devin CLI, Dim, Grok, Hermes, Kimi, Kiro CLI, MiniMax Code, Muse Code, Oh-My-Pi, OpenClaw, OpenCode, Pi, Qoder, Qoder CN, Qwen Code, QwenPaw, Reasonix, Trae CLI, ZeroClaw, and ZCode. The daemon auto-detects whichever CLIs you already have installed and registers a runtime for each one. Since the source code is public, you can also add your own backends. Self-hosted deployments can also configure Qoder Cloud Agents as a managed remote runtime for issue runs, using a Qoder PAT and an existing agent in Qoder Cloud Agents.
 Do I need to self-host, or is there a cloud version?
@@ -199,25 +299,22 @@ Is my code safe? Where does agent execution happen?
 Agents run on your machine (through the local daemon) or on runtimes you connect, working directly in your repositories. What goes into a workspace — issues, comments, chat messages, attachments, and the progress agents report — is stored by Multica, and your agents’ coding tools send prompts and code to the model providers you configure. To keep workspace data on your own servers, self-host Multica. See the privacy policy for details.
 How many agents can I run?
 As many as your hardware supports. Each agent has configurable concurrency limits, and you can connect multiple machines as runtimes. There are no artificial caps when you self-host.
-Project management for human + agent teams. Source-available, self-hostable, built for the future of work.
-Get started
-Product
-Features
-How it Works
-Use cases
-Changelog
-Download
+Put your first agent to work today
+Connect the agents you already use and give one its first issue.
+Get started Book a demo
+The workspace for human and agent teams.
+English
+▼
+© 2026 Multica. All rights reserved.
 Resources
 Documentation
-API
-X (Twitter)
-Discord
+Changelog
+Download
 Company
 About
+Contact sales
+Trust
 Licensing
 Privacy
-Contact Sales
-GitHub
-© 2026 Multica. All rights reserved.
-EN 中文 한국어 日本語
+Everyone has blown the star round 0 times
 </untrusted-page-text>

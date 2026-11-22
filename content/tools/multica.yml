@@ -65,15 +65,15 @@ pricing:
       per: flat
       audience: team
       limits:
-        - Cloud runtime is waitlist only, not live yet
-  notes: Cloud-hosted agent runtimes are a waitlist, not live yet. The local daemon and self-hosted runtimes work today.
+        - Hosted cloud version and managed cloud sandboxes, no price published
+  notes: The homepage offers a hosted cloud version and managed cloud sandboxes with no published price, and a Contact sales link. The local daemon and self-hosted runtimes work today.
 status: active
 sources:
   - url: https://multica.ai
-    verified_at: 2026-11-07
+    verified_at: 2026-11-22
     covers: [general, features, pricing]
   - url: https://multica.ai/download
-    verified_at: 2026-11-07
+    verified_at: 2026-11-22
     covers: [platforms, pricing]
   - url: https://multica.ai/docs/daemon-runtimes
     verified_at: 2026-09-02
