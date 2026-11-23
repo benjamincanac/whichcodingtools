@@ -44,11 +44,11 @@ pricing:
       per: flat
       audience: individual
       included:
-        amount: 20
+        amount: 40
         unit: usd
         period: month
-        usd_value: 20
-        notes: Every successful payment grants inference credit worth double the plan price, which does not accumulate.
+        usd_value: 40
+        notes: Every successful payment grants inference credit worth 4x the plan price, which does not accumulate.
       overage:
         kind: api-list
         notes: Past the credit, inference is billed at provider API prices on top of the subscription, up to an extra usage limit that defaults to $0 per UTC month and is raised in the account. Remote Rust builds past the included allowance cost $0.01 each, with a separate monthly limit that defaults to $0.
@@ -67,7 +67,7 @@ pricing:
 status: active
 sources:
   - url: https://jcode.sh/pricing
-    verified_at: 2026-11-18
+    verified_at: 2026-11-23
     covers: [pricing, general]
   - url: https://jcode.sh/enterprise
     verified_at: 2026-11-10
