@@ -24,7 +24,12 @@ export const environment = VercelSandbox.environment({
     // pnpm switches to that version on every session and the one installed here never runs.
     // The credential helper exits rather than prompting, so an unauthenticated push fails
     // in a second instead of blocking on a username nobody is there to type.
+    // apt goes through Azure's Ubuntu mirror: from a Vercel Sandbox, archive.ubuntu.com and
+    // security.ubuntu.com answered with empty replies and timeouts, `apt-get update` never
+    // finished, and the build gave up on the template after fifteen minutes. The mirror
+    // carries the same suites and fetched the whole index in two seconds.
     await run(sandbox, [
+      `sudo sed -i -E 's#http://(archive|security)\\.ubuntu\\.com#http://azure.archive.ubuntu.com#g' /etc/apt/sources.list.d/ubuntu.sources`,
       `npm install -g ${packageManager}`,
       'git config --global user.name "whichcodingtools[bot]"',
       'git config --global user.email "whichcodingtools[bot]@users.noreply.github.com"',
