@@ -76,7 +76,7 @@ pricing:
 status: active
 sources:
   - url: https://mistral.ai/pricing
-    verified_at: 2026-11-21
+    verified_at: 2026-11-23
     covers: [pricing]
   - url: https://mistral.ai/products/vibe/code/
     verified_at: 2026-08-23
