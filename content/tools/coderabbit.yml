@@ -103,7 +103,7 @@ pricing:
 status: active
 sources:
   - url: https://www.coderabbit.ai/pricing
-    verified_at: 2026-11-21
+    verified_at: 2026-11-23
     covers: [pricing]
   - url: https://docs.coderabbit.ai/management/plans.md
     verified_at: 2026-11-21
