@@ -11,8 +11,9 @@ import { isTrustedWriter } from '../lib/trust'
  * unfinished line on the same event.
  *
  * A channel event handler cannot cancel a turn, which is why this is a hook. The session itself
- * stays on the thread and is still over budget, so the next turn there asks again and is
- * cancelled again, until eve's session timeout ends it.
+ * stays on the thread and is still over budget, and nothing in eve 1 can end it or move it off
+ * the thread, so the channel marks the thread parked and dispatches nothing there until eve's
+ * session timeout has retired it.
  */
 export default defineHook({
   events: {

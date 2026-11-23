@@ -1,6 +1,6 @@
 import type { GitHubChannelState, GitHubComment, GitHubEventContext, GitHubInboundContext } from 'eve/channels/github'
 import { defaultGitHubAuth, githubChannel } from 'eve/channels/github'
-import { turn, usage } from 'eve/events'
+import { usage } from 'eve/events'
 import { connect, hasCommitRights, isAgentLogin, NOTE_MARK, REPO } from '../lib/github'
 import { currentThread, isLimitedSession, strangerUpstream } from '../lib/thread'
 import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, REVIEW_PRINCIPAL, VISITOR_PRINCIPAL, isLimited, isTrustedWriter } from '../lib/trust'
@@ -26,6 +26,21 @@ const mention = new RegExp(`(?<![A-Za-z0-9_-])@${botName}(?=$|[^A-Za-z0-9_-])`, 
  */
 const UNFINISHED_MARK = '<!-- whichcodingtools: unfinished -->'
 const UNFINISHED = `I could not finish processing this automatically. A maintainer will take a look.\n${UNFINISHED_MARK}`
+
+/**
+ * Added to that line when the budget gate cancelled the turn. eve 1 gives a channel no way to
+ * end a session or move it off its thread, so the session stays there, over its cap, until eve
+ * retires it. Every event on the thread until then would boot a sandbox only to be cancelled
+ * again, so the inbound hooks read this marker back and dispatch nothing while it is fresh.
+ */
+const PARKED_MARK = '<!-- whichcodingtools: parked -->'
+
+/**
+ * How long a parked thread stays closed: eve's default session timeout of 30 days, which
+ * restarts when a turn ends and so starts at the cancel that posted the marker, plus a day of
+ * margin. Past it the session is gone and the next event on the thread starts a fresh one.
+ */
+const PARKED_MS = 31 * 24 * 60 * 60 * 1000
 
 /**
  * The answers eve's budget prompt accepts: an option id, its label, or its position.
@@ -102,6 +117,9 @@ export default githubChannel({
     // otherwise dispatch a turn on itself, and that one would quote it too.
     const login = ctx.sender.login.toLowerCase()
     if (isAgentLogin(login) || login.endsWith('[bot]')) return null
+    // Benjamin included: the parked session is a stranger's, so his turn there would be
+    // cancelled the same way.
+    if (await isParked(ctx)) return null
     const auth = defaultGitHubAuth(ctx)
     if (String(ctx.sender.id) === MAINTAINER_GITHUB_ID) {
       return { auth, context: [replyHere(ctx)] }
@@ -156,6 +174,7 @@ export default githubChannel({
       // one that matters instead, otherwise a second label during triage runs the whole
       // response again on an issue that already has its reply and its PR.
       if (await alreadyAnswered(ctx, issue.issueNumber)) return null
+      if (await isParked(ctx)) return null
     }
     const auth = defaultGitHubAuth(ctx)
     return {
@@ -174,6 +193,7 @@ export default githubChannel({
     const author = (raw.user?.login ?? '').toLowerCase()
     if (!author || isAgentLogin(author) || author.endsWith('[bot]') || raw.user?.type === 'Bot') return null
     if (!await touchesData(ctx, pullRequest.pullRequestNumber)) return null
+    if (await isParked(ctx)) return null
     // A push per commit would be a review per commit, each one a sandbox and a set of vendor
     // reads. After the cap the contributor can still mention the agent, which counts too.
     const spoken = await agentComments(ctx, pullRequest.pullRequestNumber)
@@ -226,8 +246,8 @@ export default githubChannel({
       // ends here: `hooks/prompt-gate.ts` cancels it, since a turn parked on the request would
       // queue every later comment and label on its thread behind an answer nobody may give.
       if (!isTrustedWriter(ctx.session.auth)) {
-        console.warn(`[agent] Session ${ctx.session.id} on ${here} asked for input (${request.kind}) on a turn that may not ask. Cancelled.`)
-        await channel.thread.post(UNFINISHED)
+        console.warn(`[agent] Session ${ctx.session.id} on ${here} asked for input (${request.kind}) on a turn that may not ask. Cancelled, and the thread is parked.`)
+        await channel.thread.post(`${UNFINISHED}\n${PARKED_MARK}`)
         return
       }
       if (request.kind !== 'budget') {
@@ -237,8 +257,11 @@ export default githubChannel({
         await channel.thread.post(renderRequest(request))
         return
       }
+      // The figures go to the log only. The prompt does not say which cap tripped, and one the
+      // reviewer relays up is about the reviewer's own window, not this session's totals.
+      const who = event.data.origin === undefined ? 'This run' : 'The reviewer'
       const { total } = usage(ctx.view)
-      console.warn(`[agent] Session ${ctx.session.id} on ${here} hit its usage limit at ${total.inputTokens} input and ${total.outputTokens} output tokens.`)
+      console.warn(`[agent] Session ${ctx.session.id} on ${here} hit a usage limit${event.data.origin === undefined ? '' : ` in child ${event.data.origin.sessionId}`}, session total ${total.inputTokens} input and ${total.outputTokens} output tokens.`)
       // The drop filter in `onComment` runs before dispatch, where the live options are out of
       // reach, so it holds a copy of them. A change in eve would otherwise open the prompt to
       // anyone on the thread without a line anywhere saying so.
@@ -249,25 +272,29 @@ export default githubChannel({
       // prompt and eve does not ask twice. The labels come off the request so the reply keeps
       // matching if eve renames them.
       const answer = (index: number, fallback: string) => `\`@${botName} ${options[index]?.label ?? fallback}\``
-      await channel.thread.post(`This run hit its token cap, ${compact(total.inputTokens)} input over the session. Reply ${answer(0, 'Approve')} to go on with a fresh budget, or ${answer(1, 'Stop')} to end it. Anything else posted here waits behind that answer.`)
+      await channel.thread.post(`${who} hit its token cap. Reply ${answer(0, 'Approve')} to go on with a fresh budget, or ${answer(1, 'Stop')} to end it. Anything else posted here waits behind that answer.`)
     },
     async 'session.ended'(event, ctx) {
       const { data } = event
       if (data.outcome !== 'failed') return
       // eve's default posts "This session could not recover from an error" with an error id and
-      // "Start a new comment to continue." The id belongs in the logs. When the failure is one
-      // the turn already reported, the thread has its one line; a failure outside the loop, a
-      // step that threw before the model ran, ends the session alone, and then the line is owed
-      // here or the thread gets the eyes and silence.
-      console.error(`[agent] Session ${ctx.session.id} failed on #${threadNumber(ctx.channel.state)}: ${data.error?.code ?? 'unknown'} ${briefly(data.error?.message ?? '')}`)
-      const failedTurn = data.cause !== undefined && 'turnId' in data.cause ? turn(ctx.view, data.cause.turnId) : undefined
-      if (failedTurn?.outcome === 'failed') return
-      await ctx.channel.thread.post(UNFINISHED)
+      // "Start a new comment to continue." The id belongs in the logs. A turn the session failed
+      // under settles cancelled, never failed, so this is the one place that failure is reported.
+      const message = briefly(data.error?.message ?? 'no message')
+      console.error(`[agent] Session ${ctx.session.id} failed on #${threadNumber(ctx.channel.state)}: ${data.error?.code ?? 'unknown'} ${message}`)
+      // The same split as a failed turn: the message can be a line of a GitHub API response or
+      // of a sandbox error, so it only goes on a thread where everyone has commit rights.
+      if (isLimitedSession(ctx.session.auth)) {
+        await ctx.channel.thread.post(UNFINISHED)
+        return
+      }
+      await ctx.channel.thread.post(`I hit an error while handling this (${message}). Mention me again to retry.\n${UNFINISHED_MARK}`)
     },
     async 'turn.settled'(event, ctx) {
       const { data } = event
-      // Completed and cancelled turns say nothing here: the reply is `content.completed`'s, and a
-      // turn the session failed under settles cancelled and is `session.ended`'s to report.
+      // Completed and cancelled turns say nothing here: the reply is `content.completed`'s, a
+      // turn the session failed under settles cancelled and is `session.ended`'s to report, and
+      // one the budget gate cancelled already has its line.
       if (data.outcome !== 'failed') return
       // Both principals, like every other trust check: a thread a stranger started stays
       // neutral even when the failing turn is one Benjamin triggered later in it. A visitor's
@@ -472,6 +499,42 @@ async function alreadyAnswered(ctx: GitHubInboundContext, issueNumber: number) {
 }
 
 /**
+ * Whether the budget gate parked this thread within `PARKED_MS`, read off the agent's own
+ * comments. Both timelines, because on a review thread the line lands among the review
+ * comments. Fails open: a read that failed costs one more sandbox and one more cancel, where
+ * failing closed would stop every thread whenever the API hiccups.
+ */
+async function isParked(ctx: GitHubInboundContext) {
+  const number = ctx.conversation.issueNumber ?? ctx.conversation.pullRequestNumber
+  if (number === null) return false
+  const timelines = [`/repos/${REPO}/issues/${number}/comments`]
+  if (ctx.conversation.kind !== 'issue') timelines.push(`/repos/${REPO}/pulls/${number}/comments`)
+  try {
+    for (const path of timelines) {
+      for (let page = 1; page <= MAX_COMMENT_PAGES; page++) {
+        const res = await ctx.github.request<{ user?: { login?: string }, body?: string, created_at?: string }[]>({
+          method: 'GET',
+          path: `${path}?per_page=${COMMENT_PAGE}&page=${page}`
+        })
+        if (!res.ok) throw new Error(`${path} returned ${res.status}`)
+        const parked = res.body.some(comment => isAgentLogin(comment.user?.login ?? '')
+          && (comment.body ?? '').includes(PARKED_MARK)
+          && Date.now() - Date.parse(comment.created_at ?? '') < PARKED_MS)
+        if (parked) {
+          console.warn(`[agent] #${number} is parked on a session over its usage cap. Nothing dispatched.`)
+          return true
+        }
+        if (res.body.length < COMMENT_PAGE) break
+      }
+    }
+    return false
+  } catch (error) {
+    console.warn(`[agent] Could not read whether #${number} is parked:`, error instanceof Error ? error.message : error)
+    return false
+  }
+}
+
+/**
  * eve's default rendering of a request this agent does not raise today: the prompt, numbered
  * options, how to answer. Kept because a request nobody rendered parks the session in silence.
  */
@@ -483,15 +546,6 @@ function renderRequest(request: { prompt: string, options?: readonly { label: st
   }
   if (request.allowFreeform) lines.push('', 'You can also reply with a custom answer.')
   return lines.join('\n')
-}
-
-/** eve's own shape for a token figure: 6M, 120K. */
-function compact(count: number | undefined) {
-  if (count === undefined) return '?'
-  const trim = (value: number, suffix: string) => `${value.toFixed(1).replace(/\.0$/, '')}${suffix}`
-  if (count >= 1e6) return trim(count / 1e6, 'M')
-  if (count >= 1e3) return trim(count / 1e3, 'K')
-  return trim(count, '')
 }
 
 /** First line, capped. `event.message` can carry a whole GitHub API response body. */
