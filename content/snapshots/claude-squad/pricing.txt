@@ -97,8 +97,8 @@ Insights
 More items
 claude-squad Public
 Notifications You must be signed in to change notification settings
-Fork 639 ( 639 )
-Star 8.8k ( 8.8k ) You must be signed in to star a repository
+Fork 638 ( 638 )
+Star 8.9k ( 8.9k ) You must be signed in to star a repository
 About
 Manage multiple AI terminal agents like Claude Code, Codex, OpenCode, and Amp.
 smtg-ai.github.io/claude-squad/
@@ -112,11 +112,11 @@ Contributing
 Activity
 Custom properties
 Stars
-8.8k stars
+8.9k stars
 Watchers
 30 watching
 Forks
-639 forks
+638 forks
 Report repository
 main
 Branches
@@ -295,11 +295,11 @@ Contributing
 Activity
 Custom properties
 Stars
-8.8k stars
+8.9k stars
 Watchers
 30 watching
 Forks
-639 forks
+638 forks
 Report repository
 Releases
 Used by
