@@ -24,7 +24,7 @@ export default defineTool({
     assertWritablePaths(paths)
     const sandbox = await ctx.getSandbox()
     const files = await Promise.all(paths.map(async (path) => {
-      const bytes = await sandbox.readBinaryFile({ path: `/workspace/repo/${path}`, abortSignal: ctx.abortSignal })
+      const bytes = await sandbox.readBinaryFile({ path: `/workspace/repo/${path}`, signal: ctx.abortSignal })
       if (!bytes) throw new Error(`Nothing to push at ${path}: no such file in the checkout.`)
       if (bytes.byteLength > MAX_BYTES) throw new Error(`${path} is ${bytes.byteLength} bytes, past the ${MAX_BYTES} byte limit.`)
       return { path, content: Buffer.from(bytes).toString('base64') }

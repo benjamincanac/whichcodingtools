@@ -4,5 +4,5 @@ import { defineSchedule } from 'eve/schedules'
  * over the same tool at once means two branches with the same name and a lost commit. */
 export default defineSchedule({
   cron: '0 12 * * 1',
-  markdown: 'Load the rename-watch skill and run it over every tool in content/tools. Deliver issues for renames, moved domains, dead links and descriptions the homepage no longer supports. Finish with a one-paragraph report.'
+  content: 'Load the rename-watch skill and run it over every tool in content/tools. Deliver issues for renames, moved domains, dead links and descriptions the homepage no longer supports. Finish with a one-paragraph report.'
 })

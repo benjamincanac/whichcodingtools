@@ -13,7 +13,6 @@ export default defineAgent({
   reasoning: 'high',
   limits: {
     // One diff, its captures and a reply. A runaway guard, not a budget.
-    maxInputTokensPerSession: 400_000,
-    maxOutputTokensPerSession: 20_000
+    sessionUsage: ({ window }) => window.inputTokens >= 400_000 || window.outputTokens >= 20_000
   }
 })
