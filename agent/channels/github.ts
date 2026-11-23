@@ -1,5 +1,6 @@
 import type { GitHubChannelState, GitHubComment, GitHubEventContext, GitHubInboundContext } from 'eve/channels/github'
 import { defaultGitHubAuth, githubChannel } from 'eve/channels/github'
+import { turn, usage } from 'eve/events'
 import { connect, hasCommitRights, isAgentLogin, NOTE_MARK, REPO } from '../lib/github'
 import { currentThread, isLimitedSession, strangerUpstream } from '../lib/thread'
 import { AUTONOMOUS_PRINCIPAL, MAINTAINER_GITHUB_ID, REVIEW_PRINCIPAL, VISITOR_PRINCIPAL, isLimited, isTrustedWriter } from '../lib/trust'
@@ -27,7 +28,7 @@ const UNFINISHED_MARK = '<!-- whichcodingtools: unfinished -->'
 const UNFINISHED = `I could not finish processing this automatically. A maintainer will take a look.\n${UNFINISHED_MARK}`
 
 /**
- * The answers eve's session-limit prompt accepts: an option id, its label, or its position.
+ * The answers eve's budget prompt accepts: an option id, its label, or its position.
  * The channel strips the mention before matching, and a reply that reaches a parked session
  * answers its prompt whoever wrote it. The prompt only ever stays parked on Benjamin's own
  * turn, so a bare answer from anyone else has no question behind it and is dropped before it
@@ -37,22 +38,24 @@ const UNFINISHED = `I could not finish processing this automatically. A maintain
  * A position is matched the way eve matches it, with `Number()`, so `+1`, `01`, `1.0` and `1e0`
  * are all the first option and a set holding the string `1` would let each of them through.
  */
-const CONTINUATION_ANSWERS = new Set(['approve', 'continue', 'stop', '1', '2'])
+const CONTINUATION_ANSWERS = new Set(['approve', 'continue', 'deny', 'stop', '1', '2'])
 
 function isContinuationAnswer(body: string) {
   const answer = body.replace(mention, '').trim().toLowerCase()
   return CONTINUATION_ANSWERS.has(answer) || (answer !== '' && Number.isFinite(Number(answer)))
 }
 
+/**
+ * eve's default `committed` handler is what posts the next open prompt as a comment, once per
+ * stored line, and `interaction.opened` alone does not replace it. Every prompt goes through
+ * `interaction.opened` here instead, so this one does nothing. `GitHubChannelEvents` does not
+ * list the key, while the channel spreads `events` over its defaults as they are, so it goes in
+ * through a spread, which the excess property check does not look at.
+ */
+const SILENT_PROMPT_QUEUE = { committed: async () => {} }
+
 /** What the fenced copy of a stranger's comment or issue body keeps. */
 const MAX_FENCED_CHARS = 20_000
-
-/**
- * Sessions whose `turn.failed` already posted, so the `session.failed` eve emits in the same
- * step does not post the same line again. Both events run in the same process when they come
- * as a pair; when they do not, the worst case is the duplicate this used to always produce.
- */
-const failuresPosted = new Set<string>()
 
 /**
  * The issue or pull request a channel turn stands in. An inline review comment sets only the
@@ -94,7 +97,7 @@ export default githubChannel({
   onComment: async (ctx, comment) => {
     if (!isHomeRepo(ctx.repository.fullName)) return null
     if (!mention.test(comment.body)) return null
-    // Bots stay out, the agent's own login first. `message.completed` posts this turn's last
+    // Bots stay out, the agent's own login first. `content.completed` posts this turn's last
     // message into the same thread, so a reply that quotes the mention it is answering would
     // otherwise dispatch a turn on itself, and that one would quote it too.
     const login = ctx.sender.login.toLowerCase()
@@ -183,7 +186,8 @@ export default githubChannel({
     }
   },
   events: {
-    async 'turn.started'(_event, channel, ctx) {
+    async 'turn.started'(_event, ctx) {
+      const { channel } = ctx
       // Replaces eve's default handler on purpose. That one checks the repository out a
       // second time at /workspace, which is not where the instructions send the agent, and
       // it calls setNetworkPolicy with an unrestricted github.com credential, which would
@@ -206,79 +210,75 @@ export default githubChannel({
         console.warn('[agent] Could not react on the thread:', error instanceof Error ? error.message : error)
       }
     },
-    async 'input.requested'(event, channel, ctx) {
-      // Replaces eve's default, which renders every input request as a comment. The one request
-      // this agent raises is eve's own session-limit prompt (`ask_question` is disabled and no
-      // tool asks for approval), and the default posted it into #67 word for word: the token
-      // figure, a numbered Approve and Stop, "answer by mentioning me". That prompt grants
-      // spend, and a public thread is not where spend gets granted.
-      if (event.requests.length === 0) return
+    ...SILENT_PROMPT_QUEUE,
+    async 'interaction.opened'(event, ctx) {
+      const { channel } = ctx
+      // Replaces eve's default, which renders every request for input as a comment. The one
+      // request this agent raises is eve's own budget prompt (`ask_question` is not mounted, no
+      // tool asks for approval and no connection signs in), and the default posted it into #67 word
+      // for word: the usage limit, a numbered Approve and Stop, "answer by mentioning me". That
+      // prompt grants spend, and a public thread is not where spend gets granted.
+      const { request } = event.data
       const number = threadNumber(channel.state)
       const here = number === null ? 'a thread' : `#${number}`
-      const limit = event.requests.find(request => request.kind === 'session-limit')
-      const kinds = event.requests.map(request => request.kind).join(', ')
       // An allow-list, like every trust check that lets something privileged happen: only a
       // session that is Benjamin's on both principals gets asked anything. Everyone else's turn
-      // ends here. eve keeps the session parked on the request, and a parked session queues
-      // every later comment and label on its thread behind an answer nobody may give, so the
-      // session is moved off the thread instead: re-keyed to an address no webhook resolves,
-      // the way the Slack channel follows a thread whose id changed. The thread's own address
-      // comes free, the next mention or label on it starts a fresh session, and the parked one
-      // sits unreachable until eve's session timeout retires it.
+      // ends here: `hooks/prompt-gate.ts` cancels it, since a turn parked on the request would
+      // queue every later comment and label on its thread behind an answer nobody may give.
       if (!isTrustedWriter(ctx.session.auth)) {
-        console.warn(`[agent] Session ${ctx.session.id} on ${here} asked for input (${kinds}) on a turn that may not ask. Parked and moved off the thread.`)
+        console.warn(`[agent] Session ${ctx.session.id} on ${here} asked for input (${request.kind}) on a turn that may not ask. Cancelled.`)
         await channel.thread.post(UNFINISHED)
-        if (channel.continuation === undefined) {
-          console.error(`[agent] No continuation on the parked session ${ctx.session.id}, so ${here} stays queued behind eve's prompt.`)
-          return
-        }
-        channel.continuation.rekey(`${channel.continuation.token}:parked:${Date.now()}`)
         return
       }
-      if (limit === undefined) {
+      if (request.kind !== 'budget') {
         // Nothing raises one today. Should that change, a question nobody can see parks the
         // session and queues every later comment behind it, so it is rendered rather than hidden.
-        console.warn(`[agent] Input request on ${here}: ${kinds}.`)
-        for (const request of event.requests) await channel.thread.post(renderRequest(request))
+        console.warn(`[agent] Input request on ${here}: ${request.kind}.`)
+        await channel.thread.post(renderRequest(request))
         return
       }
-      const { kind, limit: cap, usedTokens } = limit.action.input as { kind?: string, limit?: number, usedTokens?: number }
-      console.warn(`[agent] Session ${ctx.session.id} on ${here} hit its ${kind ?? 'token'} cap, ${usedTokens} of ${cap}.`)
+      const { total } = usage(ctx.view)
+      console.warn(`[agent] Session ${ctx.session.id} on ${here} hit its usage limit at ${total.inputTokens} input and ${total.outputTokens} output tokens.`)
       // The drop filter in `onComment` runs before dispatch, where the live options are out of
       // reach, so it holds a copy of them. A change in eve would otherwise open the prompt to
       // anyone on the thread without a line anywhere saying so.
-      const options = limit.options ?? []
+      const options = request.options ?? []
       const uncovered = options.filter((option, index) => ![option.id, option.label, String(index + 1)].every(answer => CONTINUATION_ANSWERS.has(answer.toLowerCase())))
-      if (uncovered.length > 0) console.error(`[agent] eve's session-limit options are now ${uncovered.map(option => `${option.id}/${option.label}`).join(', ')}, which CONTINUATION_ANSWERS does not cover.`)
+      if (uncovered.length > 0) console.error(`[agent] eve's budget options are now ${uncovered.map(option => `${option.id}/${option.label}`).join(', ')}, which CONTINUATION_ANSWERS does not cover.`)
       // He has to hear it, because a comment that answers neither option queues behind the
       // prompt and eve does not ask twice. The labels come off the request so the reply keeps
       // matching if eve renames them.
       const answer = (index: number, fallback: string) => `\`@${botName} ${options[index]?.label ?? fallback}\``
-      await channel.thread.post(`This run hit its ${kind ?? ''} token cap, ${compact(cap)} over the session. Reply ${answer(0, 'Approve')} to go on with a fresh budget, or ${answer(1, 'Stop')} to end it. Anything else posted here waits behind that answer.`)
+      await channel.thread.post(`This run hit its token cap, ${compact(total.inputTokens)} input over the session. Reply ${answer(0, 'Approve')} to go on with a fresh budget, or ${answer(1, 'Stop')} to end it. Anything else posted here waits behind that answer.`)
     },
-    async 'session.failed'(event, channel) {
+    async 'session.ended'(event, ctx) {
+      const { data } = event
+      if (data.outcome !== 'failed') return
       // eve's default posts "This session could not recover from an error" with an error id and
-      // "Start a new comment to continue." The id belongs in the logs. A failure inside the tool
-      // loop emits `turn.failed` first and this right behind it, in the same step, and the thread
-      // has its one line already; a failure outside the loop, a step that threw before the model
-      // ran, emits this alone, and then the line is owed here or the thread gets the eyes and
-      // silence. No `ctx` on this event, so the session id is what ties the two together.
-      console.error(`[agent] Session ${event.sessionId} failed on #${threadNumber(channel.state)}: ${event.code} ${briefly(event.message)}`)
-      if (failuresPosted.delete(event.sessionId)) return
-      await channel.thread.post(UNFINISHED)
+      // "Start a new comment to continue." The id belongs in the logs. When the failure is one
+      // the turn already reported, the thread has its one line; a failure outside the loop, a
+      // step that threw before the model ran, ends the session alone, and then the line is owed
+      // here or the thread gets the eyes and silence.
+      console.error(`[agent] Session ${ctx.session.id} failed on #${threadNumber(ctx.channel.state)}: ${data.error?.code ?? 'unknown'} ${briefly(data.error?.message ?? '')}`)
+      const failedTurn = data.cause !== undefined && 'turnId' in data.cause ? turn(ctx.view, data.cause.turnId) : undefined
+      if (failedTurn?.outcome === 'failed') return
+      await ctx.channel.thread.post(UNFINISHED)
     },
-    async 'turn.failed'(event, channel, ctx) {
-      failuresPosted.add(ctx.session.id)
+    async 'turn.settled'(event, ctx) {
+      const { data } = event
+      // Completed and cancelled turns say nothing here: the reply is `content.completed`'s, and a
+      // turn the session failed under settles cancelled and is `session.ended`'s to report.
+      if (data.outcome !== 'failed') return
       // Both principals, like every other trust check: a thread a stranger started stays
       // neutral even when the failing turn is one Benjamin triggered later in it. A visitor's
       // too: the message can be a line of a GitHub API response or of a sandbox error.
       if (isLimitedSession(ctx.session.auth)) {
-        await channel.thread.post(UNFINISHED)
+        await ctx.channel.thread.post(UNFINISHED)
         return
       }
       // Marked like the other, so a thread where the agent only ever failed does not count as
       // one it answered in, which is what opens a thread to strangers' mentions.
-      await channel.thread.post(`I hit an error while handling this (${briefly(event.message)}). Mention me again to retry.\n${UNFINISHED_MARK}`)
+      await ctx.channel.thread.post(`I hit an error while handling this (${briefly(data.error?.message ?? 'no message')}). Mention me again to retry.\n${UNFINISHED_MARK}`)
     }
   }
 })
@@ -502,7 +502,7 @@ function briefly(message: string) {
 
 /**
  * The mention path is the one turn that holds `github__comment` and also has a channel to
- * reply on. eve's built-in `message.completed` posts the last message into this same thread,
+ * reply on. eve's built-in `content.completed` posts the last message into this same thread,
  * so a `github__comment` aimed at it lands next to the reply and says everything twice.
  * The unattended responders carry this in their own prompt; this is the same note for the
  * path that had none.

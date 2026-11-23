@@ -4,5 +4,5 @@ import { defineSchedule } from 'eve/schedules'
  * one file against its sources, so it sits an hour clear of whichever weekly lands that day. */
 export default defineSchedule({
   cron: '0 13 1 * *',
-  markdown: 'Load the consistency-sweep skill and run it over all of content/tools. Deliver at most one issue with the drift worth a decision. Finish with a one-paragraph report naming what you checked, what you filed and what you held back.'
+  content: 'Load the consistency-sweep skill and run it over all of content/tools. Deliver at most one issue with the drift worth a decision. Finish with a one-paragraph report naming what you checked, what you filed and what you held back.'
 })

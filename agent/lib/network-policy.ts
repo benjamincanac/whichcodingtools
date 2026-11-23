@@ -4,9 +4,8 @@ import { gitAuthorizationHeader, REPO } from './github'
 const REPO_PATH = REPO.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /**
- * What a sandbox gets before any credential is brokered, and what a provider-loss
- * replacement comes up with when `onSession` never reruns: the open internet, no GitHub
- * credential anywhere. Vendor pages still read, the private repo does not.
+ * What every sandbox is created with, before any credential is brokered: the open internet,
+ * no GitHub credential anywhere. Vendor pages still read, the private repo does not.
  */
 export const NO_CREDENTIALS: SandboxNetworkPolicy = { allow: { '*': [] } }
 

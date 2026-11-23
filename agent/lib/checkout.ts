@@ -2,7 +2,7 @@ import { AGENT_BRANCH, DEFAULT_BRANCH, REPO } from './github'
 
 const CLONE_URL = `https://github.com/${REPO}.git`
 
-/** The slice of a sandbox handle this file needs, shared by `onSession` and the turn hook. */
+/** The slice of a sandbox handle this file needs, shared by the sandbox selector and the turn hook. */
 interface Runner {
   run(options: { command: string, workingDirectory?: string }): PromiseLike<{ exitCode: number, stdout: string, stderr: string }>
 }
