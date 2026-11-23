@@ -6,7 +6,7 @@ Pricing
 The all-in-one coding subscription.
 We provide cloud agent VMs, remote Rust compiles, and token plans.
 Token plans
-Every plan gets double its price in monthly inference credit and access to Jcode Cloud. Pick the plan that matches how much you use, and switch plans here any time.
+Every plan gets 4x its price in monthly inference credit and access to Jcode Cloud. Pick the plan that matches how much you use, and switch plans here any time.
 · Manage account
 Choose your monthly plan
 $10 per month
@@ -20,7 +20,7 @@ $500
 $1,000
 Monthly billing. Switch plans any time.
 Included each month
-Inference credit $20 Double what you pay
+Inference credit $40 4x what you pay
 Jcode Cloud 50 hours For your cloud sessions
 Remote Rust builds From the $20 plan 2,000 builds at $20/month
 After your inference credit: provider API prices, up to $0 of additional inference per month. Raise your extra usage limit .
@@ -36,7 +36,7 @@ Subscribe to the $10/month plan
 Have an invite code? Redeem it on your account . No card required.
 Billing details
 Subscription Recurring $10 charge each month while subscribed.
-Monthly credit Every successful $10 payment grants $20 of inference credit, double what you pay. Fresh credit arrives each month and does not accumulate.
+Monthly credit Every successful $10 payment grants $40 of inference credit, 4x what you pay. Fresh credit arrives each month and does not accumulate.
 Jcode Cloud Subscribing includes Jcode Cloud with 50 machine hours each month, in proportion to your plan (50 hours per $10).
 Remote Rust builds Not included on the $10 plan. Remote Rust builds start at $20 (2,000 a month, 1,000 per $10).
 After credit Raise your extra usage limit to continue at provider API prices once the credit is used, billed by usage in addition to the subscription.
@@ -49,7 +49,7 @@ Model
 Provider
 Availability
 Loading current model access…
-Every monthly plan payment grants double its price in inference credit, plus 50 Jcode Cloud
+Every monthly plan payment grants 4x its price in inference credit, plus 50 Jcode Cloud
 machine hours per $10 of plan. Inference beyond the credit is billed at provider API prices,
 with an extra usage limit that defaults to $0 per month. Raise it in your account ; custom limits are kept when you change plans.
 Remote Rust builds
